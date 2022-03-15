@@ -65,6 +65,28 @@ Job *getJob(Job *head, int id)
    }
 }
 
+Job *updateJob(Job *head, Job *jobToUpdate, int currentID)
+{
+   if (head == NULL)
+   {
+      return NULL;
+   }
+
+   Job *current = head;
+
+   while (current != NULL)
+   {
+      if (current->id == currentID)
+      {
+         head = jobToUpdate;
+         return current;
+      }
+      current = current->next;
+   }
+
+   return head;
+}
+
 bool searchJob(Job *head, int id)
 {
    if (head == NULL)
