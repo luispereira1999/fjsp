@@ -57,5 +57,8 @@ int main()
 
    printJobs(jobs);
 
+   int numberOfJobs = getListCount(jobs);
+   printf("Numero de jobs: %d\n", numberOfJobs);
+   
    return true;
 }

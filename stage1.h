@@ -54,6 +54,9 @@ Job *updateJob(Job *head, Job *jobToUpdate, int currentID);
 bool searchJob(Job *head, int id);
 void printJobs(Job *head);
 
+// outros
+int getListCount(Job *head);
+
 #pragma endregion
 
 #endif

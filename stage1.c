@@ -121,3 +121,26 @@ void printJobs(Job *list)
 }
 
 #pragma endregion
+
+#pragma region outros
+
+int getListCount(Job *head)
+{
+   if (head == NULL)
+   {
+      return -1;
+   }
+
+   int count = 0;
+   Job *current = head;
+
+   while (current != NULL)
+   {
+      count++;
+      current = current->next;
+   }
+
+   return count;
+}
+
+#pragma endregion
