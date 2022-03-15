@@ -42,4 +42,15 @@ Job *insertJobAtStart(Job *head, Job *jobToInsert)
    return head;
 }
 
+void printJobs(Job *list)
+{
+   Job *current = list;
+
+   while (current != NULL)
+   {
+      printf("id: %d\n", current->id);
+      current = current->next;
+   }
+}
+
 #pragma endregion

@@ -16,8 +16,11 @@ int main()
    Job *job1 = newJob(1, operations);
    Job *job2 = newJob(2, operations);
    Job *job3 = newJob(3, operations);
+   
    jobs = insertJobAtStart(jobs, job1);
    jobs = insertJobAtStart(jobs, job2);
+
+   printJobs(jobs);
 
    return true;
 }
