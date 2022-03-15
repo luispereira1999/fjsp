@@ -42,6 +42,28 @@ Job *insertJobAtStart(Job *head, Job *jobToInsert)
    return head;
 }
 
+bool searchJob(Job *head, int id)
+{
+   if (head == NULL)
+   {
+      return false;
+   }
+   else
+   {
+      Job *current = head;
+
+      while (current != NULL)
+      {
+         if (current->id == id)
+         {
+            return true;
+         }
+         current = current->next;
+      }
+      return false;
+   }
+}
+
 void printJobs(Job *list)
 {
    Job *current = list;

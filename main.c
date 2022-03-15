@@ -22,5 +22,14 @@ int main()
 
    printJobs(jobs);
 
+   if (searchJob(jobs, 1))
+   {
+      printf("Job encontrado!\n");
+   }
+   else
+   {
+      printf("Não foi encontrado nenhum job.\n");
+   }
+
    return true;
 }

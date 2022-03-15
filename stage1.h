@@ -49,6 +49,7 @@ typedef struct Job
 // sobre jobs
 Job *newJob(int id, Operation *operations);
 Job *insertJobAtStart(Job *head, Job *jobToInsert);
+bool searchJob(Job *head, int id);
 void printJobs(Job *head);
 
 #pragma endregion
