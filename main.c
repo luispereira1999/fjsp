@@ -31,5 +31,15 @@ int main()
       printf("Não foi encontrado nenhum job.\n");
    }
 
+   if (searchJob(jobs, 2))
+   {
+      Job *jobObtained2 = getJob(jobs, 2);
+      printf("Obtido o job: %d\n", jobObtained2->id);
+   }
+   else
+   {
+      printf("Não foi obtido nenhum job.\n");
+   }
+
    return true;
 }

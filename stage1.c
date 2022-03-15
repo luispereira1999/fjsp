@@ -42,6 +42,29 @@ Job *insertJobAtStart(Job *head, Job *jobToInsert)
    return head;
 }
 
+Job *getJob(Job *head, int id)
+{
+   if (head == NULL)
+   {
+      return NULL;
+   }
+   else
+   {
+      Job *current = head;
+
+      while (current != NULL)
+      {
+         if (current->id == id)
+         {
+            return current;
+         }
+         current = current->next;
+      }
+
+      return NULL;
+   }
+}
+
 bool searchJob(Job *head, int id)
 {
    if (head == NULL)
