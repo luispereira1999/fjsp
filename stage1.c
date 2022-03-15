@@ -26,4 +26,20 @@ Job *newJob(int id, Operation *operations)
    return new;
 }
 
+Job *insertJobAtStart(Job *head, Job *jobToInsert)
+{
+   if (head == NULL) // se a lista estiver vazia
+   {
+      head = jobToInsert;
+      jobToInsert = head->next = NULL;
+   }
+   else
+   {
+      jobToInsert->next = head;
+      head = jobToInsert;
+   }
+
+   return head;
+}
+
 #pragma endregion
