@@ -44,4 +44,11 @@ typedef struct Job
 
 #pragma endregion
 
+#pragma region funções e procedimentos
+
+// sobre jobs
+Job *newJob(int id, Operation *operations);
+
+#pragma endregion
+
 #endif
