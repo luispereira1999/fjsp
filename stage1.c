@@ -21,6 +21,7 @@ Job *newJob(int id, Operation *operations)
 
    new->id = id;
    new->operations = operations;
+   // new->operations->next = NULL;
    new->next = NULL;
 
    return new;
@@ -109,15 +110,44 @@ bool searchJob(Job *head, int id)
    }
 }
 
-void printJobs(Job *list)
+bool printJobs(Job *head)
 {
-   Job *current = list;
-
-   while (current != NULL)
+   if (head == NULL)
    {
-      printf("id: %d\n", current->id);
-      current = current->next;
+      return false;
    }
+   else
+   {
+      Job *currentJob = head;
+
+      while (currentJob != NULL)
+      {
+         printf("ID do job: %d\n", currentJob->id);
+         currentJob = currentJob->next;
+      }
+
+      return true;
+   }
+}
+
+#pragma endregion
+
+#pragma region operations
+
+Operation *newOperation(int id, Machine *machines)
+{
+   Operation *new = (Operation *)malloc(sizeof(Operation));
+   if (new == NULL) // se não houver memória para alocar
+   {
+      return NULL;
+   }
+
+   new->id = id;
+   // new->machines = machines;
+   // new->machines->next = NULL;
+   new->next = NULL;
+
+   return new;
 }
 
 #pragma endregion

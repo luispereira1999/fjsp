@@ -52,7 +52,10 @@ Job *insertJobAtStart(Job *head, Job *jobToInsert);
 Job *getJob(Job *head, int id);
 Job *updateJob(Job *head, Job *jobToUpdate, int currentID);
 bool searchJob(Job *head, int id);
-void printJobs(Job *head);
+bool printJobs(Job *head);
+
+// sobre operations
+Operation *newOperation(int id, Machine *machines);
 
 // outros
 int getListCount(Job *head);
