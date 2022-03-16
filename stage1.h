@@ -56,6 +56,7 @@ bool printJobs(Job *head);
 
 // sobre operations
 Operation *newOperation(int id, Machine *machines);
+Operation *insertOperationAtStart(Operation *head, Operation *operationToInsert);
 
 // outros
 int getListCount(Job *head);

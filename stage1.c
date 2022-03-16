@@ -150,6 +150,22 @@ Operation *newOperation(int id, Machine *machines)
    return new;
 }
 
+Operation *insertOperationAtStart(Operation *head, Operation *current)
+{
+   if (head == NULL) // se a lista estiver vazia
+   {
+      head = current;
+      current = head->next = NULL;
+   }
+   else
+   {
+      current->next = head;
+      head = current;
+   }
+
+   return head;
+}
+
 #pragma endregion
 
 #pragma region outros
