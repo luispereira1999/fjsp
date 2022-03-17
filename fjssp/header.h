@@ -5,7 +5,7 @@ Criação:             14/03/2022
 Última atualização:  31/03/20221
 */
 
-#ifndef STAGE1_H
+#ifndef HEADER_H
 
 #pragma region constantes
 
@@ -24,14 +24,22 @@ typedef enum bool
 typedef struct Machine
 {
 	int id;
-	int time; // quantidade de unidades de tempo necessária para a realização da operação
+	int isActive; // se a máquina está ou não em uso
 	struct Machine* next;
 } Machine;
+
+typedef struct PerformOperation
+{
+	int id;
+	struct Machine* machines;
+	struct Operation* operation;
+	int usageTime; // unidades de tempo necessária para a realização da operação
+	struct PerformOperation* next;
+} PerformOperation;
 
 typedef struct Operation
 {
 	int id;
-	struct Machine* machines;
 	struct Operation* next;
 } Operation;
 
