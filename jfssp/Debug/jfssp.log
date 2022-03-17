@@ -1,5 +1,0 @@
-﻿  main.c
-  stage1.c
-  Generating Code...
-C:\LUIS-PEREIRA\Repositorios\jfssp\jfssp\stage1.c(246): warning C4716: 'deleteOperation': must return a value
-  jfssp.vcxproj -> C:\LUIS-PEREIRA\Repositorios\jfssp\Debug\jfssp.exe
