@@ -48,21 +48,19 @@ Job* getJob(Job* head, char* id[SIZE_ID])
 	{
 		return NULL;
 	}
-	else
+
+	Job* current = head;
+
+	while (current != NULL)
 	{
-		Job* current = head;
-
-		while (current != NULL)
+		if (strcmp(current->id, id))
 		{
-			if (current->id == id)
-			{
-				return current;
-			}
-			current = current->next;
+			return current;
 		}
-
-		return NULL;
+		current = current->next;
 	}
+
+	return NULL;
 }
 
 Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID])
@@ -87,6 +85,38 @@ Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID])
 	return head;
 }
 
+Job* deleteJob(Job* head, char* id[SIZE_ID])
+{
+	if (head == NULL) {
+		return NULL;
+	}
+
+	if (!searchJob(head, id)) {
+		return head;
+	}
+
+	Job* current = head;
+	Job* previous = NULL;
+
+	while (current != NULL && strcmp(current->next->id, id) == 0)
+	{
+		previous = current;
+		current = current->next;
+	}
+	if (previous == NULL) // eliminar o primeiro
+	{
+		head = head->next;
+		free(current);
+	}
+	else // elimiar no meio
+	{
+		previous->next = current->next;
+		free(current);
+	}
+
+	return head;
+}
+
 bool searchJob(Job* head, char* id[SIZE_ID])
 {
 	if (head == NULL)
@@ -99,12 +129,13 @@ bool searchJob(Job* head, char* id[SIZE_ID])
 
 		while (current != NULL)
 		{
-			if (current->id == id)
+			if (strcmp(current->id, id))
 			{
 				return true;
 			}
 			current = current->next;
 		}
+
 		return false;
 	}
 }
@@ -122,7 +153,7 @@ bool printJobs(Job* head)
 
 		while (currentJob != NULL)
 		{
-			printf("Código da operação: %s\n", currentJob->id);
+			printf("Código do trabalho: %s\n", currentJob->id);
 
 			while (currentOperation != NULL)
 			{
@@ -174,6 +205,9 @@ Job* readJobsFromFile(Job* head) {
 	}
 
 	while (fgets(line, sizeof(line), file) != NULL) {
+		// remover breakline que a string da linha do ficheiro possui
+		line[strcspn(line, "\n")] = 0;
+
 		current = (Job*)malloc(sizeof(Job));
 
 		strcpy(current->id, line);
@@ -229,6 +263,47 @@ Operation* insertOperationAtStart(Operation* head, Operation* current)
 	}
 
 	return head;
+}
+
+// Operation *updateOperation(Operation *head, Operation *current)
+// {
+//    return head;
+// }
+
+Operation* deleteOperation(Operation* head, Operation* operationToDelete, int currentID)
+{
+	// if (h == NULL) return NULL;			//Lista vazia
+	// 	if (!ExisteJogo(h, cod)) return h;	//se não existe
+
+	// 	JogoListaPtr aux = h;
+	// 	JogoListaPtr auxAnt = NULL;
+
+	// 	//localizar registo a eliminar
+	// 	while (aux && aux->jogo.cod != cod) {
+	// 		auxAnt = aux;
+	// 		aux = aux->next;
+	// 	}
+	// 	if (auxAnt == NULL) {	//Eliminar à cabeça
+	// 		h = h->next;
+	// 		free(aux);
+	// 	}
+	// 	else					//Elimiar no meio
+	// 	{
+	// 		auxAnt->next = aux->next;
+	// 		free(aux);
+	// 	}
+	// 	return h;
+}
+
+void printOperations(Operation* head)
+{
+	Operation* current = head;
+
+	while (current != NULL)
+	{
+		printf("id: %d\n", current->id);
+		current = current->next;
+	}
 }
 
 #pragma endregion

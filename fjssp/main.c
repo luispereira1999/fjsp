@@ -16,7 +16,6 @@ int main()
 
 	Job* jobs = NULL;
 	Operation* operations = NULL;
-
 	int menuOption = 0;
 
 	do
@@ -24,9 +23,11 @@ int main()
 		// menu da aplicação 
 		printf("---------------------------------\n\n");
 		printf("   M E N U                          \n\n");
-		printf("   1 -> Criar job.\n");
-		printf("   1 -> Teste.\n");
-		printf("   3 -> Sair.\n\n");
+		printf("   1 -> Criar, inserir e guardar job.\n");
+		printf("   2 -> Ler e mostrar jobs.\n");
+		printf("   3 -> Apagar job.\n");
+		printf("   4 -> mostrar jobs.\n");
+		printf("   5 -> Sair.\n\n");
 		printf("   © Luís Pereira | 2022                   \n\n");
 		printf("---------------------------------\n");
 
@@ -36,7 +37,7 @@ int main()
 		switch (menuOption)
 		{
 
-		case 1: // criar job
+		case 1: // criar e inserir job na lista e guardar no ficheiro
 
 			printf("\nCRIAR JOB\n");
 
@@ -63,14 +64,25 @@ int main()
 
 			break;
 
-		case 2: // mostrar jobs
+		case 2: // ler do ficheiro, guardar na lista e mostrar jobs na consola
 
 			jobs = readJobsFromFile(jobs);
-			bool abc = printJobs(jobs);
-			printf("ABCED: %d\n", abc);
+			bool isPrinted = printJobs(jobs);
+			printf("isPrinted: %d\n", isPrinted);
 			break;
 
-		case 5:
+		case 3: // remover job da lista
+
+			jobs = deleteJob(jobs, "pr");
+			printJobs(jobs);
+			break;
+
+		case 4: // remover job da lista
+
+			printJobs(jobs);
+			break;
+
+		case 6:
 			exit(true);
 			break;
 		default:
