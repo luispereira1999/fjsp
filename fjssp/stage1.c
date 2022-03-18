@@ -22,7 +22,6 @@ Job* newJob(char* id[SIZE_ID])
 
 	strcpy(new->id, id);
 	new->operations = NULL;
-	// new->operations->next = NULL;
 	new->next = NULL;
 
 	return new;
@@ -33,7 +32,6 @@ Job* insertJobAtStart(Job* head, Job* jobToInsert)
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = jobToInsert;
-		jobToInsert = head->next = NULL;
 	}
 	else
 	{
@@ -89,7 +87,7 @@ Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID])
 	return head;
 }
 
-bool searchJob(Job* head, char *id[SIZE_ID])
+bool searchJob(Job* head, char* id[SIZE_ID])
 {
 	if (head == NULL)
 	{
@@ -161,6 +159,40 @@ bool saveJobToFile(Job* job)
 
 		return true;
 	}
+}
+
+Job* readJobsFromFile(Job* head) {
+	Job* current = NULL;
+
+	char fileName[9] = "jobs.txt";
+	FILE* file = fopen(fileName, "r");
+	char line[30];
+
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	while (fgets(line, sizeof(line), file) != NULL) {
+		current = (Job*)malloc(sizeof(Job));
+
+		strcpy(current->id, line);
+		current->operations = NULL;
+		current->next = NULL;
+
+		if (head == NULL) {
+			head = current;
+		}
+		else
+		{
+			current->next = head;
+			head = current;
+		}
+	}
+
+	fclose(file);
+
+	return head;
 }
 
 #pragma endregion

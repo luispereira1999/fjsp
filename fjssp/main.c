@@ -35,6 +35,7 @@ int main()
 
 		switch (menuOption)
 		{
+
 		case 1: // criar job
 
 			printf("\nCRIAR JOB\n");
@@ -62,7 +63,14 @@ int main()
 
 			break;
 
-		case 2:
+		case 2: // mostrar jobs
+
+			jobs = readJobsFromFile(jobs);
+			bool abc = printJobs(jobs);
+			printf("ABCED: %d\n", abc);
+			break;
+
+		case 5:
 			exit(true);
 			break;
 		default:

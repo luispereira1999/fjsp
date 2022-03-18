@@ -62,6 +62,7 @@ Job* getJob(Job* head, char* id[SIZE_ID]);
 Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID]);
 bool searchJob(Job* head, char* id[SIZE_ID]);
 bool printJobs(Job* head);
+Job* readJobsFromFile(Job* head);
 bool saveJobToFile(Job* job);
 
 // sobre operations
