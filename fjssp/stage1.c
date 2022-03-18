@@ -44,7 +44,7 @@ Job* insertJobAtStart(Job* head, Job* jobToInsert)
 	return head;
 }
 
-Job* getJob(Job* head, int id)
+Job* getJob(Job* head, char* id[SIZE_ID])
 {
 	if (head == NULL)
 	{
@@ -67,7 +67,7 @@ Job* getJob(Job* head, int id)
 	}
 }
 
-Job* updateJob(Job* head, Job* jobToUpdate, int currentID)
+Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID])
 {
 	if (head == NULL)
 	{
@@ -89,7 +89,7 @@ Job* updateJob(Job* head, Job* jobToUpdate, int currentID)
 	return head;
 }
 
-bool searchJob(Job* head, int id)
+bool searchJob(Job* head, char *id[SIZE_ID])
 {
 	if (head == NULL)
 	{
@@ -149,7 +149,7 @@ bool saveJobToFile(Job* job)
 	else
 	{
 		char fileName[9] = "jobs.txt";
-		FILE* file = fopen(fileName, "w");
+		FILE* file = fopen(fileName, "a");
 
 		if (file == NULL)
 		{

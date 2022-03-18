@@ -58,9 +58,9 @@ typedef struct Job
 // sobre jobs
 Job* newJob(char* id[SIZE_ID]);
 Job* insertJobAtStart(Job* head, Job* jobToInsert);
-Job* getJob(Job* head, int id);
-Job* updateJob(Job* head, Job* jobToUpdate, int currentID);
-bool searchJob(Job* head, int id);
+Job* getJob(Job* head, char* id[SIZE_ID]);
+Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID]);
+bool searchJob(Job* head, char* id[SIZE_ID]);
 bool printJobs(Job* head);
 bool saveJobToFile(Job* job);
 

@@ -44,16 +44,25 @@ int main()
 			scanf("%s", &id);
 
 			Job* job = newJob(id);
-			jobs = insertJobAtStart(jobs, job);
 
-			if (!saveJobToFile(job)) {
-				printf("Erro ao criar job.\n");
+			if (searchJob(jobs, job->id))
+			{
+				printf("Job já existe!\n");
 			}
-			else {
-				printf("Job criado com sucesso!\n");
+			else
+			{
+				if (!saveJobToFile(job)) {
+					printf("Erro ao criar job.\n");
+				}
+				else {
+					jobs = insertJobAtStart(jobs, job);
+					printf("Job criado com sucesso!\n");
+				}
 			}
+
 			break;
-		case 3:
+
+		case 2:
 			exit(true);
 			break;
 		default:
