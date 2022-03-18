@@ -10,6 +10,7 @@ Criação:             14/03/2022
 #pragma region constantes
 
 #define HEADER_H
+#define SIZE_ID 8
 
 #pragma endregion
 
@@ -30,9 +31,9 @@ typedef struct Machine
 
 typedef struct PerformOperation
 {
-	int id;
-	struct Machine* machines;
+	struct Job* job;
 	struct Operation* operation;
+	struct Machine* machine;
 	int usageTime; // unidades de tempo necessária para a realização da operação
 	struct PerformOperation* next;
 } PerformOperation;
@@ -45,7 +46,7 @@ typedef struct Operation
 
 typedef struct Job
 {
-	int id;
+	char id[SIZE_ID];
 	struct Operation* operations;
 	struct Job* next;
 } Job;
@@ -55,12 +56,13 @@ typedef struct Job
 #pragma region funções e procedimentos
 
 // sobre jobs
-Job* newJob(int id, Operation* operations);
+Job* newJob(char* id[SIZE_ID]);
 Job* insertJobAtStart(Job* head, Job* jobToInsert);
 Job* getJob(Job* head, int id);
 Job* updateJob(Job* head, Job* jobToUpdate, int currentID);
 bool searchJob(Job* head, int id);
 bool printJobs(Job* head);
+bool saveJobToFile(Job* job);
 
 // sobre operations
 Operation* newOperation(int id, Machine* machines);
