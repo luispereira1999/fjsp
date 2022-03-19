@@ -69,8 +69,11 @@ bool saveJobToFile(Job* job);
 bool saveAllJobsToFile(Job* head);
 
 // sobre operations
-Operation* newOperation(int id, Machine* machines);
+Operation* newOperation(char* id[SIZE_ID], Operation* operations);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
+
+// sobre machines
+Machine* newMachine(char* id[SIZE_ID], bool isActive);
 
 // outros
 int getListCount(Job* head);

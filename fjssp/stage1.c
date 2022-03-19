@@ -262,7 +262,7 @@ Job* readJobsFromFile(Job* head) {
 
 #pragma region operations
 
-Operation* newOperation(int id, Machine* machines)
+Operation* newOperation(char* id[SIZE_ID], Operation* operations)
 {
 	Operation* new = (Operation*)malloc(sizeof(Operation));
 	if (new == NULL) // se não houver memória para alocar
@@ -270,7 +270,7 @@ Operation* newOperation(int id, Machine* machines)
 		return NULL;
 	}
 
-	new->id = id;
+	strcpy(new->id,id);
 	// new->machines = machines;
 	// new->machines->next = NULL;
 	new->next = NULL;
@@ -292,6 +292,25 @@ Operation* insertOperationAtStart(Operation* head, Operation* current)
 	}
 
 	return head;
+}
+
+#pragma endregion
+
+#pragma region machines
+
+Machine* newMachine(char* id[SIZE_ID], bool isActive)
+{
+	Machine* new = (Machine*)malloc(sizeof(Machine));
+	if (new == NULL) // se não houver memória para alocar
+	{
+		return NULL;
+	}
+
+	strcpy(new->id, id);
+	new->isActive = isActive;
+	new->next = NULL;
+
+	return new;
 }
 
 #pragma endregion
