@@ -349,6 +349,25 @@ bool searchMachine(Machine* head, char* id[SIZE_ID])
 	return false;
 }
 
+bool saveMachineToFile(Machine* machine)
+{
+	if (machine == NULL)
+	{
+		return false;
+	}
+
+	char fileName[13] = "machines.txt";
+	FILE* file = fopen(fileName, "a");
+
+	if (file == NULL)
+	{
+		return false;
+	}
+	fprintf(file, "%s;%d\n", machine->id, machine->isActive);
+	fclose(file);
+
+	return true;
+}
 
 #pragma endregion
 

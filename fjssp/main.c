@@ -93,6 +93,21 @@ int main()
 			scanf("%s", &id2);
 
 			Machine* machine = newMachine(id2, false);
+
+			if (searchMachine(machines, machine->id))
+			{
+				printf("Machine já existe!\n");
+			}
+			else
+			{
+				if (!saveMachineToFile(machine)) {
+					printf("Erro ao criar machines.\n");
+				}
+				else {
+					machines = insertMachineAtStart(machines, machine);
+					printf("Machines criada com sucesso!\n");
+				}
+			}
 			break;
 
 		case 5: // executar várias operações
