@@ -10,7 +10,7 @@ Criação:             14/03/2022
 #include <string.h>
 #include "header.h"
 
-Operation* newOperation(int id)
+Operation* newOperation(int id, int jobID, int position)
 {
 	Operation* new = (Operation*)malloc(sizeof(Operation));
 	if (new == NULL) // se não houver memória para alocar
@@ -19,6 +19,8 @@ Operation* newOperation(int id)
 	}
 
 	new->id = id;
+	new->jobID = id;
+	new->position = position;
 	new->next = NULL;
 
 	return new;
@@ -29,9 +31,8 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = operationToInsert;
-		operationToInsert = head->next = NULL;
 	}
-	else
+	else // se existir algum elemento na lista
 	{
 		operationToInsert->next = head;
 		head = operationToInsert;

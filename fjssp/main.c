@@ -14,9 +14,15 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 
+	Job* job = NULL;
+	Machine* machine = NULL;
+	Operation* operation = NULL;
+
 	Job* jobs = NULL;
 	Operation* operations = NULL;
 	Machine* machines = NULL;
+
+	int idJob = 0;
 	int menuOption = 0;
 
 	do
@@ -47,7 +53,7 @@ int main()
 			printf("Introduza um código: ");
 			scanf("%d", &id);
 
-			Job* job = newJob(id);
+			job = newJob(id);
 
 			if (searchJob(jobs, job->id))
 			{
@@ -121,25 +127,31 @@ int main()
 		case 6: // executar operações da fase 1
 
 			// Inserir job
+			job = newJob(1);
+			jobs = insertJobAtStart(jobs, job);
 			// Inserir máquina
+			machine = newMachine(1, false);
+			machines = insertMachineAtStart(machines, machine);
 			// Inserir operação
+			operation = newOperation(1, 1, 1);
+			operations = insertOperationAtStart(operations, operation);
 			// Remover operação
 			// Atualizar operação
 			break;
 
 		case 7: // testes
 
-			Job * jobTest = newJob("prTest");
-			jobs = insertJobAtStart(jobs, jobTest);
+		/*	Job * jobTest = newJob("prTest");
+			jobs = insertJobAtStart(jobs, jobTest);*/
 
-			Machine* machine1 = NULL;
+	/*		Machine* machine1 = NULL;
 			Machine* machine2 = NULL;
 			Operation* operation1 = newOperation(4, machine1);
 			Operation* operation2 = newOperation(5, machine2);
 			operations = insertOperationAtStart(operations, operation1);
-			operations = insertOperationAtStart(operations, operation2);
+			operations = insertOperationAtStart(operations, operation2);*/
 
-			printJobs(jobs);
+	/*		printJobs(jobs);
 
 			if (searchJob(jobs, 1))
 			{
@@ -177,7 +189,7 @@ int main()
 			int numberOfJobs = getListCount(jobs);
 			printf("Número de jobs: %d\n", numberOfJobs);
 
-			printJobs(jobs);
+			printJobs(jobs);*/
 
 			break;
 

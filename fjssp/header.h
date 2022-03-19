@@ -24,12 +24,19 @@ typedef enum bool
    true = 1
 } bool;
 
-typedef struct Machine
+typedef struct Job
 {
 	int id;
-	bool isActive; // se a máquina está ou não em utilização
-	struct Machine* next;
-} Machine;
+	struct Job* next;
+} Job;
+
+typedef struct Operation
+{
+	int id;
+	int jobID;
+	int position; // posição da operação (se será a 1º, 2º, 3º... a ser executada)
+	struct Operation* next;
+} Operation;
 
 typedef struct PerformOperation
 {
@@ -39,19 +46,12 @@ typedef struct PerformOperation
 	struct PerformOperation* next;
 } PerformOperation;
 
-typedef struct Operation
+typedef struct Machine
 {
 	int id;
-	int jobID;
-	int position; // ordem da operação 
-	struct Operation* next;
-} Operation;
-
-typedef struct Job
-{
-	int id;
-	struct Job* next;
-} Job;
+	bool isActive; // se a máquina está ou não em utilização
+	struct Machine* next;
+} Machine;
 
 #pragma endregion
 
@@ -71,7 +71,7 @@ bool saveAllJobsToFile(Job* head);
 Job* readJobsFromFile(Job* head);
 
 // sobre operations
-Operation* newOperation(int id);
+Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
 
 // sobre machines
