@@ -328,6 +328,28 @@ Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert)
 	return head;
 }
 
+bool searchMachine(Machine* head, char* id[SIZE_ID])
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	Machine* current = head;
+
+	while (current != NULL)
+	{
+		if (strcmp(current->id, id) == 0)
+		{
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
+}
+
+
 #pragma endregion
 
 #pragma region outros

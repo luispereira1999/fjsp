@@ -75,6 +75,7 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 // sobre machines
 Machine* newMachine(char* id[SIZE_ID], bool isActive);
 Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
+bool searchMachine(Machine* head, char* id[SIZE_ID]);
 
 // outros
 int getListCount(Job* head);
