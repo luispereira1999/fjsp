@@ -313,6 +313,21 @@ Machine* newMachine(char* id[SIZE_ID], bool isActive)
 	return new;
 }
 
+Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		head = machineToInsert;
+	}
+	else // se existir algum elemento na lista
+	{
+		machineToInsert->next = head;
+		head = machineToInsert;
+	}
+
+	return head;
+}
+
 #pragma endregion
 
 #pragma region outros
