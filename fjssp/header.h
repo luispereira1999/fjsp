@@ -10,7 +10,9 @@ Criação:             14/03/2022
 #pragma region constantes
 
 #define HEADER_H
-#define SIZE_ID 8
+
+#define SIZE_FILENAME_JOBS 9
+#define SIZE_FILENAME_MACHINES 13
 
 #pragma endregion
 
@@ -24,30 +26,30 @@ typedef enum bool
 
 typedef struct Machine
 {
-	char id[SIZE_ID];
+	int id;
 	bool isActive; // se a máquina está ou não em utilização
 	struct Machine* next;
 } Machine;
 
 typedef struct PerformOperation
 {
-	struct Job* job;
-	struct Operation* operation;
-	struct Machine* machine;
+	int operationID;
+	int machineID;
 	int usageTime; // unidades de tempo necessária para a realização da operação
 	struct PerformOperation* next;
 } PerformOperation;
 
 typedef struct Operation
 {
-	char id[SIZE_ID];
+	int id;
+	int jobID;
+	int position; // ordem da operação 
 	struct Operation* next;
 } Operation;
 
 typedef struct Job
 {
-	char id[SIZE_ID];
-	struct Operation* operations;
+	int id;
 	struct Job* next;
 } Job;
 
@@ -56,27 +58,29 @@ typedef struct Job
 #pragma region funções e procedimentos
 
 // sobre jobs
-Job* newJob(char* id[SIZE_ID]);
+Job* newJob(int id);
 Job* insertJobAtStart(Job* head, Job* jobToInsert);
-Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID]);
-bool deleteJob(Job** head, char* id[SIZE_ID]);
-bool searchJob(Job* head, char* id[SIZE_ID]);
-Job* getJob(Job* head, char* id[SIZE_ID]);
+Job* updateJob(Job* head, Job* jobToUpdate, int id);
+bool deleteJob(Job** head, int id);
+bool searchJob(Job* head, int id);
+Job* getJob(Job* head, int id);
 bool printJobs(Job* head);
 bool freeJobsList(Job* head);
-Job* readJobsFromFile(Job* head);
 bool saveJobToFile(Job* job);
 bool saveAllJobsToFile(Job* head);
+Job* readJobsFromFile(Job* head);
 
 // sobre operations
-Operation* newOperation(char* id[SIZE_ID], Operation* operations);
+Operation* newOperation(int id);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
 
 // sobre machines
-Machine* newMachine(char* id[SIZE_ID], bool isActive);
+Machine* newMachine(int id, bool isActive);
 Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
-bool searchMachine(Machine* head, char* id[SIZE_ID]);
+bool printMachines(Machine* head);
+bool searchMachine(Machine* head, int id);
 bool saveMachineToFile(Machine* machine);
+Machine* readMachinesFromFile(Machine* head);
 
 // outros
 int getListCount(Job* head);

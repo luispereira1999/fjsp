@@ -28,8 +28,10 @@ int main()
 		printf("   2 -> Mostrar jobs.\n");
 		printf("   3 -> Apagar job.\n");
 		printf("   4 -> Criar machine.\n");
-		printf("   5 -> Testes.\n");
-		printf("   6 -> Sair.\n\n");
+		printf("   5 -> Ler machines.\n");
+		printf("   6 -> Executar fase 1.\n");
+		printf("   7 -> Testes.\n");
+		printf("   8 -> Sair.\n\n");
 		printf("   © Luís Pereira | 2022\n\n");
 		printf("---------------------------------\n");
 
@@ -41,9 +43,9 @@ int main()
 
 		case 1: // criar e inserir job na lista e guardar no ficheiro
 
-			char id[SIZE_ID];
+			int id = 0;
 			printf("Introduza um código: ");
-			scanf("%s", &id);
+			scanf("%d", &id);
 
 			Job* job = newJob(id);
 
@@ -63,7 +65,7 @@ int main()
 			}
 			break;
 
-		case 2: // ler do ficheiro, guardar na lista e mostrar jobs na consola
+		case 2: // ler jobs do ficheiro, guardar na lista e mostrar na consola
 
 			jobs = readJobsFromFile(jobs);
 			printJobs(jobs);
@@ -88,9 +90,9 @@ int main()
 
 		case 4: // criar e inserir machine na lista e guardar no ficheiro
 
-			char id2[SIZE_ID];
+			int id2 = 0;
 			printf("Introduza um código: ");
-			scanf("%s", &id2);
+			scanf("%d", &id2);
 
 			Machine* machine = newMachine(id2, false);
 
@@ -110,9 +112,24 @@ int main()
 			}
 			break;
 
-		case 5: // executar várias operações
+		case 5: // ler machines do ficheiro, guardar na lista e mostrar na consola
 
-			Job* jobTest = newJob("prTest");
+	/*		machines = readMachinesFromFile(machines);
+			printMachines(machines);*/
+			break;
+
+		case 6: // executar operações da fase 1
+
+			// Inserir job
+			// Inserir máquina
+			// Inserir operação
+			// Remover operação
+			// Atualizar operação
+			break;
+
+		case 7: // testes
+
+			Job * jobTest = newJob("prTest");
 			jobs = insertJobAtStart(jobs, jobTest);
 
 			Machine* machine1 = NULL;
@@ -164,7 +181,7 @@ int main()
 
 			break;
 
-		case 6:
+		case 8:
 			exit(true);
 			break;
 		default:
