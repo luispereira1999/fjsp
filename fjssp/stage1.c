@@ -2,7 +2,7 @@
 Descrição:           Ficheiro com todas as funções e procedimentos relativos à fase 1 da aplicação
 Desenvolvedor(es):   Luís Pereira (18446)
 Criação:             14/03/2022
-Última atualização:  31/03/20221
+Última atualização:  31/03/2022
 */
 
 #include <stdio.h>
@@ -40,27 +40,6 @@ Job* insertJobAtStart(Job* head, Job* jobToInsert)
 	}
 
 	return head;
-}
-
-Job* getJob(Job* head, char* id[SIZE_ID])
-{
-	if (head == NULL)
-	{
-		return NULL;
-	}
-
-	Job* current = head;
-
-	while (current != NULL)
-	{
-		if (strcmp(current->id, id) == 0)
-		{
-			return current;
-		}
-		current = current->next;
-	}
-
-	return NULL;
 }
 
 Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID])
@@ -139,6 +118,27 @@ bool searchJob(Job* head, char* id[SIZE_ID])
 	return false;
 }
 
+Job* getJob(Job* head, char* id[SIZE_ID])
+{
+	if (head == NULL)
+	{
+		return NULL;
+	}
+
+	Job* current = head;
+
+	while (current != NULL)
+	{
+		if (strcmp(current->id, id) == 0)
+		{
+			return current;
+		}
+		current = current->next;
+	}
+
+	return NULL;
+}
+
 bool printJobs(Job* head)
 {
 	if (head == NULL)
@@ -152,6 +152,20 @@ bool printJobs(Job* head)
 	{
 		printf("Código do trabalho: %s\n", currentJob->id);
 		currentJob = currentJob->next;
+	}
+
+	return true;
+}
+
+bool freeJobsList(Job* head)
+{
+	Job* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
 	}
 
 	return true;
@@ -242,20 +256,6 @@ Job* readJobsFromFile(Job* head) {
 	fclose(file);
 
 	return head;
-}
-
-bool freeJobsList(Job* head)
-{
-	Job* current = NULL;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-
-	return true;
 }
 
 #pragma endregion

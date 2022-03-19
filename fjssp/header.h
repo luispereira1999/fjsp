@@ -2,7 +2,7 @@
 Descrição:           Ficheiro com todas as declarações necessárias para a fase 1 da aplicação
 Desenvolvedor(es):   Luís Pereira (18446)
 Criação:             14/03/2022
-Última atualização:  31/03/20221
+Última atualização:  31/03/2022
 */
 
 #ifndef HEADER_H
@@ -24,8 +24,8 @@ typedef enum bool
 
 typedef struct Machine
 {
-	int id;
-	int isActive; // se a máquina está ou não em uso
+	char id[SIZE_ID];
+	bool isActive; // se a máquina está ou não em utilização
 	struct Machine* next;
 } Machine;
 
@@ -40,7 +40,7 @@ typedef struct PerformOperation
 
 typedef struct Operation
 {
-	int id;
+	char id[SIZE_ID];
 	struct Operation* next;
 } Operation;
 
@@ -58,15 +58,15 @@ typedef struct Job
 // sobre jobs
 Job* newJob(char* id[SIZE_ID]);
 Job* insertJobAtStart(Job* head, Job* jobToInsert);
-Job* getJob(Job* head, char* id[SIZE_ID]);
 Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID]);
 bool deleteJob(Job** head, char* id[SIZE_ID]);
 bool searchJob(Job* head, char* id[SIZE_ID]);
+Job* getJob(Job* head, char* id[SIZE_ID]);
 bool printJobs(Job* head);
+bool freeJobsList(Job* head);
 Job* readJobsFromFile(Job* head);
 bool saveJobToFile(Job* job);
 bool saveAllJobsToFile(Job* head);
-bool freeJobsList(Job* head);
 
 // sobre operations
 Operation* newOperation(int id, Machine* machines);
