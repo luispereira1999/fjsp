@@ -56,3 +56,18 @@ PerformOperation* newPerformOperation(int operationID, int machineID, int usageT
 
 	return new;
 }
+
+PerformOperation* insertPerformOperationAtStart(PerformOperation* head, PerformOperation* performOperationToInsert)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		head = performOperationToInsert;
+	}
+	else // se existir algum elemento na lista
+	{
+		performOperationToInsert->next = head;
+		head = performOperationToInsert;
+	}
+
+	return head;
+}

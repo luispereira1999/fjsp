@@ -57,6 +57,7 @@ int main()
 			operations = insertOperationAtStart(operations, operation);
 			// Inserir execução de uma operação
 			performOperation = newPerformOperation(1, 1, 3);
+			performOperations = insertOperationAtStart(performOperations, performOperation);
 			// Remover operação
 			// Atualizar operação
 			break;
