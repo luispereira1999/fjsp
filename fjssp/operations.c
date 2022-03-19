@@ -40,3 +40,19 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 
 	return head;
 }
+
+PerformOperation* newPerformOperation(int operationID, int machineID, int usageTime)
+{
+	PerformOperation* new = (PerformOperation*)malloc(sizeof(PerformOperation));
+	if (new == NULL) // se não houver memória para alocar
+	{
+		return NULL;
+	}
+
+	new->operationID = operationID;
+	new->machineID = machineID;
+	new->usageTime = usageTime;
+	new->next = NULL;
+
+	return new;
+}

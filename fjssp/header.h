@@ -73,6 +73,7 @@ Job* readJobsFromFile(Job* head);
 // sobre operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
+PerformOperation* newPerformOperation(int operationID, int machineID, int usageTime);
 
 // sobre machines
 Machine* newMachine(int id, bool isActive);
