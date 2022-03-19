@@ -244,6 +244,20 @@ Job* readJobsFromFile(Job* head) {
 	return head;
 }
 
+bool freeJobsList(Job* head)
+{
+	Job* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
+}
+
 #pragma endregion
 
 #pragma region operations

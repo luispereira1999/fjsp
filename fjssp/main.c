@@ -76,10 +76,15 @@ int main()
 			{
 				printf("Removido com sucesso.\n");
 				saveAllJobsToFile(jobs);
+				freeJobsList(jobs);
 			}
 			else {
 				printf("Não foi possível remover o job pretendido.\n");
 			}
+
+			jobs = NULL;
+			jobs = readJobsFromFile(jobs);
+			printJobs(jobs);
 			break;
 
 		case 4: // executar várias operações
