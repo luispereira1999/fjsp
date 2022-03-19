@@ -60,11 +60,13 @@ Job* newJob(char* id[SIZE_ID]);
 Job* insertJobAtStart(Job* head, Job* jobToInsert);
 Job* getJob(Job* head, char* id[SIZE_ID]);
 Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID]);
-Job* deleteJob(Job* head, char* id[SIZE_ID]);
+bool deleteJob(Job** head, char* id[SIZE_ID]);
 bool searchJob(Job* head, char* id[SIZE_ID]);
 bool printJobs(Job* head);
 Job* readJobsFromFile(Job* head);
 bool saveJobToFile(Job* job);
+bool saveAllJobsToFile(Job* head);
+bool freeJobsList(Job* head);
 
 // sobre operations
 Operation* newOperation(int id, Machine* machines);

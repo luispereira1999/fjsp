@@ -33,7 +33,7 @@ Job* insertJobAtStart(Job* head, Job* jobToInsert)
 	{
 		head = jobToInsert;
 	}
-	else
+	else // se existir algum elemento na lista
 	{
 		jobToInsert->next = head;
 		head = jobToInsert;
@@ -53,7 +53,7 @@ Job* getJob(Job* head, char* id[SIZE_ID])
 
 	while (current != NULL)
 	{
-		if (strcmp(current->id, id))
+		if (strcmp(current->id, id) == 0)
 		{
 			return current;
 		}
@@ -85,36 +85,37 @@ Job* updateJob(Job* head, Job* jobToUpdate, char* currentID[SIZE_ID])
 	return head;
 }
 
-Job* deleteJob(Job* head, char* id[SIZE_ID])
+bool deleteJob(Job** head, char* id[SIZE_ID])
 {
-	if (head == NULL) {
-		return NULL;
-	}
-
-	if (!searchJob(head, id)) {
-		return head;
-	}
-
-	Job* current = head;
+	Job* current = *head;
 	Job* previous = NULL;
 
-	while (current != NULL && strcmp(current->next->id, id) == 0)
+	// If head node itself holds the key to be deleted
+	if (current != NULL && strcmp(current->id, id) == 0) {
+		*head = current->next; // Changed head
+		free(current); // free old head
+		return true;
+	}
+
+	// Search for the key to be deleted, keep track of the
+	// previous node as we need to change 'prev->next'
+	while (current != NULL && strcmp(current->id, id) != 0)
 	{
 		previous = current;
 		current = current->next;
 	}
-	if (previous == NULL) // eliminar o primeiro
+
+	// If key was not present in linked list
+	if (current == NULL)
 	{
-		head = head->next;
-		free(current);
-	}
-	else // elimiar no meio
-	{
-		previous->next = current->next;
-		free(current);
+		return false;
 	}
 
-	return head;
+	// Unlink the node from linked list
+	previous->next = current->next;
+
+	free(current); // Free memory
+	return true;
 }
 
 bool searchJob(Job* head, char* id[SIZE_ID])
@@ -123,21 +124,19 @@ bool searchJob(Job* head, char* id[SIZE_ID])
 	{
 		return false;
 	}
-	else
+
+	Job* current = head;
+
+	while (current != NULL)
 	{
-		Job* current = head;
-
-		while (current != NULL)
+		if (strcmp(current->id, id) == 0)
 		{
-			if (strcmp(current->id, id))
-			{
-				return true;
-			}
-			current = current->next;
+			return true;
 		}
-
-		return false;
+		current = current->next;
 	}
+
+	return false;
 }
 
 bool printJobs(Job* head)
@@ -146,27 +145,16 @@ bool printJobs(Job* head)
 	{
 		return false;
 	}
-	else
+
+	Job* currentJob = head;
+
+	while (currentJob != NULL)
 	{
-		Job* currentJob = head;
-		Operation* currentOperation = head->operations;
-
-		while (currentJob != NULL)
-		{
-			printf("Código do trabalho: %s\n", currentJob->id);
-
-			while (currentOperation != NULL)
-			{
-				printf("Código da operação: %d\n", currentOperation->id);
-				currentOperation = currentOperation->next;
-			}
-
-			currentOperation = currentJob->operations;
-			currentJob = currentJob->next;
-		}
-
-		return true;
+		printf("Código do trabalho: %s\n", currentJob->id);
+		currentJob = currentJob->next;
 	}
+
+	return true;
 }
 
 bool saveJobToFile(Job* job)
@@ -175,21 +163,46 @@ bool saveJobToFile(Job* job)
 	{
 		return false;
 	}
-	else
+
+	char fileName[9] = "jobs.txt";
+	FILE* file = fopen(fileName, "a");
+
+	if (file == NULL)
 	{
-		char fileName[9] = "jobs.txt";
-		FILE* file = fopen(fileName, "a");
-
-		if (file == NULL)
-		{
-			return false;
-		}
-
-		fprintf(file, "%s\n", job->id);
-		fclose(file);
-
-		return true;
+		return false;
 	}
+
+	fprintf(file, "%s\n", job->id);
+	fclose(file);
+
+	return true;
+}
+
+bool saveAllJobsToFile(Job* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	char fileName[9] = "jobs.txt";
+	FILE* file = fopen(fileName, "w");
+	Job* current = head;
+
+	if (file == NULL)
+	{
+		return false;
+	}
+
+	while (current != NULL)
+	{
+		fprintf(file, "%s\n", current->id);
+		current = current->next;
+	}
+
+	fclose(file);
+
+	return true;
 }
 
 Job* readJobsFromFile(Job* head) {
@@ -204,7 +217,8 @@ Job* readJobsFromFile(Job* head) {
 		return NULL;
 	}
 
-	while (fgets(line, sizeof(line), file) != NULL) {
+	while (fgets(line, sizeof(line), file) != NULL)
+	{
 		// remover breakline que a string da linha do ficheiro possui
 		line[strcspn(line, "\n")] = 0;
 
@@ -214,7 +228,8 @@ Job* readJobsFromFile(Job* head) {
 		current->operations = NULL;
 		current->next = NULL;
 
-		if (head == NULL) {
+		if (head == NULL)
+		{
 			head = current;
 		}
 		else
@@ -263,47 +278,6 @@ Operation* insertOperationAtStart(Operation* head, Operation* current)
 	}
 
 	return head;
-}
-
-// Operation *updateOperation(Operation *head, Operation *current)
-// {
-//    return head;
-// }
-
-Operation* deleteOperation(Operation* head, Operation* operationToDelete, int currentID)
-{
-	// if (h == NULL) return NULL;			//Lista vazia
-	// 	if (!ExisteJogo(h, cod)) return h;	//se não existe
-
-	// 	JogoListaPtr aux = h;
-	// 	JogoListaPtr auxAnt = NULL;
-
-	// 	//localizar registo a eliminar
-	// 	while (aux && aux->jogo.cod != cod) {
-	// 		auxAnt = aux;
-	// 		aux = aux->next;
-	// 	}
-	// 	if (auxAnt == NULL) {	//Eliminar à cabeça
-	// 		h = h->next;
-	// 		free(aux);
-	// 	}
-	// 	else					//Elimiar no meio
-	// 	{
-	// 		auxAnt->next = aux->next;
-	// 		free(aux);
-	// 	}
-	// 	return h;
-}
-
-void printOperations(Operation* head)
-{
-	Operation* current = head;
-
-	while (current != NULL)
-	{
-		printf("id: %d\n", current->id);
-		current = current->next;
-	}
 }
 
 #pragma endregion

@@ -22,13 +22,13 @@ int main()
 	{
 		// menu da aplicação 
 		printf("---------------------------------\n\n");
-		printf("   M E N U                          \n\n");
-		printf("   1 -> Criar, inserir e guardar job.\n");
-		printf("   2 -> Ler e mostrar jobs.\n");
+		printf("   M E N U\n\n");
+		printf("   1 -> Criar job.\n");
+		printf("   2 -> Mostrar jobs.\n");
 		printf("   3 -> Apagar job.\n");
-		printf("   4 -> mostrar jobs.\n");
+		printf("   4 -> Testes.\n");
 		printf("   5 -> Sair.\n\n");
-		printf("   © Luís Pereira | 2022                   \n\n");
+		printf("   © Luís Pereira | 2022\n\n");
 		printf("---------------------------------\n");
 
 		printf("Escolha uma das opções acima: ");
@@ -67,22 +67,76 @@ int main()
 		case 2: // ler do ficheiro, guardar na lista e mostrar jobs na consola
 
 			jobs = readJobsFromFile(jobs);
-			bool isPrinted = printJobs(jobs);
-			printf("isPrinted: %d\n", isPrinted);
-			break;
-
-		case 3: // remover job da lista
-
-			jobs = deleteJob(jobs, "pr");
 			printJobs(jobs);
 			break;
 
-		case 4: // remover job da lista
+		case 3: // remover job da lista, guardar todos os jobs no ficheiro e voltar a ler
 
-			printJobs(jobs);
+			if (deleteJob(&jobs, "pr3"))
+			{
+				printf("Removido com sucesso.\n");
+				saveAllJobsToFile(jobs);
+			}
+			else {
+				printf("Não foi possível remover o job pretendido.\n");
+			}
 			break;
 
-		case 6:
+		case 4: // executar várias operações
+
+			Job* jobTest = newJob("prTest");
+			jobs = insertJobAtStart(jobs, jobTest);
+
+			Machine* machine1 = NULL;
+			Machine* machine2 = NULL;
+			Operation* operation1 = newOperation(4, machine1);
+			Operation* operation2 = newOperation(5, machine2);
+			operations = insertOperationAtStart(operations, operation1);
+			operations = insertOperationAtStart(operations, operation2);
+
+			printJobs(jobs);
+
+			if (searchJob(jobs, 1))
+			{
+				printf("Job encontrado!\n");
+			}
+			else
+			{
+				printf("Não foi encontrado nenhum job.\n");
+			}
+
+			if (searchJob(jobs, 2))
+			{
+				Job* jobObtained2 = getJob(jobs, 2);
+				printf("Obtido o job: %d\n", jobObtained2->id);
+			}
+			else
+			{
+				printf("NÃo foi obtido nenhum job.\n");
+			}
+
+			strcpy(jobTest->id, "PRT");
+			jobs = updateJob(jobs, jobTest, 2);
+			printf("Job atualizado: %d\n", jobs->id);
+
+			if (searchJob(jobs, 2))
+			{
+				Job* jobObtained2 = getJob(jobs, 2);
+				printf("Obtido o job: %d\n", jobObtained2->id);
+			}
+			else
+			{
+				printf("Não foi obtido nenhum job.\n");
+			}
+
+			int numberOfJobs = getListCount(jobs);
+			printf("Número de jobs: %d\n", numberOfJobs);
+
+			printJobs(jobs);
+
+			break;
+
+		case 5:
 			exit(true);
 			break;
 		default:
