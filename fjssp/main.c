@@ -73,10 +73,28 @@ int main()
 			displayOperations(operations);
 			displayOperationsExecution(operationsExecution);
 			// Remover operação
-			if (deleteOperation(&operations, 33) )
+			if (deleteOperation(&operations, 33))
 			{
-				printf("Removido com sucesso!");
+				printf("Operação removida com sucesso!\n");
 				displayOperations(operations);
+
+				int allFound = false;
+				while (allFound == false)
+				{
+					if (searchOperationExecution(operationsExecution, 33))
+					{
+						if (deleteOperationExecution(&operationsExecution, 33))
+						{
+							printf("Execução de operação removida com sucesso!\n");
+						}
+					}
+					else
+					{
+						allFound = true;
+					}
+				}
+
+				displayOperationsExecution(operationsExecution);
 			}
 			// Atualizar operação
 			break;
