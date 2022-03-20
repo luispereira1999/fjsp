@@ -88,6 +88,7 @@ bool deleteOperationExecution(OperationExecution** head, int operationID);
 bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);
 bool displayOperationsExecution(OperationExecution* head);
+bool searchOperationExecution(OperationExecution* head, int operationID);
 
 // outros
 int getListCount(Job* head);

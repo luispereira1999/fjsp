@@ -316,4 +316,25 @@ bool displayOperationsExecution(OperationExecution* head)
 	return true;
 }
 
+bool searchOperationExecution(OperationExecution* head, int operationID)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	OperationExecution* current = head;
+
+	while (current != NULL)
+	{
+		if (current->operationID == operationID)
+		{
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
+}
+
 #pragma endregion
