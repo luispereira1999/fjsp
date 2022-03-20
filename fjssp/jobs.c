@@ -39,6 +39,72 @@ Job* insertJobAtStart(Job* head, Job* jobToInsert)
 	return head;
 }
 
+bool writeJobs(char fileName[], Job* head)
+{
+	if (head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
+	FILE* file = NULL;
+	file = fopen(fileName, "w");
+	if (file == NULL) // se não foi possível abrir o ficheiro
+	{
+		return false;
+	}
+
+	Job* current = head;
+	while (current != NULL) // escrever todos os elementos da lista no ficheiro
+	{
+		fwrite(current, sizeof(Job), 1, file);
+		current = current->next;
+	}
+
+	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
+	{
+		return false;
+	}
+
+	fclose(file);
+
+	return true;
+}
+
+Job* readJobs(char fileName[])
+{
+	Job* current = (Job*)malloc(sizeof(Job));
+	Job* head = NULL;
+	Job* last = NULL;
+
+	FILE* file = NULL;
+	file = fopen(fileName, "r");
+	if (file == NULL) // se não foi possível abrir o ficheiro
+	{
+		return NULL;
+	}
+
+	while (fread(current, sizeof(Job), 1, file)) // ler todos os elementos da lista do ficheiro
+	{
+		if (head == NULL) // ler o primeiro elemento
+		{
+			printf("ABC\n");
+			head = last = (Job*)malloc(sizeof(Job));
+		}
+		else // ler os restantes elementos
+		{
+			last->next = (Job*)malloc(sizeof(Job));
+			last = last->next;
+		}
+
+		last->id = current->id;
+		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+	}
+
+	fclose(file);
+
+	return head;
+}
+
 Job* updateJob(Job* head, Job* jobToUpdate, int id)
 {
 	if (head == NULL)
@@ -63,34 +129,29 @@ Job* updateJob(Job* head, Job* jobToUpdate, int id)
 
 bool deleteJob(Job** head, int id)
 {
+	if (*head == NULL)
+	{
+		return false;
+	}
+
 	Job* current = *head;
 	Job* previous = NULL;
 
-	// If head node itself holds the key to be deleted
-	if (current != NULL && current->id == id) {
-		*head = current->next; // Changed head
-		free(current); // free old head
+	if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
+		*head = current->next;
+		free(current);
 		return true;
 	}
 
-	// Search for the key to be deleted, keep track of the
-	// previous node as we need to change 'prev->next'
-	while (current != NULL && current->id != id)
+	while (current != NULL && current->id != id) // procurar o elemento a ser apagado
 	{
 		previous = current;
 		current = current->next;
 	}
 
-	// If key was not present in linked list
-	if (current == NULL)
-	{
-		return false;
-	}
+	previous->next = current->next; // desassociar o elemento da lista
+	free(current);
 
-	// Unlink the node from linked list
-	previous->next = current->next;
-
-	free(current); // Free memory
 	return true;
 }
 
@@ -136,24 +197,6 @@ Job* getJob(Job* head, int id)
 	return NULL;
 }
 
-bool printJobs(Job* head)
-{
-	if (head == NULL)
-	{
-		return false;
-	}
-
-	Job* current = head;
-
-	while (current != NULL)
-	{
-		printf("Código do trabalho: %d\n", current->id);
-		current = current->next;
-	}
-
-	return true;
-}
-
 bool freeJobsList(Job* head)
 {
 	Job* current = NULL;
@@ -166,95 +209,4 @@ bool freeJobsList(Job* head)
 	}
 
 	return true;
-}
-
-bool saveJobToFile(Job* job)
-{
-	if (job == NULL)
-	{
-		return false;
-	}
-
-	char fileName[SIZE_FILENAME_JOBS] = "jobs.txt";
-	FILE* file = fopen(fileName, "a");
-
-	if (file == NULL)
-	{
-		return false;
-	}
-
-	fprintf(file, "%d\n", job->id);
-	fclose(file);
-
-	return true;
-}
-
-bool saveAllJobsToFile(Job* head)
-{
-	if (head == NULL)
-	{
-		return false;
-	}
-
-	char fileName[SIZE_FILENAME_JOBS] = "jobs.txt";
-	FILE* file = fopen(fileName, "w");
-	Job* current = head;
-
-	if (file == NULL)
-	{
-		return false;
-	}
-
-	while (current != NULL)
-	{
-		fprintf(file, "%d\n", current->id);
-		current = current->next;
-	}
-
-	fclose(file);
-
-	return true;
-}
-
-Job* readJobsFromFile(Job* head) {
-	Job* current = NULL;
-
-	char fileName[SIZE_FILENAME_JOBS] = "jobs.txt";
-	FILE* file = fopen(fileName, "r");
-	char line[30];
-
-	if (file == NULL)
-	{
-		return NULL;
-	}
-
-	int id = 0;
-	while (fgets(line, sizeof(line), file) != NULL)
-	{
-		// remover breakline que a string da linha do ficheiro possui
-		line[strcspn(line, "\n")] = 0;
-
-		//fscanf(file, "%d", &id);
-		int x = atoi(line);
-
-		current = (Job*)malloc(sizeof(Job));
-		fscanf(file, "%d", current->id);
-
-		//current->id = x;
-		current->next = NULL;
-
-		if (head == NULL)
-		{
-			head = current;
-		}
-		else
-		{
-			current->next = head;
-			head = current;
-		}
-	}
-
-	fclose(file);
-
-	return head;
 }

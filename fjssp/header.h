@@ -11,9 +11,6 @@ Criação:             14/03/2022
 
 #define HEADER_H
 
-#define SIZE_FILENAME_JOBS 9
-#define SIZE_FILENAME_MACHINES 13
-
 #pragma endregion
 
 #pragma region representações e estruturas
@@ -60,15 +57,14 @@ typedef struct Machine
 // sobre jobs
 Job* newJob(int id);
 Job* insertJobAtStart(Job* head, Job* jobToInsert);
+bool writeJobs(char fileName[], Job* head);
+Job* readJobs(char fileName[]);
+bool displayJobs(Job* head);
 Job* updateJob(Job* head, Job* jobToUpdate, int id);
 bool deleteJob(Job** head, int id);
 bool searchJob(Job* head, int id);
 Job* getJob(Job* head, int id);
-bool printJobs(Job* head);
 bool freeJobsList(Job* head);
-bool saveJobToFile(Job* job);
-bool saveAllJobsToFile(Job* head);
-Job* readJobsFromFile(Job* head);
 
 // sobre operations
 Operation* newOperation(int id, int jobID, int position);
@@ -81,8 +77,6 @@ Machine* newMachine(int id, bool isActive);
 Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
 bool printMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
-bool saveMachineToFile(Machine* machine);
-Machine* readMachinesFromFile(Machine* head);
 
 // outros
 int getListCount(Job* head);

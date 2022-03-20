@@ -78,23 +78,3 @@ bool searchMachine(Machine* head, int id)
 
 	return false;
 }
-
-bool saveMachineToFile(Machine* machine)
-{
-	if (machine == NULL)
-	{
-		return false;
-	}
-
-	char fileName[SIZE_FILENAME_MACHINES] = "machines.txt";
-	FILE* file = fopen(fileName, "a");
-
-	if (file == NULL)
-	{
-		return false;
-	}
-	fprintf(file, "%d;%d\n", machine->id, machine->isActive);
-	fclose(file);
-
-	return true;
-}
