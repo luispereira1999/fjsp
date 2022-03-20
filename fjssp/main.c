@@ -26,6 +26,9 @@ int main()
 
 	int menuOption = 0;
 
+	jobs = readJobs("jobs.bin");
+	displayJobs(jobs);
+
 	do
 	{
 		// menu da aplicação 
@@ -61,6 +64,8 @@ int main()
 	    	writeJobs("jobs.bin", jobs);
 			// Ler de ficheiros
 			jobs = readJobs("jobs.bin");
+			// Mostrar jobs na consola
+			displayJobs(jobs);
 			// Remover operação
 			// Atualizar operação
 			break;

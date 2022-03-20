@@ -105,6 +105,25 @@ Job* readJobs(char fileName[])
 	return head;
 }
 
+bool displayJobs(Job* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	Job* current = head;
+
+	while (current != NULL)
+	{
+		printf("ID: %d -> ", current->id);
+		current = current->next;
+	}
+	printf("\n");
+
+	return true;
+}
+
 Job* updateJob(Job* head, Job* jobToUpdate, int id)
 {
 	if (head == NULL)
