@@ -21,7 +21,7 @@ Operation* newOperation(int id, int jobID, int position)
 	}
 
 	new->id = id;
-	new->jobID = id;
+	new->jobID = jobID;
 	new->position = position;
 	new->next = NULL;
 
@@ -41,6 +41,39 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 	}
 
 	return head;
+}
+
+bool deleteOperation(Operation** head, int id)
+{
+	if (*head == NULL)
+	{
+		return false;
+	}
+
+	Operation* current = *head;
+	Operation* previous = NULL;
+
+	if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
+		*head = current->next;
+		free(current);
+		return true;
+	}
+
+	while (current != NULL && current->id != id) // procurar o elemento a ser apagado
+	{
+		previous = current;
+		current = current->next;
+	}
+
+	if (current == NULL) // se o elemento não foi encontrado
+	{
+		return false;
+	}
+
+	previous->next = current->next; // desassociar o elemento da lista
+	free(current);
+
+	return true;
 }
 
 bool writeOperations(char fileName[], Operation* head)

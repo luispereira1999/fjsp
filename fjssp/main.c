@@ -43,6 +43,7 @@ int main()
 		{
 		case 1: // Fase 1
 
+			/*
 			// Inserir job
 			job = newJob(1);
 			jobs = insertJobAtStart(jobs, job);
@@ -60,6 +61,7 @@ int main()
 			writeMachines("machines.bin", machines);
 			writeOperations("operations.bin", operations);
 			writeOperationsExecution("operations-execution.bin", operationsExecution);
+			*/
 			// Ler dados de ficheiros
 			jobs = readJobs("jobs.bin");
 			machines = readMachines("machines.bin");
@@ -71,6 +73,11 @@ int main()
 			displayOperations(operations);
 			displayOperationsExecution(operationsExecution);
 			// Remover operação
+			if (deleteOperation(&operations, 33) )
+			{
+				printf("Removido com sucesso!");
+				displayOperations(operations);
+			}
 			// Atualizar operação
 			break;
 

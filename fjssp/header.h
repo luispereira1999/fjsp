@@ -66,9 +66,18 @@ bool searchJob(Job* head, int id);
 Job* getJob(Job* head, int id);
 bool freeJobsList(Job* head);
 
+// sobre machines
+Machine* newMachine(int id, bool isActive);
+Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
+bool writeMachines(char fileName[], Machine* head);
+Machine* readMachines(char fileName[]);
+bool displayMachines(Machine* head);
+bool searchMachine(Machine* head, int id);
+
 // sobre operations - operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
+bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
 bool displayOperations(Operation* head);
@@ -78,14 +87,6 @@ OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, Op
 bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);
 bool displayOperationsExecution(OperationExecution* head);
-
-// sobre machines
-Machine* newMachine(int id, bool isActive);
-Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
-bool writeMachines(char fileName[], Machine* head);
-Machine* readMachines(char fileName[]);
-bool displayMachines(Machine* head);
-bool searchMachine(Machine* head, int id);
 
 // outros
 int getListCount(Job* head);

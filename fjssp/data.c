@@ -47,6 +47,8 @@ void loadData(Job** jobs, Machine** machines, Operation** operations, OperationE
 	*machines = insertMachineAtStart(*machines, machine);
 	machine = newMachine(7, false);
 	*machines = insertMachineAtStart(*machines, machine);
+	machine = newMachine(8, false);
+	*machines = insertMachineAtStart(*machines, machine);
 	// operations - job 1
 	operation = newOperation(1, 1, 1);
 	*operations = insertOperationAtStart(*operations, operation);
