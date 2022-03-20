@@ -162,6 +162,27 @@ bool displayOperations(Operation* head)
 	return true;
 }
 
+Operation* getOperation(Operation* head, int id)
+{
+	if (head == NULL)
+	{
+		return NULL;
+	}
+
+	Operation* current = head;
+
+	while (current != NULL)
+	{
+		if (current->id == id)
+		{
+			return current;
+		}
+		current = current->next;
+	}
+
+	return NULL;
+}
+
 #pragma endregion
 
 #pragma region execução de operações
