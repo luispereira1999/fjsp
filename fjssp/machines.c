@@ -48,7 +48,7 @@ bool writeMachines(char fileName[], Machine* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "w");
+	file = fopen(fileName, "a");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;

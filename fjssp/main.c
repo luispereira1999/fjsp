@@ -70,6 +70,7 @@ int main()
 			displayJobs(jobs);
 			displayOperations(operations);
 			displayMachines(machines);
+			displayOperationsExecution(operationsExecution);
 			// Remover operação
 			// Atualizar operação
 			break;

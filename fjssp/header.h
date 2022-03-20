@@ -76,6 +76,7 @@ OperationExecution* newOperationExecution(int operationID, int machineID, int us
 OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert);
 bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);
+bool displayOperationsExecution(OperationExecution* head);
 
 // sobre machines
 Machine* newMachine(int id, bool isActive);

@@ -51,7 +51,7 @@ bool writeOperations(char fileName[], Operation* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "w");
+	file = fopen(fileName, "a");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -173,7 +173,7 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "w");
+	file = fopen(fileName, "a");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -230,6 +230,26 @@ OperationExecution* readOperationsExecution(char fileName[])
 	fclose(file);
 
 	return head;
+}
+
+bool displayOperationsExecution(OperationExecution* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	OperationExecution* current = head;
+
+	printf("Execução de Operações: ");
+	while (current != NULL)
+	{
+		printf("ID Operação: %d, ID Máquina: %d, Tempo: %d -> ", current->operationID, current->machineID, current->usageTime);
+		current = current->next;
+	}
+	printf("\n");
+
+	return true;
 }
 
 #pragma endregion
