@@ -41,6 +41,73 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 	return head;
 }
 
+bool writeOperations(char fileName[], Operation* head)
+{
+	if (head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
+	FILE* file = NULL;
+	file = fopen(fileName, "w");
+	if (file == NULL) // se não foi possível abrir o ficheiro
+	{
+		return false;
+	}
+
+	Operation* current = head;
+	while (current != NULL) // escrever todos os elementos da lista no ficheiro
+	{
+		fwrite(current, sizeof(Operation), 1, file);
+		current = current->next;
+	}
+
+	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
+	{
+		return false;
+	}
+
+	fclose(file);
+
+	return true;
+}
+
+Operation* readOperations(char fileName[])
+{
+	Operation* current = (Operation*)malloc(sizeof(Operation));
+	Operation* head = NULL;
+	Operation* last = NULL;
+
+	FILE* file = NULL;
+	file = fopen(fileName, "r");
+	if (file == NULL) // se não foi possível abrir o ficheiro
+	{
+		return NULL;
+	}
+
+	while (fread(current, sizeof(Operation), 1, file)) // ler todos os elementos da lista do ficheiro
+	{
+		if (head == NULL) // ler o primeiro elemento
+		{
+			head = last = (Job*)malloc(sizeof(Job));
+		}
+		else // ler os restantes elementos
+		{
+			last->next = (Operation*)malloc(sizeof(Operation));
+			last = last->next;
+		}
+
+		last->id = current->id;
+		last->jobID = current->jobID;
+		last->position = current->position;
+		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+	}
+
+	fclose(file);
+
+	return head;
+}
+
 PerformOperation* newPerformOperation(int operationID, int machineID, int usageTime)
 {
 	PerformOperation* new = (PerformOperation*)malloc(sizeof(PerformOperation));

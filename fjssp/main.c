@@ -59,9 +59,11 @@ int main()
 			performOperations = insertOperationAtStart(performOperations, performOperation);
 			// Guardar as inserções em ficheiros
 	    	writeJobs("jobs.bin", jobs);
+	    	writeOperations("operations.bin", operations);
 	    	writeMachines("machines.bin", machines);
 			// Ler dados de ficheiros
 			jobs = readJobs("jobs.bin");
+			operations = readOperations("operations.bin");
 			machines = readMachines("machines.bin");
 			// Mostrar dados na consola
 			displayJobs(jobs);

@@ -69,6 +69,8 @@ bool freeJobsList(Job* head);
 // sobre operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
+bool writeOperations(char fileName[], Operation* head);
+Operation* readOperations(char fileName[]);
 PerformOperation* newPerformOperation(int operationID, int machineID, int usageTime);
 PerformOperation* insertPerformOperationAtStart(PerformOperation* head, PerformOperation* performOperationToInsert);
 
