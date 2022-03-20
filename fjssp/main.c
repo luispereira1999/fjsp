@@ -26,8 +26,8 @@ int main()
 
 	int menuOption = 0;
 
-	jobs = readJobs("jobs.bin");
-	displayJobs(jobs);
+	machines = readMachines("machines.bin");
+	displayJobs(machines);
 
 	do
 	{
@@ -62,9 +62,11 @@ int main()
 			performOperations = insertOperationAtStart(performOperations, performOperation);
 			// Guardar as inserções em ficheiros
 	    	writeJobs("jobs.bin", jobs);
-			// Ler de ficheiros
+	    	writeMachines("machines.bin", machines);
+			// Ler dados de ficheiros
 			jobs = readJobs("jobs.bin");
-			// Mostrar jobs na consola
+			machines = readMachines("machines.bin");
+			// Mostrar dados na consola
 			displayJobs(jobs);
 			// Remover operação
 			// Atualizar operação

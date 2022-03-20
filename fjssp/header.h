@@ -75,7 +75,8 @@ PerformOperation* insertPerformOperationAtStart(PerformOperation* head, PerformO
 // sobre machines
 Machine* newMachine(int id, bool isActive);
 Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
-bool printMachines(Machine* head);
+bool writeMachines(char fileName[], Machine* head);
+Machine* readMachines(char fileName[]);
 bool searchMachine(Machine* head, int id);
 
 // outros

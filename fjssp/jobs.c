@@ -87,7 +87,6 @@ Job* readJobs(char fileName[])
 	{
 		if (head == NULL) // ler o primeiro elemento
 		{
-			printf("ABC\n");
 			head = last = (Job*)malloc(sizeof(Job));
 		}
 		else // ler os restantes elementos

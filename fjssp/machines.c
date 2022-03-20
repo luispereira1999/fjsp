@@ -40,22 +40,70 @@ Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert)
 	return head;
 }
 
-bool printMachines(Machine* head)
+bool writeMachines(char fileName[], Machine* head)
 {
-	if (head == NULL)
+	if (head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
+	FILE* file = NULL;
+	file = fopen(fileName, "w");
+	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
 	}
 
 	Machine* current = head;
-
-	while (current != NULL)
+	while (current != NULL) // escrever todos os elementos da lista no ficheiro
 	{
-		printf("Código da máquina: %d\n", current->id);
+		fwrite(current, sizeof(Machine), 1, file);
 		current = current->next;
 	}
 
+	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
+	{
+		return false;
+	}
+
+	fclose(file);
+
 	return true;
+}
+
+Machine* readMachines(char fileName[])
+{
+	Machine* current = (Machine*)malloc(sizeof(Machine));
+	Machine* head = NULL;
+	Machine* last = NULL;
+
+	FILE* file = NULL;
+	file = fopen(fileName, "r");
+	if (file == NULL) // se não foi possível abrir o ficheiro
+	{
+		return NULL;
+	}
+
+	while (fread(current, sizeof(Machine), 1, file)) // ler todos os elementos da lista do ficheiro
+	{
+		if (head == NULL) // ler o primeiro elemento
+		{
+			head = last = (Job*)malloc(sizeof(Job));
+		}
+		else // ler os restantes elementos
+		{
+			last->next = (Machine*)malloc(sizeof(Machine));
+			last = last->next;
+		}
+
+		last->id = current->id;
+		last->isActive = current->isActive;
+		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+	}
+
+	fclose(file);
+
+	return head;
 }
 
 bool searchMachine(Machine* head, int id)
