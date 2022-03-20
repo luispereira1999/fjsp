@@ -22,7 +22,7 @@ int main()
 	Operation* operations = NULL;
 	Machine* machines = NULL;
 	OperationExecution* operationsExecution = NULL;
-	
+
 	int menuOption = 0;
 
 	do
@@ -127,14 +127,10 @@ int main()
 			// Carregar dados da tabela para listas
 			loadData(&jobs, &machines, &operations, &operationsExecution);
 			// Guardar os dados em ficheiros
-			if (writeJobs("jobs.data", jobs) && writeOperations("operations.data", operations) && writeMachines("machines.data", machines) && writeOperationsExecution("operations-execution.data", operationsExecution))
-			{
-				printf("Dados guardados com sucesso!\n");
-			}
-			else
-			{
-				printf("Não foi possível guardar os dados.\n");
-			}
+			writeJobs("jobs.data", jobs);
+			writeOperations("operations.data", operations);
+			writeMachines("machines.data", machines);
+			writeOperationsExecution("operations-execution.data", operationsExecution);
 			break;
 
 		case 3: // testes
