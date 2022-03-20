@@ -108,6 +108,26 @@ Operation* readOperations(char fileName[])
 	return head;
 }
 
+bool displayOperations(Operation* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	Operation* current = head;
+
+	printf("Operações: ");
+	while (current != NULL)
+	{
+		printf("ID: %d, ID Trabalho: %d, Posição: %d -> ", current->id, current->jobID, current->position);
+		current = current->next;
+	}
+	printf("\n");
+
+	return true;
+}
+
 PerformOperation* newPerformOperation(int operationID, int machineID, int usageTime)
 {
 	PerformOperation* new = (PerformOperation*)malloc(sizeof(PerformOperation));

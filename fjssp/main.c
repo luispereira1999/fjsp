@@ -67,6 +67,7 @@ int main()
 			machines = readMachines("machines.bin");
 			// Mostrar dados na consola
 			displayJobs(jobs);
+			displayOperations(operations);
 			displayMachines(machines);
 			// Remover operação
 			// Atualizar operação
