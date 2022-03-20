@@ -88,7 +88,7 @@ Machine* readMachines(char fileName[])
 	{
 		if (head == NULL) // ler o primeiro elemento
 		{
-			head = last = (Job*)malloc(sizeof(Job));
+			head = last = (Machine*)malloc(sizeof(Machine));
 		}
 		else // ler os restantes elementos
 		{

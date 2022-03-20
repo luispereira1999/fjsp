@@ -35,13 +35,13 @@ typedef struct Operation
 	struct Operation* next;
 } Operation;
 
-typedef struct PerformOperation
+typedef struct OperationExecution
 {
 	int operationID;
 	int machineID;
 	int usageTime; // unidades de tempo necessária para a realização da operação
-	struct PerformOperation* next;
-} PerformOperation;
+	struct OperationExecution* next;
+} OperationExecution;
 
 typedef struct Machine
 {
@@ -72,8 +72,10 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
 bool displayOperations(Operation* head);
-PerformOperation* newPerformOperation(int operationID, int machineID, int usageTime);
-PerformOperation* insertPerformOperationAtStart(PerformOperation* head, PerformOperation* performOperationToInsert);
+OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);
+OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert);
+bool writeOperationsExecution(char fileName[], OperationExecution* head);
+OperationExecution* readOperationsExecution(char fileName[]);
 
 // sobre machines
 Machine* newMachine(int id, bool isActive);

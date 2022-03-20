@@ -10,6 +10,8 @@ Criação:             14/03/2022
 #include <string.h>
 #include "header.h"
 
+#pragma region operations
+
 Operation* newOperation(int id, int jobID, int position)
 {
 	Operation* new = (Operation*)malloc(sizeof(Operation));
@@ -89,7 +91,7 @@ Operation* readOperations(char fileName[])
 	{
 		if (head == NULL) // ler o primeiro elemento
 		{
-			head = last = (Job*)malloc(sizeof(Job));
+			head = last = (Operation*)malloc(sizeof(Operation));
 		}
 		else // ler os restantes elementos
 		{
@@ -128,9 +130,13 @@ bool displayOperations(Operation* head)
 	return true;
 }
 
-PerformOperation* newPerformOperation(int operationID, int machineID, int usageTime)
+#pragma endregion
+
+#pragma region execução de operações
+
+OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime)
 {
-	PerformOperation* new = (PerformOperation*)malloc(sizeof(PerformOperation));
+	OperationExecution* new = (OperationExecution*)malloc(sizeof(OperationExecution));
 	if (new == NULL) // se não houver memória para alocar
 	{
 		return NULL;
@@ -144,17 +150,86 @@ PerformOperation* newPerformOperation(int operationID, int machineID, int usageT
 	return new;
 }
 
-PerformOperation* insertPerformOperationAtStart(PerformOperation* head, PerformOperation* performOperationToInsert)
+OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
-		head = performOperationToInsert;
+		head = operationExecutionToInsert;
 	}
 	else // se existir algum elemento na lista
 	{
-		performOperationToInsert->next = head;
-		head = performOperationToInsert;
+		operationExecutionToInsert->next = head;
+		head = operationExecutionToInsert;
 	}
 
 	return head;
 }
+
+bool writeOperationsExecution(char fileName[], OperationExecution* head)
+{
+	if (head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
+	FILE* file = NULL;
+	file = fopen(fileName, "w");
+	if (file == NULL) // se não foi possível abrir o ficheiro
+	{
+		return false;
+	}
+
+	OperationExecution* current = head;
+	while (current != NULL) // escrever todos os elementos da lista no ficheiro
+	{
+		fwrite(current, sizeof(OperationExecution), 1, file);
+		current = current->next;
+	}
+
+	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
+	{
+		return false;
+	}
+
+	fclose(file);
+
+	return true;
+}
+
+OperationExecution* readOperationsExecution(char fileName[])
+{
+	OperationExecution* current = (OperationExecution*)malloc(sizeof(OperationExecution));
+	OperationExecution* head = NULL;
+	OperationExecution* last = NULL;
+
+	FILE* file = NULL;
+	file = fopen(fileName, "r");
+	if (file == NULL) // se não foi possível abrir o ficheiro
+	{
+		return NULL;
+	}
+
+	while (fread(current, sizeof(OperationExecution), 1, file)) // ler todos os elementos da lista do ficheiro
+	{
+		if (head == NULL) // ler o primeiro elemento
+		{
+			head = last = (OperationExecution*)malloc(sizeof(OperationExecution));
+		}
+		else // ler os restantes elementos
+		{
+			last->next = (OperationExecution*)malloc(sizeof(OperationExecution));
+			last = last->next;
+		}
+
+		last->operationID = current->operationID;
+		last->machineID = current->machineID;
+		last->usageTime = current->usageTime;
+		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+	}
+
+	fclose(file);
+
+	return head;
+}
+
+#pragma endregion
