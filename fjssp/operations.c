@@ -197,6 +197,39 @@ OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, Op
 	return head;
 }
 
+bool deleteOperationExecution(OperationExecution** head, int operationID)
+{
+	if (*head == NULL)
+	{
+		return false;
+	}
+
+	OperationExecution* current = *head;
+	OperationExecution* previous = NULL;
+
+	if (current != NULL && current->operationID == operationID) { // se o elemento que será apagado é o primeiro da lista
+		*head = current->next;
+		free(current);
+		return true;
+	}
+
+	while (current != NULL && current->operationID != operationID) // procurar o elemento a ser apagado
+	{
+		previous = current;
+		current = current->next;
+	}
+
+	if (current == NULL) // se o elemento não foi encontrado
+	{
+		return false;
+	}
+
+	previous->next = current->next; // desassociar o elemento da lista
+	free(current);
+
+	return true;
+}
+
 bool writeOperationsExecution(char fileName[], OperationExecution* head)
 {
 	if (head == NULL) // se lista está vazia

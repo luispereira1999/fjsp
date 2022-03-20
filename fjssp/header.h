@@ -84,6 +84,7 @@ bool displayOperations(Operation* head);
 // sobre operations - operations execution
 OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);
 OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert);
+bool deleteOperationExecution(OperationExecution** head, int operationID);
 bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);
 bool displayOperationsExecution(OperationExecution* head);
