@@ -22,7 +22,7 @@ int main()
 	Operation* operations = NULL;
 	Machine* machines = NULL;
 	OperationExecution* operationsExecution = NULL;
-
+	
 	int menuOption = 0;
 
 	do
@@ -31,8 +31,8 @@ int main()
 		printf("---------------------------------\n\n");
 		printf("   M E N U\n\n");
 		printf("   1 -> Fase 1.\n");
-		printf("   2 -> Testes.\n");
-		printf("   3 -> Criar dados da tabela e guardar em ficheiros.\n\n");
+		printf("   2 -> Criar dados (tabela).\n");
+		printf("   3 -> Testes.\n\n");
 		printf("   © Luís Pereira | 2022\n\n");
 		printf("---------------------------------\n");
 
@@ -43,40 +43,30 @@ int main()
 		{
 		case 1: // Fase 1
 
-			/*
-			// Inserir job
-			job = newJob(1);
-			jobs = insertJobAtStart(jobs, job);
-			// Inserir máquina
-			machine = newMachine(1, false);
-			machines = insertMachineAtStart(machines, machine);
-			// Inserir operação
-			operation = newOperation(1, 1, 1);
-			operations = insertOperationAtStart(operations, operation);
-			// Inserir execução de uma operação
-			operationExecution = newOperationExecution(1, 1, 3);
-			operationsExecution = insertOperationAtStart(operationsExecution, operationExecution);
-			// Guardar as inserções em ficheiros
-			writeJobs("jobs.bin", jobs);
-			writeMachines("machines.bin", machines);
-			writeOperations("operations.bin", operations);
-			writeOperationsExecution("operations-execution.bin", operationsExecution);
-			*/
+			// Carregar dados (tabela) para as listas
+			loadData(&jobs, &machines, &operations, &operationsExecution);
+			// Guardar os dados em ficheiros
+			writeJobs("jobs.data", jobs);
+			writeOperations("operations.data", operations);
+			writeMachines("machines.data", machines);
+			writeOperationsExecution("operations-execution.data", operationsExecution);
+
+			// Libertar memória das listas anteriores, para serem lidas dos ficheiros
+			freeJobs(jobs);
+			freeMachines(machines);
+			freeOperations(operations);
+			freeOperationsExecution(operationsExecution);
+			//operationsExecution = NULL;
 			// Ler dados de ficheiros
-			jobs = readJobs("jobs.bin");
-			machines = readMachines("machines.bin");
-			operations = readOperations("operations.bin");
-			operationsExecution = readOperationsExecution("operations-execution.bin");
-			// Mostrar dados na consola
-			displayJobs(jobs);
-			displayMachines(machines);
-			displayOperations(operations);
-			displayOperationsExecution(operationsExecution);
+			jobs = readJobs("jobs.data");
+			machines = readMachines("machines.data");
+			operations = readOperations("operations.data");
+			operationsExecution = readOperationsExecution("operations-execution.data");
+
 			// Remover operação
 			if (deleteOperation(&operations, 33))
 			{
 				printf("Operação removida com sucesso!\n");
-				displayOperations(operations);
 
 				int allFound = false;
 				while (allFound == false)
@@ -93,8 +83,6 @@ int main()
 						allFound = true;
 					}
 				}
-
-				displayOperationsExecution(operationsExecution);
 			}
 			// Atualizar operação
 			Operation* operationToUpdate = getOperation(operations, 31);
@@ -103,69 +91,43 @@ int main()
 			{
 				printf("Operação atualizada com sucesso!\n");
 			}
+
+			// Inserir novo trabalho
+			job = newJob(9);
+			jobs = insertJobAtStart(jobs, job);
+			// Inserir nova máquina
+			machine = newMachine(9, false);
+			machines = insertMachineAtStart(machines, machine);
+			// Inserir nova operação
+			operation = newOperation(39, 2, 8);
+			operations = insertOperationAtStart(operations, operation);
+			// Inserir nova execução de uma operação
+			operationExecution = newOperationExecution(39, 5, 22);
+			operationsExecution = insertOperationAtStart(operationsExecution, operationExecution);
+			// Guardar as novas inserções em ficheiros
+			writeJobs("jobs.data", job);
+			writeMachines("machines.data", machines);
+			writeOperations("operations.data", operations);
+			writeOperationsExecution("operations-execution.data", operationsExecution);
+
+			// Mostrar dados na consola
+			displayJobs(jobs);
+			displayMachines(machines);
 			displayOperations(operations);
+			displayOperationsExecution(operationsExecution);
+			// Libertar memória
+			freeJobs(jobs);
+			freeMachines(machines);
+			freeOperations(operations);
+			freeOperationsExecution(operationsExecution);
 			break;
 
-		case 2: // testes
+		case 2: // criar dados (tabela) e guardar em ficheiros
 
-			//Job * jobTest = newJob("prTest");
-			//jobs = insertJobAtStart(jobs, jobTest);
-
-			//Machine* machine1 = NULL;
-			//Machine* machine2 = NULL;
-			//Operation* operation1 = newOperation(4, machine1);
-			//Operation* operation2 = newOperation(5, machine2);
-			//operations = insertOperationAtStart(operations, operation1);
-			//operations = insertOperationAtStart(operations, operation2); */
-
-			//displayJobs(jobs);
-
-			//if (searchJob(jobs, 1))
-			//{
-				//printf("Job encontrado!\n");
-			//}
-			//else
-			//{
-				//printf("Não foi encontrado nenhum job.\n");
-			//}
-
-			//if (searchJob(jobs, 2))
-			//{
-				//Job* jobObtained2 = getJob(jobs, 2);
-				//printf("Obtido o job: %d\n", jobObtained2->id);
-			//}
-			//else
-			//{
-				//printf("NÃo foi obtido nenhum job.\n");
-			//}
-
-			//strcpy(jobTest->id, "PRT");
-			//jobs = updateJob(jobs, jobTest, 2);
-			//printf("Job atualizado: %d\n", jobs->id);
-
-			//if (searchJob(jobs, 2))
-			//{
-				//Job* jobObtained2 = getJob(jobs, 2);
-				//printf("Obtido o job: %d\n", jobObtained2->id);
-			//}
-			//else
-			//{
-				//printf("Não foi obtido nenhum job.\n");
-			//}
-
-			//int numberOfJobs = getListCount(jobs);
-			//printf("Número de jobs: %d\n", numberOfJobs);
-
-			//printJobs(jobs);
-
-			break;
-
-		case 3: // criar dados da tabela e guardar em ficheiros
-
-			// Carregar dados para listas
+			// Carregar dados da tabela para listas
 			loadData(&jobs, &machines, &operations, &operationsExecution);
 			// Guardar os dados em ficheiros
-			if (writeJobs("jobs.bin", jobs) && writeOperations("operations.bin", operations) && writeMachines("machines.bin", machines) && writeOperationsExecution("operations-execution.bin", operationsExecution))
+			if (writeJobs("jobs.data", jobs) && writeOperations("operations.data", operations) && writeMachines("machines.data", machines) && writeOperationsExecution("operations-execution.data", operationsExecution))
 			{
 				printf("Dados guardados com sucesso!\n");
 			}
@@ -173,16 +135,10 @@ int main()
 			{
 				printf("Não foi possível guardar os dados.\n");
 			}
-			// Mostrar dados na consola
-			displayJobs(jobs);
-			displayMachines(machines);
-			displayOperations(operations);
-			displayOperationsExecution(operationsExecution);
 			break;
 
-		case 4:
-			exit(true);
-			break;
+		case 3: // testes
+
 		default:
 			printf("Opção inválida! Tente novamente.\n\n\n");
 			break;

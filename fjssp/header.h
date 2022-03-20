@@ -64,7 +64,7 @@ Job* updateJob(Job* head, Job* jobToUpdate, int id);
 bool deleteJob(Job** head, int id);
 bool searchJob(Job* head, int id);
 Job* getJob(Job* head, int id);
-bool freeJobsList(Job* head);
+bool freeJobs(Job* head);
 
 // sobre machines
 Machine* newMachine(int id, bool isActive);
@@ -73,6 +73,7 @@ bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
+bool freeMachines(Machine* head);
 
 // sobre operations - operations
 Operation* newOperation(int id, int jobID, int position);
@@ -83,6 +84,7 @@ bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
 bool displayOperations(Operation* head);
 Operation* getOperation(Operation* head, int id);
+bool freeOperations(Operation* head);
 
 // sobre operations - operations execution
 OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);
@@ -92,6 +94,7 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);
 bool displayOperationsExecution(OperationExecution* head);
 bool searchOperationExecution(OperationExecution* head, int operationID);
+bool freeOperationsExecution(OperationExecution* head);
 
 // outros
 int getListCount(Job* head);

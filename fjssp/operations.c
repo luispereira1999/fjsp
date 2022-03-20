@@ -121,6 +121,7 @@ bool writeOperations(char fileName[], Operation* head)
 
 	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
 	{
+		fclose(file);
 		return false;
 	}
 
@@ -203,6 +204,20 @@ Operation* getOperation(Operation* head, int id)
 	}
 
 	return NULL;
+}
+
+bool freeOperations(Operation* head)
+{
+	Operation* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
 }
 
 #pragma endregion
@@ -296,6 +311,7 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head)
 
 	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
 	{
+		fclose(file);
 		return false;
 	}
 
@@ -378,6 +394,20 @@ bool searchOperationExecution(OperationExecution* head, int operationID)
 	}
 
 	return false;
+}
+
+bool freeOperationsExecution(OperationExecution* head)
+{
+	OperationExecution* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
 }
 
 #pragma endregion

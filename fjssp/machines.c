@@ -63,6 +63,7 @@ bool writeMachines(char fileName[], Machine* head)
 
 	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
 	{
+	 	fclose(file);
 		return false;
 	}
 
@@ -144,4 +145,18 @@ bool searchMachine(Machine* head, int id)
 	}
 
 	return false;
+}
+
+bool freeMachines(Machine* head)
+{
+	Machine* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
 }

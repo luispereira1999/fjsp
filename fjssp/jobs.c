@@ -62,6 +62,7 @@ bool writeJobs(char fileName[], Job* head)
 
 	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
 	{
+		fclose(file);
 		return false;
 	}
 
@@ -215,7 +216,7 @@ Job* getJob(Job* head, int id)
 	return NULL;
 }
 
-bool freeJobsList(Job* head)
+bool freeJobs(Job* head)
 {
 	Job* current = NULL;
 
