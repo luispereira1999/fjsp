@@ -66,12 +66,13 @@ bool searchJob(Job* head, int id);
 Job* getJob(Job* head, int id);
 bool freeJobsList(Job* head);
 
-// sobre operations
+// sobre operations - operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
 bool displayOperations(Operation* head);
+// sobre operations - operations execution
 OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);
 OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert);
 bool writeOperationsExecution(char fileName[], OperationExecution* head);

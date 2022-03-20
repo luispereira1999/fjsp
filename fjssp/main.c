@@ -57,18 +57,18 @@ int main()
 			operationsExecution = insertOperationAtStart(operationsExecution, operationExecution);
 			// Guardar as inserções em ficheiros
 			writeJobs("jobs.bin", jobs);
-			writeOperations("operations.bin", operations);
 			writeMachines("machines.bin", machines);
+			writeOperations("operations.bin", operations);
 			writeOperationsExecution("operations-execution.bin", operationsExecution);
 			// Ler dados de ficheiros
 			jobs = readJobs("jobs.bin");
-			operations = readOperations("operations.bin");
 			machines = readMachines("machines.bin");
+			operations = readOperations("operations.bin");
 			operationsExecution = readOperationsExecution("operations-execution.bin");
 			// Mostrar dados na consola
 			displayJobs(jobs);
-			displayOperations(operations);
 			displayMachines(machines);
+			displayOperations(operations);
 			displayOperationsExecution(operationsExecution);
 			// Remover operação
 			// Atualizar operação
