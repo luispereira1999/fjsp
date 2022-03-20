@@ -106,6 +106,26 @@ Machine* readMachines(char fileName[])
 	return head;
 }
 
+bool displayMachines(Machine* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	Machine* current = head;
+
+	printf("Máquinas: ");
+	while (current != NULL)
+	{
+		printf("ID: %d, Ativo?: %s -> ", current->id, current->isActive ? "Sim" : "Não");
+		current = current->next;
+	}
+	printf("\n");
+
+	return true;
+}
+
 bool searchMachine(Machine* head, int id)
 {
 	if (head == NULL)

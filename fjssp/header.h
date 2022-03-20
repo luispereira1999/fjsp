@@ -77,6 +77,7 @@ Machine* newMachine(int id, bool isActive);
 Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
 bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
+bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
 
 // outros

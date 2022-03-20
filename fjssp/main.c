@@ -26,9 +26,6 @@ int main()
 
 	int menuOption = 0;
 
-	machines = readMachines("machines.bin");
-	displayJobs(machines);
-
 	do
 	{
 		// menu da aplicação 
@@ -68,6 +65,7 @@ int main()
 			machines = readMachines("machines.bin");
 			// Mostrar dados na consola
 			displayJobs(jobs);
+			displayMachines(machines);
 			// Remover operação
 			// Atualizar operação
 			break;
