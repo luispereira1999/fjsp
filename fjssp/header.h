@@ -77,6 +77,7 @@ bool searchMachine(Machine* head, int id);
 // sobre operations - operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
+bool updateOperation(Operation** head, Operation* operationToUpdate, int id);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);

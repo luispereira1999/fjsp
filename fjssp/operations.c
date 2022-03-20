@@ -43,6 +43,28 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 	return head;
 }
 
+bool updateOperation(Operation** head, Operation* operationToUpdate, int id)
+{
+	if (*head == NULL)
+	{
+		return false;
+	}
+
+	Operation* current = *head;
+
+	while (current != NULL)
+	{
+		if (current->id == id)
+		{
+			current = operationToUpdate;
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
+}
+
 bool deleteOperation(Operation** head, int id)
 {
 	if (*head == NULL)

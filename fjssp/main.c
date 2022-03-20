@@ -73,32 +73,37 @@ int main()
 			displayOperations(operations);
 			displayOperationsExecution(operationsExecution);
 			// Remover operação
-			//if (deleteOperation(&operations, 33))
-			//{
-			//	printf("Operação removida com sucesso!\n");
-			//	displayOperations(operations);
+			if (deleteOperation(&operations, 33))
+			{
+				printf("Operação removida com sucesso!\n");
+				displayOperations(operations);
 
-			//	int allFound = false;
-			//	while (allFound == false)
-			//	{
-			//		if (searchOperationExecution(operationsExecution, 33))
-			//		{
-			//			if (deleteOperationExecution(&operationsExecution, 33))
-			//			{
-			//				printf("Execução de operação removida com sucesso!\n");
-			//			}
-			//		}
-			//		else
-			//		{
-			//			allFound = true;
-			//		}
-			//	}
+				int allFound = false;
+				while (allFound == false)
+				{
+					if (searchOperationExecution(operationsExecution, 33))
+					{
+						if (deleteOperationExecution(&operationsExecution, 33))
+						{
+							printf("Execução de operação removida com sucesso!\n");
+						}
+					}
+					else
+					{
+						allFound = true;
+					}
+				}
 
-			//	displayOperationsExecution(operationsExecution);
-			//}
+				displayOperationsExecution(operationsExecution);
+			}
 			// Atualizar operação
-			Operation* op = getOperation(operations, 34);
-			printf("op: %d\n", op->id);
+			Operation* operationToUpdate = getOperation(operations, 31);
+			operationToUpdate->position = 17;
+			if (updateOperation(&operations, operationToUpdate, operationToUpdate->id))
+			{
+				printf("Operação atualizada com sucesso!\n");
+			}
+			displayOperations(operations);
 			break;
 
 		case 2: // testes
