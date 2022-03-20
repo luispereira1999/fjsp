@@ -48,7 +48,7 @@ bool writeMachines(char fileName[], Machine* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "a");
+	file = fopen(fileName, "w");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -115,13 +115,12 @@ bool displayMachines(Machine* head)
 
 	Machine* current = head;
 
-	printf("Máquinas: ");
+	printf("Máquinas:\n");
 	while (current != NULL)
 	{
-		printf("ID: %d, Ativo?: %s -> ", current->id, current->isActive ? "Sim" : "Não");
+		printf("ID: %d, Ativo?: %s\n", current->id, current->isActive ? "Sim" : "Não");
 		current = current->next;
 	}
-	printf("\n");
 
 	return true;
 }

@@ -51,7 +51,7 @@ bool writeOperations(char fileName[], Operation* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "a");
+	file = fopen(fileName, "w");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -119,13 +119,12 @@ bool displayOperations(Operation* head)
 
 	Operation* current = head;
 
-	printf("Operações: ");
+	printf("Operações:\n");
 	while (current != NULL)
 	{
-		printf("ID: %d, ID Trabalho: %d, Posição: %d -> ", current->id, current->jobID, current->position);
+		printf("ID: %d, ID Trabalho: %d, Posição: %d\n", current->id, current->jobID, current->position);
 		current = current->next;
 	}
-	printf("\n");
 
 	return true;
 }
@@ -173,7 +172,7 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "a");
+	file = fopen(fileName, "w");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -241,13 +240,12 @@ bool displayOperationsExecution(OperationExecution* head)
 
 	OperationExecution* current = head;
 
-	printf("Execução de Operações: ");
+	printf("Execução de Operações:\n");
 	while (current != NULL)
 	{
-		printf("ID Operação: %d, ID Máquina: %d, Tempo: %d -> ", current->operationID, current->machineID, current->usageTime);
+		printf("ID Operação: %d, ID Máquina: %d, Tempo: %d\n", current->operationID, current->machineID, current->usageTime);
 		current = current->next;
 	}
-	printf("\n");
 
 	return true;
 }

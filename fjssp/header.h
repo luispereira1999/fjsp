@@ -89,6 +89,9 @@ bool searchMachine(Machine* head, int id);
 // outros
 int getListCount(Job* head);
 
+// carregar dados para listas
+void loadData(Job** jobs, Machine** machines, Operation** operations, OperationExecution** operationsExecution);
+
 #pragma endregion
 
 #endif

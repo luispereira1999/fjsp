@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data.c" />
     <ClCompile Include="jobs.c" />
     <ClCompile Include="machines.c" />
     <ClCompile Include="main.c" />

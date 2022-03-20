@@ -47,7 +47,7 @@ bool writeJobs(char fileName[], Job* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "a");
+	file = fopen(fileName, "w");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -113,13 +113,12 @@ bool displayJobs(Job* head)
 
 	Job* current = head;
 
-	printf("Trabalhos: ");
+	printf("Trabalhos:\n");
 	while (current != NULL)
 	{
-		printf("ID: %d -> ", current->id);
+		printf("ID: %d\n", current->id);
 		current = current->next;
 	}
-	printf("\n");
 
 	return true;
 }

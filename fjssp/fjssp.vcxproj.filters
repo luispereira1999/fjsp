@@ -30,6 +30,9 @@
     <ClCompile Include="operations.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">

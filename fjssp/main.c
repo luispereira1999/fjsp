@@ -6,7 +6,6 @@ Criação:             14/03/2022
 */
 
 #include <stdio.h>
-#include <string.h>
 #include <locale.h>
 #include "header.h"
 
@@ -131,7 +130,22 @@ int main()
 
 		case 3: // criar dados da tabela e guardar em ficheiros
 
-
+			// Carregar dados para listas
+			loadData(&jobs, &machines, &operations, &operationsExecution);
+			// Guardar os dados em ficheiros
+			if (writeJobs("jobs.bin", jobs) && writeOperations("operations.bin", operations) && writeMachines("machines.bin", machines) && writeOperationsExecution("operations-execution.bin", operationsExecution))
+			{
+				printf("Dados guardados com sucesso!\n");
+			}
+			else
+			{
+				printf("Não foi possível guardar os dados.\n");
+			}
+			// Mostrar dados na consola
+			displayJobs(jobs);
+			displayMachines(machines);
+			displayOperations(operations);
+			displayOperationsExecution(operationsExecution);
 			break;
 
 		case 4:
