@@ -7,7 +7,6 @@ Criação:             14/03/2022
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "header.h"
 
 Job* newJob(int id)
@@ -47,7 +46,7 @@ bool writeJobs(char fileName[], Job* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "w");
+	file = fopen(fileName, "wb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -58,12 +57,6 @@ bool writeJobs(char fileName[], Job* head)
 	{
 		fwrite(current, sizeof(Job), 1, file);
 		current = current->next;
-	}
-
-	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
-	{
-		fclose(file);
-		return false;
 	}
 
 	fclose(file);
@@ -78,7 +71,7 @@ Job* readJobs(char fileName[])
 	Job* last = NULL;
 
 	FILE* file = NULL;
-	file = fopen(fileName, "r");
+	file = fopen(fileName, "rb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;

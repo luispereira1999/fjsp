@@ -7,7 +7,6 @@ Criação:             14/03/2022
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "header.h"
 
 Machine* newMachine(int id, bool isActive)
@@ -48,7 +47,7 @@ bool writeMachines(char fileName[], Machine* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "w");
+	file = fopen(fileName, "wb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -59,12 +58,6 @@ bool writeMachines(char fileName[], Machine* head)
 	{
 		fwrite(current, sizeof(Machine), 1, file);
 		current = current->next;
-	}
-
-	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
-	{
-	 	fclose(file);
-		return false;
 	}
 
 	fclose(file);
@@ -79,7 +72,7 @@ Machine* readMachines(char fileName[])
 	Machine* last = NULL;
 
 	FILE* file = NULL;
-	file = fopen(fileName, "r");
+	file = fopen(fileName, "rb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;

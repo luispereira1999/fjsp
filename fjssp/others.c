@@ -6,8 +6,6 @@ Criação:             14/03/2022
 */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "header.h"
 
 int getListCount(Job* head)

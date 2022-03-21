@@ -7,7 +7,6 @@ Criação:             14/03/2022
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "header.h"
 
 #pragma region operations
@@ -106,7 +105,7 @@ bool writeOperations(char fileName[], Operation* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "w");
+	file = fopen(fileName, "wb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -117,12 +116,6 @@ bool writeOperations(char fileName[], Operation* head)
 	{
 		fwrite(current, sizeof(Operation), 1, file);
 		current = current->next;
-	}
-
-	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
-	{
-		fclose(file);
-		return false;
 	}
 
 	fclose(file);
@@ -137,13 +130,13 @@ Operation* readOperations(char fileName[])
 	Operation* last = NULL;
 
 	FILE* file = NULL;
-	file = fopen(fileName, "r");
+	file = fopen(fileName, "rb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
 
-	while (fread(current, sizeof(Operation), 1, file)) // ler todos os elementos da lista do ficheiro
+	while (fread(current, sizeof(Operation), 1, file) > 0) // ler todos os elementos da lista do ficheiro
 	{
 		if (head == NULL) // ler o primeiro elemento
 		{
@@ -296,7 +289,7 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "w");
+	file = fopen(fileName, "wb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
@@ -307,12 +300,6 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head)
 	{
 		fwrite(current, sizeof(OperationExecution), 1, file);
 		current = current->next;
-	}
-
-	if (fwrite == 0) // se nenhum elemento foi escrito no ficheiro
-	{
-		fclose(file);
-		return false;
 	}
 
 	fclose(file);
@@ -327,7 +314,7 @@ OperationExecution* readOperationsExecution(char fileName[])
 	OperationExecution* last = NULL;
 
 	FILE* file = NULL;
-	file = fopen(fileName, "r");
+	file = fopen(fileName, "rb");
 	if (file == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;

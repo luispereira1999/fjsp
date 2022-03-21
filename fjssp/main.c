@@ -56,7 +56,11 @@ int main()
 			freeMachines(machines);
 			freeOperations(operations);
 			freeOperationsExecution(operationsExecution);
-			//operationsExecution = NULL;
+			// Depois de libertar memória, definir listas como NULL para evitar erros
+			jobs = NULL;
+			operations = NULL;
+			machines = NULL;
+			operationsExecution = NULL;
 			// Ler dados de ficheiros
 			jobs = readJobs("jobs.data");
 			machines = readMachines("machines.data");
@@ -105,7 +109,7 @@ int main()
 			operationExecution = newOperationExecution(39, 5, 22);
 			operationsExecution = insertOperationAtStart(operationsExecution, operationExecution);
 			// Guardar as novas inserções em ficheiros
-			writeJobs("jobs.data", job);
+			writeJobs("jobs.data", jobs);
 			writeMachines("machines.data", machines);
 			writeOperations("operations.data", operations);
 			writeOperationsExecution("operations-execution.data", operationsExecution);
@@ -120,6 +124,11 @@ int main()
 			freeMachines(machines);
 			freeOperations(operations);
 			freeOperationsExecution(operationsExecution);
+			// Depois de libertar memória, definir listas como NULL para evitar erros
+			jobs = NULL;
+			operations = NULL;
+			machines = NULL;
+			operationsExecution = NULL;
 			break;
 
 		case 2: // criar dados (tabela) e guardar em ficheiros
