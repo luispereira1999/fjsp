@@ -57,23 +57,24 @@ typedef struct Machine
 // sobre jobs
 Job* newJob(int id);
 Job* insertJobAtStart(Job* head, Job* jobToInsert);
-bool writeJobs(char fileName[], Job* head);
-Job* readJobs(char fileName[]);
-bool displayJobs(Job* head);
 Job* updateJob(Job* head, Job* jobToUpdate, int id);
 bool deleteJob(Job** head, int id);
-bool searchJob(Job* head, int id);
-Job* getJob(Job* head, int id);
+bool writeJobs(char fileName[], Job* head);
+Job* readJobs(char fileName[]);
 bool freeJobs(Job* head);
+bool displayJobs(Job* head);
+Job* getJob(Job* head, int id);
+bool searchJob(Job* head, int id);
+int getJobsCount(Job* head);
 
 // sobre machines
 Machine* newMachine(int id, bool isActive);
 Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
 bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
+bool freeMachines(Machine* head);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
-bool freeMachines(Machine* head);
 
 // sobre operations - operations
 Operation* newOperation(int id, int jobID, int position);
@@ -82,9 +83,10 @@ bool updateOperation(Operation** head, Operation* operationToUpdate, int id);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
+bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 Operation* getOperation(Operation* head, int id);
-bool freeOperations(Operation* head);
+int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution);
 
 // sobre operations - operations execution
 OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);
@@ -92,12 +94,9 @@ OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, Op
 bool deleteOperationExecution(OperationExecution** head, int operationID);
 bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);
+bool freeOperationsExecution(OperationExecution* head);
 bool displayOperationsExecution(OperationExecution* head);
 bool searchOperationExecution(OperationExecution* head, int operationID);
-bool freeOperationsExecution(OperationExecution* head);
-
-// outros
-int getListCount(Job* head);
 
 // carregar dados para listas
 void loadData(Job** jobs, Machine** machines, Operation** operations, OperationExecution** operationsExecution);

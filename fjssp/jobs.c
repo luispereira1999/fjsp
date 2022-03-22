@@ -38,6 +38,56 @@ Job* insertJobAtStart(Job* head, Job* jobToInsert)
 	return head;
 }
 
+Job* updateJob(Job* head, Job* jobToUpdate, int id)
+{
+	if (head == NULL)
+	{
+		return NULL;
+	}
+
+	Job* current = head;
+
+	while (current != NULL)
+	{
+		if (current->id == id)
+		{
+			head = jobToUpdate;
+			return current;
+		}
+		current = current->next;
+	}
+
+	return head;
+}
+
+bool deleteJob(Job** head, int id)
+{
+	if (*head == NULL)
+	{
+		return false;
+	}
+
+	Job* current = *head;
+	Job* previous = NULL;
+
+	if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
+		*head = current->next;
+		free(current);
+		return true;
+	}
+
+	while (current != NULL && current->id != id) // procurar o elemento a ser apagado
+	{
+		previous = current;
+		current = current->next;
+	}
+
+	previous->next = current->next; // desassociar o elemento da lista
+	free(current);
+
+	return true;
+}
+
 bool writeJobs(char fileName[], Job* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -98,6 +148,20 @@ Job* readJobs(char fileName[])
 	return head;
 }
 
+bool freeJobs(Job* head)
+{
+	Job* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
+}
+
 bool displayJobs(Job* head)
 {
 	if (head == NULL)
@@ -113,56 +177,6 @@ bool displayJobs(Job* head)
 		printf("ID: %d\n", current->id);
 		current = current->next;
 	}
-
-	return true;
-}
-
-Job* updateJob(Job* head, Job* jobToUpdate, int id)
-{
-	if (head == NULL)
-	{
-		return NULL;
-	}
-
-	Job* current = head;
-
-	while (current != NULL)
-	{
-		if (current->id == id)
-		{
-			head = jobToUpdate;
-			return current;
-		}
-		current = current->next;
-	}
-
-	return head;
-}
-
-bool deleteJob(Job** head, int id)
-{
-	if (*head == NULL)
-	{
-		return false;
-	}
-
-	Job* current = *head;
-	Job* previous = NULL;
-
-	if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
-		*head = current->next;
-		free(current);
-		return true;
-	}
-
-	while (current != NULL && current->id != id) // procurar o elemento a ser apagado
-	{
-		previous = current;
-		current = current->next;
-	}
-
-	previous->next = current->next; // desassociar o elemento da lista
-	free(current);
 
 	return true;
 }
@@ -209,16 +223,21 @@ Job* getJob(Job* head, int id)
 	return NULL;
 }
 
-bool freeJobs(Job* head)
+int getJobsCount(Job* head)
 {
-	Job* current = NULL;
-
-	while (head != NULL)
+	if (head == NULL)
 	{
-		current = head;
-		head = head->next;
-		free(current);
+		return -1;
 	}
 
-	return true;
+	int count = 0;
+	Job* current = head;
+
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
+
+	return count;
 }

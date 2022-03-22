@@ -24,9 +24,6 @@
     <ClCompile Include="machines.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="others.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="operations.c">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -38,6 +38,7 @@ int main()
 
 		printf("Escolha uma das opções acima: ");
 		scanf("%d", &menuOption);
+		printf("\n");
 
 		switch (menuOption)
 		{
@@ -56,7 +57,7 @@ int main()
 			freeMachines(machines);
 			freeOperations(operations);
 			freeOperationsExecution(operationsExecution);
-			// Depois de libertar memória, definir listas como NULL para evitar erros
+			// Depois de libertar memória, definir listas como NULL para evitar possíveis erros
 			jobs = NULL;
 			operations = NULL;
 			machines = NULL;
@@ -114,6 +115,20 @@ int main()
 			writeOperations("operations.data", operations);
 			writeOperationsExecution("operations-execution.data", operationsExecution);
 
+			printf("\n----------------\n\n");
+
+			// Obter o tempo mínimo para completar um job e as respetivas operações
+			//displayOperationsExecution(maxOperations);
+			// Obter o tempo máximo para completar um job
+			OperationExecution* maxOperationsExecution = NULL;
+			int maxTime = getMaxTimeToCompleteJob(operations, operationsExecution, 1, &maxOperationsExecution);
+			printf("Maior tempo necessário para completar o trabalho (%d): %d\n", 1, maxTime);
+			displayOperationsExecution(maxOperationsExecution);
+			// Obter o tempo médio para completar uma operação
+			//getAverageTimeToCompleteOperation();
+
+			printf("\n----------------\n\n");
+
 			// Mostrar dados na consola
 			displayJobs(jobs);
 			displayMachines(machines);
@@ -143,6 +158,7 @@ int main()
 			break;
 
 		case 3: // testes
+			break;
 
 		default:
 			printf("Opção inválida! Tente novamente.\n\n\n");

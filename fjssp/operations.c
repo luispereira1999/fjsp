@@ -159,6 +159,20 @@ Operation* readOperations(char fileName[])
 	return head;
 }
 
+bool freeOperations(Operation* head)
+{
+	Operation* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
+}
+
 bool displayOperations(Operation* head)
 {
 	if (head == NULL)
@@ -199,18 +213,54 @@ Operation* getOperation(Operation* head, int id)
 	return NULL;
 }
 
-bool freeOperations(Operation* head)
+// obter o máximo de tempo necessário para completo um job e as respetivas execução de operações
+int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution)
 {
-	Operation* current = NULL;
-
-	while (head != NULL)
+	if (operations == NULL || operationsExecution == NULL) // se as listas estiverem vazias
 	{
-		current = head;
-		head = head->next;
-		free(current);
+		return -1;
 	}
 
-	return true;
+	int time = 0;
+	int counter = 0;
+
+	Operation* currentOperation = operations;
+	OperationExecution* currentOperationExecution = operationsExecution;
+	OperationExecution* maxOperationExecution = NULL;
+
+	while (currentOperation != NULL) // percorrer lista de operações
+	{
+		if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
+		{
+			while (currentOperationExecution != NULL) // percorrer lista de execução de operações
+			{
+				if (currentOperationExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
+				{
+					// guardar execução de operação com maior tempo de utilização
+					if (currentOperationExecution->usageTime > time)
+					{
+						time = currentOperationExecution->usageTime;
+						maxOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->usageTime);
+					}
+				}
+
+				currentOperationExecution = currentOperationExecution->next;
+			}
+
+			*maxOperationsExecution = insertOperationExecutionAtStart(*maxOperationsExecution, maxOperationExecution);
+
+			// repor lista percorrida (currentOperationExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+			freeOperationsExecution(currentOperationExecution);
+			currentOperationExecution = NULL;
+			currentOperationExecution = operationsExecution;
+			counter += time; // acumular o tempo de utilização de cada execução de operação
+			time = 0; // resetar tempo de utilização para a próxima iteração
+		}
+
+		currentOperation = currentOperation->next;
+	}
+
+	return counter;
 }
 
 #pragma endregion
@@ -343,6 +393,20 @@ OperationExecution* readOperationsExecution(char fileName[])
 	return head;
 }
 
+bool freeOperationsExecution(OperationExecution* head)
+{
+	OperationExecution* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
+}
+
 bool displayOperationsExecution(OperationExecution* head)
 {
 	if (head == NULL)
@@ -381,20 +445,6 @@ bool searchOperationExecution(OperationExecution* head, int operationID)
 	}
 
 	return false;
-}
-
-bool freeOperationsExecution(OperationExecution* head)
-{
-	OperationExecution* current = NULL;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-
-	return true;
 }
 
 #pragma endregion
