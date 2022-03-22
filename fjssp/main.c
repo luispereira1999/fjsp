@@ -13,11 +13,6 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese");
 
-	Job* job = NULL;
-	Machine* machine = NULL;
-	Operation* operation = NULL;
-	OperationExecution* operationExecution = NULL;
-
 	Job* jobs = NULL;
 	Operation* operations = NULL;
 	Machine* machines = NULL;
@@ -98,15 +93,19 @@ int main()
 			}
 
 			// Inserir novo trabalho
+			Job* job = NULL;
 			job = newJob(9);
 			jobs = insertJobAtStart(jobs, job);
 			// Inserir nova máquina
+			Machine* machine = NULL;
 			machine = newMachine(9, false);
 			machines = insertMachineAtStart(machines, machine);
 			// Inserir nova operação
+			Operation* operation = NULL;
 			operation = newOperation(39, 2, 8);
 			operations = insertOperationAtStart(operations, operation);
 			// Inserir nova execução de uma operação
+			OperationExecution* operationExecution = NULL;
 			operationExecution = newOperationExecution(39, 5, 22);
 			operationsExecution = insertOperationAtStart(operationsExecution, operationExecution);
 			// Guardar as novas inserções em ficheiros
@@ -118,7 +117,10 @@ int main()
 			printf("\n----------------\n\n");
 
 			// Obter o tempo mínimo para completar um job e as respetivas operações
-			//displayOperationsExecution(maxOperations);
+			OperationExecution* minOperationsExecution = NULL;
+			int minTime = getMinTimeToCompleteJob(operations, operationsExecution, 1, &minOperationsExecution);
+			printf("Menor tempo necessário para completar o trabalho (%d): %d\n", 1, minTime);
+			displayOperationsExecution(minOperationsExecution);
 			// Obter o tempo máximo para completar um job
 			OperationExecution* maxOperationsExecution = NULL;
 			int maxTime = getMaxTimeToCompleteJob(operations, operationsExecution, 1, &maxOperationsExecution);

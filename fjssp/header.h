@@ -86,6 +86,7 @@ Operation* readOperations(char fileName[]);
 bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 Operation* getOperation(Operation* head, int id);
+int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** minOperationsExecution);
 int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution);
 
 // sobre operations - operations execution

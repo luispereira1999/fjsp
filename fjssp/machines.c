@@ -100,6 +100,20 @@ Machine* readMachines(char fileName[])
 	return head;
 }
 
+bool freeMachines(Machine* head)
+{
+	Machine* current = NULL;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+
+	return true;
+}
+
 bool displayMachines(Machine* head)
 {
 	if (head == NULL)
@@ -138,18 +152,4 @@ bool searchMachine(Machine* head, int id)
 	}
 
 	return false;
-}
-
-bool freeMachines(Machine* head)
-{
-	Machine* current = NULL;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-
-	return true;
 }

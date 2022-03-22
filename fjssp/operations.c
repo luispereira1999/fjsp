@@ -213,6 +213,56 @@ Operation* getOperation(Operation* head, int id)
 	return NULL;
 }
 
+// obter o mínimo de tempo necessário para completo um job e as respetivas execução de operações
+int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** minOperationsExecution)
+{
+	if (operations == NULL || operationsExecution == NULL) // se as listas estiverem vazias
+	{
+		return -1;
+	}
+
+	int time = 99990;
+	int counter = 0;
+
+	Operation* currentOperation = operations;
+	OperationExecution* currentOperationExecution = operationsExecution;
+	Operation* minOperationExecution = NULL;
+
+	while (currentOperation != NULL) // percorrer lista de operações
+	{
+		if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
+		{
+			while (currentOperationExecution != NULL) // percorrer lista de execução de operações
+			{
+				if (currentOperationExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
+				{
+					// guardar execução de operação com menor tempo de utilização
+					if (currentOperationExecution->usageTime < time)
+					{
+						time = currentOperationExecution->usageTime;
+						minOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->usageTime);
+					}
+				}
+
+				currentOperationExecution = currentOperationExecution->next;
+			}
+
+			*minOperationsExecution = insertOperationAtStart(*minOperationsExecution, minOperationExecution);
+
+			// repor lista percorrida (currentOperationExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+			freeOperationsExecution(currentOperationExecution);
+			currentOperationExecution = NULL;
+			currentOperationExecution = operationsExecution;
+			counter += time; // acumular o tempo de utilização de cada execução de operação
+			time = 99990; // resetar tempo para a próxima iteração
+		}
+
+		currentOperation = currentOperation->next;
+	}
+
+	return counter;
+}
+
 // obter o máximo de tempo necessário para completo um job e as respetivas execução de operações
 int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution)
 {
@@ -419,7 +469,7 @@ bool displayOperationsExecution(OperationExecution* head)
 	printf("Execução de Operações:\n");
 	while (current != NULL)
 	{
-		printf("ID Operação: %d, ID Máquina: %d, Tempo: %d\n", current->operationID, current->machineID, current->usageTime);
+		printf("ID Operação: %d, ID Máquina: %d, Tempo de Utilização: %d\n", current->operationID, current->machineID, current->usageTime);
 		current = current->next;
 	}
 
