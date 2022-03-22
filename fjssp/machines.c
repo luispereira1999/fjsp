@@ -9,7 +9,7 @@ Criação:             14/03/2022
 #include <stdlib.h>
 #include "header.h"
 
-Machine* newMachine(int id, bool isActive)
+Machine* newMachine(int id, bool isBusy)
 {
 	Machine* new = (Machine*)malloc(sizeof(Machine));
 	if (new == NULL) // se não houver memória para alocar
@@ -18,7 +18,7 @@ Machine* newMachine(int id, bool isActive)
 	}
 
 	new->id = id;
-	new->isActive = isActive;
+	new->isBusy = isBusy;
 	new->next = NULL;
 
 	return new;
@@ -91,7 +91,7 @@ Machine* readMachines(char fileName[])
 		}
 
 		last->id = current->id;
-		last->isActive = current->isActive;
+		last->isBusy = current->isBusy;
 		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
 	}
 
@@ -126,7 +126,7 @@ bool displayMachines(Machine* head)
 	printf("Máquinas:\n");
 	while (current != NULL)
 	{
-		printf("ID: %d, Ativo?: %s\n", current->id, current->isActive ? "Sim" : "Não");
+		printf("ID: %d, Ocupada?: %s\n", current->id, current->isBusy ? "Sim" : "Não");
 		current = current->next;
 	}
 

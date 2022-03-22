@@ -134,9 +134,9 @@ void loadData(Job** jobs, Machine** machines, Operation** operations, OperationE
 	operation = newOperation(38, 8, 5);
 	*operations = insertOperationAtStart(*operations, operation);
 	// operation execution - job 1
-	operationExecution = newOperationExecution(1, 1, 5);
+	operationExecution = newOperationExecution(1, 1, 4);
 	*operationsExecution = insertOperationExecutionAtStart(*operationsExecution, operationExecution);
-	operationExecution = newOperationExecution(1, 3, 4);
+	operationExecution = newOperationExecution(1, 3, 5);
 	*operationsExecution = insertOperationExecutionAtStart(*operationsExecution, operationExecution);
 	operationExecution = newOperationExecution(2, 2, 4);
 	*operationsExecution = insertOperationExecutionAtStart(*operationsExecution, operationExecution);

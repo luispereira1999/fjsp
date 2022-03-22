@@ -313,6 +313,36 @@ int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operation
 	return counter;
 }
 
+// Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis
+float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution, int operationID)
+{
+	if (operationsExecution == NULL) // se a lista estiver vazia
+	{
+		return -1.0f;
+	}
+
+	int sum = 0;
+	float average = 0;
+	float numberOfOperationsExecution = 0;
+
+	OperationExecution* currentOperationExecution = operationsExecution;
+
+	while (currentOperationExecution != NULL)
+	{
+		if (currentOperationExecution->operationID == operationID) // se encontrar a execucação de operação relativa à operação
+		{
+			sum += currentOperationExecution->usageTime;
+			numberOfOperationsExecution++;
+		}
+
+		currentOperationExecution = currentOperationExecution->next;
+	}
+
+	average = sum / numberOfOperationsExecution;
+
+	return average;
+}
+
 #pragma endregion
 
 #pragma region execução de operações

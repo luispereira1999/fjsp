@@ -46,7 +46,7 @@ typedef struct OperationExecution
 typedef struct Machine
 {
 	int id;
-	bool isActive; // se a máquina está ou não em utilização
+	bool isBusy; // se a máquina está ou não em utilização
 	struct Machine* next;
 } Machine;
 
@@ -68,7 +68,7 @@ bool searchJob(Job* head, int id);
 int getJobsCount(Job* head);
 
 // sobre machines
-Machine* newMachine(int id, bool isActive);
+Machine* newMachine(int id, bool isBusy);
 Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
 bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
@@ -88,6 +88,7 @@ bool displayOperations(Operation* head);
 Operation* getOperation(Operation* head, int id);
 int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** minOperationsExecution);
 int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution);
+float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution, int operationID);
 
 // sobre operations - operations execution
 OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);

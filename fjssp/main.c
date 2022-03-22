@@ -127,7 +127,8 @@ int main()
 			printf("Maior tempo necessário para completar o trabalho (%d): %d\n", 1, maxTime);
 			displayOperationsExecution(maxOperationsExecution);
 			// Obter o tempo médio para completar uma operação
-			//getAverageTimeToCompleteOperation();
+			float average = getAverageTimeToCompleteOperation(operationsExecution, 1);
+			printf("Média de tempo necessário para completar a operação (%d): %.2f\n", 1, average);
 
 			printf("\n----------------\n\n");
 
