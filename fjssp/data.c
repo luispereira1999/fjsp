@@ -1,8 +1,8 @@
 /*
 Descrição:           Ficheiro com função para carregar dados
 Desenvolvedor(es):   Luís Pereira (18446)
-Criação:             14/03/2022
-Última atualização:  31/03/2022
+Última atualização:  25/03/2022
+Criação:             19/03/2022
 */
 
 #include <stdio.h>

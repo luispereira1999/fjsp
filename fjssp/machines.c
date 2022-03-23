@@ -1,8 +1,8 @@
 /*
-Descrição:           Ficheiro com todas as funções e procedimentos relativos às machines
+Descrição:           Ficheiro com todas as funções e procedimentos relativos às máquinas
 Desenvolvedor(es):   Luís Pereira (18446)
-Criação:             14/03/2022
-Última atualização:  31/03/2022
+Última atualização:  25/03/2022
+Criação:             17/03/2022
 */
 
 #include <stdio.h>
@@ -102,6 +102,11 @@ Machine* readMachines(char fileName[])
 
 bool freeMachines(Machine* head)
 {
+	if (head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
 	Machine* current = NULL;
 
 	while (head != NULL)
@@ -116,7 +121,7 @@ bool freeMachines(Machine* head)
 
 bool displayMachines(Machine* head)
 {
-	if (head == NULL)
+	if (head == NULL) // se lista está vazia
 	{
 		return false;
 	}
@@ -135,7 +140,7 @@ bool displayMachines(Machine* head)
 
 bool searchMachine(Machine* head, int id)
 {
-	if (head == NULL)
+	if (head == NULL) // se lista está vazia
 	{
 		return false;
 	}

@@ -1,8 +1,8 @@
 /*
-Descrição:           Ficheiro principal da aplicação
+Descrição:           Ficheiro principal da aplicação, com menu e chamada de funções
 Desenvolvedor(es):   Luís Pereira (18446)
+Última atualização:  25/03/2022
 Criação:             14/03/2022
-Última atualização:  31/03/2022
 */
 
 #include <stdio.h>
@@ -64,33 +64,30 @@ int main()
 			operationsExecution = readOperationsExecution("operations-execution.data");
 
 			// Remover operação
-			if (deleteOperation(&operations, 33))
+			deleteOperation(&operations, 33);
+			printf("Operação (%d) removida com sucesso!\n", 33);
+			bool allFound = false;
+			while (allFound == false) // enquanto que encontrar operações, remover execução de operações associadas
 			{
-				printf("Operação removida com sucesso!\n");
-
-				int allFound = false;
-				while (allFound == false)
+				if (searchOperationExecution(operationsExecution, 33))
 				{
-					if (searchOperationExecution(operationsExecution, 33))
-					{
-						if (deleteOperationExecution(&operationsExecution, 33))
-						{
-							printf("Execução de operação removida com sucesso!\n");
-						}
-					}
-					else
-					{
-						allFound = true;
-					}
+					deleteOperationExecution(&operationsExecution, 33);
+					printf("Execução de operação associada à operação (%d) removida com sucesso!\n", 33);
+				}
+				else
+				{
+					allFound = true;
 				}
 			}
-			// Atualizar operação
-			Operation* operationToUpdate = getOperation(operations, 31);
-			operationToUpdate->position = 17;
-			if (updateOperation(&operations, operationToUpdate, operationToUpdate->id))
-			{
-				printf("Operação atualizada com sucesso!\n");
-			}
+			// Atualizar a posição da operação num determinado job
+			displayOperations(operations);
+			bool a = changeOperationPosition(&operations, 1, 4, 2);
+			printf("|%s|\n\n", a ? "Sim" : "Não");
+			displayOperations(operations);
+
+			//updateJobInOperation(&operations, 1, 8);
+			//printf("Operação (%d) atualizada com sucesso! O ID do trabalho foi alterado para %d.\n", 1, 8);
+			// Atualizar execução de operação
 
 			// Inserir novo trabalho
 			Job* job = NULL;

@@ -1,8 +1,8 @@
 /*
 Descrição:           Ficheiro com todas as declarações necessárias para a fase 1 da aplicação
 Desenvolvedor(es):   Luís Pereira (18446)
+Última atualização:  25/03/2022
 Criação:             14/03/2022
-Última atualização:  31/03/2022
 */
 
 #ifndef HEADER_H
@@ -27,28 +27,28 @@ typedef struct Job
 	struct Job* next;
 } Job;
 
-typedef struct Operation
-{
-	int id;
-	int jobID;
-	int position; // posição da operação (se será a 1º, 2º, 3º... a ser executada)
-	struct Operation* next;
-} Operation;
-
-typedef struct OperationExecution
-{
-	int operationID;
-	int machineID;
-	int usageTime; // unidades de tempo necessária para a realização da operação
-	struct OperationExecution* next;
-} OperationExecution;
-
 typedef struct Machine
 {
 	int id;
 	bool isBusy; // se a máquina está ou não em utilização
 	struct Machine* next;
 } Machine;
+
+typedef struct OperationExecution
+{
+	int operationID;
+	int machineID;
+	int usageTime; // unidades de tempo necessária para a execução da operação
+	struct OperationExecution* next;
+} OperationExecution;
+
+typedef struct Operation
+{
+	int id;
+	int jobID;
+	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
+	struct Operation* next;
+} Operation;
 
 #pragma endregion
 
@@ -65,7 +65,6 @@ bool freeJobs(Job* head);
 bool displayJobs(Job* head);
 Job* getJob(Job* head, int id);
 bool searchJob(Job* head, int id);
-int getJobsCount(Job* head);
 
 // sobre machines
 Machine* newMachine(int id, bool isBusy);
@@ -79,7 +78,7 @@ bool searchMachine(Machine* head, int id);
 // sobre operations - operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
-bool updateOperation(Operation** head, Operation* operationToUpdate, int id);
+bool changeOperationPosition(Operation** head, int jobID, int oldPosition, int newPosition);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);

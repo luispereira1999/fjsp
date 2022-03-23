@@ -1,8 +1,8 @@
 /*
-Descrição:           Ficheiro com todas as funções e procedimentos relativos aos jobs
+Descrição:           Ficheiro com todas as funções e procedimentos relativos aos trabalhos
 Desenvolvedor(es):   Luís Pereira (18446)
-Criação:             14/03/2022
-Última atualização:  31/03/2022
+Última atualização:  25/03/2022
+Criação:             15/03/2022
 */
 
 #include <stdio.h>
@@ -40,7 +40,7 @@ Job* insertJobAtStart(Job* head, Job* jobToInsert)
 
 Job* updateJob(Job* head, Job* jobToUpdate, int id)
 {
-	if (head == NULL)
+	if (head == NULL) // se lista está vazia
 	{
 		return NULL;
 	}
@@ -62,7 +62,7 @@ Job* updateJob(Job* head, Job* jobToUpdate, int id)
 
 bool deleteJob(Job** head, int id)
 {
-	if (*head == NULL)
+	if (*head == NULL) // se lista está vazia
 	{
 		return false;
 	}
@@ -150,6 +150,11 @@ Job* readJobs(char fileName[])
 
 bool freeJobs(Job* head)
 {
+	if (head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
 	Job* current = NULL;
 
 	while (head != NULL)
@@ -164,7 +169,7 @@ bool freeJobs(Job* head)
 
 bool displayJobs(Job* head)
 {
-	if (head == NULL)
+	if (head == NULL) // se lista está vazia
 	{
 		return false;
 	}
@@ -183,7 +188,7 @@ bool displayJobs(Job* head)
 
 bool searchJob(Job* head, int id)
 {
-	if (head == NULL)
+	if (head == NULL) // se lista está vazia
 	{
 		return false;
 	}
@@ -204,7 +209,7 @@ bool searchJob(Job* head, int id)
 
 Job* getJob(Job* head, int id)
 {
-	if (head == NULL)
+	if (head == NULL) // se lista está vazia
 	{
 		return NULL;
 	}
@@ -221,23 +226,4 @@ Job* getJob(Job* head, int id)
 	}
 
 	return NULL;
-}
-
-int getJobsCount(Job* head)
-{
-	if (head == NULL)
-	{
-		return -1;
-	}
-
-	int count = 0;
-	Job* current = head;
-
-	while (current != NULL)
-	{
-		count++;
-		current = current->next;
-	}
-
-	return count;
 }

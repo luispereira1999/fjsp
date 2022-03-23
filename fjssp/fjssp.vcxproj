@@ -143,6 +143,7 @@
     <ClCompile Include="jobs.c" />
     <ClCompile Include="machines.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="operations-execution.c" />
     <ClCompile Include="operations.c" />
   </ItemGroup>
   <ItemGroup>
