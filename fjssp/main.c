@@ -46,6 +46,7 @@ int main()
 			writeOperations("operations.data", operations);
 			writeMachines("machines.data", machines);
 			writeOperationsExecution("operations-execution.data", operationsExecution);
+			printf("Dados exportados com sucesso!\n");
 
 			// Libertar memória das listas anteriores, para serem lidas dos ficheiros
 			freeJobs(jobs);
@@ -62,17 +63,18 @@ int main()
 			machines = readMachines("machines.data");
 			operations = readOperations("operations.data");
 			operationsExecution = readOperationsExecution("operations-execution.data");
+			printf("Dados importados com sucesso!\n");
 
 			// Remover operação
 			deleteOperation(&operations, 33);
-			printf("Operação (%d) removida com sucesso!\n", 33);
+			printf("Operação removida com sucesso!\n");
 			bool allFound = false;
 			while (allFound == false) // enquanto que encontrar operações, remover execução de operações associadas
 			{
 				if (searchOperationExecution(operationsExecution, 33))
 				{
 					deleteOperationExecution(&operationsExecution, 33);
-					printf("Execução de operação associada à operação (%d) removida com sucesso!\n", 33);
+					printf("Execução de operação associada à operação removida com sucesso!\n");
 				}
 				else
 				{
@@ -80,7 +82,11 @@ int main()
 				}
 			}
 			// Atualizar a posição da operação num determinado job
-			changeOperationPosition(&operations, jobs, 321, 2, 4);
+			updateOperationPosition(&operations, jobs, 1, 4, 2);
+			printf("Posição da operação atualizada com sucesso!\n");
+			// Atualizar o tempo necessário para uma execução da operação
+			updateRuntime(&operationsExecution, 2, 2, 10);
+			printf("Tempo necessário para a execução da operação atualizada com sucesso!\n");
 
 			// Inserir novo trabalho
 			Job* job = NULL;
@@ -103,30 +109,39 @@ int main()
 			writeMachines("machines.data", machines);
 			writeOperations("operations.data", operations);
 			writeOperationsExecution("operations-execution.data", operationsExecution);
+			printf("Novos dados exportados com sucesso!\n");
 
 			printf("\n----------------\n\n");
 
 			// Obter o tempo mínimo para completar um job e as respetivas operações
 			OperationExecution* minOperationsExecution = NULL;
 			int minTime = getMinTimeToCompleteJob(operations, operationsExecution, 1, &minOperationsExecution);
-			printf("Menor tempo necessário para completar o trabalho (%d): %d\n", 1, minTime);
+			printf("Menor tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, minTime);
+			printf("Operações com menor tempo:\n");
 			displayOperationsExecution(minOperationsExecution);
 			// Obter o tempo máximo para completar um job
 			OperationExecution* maxOperationsExecution = NULL;
 			int maxTime = getMaxTimeToCompleteJob(operations, operationsExecution, 1, &maxOperationsExecution);
-			printf("Maior tempo necessário para completar o trabalho (%d): %d\n", 1, maxTime);
+			printf("Maior tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, maxTime);
+			printf("Operações com maior tempo:\n");
 			displayOperationsExecution(maxOperationsExecution);
 			// Obter o tempo médio para completar uma operação
 			float average = getAverageTimeToCompleteOperation(operationsExecution, 1);
-			printf("Média de tempo necessário para completar a operação (%d): %.2f\n", 1, average);
+			printf("Média de tempo necessário para completar a operação(ID: %d) é %.2f!\n", 1, average);
 
 			printf("\n----------------\n\n");
 
 			// Mostrar dados na consola
+			printf("Trabalhos:\n");
 			displayJobs(jobs);
+			printf("Máquinas:\n");
 			displayMachines(machines);
+			printf("Operações:\n");
 			displayOperations(operations);
+			printf("Execução de Operações:\n");
 			displayOperationsExecution(operationsExecution);
+			printf("Dados mostrados com sucesso!\n");
+
 			// Libertar memória
 			freeJobs(jobs);
 			freeMachines(machines);
@@ -148,6 +163,16 @@ int main()
 			writeOperations("operations.data", operations);
 			writeMachines("machines.data", machines);
 			writeOperationsExecution("operations-execution.data", operationsExecution);
+			// Libertar memória
+			freeJobs(jobs);
+			freeMachines(machines);
+			freeOperations(operations);
+			freeOperationsExecution(operationsExecution);
+			// Depois de libertar memória, definir listas como NULL para evitar erros
+			jobs = NULL;
+			operations = NULL;
+			machines = NULL;
+			operationsExecution = NULL;
 			break;
 
 		case 3: // testes

@@ -38,7 +38,7 @@ typedef struct OperationExecution
 {
 	int operationID;
 	int machineID;
-	int usageTime; // unidades de tempo necessária para a execução da operação
+	int runtime; // unidades de tempo necessária para a execução da operação
 	struct OperationExecution* next;
 } OperationExecution;
 
@@ -78,7 +78,7 @@ bool searchMachine(Machine* head, int id);
 // sobre operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
-bool changeOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition);
+bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
@@ -90,8 +90,9 @@ int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operation
 float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution, int operationID);
 
 // sobre operations execution
-OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);
+OperationExecution* newOperationExecution(int operationID, int machineID, int runtime);
 OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert);
+bool updateRuntime(OperationExecution** head, int operationID, int machineID, int runtime);
 bool deleteOperationExecution(OperationExecution** head, int operationID);
 bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);

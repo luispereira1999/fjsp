@@ -176,10 +176,9 @@ bool displayJobs(Job* head)
 
 	Job* current = head;
 
-	printf("Trabalhos:\n");
 	while (current != NULL)
 	{
-		printf("ID: %d\n", current->id);
+		printf("ID: %d;\n", current->id);
 		current = current->next;
 	}
 

@@ -9,7 +9,7 @@ Criação:             23/03/2022
 #include <stdlib.h>
 #include "header.h"
 
-OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime)
+OperationExecution* newOperationExecution(int operationID, int machineID, int runtime)
 {
 	OperationExecution* new = (OperationExecution*)malloc(sizeof(OperationExecution));
 	if (new == NULL) // se não houver memória para alocar
@@ -19,7 +19,7 @@ OperationExecution* newOperationExecution(int operationID, int machineID, int us
 
 	new->operationID = operationID;
 	new->machineID = machineID;
-	new->usageTime = usageTime;
+	new->runtime = runtime;
 	new->next = NULL;
 
 	return new;
@@ -38,6 +38,29 @@ OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, Op
 	}
 
 	return head;
+}
+
+// atualizar as unidades de tempo necessárias para a execução da operação
+bool updateRuntime(OperationExecution** head, int operationID, int machineID, int runtime)
+{
+	if (*head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
+	OperationExecution* current = *head;
+
+	while (current != NULL)
+	{
+		if (current->operationID == operationID && current->machineID == machineID)
+		{
+			current->runtime = runtime;
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
 }
 
 bool deleteOperationExecution(OperationExecution** head, int operationID)
@@ -126,7 +149,7 @@ OperationExecution* readOperationsExecution(char fileName[])
 
 		last->operationID = current->operationID;
 		last->machineID = current->machineID;
-		last->usageTime = current->usageTime;
+		last->runtime = current->runtime;
 		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
 	}
 
@@ -163,10 +186,9 @@ bool displayOperationsExecution(OperationExecution* head)
 
 	OperationExecution* current = head;
 
-	printf("Execução de Operações:\n");
 	while (current != NULL)
 	{
-		printf("ID Operação: %d, ID Máquina: %d, Tempo de Utilização: %d\n", current->operationID, current->machineID, current->usageTime);
+		printf("ID Operação: %d, ID Máquina: %d, Tempo de Execução: %d;\n", current->operationID, current->machineID, current->runtime);
 		current = current->next;
 	}
 

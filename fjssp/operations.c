@@ -41,7 +41,7 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 }
 
 // trocar a ordem da posição de uma operação, num determinado job
-bool changeOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition)
+bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition)
 {
 	if (*head == NULL) // se a lista estiver vazia
 	{
@@ -229,10 +229,9 @@ bool displayOperations(Operation* head)
 
 	Operation* current = head;
 
-	printf("Operações:\n");
 	while (current != NULL)
 	{
-		printf("ID: %d, ID Trabalho: %d, Posição: %d\n", current->id, current->jobID, current->position);
+		printf("ID: %d, ID Trabalho: %d, Posição: %d;\n", current->id, current->jobID, current->position);
 		current = current->next;
 	}
 
@@ -284,10 +283,10 @@ int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operation
 				if (currentOperationExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
 				{
 					// guardar execução de operação com menor tempo de utilização
-					if (currentOperationExecution->usageTime < time)
+					if (currentOperationExecution->runtime < time)
 					{
-						time = currentOperationExecution->usageTime;
-						minOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->usageTime);
+						time = currentOperationExecution->runtime;
+						minOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->runtime);
 					}
 				}
 
@@ -334,10 +333,10 @@ int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operation
 				if (currentOperationExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
 				{
 					// guardar execução de operação com maior tempo de utilização
-					if (currentOperationExecution->usageTime > time)
+					if (currentOperationExecution->runtime > time)
 					{
-						time = currentOperationExecution->usageTime;
-						maxOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->usageTime);
+						time = currentOperationExecution->runtime;
+						maxOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->runtime);
 					}
 				}
 
@@ -378,7 +377,7 @@ float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution,
 	{
 		if (currentOperationExecution->operationID == operationID) // se encontrar a execucação de operação relativa à operação
 		{
-			sum += currentOperationExecution->usageTime;
+			sum += currentOperationExecution->runtime;
 			numberOfOperationsExecution++;
 		}
 		currentOperationExecution = currentOperationExecution->next;

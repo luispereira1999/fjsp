@@ -128,10 +128,9 @@ bool displayMachines(Machine* head)
 
 	Machine* current = head;
 
-	printf("Máquinas:\n");
 	while (current != NULL)
 	{
-		printf("ID: %d, Ocupada?: %s\n", current->id, current->isBusy ? "Sim" : "Não");
+		printf("ID: %d, Ocupada?: %s;\n", current->id, current->isBusy ? "Sim" : "Não");
 		current = current->next;
 	}
 
