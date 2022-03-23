@@ -75,10 +75,10 @@ bool freeMachines(Machine* head);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
 
-// sobre operations - operations
+// sobre operations
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
-bool changeOperationPosition(Operation** head, int jobID, int oldPosition, int newPosition);
+bool changeOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
@@ -89,7 +89,7 @@ int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operation
 int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution);
 float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution, int operationID);
 
-// sobre operations - operations execution
+// sobre operations execution
 OperationExecution* newOperationExecution(int operationID, int machineID, int usageTime);
 OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert);
 bool deleteOperationExecution(OperationExecution** head, int operationID);

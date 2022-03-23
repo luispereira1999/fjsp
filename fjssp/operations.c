@@ -41,16 +41,19 @@ Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
 }
 
 // trocar a ordem da posição de uma operação, num determinado job
-bool changeOperationPosition(Operation** head, int jobID, int oldPosition, int newPosition)
+bool changeOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition)
 {
 	if (*head == NULL) // se a lista estiver vazia
 	{
 		return false;
 	}
 
-	// SE JOB EXISTE
-
 	if (oldPosition == newPosition) // se as posições forem as mesmas
+	{
+		return false;
+	}
+
+	if (!searchJob(jobs, jobID)) // se o job não existir
 	{
 		return false;
 	}
@@ -58,13 +61,15 @@ bool changeOperationPosition(Operation** head, int jobID, int oldPosition, int n
 	Operation* currentOperationX = *head, * previousOperationX = NULL; // para a antiga
 	Operation* currentOperationY = *head, * previousOperationY = NULL; // para a nova
 
-	while (currentOperationX && currentOperationX->position != oldPosition || currentOperationX->jobID != jobID) // procurar pela antiga posição
+	// procurar pela antiga posição
+	while (currentOperationX && currentOperationX->position != oldPosition || currentOperationX->jobID != jobID)
 	{
 		previousOperationX = currentOperationX;
 		currentOperationX = currentOperationX->next;
 	}
 
-	while (currentOperationY && currentOperationY->position != newPosition || currentOperationY->jobID != jobID) // procurar pela nova posição
+	// procurar pela nova posição
+	while (currentOperationY && currentOperationY->position != newPosition || currentOperationY->jobID != jobID)
 	{
 		previousOperationY = currentOperationY;
 		currentOperationY = currentOperationY->next;
@@ -88,7 +93,7 @@ bool changeOperationPosition(Operation** head, int jobID, int oldPosition, int n
 	{
 		previousOperationY->next = currentOperationX;
 	}
-	else // senão fazer que operação anterior seja o head
+	else // senão fazer com que operação anterior seja o head
 	{
 		*head = currentOperationX;
 	}

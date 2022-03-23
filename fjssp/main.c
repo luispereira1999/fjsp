@@ -80,14 +80,7 @@ int main()
 				}
 			}
 			// Atualizar a posição da operação num determinado job
-			displayOperations(operations);
-			bool a = changeOperationPosition(&operations, 1, 4, 2);
-			printf("|%s|\n\n", a ? "Sim" : "Não");
-			displayOperations(operations);
-
-			//updateJobInOperation(&operations, 1, 8);
-			//printf("Operação (%d) atualizada com sucesso! O ID do trabalho foi alterado para %d.\n", 1, 8);
-			// Atualizar execução de operação
+			changeOperationPosition(&operations, jobs, 321, 2, 4);
 
 			// Inserir novo trabalho
 			Job* job = NULL;
