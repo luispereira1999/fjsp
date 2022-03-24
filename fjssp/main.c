@@ -16,7 +16,7 @@ int main()
 	Job* jobs = NULL;
 	Operation* operations = NULL;
 	Machine* machines = NULL;
-	OperationExecution* operationsExecution = NULL;
+	Execution* executions = NULL;
 
 	int menuOption = 0;
 
@@ -47,53 +47,53 @@ int main()
 			case 1: // Fase 1 do projeto
 
 				// Carregar dados (tabela) para as listas
-				loadData(&jobs, &machines, &operations, &operationsExecution);
+				loadData(&jobs, &machines, &operations, &executions);
 				// Guardar os dados em ficheiros
 				writeJobs("jobs.data", jobs);
 				writeOperations("operations.data", operations);
 				writeMachines("machines.data", machines);
-				writeOperationsExecution("operations-execution.data", operationsExecution);
+				writeExecutions("executions.data", executions);
 				printf("Dados exportados com sucesso!\n");
 
 				// Libertar memória das listas anteriores, para serem lidas dos ficheiros
 				freeJobs(jobs);
 				freeMachines(machines);
 				freeOperations(operations);
-				freeOperationsExecution(operationsExecution);
+				freeExecutions(executions);
 				// Depois de libertar memória, definir listas como NULL para evitar possíveis erros
 				jobs = NULL;
 				operations = NULL;
 				machines = NULL;
-				operationsExecution = NULL;
+				executions = NULL;
 				// Ler dados de ficheiros
 				jobs = readJobs("jobs.data");
 				machines = readMachines("machines.data");
 				operations = readOperations("operations.data");
-				operationsExecution = readOperationsExecution("operations-execution.data");
+				executions = readExecutions("executions.data");
 				printf("Dados importados com sucesso!\n");
 
 				// Remover operação
-				deleteOperation(&operations, 33);
-				printf("Operação removida com sucesso!\n");
-				bool allFound = false;
-				while (allFound == false) // enquanto que encontrar operações, remover execução de operações associadas
-				{
-					if (searchOperationExecution(operationsExecution, 33))
-					{
-						// Remover execução de operação relativa à operação
-						deleteOperationExecution(&operationsExecution, 33);
-						printf("Execução de operação associada à operação removida com sucesso!\n");
-					}
-					else
-					{
-						allFound = true;
-					}
-				}
+				//deleteOperation(&operations, 33);
+				//printf("Operação removida com sucesso!\n");
+				//bool allFound = false;
+				//while (allFound == false) // enquanto que encontrar operações, remover execução de operações associadas
+				//{
+				//	if (searchExecution(executions, 33))
+				//	{
+				//		// Remover execução de operação relativa à operação
+				//		deleteExecution(&executions, 33);
+				//		printf("Execução associada à operação removida com sucesso!\n");
+				//	}
+				//	else
+				//	{
+				//		allFound = true;
+				//	}
+				//}
 				// Atualizar a posição da operação num determinado job
 				updateOperationPosition(&operations, jobs, 1, 4, 2);
 				printf("Posição da operação atualizada com sucesso!\n");
 				// Atualizar o tempo necessário para uma execução da operação
-				updateRuntime(&operationsExecution, 2, 2, 10);
+				updateRuntime(&executions, 2, 2, 10);
 				printf("Tempo necessário para a execução da operação atualizada com sucesso!\n");
 
 				// Inserir novo trabalho
@@ -109,34 +109,34 @@ int main()
 				operation = newOperation(39, 2, 8);
 				operations = insertOperationAtStart(operations, operation);
 				// Inserir nova execução de uma operação
-				OperationExecution* operationExecution = NULL;
-				operationExecution = newOperationExecution(39, 5, 22);
-				operationsExecution = insertOperationAtStart(operationsExecution, operationExecution);
+				Execution* execution = NULL;
+				execution = newExecution(39, 5, 22);
+				executions = insertOperationAtStart(executions, execution);
 				// Guardar as novas inserções em ficheiros
 				writeJobs("jobs.data", jobs);
 				writeMachines("machines.data", machines);
 				writeOperations("operations.data", operations);
-				writeOperationsExecution("operations-execution.data", operationsExecution);
+				writeExecutions("executions.data", executions);
 				printf("Novos dados exportados com sucesso!\n");
 
 				printf("\n----------------\n\n");
 
 				// Obter o tempo mínimo para completar um job e as respetivas operações
-				OperationExecution* minOperationsExecution = NULL;
-				int minTime = getMinTimeToCompleteJob(operations, operationsExecution, 1, &minOperationsExecution);
+				Execution* minExecutions = NULL;
+				int minTime = getMinTimeToCompleteJob(operations, executions, 1, &minExecutions);
 				printf("Menor tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, minTime);
 				printf("Operações com menor tempo:\n");
-				minOperationsExecution = SortOperationsExecutionByOperation(minOperationsExecution);
-				displayOperationsExecution(minOperationsExecution);
+				minExecutions = SortExecutionsByOperation(minExecutions);
+				displayExecutions(minExecutions);
 				// Obter o tempo máximo para completar um job
-				OperationExecution* maxOperationsExecution = NULL;
-				int maxTime = getMaxTimeToCompleteJob(operations, operationsExecution, 1, &maxOperationsExecution);
+				Execution* maxExecutions = NULL;
+				int maxTime = getMaxTimeToCompleteJob(operations, executions, 1, &maxExecutions);
 				printf("Maior tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, maxTime);
 				printf("Operações com maior tempo:\n");
-				maxOperationsExecution = SortOperationsExecutionByOperation(maxOperationsExecution);
-				displayOperationsExecution(maxOperationsExecution);
+				maxExecutions = SortExecutionsByOperation(maxExecutions);
+				displayExecutions(maxExecutions);
 				// Obter o tempo médio para completar uma operação
-				float average = getAverageTimeToCompleteOperation(operationsExecution, 1);
+				float average = getAverageTimeToCompleteOperation(executions, 1);
 				printf("Média de tempo necessário para completar a operação(ID: %d) é %.2f!\n", 1, average);
 
 				printf("\n----------------\n\n");
@@ -149,13 +149,13 @@ int main()
 				printf("Operações:\n");
 				displayOperations(operations);
 				printf("Execução de Operações:\n");
-				displayOperationsExecution(operationsExecution);
+				displayExecutions(executions);
 				printf("Dados mostrados com sucesso!\n");
 				// Libertar memória
 				freeJobs(jobs);
 				freeMachines(machines);
 				freeOperations(operations);
-				freeOperationsExecution(operationsExecution);
+				freeExecutions(executions);
 				break;
 
 			case 2: // sobre aplicação

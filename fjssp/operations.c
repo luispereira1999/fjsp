@@ -41,9 +41,9 @@ Operation* insertOperationAtStart(Operation* head, Operation* new)
 }
 
 // trocar a ordem da posição de uma operação, num determinado job
-bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition)
+bool updateOperationPosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition)
 {
-	if (*head == NULL) // se a lista estiver vazia
+	if (*operations == NULL || jobs == NULL) // se as listas estiverem vazias
 	{
 		return false;
 	}
@@ -58,8 +58,8 @@ bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosi
 		return false;
 	}
 
-	Operation* currentOperationX = *head, * previousOperationX = NULL; // para a antiga
-	Operation* currentOperationY = *head, * previousOperationY = NULL; // para a nova
+	Operation* currentOperationX = *operations, * previousOperationX = NULL; // para a antiga
+	Operation* currentOperationY = *operations, * previousOperationY = NULL; // para a nova
 
 	// procurar pela antiga posição
 	while (currentOperationX && currentOperationX->position != oldPosition || currentOperationX->jobID != jobID)
@@ -86,7 +86,7 @@ bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosi
 	}
 	else // senão fazer que operação anterior seja o head
 	{
-		*head = currentOperationY;
+		*operations = currentOperationY;
 	}
 
 	if (previousOperationY != NULL) // se a operação nova não for o head da lista
@@ -95,7 +95,7 @@ bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosi
 	}
 	else // senão fazer com que operação anterior seja o head
 	{
-		*head = currentOperationX;
+		*operations = currentOperationX;
 	}
 
 	// trocar elementos
@@ -264,10 +264,10 @@ Operation* getOperation(Operation* head, int id)
 	return NULL;
 }
 
-// obter o mínimo de tempo necessário para completo um job e as respetivas execução de operações
-int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** minOperationsExecution)
+// obter o mínimo de tempo necessário para completo um job e as respetivas execuções de operações
+int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions)
 {
-	if (operations == NULL || operationsExecution == NULL) // se as listas estiverem vazias
+	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
 	{
 		return -1;
 	}
@@ -276,34 +276,34 @@ int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operation
 	int counter = 0;
 
 	Operation* currentOperation = operations;
-	OperationExecution* currentOperationExecution = operationsExecution;
-	Operation* minOperationExecution = NULL;
+	Execution* currentExecution = executions;
+	Execution* minExecution = NULL;
 
 	while (currentOperation != NULL) // percorrer lista de operações
 	{
 		if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
 		{
-			while (currentOperationExecution != NULL) // percorrer lista de execução de operações
+			while (currentExecution != NULL) // percorrer lista de execução de operações
 			{
-				if (currentOperationExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
+				if (currentExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
 				{
 					// guardar execução de operação com menor tempo de utilização
-					if (currentOperationExecution->runtime < time)
+					if (currentExecution->runtime < time)
 					{
-						time = currentOperationExecution->runtime;
-						minOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->runtime);
+						time = currentExecution->runtime;
+						minExecution = newExecution(currentExecution->operationID, currentExecution->machineID, currentExecution->runtime);
 					}
 				}
 
-				currentOperationExecution = currentOperationExecution->next;
+				currentExecution = currentExecution->next;
 			}
 
-			*minOperationsExecution = insertOperationAtStart(*minOperationsExecution, minOperationExecution);
+			*minExecutions = insertExecutionAtStart(*minExecutions, minExecution);
 
-			// repor lista percorrida (currentOperationExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
-			freeOperationsExecution(currentOperationExecution);
-			currentOperationExecution = NULL;
-			currentOperationExecution = operationsExecution;
+			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+			freeExecutions(currentExecution);
+			currentExecution = NULL;
+			currentExecution = executions;
 			counter += time; // acumular o tempo de utilização de cada execução de operação
 			time = 99990; // resetar tempo para a próxima iteração
 		}
@@ -314,10 +314,10 @@ int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operation
 	return counter;
 }
 
-// obter o máximo de tempo necessário para completo um job e as respetivas execução de operações
-int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution)
+// obter o máximo de tempo necessário para completo um job e as respetivas execuções de operações
+int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions)
 {
-	if (operations == NULL || operationsExecution == NULL) // se as listas estiverem vazias
+	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
 	{
 		return -1;
 	}
@@ -326,34 +326,34 @@ int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operation
 	int counter = 0;
 
 	Operation* currentOperation = operations;
-	OperationExecution* currentOperationExecution = operationsExecution;
-	OperationExecution* maxOperationExecution = NULL;
+	Execution* currentExecution = executions;
+	Execution* maxExecution = NULL;
 
 	while (currentOperation != NULL) // percorrer lista de operações
 	{
 		if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
 		{
-			while (currentOperationExecution != NULL) // percorrer lista de execução de operações
+			while (currentExecution != NULL) // percorrer lista de execução de operações
 			{
-				if (currentOperationExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
+				if (currentExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
 				{
 					// guardar execução de operação com maior tempo de utilização
-					if (currentOperationExecution->runtime > time)
+					if (currentExecution->runtime > time)
 					{
-						time = currentOperationExecution->runtime;
-						maxOperationExecution = newOperationExecution(currentOperationExecution->operationID, currentOperationExecution->machineID, currentOperationExecution->runtime);
+						time = currentExecution->runtime;
+						maxExecution = newExecution(currentExecution->operationID, currentExecution->machineID, currentExecution->runtime);
 					}
 				}
 
-				currentOperationExecution = currentOperationExecution->next;
+				currentExecution = currentExecution->next;
 			}
 
-			*maxOperationsExecution = insertOperationExecutionAtStart(*maxOperationsExecution, maxOperationExecution);
+			*maxExecutions = insertExecutionAtStart(*maxExecutions, maxExecution);
 
-			// repor lista percorrida (currentOperationExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
-			freeOperationsExecution(currentOperationExecution);
-			currentOperationExecution = NULL;
-			currentOperationExecution = operationsExecution;
+			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+			freeExecutions(currentExecution);
+			currentExecution = NULL;
+			currentExecution = executions;
 			counter += time; // acumular o tempo de utilização de cada execução de operação
 			time = 0; // resetar tempo de utilização para a próxima iteração
 		}
@@ -365,32 +365,32 @@ int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operation
 }
 
 // Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis
-float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution, int operationID)
+float getAverageTimeToCompleteOperation(Execution* head, int operationID)
 {
-	if (operationsExecution == NULL) // se a lista estiver vazia
+	if (head == NULL) // se a lista estiver vazia
 	{
 		return -1.0f;
 	}
 
 	int sum = 0;
 	float average = 0;
-	float numberOfOperationsExecution = 0;
+	float numberOfExecutions = 0;
 
-	OperationExecution* currentOperationExecution = operationsExecution;
+	Execution* current = head;
 
-	while (currentOperationExecution != NULL)
+	while (current != NULL)
 	{
-		if (currentOperationExecution->operationID == operationID) // se encontrar a execucação de operação relativa à operação
+		if (current->operationID == operationID) // se encontrar a execucação de operação relativa à operação
 		{
-			sum += currentOperationExecution->runtime;
-			numberOfOperationsExecution++;
+			sum += current->runtime;
+			numberOfExecutions++;
 		}
-		currentOperationExecution = currentOperationExecution->next;
+		current = current->next;
 	}
 
-	if (numberOfOperationsExecution > 0) // para não permitir divisão por 0
+	if (numberOfExecutions > 0) // para não permitir divisão por 0
 	{
-		average = sum / numberOfOperationsExecution;
+		average = sum / numberOfExecutions;
 	}
 
 	return average;

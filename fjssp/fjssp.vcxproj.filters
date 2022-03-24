@@ -30,7 +30,7 @@
     <ClCompile Include="data.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="operations-execution.c">
+    <ClCompile Include="executions.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -34,13 +34,13 @@ typedef struct Machine
 	struct Machine* next;
 } Machine;
 
-typedef struct OperationExecution
+typedef struct Execution // corresponde a cada execução de uma operação em uma máquina
 {
 	int operationID;
 	int machineID;
 	int runtime; // unidades de tempo necessária para a execução da operação
-	struct OperationExecution* next;
-} OperationExecution;
+	struct Execution* next;
+} Execution;
 
 typedef struct Operation
 {
@@ -54,7 +54,7 @@ typedef struct Operation
 
 #pragma region funções e procedimentos
 
-// sobre jobs
+// sobre trabalhos
 Job* newJob(int id);
 Job* insertJobAtStart(Job* head, Job* new);
 Job* updateJob(Job* head, Job* jobToUpdate, int id);
@@ -66,7 +66,7 @@ bool displayJobs(Job* head);
 Job* getJob(Job* head, int id);
 bool searchJob(Job* head, int id);
 
-// sobre machines
+// sobre máquinas
 Machine* newMachine(int id, bool isBusy);
 Machine* insertMachineAtStart(Machine* head, Machine* new);
 bool writeMachines(char fileName[], Machine* head);
@@ -75,35 +75,35 @@ bool freeMachines(Machine* head);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
 
-// sobre operations
+// sobre operações
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* new);
-bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition);
+bool updateOperationPosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
 bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 Operation* getOperation(Operation* head, int id);
-int getMinTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** minOperationsExecution);
-int getMaxTimeToCompleteJob(Operation* operations, OperationExecution* operationsExecution, int jobID, OperationExecution** maxOperationsExecution);
-float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution, int operationID);
+int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minexecutions);
+int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxexecutions);
+float getAverageTimeToCompleteOperation(Execution* head, int operationID);
 
-// sobre operations execution
-OperationExecution* newOperationExecution(int operationID, int machineID, int runtime);
-OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* new);
-OperationExecution* insertOperationExecutionByOperation(OperationExecution* head, OperationExecution* new);
-bool updateRuntime(OperationExecution** head, int operationID, int machineID, int runtime);
-bool deleteOperationExecution(OperationExecution** head, int operationID);
-bool writeOperationsExecution(char fileName[], OperationExecution* head);
-OperationExecution* readOperationsExecution(char fileName[]);
-bool freeOperationsExecution(OperationExecution* head);
-bool displayOperationsExecution(OperationExecution* head);
-OperationExecution* SortOperationsExecutionByOperation(OperationExecution* head);
-bool searchOperationExecution(OperationExecution* head, int operationID);
+// sobre execuções
+Execution* newExecution(int operationID, int machineID, int runtime);
+Execution* insertExecutionAtStart(Execution* head, Execution* new);
+Execution* insertExecutionByOperation(Execution* head, Execution* new);
+bool updateRuntime(Execution** head, int operationID, int machineID, int runtime);
+bool deleteExecution(Execution** head, int operationID);
+bool writeExecutions(char fileName[], Execution* head);
+Execution* readExecutions(char fileName[]);
+bool freeExecutions(Execution* head);
+bool displayExecutions(Execution* head);
+Execution* SortExecutionsByOperation(Execution* head);
+bool searchExecution(Execution* head, int operationID, int machineID);
 
 // carregar dados para listas
-void loadData(Job** jobs, Machine** machines, Operation** operations, OperationExecution** operationsExecution);
+void loadData(Job** jobs, Machine** machines, Operation** operations, Execution** executions);
 
 #pragma endregion
 

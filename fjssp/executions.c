@@ -9,9 +9,9 @@ Criação:             23/03/2022
 #include <stdlib.h>
 #include "header.h"
 
-OperationExecution* newOperationExecution(int operationID, int machineID, int runtime)
+Execution* newExecution(int operationID, int machineID, int runtime)
 {
-	OperationExecution* new = (OperationExecution*)malloc(sizeof(OperationExecution));
+	Execution* new = (Execution*)malloc(sizeof(Execution));
 	if (new == NULL) // se não houver memória para alocar
 	{
 		return NULL;
@@ -25,7 +25,7 @@ OperationExecution* newOperationExecution(int operationID, int machineID, int ru
 	return new;
 }
 
-OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* new)
+Execution* insertExecutionAtStart(Execution* head, Execution* new)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -41,31 +41,38 @@ OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, Op
 }
 
 // inserir execução da operação ordenada pelo ID da operação
-OperationExecution* insertOperationExecutionByOperation(OperationExecution* head, OperationExecution* new)
+Execution* insertExecutionByOperation(Execution* head, Execution* new)
 {
+	if (searchExecution(head, new->operationID, new->machineID)) // não permitir existir uma nova com um ID que já existe
+	{
+		return NULL;
+	}
+
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = new; // inserir no início
 	}
 	else
 	{
-		OperationExecution* current = head;
-		OperationExecution* previous = NULL;
-		while (current && current->operationID < new->operationID) // 
+		Execution* current = head;
+		Execution* previous = NULL;
+
+		// enquanto que atual tem o ID menor que a nova
+		while (current != NULL && current->operationID < new->operationID)
 		{
 			previous = current;
 			current = current->next;
 		}
 
-		if (previous == NULL) // inserir no meio
+		if (previous == NULL)
 		{
 			new->next = head;
-			head = new;
+			head = new; // inserir no meio
 		}
-		else // inserir no fim
+		else
 		{
 			previous->next = new;
-			new->next = current;
+			new->next = current; // inserir no fim
 		}
 	}
 
@@ -73,14 +80,14 @@ OperationExecution* insertOperationExecutionByOperation(OperationExecution* head
 }
 
 // atualizar as unidades de tempo necessárias para a execução da operação
-bool updateRuntime(OperationExecution** head, int operationID, int machineID, int runtime)
+bool updateRuntime(Execution** head, int operationID, int machineID, int runtime)
 {
 	if (*head == NULL) // se lista está vazia
 	{
 		return false;
 	}
 
-	OperationExecution* current = *head;
+	Execution* current = *head;
 
 	while (current != NULL)
 	{
@@ -95,15 +102,15 @@ bool updateRuntime(OperationExecution** head, int operationID, int machineID, in
 	return false;
 }
 
-bool deleteOperationExecution(OperationExecution** head, int operationID)
+bool deleteExecution(Execution** head, int operationID)
 {
 	if (*head == NULL) // se a lista estiver vazia
 	{
 		return false;
 	}
 
-	OperationExecution* current = *head;
-	OperationExecution* previous = NULL;
+	Execution* current = *head;
+	Execution* previous = NULL;
 
 	if (current != NULL && current->operationID == operationID) { // se o elemento que será apagado é o primeiro da lista
 		*head = current->next;
@@ -128,7 +135,7 @@ bool deleteOperationExecution(OperationExecution** head, int operationID)
 	return true;
 }
 
-bool writeOperationsExecution(char fileName[], OperationExecution* head)
+bool writeExecutions(char fileName[], Execution* head)
 {
 	if (head == NULL) // se lista está vazia
 	{
@@ -142,10 +149,10 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head)
 		return false;
 	}
 
-	OperationExecution* current = head;
+	Execution* current = head;
 	while (current != NULL) // escrever todos os elementos da lista no ficheiro
 	{
-		fwrite(current, sizeof(OperationExecution), 1, file);
+		fwrite(current, sizeof(Execution), 1, file);
 		current = current->next;
 	}
 
@@ -154,16 +161,16 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head)
 	return true;
 }
 
-OperationExecution* readOperationsExecution(char fileName[])
+Execution* readExecutions(char fileName[])
 {
-	OperationExecution* current = (OperationExecution*)malloc(sizeof(OperationExecution));
+	Execution* current = (Execution*)malloc(sizeof(Execution));
 	if (current == NULL) // se não houver memória para alocar
 	{
 		return NULL;
 	}
 
-	OperationExecution* head = NULL;
-	OperationExecution* last = NULL;
+	Execution* head = NULL;
+	Execution* last = NULL;
 
 	FILE* file = NULL;
 	file = fopen(fileName, "rb");
@@ -172,15 +179,15 @@ OperationExecution* readOperationsExecution(char fileName[])
 		return NULL;
 	}
 
-	while (fread(current, sizeof(OperationExecution), 1, file)) // ler todos os elementos da lista do ficheiro
+	while (fread(current, sizeof(Execution), 1, file)) // ler todos os elementos da lista do ficheiro
 	{
 		if (head == NULL) // ler o primeiro elemento
 		{
-			head = last = (OperationExecution*)malloc(sizeof(OperationExecution));
+			head = last = (Execution*)malloc(sizeof(Execution));
 		}
 		else // ler os restantes elementos
 		{
-			last->next = (OperationExecution*)malloc(sizeof(OperationExecution));
+			last->next = (Execution*)malloc(sizeof(Execution));
 			last = last->next;
 		}
 
@@ -195,14 +202,14 @@ OperationExecution* readOperationsExecution(char fileName[])
 	return head;
 }
 
-bool freeOperationsExecution(OperationExecution* head)
+bool freeExecutions(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
 		return false;
 	}
 
-	OperationExecution* current = NULL;
+	Execution* current = NULL;
 
 	while (head != NULL)
 	{
@@ -214,14 +221,14 @@ bool freeOperationsExecution(OperationExecution* head)
 	return true;
 }
 
-bool displayOperationsExecution(OperationExecution* head)
+bool displayExecutions(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
 		return false;
 	}
 
-	OperationExecution* current = head;
+	Execution* current = head;
 
 	while (current != NULL)
 	{
@@ -232,39 +239,39 @@ bool displayOperationsExecution(OperationExecution* head)
 	return true;
 }
 
-OperationExecution* SortOperationsExecutionByOperation(OperationExecution* head)
+Execution* SortExecutionsByOperation(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
 		return NULL;
 	}
 
-	OperationExecution* current = head;
-	OperationExecution* sorted = NULL;
-	OperationExecution* new = NULL;
+	Execution* current = head;
+	Execution* sorted = NULL;
+	Execution* new = NULL;
 
 	while (current != NULL)
 	{
-		new = newOperationExecution(current->operationID, current->machineID, current->runtime);
-		sorted = insertOperationExecutionByOperation(sorted, new);
+		new = newExecution(current->operationID, current->machineID, current->runtime);
+		sorted = insertExecutionByOperation(sorted, new);
 		current = current->next;
 	}
 
 	return sorted;
 }
 
-bool searchOperationExecution(OperationExecution* head, int operationID)
+bool searchExecution(Execution* head, int operationID, int machineID)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
 		return false;
 	}
 
-	OperationExecution* current = head;
+	Execution* current = head;
 
 	while (current != NULL)
 	{
-		if (current->operationID == operationID)
+		if (current->operationID == operationID && current->machineID == machineID)
 		{
 			return true;
 		}
