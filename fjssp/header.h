@@ -56,7 +56,7 @@ typedef struct Operation
 
 // sobre jobs
 Job* newJob(int id);
-Job* insertJobAtStart(Job* head, Job* jobToInsert);
+Job* insertJobAtStart(Job* head, Job* new);
 Job* updateJob(Job* head, Job* jobToUpdate, int id);
 bool deleteJob(Job** head, int id);
 bool writeJobs(char fileName[], Job* head);
@@ -68,7 +68,7 @@ bool searchJob(Job* head, int id);
 
 // sobre machines
 Machine* newMachine(int id, bool isBusy);
-Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert);
+Machine* insertMachineAtStart(Machine* head, Machine* new);
 bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
 bool freeMachines(Machine* head);
@@ -77,7 +77,7 @@ bool searchMachine(Machine* head, int id);
 
 // sobre operations
 Operation* newOperation(int id, int jobID, int position);
-Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert);
+Operation* insertOperationAtStart(Operation* head, Operation* new);
 bool updateOperationPosition(Operation** head, Job* jobs, int jobID, int oldPosition, int newPosition);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
@@ -91,7 +91,8 @@ float getAverageTimeToCompleteOperation(OperationExecution* operationsExecution,
 
 // sobre operations execution
 OperationExecution* newOperationExecution(int operationID, int machineID, int runtime);
-OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert);
+OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* new);
+OperationExecution* insertOperationExecutionByOperation(OperationExecution* head, OperationExecution* new);
 bool updateRuntime(OperationExecution** head, int operationID, int machineID, int runtime);
 bool deleteOperationExecution(OperationExecution** head, int operationID);
 bool writeOperationsExecution(char fileName[], OperationExecution* head);

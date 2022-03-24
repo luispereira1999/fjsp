@@ -24,16 +24,16 @@ Machine* newMachine(int id, bool isBusy)
 	return new;
 }
 
-Machine* insertMachineAtStart(Machine* head, Machine* machineToInsert)
+Machine* insertMachineAtStart(Machine* head, Machine* new)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
-		head = machineToInsert;
+		head = new;
 	}
 	else // se existir algum elemento na lista
 	{
-		machineToInsert->next = head;
-		head = machineToInsert;
+		new->next = head;
+		head = new;
 	}
 
 	return head;

@@ -23,16 +23,16 @@ Job* newJob(int id)
 	return new;
 }
 
-Job* insertJobAtStart(Job* head, Job* jobToInsert)
+Job* insertJobAtStart(Job* head, Job* new)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
-		head = jobToInsert;
+		head = new;
 	}
 	else // se existir algum elemento na lista
 	{
-		jobToInsert->next = head;
-		head = jobToInsert;
+		new->next = head;
+		head = new;
 	}
 
 	return head;

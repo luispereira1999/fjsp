@@ -25,16 +25,16 @@ Operation* newOperation(int id, int jobID, int position)
 	return new;
 }
 
-Operation* insertOperationAtStart(Operation* head, Operation* operationToInsert)
+Operation* insertOperationAtStart(Operation* head, Operation* new)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
-		head = operationToInsert;
+		head = new;
 	}
 	else // se existir algum elemento na lista
 	{
-		operationToInsert->next = head;
-		head = operationToInsert;
+		new->next = head;
+		head = new;
 	}
 
 	return head;

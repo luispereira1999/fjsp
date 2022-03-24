@@ -25,16 +25,49 @@ OperationExecution* newOperationExecution(int operationID, int machineID, int ru
 	return new;
 }
 
-OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* operationExecutionToInsert)
+OperationExecution* insertOperationExecutionAtStart(OperationExecution* head, OperationExecution* new)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
-		head = operationExecutionToInsert;
+		head = new;
 	}
 	else // se existir algum elemento na lista
 	{
-		operationExecutionToInsert->next = head;
-		head = operationExecutionToInsert;
+		new->next = head;
+		head = new;
+	}
+
+	return head;
+}
+
+// inserir execução da operação ordenada pelo ID da operação
+OperationExecution* insertOperationExecutionByOperation(OperationExecution* head, OperationExecution* new)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		head = new; // inserir no início
+	}
+	else
+	{
+		OperationExecution* current = head;
+		OperationExecution* previous = NULL;
+
+		while (current && current->operationID < new->operationID) // 
+		{
+			previous = current;
+			current = current->next;
+		}
+
+		if (previous == NULL) // inserir no meio
+		{
+			new->next = head;
+			head = new;
+		}
+		else // inserir no fim
+		{
+			previous->next = new;
+			new->next = current;
+		}
 	}
 
 	return head;
