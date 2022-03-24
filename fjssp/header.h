@@ -26,7 +26,7 @@ typedef struct Job
 	int id;
 	struct Job* next;
 } Job;
-extern Job* jobs;
+extern Job* jobs; // extern: informar o compilador que esta variável está definida algures no código
 
 typedef struct Machine
 {

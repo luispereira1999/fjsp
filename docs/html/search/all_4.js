@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['getaveragetimetocompleteoperation_0',['getAverageTimeToCompleteOperation',['../header_8h.html#aae1f099b3ffebc5b9b49209b190ebe9f',1,'getAverageTimeToCompleteOperation(Execution *head, int operationID):&#160;operations.c'],['../operations_8c.html#aae1f099b3ffebc5b9b49209b190ebe9f',1,'getAverageTimeToCompleteOperation(Execution *head, int operationID):&#160;operations.c']]],
+  ['getmaxtimetocompletejob_1',['getMaxTimeToCompleteJob',['../header_8h.html#a908d6b1317be2499678cf551f3234a2b',1,'getMaxTimeToCompleteJob(Operation *operations, Execution *executions, int jobID, Execution **maxexecutions):&#160;operations.c'],['../operations_8c.html#ac4666af18140d926937410a7bf7e0505',1,'getMaxTimeToCompleteJob(Operation *operations, Execution *executions, int jobID, Execution **maxExecutions):&#160;operations.c']]],
+  ['getmintimetocompletejob_2',['getMinTimeToCompleteJob',['../header_8h.html#adb172da9d0d3160fab2e852b1eee8eac',1,'getMinTimeToCompleteJob(Operation *operations, Execution *executions, int jobID, Execution **minexecutions):&#160;operations.c'],['../operations_8c.html#a52f8c01701a8184c95cc0b0de65cdbef',1,'getMinTimeToCompleteJob(Operation *operations, Execution *executions, int jobID, Execution **minExecutions):&#160;operations.c']]]
+];

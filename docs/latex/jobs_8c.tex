@@ -1,0 +1,308 @@
+\hypertarget{jobs_8c}{}\doxysection{ReferÃªncia ao ficheiro C\+:/\+LUIS-\/\+PEREIRA/\+Repositorios/fjssp/fjssp/jobs.c}
+\label{jobs_8c}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/jobs.c@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/jobs.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+\doxysubsection*{FunÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_job}{Job}} $\ast$ \mbox{\hyperlink{jobs_8c_a84de6ff490cb65dbc4995f2d8b98de1f}{new\+Job}} (int id)
+\item 
+\mbox{\hyperlink{struct_job}{Job}} $\ast$ \mbox{\hyperlink{jobs_8c_a1903b78e4151d6cc8c9ba08f2343cfcc}{insert\+Job\+At\+Start}} (\mbox{\hyperlink{struct_job}{Job}} $\ast$head, \mbox{\hyperlink{struct_job}{Job}} $\ast$new)
+\item 
+\mbox{\hyperlink{struct_job}{Job}} $\ast$ \mbox{\hyperlink{jobs_8c_a57ce28c2a55e482c83c3cc8ff6d177c6}{update\+Job}} (\mbox{\hyperlink{struct_job}{Job}} $\ast$head, \mbox{\hyperlink{struct_job}{Job}} $\ast$job\+To\+Update, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{jobs_8c_a2c34d85e5a249e35be61dd94b5be3e87}{delete\+Job}} (\mbox{\hyperlink{struct_job}{Job}} $\ast$$\ast$head, int id)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{jobs_8c_a74854c567a784660b6259abbd47d821e}{write\+Jobs}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_job}{Job}} $\ast$head)
+\item 
+\mbox{\hyperlink{struct_job}{Job}} $\ast$ \mbox{\hyperlink{jobs_8c_a1c30247bf14e8f64a9dad8cf280f7f2a}{read\+Jobs}} (char file\+Name\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{jobs_8c_a542b381bfbc143ae575e98f684117265}{free\+Jobs}} (\mbox{\hyperlink{struct_job}{Job}} $\ast$head)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{jobs_8c_a91295985e34799e3cea579e2fe66d0a8}{display\+Jobs}} (\mbox{\hyperlink{struct_job}{Job}} $\ast$head)
+\item 
+\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{jobs_8c_acb39186105e381d629e2db05d66ddbaa}{search\+Job}} (\mbox{\hyperlink{struct_job}{Job}} $\ast$head, int id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
+\mbox{\Hypertarget{jobs_8c_a2c34d85e5a249e35be61dd94b5be3e87}\label{jobs_8c_a2c34d85e5a249e35be61dd94b5be3e87}} 
+\index{jobs.c@{jobs.c}!deleteJob@{deleteJob}}
+\index{deleteJob@{deleteJob}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{deleteJob()}{deleteJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} delete\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$$\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70     \textcolor{keywordflow}{if} (*head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \mbox{\hyperlink{struct_job}{Job}}* current = *head;}
+\DoxyCodeLine{76     \mbox{\hyperlink{struct_job}{Job}}* previous = NULL;}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{if} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}} == \textcolor{keywordtype}{id}) \{ \textcolor{comment}{// se o elemento que será apagado é o primeiro da lista}}
+\DoxyCodeLine{79         *head = current-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{80         free(current);}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}} != \textcolor{keywordtype}{id}) \textcolor{comment}{// procurar o elemento a ser apagado}}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         previous = current;}
+\DoxyCodeLine{87         current = current-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     previous-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}} = current-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}}; \textcolor{comment}{// desassociar o elemento da lista}}
+\DoxyCodeLine{91     free(current);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{94 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_a91295985e34799e3cea579e2fe66d0a8}\label{jobs_8c_a91295985e34799e3cea579e2fe66d0a8}} 
+\index{jobs.c@{jobs.c}!displayJobs@{displayJobs}}
+\index{displayJobs@{displayJobs}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{displayJobs()}{displayJobs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Jobs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181 \{}
+\DoxyCodeLine{182     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{183     \{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \mbox{\hyperlink{struct_job}{Job}}* current = head;}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{190     \{}
+\DoxyCodeLine{191         printf(\textcolor{stringliteral}{"{}ID: \%d;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}});}
+\DoxyCodeLine{192         current = current-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{193     \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{196 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_a542b381bfbc143ae575e98f684117265}\label{jobs_8c_a542b381bfbc143ae575e98f684117265}} 
+\index{jobs.c@{jobs.c}!freeJobs@{freeJobs}}
+\index{freeJobs@{freeJobs}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{freeJobs()}{freeJobs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} free\+Jobs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{162 \{}
+\DoxyCodeLine{163     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{164     \{}
+\DoxyCodeLine{165         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{166     \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \mbox{\hyperlink{struct_job}{Job}}* current = NULL;}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170     \textcolor{keywordflow}{while} (head != NULL)}
+\DoxyCodeLine{171     \{}
+\DoxyCodeLine{172         current = head;}
+\DoxyCodeLine{173         head = head-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{174         free(current);}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{178 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_a1903b78e4151d6cc8c9ba08f2343cfcc}\label{jobs_8c_a1903b78e4151d6cc8c9ba08f2343cfcc}} 
+\index{jobs.c@{jobs.c}!insertJobAtStart@{insertJobAtStart}}
+\index{insertJobAtStart@{insertJobAtStart}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{insertJobAtStart()}{insertJobAtStart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_job}{Job}} $\ast$ insert\+Job\+At\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \textcolor{keywordflow}{if} (\mbox{\hyperlink{jobs_8c_acb39186105e381d629e2db05d66ddbaa}{searchJob}}(head, new-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}})) \textcolor{comment}{// não permitir inserir um novo com o mesmo ID}}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
+\DoxyCodeLine{38     \{}
+\DoxyCodeLine{39         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}} = head;}
+\DoxyCodeLine{40         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_a84de6ff490cb65dbc4995f2d8b98de1f}\label{jobs_8c_a84de6ff490cb65dbc4995f2d8b98de1f}} 
+\index{jobs.c@{jobs.c}!newJob@{newJob}}
+\index{newJob@{newJob}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{newJob()}{newJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_job}{Job}} $\ast$ new\+Job (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{struct_job}{Job}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_job}{Job}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_job}{Job}}));}
+\DoxyCodeLine{15     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}} = id;}
+\DoxyCodeLine{21     \textcolor{keyword}{new}-\/>next = NULL;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_a1c30247bf14e8f64a9dad8cf280f7f2a}\label{jobs_8c_a1c30247bf14e8f64a9dad8cf280f7f2a}} 
+\index{jobs.c@{jobs.c}!readJobs@{readJobs}}
+\index{readJobs@{readJobs}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{readJobs()}{readJobs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_job}{Job}} $\ast$ read\+Jobs (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123 \{}
+\DoxyCodeLine{124     \mbox{\hyperlink{struct_job}{Job}}* current = (\mbox{\hyperlink{struct_job}{Job}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_job}{Job}}));}
+\DoxyCodeLine{125     \textcolor{keywordflow}{if} (current == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{126     \{}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \mbox{\hyperlink{struct_job}{Job}}* head = NULL;}
+\DoxyCodeLine{131     \mbox{\hyperlink{struct_job}{Job}}* last = NULL;}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     FILE* file = NULL;}
+\DoxyCodeLine{134     file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{135     \textcolor{keywordflow}{if} (file == NULL) \textcolor{comment}{// se não foi possível abrir o ficheiro}}
+\DoxyCodeLine{136     \{}
+\DoxyCodeLine{137         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{138     \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \textcolor{keywordflow}{while} (fread(current, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_job}{Job}}), 1, file)) \textcolor{comment}{// ler todos os elementos da lista do ficheiro}}
+\DoxyCodeLine{141     \{}
+\DoxyCodeLine{142         \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// ler o primeiro elemento}}
+\DoxyCodeLine{143         \{}
+\DoxyCodeLine{144             head = last = (\mbox{\hyperlink{struct_job}{Job}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_job}{Job}}));}
+\DoxyCodeLine{145         \}}
+\DoxyCodeLine{146         \textcolor{keywordflow}{else} \textcolor{comment}{// ler os restantes elementos}}
+\DoxyCodeLine{147         \{}
+\DoxyCodeLine{148             last-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}} = (\mbox{\hyperlink{struct_job}{Job}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_job}{Job}}));}
+\DoxyCodeLine{149             last = last-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{150         \}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152         last-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}} = current-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}};}
+\DoxyCodeLine{153         last-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}} = NULL; \textcolor{comment}{// o próximo elemento da lista não existe, portanto é nulo}}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156     fclose(file);}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{159 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_acb39186105e381d629e2db05d66ddbaa}\label{jobs_8c_acb39186105e381d629e2db05d66ddbaa}} 
+\index{jobs.c@{jobs.c}!searchJob@{searchJob}}
+\index{searchJob@{searchJob}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{searchJob()}{searchJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} search\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199 \{}
+\DoxyCodeLine{200     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{201     \{}
+\DoxyCodeLine{202         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \mbox{\hyperlink{struct_job}{Job}}* current = head;}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{208     \{}
+\DoxyCodeLine{209         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}} == \textcolor{keywordtype}{id})}
+\DoxyCodeLine{210         \{}
+\DoxyCodeLine{211             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{212         \}}
+\DoxyCodeLine{213         current = current-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{214     \}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{217 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_a57ce28c2a55e482c83c3cc8ff6d177c6}\label{jobs_8c_a57ce28c2a55e482c83c3cc8ff6d177c6}} 
+\index{jobs.c@{jobs.c}!updateJob@{updateJob}}
+\index{updateJob@{updateJob}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{updateJob()}{updateJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_job}{Job}} $\ast$ update\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{job\+To\+Update,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{49     \{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \mbox{\hyperlink{struct_job}{Job}}* current = head;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_job_a9d524fc8246b893613b42ed6b8ca070c}{id}} == \textcolor{keywordtype}{id})}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59             head = jobToUpdate;}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return} current;}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62         current = current-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{jobs_8c_a74854c567a784660b6259abbd47d821e}\label{jobs_8c_a74854c567a784660b6259abbd47d821e}} 
+\index{jobs.c@{jobs.c}!writeJobs@{writeJobs}}
+\index{writeJobs@{writeJobs}!jobs.c@{jobs.c}}
+\doxysubsubsection{\texorpdfstring{writeJobs()}{writeJobs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} write\+Jobs (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97 \{}
+\DoxyCodeLine{98     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{99     \{}
+\DoxyCodeLine{100         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     FILE* file = NULL;}
+\DoxyCodeLine{104     file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} (file == NULL) \textcolor{comment}{// se não foi possível abrir o ficheiro}}
+\DoxyCodeLine{106     \{}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \mbox{\hyperlink{struct_job}{Job}}* current = head;}
+\DoxyCodeLine{111     \textcolor{keywordflow}{while} (current != NULL) \textcolor{comment}{// escrever todos os elementos da lista no ficheiro}}
+\DoxyCodeLine{112     \{}
+\DoxyCodeLine{113         fwrite(current, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_job}{Job}}), 1, file);}
+\DoxyCodeLine{114         current = current-\/>\mbox{\hyperlink{struct_job_a1e361275d4a7d8aea298a6129260a41b}{next}};}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     fclose(file);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{120 \}}
+
+\end{DoxyCode}
