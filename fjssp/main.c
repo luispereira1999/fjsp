@@ -126,12 +126,14 @@ int main()
 				int minTime = getMinTimeToCompleteJob(operations, operationsExecution, 1, &minOperationsExecution);
 				printf("Menor tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, minTime);
 				printf("Operações com menor tempo:\n");
+				minOperationsExecution = SortOperationsExecutionByOperation(minOperationsExecution);
 				displayOperationsExecution(minOperationsExecution);
 				// Obter o tempo máximo para completar um job
 				OperationExecution* maxOperationsExecution = NULL;
 				int maxTime = getMaxTimeToCompleteJob(operations, operationsExecution, 1, &maxOperationsExecution);
 				printf("Maior tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, maxTime);
 				printf("Operações com maior tempo:\n");
+				maxOperationsExecution = SortOperationsExecutionByOperation(maxOperationsExecution);
 				displayOperationsExecution(maxOperationsExecution);
 				// Obter o tempo médio para completar uma operação
 				float average = getAverageTimeToCompleteOperation(operationsExecution, 1);

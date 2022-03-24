@@ -99,6 +99,7 @@ bool writeOperationsExecution(char fileName[], OperationExecution* head);
 OperationExecution* readOperationsExecution(char fileName[]);
 bool freeOperationsExecution(OperationExecution* head);
 bool displayOperationsExecution(OperationExecution* head);
+OperationExecution* SortOperationsExecutionByOperation(OperationExecution* head);
 bool searchOperationExecution(OperationExecution* head, int operationID);
 
 // carregar dados para listas

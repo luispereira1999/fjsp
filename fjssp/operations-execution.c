@@ -51,7 +51,6 @@ OperationExecution* insertOperationExecutionByOperation(OperationExecution* head
 	{
 		OperationExecution* current = head;
 		OperationExecution* previous = NULL;
-
 		while (current && current->operationID < new->operationID) // 
 		{
 			previous = current;
@@ -231,6 +230,27 @@ bool displayOperationsExecution(OperationExecution* head)
 	}
 
 	return true;
+}
+
+OperationExecution* SortOperationsExecutionByOperation(OperationExecution* head)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		return NULL;
+	}
+
+	OperationExecution* current = head;
+	OperationExecution* sorted = NULL;
+	OperationExecution* new = NULL;
+
+	while (current != NULL)
+	{
+		new = newOperationExecution(current->operationID, current->machineID, current->runtime);
+		sorted = insertOperationExecutionByOperation(sorted, new);
+		current = current->next;
+	}
+
+	return sorted;
 }
 
 bool searchOperationExecution(OperationExecution* head, int operationID)
