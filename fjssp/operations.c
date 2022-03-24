@@ -1,5 +1,5 @@
 /*
-Descrição:           Ficheiro com todas as funções e procedimentos relativos a operações
+Descrição:           Ficheiro com todas as funções e procedimentos relativos às operações
 Desenvolvedor(es):   Luís Pereira (18446)
 Última atualização:  25/03/2022
 Criação:             18/03/2022

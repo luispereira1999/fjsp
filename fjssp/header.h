@@ -26,6 +26,7 @@ typedef struct Job
 	int id;
 	struct Job* next;
 } Job;
+extern Job* jobs;
 
 typedef struct Machine
 {
@@ -33,6 +34,7 @@ typedef struct Machine
 	bool isBusy; // se a máquina está ou não em utilização
 	struct Machine* next;
 } Machine;
+extern Machine* machines;
 
 typedef struct Execution // corresponde a cada execução de uma operação em uma máquina
 {
@@ -41,6 +43,7 @@ typedef struct Execution // corresponde a cada execução de uma operação em uma m
 	int runtime; // unidades de tempo necessária para a execução da operação
 	struct Execution* next;
 } Execution;
+extern Execution* executions;
 
 typedef struct Operation
 {
@@ -49,6 +52,7 @@ typedef struct Operation
 	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
 	struct Operation* next;
 } Operation;
+extern Operation* operations;
 
 #pragma endregion
 
