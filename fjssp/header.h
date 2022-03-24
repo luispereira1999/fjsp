@@ -63,7 +63,6 @@ bool writeJobs(char fileName[], Job* head);
 Job* readJobs(char fileName[]);
 bool freeJobs(Job* head);
 bool displayJobs(Job* head);
-Job* getJob(Job* head, int id);
 bool searchJob(Job* head, int id);
 
 // sobre máquinas
@@ -84,7 +83,7 @@ bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
 bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
-Operation* getOperation(Operation* head, int id);
+bool searchOperation(Operation* head, int id);
 int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minexecutions);
 int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxexecutions);
 float getAverageTimeToCompleteOperation(Execution* head, int operationID);
@@ -94,13 +93,14 @@ Execution* newExecution(int operationID, int machineID, int runtime);
 Execution* insertExecutionAtStart(Execution* head, Execution* new);
 Execution* insertExecutionByOperation(Execution* head, Execution* new);
 bool updateRuntime(Execution** head, int operationID, int machineID, int runtime);
-bool deleteExecution(Execution** head, int operationID);
+bool deleteExecutionByOperation(Execution** head, int operationID);
 bool writeExecutions(char fileName[], Execution* head);
 Execution* readExecutions(char fileName[]);
 bool freeExecutions(Execution* head);
 bool displayExecutions(Execution* head);
-Execution* SortExecutionsByOperation(Execution* head);
 bool searchExecution(Execution* head, int operationID, int machineID);
+bool searchExecutionByOperation(Execution* head, int operationID);
+Execution* SortExecutionsByOperation(Execution* head);
 
 // carregar dados para listas
 void loadData(Job** jobs, Machine** machines, Operation** operations, Execution** executions);

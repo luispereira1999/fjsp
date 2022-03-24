@@ -11,7 +11,7 @@ Criação:             14/03/2022
 
 int main()
 {
-	setlocale(LC_ALL, "Portuguese");
+	setlocale(LC_ALL, "Portuguese"); // permitir caracteres especiais na consola
 
 	Job* jobs = NULL;
 	Operation* operations = NULL;
@@ -73,22 +73,22 @@ int main()
 				printf("Dados importados com sucesso!\n");
 
 				// Remover operação
-				//deleteOperation(&operations, 33);
-				//printf("Operação removida com sucesso!\n");
-				//bool allFound = false;
-				//while (allFound == false) // enquanto que encontrar operações, remover execução de operações associadas
-				//{
-				//	if (searchExecution(executions, 33))
-				//	{
-				//		// Remover execução de operação relativa à operação
-				//		deleteExecution(&executions, 33);
-				//		printf("Execução associada à operação removida com sucesso!\n");
-				//	}
-				//	else
-				//	{
-				//		allFound = true;
-				//	}
-				//}
+				deleteOperation(&operations, 33);
+				printf("Operação removida com sucesso!\n");
+				bool allFound = false;
+				while (allFound == false) // enquanto que encontrar operações, remover as execuções de operações associadas
+				{
+					if (searchExecutionByOperation(executions, 33))
+					{
+						// Remover execução
+						deleteExecutionByOperation(&executions, 33);
+						printf("Execução associada à operação removida com sucesso!\n");
+					}
+					else
+					{
+						allFound = true;
+					}
+				}
 				// Atualizar a posição da operação num determinado job
 				updateOperationPosition(&operations, jobs, 1, 4, 2);
 				printf("Posição da operação atualizada com sucesso!\n");
@@ -96,14 +96,6 @@ int main()
 				updateRuntime(&executions, 2, 2, 10);
 				printf("Tempo necessário para a execução da operação atualizada com sucesso!\n");
 
-				// Inserir novo trabalho
-				Job* job = NULL;
-				job = newJob(9);
-				jobs = insertJobAtStart(jobs, job);
-				// Inserir nova máquina
-				Machine* machine = NULL;
-				machine = newMachine(9, false);
-				machines = insertMachineAtStart(machines, machine);
 				// Inserir nova operação
 				Operation* operation = NULL;
 				operation = newOperation(39, 2, 8);
@@ -113,8 +105,6 @@ int main()
 				execution = newExecution(39, 5, 22);
 				executions = insertOperationAtStart(executions, execution);
 				// Guardar as novas inserções em ficheiros
-				writeJobs("jobs.data", jobs);
-				writeMachines("machines.data", machines);
 				writeOperations("operations.data", operations);
 				writeExecutions("executions.data", executions);
 				printf("Novos dados exportados com sucesso!\n");

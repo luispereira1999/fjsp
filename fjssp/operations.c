@@ -27,6 +27,11 @@ Operation* newOperation(int id, int jobID, int position)
 
 Operation* insertOperationAtStart(Operation* head, Operation* new)
 {
+	if (searchOperation(head, new->id)) // não permitir inserir uma nova com o mesmo ID
+	{
+		return NULL;
+	}
+
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = new;
@@ -243,11 +248,11 @@ bool displayOperations(Operation* head)
 	return true;
 }
 
-Operation* getOperation(Operation* head, int id)
+bool searchOperation(Operation* head, int id)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL) // se lista está vazia
 	{
-		return NULL;
+		return false;
 	}
 
 	Operation* current = head;
@@ -256,12 +261,12 @@ Operation* getOperation(Operation* head, int id)
 	{
 		if (current->id == id)
 		{
-			return current;
+			return true;
 		}
 		current = current->next;
 	}
 
-	return NULL;
+	return false;
 }
 
 // obter o mínimo de tempo necessário para completo um job e as respetivas execuções de operações

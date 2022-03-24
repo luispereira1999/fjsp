@@ -27,6 +27,11 @@ Execution* newExecution(int operationID, int machineID, int runtime)
 
 Execution* insertExecutionAtStart(Execution* head, Execution* new)
 {
+	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
+	{
+		return NULL;
+	}
+
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = new;
@@ -40,10 +45,10 @@ Execution* insertExecutionAtStart(Execution* head, Execution* new)
 	return head;
 }
 
-// inserir execução da operação ordenada pelo ID da operação
+// inserir execução de operação ordenada pelo ID da operação
 Execution* insertExecutionByOperation(Execution* head, Execution* new)
 {
-	if (searchExecution(head, new->operationID, new->machineID)) // não permitir existir uma nova com um ID que já existe
+	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
 	{
 		return NULL;
 	}
@@ -102,7 +107,7 @@ bool updateRuntime(Execution** head, int operationID, int machineID, int runtime
 	return false;
 }
 
-bool deleteExecution(Execution** head, int operationID)
+bool deleteExecutionByOperation(Execution** head, int operationID)
 {
 	if (*head == NULL) // se a lista estiver vazia
 	{
@@ -239,27 +244,6 @@ bool displayExecutions(Execution* head)
 	return true;
 }
 
-Execution* SortExecutionsByOperation(Execution* head)
-{
-	if (head == NULL) // se a lista estiver vazia
-	{
-		return NULL;
-	}
-
-	Execution* current = head;
-	Execution* sorted = NULL;
-	Execution* new = NULL;
-
-	while (current != NULL)
-	{
-		new = newExecution(current->operationID, current->machineID, current->runtime);
-		sorted = insertExecutionByOperation(sorted, new);
-		current = current->next;
-	}
-
-	return sorted;
-}
-
 bool searchExecution(Execution* head, int operationID, int machineID)
 {
 	if (head == NULL) // se a lista estiver vazia
@@ -279,4 +263,46 @@ bool searchExecution(Execution* head, int operationID, int machineID)
 	}
 
 	return false;
+}
+
+bool searchExecutionByOperation(Execution* head, int operationID)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		return false;
+	}
+
+	Execution* current = head;
+
+	while (current != NULL)
+	{
+		if (current->operationID == operationID)
+		{
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
+}
+
+Execution* SortExecutionsByOperation(Execution* head)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		return NULL;
+	}
+
+	Execution* current = head;
+	Execution* sorted = NULL;
+	Execution* new = NULL;
+
+	while (current != NULL)
+	{
+		new = newExecution(current->operationID, current->machineID, current->runtime);
+		sorted = insertExecutionByOperation(sorted, new);
+		current = current->next;
+	}
+
+	return sorted;
 }

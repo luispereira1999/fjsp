@@ -26,6 +26,11 @@ Machine* newMachine(int id, bool isBusy)
 
 Machine* insertMachineAtStart(Machine* head, Machine* new)
 {
+	if (searchMachine(head, new->id)) // não permitir inserir uma nova com o mesmo ID
+	{
+		return NULL;
+	}
+
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = new;

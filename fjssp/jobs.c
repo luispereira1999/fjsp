@@ -25,6 +25,11 @@ Job* newJob(int id)
 
 Job* insertJobAtStart(Job* head, Job* new)
 {
+	if (searchJob(head, new->id)) // não permitir inserir um novo com o mesmo ID
+	{
+		return NULL;
+	}
+
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = new;
@@ -209,25 +214,4 @@ bool searchJob(Job* head, int id)
 	}
 
 	return false;
-}
-
-Job* getJob(Job* head, int id)
-{
-	if (head == NULL) // se lista está vazia
-	{
-		return NULL;
-	}
-
-	Job* current = head;
-
-	while (current != NULL)
-	{
-		if (current->id == id)
-		{
-			return current;
-		}
-		current = current->next;
-	}
-
-	return NULL;
 }
