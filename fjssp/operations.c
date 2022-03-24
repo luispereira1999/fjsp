@@ -168,6 +168,11 @@ bool writeOperations(char fileName[], Operation* head)
 Operation* readOperations(char fileName[])
 {
 	Operation* current = (Operation*)malloc(sizeof(Operation));
+	if (current == NULL) // se não houver memória para alocar
+	{
+		return NULL;
+	}
+
 	Operation* head = NULL;
 	Operation* last = NULL;
 

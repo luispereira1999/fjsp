@@ -117,6 +117,11 @@ bool writeJobs(char fileName[], Job* head)
 Job* readJobs(char fileName[])
 {
 	Job* current = (Job*)malloc(sizeof(Job));
+	if (current == NULL) // se não houver memória para alocar
+	{
+		return NULL;
+	}
+
 	Job* head = NULL;
 	Job* last = NULL;
 

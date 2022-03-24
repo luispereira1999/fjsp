@@ -68,6 +68,11 @@ bool writeMachines(char fileName[], Machine* head)
 Machine* readMachines(char fileName[])
 {
 	Machine* current = (Machine*)malloc(sizeof(Machine));
+	if (current == NULL) // se não houver memória para alocar
+	{
+		return NULL;
+	}
+
 	Machine* head = NULL;
 	Machine* last = NULL;
 
