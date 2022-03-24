@@ -40,6 +40,10 @@ Orientações e normas para o desenvolvimento do projeto:
 - devem conter uma descrição no início do ficheiro.
 
 
+## Documentação
+Para criar a documentação do código é utilizada o [Doxygen](https://www.doxygen.nl/index.html).
+
+
 ## Contribuições
 Qualquer contribuição é sempre bem-vinda e agradecida (desde reportar erros até adicionar novas funcionalidades).\
 Para contribuir em desenvolvimento, ler por favor as diretivas estabelecidas para o desenvolvimento do mesmo descritas acima para que outros desenvolvedores possam seguir o mesmo padrão.
