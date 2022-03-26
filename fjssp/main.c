@@ -1,7 +1,7 @@
 /*
 Descrição:           Ficheiro principal da aplicação, com menu e chamada de funções
 Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  25/03/2022
+Última atualização:  26/03/2022
 Criação:             14/03/2022
 */
 
@@ -26,14 +26,14 @@ int main()
 		printf("---------------------------------\n\n");
 		printf("   M E N U\n\n");
 		printf("   1 -> Fase 1\n");
-		printf("   2 -> Sobre\n");
+		printf("   2 -> Fase 2\n");
+		printf("   3 -> Sobre\n");
 		printf("   © Luís Pereira | 2022\n\n");
 		printf("---------------------------------\n");
 		printf("Escolha uma das opções acima: ");
 
 		if (!scanf("%d", &menuOption)) // se não introduzir um número
 		{
-			menuOption = 0;
 			fseek(stdin, 0, SEEK_END); // repor buffer de entrada para evitar ciclo infinito
 			printf("\n");
 			printf("O carácter introduzido não é válido. Tente outro.\n");
@@ -44,44 +44,60 @@ int main()
 
 			switch (menuOption)
 			{
-			case 1: // Fase 1 do projeto
+			case 1: // fase 1 do projeto
 
-				// Carregar dados (tabela) para as listas
+#pragma region funcionalidade 1: definir estruturas de dados dinâmicas
+				printf("-  1. Definir estruturas de dados dinâmicas\n");
+			
+				// carregar dados (tabela) para as listas
 				loadData(&jobs, &machines, &operations, &executions);
-				// Guardar os dados em ficheiros
-				writeJobs("jobs.text", jobs);
+				printf("Dados carregados em memória com sucesso!\n");
+#pragma endregion
+
+#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiro
+				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiro\n");
+			
+				// guardar os dados em ficheiros
+				writeJobs("jobs.txt", jobs);
 				writeOperations("operations.txt", operations);
 				writeMachines("machines.txt", machines);
 				writeExecutions("executions.txt", executions);
 				printf("Dados exportados com sucesso!\n");
-
-				// Libertar memória das listas anteriores, para serem lidas dos ficheiros
+			
+				// libertar memória das listas anteriores, para serem lidas dos ficheiros
 				freeJobs(jobs);
 				freeMachines(machines);
 				freeOperations(operations);
 				freeExecutions(executions);
-				// Depois de libertar memória, definir listas como NULL para evitar possíveis erros
+			
+				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
 				jobs = NULL;
 				operations = NULL;
 				machines = NULL;
 				executions = NULL;
-				// Ler dados de ficheiros
+			
+				// ler dados de ficheiros
 				jobs = readJobs("jobs.txt");
 				machines = readMachines("machines.txt");
 				operations = readOperations("operations.txt");
 				executions = readExecutions("executions.txt");
 				printf("Dados importados com sucesso!\n");
+#pragma endregion
 
-				// Remover operação
-				deleteOperation(&operations, 33);
+#pragma region funcionalidade 3: remover uma operação
+				printf("\n\n-  3. Remover uma operação\n");
+			
+				// remover operação
+				deleteOperation(&operations, 35);
 				printf("Operação removida com sucesso!\n");
+			
 				bool allFound = false;
 				while (allFound == false) // enquanto que encontrar operações, remover as execuções de operações associadas
 				{
-					if (searchExecutionByOperation(executions, 33))
+					if (searchExecutionByOperation(executions, 35))
 					{
-						// Remover execução
-						deleteExecutionByOperation(&executions, 33);
+						// remover execução
+						deleteExecutionByOperation(&executions, 35);
 						printf("Execução associada à operação removida com sucesso!\n");
 					}
 					else
@@ -89,48 +105,80 @@ int main()
 						allFound = true;
 					}
 				}
-				// Atualizar a posição da operação num determinado job
+#pragma endregion
+
+#pragma region funcionalidade 4: alterar uma operação
+				printf("\n\n-  4. Alterar uma operação\n");
+
+				// atualizar a posição da operação num determinado job
 				updateOperationPosition(&operations, jobs, 1, 4, 2);
 				printf("Posição da operação atualizada com sucesso!\n");
-				// Atualizar o tempo necessário para uma execução da operação
+
+				// atualizar o tempo necessário para uma execução da operação
 				updateRuntime(&executions, 2, 2, 10);
 				printf("Tempo necessário para a execução da operação atualizada com sucesso!\n");
+#pragma endregion
 
-				// Inserir nova operação
+#pragma region funcionalidade 5: inserir uma operação
+				printf("\n\n-  5. Inserir uma operação\n");
+
+				// inserir nova operação
 				Operation* operation = NULL;
 				operation = newOperation(39, 2, 8);
 				operations = insertOperationAtStart(operations, operation);
-				// Inserir nova execução de uma operação
+
+				// inserir nova execução de uma operação
 				Execution* execution = NULL;
-				execution = newExecution(39, 5, 22);
-				executions = insertOperationAtStart(executions, execution);
-				// Guardar as novas inserções em ficheiros
-				writeOperations("operations.data", operations);
-				writeExecutions("executions.data", executions);
+				execution = newExecution(39, 5, 17);
+				executions = insertExecutionAtStart(executions, execution);
+
+				// guardar as novas inserções em ficheiros
+				writeOperations("operations.txt", operations);
+				writeExecutions("executions.txt", executions);
 				printf("Novos dados exportados com sucesso!\n");
+#pragma endregion
 
-				printf("\n----------------\n\n");
-
-				// Obter o tempo mínimo para completar um job e as respetivas operações
+#pragma region funcionalidade 6: determinar tempo mínimo para completar um trabalho e listagem das respetivas operações
+				printf("\n\n-  6. Determinar tempo mínimo para completar um trabalho e listagem das respetivas operações\n");
+			
+				// obter o tempo mínimo para completar um job e as respetivas operações
 				Execution* minExecutions = NULL;
 				int minTime = getMinTimeToCompleteJob(operations, executions, 1, &minExecutions);
+			
+				// mostrar resultados
 				printf("Menor tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, minTime);
 				printf("Operações com menor tempo:\n");
 				minExecutions = SortExecutionsByOperation(minExecutions);
 				displayExecutions(minExecutions);
-				// Obter o tempo máximo para completar um job
+#pragma endregion
+
+#pragma region funcionalidade 7: determinar tempo máxima para completar um trabalho e listagem das respetivas operações
+				printf("\n\n-  7. Determinar tempo máxima para completar um trabalho e listagem das respetivas operações\n");
+				
+				// obter o tempo máximo para completar um job
 				Execution* maxExecutions = NULL;
 				int maxTime = getMaxTimeToCompleteJob(operations, executions, 1, &maxExecutions);
+
+				// mostrar resultados
 				printf("Maior tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, maxTime);
 				printf("Operações com maior tempo:\n");
 				maxExecutions = SortExecutionsByOperation(maxExecutions);
 				displayExecutions(maxExecutions);
-				// Obter o tempo médio para completar uma operação
+#pragma endregion
+
+#pragma region funcionalidad 8: determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis
+				printf("\n\n-  8. Determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis\n");
+			
+				// obter o tempo médio para completar uma operação
 				float average = getAverageTimeToCompleteOperation(executions, 1);
+
+				// mostrar resultado
 				printf("Média de tempo necessário para completar a operação(ID: %d) é %.2f!\n", 1, average);
+#pragma endregion
 
-				printf("\n----------------\n\n");
-
+#pragma region mostrar dados
+				printf("\n\n-  Mostrar dados\n");
+			
 				// Mostrar dados na consola
 				printf("Trabalhos:\n");
 				displayJobs(jobs);
@@ -138,17 +186,25 @@ int main()
 				displayMachines(machines);
 				printf("Operações:\n");
 				displayOperations(operations);
-				printf("Execução de Operações:\n");
+				printf("Execuções de Operações:\n");
 				displayExecutions(executions);
 				printf("Dados mostrados com sucesso!\n");
+			
 				// Libertar memória
 				freeJobs(jobs);
 				freeMachines(machines);
 				freeOperations(operations);
 				freeExecutions(executions);
+#pragma endregion
+
 				break;
 
-			case 2: // sobre aplicação
+			case 2: // fase 2 do projeto
+
+				printf("Em breve!\n");
+				break;
+
+			case 3: // sobre aplicação
 
 				printf("Flexible Job Shop Problem - Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\n");
 				printf("Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\n");
