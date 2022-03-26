@@ -49,10 +49,10 @@ int main()
 				// Carregar dados (tabela) para as listas
 				loadData(&jobs, &machines, &operations, &executions);
 				// Guardar os dados em ficheiros
-				writeJobs("jobs.data", jobs);
-				writeOperations("operations.data", operations);
-				writeMachines("machines.data", machines);
-				writeExecutions("executions.data", executions);
+				writeJobs("jobs.text", jobs);
+				writeOperations("operations.txt", operations);
+				writeMachines("machines.txt", machines);
+				writeExecutions("executions.txt", executions);
 				printf("Dados exportados com sucesso!\n");
 
 				// Libertar memória das listas anteriores, para serem lidas dos ficheiros
@@ -66,10 +66,10 @@ int main()
 				machines = NULL;
 				executions = NULL;
 				// Ler dados de ficheiros
-				jobs = readJobs("jobs.data");
-				machines = readMachines("machines.data");
-				operations = readOperations("operations.data");
-				executions = readExecutions("executions.data");
+				jobs = readJobs("jobs.txt");
+				machines = readMachines("machines.txt");
+				operations = readOperations("operations.txt");
+				executions = readExecutions("executions.txt");
 				printf("Dados importados com sucesso!\n");
 
 				// Remover operação

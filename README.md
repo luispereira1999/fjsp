@@ -13,7 +13,10 @@ Para colocar o projeto a funcionar localmente em uma máquina basta:
 ### Estrutura
 As pastas e ficheiros que são utilizados no desenvolvimento do projeto estão estruturados da seguinte maneira:
 
+fjssp.sln\
 docs/\
+├── html\
+├── Doxyfile\
 ├── er-model.drawio\
 ├── er-model.png\
 fjssp/\
@@ -24,8 +27,8 @@ fjssp/\
 ├── main.c\
 ├── machines.c\
 ├── operations-execution.c\
-├── operations.c\
-└── fjssp.sln
+└── operations.c\
+
 
 ### Diretivas
 Orientações e normas para o desenvolvimento do projeto:
@@ -41,7 +44,8 @@ Orientações e normas para o desenvolvimento do projeto:
 
 
 ## Documentação
-Para criar a documentação do código é utilizada o [Doxygen](https://www.doxygen.nl/index.html).
+Para criar a documentação do código é utilizado o [Doxygen](https://www.doxygen.nl/index.html).\
+Para atualizar, coloque os ficheiros na pasta ```docs```.
 
 
 ## Contribuições
