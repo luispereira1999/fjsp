@@ -48,7 +48,7 @@ int main()
 
 #pragma region funcionalidade 1: definir estruturas de dados dinâmicas
 				printf("-  1. Definir estruturas de dados dinâmicas\n");
-			
+
 				// carregar dados (tabela) para as listas
 				loadData(&jobs, &machines, &operations, &executions);
 				printf("Dados carregados em memória com sucesso!\n");
@@ -56,26 +56,26 @@ int main()
 
 #pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiro
 				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiro\n");
-			
+
 				// guardar os dados em ficheiros
 				writeJobs("jobs.txt", jobs);
 				writeOperations("operations.txt", operations);
 				writeMachines("machines.txt", machines);
 				writeExecutions("executions.txt", executions);
 				printf("Dados exportados com sucesso!\n");
-			
+
 				// libertar memória das listas anteriores, para serem lidas dos ficheiros
 				freeJobs(jobs);
 				freeMachines(machines);
 				freeOperations(operations);
 				freeExecutions(executions);
-			
+
 				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
 				jobs = NULL;
 				operations = NULL;
 				machines = NULL;
 				executions = NULL;
-			
+
 				// ler dados de ficheiros
 				jobs = readJobs("jobs.txt");
 				machines = readMachines("machines.txt");
@@ -86,11 +86,11 @@ int main()
 
 #pragma region funcionalidade 3: remover uma operação
 				printf("\n\n-  3. Remover uma operação\n");
-			
+
 				// remover operação
 				deleteOperation(&operations, 35);
 				printf("Operação removida com sucesso!\n");
-			
+
 				bool allFound = false;
 				while (allFound == false) // enquanto que encontrar operações, remover as execuções de operações associadas
 				{
@@ -107,11 +107,11 @@ int main()
 				}
 #pragma endregion
 
-#pragma region funcionalidade 4: alterar uma operação
-				printf("\n\n-  4. Alterar uma operação\n");
+#pragma region funcionalidade 4: atualizar uma operação
+				printf("\n\n-  4. Atualizar uma operação\n");
 
 				// atualizar a posição da operação num determinado job
-				updateOperationPosition(&operations, jobs, 1, 4, 2);
+				updatePosition(&operations, jobs, 1, 4, 2);
 				printf("Posição da operação atualizada com sucesso!\n");
 
 				// atualizar o tempo necessário para uma execução da operação
@@ -140,11 +140,11 @@ int main()
 
 #pragma region funcionalidade 6: determinar tempo mínimo para completar um trabalho e listagem das respetivas operações
 				printf("\n\n-  6. Determinar tempo mínimo para completar um trabalho e listagem das respetivas operações\n");
-			
+
 				// obter o tempo mínimo para completar um job e as respetivas operações
 				Execution* minExecutions = NULL;
 				int minTime = getMinTimeToCompleteJob(operations, executions, 1, &minExecutions);
-			
+
 				// mostrar resultados
 				printf("Menor tempo necessário para completar o trabalho(ID: %d) é %d!\n", 1, minTime);
 				printf("Operações com menor tempo:\n");
@@ -152,9 +152,9 @@ int main()
 				displayExecutions(minExecutions);
 #pragma endregion
 
-#pragma region funcionalidade 7: determinar tempo máxima para completar um trabalho e listagem das respetivas operações
-				printf("\n\n-  7. Determinar tempo máxima para completar um trabalho e listagem das respetivas operações\n");
-				
+#pragma region funcionalidade 7: determinar tempo máximo para completar um trabalho e listagem das respetivas operações
+				printf("\n\n-  7. Determinar tempo máximo para completar um trabalho e listagem das respetivas operações\n");
+
 				// obter o tempo máximo para completar um job
 				Execution* maxExecutions = NULL;
 				int maxTime = getMaxTimeToCompleteJob(operations, executions, 1, &maxExecutions);
@@ -166,9 +166,9 @@ int main()
 				displayExecutions(maxExecutions);
 #pragma endregion
 
-#pragma region funcionalidad 8: determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis
+#pragma region funcionalidade 8: determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis
 				printf("\n\n-  8. Determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis\n");
-			
+
 				// obter o tempo médio para completar uma operação
 				float average = getAverageTimeToCompleteOperation(executions, 1);
 
@@ -178,8 +178,8 @@ int main()
 
 #pragma region mostrar dados
 				printf("\n\n-  Mostrar dados\n");
-			
-				// Mostrar dados na consola
+
+				// mostrar dados na consola
 				printf("Trabalhos:\n");
 				displayJobs(jobs);
 				printf("Máquinas:\n");
@@ -189,8 +189,8 @@ int main()
 				printf("Execuções de Operações:\n");
 				displayExecutions(executions);
 				printf("Dados mostrados com sucesso!\n");
-			
-				// Libertar memória
+
+				// libertar memória
 				freeJobs(jobs);
 				freeMachines(machines);
 				freeOperations(operations);

@@ -81,7 +81,7 @@ bool searchMachine(Machine* head, int id);
 // sobre operações
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* new);
-bool updateOperationPosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition);
+bool updatePosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition);
 bool deleteOperation(Operation** head, int id);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
@@ -91,6 +91,7 @@ bool searchOperation(Operation* head, int id);
 int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minexecutions);
 int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxexecutions);
 float getAverageTimeToCompleteOperation(Execution* head, int operationID);
+int getMaxPosition(Operation* head, int jobID);
 
 // sobre execuções
 Execution* newExecution(int operationID, int machineID, int runtime);

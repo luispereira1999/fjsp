@@ -32,6 +32,12 @@ Operation* insertOperationAtStart(Operation* head, Operation* new)
 		return NULL;
 	}
 
+	int lastPosition = getMaxPosition(head, new->jobID);
+	if (lastPosition + 1 != new->position) // se a nova posição não corresponder à última posição +1
+	{
+		return NULL;
+	}
+
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = new;
@@ -45,8 +51,8 @@ Operation* insertOperationAtStart(Operation* head, Operation* new)
 	return head;
 }
 
-// trocar a ordem da posição de uma operação, num determinado job
-bool updateOperationPosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition)
+// trocar a posição de uma operação para outra e vice-versa, num determinado trabalho
+bool updatePosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition)
 {
 	if (*operations == NULL || jobs == NULL) // se as listas estiverem vazias
 	{
@@ -269,7 +275,7 @@ bool searchOperation(Operation* head, int id)
 	return false;
 }
 
-// obter o mínimo de tempo necessário para completo um job e as respetivas execuções de operações
+// obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções de operações
 int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions)
 {
 	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
@@ -319,7 +325,7 @@ int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 	return counter;
 }
 
-// obter o máximo de tempo necessário para completo um job e as respetivas execuções de operações
+// obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções de operações
 int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions)
 {
 	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
@@ -399,4 +405,27 @@ float getAverageTimeToCompleteOperation(Execution* head, int operationID)
 	}
 
 	return average;
+}
+
+// obter a quantidade de posições que existem na lista de operações, relativas a um trabalho
+int getMaxPosition(Operation* head, int jobID)
+{
+	if (head == NULL)
+	{
+		return 0;
+	}
+
+	int count = 0;
+	Operation* current = head;
+
+	while (current != NULL)
+	{
+		if (current->jobID == jobID)
+		{
+			count++;
+		}
+		current = current->next;
+	}
+
+	return count;
 }
