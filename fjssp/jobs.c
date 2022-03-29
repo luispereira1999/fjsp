@@ -98,36 +98,22 @@ bool writeJobs(char fileName[], Job* head)
 */
 Job* readJobs(char fileName[])
 {
-	Job* current = (Job*)malloc(sizeof(Job));
-	if (current == NULL) // se não houver memória para alocar
-	{
-		return NULL;
-	}
-
+	FILE* file;
 	Job* head = NULL;
-	Job* last = NULL;
+	Job* current = NULL;
 
-	FILE* file = NULL;
-	file = fopen(fileName, "rb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
 
-	while (fread(current, sizeof(Job), 1, file)) // ler todos os elementos da lista do ficheiro
-	{
-		if (head == NULL) // ler o primeiro elemento
-		{
-			head = last = (Job*)malloc(sizeof(Job));
-		}
-		else // ler os restantes elementos
-		{
-			last->next = (Job*)malloc(sizeof(Job));
-			last = last->next;
-		}
+	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
+	FileJob currentInFile;
 
-		last->id = current->id;
-		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+	while (fread(&currentInFile, sizeof(FileJob), 1, file)) // lê todos os registos do ficheiro 
+	{
+		current = newJob(currentInFile.id);
+		head = insertJobAtStart(head, current);
 	}
 
 	fclose(file);

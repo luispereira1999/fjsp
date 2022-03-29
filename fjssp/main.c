@@ -9,6 +9,7 @@
  *
  * Software desenvolvido para a proposta de escalonamento para a produção de um produto que envolve várias operações 
  * e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.
+ * @see https://github.com/luispereira1999/fjssp
 */
 
 #include <stdio.h>

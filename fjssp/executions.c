@@ -214,42 +214,26 @@ bool writeExecutions(char fileName[], Execution* head)
 /**
 * @brief	Ler lista de execuções de ficheiro
 * @param	fileName	Nome do ficheiro para ler a lista
-* @return	Lista de operações
+* @return	Lista de execuçõess
 */
 Execution* readExecutions(char fileName[])
 {
-	Execution* current = (Execution*)malloc(sizeof(Execution));
-	if (current == NULL) // se não houver memória para alocar
-	{
-		return NULL;
-	}
-
+	FILE* file;
 	Execution* head = NULL;
-	Execution* last = NULL;
+	Execution* current = NULL;
 
-	FILE* file = NULL;
-	file = fopen(fileName, "rb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
+	
+	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
+	FileExecution currentInFile; 
 
-	while (fread(current, sizeof(Execution), 1, file)) // ler todos os elementos da lista do ficheiro
+	while (fread(&currentInFile, sizeof(FileExecution), 1, file)) // lê todos os registos do ficheiro 
 	{
-		if (head == NULL) // ler o primeiro elemento
-		{
-			head = last = (Execution*)malloc(sizeof(Execution));
-		}
-		else // ler os restantes elementos
-		{
-			last->next = (Execution*)malloc(sizeof(Execution));
-			last = last->next;
-		}
-
-		last->operationID = current->operationID;
-		last->machineID = current->machineID;
-		last->runtime = current->runtime;
-		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+		current = newExecution(currentInFile.operationID, currentInFile.operationID, currentInFile.runtime);
+		head = insertExecutionAtStart(head, current);
 	}
 
 	fclose(file);

@@ -96,41 +96,26 @@ bool writeMachines(char fileName[], Machine* head)
 /**
 * @brief	Ler lista de máquinas de ficheiro
 * @param	fileName	Nome do ficheiro para ler a lista
-* @return	Lista de operações
+* @return	Lista de máquinas
 */
 Machine* readMachines(char fileName[])
 {
-	Machine* current = (Machine*)malloc(sizeof(Machine));
-	if (current == NULL) // se não houver memória para alocar
-	{
-		return NULL;
-	}
-
+	FILE* file;
 	Machine* head = NULL;
-	Machine* last = NULL;
+	Machine* current = NULL;
 
-	FILE* file = NULL;
-	file = fopen(fileName, "rb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
 
-	while (fread(current, sizeof(Machine), 1, file)) // ler todos os elementos da lista do ficheiro
-	{
-		if (head == NULL) // ler o primeiro elemento
-		{
-			head = last = (Machine*)malloc(sizeof(Machine));
-		}
-		else // ler os restantes elementos
-		{
-			last->next = (Machine*)malloc(sizeof(Machine));
-			last = last->next;
-		}
+	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
+	FileMachine currentInFile;
 
-		last->id = current->id;
-		last->isBusy = current->isBusy;
-		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+	while (fread(&currentInFile, sizeof(FileMachine), 1, file)) // lê todos os registos do ficheiro 
+	{
+		current = newMachine(currentInFile.id, currentInFile.isBusy);
+		head = insertMachineAtStart(head, current);
 	}
 
 	fclose(file);

@@ -223,38 +223,22 @@ bool writeOperations(char fileName[], Operation* head)
 */
 Operation* readOperations(char fileName[])
 {
-	Operation* current = (Operation*)malloc(sizeof(Operation));
-	if (current == NULL) // se não houver memória para alocar
-	{
-		return NULL;
-	}
-
+	FILE* file;
 	Operation* head = NULL;
-	Operation* last = NULL;
+	Operation* current = NULL;
 
-	FILE* file = NULL;
-	file = fopen(fileName, "rb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
 
-	while (fread(current, sizeof(Operation), 1, file) > 0) // ler todos os elementos da lista do ficheiro
-	{
-		if (head == NULL) // ler o primeiro elemento
-		{
-			head = last = (Operation*)malloc(sizeof(Operation));
-		}
-		else // ler os restantes elementos
-		{
-			last->next = (Operation*)malloc(sizeof(Operation));
-			last = last->next;
-		}
+	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
+	FileOperation currentInFile;
 
-		last->id = current->id;
-		last->jobID = current->jobID;
-		last->position = current->position;
-		last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+	while (fread(&currentInFile, sizeof(FileOperation), 1, file)) // lê todos os registos do ficheiro 
+	{
+		current = newOperation(currentInFile.id, currentInFile.jobID, currentInFile.position);
+		head = insertOperationAtStart(head, current);
 	}
 
 	fclose(file);
