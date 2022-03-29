@@ -61,7 +61,7 @@ Machine* insertMachineAtStart(Machine* head, Machine* new)
 
 
 /**
-* @brief	Armazenar lista de máquinas em ficheiro
+* @brief	Armazenar lista de máquinas em ficheiro binário
 * @param	fileName	Nome do ficheiro para armazenar a lista
 * @param	head		Lista de máquinas
 * @return	Booleano para o resultado da função (se funcionou ou não)
@@ -74,16 +74,21 @@ bool writeMachines(char fileName[], Machine* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "wb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+
+	if ((file = fopen(fileName, "wb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
 	}
 
 	Machine* current = head;
-	while (current != NULL) // escrever todos os elementos da lista no ficheiro
+	FileMachine currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+	while (current != NULL)
 	{
-		fwrite(current, sizeof(Machine), 1, file);
+		currentInFile.id = current->id;
+		currentInFile.isBusy = current->isBusy;
+		fwrite(&currentInFile, sizeof(FileMachine), 1, file); // guarda cada registo da lista no ficheiro
+		
 		current = current->next;
 	}
 
@@ -94,25 +99,24 @@ bool writeMachines(char fileName[], Machine* head)
 
 
 /**
-* @brief	Ler lista de máquinas de ficheiro
+* @brief	Ler lista de máquinas de ficheiro binário
 * @param	fileName	Nome do ficheiro para ler a lista
 * @return	Lista de máquinas
 */
 Machine* readMachines(char fileName[])
 {
 	FILE* file;
-	Machine* head = NULL;
-	Machine* current = NULL;
 
 	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
 
-	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
-	FileMachine currentInFile;
+	Machine* head = NULL;
+	Machine* current = NULL;
+	FileMachine currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
 
-	while (fread(&currentInFile, sizeof(FileMachine), 1, file)) // lê todos os registos do ficheiro 
+	while (fread(&currentInFile, sizeof(FileMachine), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newMachine(currentInFile.id, currentInFile.isBusy);
 		head = insertMachineAtStart(head, current);

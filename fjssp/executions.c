@@ -179,7 +179,7 @@ bool deleteExecutionByOperation(Execution** head, int operationID)
 
 
 /**
-* @brief	Armazenar lista de execuções em ficheiro
+* @brief	Armazenar lista de execuções em ficheiro binário
 * @param	fileName	Nome do ficheiro para armazenar a lista
 * @param	head		Lista de execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
@@ -192,16 +192,22 @@ bool writeExecutions(char fileName[], Execution* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "wb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+
+	if ((file = fopen(fileName, "wb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
 	}
 
 	Execution* current = head;
-	while (current != NULL) // escrever todos os elementos da lista no ficheiro
+	FileExecution currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+	while (current != NULL)
 	{
-		fwrite(current, sizeof(Execution), 1, file);
+		currentInFile.operationID = current->operationID;
+		currentInFile.machineID = current->machineID;
+		currentInFile.runtime = current->runtime;
+		fwrite(&currentInFile, sizeof(FileExecution), 1, file); // guarda cada registo da lista no ficheiro
+		
 		current = current->next;
 	}
 
@@ -212,25 +218,24 @@ bool writeExecutions(char fileName[], Execution* head)
 
 
 /**
-* @brief	Ler lista de execuções de ficheiro
+* @brief	Ler lista de execuções de ficheiro binário
 * @param	fileName	Nome do ficheiro para ler a lista
 * @return	Lista de execuçõess
 */
 Execution* readExecutions(char fileName[])
 {
 	FILE* file;
-	Execution* head = NULL;
-	Execution* current = NULL;
 
 	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
-	
-	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
-	FileExecution currentInFile; 
 
-	while (fread(&currentInFile, sizeof(FileExecution), 1, file)) // lê todos os registos do ficheiro 
+	Execution* head = NULL;
+	Execution* current = NULL;
+	FileExecution currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+	while (fread(&currentInFile, sizeof(FileExecution), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newExecution(currentInFile.operationID, currentInFile.operationID, currentInFile.runtime);
 		head = insertExecutionAtStart(head, current);

@@ -59,7 +59,7 @@ Job* insertJobAtStart(Job* head, Job* new)
 
 
 /**
-* @brief	Armazenar lista de trabalhos em ficheiro
+* @brief	Armazenar lista de trabalhos em ficheiro binário
 * @param	fileName	Nome do ficheiro para armazenar a lista
 * @param	head		Lista de trabalhos
 * @return	Booleano para o resultado da função (se funcionou ou não)
@@ -72,16 +72,20 @@ bool writeJobs(char fileName[], Job* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "wb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+
+	if ((file = fopen(fileName, "wb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
 	}
 
 	Job* current = head;
-	while (current != NULL) // escrever todos os elementos da lista no ficheiro
+	FileJob currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+	while (current != NULL)
 	{
-		fwrite(current, sizeof(Job), 1, file);
+		currentInFile.id = current->id;
+		fwrite(&currentInFile, sizeof(FileJob), 1, file); // guarda cada registo da lista no ficheiro
+		
 		current = current->next;
 	}
 
@@ -92,25 +96,24 @@ bool writeJobs(char fileName[], Job* head)
 
 
 /**
-* @brief	Ler lista de trabalhos de ficheiro
+* @brief	Ler lista de trabalhos de ficheiro binário
 * @param	fileName	Nome do ficheiro para ler a lista
 * @return	Lista de trabalhos
 */
 Job* readJobs(char fileName[])
 {
 	FILE* file;
-	Job* head = NULL;
-	Job* current = NULL;
 
 	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
 
-	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
-	FileJob currentInFile;
+	Job* head = NULL;
+	Job* current = NULL;
+	FileJob currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
 
-	while (fread(&currentInFile, sizeof(FileJob), 1, file)) // lê todos os registos do ficheiro 
+	while (fread(&currentInFile, sizeof(FileJob), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newJob(currentInFile.id);
 		head = insertJobAtStart(head, current);

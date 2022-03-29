@@ -184,7 +184,7 @@ bool deleteOperation(Operation** head, int id)
 
 
 /**
-* @brief	Armazenar lista de operações em ficheiro
+* @brief	Armazenar lista de operações em ficheiro binário
 * @param	fileName	Nome do ficheiro para armazenar a lista
 * @param	head		Lista de operações
 * @return	Booleano para o resultado da função (se funcionou ou não)
@@ -197,16 +197,22 @@ bool writeOperations(char fileName[], Operation* head)
 	}
 
 	FILE* file = NULL;
-	file = fopen(fileName, "wb");
-	if (file == NULL) // se não foi possível abrir o ficheiro
+
+	if ((file = fopen(fileName, "wb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return false;
 	}
 
 	Operation* current = head;
-	while (current != NULL) // escrever todos os elementos da lista no ficheiro
+	FileOperation currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+	while (current != NULL)
 	{
-		fwrite(current, sizeof(Operation), 1, file);
+		currentInFile.id = current->id;
+		currentInFile.jobID = current->jobID;
+		currentInFile.position = current->position;
+		fwrite(&currentInFile, sizeof(FileOperation), 1, file); // guarda cada registo da lista no ficheiro
+	
 		current = current->next;
 	}
 
@@ -217,25 +223,24 @@ bool writeOperations(char fileName[], Operation* head)
 
 
 /**
-* @brief	Ler lista de operações de ficheiro
+* @brief	Ler lista de operações de ficheiro binário
 * @param	fileName	Nome do ficheiro para ler a lista
 * @return	Lista de operações
 */
 Operation* readOperations(char fileName[])
 {
 	FILE* file;
-	Operation* head = NULL;
-	Operation* current = NULL;
 
 	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
 	{
 		return NULL;
 	}
 
-	// é a mesma estrutura mas sem o campo *next, pelo facto de ao guardar no ficheiro não ser necessário guardá-lo
-	FileOperation currentInFile;
+	Operation* head = NULL;
+	Operation* current = NULL;
+	FileOperation currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
 
-	while (fread(&currentInFile, sizeof(FileOperation), 1, file)) // lê todos os registos do ficheiro 
+	while (fread(&currentInFile, sizeof(FileOperation), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newOperation(currentInFile.id, currentInFile.jobID, currentInFile.position);
 		head = insertOperationAtStart(head, current);
