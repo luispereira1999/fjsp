@@ -15,7 +15,7 @@
 
 #pragma endregion
 
-#pragma region representações e estruturas
+#pragma region representações
 
 /**
  * @brief	Criar tipo de dados booleano
@@ -26,8 +26,12 @@ typedef enum bool
    true = 1
 } bool;
 
+#pragma endregion
+
+#pragma region estruturas de dados em memória
+
 /**
- * @brief	Estrutura de dados para a lista de trabalhos
+ * @brief	Estrutura de dados para a lista (em memória) de trabalhos
  */
 typedef struct Job
 {
@@ -37,7 +41,7 @@ typedef struct Job
 extern Job* jobs; // extern: informar o compilador que esta variável está definida algures no código
 
 /**
- * @brief	Estrutura de dados para a lista de máquinas
+ * @brief	Estrutura de dados para a lista (em memória) de máquinas
  */
 typedef struct Machine
 {
@@ -48,7 +52,7 @@ typedef struct Machine
 extern Machine* machines;
 
 /**
- * @brief	Estrutura de dados para a lista das execuções das operações em máquinas
+ * @brief	Estrutura de dados para a lista (em memória) das execuções das operações em máquinas
  */
 typedef struct Execution
 {
@@ -60,7 +64,7 @@ typedef struct Execution
 extern Execution* executions;
 
 /**
- * @brief	Estrutura de dados para a lista de máquinas
+ * @brief	Estrutura de dados para a lista (em memória) de operações
  */
 typedef struct Operation
 {
@@ -70,6 +74,47 @@ typedef struct Operation
 	struct Operation* next;
 } Operation;
 extern Operation* operations;
+
+#pragma endregion
+
+#pragma region estruturas de dados em ficheiros
+
+/**
+ * @brief	Estrutura de dados para armazenar em ficheiro a lista de trabalhos
+ */
+typedef struct FileJob
+{
+	int id;
+} FileJob;
+
+/**
+ * @brief	Estrutura de dados para armazenar em ficheiro a lista de máquinas
+ */
+typedef struct FileMachine
+{
+	int id;
+	bool isBusy; // se a máquina está ou não em utilização
+} FileMachine;
+
+/**
+ * @brief	Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas
+ */
+typedef struct FileExecution
+{
+	int operationID;
+	int machineID;
+	int runtime; // unidades de tempo necessárias para a execução da operação
+} FileExecution;
+
+/**
+ * @brief	Estrutura de dados para armazenar em ficheiro a lista de operações
+ */
+typedef struct FileOperation
+{
+	int id;
+	int jobID;
+	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
+} FileOperation;
 
 #pragma endregion
 
