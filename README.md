@@ -26,7 +26,7 @@ fjssp/\
 ├── machines.c\
 ├── main.c\
 ├── machines.c\
-├── operations-execution.c\
+├── executions.c\
 └── operations.c\
 
 
