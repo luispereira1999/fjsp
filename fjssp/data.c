@@ -1,13 +1,22 @@
-/*
-Descrição:           Ficheiro com função para carregar dados
-Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  25/03/2022
-Criação:             19/03/2022
+/**
+ * @brief	Ficheiro com função para carregar dados em listas
+ * @file	data.c
+ * @author	Luís Pereira
+ * @email	a18446@alunos.ipca.pt
+ * @date	25/03/2022
 */
 
 #include <stdio.h>
 #include "header.h"
 
+
+/**
+* @brief	Carregar dados para as listas
+* @param	jobs		Apontador para a lista de jobs
+* @param	machines	Apontador para a lista de máquinas
+* @param	operations	Apontador para a lista de operações
+* @param	executions	Apontador para a lista de execuções de operações
+*/
 void loadData(Job** jobs, Machine** machines, Operation** operations, Execution** executions)
 {
 	Job* job = NULL;

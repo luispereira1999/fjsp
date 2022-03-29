@@ -1,9 +1,11 @@
-/*
-Descrição:           Ficheiro com todas as declarações necessárias para a fase 1 da aplicação
-Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  25/03/2022
-Criação:             14/03/2022
+/**
+ * @brief	Ficheiro com todas as assinaturas globais necessários para a aplicação
+ * @file	header.h
+ * @author	Luís Pereira
+ * @email	a18446@alunos.ipca.pt
+ * @date	25/03/2022
 */
+
 
 #ifndef HEADER_H
 
@@ -15,12 +17,18 @@ Criação:             14/03/2022
 
 #pragma region representações e estruturas
 
+/**
+ * @brief	Criar tipo de dados booleano
+ */
 typedef enum bool
 {
    false = 0,
    true = 1
 } bool;
 
+/**
+ * @brief	Estrutura de dados para a lista de trabalhos
+ */
 typedef struct Job
 {
 	int id;
@@ -28,6 +36,9 @@ typedef struct Job
 } Job;
 extern Job* jobs; // extern: informar o compilador que esta variável está definida algures no código
 
+/**
+ * @brief	Estrutura de dados para a lista de máquinas
+ */
 typedef struct Machine
 {
 	int id;
@@ -36,15 +47,21 @@ typedef struct Machine
 } Machine;
 extern Machine* machines;
 
-typedef struct Execution // corresponde a cada execução de uma operação em uma máquina
+/**
+ * @brief	Estrutura de dados para a lista das execuções das operações em máquinas
+ */
+typedef struct Execution
 {
 	int operationID;
 	int machineID;
-	int runtime; // unidades de tempo necessária para a execução da operação
+	int runtime; // unidades de tempo necessárias para a execução da operação
 	struct Execution* next;
 } Execution;
 extern Execution* executions;
 
+/**
+ * @brief	Estrutura de dados para a lista de máquinas
+ */
 typedef struct Operation
 {
 	int id;
@@ -56,20 +73,22 @@ extern Operation* operations;
 
 #pragma endregion
 
-#pragma region funções e procedimentos
+#pragma region funções
 
-// sobre trabalhos
+/**
+ * @brief	Sobre trabalhos
+ */
 Job* newJob(int id);
 Job* insertJobAtStart(Job* head, Job* new);
-Job* updateJob(Job* head, Job* jobToUpdate, int id);
-bool deleteJob(Job** head, int id);
 bool writeJobs(char fileName[], Job* head);
 Job* readJobs(char fileName[]);
 bool freeJobs(Job* head);
 bool displayJobs(Job* head);
 bool searchJob(Job* head, int id);
 
-// sobre máquinas
+/**
+ * @brief	Sobre máquinas
+ */
 Machine* newMachine(int id, bool isBusy);
 Machine* insertMachineAtStart(Machine* head, Machine* new);
 bool writeMachines(char fileName[], Machine* head);
@@ -78,7 +97,9 @@ bool freeMachines(Machine* head);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
 
-// sobre operações
+/**
+ * @brief	Sobre operações
+ */
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* new);
 bool updatePosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition);
@@ -88,12 +109,14 @@ Operation* readOperations(char fileName[]);
 bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 bool searchOperation(Operation* head, int id);
-int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minexecutions);
-int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxexecutions);
+int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
+int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
 float getAverageTimeToCompleteOperation(Execution* head, int operationID);
 int getMaxPosition(Operation* head, int jobID);
 
-// sobre execuções
+/**
+ * @brief	Sobre execuções
+ */
 Execution* newExecution(int operationID, int machineID, int runtime);
 Execution* insertExecutionAtStart(Execution* head, Execution* new);
 Execution* insertExecutionByOperation(Execution* head, Execution* new);
@@ -107,7 +130,9 @@ bool searchExecution(Execution* head, int operationID, int machineID);
 bool searchExecutionByOperation(Execution* head, int operationID);
 Execution* SortExecutionsByOperation(Execution* head);
 
-// carregar dados para listas
+/**
+ * @brief	Carregar dados para listas
+ */
 void loadData(Job** jobs, Machine** machines, Operation** operations, Execution** executions);
 
 #pragma endregion

@@ -1,14 +1,22 @@
-/*
-Descrição:           Ficheiro com todas as funções e procedimentos relativos às máquinas
-Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  25/03/2022
-Criação:             17/03/2022
+/**
+ * @brief	Ficheiro com todas as funções relativas às máquinas
+ * @file	machines.c
+ * @author	Luís Pereira
+ * @email	a18446@alunos.ipca.pt
+ * @date	25/03/2022
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "header.h"
 
+
+/**
+* @brief	Criar nova máquina
+* @param	id		Identificador da máquina
+* @param	isBusy	Booleano para se a máquina está ou não em utilização
+* @return	Nova máquina
+*/
 Machine* newMachine(int id, bool isBusy)
 {
 	Machine* new = (Machine*)malloc(sizeof(Machine));
@@ -24,6 +32,13 @@ Machine* newMachine(int id, bool isBusy)
 	return new;
 }
 
+
+/**
+* @brief	Inserir nova máquina no início da lista de máquinas
+* @param	head	Lista de máquinas
+* @param	new		Nova máquina
+* @return	Lista de máquinas atualizada
+*/
 Machine* insertMachineAtStart(Machine* head, Machine* new)
 {
 	if (searchMachine(head, new->id)) // não permitir inserir uma nova com o mesmo ID
@@ -44,6 +59,13 @@ Machine* insertMachineAtStart(Machine* head, Machine* new)
 	return head;
 }
 
+
+/**
+* @brief	Armazenar lista de máquinas em ficheiro
+* @param	fileName	Nome do ficheiro para armazenar a lista
+* @param	head		Lista de máquinas
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool writeMachines(char fileName[], Machine* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -70,6 +92,12 @@ bool writeMachines(char fileName[], Machine* head)
 	return true;
 }
 
+
+/**
+* @brief	Ler lista de máquinas de ficheiro
+* @param	fileName	Nome do ficheiro para ler a lista
+* @return	Lista de operações
+*/
 Machine* readMachines(char fileName[])
 {
 	Machine* current = (Machine*)malloc(sizeof(Machine));
@@ -110,6 +138,12 @@ Machine* readMachines(char fileName[])
 	return head;
 }
 
+
+/**
+* @brief	Libertar a lista de máquinas da memória
+* @param	head	Lista de máquinas
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool freeMachines(Machine* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -129,6 +163,12 @@ bool freeMachines(Machine* head)
 	return true;
 }
 
+
+/**
+* @brief	Mostrar a lista de máquinas na consola
+* @param	head	Lista de máquinas
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool displayMachines(Machine* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -147,6 +187,13 @@ bool displayMachines(Machine* head)
 	return true;
 }
 
+
+/**
+* @brief	Procurar por uma máquina na lista de máquinas
+* @param	head	Lista de máquinas
+* @param	id		Identificador da máquina
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool searchMachine(Machine* head, int id)
 {
 	if (head == NULL) // se lista está vazia

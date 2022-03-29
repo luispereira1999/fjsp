@@ -1,17 +1,28 @@
-/*
-Descrição:           Ficheiro principal da aplicação, com menu e chamada de funções
-Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  26/03/2022
-Criação:             14/03/2022
+/**
+ * @brief	Ficheiro principal da aplicação, com menu e chamada de funções
+ * @file	main.c
+ * @author	Luís Pereira
+ * @email	a18446@alunos.ipca.pt
+ * @date	26/03/2022
+ * 
+ * -----------------
+ *
+ * Software desenvolvido para a proposta de escalonamento para a produção de um produto que envolve várias operações 
+ * e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.
 */
 
 #include <stdio.h>
 #include <locale.h>
 #include "header.h"
 
+
+/**
+* @brief	Função principal do programa
+* @return	Resultado do programa na linha de comando
+*/
 int main()
 {
-	setlocale(LC_ALL, "Portuguese"); // permitir caracteres especiais na consola
+	setlocale(LC_ALL, "Portuguese"); // permitir caracteres especiais (portugueses)
 
 	Job* jobs = NULL;
 	Operation* operations = NULL;

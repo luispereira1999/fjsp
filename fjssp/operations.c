@@ -1,14 +1,23 @@
-/*
-Descrição:           Ficheiro com todas as funções e procedimentos relativos às operações
-Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  25/03/2022
-Criação:             18/03/2022
+/**
+ * @brief	Ficheiro com todas as funções relativas às operações
+ * @file	operations.c
+ * @author	Luís Pereira
+ * @email	a18446@alunos.ipca.pt
+ * @date	25/03/2022
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "header.h"
 
+
+/**
+* @brief	Criar nova operação
+* @param	id			Identificador da operação
+* @param	jobID		Identificador do trabalho
+* @param	position	Posição da operação relativamente ao trabalho
+* @return	Nova operação
+*/
 Operation* newOperation(int id, int jobID, int position)
 {
 	Operation* new = (Operation*)malloc(sizeof(Operation));
@@ -25,6 +34,13 @@ Operation* newOperation(int id, int jobID, int position)
 	return new;
 }
 
+
+/**
+* @brief	Inserir nova operação no início da lista de operações
+* @param	head	Lista de operações
+* @param	new		Nova operação
+* @return	Lista de operações atualizada
+*/
 Operation* insertOperationAtStart(Operation* head, Operation* new)
 {
 	if (searchOperation(head, new->id)) // não permitir inserir uma nova com o mesmo ID
@@ -51,7 +67,16 @@ Operation* insertOperationAtStart(Operation* head, Operation* new)
 	return head;
 }
 
-// trocar a posição de uma operação para outra e vice-versa, num determinado trabalho
+
+/**
+* @brief	Trocar a posição de uma operação para outra e vice-versa, num determinado trabalho
+* @param	operations		Apontador para a lista de operações
+* @param	jobs			Lista de trabalhos
+* @param	jobID			Identificador do trabalho
+* @param	oldPosition		Posição antiga da operação
+* @param	newPosition		Nova posição da operação
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool updatePosition(Operation** operations, Job* jobs, int jobID, int oldPosition, int newPosition)
 {
 	if (*operations == NULL || jobs == NULL) // se as listas estiverem vazias
@@ -117,6 +142,13 @@ bool updatePosition(Operation** operations, Job* jobs, int jobID, int oldPositio
 	return true;
 }
 
+
+/**
+* @brief	Remover uma operação da lista de operações
+* @param	head	Apontador para a lista de operações
+* @param	id		Identificador da operação
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool deleteOperation(Operation** head, int id)
 {
 	if (*head == NULL)
@@ -150,6 +182,13 @@ bool deleteOperation(Operation** head, int id)
 	return true;
 }
 
+
+/**
+* @brief	Armazenar lista de operações em ficheiro
+* @param	fileName	Nome do ficheiro para armazenar a lista
+* @param	head		Lista de operações
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool writeOperations(char fileName[], Operation* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -176,6 +215,12 @@ bool writeOperations(char fileName[], Operation* head)
 	return true;
 }
 
+
+/**
+* @brief	Ler lista de operações de ficheiro
+* @param	fileName	Nome do ficheiro para ler a lista
+* @return	Lista de operações
+*/
 Operation* readOperations(char fileName[])
 {
 	Operation* current = (Operation*)malloc(sizeof(Operation));
@@ -217,6 +262,12 @@ Operation* readOperations(char fileName[])
 	return head;
 }
 
+
+/**
+* @brief	Libertar a lista de operações da memória
+* @param	head	Lista de operações
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool freeOperations(Operation* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -236,6 +287,12 @@ bool freeOperations(Operation* head)
 	return true;
 }
 
+
+/**
+* @brief	Mostrar a lista de operações na consola
+* @param	head	Lista de operações
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool displayOperations(Operation* head)
 {
 	if (head == NULL) // se a lista estiver vazia
@@ -254,6 +311,13 @@ bool displayOperations(Operation* head)
 	return true;
 }
 
+
+/**
+* @brief	Procurar por uma operação na lista de operações
+* @param	head	Lista de operações
+* @param	id		Identificador da operação
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool searchOperation(Operation* head, int id)
 {
 	if (head == NULL) // se lista está vazia
@@ -275,7 +339,15 @@ bool searchOperation(Operation* head, int id)
 	return false;
 }
 
-// obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções de operações
+
+/**
+* @brief	Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções
+* @param	operations		Lista de operações
+* @param	executions		Lista de execuções
+* @param	jobID			Identificador do trabalho
+* @param	minExecutions	Apontador para a lista de execuções a ser devolvida, relativamente ao tempo mínimo
+* @return	Quantidade de tempo
+*/
 int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions)
 {
 	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
@@ -296,7 +368,7 @@ int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 		{
 			while (currentExecution != NULL) // percorrer lista de execução de operações
 			{
-				if (currentExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
+				if (currentExecution->operationID == currentOperation->id) // se encontrar a execução de operação relativa à operação
 				{
 					// guardar execução de operação com menor tempo de utilização
 					if (currentExecution->runtime < time)
@@ -325,7 +397,15 @@ int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 	return counter;
 }
 
-// obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções de operações
+
+/**
+* @brief	Obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções
+* @param	operations		Lista de operações
+* @param	executions		Lista de execuções
+* @param	jobID			Identificador do trabalho
+* @param	maxExecutions	Apontador para a lista de execuções a ser devolvida, relativamente ao tempo máximo
+* @return	Quantidade de tempo
+*/
 int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions)
 {
 	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
@@ -346,7 +426,7 @@ int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 		{
 			while (currentExecution != NULL) // percorrer lista de execução de operações
 			{
-				if (currentExecution->operationID == currentOperation->id) // se encontrar a execucação de operação relativa à operação
+				if (currentExecution->operationID == currentOperation->id) // se encontrar a execução de operação relativa à operação
 				{
 					// guardar execução de operação com maior tempo de utilização
 					if (currentExecution->runtime > time)
@@ -375,7 +455,13 @@ int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 	return counter;
 }
 
-// Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis
+
+/**
+* @brief	Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis
+* @param	head			Lista de execuções
+* @param	operationID		Identificador da operação
+* @return	Valor da média de tempo
+*/
 float getAverageTimeToCompleteOperation(Execution* head, int operationID)
 {
 	if (head == NULL) // se a lista estiver vazia
@@ -391,7 +477,7 @@ float getAverageTimeToCompleteOperation(Execution* head, int operationID)
 
 	while (current != NULL)
 	{
-		if (current->operationID == operationID) // se encontrar a execucação de operação relativa à operação
+		if (current->operationID == operationID) // se encontrar a execução de operação relativa à operação
 		{
 			sum += current->runtime;
 			numberOfExecutions++;
@@ -407,7 +493,13 @@ float getAverageTimeToCompleteOperation(Execution* head, int operationID)
 	return average;
 }
 
-// obter a quantidade de posições que existem na lista de operações, relativas a um trabalho
+
+/**
+* @brief	Obter a quantidade de posições que existem na lista de operações, relativas a um trabalho
+* @param	head	Lista de operações
+* @param	jobID	Identificador do trabalho
+* @return	Quantidade de posições
+*/
 int getMaxPosition(Operation* head, int jobID)
 {
 	if (head == NULL)

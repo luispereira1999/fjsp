@@ -1,14 +1,23 @@
-/*
-Descrição:           Ficheiro com todas as funções e procedimentos relativos às execuções de operações
-Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  25/03/2022
-Criação:             23/03/2022
+/**
+ * @brief	Ficheiro com todas as funções relativas às execuções de operações
+ * @file	executions.c
+ * @author	Luís Pereira
+ * @email	a18446@alunos.ipca.pt
+ * @date	25/03/2022
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "header.h"
 
+
+/**
+* @brief	Criar nova execução
+* @param	operationID		Identificador da operação
+* @param	machineID		Identificador da máquina
+* @param	runtime			Unidades de tempo necessárias para a execução da operação
+* @return	Nova execução
+*/
 Execution* newExecution(int operationID, int machineID, int runtime)
 {
 	Execution* new = (Execution*)malloc(sizeof(Execution));
@@ -25,6 +34,13 @@ Execution* newExecution(int operationID, int machineID, int runtime)
 	return new;
 }
 
+
+/**
+* @brief	Inserir nova execução no início da lista de execuções
+* @param	head	Lista de execuções
+* @param	new		Nova execução
+* @return	Lista de execuções atualizada
+*/
 Execution* insertExecutionAtStart(Execution* head, Execution* new)
 {
 	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
@@ -45,7 +61,13 @@ Execution* insertExecutionAtStart(Execution* head, Execution* new)
 	return head;
 }
 
-// inserir execução de operação ordenada pelo ID da operação
+
+/**
+* @brief	Inserir execução ordenada pelo ID da operação na lista de execuções
+* @param	head	Lista de execuções
+* @param	new		Nova execução
+* @return	Lista de execuções atualizada
+*/
 Execution* insertExecutionByOperation(Execution* head, Execution* new)
 {
 	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
@@ -84,7 +106,15 @@ Execution* insertExecutionByOperation(Execution* head, Execution* new)
 	return head;
 }
 
-// atualizar as unidades de tempo necessárias para a execução da operação
+
+/**
+* @brief	Atualizar as unidades de tempo necessárias para a execução de uma operação
+* @param	head			Apontador para a lista de execuções
+* @param	operationID		Identificador da operação
+* @param	machineID		Identificador da máquina
+* @param	runtime			Unidades de tempo
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool updateRuntime(Execution** head, int operationID, int machineID, int runtime)
 {
 	if (*head == NULL) // se lista está vazia
@@ -107,6 +137,13 @@ bool updateRuntime(Execution** head, int operationID, int machineID, int runtime
 	return false;
 }
 
+
+/**
+* @brief	Remover execução pelo identificador da operação
+* @param	head			Apontador para a lista de execuções
+* @param	operationID		Identificador da operação
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool deleteExecutionByOperation(Execution** head, int operationID)
 {
 	if (*head == NULL) // se a lista estiver vazia
@@ -140,6 +177,13 @@ bool deleteExecutionByOperation(Execution** head, int operationID)
 	return true;
 }
 
+
+/**
+* @brief	Armazenar lista de execuções em ficheiro
+* @param	fileName	Nome do ficheiro para armazenar a lista
+* @param	head		Lista de execuções
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool writeExecutions(char fileName[], Execution* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -166,6 +210,12 @@ bool writeExecutions(char fileName[], Execution* head)
 	return true;
 }
 
+
+/**
+* @brief	Ler lista de execuções de ficheiro
+* @param	fileName	Nome do ficheiro para ler a lista
+* @return	Lista de operações
+*/
 Execution* readExecutions(char fileName[])
 {
 	Execution* current = (Execution*)malloc(sizeof(Execution));
@@ -207,6 +257,12 @@ Execution* readExecutions(char fileName[])
 	return head;
 }
 
+
+/**
+* @brief	Libertar a lista de operações da memória
+* @param	head	Lista de operações
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool freeExecutions(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
@@ -226,6 +282,12 @@ bool freeExecutions(Execution* head)
 	return true;
 }
 
+
+/**
+* @brief	Mostrar a lista de execuções na consola
+* @param	head	Lista de execuções
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool displayExecutions(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
@@ -244,6 +306,14 @@ bool displayExecutions(Execution* head)
 	return true;
 }
 
+
+/**
+* @brief	Procurar por uma execução na lista de execuções
+* @param	head			Lista de execuções
+* @param	operationID		Identificador da operação
+* @param	machineID		Identificador da máquina
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool searchExecution(Execution* head, int operationID, int machineID)
 {
 	if (head == NULL) // se a lista estiver vazia
@@ -265,6 +335,13 @@ bool searchExecution(Execution* head, int operationID, int machineID)
 	return false;
 }
 
+
+/**
+* @brief	Procurar por uma execução através do identificador da operação, na lista de execuções
+* @param	head			Lista de execuções
+* @param	operationID		Identificador da operação
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool searchExecutionByOperation(Execution* head, int operationID)
 {
 	if (head == NULL) // se a lista estiver vazia
@@ -286,6 +363,12 @@ bool searchExecutionByOperation(Execution* head, int operationID)
 	return false;
 }
 
+
+/**
+* @brief	Ordenar lista de execuções por ordem crescente do identificador da operação
+* @param	head			Lista de execuções
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 Execution* SortExecutionsByOperation(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia

@@ -1,14 +1,21 @@
-/*
-Descrição:           Ficheiro com todas as funções e procedimentos relativos aos trabalhos
-Desenvolvedor(es):   Luís Pereira (18446)
-Última atualização:  25/03/2022
-Criação:             15/03/2022
+/**
+ * @brief	Ficheiro com todas as funções relativas aos trabalhos
+ * @file	jobs.c
+ * @author	Luís Pereira
+ * @email	a18446@alunos.ipca.pt
+ * @date	25/03/2022
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "header.h"
 
+
+/**
+* @brief	Criar novo trabalho
+* @param	id	Identificador do trabalho
+* @return	Novo trabalho
+*/
 Job* newJob(int id)
 {
 	Job* new = (Job*)malloc(sizeof(Job));
@@ -23,6 +30,13 @@ Job* newJob(int id)
 	return new;
 }
 
+
+/**
+* @brief	Inserir novo trabalho no início da lista de trabalhos
+* @param	head	Lista de trabalhos
+* @param	new		Novo trabalho
+* @return	Lista de trabalhos atualizada
+*/
 Job* insertJobAtStart(Job* head, Job* new)
 {
 	if (searchJob(head, new->id)) // não permitir inserir um novo com o mesmo ID
@@ -43,56 +57,13 @@ Job* insertJobAtStart(Job* head, Job* new)
 	return head;
 }
 
-Job* updateJob(Job* head, Job* jobToUpdate, int id)
-{
-	if (head == NULL) // se lista está vazia
-	{
-		return NULL;
-	}
 
-	Job* current = head;
-
-	while (current != NULL)
-	{
-		if (current->id == id)
-		{
-			head = jobToUpdate;
-			return current;
-		}
-		current = current->next;
-	}
-
-	return head;
-}
-
-bool deleteJob(Job** head, int id)
-{
-	if (*head == NULL) // se lista está vazia
-	{
-		return false;
-	}
-
-	Job* current = *head;
-	Job* previous = NULL;
-
-	if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
-		*head = current->next;
-		free(current);
-		return true;
-	}
-
-	while (current != NULL && current->id != id) // procurar o elemento a ser apagado
-	{
-		previous = current;
-		current = current->next;
-	}
-
-	previous->next = current->next; // desassociar o elemento da lista
-	free(current);
-
-	return true;
-}
-
+/**
+* @brief	Armazenar lista de trabalhos em ficheiro
+* @param	fileName	Nome do ficheiro para armazenar a lista
+* @param	head		Lista de trabalhos
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool writeJobs(char fileName[], Job* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -119,6 +90,12 @@ bool writeJobs(char fileName[], Job* head)
 	return true;
 }
 
+
+/**
+* @brief	Ler lista de trabalhos de ficheiro
+* @param	fileName	Nome do ficheiro para ler a lista
+* @return	Lista de trabalhos
+*/
 Job* readJobs(char fileName[])
 {
 	Job* current = (Job*)malloc(sizeof(Job));
@@ -158,6 +135,12 @@ Job* readJobs(char fileName[])
 	return head;
 }
 
+
+/**
+* @brief	Libertar a lista de trabalhos da memória
+* @param	head	Lista de trabalhos
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool freeJobs(Job* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -177,6 +160,12 @@ bool freeJobs(Job* head)
 	return true;
 }
 
+
+/**
+* @brief	Mostrar a lista de trabalhos na consola
+* @param	head	Lista de trabalhos
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool displayJobs(Job* head)
 {
 	if (head == NULL) // se lista está vazia
@@ -195,6 +184,13 @@ bool displayJobs(Job* head)
 	return true;
 }
 
+
+/**
+* @brief	Procurar por um trabalho na lista de trabalhos
+* @param	head	Lista de trabalhos
+* @param	id		Identificador do trabalho
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool searchJob(Job* head, int id)
 {
 	if (head == NULL) // se lista está vazia
