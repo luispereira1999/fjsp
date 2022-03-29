@@ -85,7 +85,7 @@ bool writeJobs(char fileName[], Job* head)
 	{
 		currentInFile.id = current->id;
 		fwrite(&currentInFile, sizeof(FileJob), 1, file); // guarda cada registo da lista no ficheiro
-		
+
 		current = current->next;
 	}
 

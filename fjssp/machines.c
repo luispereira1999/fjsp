@@ -88,7 +88,7 @@ bool writeMachines(char fileName[], Machine* head)
 		currentInFile.id = current->id;
 		currentInFile.isBusy = current->isBusy;
 		fwrite(&currentInFile, sizeof(FileMachine), 1, file); // guarda cada registo da lista no ficheiro
-		
+
 		current = current->next;
 	}
 

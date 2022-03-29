@@ -48,12 +48,6 @@ Operation* insertOperationAtStart(Operation* head, Operation* new)
 		return NULL;
 	}
 
-	int lastPosition = getMaxPosition(head, new->jobID);
-	if (lastPosition + 1 != new->position) // se a nova posição não corresponder à última posição +1
-	{
-		return NULL;
-	}
-
 	if (head == NULL) // se a lista estiver vazia
 	{
 		head = new;
@@ -212,7 +206,7 @@ bool writeOperations(char fileName[], Operation* head)
 		currentInFile.jobID = current->jobID;
 		currentInFile.position = current->position;
 		fwrite(&currentInFile, sizeof(FileOperation), 1, file); // guarda cada registo da lista no ficheiro
-	
+
 		current = current->next;
 	}
 
@@ -480,33 +474,4 @@ float getAverageTimeToCompleteOperation(Execution* head, int operationID)
 	}
 
 	return average;
-}
-
-
-/**
-* @brief	Obter a quantidade de posições que existem na lista de operações, relativas a um trabalho
-* @param	head	Lista de operações
-* @param	jobID	Identificador do trabalho
-* @return	Quantidade de posições
-*/
-int getMaxPosition(Operation* head, int jobID)
-{
-	if (head == NULL)
-	{
-		return 0;
-	}
-
-	int count = 0;
-	Operation* current = head;
-
-	while (current != NULL)
-	{
-		if (current->jobID == jobID)
-		{
-			count++;
-		}
-		current = current->next;
-	}
-
-	return count;
 }

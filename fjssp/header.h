@@ -157,7 +157,6 @@ bool searchOperation(Operation* head, int id);
 int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
 int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
 float getAverageTimeToCompleteOperation(Execution* head, int operationID);
-int getMaxPosition(Operation* head, int jobID);
 
 /**
  * @brief	Sobre execuções

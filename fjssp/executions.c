@@ -207,7 +207,7 @@ bool writeExecutions(char fileName[], Execution* head)
 		currentInFile.machineID = current->machineID;
 		currentInFile.runtime = current->runtime;
 		fwrite(&currentInFile, sizeof(FileExecution), 1, file); // guarda cada registo da lista no ficheiro
-		
+
 		current = current->next;
 	}
 
@@ -237,7 +237,7 @@ Execution* readExecutions(char fileName[])
 
 	while (fread(&currentInFile, sizeof(FileExecution), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
-		current = newExecution(currentInFile.operationID, currentInFile.operationID, currentInFile.runtime);
+		current = newExecution(currentInFile.operationID, currentInFile.machineID, currentInFile.runtime);
 		head = insertExecutionAtStart(head, current);
 	}
 

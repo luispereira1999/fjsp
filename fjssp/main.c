@@ -4,10 +4,10 @@
  * @author	Luís Pereira
  * @email	a18446@alunos.ipca.pt
  * @date	26/03/2022
- * 
+ *
  * -----------------
  *
- * Software desenvolvido para a proposta de escalonamento para a produção de um produto que envolve várias operações 
+ * Software desenvolvido para a proposta de escalonamento para a produção de um produto que envolve várias operações
  * e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.
  * @see https://github.com/luispereira1999/fjssp
 */
@@ -71,8 +71,8 @@ int main()
 
 				// guardar os dados em ficheiros
 				writeJobs("jobs.txt", jobs);
-				writeOperations("operations.txt", operations);
 				writeMachines("machines.txt", machines);
+				writeOperations("operations.txt", operations);
 				writeExecutions("executions.txt", executions);
 				printf("Dados exportados com sucesso!\n");
 
@@ -84,8 +84,8 @@ int main()
 
 				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
 				jobs = NULL;
-				operations = NULL;
 				machines = NULL;
+				operations = NULL;
 				executions = NULL;
 
 				// ler dados de ficheiros
