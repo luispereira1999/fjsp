@@ -1,0 +1,2423 @@
+.TH "C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/header.h" 3 "Ter√ßa, 29 de Mar√ßo de 2022" "Version v1.2" "Flexible Job Shop Problem" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/header.h \- Ficheiro com todas as assinaturas globais necess·rios para a aplicaÁ„o\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Estruturas de Dados"
+
+.in +1c
+.ti -1c
+.RI "struct \fBJob\fP"
+.br
+.RI "Estrutura de dados para a lista de trabalhos\&. "
+.ti -1c
+.RI "struct \fBMachine\fP"
+.br
+.RI "Estrutura de dados para a lista de m·quinas\&. "
+.ti -1c
+.RI "struct \fBExecution\fP"
+.br
+.RI "Estrutura de dados para a lista das execuÁıes das operaÁıes em m·quinas\&. "
+.ti -1c
+.RI "struct \fBOperation\fP"
+.br
+.RI "Estrutura de dados para a lista de m·quinas\&. "
+.in -1c
+.SS "Defini√ß√µes de tipos"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBbool\fP \fBbool\fP"
+.br
+.RI "Criar tipo de dados booleano\&. "
+.ti -1c
+.RI "typedef struct \fBJob\fP \fBJob\fP"
+.br
+.RI "Estrutura de dados para a lista de trabalhos\&. "
+.ti -1c
+.RI "typedef struct \fBMachine\fP \fBMachine\fP"
+.br
+.RI "Estrutura de dados para a lista de m·quinas\&. "
+.ti -1c
+.RI "typedef struct \fBExecution\fP \fBExecution\fP"
+.br
+.RI "Estrutura de dados para a lista das execuÁıes das operaÁıes em m·quinas\&. "
+.ti -1c
+.RI "typedef struct \fBOperation\fP \fBOperation\fP"
+.br
+.RI "Estrutura de dados para a lista de m·quinas\&. "
+.in -1c
+.SS "Enumera√ß√µes"
+
+.in +1c
+.ti -1c
+.RI "enum \fBbool\fP { \fBfalse\fP = 0, \fBtrue\fP = 1 }"
+.br
+.RI "Criar tipo de dados booleano\&. "
+.in -1c
+.SS "Fun√ß√µes"
+
+.in +1c
+.ti -1c
+.RI "\fBJob\fP * \fBnewJob\fP (int id)"
+.br
+.RI "Sobre trabalhos\&. "
+.ti -1c
+.RI "\fBJob\fP * \fBinsertJobAtStart\fP (\fBJob\fP *head, \fBJob\fP *new)"
+.br
+.RI "Inserir novo trabalho no inÌcio da lista de trabalhos\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteJobs\fP (char fileName[], \fBJob\fP *head)"
+.br
+.RI "Armazenar lista de trabalhos em ficheiro\&. "
+.ti -1c
+.RI "\fBJob\fP * \fBreadJobs\fP (char fileName[])"
+.br
+.RI "Ler lista de trabalhos de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeJobs\fP (\fBJob\fP *head)"
+.br
+.RI "Libertar a lista de trabalhos da memÛria\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayJobs\fP (\fBJob\fP *head)"
+.br
+.RI "Mostrar a lista de trabalhos na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchJob\fP (\fBJob\fP *head, int id)"
+.br
+.RI "Procurar por um trabalho na lista de trabalhos\&. "
+.ti -1c
+.RI "\fBMachine\fP * \fBnewMachine\fP (int id, \fBbool\fP isBusy)"
+.br
+.RI "Sobre m·quinas\&. "
+.ti -1c
+.RI "\fBMachine\fP * \fBinsertMachineAtStart\fP (\fBMachine\fP *head, \fBMachine\fP *new)"
+.br
+.RI "Inserir nova m·quina no inÌcio da lista de m·quinas\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteMachines\fP (char fileName[], \fBMachine\fP *head)"
+.br
+.RI "Armazenar lista de m·quinas em ficheiro\&. "
+.ti -1c
+.RI "\fBMachine\fP * \fBreadMachines\fP (char fileName[])"
+.br
+.RI "Ler lista de m·quinas de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeMachines\fP (\fBMachine\fP *head)"
+.br
+.RI "Libertar a lista de m·quinas da memÛria\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayMachines\fP (\fBMachine\fP *head)"
+.br
+.RI "Mostrar a lista de m·quinas na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchMachine\fP (\fBMachine\fP *head, int id)"
+.br
+.RI "Procurar por uma m·quina na lista de m·quinas\&. "
+.ti -1c
+.RI "\fBOperation\fP * \fBnewOperation\fP (int id, int jobID, int position)"
+.br
+.RI "Sobre operaÁıes\&. "
+.ti -1c
+.RI "\fBOperation\fP * \fBinsertOperationAtStart\fP (\fBOperation\fP *head, \fBOperation\fP *new)"
+.br
+.RI "Inserir nova operaÁ„o no inÌcio da lista de operaÁıes\&. "
+.ti -1c
+.RI "\fBbool\fP \fBupdatePosition\fP (\fBOperation\fP **\fBoperations\fP, \fBJob\fP *\fBjobs\fP, int jobID, int oldPosition, int newPosition)"
+.br
+.RI "Trocar a posiÁ„o de uma operaÁ„o para outra e vice-versa, num determinado trabalho\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdeleteOperation\fP (\fBOperation\fP **head, int id)"
+.br
+.RI "Remover uma operaÁ„o da lista de operaÁıes\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteOperations\fP (char fileName[], \fBOperation\fP *head)"
+.br
+.RI "Armazenar lista de operaÁıes em ficheiro\&. "
+.ti -1c
+.RI "\fBOperation\fP * \fBreadOperations\fP (char fileName[])"
+.br
+.RI "Ler lista de operaÁıes de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeOperations\fP (\fBOperation\fP *head)"
+.br
+.RI "Libertar a lista de operaÁıes da memÛria\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayOperations\fP (\fBOperation\fP *head)"
+.br
+.RI "Mostrar a lista de operaÁıes na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchOperation\fP (\fBOperation\fP *head, int id)"
+.br
+.RI "Procurar por uma operaÁ„o na lista de operaÁıes\&. "
+.ti -1c
+.RI "int \fBgetMinTimeToCompleteJob\fP (\fBOperation\fP *\fBoperations\fP, \fBExecution\fP *\fBexecutions\fP, int jobID, \fBExecution\fP **minExecutions)"
+.br
+.RI "Obter o mÌnimo de tempo necess·rio para completo um trabalho e as respetivas execuÁıes\&. "
+.ti -1c
+.RI "int \fBgetMaxTimeToCompleteJob\fP (\fBOperation\fP *\fBoperations\fP, \fBExecution\fP *\fBexecutions\fP, int jobID, \fBExecution\fP **maxExecutions)"
+.br
+.RI "Obter o m·ximo de tempo necess·rio para completo um trabalho e as respetivas execuÁıes\&. "
+.ti -1c
+.RI "float \fBgetAverageTimeToCompleteOperation\fP (\fBExecution\fP *head, int operationID)"
+.br
+.RI "Obter a mÈdia de tempo necess·rio para completar uma operaÁ„o, considerando todas as alternativas possÌveis\&. "
+.ti -1c
+.RI "int \fBgetMaxPosition\fP (\fBOperation\fP *head, int jobID)"
+.br
+.RI "Obter a quantidade de posiÁıes que existem na lista de operaÁıes, relativas a um trabalho\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBnewExecution\fP (int operationID, int machineID, int runtime)"
+.br
+.RI "Sobre execuÁıes\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBinsertExecutionAtStart\fP (\fBExecution\fP *head, \fBExecution\fP *new)"
+.br
+.RI "Inserir nova execuÁ„o no inÌcio da lista de execuÁıes\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBinsertExecutionByOperation\fP (\fBExecution\fP *head, \fBExecution\fP *new)"
+.br
+.RI "Inserir execuÁ„o ordenada pelo ID da operaÁ„o na lista de execuÁıes\&. "
+.ti -1c
+.RI "\fBbool\fP \fBupdateRuntime\fP (\fBExecution\fP **head, int operationID, int machineID, int runtime)"
+.br
+.RI "Atualizar as unidades de tempo necess·rias para a execuÁ„o de uma operaÁ„o\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdeleteExecutionByOperation\fP (\fBExecution\fP **head, int operationID)"
+.br
+.RI "Remover execuÁ„o pelo identificador da operaÁ„o\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteExecutions\fP (char fileName[], \fBExecution\fP *head)"
+.br
+.RI "Armazenar lista de execuÁıes em ficheiro\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBreadExecutions\fP (char fileName[])"
+.br
+.RI "Ler lista de execuÁıes de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeExecutions\fP (\fBExecution\fP *head)"
+.br
+.RI "Libertar a lista de operaÁıes da memÛria\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayExecutions\fP (\fBExecution\fP *head)"
+.br
+.RI "Mostrar a lista de execuÁıes na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchExecution\fP (\fBExecution\fP *head, int operationID, int machineID)"
+.br
+.RI "Procurar por uma execuÁ„o na lista de execuÁıes\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchExecutionByOperation\fP (\fBExecution\fP *head, int operationID)"
+.br
+.RI "Procurar por uma execuÁ„o atravÈs do identificador da operaÁ„o, na lista de execuÁıes\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBSortExecutionsByOperation\fP (\fBExecution\fP *head)"
+.br
+.RI "Ordenar lista de execuÁıes por ordem crescente do identificador da operaÁ„o\&. "
+.ti -1c
+.RI "void \fBloadData\fP (\fBJob\fP **\fBjobs\fP, \fBMachine\fP **\fBmachines\fP, \fBOperation\fP **\fBoperations\fP, \fBExecution\fP **\fBexecutions\fP)"
+.br
+.RI "Carregar dados para listas\&. "
+.in -1c
+.SS "Vari√°veis"
+
+.in +1c
+.ti -1c
+.RI "\fBJob\fP * \fBjobs\fP"
+.br
+.ti -1c
+.RI "\fBMachine\fP * \fBmachines\fP"
+.br
+.ti -1c
+.RI "\fBExecution\fP * \fBexecutions\fP"
+.br
+.ti -1c
+.RI "\fBOperation\fP * \fBoperations\fP"
+.br
+.in -1c
+.SH "Descri√ß√£o detalhada"
+.PP 
+Ficheiro com todas as assinaturas globais necess·rios para a aplicaÁ„o\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+LuÌs Pereira @email a18446@alunos.ipca.pt 
+.RE
+.PP
+\fBData\fP
+.RS 4
+25/03/2022 
+.RE
+.PP
+
+.SH "Documenta√ß√£o dos tipos"
+.PP 
+.SS "typedef enum \fBbool\fP \fBbool\fP"
+
+.PP
+Criar tipo de dados booleano\&. 
+.SS "typedef struct \fBExecution\fP \fBExecution\fP"
+
+.PP
+Estrutura de dados para a lista das execuÁıes das operaÁıes em m·quinas\&. 
+.SS "typedef struct \fBJob\fP \fBJob\fP"
+
+.PP
+Estrutura de dados para a lista de trabalhos\&. 
+.SS "typedef struct \fBMachine\fP \fBMachine\fP"
+
+.PP
+Estrutura de dados para a lista de m·quinas\&. 
+.SS "typedef struct \fBOperation\fP \fBOperation\fP"
+
+.PP
+Estrutura de dados para a lista de m·quinas\&. 
+.SH "Documenta√ß√£o dos valores da enumera√ß√£o"
+.PP 
+.SS "enum \fBbool\fP"
+
+.PP
+Criar tipo de dados booleano\&. 
+.PP
+\fBValores de enumera√ß√µes\fP
+.in +1c
+.TP
+\fB\fIfalse \fP\fP
+.TP
+\fB\fItrue \fP\fP
+.PP
+.nf
+24 {
+25    false = 0,
+26    true = 1
+27 } bool;
+.fi
+.SH "Documenta√ß√£o das fun√ß√µes"
+.PP 
+.SS "\fBbool\fP deleteExecutionByOperation (\fBExecution\fP ** head, int operationID)"
+
+.PP
+Remover execuÁ„o pelo identificador da operaÁ„o\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Apontador para a lista de execuÁıes 
+.br
+\fIoperationID\fP Identificador da operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+148 {
+149     if (*head == NULL) // se a lista estiver vazia
+150     {
+151         return false;
+152     }
+153 
+154     Execution* current = *head;
+155     Execution* previous = NULL;
+156 
+157     if (current != NULL && current->operationID == operationID) { // se o elemento que ser· apagado È o primeiro da lista
+158         *head = current->next;
+159         free(current);
+160         return true;
+161     }
+162 
+163     while (current != NULL && current->operationID != operationID) // procurar o elemento a ser apagado
+164     {
+165         previous = current;
+166         current = current->next;
+167     }
+168 
+169     if (current == NULL) // se o elemento n„o foi encontrado
+170     {
+171         return false;
+172     }
+173 
+174     previous->next = current->next; // desassociar o elemento da lista
+175     free(current);
+176 
+177     return true;
+178 }
+.fi
+.SS "\fBbool\fP deleteOperation (\fBOperation\fP ** head, int id)"
+
+.PP
+Remover uma operaÁ„o da lista de operaÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Apontador para a lista de operaÁıes 
+.br
+\fIid\fP Identificador da operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+153 {
+154     if (*head == NULL)
+155     {
+156         return false;
+157     }
+158 
+159     Operation* current = *head;
+160     Operation* previous = NULL;
+161 
+162     if (current != NULL && current->id == id) { // se o elemento que ser· apagado È o primeiro da lista
+163         *head = current->next;
+164         free(current);
+165         return true;
+166     }
+167 
+168     while (current != NULL && current->id != id) // procurar o elemento a ser apagado
+169     {
+170         previous = current;
+171         current = current->next;
+172     }
+173 
+174     if (current == NULL) // se o elemento n„o foi encontrado
+175     {
+176         return false;
+177     }
+178 
+179     previous->next = current->next; // desassociar o elemento da lista
+180     free(current);
+181 
+182     return true;
+183 }
+.fi
+.SS "\fBbool\fP displayExecutions (\fBExecution\fP * head)"
+
+.PP
+Mostrar a lista de execuÁıes na consola\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuÁıes 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+292 {
+293     if (head == NULL) // se a lista estiver vazia
+294     {
+295         return false;
+296     }
+297 
+298     Execution* current = head;
+299 
+300     while (current != NULL)
+301     {
+302         printf("ID OperaÁ„o: %d, ID M·quina: %d, Tempo de ExecuÁ„o: %d;\n", current->operationID, current->machineID, current->runtime);
+303         current = current->next;
+304     }
+305 
+306     return true;
+307 }
+.fi
+.SS "\fBbool\fP displayJobs (\fBJob\fP * head)"
+
+.PP
+Mostrar a lista de trabalhos na consola\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+170 {
+171     if (head == NULL) // se lista est· vazia
+172     {
+173         return false;
+174     }
+175 
+176     Job* current = head;
+177 
+178     while (current != NULL)
+179     {
+180         printf("ID: %d;\n", current->id);
+181         current = current->next;
+182     }
+183 
+184     return true;
+185 }
+.fi
+.SS "\fBbool\fP displayMachines (\fBMachine\fP * head)"
+
+.PP
+Mostrar a lista de m·quinas na consola\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+173 {
+174     if (head == NULL) // se lista est· vazia
+175     {
+176         return false;
+177     }
+178 
+179     Machine* current = head;
+180 
+181     while (current != NULL)
+182     {
+183         printf("ID: %d, Ocupada?: %s;\n", current->id, current->isBusy ? "Sim" : "N„o");
+184         current = current->next;
+185     }
+186 
+187     return true;
+188 }
+.fi
+.SS "\fBbool\fP displayOperations (\fBOperation\fP * head)"
+
+.PP
+Mostrar a lista de operaÁıes na consola\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de operaÁıes 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+297 {
+298     if (head == NULL) // se a lista estiver vazia
+299     {
+300         return false;
+301     }
+302 
+303     Operation* current = head;
+304 
+305     while (current != NULL)
+306     {
+307         printf("ID: %d, ID Trabalho: %d, PosiÁ„o: %d;\n", current->id, current->jobID, current->position);
+308         current = current->next;
+309     }
+310 
+311     return true;
+312 }
+.fi
+.SS "\fBbool\fP freeExecutions (\fBExecution\fP * head)"
+
+.PP
+Libertar a lista de operaÁıes da memÛria\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de operaÁıes 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+267 {
+268     if (head == NULL) // se a lista estiver vazia
+269     {
+270         return false;
+271     }
+272 
+273     Execution* current = NULL;
+274 
+275     while (head != NULL)
+276     {
+277         current = head;
+278         head = head->next;
+279         free(current);
+280     }
+281 
+282     return true;
+283 }
+.fi
+.SS "\fBbool\fP freeJobs (\fBJob\fP * head)"
+
+.PP
+Libertar a lista de trabalhos da memÛria\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+145 {
+146     if (head == NULL) // se lista est· vazia
+147     {
+148         return false;
+149     }
+150 
+151     Job* current = NULL;
+152 
+153     while (head != NULL)
+154     {
+155         current = head;
+156         head = head->next;
+157         free(current);
+158     }
+159 
+160     return true;
+161 }
+.fi
+.SS "\fBbool\fP freeMachines (\fBMachine\fP * head)"
+
+.PP
+Libertar a lista de m·quinas da memÛria\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+148 {
+149     if (head == NULL) // se lista est· vazia
+150     {
+151         return false;
+152     }
+153 
+154     Machine* current = NULL;
+155 
+156     while (head != NULL)
+157     {
+158         current = head;
+159         head = head->next;
+160         free(current);
+161     }
+162 
+163     return true;
+164 }
+.fi
+.SS "\fBbool\fP freeOperations (\fBOperation\fP * head)"
+
+.PP
+Libertar a lista de operaÁıes da memÛria\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de operaÁıes 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+272 {
+273     if (head == NULL) // se lista est· vazia
+274     {
+275         return false;
+276     }
+277 
+278     Operation* current = NULL;
+279 
+280     while (head != NULL)
+281     {
+282         current = head;
+283         head = head->next;
+284         free(current);
+285     }
+286 
+287     return true;
+288 }
+.fi
+.SS "float getAverageTimeToCompleteOperation (\fBExecution\fP * head, int operationID)"
+
+.PP
+Obter a mÈdia de tempo necess·rio para completar uma operaÁ„o, considerando todas as alternativas possÌveis\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuÁıes 
+.br
+\fIoperationID\fP Identificador da operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da mÈdia de tempo 
+.RE
+.PP
+
+.PP
+.nf
+466 {
+467     if (head == NULL) // se a lista estiver vazia
+468     {
+469         return -1\&.0f;
+470     }
+471 
+472     int sum = 0;
+473     float average = 0;
+474     float numberOfExecutions = 0;
+475 
+476     Execution* current = head;
+477 
+478     while (current != NULL)
+479     {
+480         if (current->operationID == operationID) // se encontrar a execuÁ„o de operaÁ„o relativa ‡ operaÁ„o
+481         {
+482             sum += current->runtime;
+483             numberOfExecutions++;
+484         }
+485         current = current->next;
+486     }
+487 
+488     if (numberOfExecutions > 0) // para n„o permitir divis„o por 0
+489     {
+490         average = sum / numberOfExecutions;
+491     }
+492 
+493     return average;
+494 }
+.fi
+.SS "int getMaxPosition (\fBOperation\fP * head, int jobID)"
+
+.PP
+Obter a quantidade de posiÁıes que existem na lista de operaÁıes, relativas a um trabalho\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de operaÁıes 
+.br
+\fIjobID\fP Identificador do trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Quantidade de posiÁıes 
+.RE
+.PP
+
+.PP
+.nf
+504 {
+505     if (head == NULL)
+506     {
+507         return 0;
+508     }
+509 
+510     int count = 0;
+511     Operation* current = head;
+512 
+513     while (current != NULL)
+514     {
+515         if (current->jobID == jobID)
+516         {
+517             count++;
+518         }
+519         current = current->next;
+520     }
+521 
+522     return count;
+523 }
+.fi
+.SS "int getMaxTimeToCompleteJob (\fBOperation\fP * operations, \fBExecution\fP * executions, int jobID, \fBExecution\fP ** maxExecutions)"
+
+.PP
+Obter o m·ximo de tempo necess·rio para completo um trabalho e as respetivas execuÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIoperations\fP Lista de operaÁıes 
+.br
+\fIexecutions\fP Lista de execuÁıes 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fImaxExecutions\fP Apontador para a lista de execuÁıes a ser devolvida, relativamente ao tempo m·ximo 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Quantidade de tempo 
+.RE
+.PP
+
+.PP
+.nf
+410 {
+411     if (operations == NULL || executions == NULL) // se as listas estiverem vazias
+412     {
+413         return -1;
+414     }
+415 
+416     int time = 0;
+417     int counter = 0;
+418 
+419     Operation* currentOperation = operations;
+420     Execution* currentExecution = executions;
+421     Execution* maxExecution = NULL;
+422 
+423     while (currentOperation != NULL) // percorrer lista de operaÁıes
+424     {
+425         if (currentOperation->jobID == jobID) // se encontrar o job relativo ‡ operaÁ„o
+426         {
+427             while (currentExecution != NULL) // percorrer lista de execuÁ„o de operaÁıes
+428             {
+429                 if (currentExecution->operationID == currentOperation->id) // se encontrar a execuÁ„o de operaÁ„o relativa ‡ operaÁ„o
+430                 {
+431                     // guardar execuÁ„o de operaÁ„o com maior tempo de utilizaÁ„o
+432                     if (currentExecution->runtime > time)
+433                     {
+434                         time = currentExecution->runtime;
+435                         maxExecution = newExecution(currentExecution->operationID, currentExecution->machineID, currentExecution->runtime);
+436                     }
+437                 }
+438 
+439                 currentExecution = currentExecution->next;
+440             }
+441 
+442             *maxExecutions = insertExecutionAtStart(*maxExecutions, maxExecution);
+443 
+444             // repor lista percorrida (currentExecution), para que se for necess·rio voltar a percorrer o while da execuÁ„o de operaÁıes de novo
+445             freeExecutions(currentExecution);
+446             currentExecution = NULL;
+447             currentExecution = executions;
+448             counter += time; // acumular o tempo de utilizaÁ„o de cada execuÁ„o de operaÁ„o
+449             time = 0; // resetar tempo de utilizaÁ„o para a prÛxima iteraÁ„o
+450         }
+451 
+452         currentOperation = currentOperation->next;
+453     }
+454 
+455     return counter;
+456 }
+.fi
+.SS "int getMinTimeToCompleteJob (\fBOperation\fP * operations, \fBExecution\fP * executions, int jobID, \fBExecution\fP ** minExecutions)"
+
+.PP
+Obter o mÌnimo de tempo necess·rio para completo um trabalho e as respetivas execuÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIoperations\fP Lista de operaÁıes 
+.br
+\fIexecutions\fP Lista de execuÁıes 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fIminExecutions\fP Apontador para a lista de execuÁıes a ser devolvida, relativamente ao tempo mÌnimo 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Quantidade de tempo 
+.RE
+.PP
+
+.PP
+.nf
+352 {
+353     if (operations == NULL || executions == NULL) // se as listas estiverem vazias
+354     {
+355         return -1;
+356     }
+357 
+358     int time = 99990;
+359     int counter = 0;
+360 
+361     Operation* currentOperation = operations;
+362     Execution* currentExecution = executions;
+363     Execution* minExecution = NULL;
+364 
+365     while (currentOperation != NULL) // percorrer lista de operaÁıes
+366     {
+367         if (currentOperation->jobID == jobID) // se encontrar o job relativo ‡ operaÁ„o
+368         {
+369             while (currentExecution != NULL) // percorrer lista de execuÁ„o de operaÁıes
+370             {
+371                 if (currentExecution->operationID == currentOperation->id) // se encontrar a execuÁ„o de operaÁ„o relativa ‡ operaÁ„o
+372                 {
+373                     // guardar execuÁ„o de operaÁ„o com menor tempo de utilizaÁ„o
+374                     if (currentExecution->runtime < time)
+375                     {
+376                         time = currentExecution->runtime;
+377                         minExecution = newExecution(currentExecution->operationID, currentExecution->machineID, currentExecution->runtime);
+378                     }
+379                 }
+380 
+381                 currentExecution = currentExecution->next;
+382             }
+383 
+384             *minExecutions = insertExecutionAtStart(*minExecutions, minExecution);
+385 
+386             // repor lista percorrida (currentExecution), para que se for necess·rio voltar a percorrer o while da execuÁ„o de operaÁıes de novo
+387             freeExecutions(currentExecution);
+388             currentExecution = NULL;
+389             currentExecution = executions;
+390             counter += time; // acumular o tempo de utilizaÁ„o de cada execuÁ„o de operaÁ„o
+391             time = 99990; // resetar tempo para a prÛxima iteraÁ„o
+392         }
+393 
+394         currentOperation = currentOperation->next;
+395     }
+396 
+397     return counter;
+398 }
+.fi
+.SS "\fBExecution\fP * insertExecutionAtStart (\fBExecution\fP * head, \fBExecution\fP * new)"
+
+.PP
+Inserir nova execuÁ„o no inÌcio da lista de execuÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuÁıes 
+.br
+\fInew\fP Nova execuÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de execuÁıes atualizada 
+.RE
+.PP
+
+.PP
+.nf
+45 {
+46     if (searchExecution(head, new->operationID, new->machineID)) // n„o permitir inserir uma nova com o mesmo ID de operaÁ„o e ID de m·quina
+47     {
+48         return NULL;
+49     }
+50 
+51     if (head == NULL) // se a lista estiver vazia
+52     {
+53         head = new;
+54     }
+55     else // se existir algum elemento na lista
+56     {
+57         new->next = head;
+58         head = new;
+59     }
+60 
+61     return head;
+62 }
+.fi
+.SS "\fBExecution\fP * insertExecutionByOperation (\fBExecution\fP * head, \fBExecution\fP * new)"
+
+.PP
+Inserir execuÁ„o ordenada pelo ID da operaÁ„o na lista de execuÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuÁıes 
+.br
+\fInew\fP Nova execuÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de execuÁıes atualizada 
+.RE
+.PP
+
+.PP
+.nf
+72 {
+73     if (searchExecution(head, new->operationID, new->machineID)) // n„o permitir inserir uma nova com o mesmo ID de operaÁ„o e ID de m·quina
+74     {
+75         return NULL;
+76     }
+77 
+78     if (head == NULL) // se a lista estiver vazia
+79     {
+80         head = new; // inserir no inÌcio
+81     }
+82     else
+83     {
+84         Execution* current = head;
+85         Execution* previous = NULL;
+86 
+87         // enquanto que atual tem o ID menor que a nova
+88         while (current != NULL && current->operationID < new->operationID)
+89         {
+90             previous = current;
+91             current = current->next;
+92         }
+93 
+94         if (previous == NULL)
+95         {
+96             new->next = head;
+97             head = new; // inserir no meio
+98         }
+99         else
+100         {
+101             previous->next = new;
+102             new->next = current; // inserir no fim
+103         }
+104     }
+105 
+106     return head;
+107 }
+.fi
+.SS "\fBJob\fP * insertJobAtStart (\fBJob\fP * head, \fBJob\fP * new)"
+
+.PP
+Inserir novo trabalho no inÌcio da lista de trabalhos\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.br
+\fInew\fP Novo trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de trabalhos atualizada 
+.RE
+.PP
+
+.PP
+.nf
+41 {
+42     if (searchJob(head, new->id)) // n„o permitir inserir um novo com o mesmo ID
+43     {
+44         return NULL;
+45     }
+46 
+47     if (head == NULL) // se a lista estiver vazia
+48     {
+49         head = new;
+50     }
+51     else // se existir algum elemento na lista
+52     {
+53         new->next = head;
+54         head = new;
+55     }
+56 
+57     return head;
+58 }
+.fi
+.SS "\fBMachine\fP * insertMachineAtStart (\fBMachine\fP * head, \fBMachine\fP * new)"
+
+.PP
+Inserir nova m·quina no inÌcio da lista de m·quinas\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.br
+\fInew\fP Nova m·quina 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de m·quinas atualizada 
+.RE
+.PP
+
+.PP
+.nf
+43 {
+44     if (searchMachine(head, new->id)) // n„o permitir inserir uma nova com o mesmo ID
+45     {
+46         return NULL;
+47     }
+48 
+49     if (head == NULL) // se a lista estiver vazia
+50     {
+51         head = new;
+52     }
+53     else // se existir algum elemento na lista
+54     {
+55         new->next = head;
+56         head = new;
+57     }
+58 
+59     return head;
+60 }
+.fi
+.SS "\fBOperation\fP * insertOperationAtStart (\fBOperation\fP * head, \fBOperation\fP * new)"
+
+.PP
+Inserir nova operaÁ„o no inÌcio da lista de operaÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de operaÁıes 
+.br
+\fInew\fP Nova operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operaÁıes atualizada 
+.RE
+.PP
+
+.PP
+.nf
+45 {
+46     if (searchOperation(head, new->id)) // n„o permitir inserir uma nova com o mesmo ID
+47     {
+48         return NULL;
+49     }
+50 
+51     int lastPosition = getMaxPosition(head, new->jobID);
+52     if (lastPosition + 1 != new->position) // se a nova posiÁ„o n„o corresponder ‡ ˙ltima posiÁ„o +1
+53     {
+54         return NULL;
+55     }
+56 
+57     if (head == NULL) // se a lista estiver vazia
+58     {
+59         head = new;
+60     }
+61     else // se existir algum elemento na lista
+62     {
+63         new->next = head;
+64         head = new;
+65     }
+66 
+67     return head;
+68 }
+.fi
+.SS "void loadData (\fBJob\fP ** jobs, \fBMachine\fP ** machines, \fBOperation\fP ** operations, \fBExecution\fP ** executions)"
+
+.PP
+Carregar dados para listas\&. Carregar dados para listas\&.
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIjobs\fP Apontador para a lista de jobs 
+.br
+\fImachines\fP Apontador para a lista de m·quinas 
+.br
+\fIoperations\fP Apontador para a lista de operaÁıes 
+.br
+\fIexecutions\fP Apontador para a lista de execuÁıes de operaÁıes 
+.RE
+.PP
+
+.PP
+.nf
+21 {
+22     Job* job = NULL;
+23     Machine* machine = NULL;
+24     Operation* operation = NULL;
+25     Execution* execution = NULL;
+26 
+27     // jobs
+28     job = newJob(1);
+29     *jobs = insertJobAtStart(*jobs, job);
+30     job = newJob(2);
+31     *jobs = insertJobAtStart(*jobs, job);
+32     job = newJob(3);
+33     *jobs = insertJobAtStart(*jobs, job);
+34     job = newJob(4);
+35     *jobs = insertJobAtStart(*jobs, job);
+36     job = newJob(5);
+37     *jobs = insertJobAtStart(*jobs, job);
+38     job = newJob(6);
+39     *jobs = insertJobAtStart(*jobs, job);
+40     job = newJob(7);
+41     *jobs = insertJobAtStart(*jobs, job);
+42     job = newJob(8);
+43     *jobs = insertJobAtStart(*jobs, job);
+44     // machines
+45     machine = newMachine(1, false);
+46     *machines = insertMachineAtStart(*machines, machine);
+47     machine = newMachine(2, false);
+48     *machines = insertMachineAtStart(*machines, machine);
+49     machine = newMachine(3, false);
+50     *machines = insertMachineAtStart(*machines, machine);
+51     machine = newMachine(4, false);
+52     *machines = insertMachineAtStart(*machines, machine);
+53     machine = newMachine(5, false);
+54     *machines = insertMachineAtStart(*machines, machine);
+55     machine = newMachine(6, false);
+56     *machines = insertMachineAtStart(*machines, machine);
+57     machine = newMachine(7, false);
+58     *machines = insertMachineAtStart(*machines, machine);
+59     machine = newMachine(8, false);
+60     *machines = insertMachineAtStart(*machines, machine);
+61     // operations - job 1
+62     operation = newOperation(1, 1, 1);
+63     *operations = insertOperationAtStart(*operations, operation);
+64     operation = newOperation(2, 1, 2);
+65     *operations = insertOperationAtStart(*operations, operation);
+66     operation = newOperation(3, 1, 3);
+67     *operations = insertOperationAtStart(*operations, operation);
+68     operation = newOperation(4, 1, 4);
+69     *operations = insertOperationAtStart(*operations, operation);
+70     // operations - job 2
+71     operation = newOperation(5, 2, 1);
+72     *operations = insertOperationAtStart(*operations, operation);
+73     operation = newOperation(6, 2, 2);
+74     *operations = insertOperationAtStart(*operations, operation);
+75     operation = newOperation(7, 2, 3);
+76     *operations = insertOperationAtStart(*operations, operation);
+77     operation = newOperation(8, 2, 4);
+78     *operations = insertOperationAtStart(*operations, operation);
+79     operation = newOperation(9, 2, 5);
+80     *operations = insertOperationAtStart(*operations, operation);
+81     operation = newOperation(10, 2, 6);
+82     *operations = insertOperationAtStart(*operations, operation);
+83     operation = newOperation(11, 2, 7);
+84     *operations = insertOperationAtStart(*operations, operation);
+85     // operations - job 3
+86     operation = newOperation(12, 3, 1);
+87     *operations = insertOperationAtStart(*operations, operation);
+88     operation = newOperation(13, 3, 2);
+89     *operations = insertOperationAtStart(*operations, operation);
+90     operation = newOperation(14, 3, 3);
+91     *operations = insertOperationAtStart(*operations, operation);
+92     operation = newOperation(15, 3, 4);
+93     *operations = insertOperationAtStart(*operations, operation);
+94     operation = newOperation(16, 3, 5);
+95     *operations = insertOperationAtStart(*operations, operation);
+96     // operations - job 4
+97     operation = newOperation(17, 4, 1);
+98     *operations = insertOperationAtStart(*operations, operation);
+99     operation = newOperation(18, 4, 2);
+100     *operations = insertOperationAtStart(*operations, operation);
+101     operation = newOperation(19, 4, 3);
+102     *operations = insertOperationAtStart(*operations, operation);
+103     operation = newOperation(20, 4, 4);
+104     *operations = insertOperationAtStart(*operations, operation);
+105     // operations - job 5
+106     operation = newOperation(21, 5, 1);
+107     *operations = insertOperationAtStart(*operations, operation);
+108     operation = newOperation(22, 5, 2);
+109     *operations = insertOperationAtStart(*operations, operation);
+110     operation = newOperation(23, 5, 3);
+111     *operations = insertOperationAtStart(*operations, operation);
+112     operation = newOperation(24, 5, 4);
+113     *operations = insertOperationAtStart(*operations, operation);
+114     operation = newOperation(25, 5, 5);
+115     *operations = insertOperationAtStart(*operations, operation);
+116     // operations - job 6
+117     operation = newOperation(26, 6, 1);
+118     *operations = insertOperationAtStart(*operations, operation);
+119     operation = newOperation(27, 6, 2);
+120     *operations = insertOperationAtStart(*operations, operation);
+121     operation = newOperation(28, 6, 3);
+122     *operations = insertOperationAtStart(*operations, operation);
+123     // operations - job 7
+124     operation = newOperation(29, 7, 1);
+125     *operations = insertOperationAtStart(*operations, operation);
+126     operation = newOperation(30, 7, 2);
+127     *operations = insertOperationAtStart(*operations, operation);
+128     operation = newOperation(31, 7, 3);
+129     *operations = insertOperationAtStart(*operations, operation);
+130     operation = newOperation(32, 7, 4);
+131     *operations = insertOperationAtStart(*operations, operation);
+132     operation = newOperation(33, 7, 5);
+133     *operations = insertOperationAtStart(*operations, operation);
+134     // operations - job 8
+135     operation = newOperation(34, 8, 1);
+136     *operations = insertOperationAtStart(*operations, operation);
+137     operation = newOperation(35, 8, 2);
+138     *operations = insertOperationAtStart(*operations, operation);
+139     operation = newOperation(36, 8, 3);
+140     *operations = insertOperationAtStart(*operations, operation);
+141     operation = newOperation(37, 8, 4);
+142     *operations = insertOperationAtStart(*operations, operation);
+143     operation = newOperation(38, 8, 5);
+144     *operations = insertOperationAtStart(*operations, operation);
+145     // execution - job 1
+146     execution = newExecution(1, 1, 4);
+147     *executions = insertExecutionAtStart(*executions, execution);
+148     execution = newExecution(1, 3, 5);
+149     *executions = insertExecutionAtStart(*executions, execution);
+150     execution = newExecution(2, 2, 4);
+151     *executions = insertExecutionAtStart(*executions, execution);
+152     execution = newExecution(2, 4, 5);
+153     *executions = insertExecutionAtStart(*executions, execution);
+154     execution = newExecution(3, 3, 5);
+155     *executions = insertExecutionAtStart(*executions, execution);
+156     execution = newExecution(3, 5, 6);
+157     *executions = insertExecutionAtStart(*executions, execution);
+158     execution = newExecution(4, 4, 5);
+159     *executions = insertExecutionAtStart(*executions, execution);
+160     execution = newExecution(4, 5, 5);
+161     *executions = insertExecutionAtStart(*executions, execution);
+162     execution = newExecution(4, 6, 4);
+163     *executions = insertExecutionAtStart(*executions, execution);
+164     execution = newExecution(4, 7, 5);
+165     *executions = insertExecutionAtStart(*executions, execution);
+166     execution = newExecution(4, 8, 9);
+167     *executions = insertExecutionAtStart(*executions, execution);
+168     // execution - job 2
+169     execution = newExecution(5, 1, 1);
+170     *executions = insertExecutionAtStart(*executions, execution);
+171     execution = newExecution(5, 3, 5);
+172     *executions = insertExecutionAtStart(*executions, execution);
+173     execution = newExecution(5, 5, 7);
+174     *executions = insertExecutionAtStart(*executions, execution);
+175     execution = newExecution(6, 4, 5);
+176     *executions = insertExecutionAtStart(*executions, execution);
+177     execution = newExecution(6, 8, 4);
+178     *executions = insertExecutionAtStart(*executions, execution);
+179     execution = newExecution(7, 4, 1);
+180     *executions = insertExecutionAtStart(*executions, execution);
+181     execution = newExecution(7, 6, 6);
+182     *executions = insertExecutionAtStart(*executions, execution);
+183     execution = newExecution(8, 4, 4);
+184     *executions = insertExecutionAtStart(*executions, execution);
+185     execution = newExecution(8, 7, 4);
+186     *executions = insertExecutionAtStart(*executions, execution);
+187     execution = newExecution(8, 8, 7);
+188     *executions = insertExecutionAtStart(*executions, execution);
+189     execution = newExecution(9, 4, 1);
+190     *executions = insertExecutionAtStart(*executions, execution);
+191     execution = newExecution(9, 6, 2);
+192     *executions = insertExecutionAtStart(*executions, execution);
+193     execution = newExecution(10, 1, 5);
+194     *executions = insertExecutionAtStart(*executions, execution);
+195     execution = newExecution(10, 6, 6);
+196     *executions = insertExecutionAtStart(*executions, execution);
+197     execution = newExecution(10, 8, 4);
+198     *executions = insertExecutionAtStart(*executions, execution);
+199     execution = newExecution(11, 4, 4);
+200     *executions = insertExecutionAtStart(*executions, execution);
+201     // execution - job 3
+202     execution = newExecution(12, 2, 7);
+203     *executions = insertExecutionAtStart(*executions, execution);
+204     execution = newExecution(12, 3, 6);
+205     *executions = insertExecutionAtStart(*executions, execution);
+206     execution = newExecution(12, 8, 8);
+207     *executions = insertExecutionAtStart(*executions, execution);
+208     execution = newExecution(13, 4, 7);
+209     *executions = insertExecutionAtStart(*executions, execution);
+210     execution = newExecution(13, 8, 7);
+211     *executions = insertExecutionAtStart(*executions, execution);
+212     execution = newExecution(14, 3, 7);
+213     *executions = insertExecutionAtStart(*executions, execution);
+214     execution = newExecution(14, 5, 8);
+215     *executions = insertExecutionAtStart(*executions, execution);
+216     execution = newExecution(14, 7, 7);
+217     *executions = insertExecutionAtStart(*executions, execution);
+218     execution = newExecution(15, 4, 7);
+219     *executions = insertExecutionAtStart(*executions, execution);
+220     execution = newExecution(15, 6, 8);
+221     *executions = insertExecutionAtStart(*executions, execution);
+222     execution = newExecution(16, 1, 1);
+223     *executions = insertExecutionAtStart(*executions, execution);
+224     execution = newExecution(16, 2, 4);
+225     *executions = insertExecutionAtStart(*executions, execution);
+226     // execution - job 4
+227     execution = newExecution(17, 1, 4);
+228     *executions = insertExecutionAtStart(*executions, execution);
+229     execution = newExecution(17, 3, 3);
+230     *executions = insertExecutionAtStart(*executions, execution);
+231     execution = newExecution(17, 5, 7);
+232     *executions = insertExecutionAtStart(*executions, execution);
+233     execution = newExecution(18, 2, 4);
+234     *executions = insertExecutionAtStart(*executions, execution);
+235     execution = newExecution(18, 8, 4);
+236     *executions = insertExecutionAtStart(*executions, execution);
+237     execution = newExecution(19, 3, 4);
+238     *executions = insertExecutionAtStart(*executions, execution);
+239     execution = newExecution(19, 4, 5);
+240     *executions = insertExecutionAtStart(*executions, execution);
+241     execution = newExecution(19, 6, 6);
+242     *executions = insertExecutionAtStart(*executions, execution);
+243     execution = newExecution(19, 7, 7);
+244     *executions = insertExecutionAtStart(*executions, execution);
+245     execution = newExecution(20, 5, 3);
+246     *executions = insertExecutionAtStart(*executions, execution);
+247     execution = newExecution(20, 6, 5);
+248     *executions = insertExecutionAtStart(*executions, execution);
+249     execution = newExecution(20, 8, 5);
+250     *executions = insertExecutionAtStart(*executions, execution);
+251     // execution - job 5
+252     execution = newExecution(21, 1, 3);
+253     *executions = insertExecutionAtStart(*executions, execution);
+254     execution = newExecution(22, 2, 4);
+255     *executions = insertExecutionAtStart(*executions, execution);
+256     execution = newExecution(22, 4, 5);
+257     *executions = insertExecutionAtStart(*executions, execution);
+258     execution = newExecution(23, 3, 4);
+259     *executions = insertExecutionAtStart(*executions, execution);
+260     execution = newExecution(23, 8, 4);
+261     *executions = insertExecutionAtStart(*executions, execution);
+262     execution = newExecution(24, 5, 3);
+263     *executions = insertExecutionAtStart(*executions, execution);
+264     execution = newExecution(24, 6, 3);
+265     *executions = insertExecutionAtStart(*executions, execution);
+266     execution = newExecution(24, 8, 3);
+267     *executions = insertExecutionAtStart(*executions, execution);
+268     execution = newExecution(25, 4, 5);
+269     *executions = insertExecutionAtStart(*executions, execution);
+270     execution = newExecution(25, 6, 4);
+271     *executions = insertExecutionAtStart(*executions, execution);
+272     // execution - job 6
+273     execution = newExecution(26, 1, 3);
+274     *executions = insertExecutionAtStart(*executions, execution);
+275     execution = newExecution(26, 2, 5);
+276     *executions = insertExecutionAtStart(*executions, execution);
+277     execution = newExecution(26, 3, 6);
+278     *executions = insertExecutionAtStart(*executions, execution);
+279     execution = newExecution(27, 4, 7);
+280     *executions = insertExecutionAtStart(*executions, execution);
+281     execution = newExecution(27, 5, 8);
+282     *executions = insertExecutionAtStart(*executions, execution);
+283     execution = newExecution(28, 3, 9);
+284     *executions = insertExecutionAtStart(*executions, execution);
+285     execution = newExecution(28, 6, 8);
+286     *executions = insertExecutionAtStart(*executions, execution);
+287     // execution - job 7
+288     execution = newExecution(29, 3, 4);
+289     *executions = insertExecutionAtStart(*executions, execution);
+290     execution = newExecution(29, 5, 5);
+291     *executions = insertExecutionAtStart(*executions, execution);
+292     execution = newExecution(29, 6, 4);
+293     *executions = insertExecutionAtStart(*executions, execution);
+294     execution = newExecution(30, 4, 4);
+295     *executions = insertExecutionAtStart(*executions, execution);
+296     execution = newExecution(30, 7, 6);
+297     *executions = insertExecutionAtStart(*executions, execution);
+298     execution = newExecution(30, 8, 4);
+299     *executions = insertExecutionAtStart(*executions, execution);
+300     execution = newExecution(31, 1, 3);
+301     *executions = insertExecutionAtStart(*executions, execution);
+302     execution = newExecution(31, 3, 3);
+303     *executions = insertExecutionAtStart(*executions, execution);
+304     execution = newExecution(31, 4, 4);
+305     *executions = insertExecutionAtStart(*executions, execution);
+306     execution = newExecution(31, 5, 5);
+307     *executions = insertExecutionAtStart(*executions, execution);
+308     execution = newExecution(32, 4, 4);
+309     *executions = insertExecutionAtStart(*executions, execution);
+310     execution = newExecution(32, 6, 6);
+311     *executions = insertExecutionAtStart(*executions, execution);
+312     execution = newExecution(32, 8, 5);
+313     *executions = insertExecutionAtStart(*executions, execution);
+314     execution = newExecution(33, 1, 3);
+315     *executions = insertExecutionAtStart(*executions, execution);
+316     execution = newExecution(33, 3, 3);
+317     *executions = insertExecutionAtStart(*executions, execution);
+318     // execution - job 8
+319     execution = newExecution(34, 1, 3);
+320     *executions = insertExecutionAtStart(*executions, execution);
+321     execution = newExecution(34, 2, 4);
+322     *executions = insertExecutionAtStart(*executions, execution);
+323     execution = newExecution(34, 6, 4);
+324     *executions = insertExecutionAtStart(*executions, execution);
+325     execution = newExecution(35, 4, 6);
+326     *executions = insertExecutionAtStart(*executions, execution);
+327     execution = newExecution(35, 5, 5);
+328     *executions = insertExecutionAtStart(*executions, execution);
+329     execution = newExecution(35, 8, 4);
+330     *executions = insertExecutionAtStart(*executions, execution);
+331     execution = newExecution(36, 3, 4);
+332     *executions = insertExecutionAtStart(*executions, execution);
+333     execution = newExecution(36, 7, 5);
+334     *executions = insertExecutionAtStart(*executions, execution);
+335     execution = newExecution(37, 4, 4);
+336     *executions = insertExecutionAtStart(*executions, execution);
+337     execution = newExecution(37, 6, 6);
+338     *executions = insertExecutionAtStart(*executions, execution);
+339     execution = newExecution(38, 7, 1);
+340     *executions = insertExecutionAtStart(*executions, execution);
+341     execution = newExecution(38, 8, 2);
+342     *executions = insertExecutionAtStart(*executions, execution);
+343 }
+.fi
+.SS "\fBExecution\fP * newExecution (int operationID, int machineID, int runtime)"
+
+.PP
+Sobre execuÁıes\&. Sobre execuÁıes\&.
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIoperationID\fP Identificador da operaÁ„o 
+.br
+\fImachineID\fP Identificador da m·quina 
+.br
+\fIruntime\fP Unidades de tempo necess·rias para a execuÁ„o da operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Nova execuÁ„o 
+.RE
+.PP
+
+.PP
+.nf
+22 {
+23     Execution* new = (Execution*)malloc(sizeof(Execution));
+24     if (new == NULL) // se n„o houver memÛria para alocar
+25     {
+26         return NULL;
+27     }
+28 
+29     new->operationID = operationID;
+30     new->machineID = machineID;
+31     new->runtime = runtime;
+32     new->next = NULL;
+33 
+34     return new;
+35 }
+.fi
+.SS "\fBJob\fP * newJob (int id)"
+
+.PP
+Sobre trabalhos\&. Sobre trabalhos\&.
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIid\fP Identificador do trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Novo trabalho 
+.RE
+.PP
+
+.PP
+.nf
+20 {
+21     Job* new = (Job*)malloc(sizeof(Job));
+22     if (new == NULL) // se n„o houver memÛria para alocar
+23     {
+24         return NULL;
+25     }
+26 
+27     new->id = id;
+28     new->next = NULL;
+29 
+30     return new;
+31 }
+.fi
+.SS "\fBMachine\fP * newMachine (int id, \fBbool\fP isBusy)"
+
+.PP
+Sobre m·quinas\&. Sobre m·quinas\&.
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIid\fP Identificador da m·quina 
+.br
+\fIisBusy\fP Booleano para se a m·quina est· ou n„o em utilizaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Nova m·quina 
+.RE
+.PP
+
+.PP
+.nf
+21 {
+22     Machine* new = (Machine*)malloc(sizeof(Machine));
+23     if (new == NULL) // se n„o houver memÛria para alocar
+24     {
+25         return NULL;
+26     }
+27 
+28     new->id = id;
+29     new->isBusy = isBusy;
+30     new->next = NULL;
+31 
+32     return new;
+33 }
+.fi
+.SS "\fBOperation\fP * newOperation (int id, int jobID, int position)"
+
+.PP
+Sobre operaÁıes\&. Sobre operaÁıes\&.
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIid\fP Identificador da operaÁ„o 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fIposition\fP PosiÁ„o da operaÁ„o relativamente ao trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Nova operaÁ„o 
+.RE
+.PP
+
+.PP
+.nf
+22 {
+23     Operation* new = (Operation*)malloc(sizeof(Operation));
+24     if (new == NULL) // se n„o houver memÛria para alocar
+25     {
+26         return NULL;
+27     }
+28 
+29     new->id = id;
+30     new->jobID = jobID;
+31     new->position = position;
+32     new->next = NULL;
+33 
+34     return new;
+35 }
+.fi
+.SS "\fBExecution\fP * readExecutions (char fileName[])"
+
+.PP
+Ler lista de execuÁıes de ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operaÁıes 
+.RE
+.PP
+
+.PP
+.nf
+220 {
+221     Execution* current = (Execution*)malloc(sizeof(Execution));
+222     if (current == NULL) // se n„o houver memÛria para alocar
+223     {
+224         return NULL;
+225     }
+226 
+227     Execution* head = NULL;
+228     Execution* last = NULL;
+229 
+230     FILE* file = NULL;
+231     file = fopen(fileName, "rb");
+232     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+233     {
+234         return NULL;
+235     }
+236 
+237     while (fread(current, sizeof(Execution), 1, file)) // ler todos os elementos da lista do ficheiro
+238     {
+239         if (head == NULL) // ler o primeiro elemento
+240         {
+241             head = last = (Execution*)malloc(sizeof(Execution));
+242         }
+243         else // ler os restantes elementos
+244         {
+245             last->next = (Execution*)malloc(sizeof(Execution));
+246             last = last->next;
+247         }
+248 
+249         last->operationID = current->operationID;
+250         last->machineID = current->machineID;
+251         last->runtime = current->runtime;
+252         last->next = NULL; // o prÛximo elemento da lista n„o existe, portanto È nulo
+253     }
+254 
+255     fclose(file);
+256 
+257     return head;
+258 }
+.fi
+.SS "\fBJob\fP * readJobs (char fileName[])"
+
+.PP
+Ler lista de trabalhos de ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de trabalhos 
+.RE
+.PP
+
+.PP
+.nf
+100 {
+101     Job* current = (Job*)malloc(sizeof(Job));
+102     if (current == NULL) // se n„o houver memÛria para alocar
+103     {
+104         return NULL;
+105     }
+106 
+107     Job* head = NULL;
+108     Job* last = NULL;
+109 
+110     FILE* file = NULL;
+111     file = fopen(fileName, "rb");
+112     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+113     {
+114         return NULL;
+115     }
+116 
+117     while (fread(current, sizeof(Job), 1, file)) // ler todos os elementos da lista do ficheiro
+118     {
+119         if (head == NULL) // ler o primeiro elemento
+120         {
+121             head = last = (Job*)malloc(sizeof(Job));
+122         }
+123         else // ler os restantes elementos
+124         {
+125             last->next = (Job*)malloc(sizeof(Job));
+126             last = last->next;
+127         }
+128 
+129         last->id = current->id;
+130         last->next = NULL; // o prÛximo elemento da lista n„o existe, portanto È nulo
+131     }
+132 
+133     fclose(file);
+134 
+135     return head;
+136 }
+.fi
+.SS "\fBMachine\fP * readMachines (char fileName[])"
+
+.PP
+Ler lista de m·quinas de ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operaÁıes 
+.RE
+.PP
+
+.PP
+.nf
+102 {
+103     Machine* current = (Machine*)malloc(sizeof(Machine));
+104     if (current == NULL) // se n„o houver memÛria para alocar
+105     {
+106         return NULL;
+107     }
+108 
+109     Machine* head = NULL;
+110     Machine* last = NULL;
+111 
+112     FILE* file = NULL;
+113     file = fopen(fileName, "rb");
+114     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+115     {
+116         return NULL;
+117     }
+118 
+119     while (fread(current, sizeof(Machine), 1, file)) // ler todos os elementos da lista do ficheiro
+120     {
+121         if (head == NULL) // ler o primeiro elemento
+122         {
+123             head = last = (Machine*)malloc(sizeof(Machine));
+124         }
+125         else // ler os restantes elementos
+126         {
+127             last->next = (Machine*)malloc(sizeof(Machine));
+128             last = last->next;
+129         }
+130 
+131         last->id = current->id;
+132         last->isBusy = current->isBusy;
+133         last->next = NULL; // o prÛximo elemento da lista n„o existe, portanto È nulo
+134     }
+135 
+136     fclose(file);
+137 
+138     return head;
+139 }
+.fi
+.SS "\fBOperation\fP * readOperations (char fileName[])"
+
+.PP
+Ler lista de operaÁıes de ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operaÁıes 
+.RE
+.PP
+
+.PP
+.nf
+225 {
+226     Operation* current = (Operation*)malloc(sizeof(Operation));
+227     if (current == NULL) // se n„o houver memÛria para alocar
+228     {
+229         return NULL;
+230     }
+231 
+232     Operation* head = NULL;
+233     Operation* last = NULL;
+234 
+235     FILE* file = NULL;
+236     file = fopen(fileName, "rb");
+237     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+238     {
+239         return NULL;
+240     }
+241 
+242     while (fread(current, sizeof(Operation), 1, file) > 0) // ler todos os elementos da lista do ficheiro
+243     {
+244         if (head == NULL) // ler o primeiro elemento
+245         {
+246             head = last = (Operation*)malloc(sizeof(Operation));
+247         }
+248         else // ler os restantes elementos
+249         {
+250             last->next = (Operation*)malloc(sizeof(Operation));
+251             last = last->next;
+252         }
+253 
+254         last->id = current->id;
+255         last->jobID = current->jobID;
+256         last->position = current->position;
+257         last->next = NULL; // o prÛximo elemento da lista n„o existe, portanto È nulo
+258     }
+259 
+260     fclose(file);
+261 
+262     return head;
+263 }
+.fi
+.SS "\fBbool\fP searchExecution (\fBExecution\fP * head, int operationID, int machineID)"
+
+.PP
+Procurar por uma execuÁ„o na lista de execuÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuÁıes 
+.br
+\fIoperationID\fP Identificador da operaÁ„o 
+.br
+\fImachineID\fP Identificador da m·quina 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+318 {
+319     if (head == NULL) // se a lista estiver vazia
+320     {
+321         return false;
+322     }
+323 
+324     Execution* current = head;
+325 
+326     while (current != NULL)
+327     {
+328         if (current->operationID == operationID && current->machineID == machineID)
+329         {
+330             return true;
+331         }
+332         current = current->next;
+333     }
+334 
+335     return false;
+336 }
+.fi
+.SS "\fBbool\fP searchExecutionByOperation (\fBExecution\fP * head, int operationID)"
+
+.PP
+Procurar por uma execuÁ„o atravÈs do identificador da operaÁ„o, na lista de execuÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuÁıes 
+.br
+\fIoperationID\fP Identificador da operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+346 {
+347     if (head == NULL) // se a lista estiver vazia
+348     {
+349         return false;
+350     }
+351 
+352     Execution* current = head;
+353 
+354     while (current != NULL)
+355     {
+356         if (current->operationID == operationID)
+357         {
+358             return true;
+359         }
+360         current = current->next;
+361     }
+362 
+363     return false;
+364 }
+.fi
+.SS "\fBbool\fP searchJob (\fBJob\fP * head, int id)"
+
+.PP
+Procurar por um trabalho na lista de trabalhos\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.br
+\fIid\fP Identificador do trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+195 {
+196     if (head == NULL) // se lista est· vazia
+197     {
+198         return false;
+199     }
+200 
+201     Job* current = head;
+202 
+203     while (current != NULL)
+204     {
+205         if (current->id == id)
+206         {
+207             return true;
+208         }
+209         current = current->next;
+210     }
+211 
+212     return false;
+213 }
+.fi
+.SS "\fBbool\fP searchMachine (\fBMachine\fP * head, int id)"
+
+.PP
+Procurar por uma m·quina na lista de m·quinas\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.br
+\fIid\fP Identificador da m·quina 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+198 {
+199     if (head == NULL) // se lista est· vazia
+200     {
+201         return false;
+202     }
+203 
+204     Machine* current = head;
+205 
+206     while (current != NULL)
+207     {
+208         if (current->id == id)
+209         {
+210             return true;
+211         }
+212         current = current->next;
+213     }
+214 
+215     return false;
+216 }
+.fi
+.SS "\fBbool\fP searchOperation (\fBOperation\fP * head, int id)"
+
+.PP
+Procurar por uma operaÁ„o na lista de operaÁıes\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de operaÁıes 
+.br
+\fIid\fP Identificador da operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+322 {
+323     if (head == NULL) // se lista est· vazia
+324     {
+325         return false;
+326     }
+327 
+328     Operation* current = head;
+329 
+330     while (current != NULL)
+331     {
+332         if (current->id == id)
+333         {
+334             return true;
+335         }
+336         current = current->next;
+337     }
+338 
+339     return false;
+340 }
+.fi
+.SS "\fBExecution\fP * SortExecutionsByOperation (\fBExecution\fP * head)"
+
+.PP
+Ordenar lista de execuÁıes por ordem crescente do identificador da operaÁ„o\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuÁıes 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+373 {
+374     if (head == NULL) // se a lista estiver vazia
+375     {
+376         return NULL;
+377     }
+378 
+379     Execution* current = head;
+380     Execution* sorted = NULL;
+381     Execution* new = NULL;
+382 
+383     while (current != NULL)
+384     {
+385         new = newExecution(current->operationID, current->machineID, current->runtime);
+386         sorted = insertExecutionByOperation(sorted, new);
+387         current = current->next;
+388     }
+389 
+390     return sorted;
+391 }
+.fi
+.SS "\fBbool\fP updatePosition (\fBOperation\fP ** operations, \fBJob\fP * jobs, int jobID, int oldPosition, int newPosition)"
+
+.PP
+Trocar a posiÁ„o de uma operaÁ„o para outra e vice-versa, num determinado trabalho\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIoperations\fP Apontador para a lista de operaÁıes 
+.br
+\fIjobs\fP Lista de trabalhos 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fIoldPosition\fP PosiÁ„o antiga da operaÁ„o 
+.br
+\fInewPosition\fP Nova posiÁ„o da operaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+81 {
+82     if (*operations == NULL || jobs == NULL) // se as listas estiverem vazias
+83     {
+84         return false;
+85     }
+86 
+87     if (oldPosition == newPosition) // se as posiÁıes forem as mesmas
+88     {
+89         return false;
+90     }
+91 
+92     if (!searchJob(jobs, jobID)) // se o job n„o existir
+93     {
+94         return false;
+95     }
+96 
+97     Operation* currentOperationX = *operations, * previousOperationX = NULL; // para a antiga
+98     Operation* currentOperationY = *operations, * previousOperationY = NULL; // para a nova
+99 
+100     // procurar pela antiga posiÁ„o
+101     while (currentOperationX && currentOperationX->position != oldPosition || currentOperationX->jobID != jobID)
+102     {
+103         previousOperationX = currentOperationX;
+104         currentOperationX = currentOperationX->next;
+105     }
+106 
+107     // procurar pela nova posiÁ„o
+108     while (currentOperationY && currentOperationY->position != newPosition || currentOperationY->jobID != jobID)
+109     {
+110         previousOperationY = currentOperationY;
+111         currentOperationY = currentOperationY->next;
+112     }
+113 
+114     if (currentOperationX == NULL || currentOperationY == NULL) // se as operaÁıes relativas ‡ antiga ou nova posiÁ„o n„o foram encontradas
+115     {
+116         return false;
+117     }
+118 
+119     if (previousOperationX != NULL) // se a operaÁ„o anterior n„o for o head da lista
+120     {
+121         previousOperationX->next = currentOperationY;
+122     }
+123     else // sen„o fazer que operaÁ„o anterior seja o head
+124     {
+125         *operations = currentOperationY;
+126     }
+127 
+128     if (previousOperationY != NULL) // se a operaÁ„o nova n„o for o head da lista
+129     {
+130         previousOperationY->next = currentOperationX;
+131     }
+132     else // sen„o fazer com que operaÁ„o anterior seja o head
+133     {
+134         *operations = currentOperationX;
+135     }
+136 
+137     // trocar elementos
+138     Operation* tempOperation = currentOperationY->next;
+139     currentOperationY->next = currentOperationX->next;
+140     currentOperationX->next = tempOperation;
+141 
+142     return true;
+143 }
+.fi
+.SS "\fBbool\fP updateRuntime (\fBExecution\fP ** head, int operationID, int machineID, int runtime)"
+
+.PP
+Atualizar as unidades de tempo necess·rias para a execuÁ„o de uma operaÁ„o\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Apontador para a lista de execuÁıes 
+.br
+\fIoperationID\fP Identificador da operaÁ„o 
+.br
+\fImachineID\fP Identificador da m·quina 
+.br
+\fIruntime\fP Unidades de tempo 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+119 {
+120     if (*head == NULL) // se lista est· vazia
+121     {
+122         return false;
+123     }
+124 
+125     Execution* current = *head;
+126 
+127     while (current != NULL)
+128     {
+129         if (current->operationID == operationID && current->machineID == machineID)
+130         {
+131             current->runtime = runtime;
+132             return true;
+133         }
+134         current = current->next;
+135     }
+136 
+137     return false;
+138 }
+.fi
+.SS "\fBbool\fP writeExecutions (char fileName[], \fBExecution\fP * head)"
+
+.PP
+Armazenar lista de execuÁıes em ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de execuÁıes 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+188 {
+189     if (head == NULL) // se lista est· vazia
+190     {
+191         return false;
+192     }
+193 
+194     FILE* file = NULL;
+195     file = fopen(fileName, "wb");
+196     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+197     {
+198         return false;
+199     }
+200 
+201     Execution* current = head;
+202     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+203     {
+204         fwrite(current, sizeof(Execution), 1, file);
+205         current = current->next;
+206     }
+207 
+208     fclose(file);
+209 
+210     return true;
+211 }
+.fi
+.SS "\fBbool\fP writeJobs (char fileName[], \fBJob\fP * head)"
+
+.PP
+Armazenar lista de trabalhos em ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de trabalhos 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+68 {
+69     if (head == NULL) // se lista est· vazia
+70     {
+71         return false;
+72     }
+73 
+74     FILE* file = NULL;
+75     file = fopen(fileName, "wb");
+76     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+77     {
+78         return false;
+79     }
+80 
+81     Job* current = head;
+82     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+83     {
+84         fwrite(current, sizeof(Job), 1, file);
+85         current = current->next;
+86     }
+87 
+88     fclose(file);
+89 
+90     return true;
+91 }
+.fi
+.SS "\fBbool\fP writeMachines (char fileName[], \fBMachine\fP * head)"
+
+.PP
+Armazenar lista de m·quinas em ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de m·quinas 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+70 {
+71     if (head == NULL) // se lista est· vazia
+72     {
+73         return false;
+74     }
+75 
+76     FILE* file = NULL;
+77     file = fopen(fileName, "wb");
+78     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+79     {
+80         return false;
+81     }
+82 
+83     Machine* current = head;
+84     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+85     {
+86         fwrite(current, sizeof(Machine), 1, file);
+87         current = current->next;
+88     }
+89 
+90     fclose(file);
+91 
+92     return true;
+93 }
+.fi
+.SS "\fBbool\fP writeOperations (char fileName[], \fBOperation\fP * head)"
+
+.PP
+Armazenar lista de operaÁıes em ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de operaÁıes 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+193 {
+194     if (head == NULL) // se lista est· vazia
+195     {
+196         return false;
+197     }
+198 
+199     FILE* file = NULL;
+200     file = fopen(fileName, "wb");
+201     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+202     {
+203         return false;
+204     }
+205 
+206     Operation* current = head;
+207     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+208     {
+209         fwrite(current, sizeof(Operation), 1, file);
+210         current = current->next;
+211     }
+212 
+213     fclose(file);
+214 
+215     return true;
+216 }
+.fi
+.SH "Documenta√ß√£o das vari√°veis"
+.PP 
+.SS "\fBExecution\fP* executions\fC [extern]\fP"
+
+.SS "\fBJob\fP* jobs\fC [extern]\fP"
+
+.SS "\fBMachine\fP* machines\fC [extern]\fP"
+
+.SS "\fBOperation\fP* operations\fC [extern]\fP"
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Flexible Job Shop Problem a partir do c√≥digo fonte\&.

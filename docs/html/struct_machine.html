@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
    </div>
    <div id="projectbrief">Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.</div>
   </td>
@@ -64,60 +64,64 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Atributos Públicos</a> &#124;
-<a href="struct_machine-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-attribs">Campos de Dados</a>  </div>
   <div class="headertitle"><div class="title">Referência à estrutura Machine</div></div>
 </div><!--header-->
 <div class="contents">
 
+<p>Estrutura de dados para a lista (em mem�ria) de m�quinas.  
+ <a href="struct_machine.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="header_8h_source.html">header.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Atributos Públicos</h2></td></tr>
-<tr class="memitem:af36fc7731f360fc1b3b3cd7f95da0bb5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">id</a></td></tr>
-<tr class="separator:af36fc7731f360fc1b3b3cd7f95da0bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53a681bd87a5eb35f0dcdb562ab12727"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_machine.html#a53a681bd87a5eb35f0dcdb562ab12727">isBusy</a></td></tr>
-<tr class="separator:a53a681bd87a5eb35f0dcdb562ab12727"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7eba856d5f936cf00a06d4452323826"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_machine.html">Machine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a></td></tr>
-<tr class="separator:ac7eba856d5f936cf00a06d4452323826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Campos de Dados</h2></td></tr>
+<tr class="memitem:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a></td></tr>
+<tr class="separator:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099f725f22a344e190121634f53328d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_machine.html#a099f725f22a344e190121634f53328d8">isBusy</a></td></tr>
+<tr class="separator:a099f725f22a344e190121634f53328d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6427ea1ae4ce02f843d5bdbbd2592b27"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_machine.html">Machine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">next</a></td></tr>
+<tr class="separator:a6427ea1ae4ce02f843d5bdbbd2592b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação dos dados membro</h2>
-<a id="af36fc7731f360fc1b3b3cd7f95da0bb5" name="af36fc7731f360fc1b3b3cd7f95da0bb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af36fc7731f360fc1b3b3cd7f95da0bb5">&#9670;&nbsp;</a></span>id</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p >Estrutura de dados para a lista (em mem�ria) de m�quinas. </p>
+</div><h2 class="groupheader">Documentação dos campos e atributos</h2>
+<a id="a7441ef0865bcb3db9b8064dd7375c1ea" name="a7441ef0865bcb3db9b8064dd7375c1ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7441ef0865bcb3db9b8064dd7375c1ea">&#9670;&nbsp;</a></span>id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Machine::id</td>
+          <td class="memname">int id</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a53a681bd87a5eb35f0dcdb562ab12727" name="a53a681bd87a5eb35f0dcdb562ab12727"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53a681bd87a5eb35f0dcdb562ab12727">&#9670;&nbsp;</a></span>isBusy</h2>
+<a id="a099f725f22a344e190121634f53328d8" name="a099f725f22a344e190121634f53328d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a099f725f22a344e190121634f53328d8">&#9670;&nbsp;</a></span>isBusy</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> Machine::isBusy</td>
+          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> isBusy</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac7eba856d5f936cf00a06d4452323826" name="ac7eba856d5f936cf00a06d4452323826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7eba856d5f936cf00a06d4452323826">&#9670;&nbsp;</a></span>next</h2>
+<a id="a6427ea1ae4ce02f843d5bdbbd2592b27" name="a6427ea1ae4ce02f843d5bdbbd2592b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6427ea1ae4ce02f843d5bdbbd2592b27">&#9670;&nbsp;</a></span>next</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="struct_machine.html">Machine</a>* Machine::next</td>
+          <td class="memname">struct <a class="el" href="struct_machine.html">Machine</a>* next</td>
         </tr>
       </table>
 </div><div class="memdoc">

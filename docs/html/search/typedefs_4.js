@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operation_0',['Operation',['../header_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c',1,'header.h']]]
+  ['machine_0',['Machine',['../header_8h.html#ac5435b96779b7d7659b398b8275b6cbf',1,'header.h']]]
 ];

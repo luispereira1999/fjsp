@@ -1,0 +1,352 @@
+.TH "C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/jobs.c" 3 "Ter√ßa, 29 de Mar√ßo de 2022" "Version v1.2" "Flexible Job Shop Problem" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/jobs.c \- Ficheiro com todas as funÁıes relativas aos trabalhos\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'header\&.h'\fP
+.br
+
+.SS "Fun√ß√µes"
+
+.in +1c
+.ti -1c
+.RI "\fBJob\fP * \fBnewJob\fP (int id)"
+.br
+.RI "Criar novo trabalho\&. "
+.ti -1c
+.RI "\fBJob\fP * \fBinsertJobAtStart\fP (\fBJob\fP *head, \fBJob\fP *new)"
+.br
+.RI "Inserir novo trabalho no inÌcio da lista de trabalhos\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteJobs\fP (char fileName[], \fBJob\fP *head)"
+.br
+.RI "Armazenar lista de trabalhos em ficheiro\&. "
+.ti -1c
+.RI "\fBJob\fP * \fBreadJobs\fP (char fileName[])"
+.br
+.RI "Ler lista de trabalhos de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeJobs\fP (\fBJob\fP *head)"
+.br
+.RI "Libertar a lista de trabalhos da memÛria\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayJobs\fP (\fBJob\fP *head)"
+.br
+.RI "Mostrar a lista de trabalhos na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchJob\fP (\fBJob\fP *head, int id)"
+.br
+.RI "Procurar por um trabalho na lista de trabalhos\&. "
+.in -1c
+.SH "Descri√ß√£o detalhada"
+.PP 
+Ficheiro com todas as funÁıes relativas aos trabalhos\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+LuÌs Pereira @email a18446@alunos.ipca.pt 
+.RE
+.PP
+\fBData\fP
+.RS 4
+25/03/2022 
+.RE
+.PP
+
+.SH "Documenta√ß√£o das fun√ß√µes"
+.PP 
+.SS "\fBbool\fP displayJobs (\fBJob\fP * head)"
+
+.PP
+Mostrar a lista de trabalhos na consola\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+170 {
+171     if (head == NULL) // se lista est· vazia
+172     {
+173         return false;
+174     }
+175 
+176     Job* current = head;
+177 
+178     while (current != NULL)
+179     {
+180         printf("ID: %d;\n", current->id);
+181         current = current->next;
+182     }
+183 
+184     return true;
+185 }
+.fi
+.SS "\fBbool\fP freeJobs (\fBJob\fP * head)"
+
+.PP
+Libertar a lista de trabalhos da memÛria\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+145 {
+146     if (head == NULL) // se lista est· vazia
+147     {
+148         return false;
+149     }
+150 
+151     Job* current = NULL;
+152 
+153     while (head != NULL)
+154     {
+155         current = head;
+156         head = head->next;
+157         free(current);
+158     }
+159 
+160     return true;
+161 }
+.fi
+.SS "\fBJob\fP * insertJobAtStart (\fBJob\fP * head, \fBJob\fP * new)"
+
+.PP
+Inserir novo trabalho no inÌcio da lista de trabalhos\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.br
+\fInew\fP Novo trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de trabalhos atualizada 
+.RE
+.PP
+
+.PP
+.nf
+41 {
+42     if (searchJob(head, new->id)) // n„o permitir inserir um novo com o mesmo ID
+43     {
+44         return NULL;
+45     }
+46 
+47     if (head == NULL) // se a lista estiver vazia
+48     {
+49         head = new;
+50     }
+51     else // se existir algum elemento na lista
+52     {
+53         new->next = head;
+54         head = new;
+55     }
+56 
+57     return head;
+58 }
+.fi
+.SS "\fBJob\fP * newJob (int id)"
+
+.PP
+Criar novo trabalho\&. Sobre trabalhos\&.
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIid\fP Identificador do trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Novo trabalho 
+.RE
+.PP
+
+.PP
+.nf
+20 {
+21     Job* new = (Job*)malloc(sizeof(Job));
+22     if (new == NULL) // se n„o houver memÛria para alocar
+23     {
+24         return NULL;
+25     }
+26 
+27     new->id = id;
+28     new->next = NULL;
+29 
+30     return new;
+31 }
+.fi
+.SS "\fBJob\fP * readJobs (char fileName[])"
+
+.PP
+Ler lista de trabalhos de ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de trabalhos 
+.RE
+.PP
+
+.PP
+.nf
+100 {
+101     Job* current = (Job*)malloc(sizeof(Job));
+102     if (current == NULL) // se n„o houver memÛria para alocar
+103     {
+104         return NULL;
+105     }
+106 
+107     Job* head = NULL;
+108     Job* last = NULL;
+109 
+110     FILE* file = NULL;
+111     file = fopen(fileName, "rb");
+112     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+113     {
+114         return NULL;
+115     }
+116 
+117     while (fread(current, sizeof(Job), 1, file)) // ler todos os elementos da lista do ficheiro
+118     {
+119         if (head == NULL) // ler o primeiro elemento
+120         {
+121             head = last = (Job*)malloc(sizeof(Job));
+122         }
+123         else // ler os restantes elementos
+124         {
+125             last->next = (Job*)malloc(sizeof(Job));
+126             last = last->next;
+127         }
+128 
+129         last->id = current->id;
+130         last->next = NULL; // o prÛximo elemento da lista n„o existe, portanto È nulo
+131     }
+132 
+133     fclose(file);
+134 
+135     return head;
+136 }
+.fi
+.SS "\fBbool\fP searchJob (\fBJob\fP * head, int id)"
+
+.PP
+Procurar por um trabalho na lista de trabalhos\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de trabalhos 
+.br
+\fIid\fP Identificador do trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+195 {
+196     if (head == NULL) // se lista est· vazia
+197     {
+198         return false;
+199     }
+200 
+201     Job* current = head;
+202 
+203     while (current != NULL)
+204     {
+205         if (current->id == id)
+206         {
+207             return true;
+208         }
+209         current = current->next;
+210     }
+211 
+212     return false;
+213 }
+.fi
+.SS "\fBbool\fP writeJobs (char fileName[], \fBJob\fP * head)"
+
+.PP
+Armazenar lista de trabalhos em ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de trabalhos 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+68 {
+69     if (head == NULL) // se lista est· vazia
+70     {
+71         return false;
+72     }
+73 
+74     FILE* file = NULL;
+75     file = fopen(fileName, "wb");
+76     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+77     {
+78         return false;
+79     }
+80 
+81     Job* current = head;
+82     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+83     {
+84         fwrite(current, sizeof(Job), 1, file);
+85         current = current->next;
+86     }
+87 
+88     fclose(file);
+89 
+90     return true;
+91 }
+.fi
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Flexible Job Shop Problem a partir do c√≥digo fonte\&.

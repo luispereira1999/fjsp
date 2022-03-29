@@ -1,0 +1,614 @@
+.TH "C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/executions.c" 3 "TerÃ§a, 29 de MarÃ§o de 2022" "Version v1.2" "Flexible Job Shop Problem" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/executions.c \- Ficheiro com todas as funções relativas às execuções de operações\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'header\&.h'\fP
+.br
+
+.SS "FunÃ§Ãµes"
+
+.in +1c
+.ti -1c
+.RI "\fBExecution\fP * \fBnewExecution\fP (int operationID, int machineID, int runtime)"
+.br
+.RI "Criar nova execução\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBinsertExecutionAtStart\fP (\fBExecution\fP *head, \fBExecution\fP *new)"
+.br
+.RI "Inserir nova execução no início da lista de execuções\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBinsertExecutionByOperation\fP (\fBExecution\fP *head, \fBExecution\fP *new)"
+.br
+.RI "Inserir execução ordenada pelo ID da operação na lista de execuções\&. "
+.ti -1c
+.RI "\fBbool\fP \fBupdateRuntime\fP (\fBExecution\fP **head, int operationID, int machineID, int runtime)"
+.br
+.RI "Atualizar as unidades de tempo necessárias para a execução de uma operação\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdeleteExecutionByOperation\fP (\fBExecution\fP **head, int operationID)"
+.br
+.RI "Remover execução pelo identificador da operação\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteExecutions\fP (char fileName[], \fBExecution\fP *head)"
+.br
+.RI "Armazenar lista de execuções em ficheiro\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBreadExecutions\fP (char fileName[])"
+.br
+.RI "Ler lista de execuções de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeExecutions\fP (\fBExecution\fP *head)"
+.br
+.RI "Libertar a lista de operações da memória\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayExecutions\fP (\fBExecution\fP *head)"
+.br
+.RI "Mostrar a lista de execuções na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchExecution\fP (\fBExecution\fP *head, int operationID, int machineID)"
+.br
+.RI "Procurar por uma execução na lista de execuções\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchExecutionByOperation\fP (\fBExecution\fP *head, int operationID)"
+.br
+.RI "Procurar por uma execução através do identificador da operação, na lista de execuções\&. "
+.ti -1c
+.RI "\fBExecution\fP * \fBSortExecutionsByOperation\fP (\fBExecution\fP *head)"
+.br
+.RI "Ordenar lista de execuções por ordem crescente do identificador da operação\&. "
+.in -1c
+.SH "DescriÃ§Ã£o detalhada"
+.PP 
+Ficheiro com todas as funções relativas às execuções de operações\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+Luís Pereira @email a18446@alunos.ipca.pt 
+.RE
+.PP
+\fBData\fP
+.RS 4
+25/03/2022 
+.RE
+.PP
+
+.SH "DocumentaÃ§Ã£o das funÃ§Ãµes"
+.PP 
+.SS "\fBbool\fP deleteExecutionByOperation (\fBExecution\fP ** head, int operationID)"
+
+.PP
+Remover execução pelo identificador da operação\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Apontador para a lista de execuções 
+.br
+\fIoperationID\fP Identificador da operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+148 {
+149     if (*head == NULL) // se a lista estiver vazia
+150     {
+151         return false;
+152     }
+153 
+154     Execution* current = *head;
+155     Execution* previous = NULL;
+156 
+157     if (current != NULL && current->operationID == operationID) { // se o elemento que será apagado é o primeiro da lista
+158         *head = current->next;
+159         free(current);
+160         return true;
+161     }
+162 
+163     while (current != NULL && current->operationID != operationID) // procurar o elemento a ser apagado
+164     {
+165         previous = current;
+166         current = current->next;
+167     }
+168 
+169     if (current == NULL) // se o elemento não foi encontrado
+170     {
+171         return false;
+172     }
+173 
+174     previous->next = current->next; // desassociar o elemento da lista
+175     free(current);
+176 
+177     return true;
+178 }
+.fi
+.SS "\fBbool\fP displayExecutions (\fBExecution\fP * head)"
+
+.PP
+Mostrar a lista de execuções na consola\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuções 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+292 {
+293     if (head == NULL) // se a lista estiver vazia
+294     {
+295         return false;
+296     }
+297 
+298     Execution* current = head;
+299 
+300     while (current != NULL)
+301     {
+302         printf("ID Operação: %d, ID Máquina: %d, Tempo de Execução: %d;\n", current->operationID, current->machineID, current->runtime);
+303         current = current->next;
+304     }
+305 
+306     return true;
+307 }
+.fi
+.SS "\fBbool\fP freeExecutions (\fBExecution\fP * head)"
+
+.PP
+Libertar a lista de operações da memória\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de operações 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+267 {
+268     if (head == NULL) // se a lista estiver vazia
+269     {
+270         return false;
+271     }
+272 
+273     Execution* current = NULL;
+274 
+275     while (head != NULL)
+276     {
+277         current = head;
+278         head = head->next;
+279         free(current);
+280     }
+281 
+282     return true;
+283 }
+.fi
+.SS "\fBExecution\fP * insertExecutionAtStart (\fBExecution\fP * head, \fBExecution\fP * new)"
+
+.PP
+Inserir nova execução no início da lista de execuções\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuções 
+.br
+\fInew\fP Nova execução 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de execuções atualizada 
+.RE
+.PP
+
+.PP
+.nf
+45 {
+46     if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
+47     {
+48         return NULL;
+49     }
+50 
+51     if (head == NULL) // se a lista estiver vazia
+52     {
+53         head = new;
+54     }
+55     else // se existir algum elemento na lista
+56     {
+57         new->next = head;
+58         head = new;
+59     }
+60 
+61     return head;
+62 }
+.fi
+.SS "\fBExecution\fP * insertExecutionByOperation (\fBExecution\fP * head, \fBExecution\fP * new)"
+
+.PP
+Inserir execução ordenada pelo ID da operação na lista de execuções\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuções 
+.br
+\fInew\fP Nova execução 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de execuções atualizada 
+.RE
+.PP
+
+.PP
+.nf
+72 {
+73     if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
+74     {
+75         return NULL;
+76     }
+77 
+78     if (head == NULL) // se a lista estiver vazia
+79     {
+80         head = new; // inserir no início
+81     }
+82     else
+83     {
+84         Execution* current = head;
+85         Execution* previous = NULL;
+86 
+87         // enquanto que atual tem o ID menor que a nova
+88         while (current != NULL && current->operationID < new->operationID)
+89         {
+90             previous = current;
+91             current = current->next;
+92         }
+93 
+94         if (previous == NULL)
+95         {
+96             new->next = head;
+97             head = new; // inserir no meio
+98         }
+99         else
+100         {
+101             previous->next = new;
+102             new->next = current; // inserir no fim
+103         }
+104     }
+105 
+106     return head;
+107 }
+.fi
+.SS "\fBExecution\fP * newExecution (int operationID, int machineID, int runtime)"
+
+.PP
+Criar nova execução\&. Sobre execuções\&.
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIoperationID\fP Identificador da operação 
+.br
+\fImachineID\fP Identificador da máquina 
+.br
+\fIruntime\fP Unidades de tempo necessárias para a execução da operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Nova execução 
+.RE
+.PP
+
+.PP
+.nf
+22 {
+23     Execution* new = (Execution*)malloc(sizeof(Execution));
+24     if (new == NULL) // se não houver memória para alocar
+25     {
+26         return NULL;
+27     }
+28 
+29     new->operationID = operationID;
+30     new->machineID = machineID;
+31     new->runtime = runtime;
+32     new->next = NULL;
+33 
+34     return new;
+35 }
+.fi
+.SS "\fBExecution\fP * readExecutions (char fileName[])"
+
+.PP
+Ler lista de execuções de ficheiro\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operações 
+.RE
+.PP
+
+.PP
+.nf
+220 {
+221     Execution* current = (Execution*)malloc(sizeof(Execution));
+222     if (current == NULL) // se não houver memória para alocar
+223     {
+224         return NULL;
+225     }
+226 
+227     Execution* head = NULL;
+228     Execution* last = NULL;
+229 
+230     FILE* file = NULL;
+231     file = fopen(fileName, "rb");
+232     if (file == NULL) // se não foi possível abrir o ficheiro
+233     {
+234         return NULL;
+235     }
+236 
+237     while (fread(current, sizeof(Execution), 1, file)) // ler todos os elementos da lista do ficheiro
+238     {
+239         if (head == NULL) // ler o primeiro elemento
+240         {
+241             head = last = (Execution*)malloc(sizeof(Execution));
+242         }
+243         else // ler os restantes elementos
+244         {
+245             last->next = (Execution*)malloc(sizeof(Execution));
+246             last = last->next;
+247         }
+248 
+249         last->operationID = current->operationID;
+250         last->machineID = current->machineID;
+251         last->runtime = current->runtime;
+252         last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+253     }
+254 
+255     fclose(file);
+256 
+257     return head;
+258 }
+.fi
+.SS "\fBbool\fP searchExecution (\fBExecution\fP * head, int operationID, int machineID)"
+
+.PP
+Procurar por uma execução na lista de execuções\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuções 
+.br
+\fIoperationID\fP Identificador da operação 
+.br
+\fImachineID\fP Identificador da máquina 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+318 {
+319     if (head == NULL) // se a lista estiver vazia
+320     {
+321         return false;
+322     }
+323 
+324     Execution* current = head;
+325 
+326     while (current != NULL)
+327     {
+328         if (current->operationID == operationID && current->machineID == machineID)
+329         {
+330             return true;
+331         }
+332         current = current->next;
+333     }
+334 
+335     return false;
+336 }
+.fi
+.SS "\fBbool\fP searchExecutionByOperation (\fBExecution\fP * head, int operationID)"
+
+.PP
+Procurar por uma execução através do identificador da operação, na lista de execuções\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuções 
+.br
+\fIoperationID\fP Identificador da operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+346 {
+347     if (head == NULL) // se a lista estiver vazia
+348     {
+349         return false;
+350     }
+351 
+352     Execution* current = head;
+353 
+354     while (current != NULL)
+355     {
+356         if (current->operationID == operationID)
+357         {
+358             return true;
+359         }
+360         current = current->next;
+361     }
+362 
+363     return false;
+364 }
+.fi
+.SS "\fBExecution\fP * SortExecutionsByOperation (\fBExecution\fP * head)"
+
+.PP
+Ordenar lista de execuções por ordem crescente do identificador da operação\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuções 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+373 {
+374     if (head == NULL) // se a lista estiver vazia
+375     {
+376         return NULL;
+377     }
+378 
+379     Execution* current = head;
+380     Execution* sorted = NULL;
+381     Execution* new = NULL;
+382 
+383     while (current != NULL)
+384     {
+385         new = newExecution(current->operationID, current->machineID, current->runtime);
+386         sorted = insertExecutionByOperation(sorted, new);
+387         current = current->next;
+388     }
+389 
+390     return sorted;
+391 }
+.fi
+.SS "\fBbool\fP updateRuntime (\fBExecution\fP ** head, int operationID, int machineID, int runtime)"
+
+.PP
+Atualizar as unidades de tempo necessárias para a execução de uma operação\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Apontador para a lista de execuções 
+.br
+\fIoperationID\fP Identificador da operação 
+.br
+\fImachineID\fP Identificador da máquina 
+.br
+\fIruntime\fP Unidades de tempo 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+119 {
+120     if (*head == NULL) // se lista está vazia
+121     {
+122         return false;
+123     }
+124 
+125     Execution* current = *head;
+126 
+127     while (current != NULL)
+128     {
+129         if (current->operationID == operationID && current->machineID == machineID)
+130         {
+131             current->runtime = runtime;
+132             return true;
+133         }
+134         current = current->next;
+135     }
+136 
+137     return false;
+138 }
+.fi
+.SS "\fBbool\fP writeExecutions (char fileName[], \fBExecution\fP * head)"
+
+.PP
+Armazenar lista de execuções em ficheiro\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de execuções 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+188 {
+189     if (head == NULL) // se lista está vazia
+190     {
+191         return false;
+192     }
+193 
+194     FILE* file = NULL;
+195     file = fopen(fileName, "wb");
+196     if (file == NULL) // se não foi possível abrir o ficheiro
+197     {
+198         return false;
+199     }
+200 
+201     Execution* current = head;
+202     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+203     {
+204         fwrite(current, sizeof(Execution), 1, file);
+205         current = current->next;
+206     }
+207 
+208     fclose(file);
+209 
+210     return true;
+211 }
+.fi
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Flexible Job Shop Problem a partir do cÃ³digo fonte\&.

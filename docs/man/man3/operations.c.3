@@ -1,0 +1,767 @@
+.TH "C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/operations.c" 3 "TerÃ§a, 29 de MarÃ§o de 2022" "Version v1.2" "Flexible Job Shop Problem" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/operations.c \- Ficheiro com todas as funções relativas às operações\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'header\&.h'\fP
+.br
+
+.SS "FunÃ§Ãµes"
+
+.in +1c
+.ti -1c
+.RI "\fBOperation\fP * \fBnewOperation\fP (int id, int jobID, int position)"
+.br
+.RI "Criar nova operação\&. "
+.ti -1c
+.RI "\fBOperation\fP * \fBinsertOperationAtStart\fP (\fBOperation\fP *head, \fBOperation\fP *new)"
+.br
+.RI "Inserir nova operação no início da lista de operações\&. "
+.ti -1c
+.RI "\fBbool\fP \fBupdatePosition\fP (\fBOperation\fP **\fBoperations\fP, \fBJob\fP *\fBjobs\fP, int jobID, int oldPosition, int newPosition)"
+.br
+.RI "Trocar a posição de uma operação para outra e vice-versa, num determinado trabalho\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdeleteOperation\fP (\fBOperation\fP **head, int id)"
+.br
+.RI "Remover uma operação da lista de operações\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteOperations\fP (char fileName[], \fBOperation\fP *head)"
+.br
+.RI "Armazenar lista de operações em ficheiro\&. "
+.ti -1c
+.RI "\fBOperation\fP * \fBreadOperations\fP (char fileName[])"
+.br
+.RI "Ler lista de operações de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeOperations\fP (\fBOperation\fP *head)"
+.br
+.RI "Libertar a lista de operações da memória\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayOperations\fP (\fBOperation\fP *head)"
+.br
+.RI "Mostrar a lista de operações na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchOperation\fP (\fBOperation\fP *head, int id)"
+.br
+.RI "Procurar por uma operação na lista de operações\&. "
+.ti -1c
+.RI "int \fBgetMinTimeToCompleteJob\fP (\fBOperation\fP *\fBoperations\fP, \fBExecution\fP *\fBexecutions\fP, int jobID, \fBExecution\fP **minExecutions)"
+.br
+.RI "Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções\&. "
+.ti -1c
+.RI "int \fBgetMaxTimeToCompleteJob\fP (\fBOperation\fP *\fBoperations\fP, \fBExecution\fP *\fBexecutions\fP, int jobID, \fBExecution\fP **maxExecutions)"
+.br
+.RI "Obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções\&. "
+.ti -1c
+.RI "float \fBgetAverageTimeToCompleteOperation\fP (\fBExecution\fP *head, int operationID)"
+.br
+.RI "Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis\&. "
+.ti -1c
+.RI "int \fBgetMaxPosition\fP (\fBOperation\fP *head, int jobID)"
+.br
+.RI "Obter a quantidade de posições que existem na lista de operações, relativas a um trabalho\&. "
+.in -1c
+.SH "DescriÃ§Ã£o detalhada"
+.PP 
+Ficheiro com todas as funções relativas às operações\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+Luís Pereira @email a18446@alunos.ipca.pt 
+.RE
+.PP
+\fBData\fP
+.RS 4
+25/03/2022 
+.RE
+.PP
+
+.SH "DocumentaÃ§Ã£o das funÃ§Ãµes"
+.PP 
+.SS "\fBbool\fP deleteOperation (\fBOperation\fP ** head, int id)"
+
+.PP
+Remover uma operação da lista de operações\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Apontador para a lista de operações 
+.br
+\fIid\fP Identificador da operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+153 {
+154     if (*head == NULL)
+155     {
+156         return false;
+157     }
+158 
+159     Operation* current = *head;
+160     Operation* previous = NULL;
+161 
+162     if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
+163         *head = current->next;
+164         free(current);
+165         return true;
+166     }
+167 
+168     while (current != NULL && current->id != id) // procurar o elemento a ser apagado
+169     {
+170         previous = current;
+171         current = current->next;
+172     }
+173 
+174     if (current == NULL) // se o elemento não foi encontrado
+175     {
+176         return false;
+177     }
+178 
+179     previous->next = current->next; // desassociar o elemento da lista
+180     free(current);
+181 
+182     return true;
+183 }
+.fi
+.SS "\fBbool\fP displayOperations (\fBOperation\fP * head)"
+
+.PP
+Mostrar a lista de operações na consola\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de operações 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+297 {
+298     if (head == NULL) // se a lista estiver vazia
+299     {
+300         return false;
+301     }
+302 
+303     Operation* current = head;
+304 
+305     while (current != NULL)
+306     {
+307         printf("ID: %d, ID Trabalho: %d, Posição: %d;\n", current->id, current->jobID, current->position);
+308         current = current->next;
+309     }
+310 
+311     return true;
+312 }
+.fi
+.SS "\fBbool\fP freeOperations (\fBOperation\fP * head)"
+
+.PP
+Libertar a lista de operações da memória\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de operações 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+272 {
+273     if (head == NULL) // se lista está vazia
+274     {
+275         return false;
+276     }
+277 
+278     Operation* current = NULL;
+279 
+280     while (head != NULL)
+281     {
+282         current = head;
+283         head = head->next;
+284         free(current);
+285     }
+286 
+287     return true;
+288 }
+.fi
+.SS "float getAverageTimeToCompleteOperation (\fBExecution\fP * head, int operationID)"
+
+.PP
+Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de execuções 
+.br
+\fIoperationID\fP Identificador da operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da média de tempo 
+.RE
+.PP
+
+.PP
+.nf
+466 {
+467     if (head == NULL) // se a lista estiver vazia
+468     {
+469         return -1\&.0f;
+470     }
+471 
+472     int sum = 0;
+473     float average = 0;
+474     float numberOfExecutions = 0;
+475 
+476     Execution* current = head;
+477 
+478     while (current != NULL)
+479     {
+480         if (current->operationID == operationID) // se encontrar a execução de operação relativa à operação
+481         {
+482             sum += current->runtime;
+483             numberOfExecutions++;
+484         }
+485         current = current->next;
+486     }
+487 
+488     if (numberOfExecutions > 0) // para não permitir divisão por 0
+489     {
+490         average = sum / numberOfExecutions;
+491     }
+492 
+493     return average;
+494 }
+.fi
+.SS "int getMaxPosition (\fBOperation\fP * head, int jobID)"
+
+.PP
+Obter a quantidade de posições que existem na lista de operações, relativas a um trabalho\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de operações 
+.br
+\fIjobID\fP Identificador do trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Quantidade de posições 
+.RE
+.PP
+
+.PP
+.nf
+504 {
+505     if (head == NULL)
+506     {
+507         return 0;
+508     }
+509 
+510     int count = 0;
+511     Operation* current = head;
+512 
+513     while (current != NULL)
+514     {
+515         if (current->jobID == jobID)
+516         {
+517             count++;
+518         }
+519         current = current->next;
+520     }
+521 
+522     return count;
+523 }
+.fi
+.SS "int getMaxTimeToCompleteJob (\fBOperation\fP * operations, \fBExecution\fP * executions, int jobID, \fBExecution\fP ** maxExecutions)"
+
+.PP
+Obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIoperations\fP Lista de operações 
+.br
+\fIexecutions\fP Lista de execuções 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fImaxExecutions\fP Apontador para a lista de execuções a ser devolvida, relativamente ao tempo máximo 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Quantidade de tempo 
+.RE
+.PP
+
+.PP
+.nf
+410 {
+411     if (operations == NULL || executions == NULL) // se as listas estiverem vazias
+412     {
+413         return -1;
+414     }
+415 
+416     int time = 0;
+417     int counter = 0;
+418 
+419     Operation* currentOperation = operations;
+420     Execution* currentExecution = executions;
+421     Execution* maxExecution = NULL;
+422 
+423     while (currentOperation != NULL) // percorrer lista de operações
+424     {
+425         if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
+426         {
+427             while (currentExecution != NULL) // percorrer lista de execução de operações
+428             {
+429                 if (currentExecution->operationID == currentOperation->id) // se encontrar a execução de operação relativa à operação
+430                 {
+431                     // guardar execução de operação com maior tempo de utilização
+432                     if (currentExecution->runtime > time)
+433                     {
+434                         time = currentExecution->runtime;
+435                         maxExecution = newExecution(currentExecution->operationID, currentExecution->machineID, currentExecution->runtime);
+436                     }
+437                 }
+438 
+439                 currentExecution = currentExecution->next;
+440             }
+441 
+442             *maxExecutions = insertExecutionAtStart(*maxExecutions, maxExecution);
+443 
+444             // repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+445             freeExecutions(currentExecution);
+446             currentExecution = NULL;
+447             currentExecution = executions;
+448             counter += time; // acumular o tempo de utilização de cada execução de operação
+449             time = 0; // resetar tempo de utilização para a próxima iteração
+450         }
+451 
+452         currentOperation = currentOperation->next;
+453     }
+454 
+455     return counter;
+456 }
+.fi
+.SS "int getMinTimeToCompleteJob (\fBOperation\fP * operations, \fBExecution\fP * executions, int jobID, \fBExecution\fP ** minExecutions)"
+
+.PP
+Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIoperations\fP Lista de operações 
+.br
+\fIexecutions\fP Lista de execuções 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fIminExecutions\fP Apontador para a lista de execuções a ser devolvida, relativamente ao tempo mínimo 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Quantidade de tempo 
+.RE
+.PP
+
+.PP
+.nf
+352 {
+353     if (operations == NULL || executions == NULL) // se as listas estiverem vazias
+354     {
+355         return -1;
+356     }
+357 
+358     int time = 99990;
+359     int counter = 0;
+360 
+361     Operation* currentOperation = operations;
+362     Execution* currentExecution = executions;
+363     Execution* minExecution = NULL;
+364 
+365     while (currentOperation != NULL) // percorrer lista de operações
+366     {
+367         if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
+368         {
+369             while (currentExecution != NULL) // percorrer lista de execução de operações
+370             {
+371                 if (currentExecution->operationID == currentOperation->id) // se encontrar a execução de operação relativa à operação
+372                 {
+373                     // guardar execução de operação com menor tempo de utilização
+374                     if (currentExecution->runtime < time)
+375                     {
+376                         time = currentExecution->runtime;
+377                         minExecution = newExecution(currentExecution->operationID, currentExecution->machineID, currentExecution->runtime);
+378                     }
+379                 }
+380 
+381                 currentExecution = currentExecution->next;
+382             }
+383 
+384             *minExecutions = insertExecutionAtStart(*minExecutions, minExecution);
+385 
+386             // repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+387             freeExecutions(currentExecution);
+388             currentExecution = NULL;
+389             currentExecution = executions;
+390             counter += time; // acumular o tempo de utilização de cada execução de operação
+391             time = 99990; // resetar tempo para a próxima iteração
+392         }
+393 
+394         currentOperation = currentOperation->next;
+395     }
+396 
+397     return counter;
+398 }
+.fi
+.SS "\fBOperation\fP * insertOperationAtStart (\fBOperation\fP * head, \fBOperation\fP * new)"
+
+.PP
+Inserir nova operação no início da lista de operações\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de operações 
+.br
+\fInew\fP Nova operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operações atualizada 
+.RE
+.PP
+
+.PP
+.nf
+45 {
+46     if (searchOperation(head, new->id)) // não permitir inserir uma nova com o mesmo ID
+47     {
+48         return NULL;
+49     }
+50 
+51     int lastPosition = getMaxPosition(head, new->jobID);
+52     if (lastPosition + 1 != new->position) // se a nova posição não corresponder à última posição +1
+53     {
+54         return NULL;
+55     }
+56 
+57     if (head == NULL) // se a lista estiver vazia
+58     {
+59         head = new;
+60     }
+61     else // se existir algum elemento na lista
+62     {
+63         new->next = head;
+64         head = new;
+65     }
+66 
+67     return head;
+68 }
+.fi
+.SS "\fBOperation\fP * newOperation (int id, int jobID, int position)"
+
+.PP
+Criar nova operação\&. Sobre operações\&.
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIid\fP Identificador da operação 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fIposition\fP Posição da operação relativamente ao trabalho 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Nova operação 
+.RE
+.PP
+
+.PP
+.nf
+22 {
+23     Operation* new = (Operation*)malloc(sizeof(Operation));
+24     if (new == NULL) // se não houver memória para alocar
+25     {
+26         return NULL;
+27     }
+28 
+29     new->id = id;
+30     new->jobID = jobID;
+31     new->position = position;
+32     new->next = NULL;
+33 
+34     return new;
+35 }
+.fi
+.SS "\fBOperation\fP * readOperations (char fileName[])"
+
+.PP
+Ler lista de operações de ficheiro\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operações 
+.RE
+.PP
+
+.PP
+.nf
+225 {
+226     Operation* current = (Operation*)malloc(sizeof(Operation));
+227     if (current == NULL) // se não houver memória para alocar
+228     {
+229         return NULL;
+230     }
+231 
+232     Operation* head = NULL;
+233     Operation* last = NULL;
+234 
+235     FILE* file = NULL;
+236     file = fopen(fileName, "rb");
+237     if (file == NULL) // se não foi possível abrir o ficheiro
+238     {
+239         return NULL;
+240     }
+241 
+242     while (fread(current, sizeof(Operation), 1, file) > 0) // ler todos os elementos da lista do ficheiro
+243     {
+244         if (head == NULL) // ler o primeiro elemento
+245         {
+246             head = last = (Operation*)malloc(sizeof(Operation));
+247         }
+248         else // ler os restantes elementos
+249         {
+250             last->next = (Operation*)malloc(sizeof(Operation));
+251             last = last->next;
+252         }
+253 
+254         last->id = current->id;
+255         last->jobID = current->jobID;
+256         last->position = current->position;
+257         last->next = NULL; // o próximo elemento da lista não existe, portanto é nulo
+258     }
+259 
+260     fclose(file);
+261 
+262     return head;
+263 }
+.fi
+.SS "\fBbool\fP searchOperation (\fBOperation\fP * head, int id)"
+
+.PP
+Procurar por uma operação na lista de operações\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIhead\fP Lista de operações 
+.br
+\fIid\fP Identificador da operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+322 {
+323     if (head == NULL) // se lista está vazia
+324     {
+325         return false;
+326     }
+327 
+328     Operation* current = head;
+329 
+330     while (current != NULL)
+331     {
+332         if (current->id == id)
+333         {
+334             return true;
+335         }
+336         current = current->next;
+337     }
+338 
+339     return false;
+340 }
+.fi
+.SS "\fBbool\fP updatePosition (\fBOperation\fP ** operations, \fBJob\fP * jobs, int jobID, int oldPosition, int newPosition)"
+
+.PP
+Trocar a posição de uma operação para outra e vice-versa, num determinado trabalho\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIoperations\fP Apontador para a lista de operações 
+.br
+\fIjobs\fP Lista de trabalhos 
+.br
+\fIjobID\fP Identificador do trabalho 
+.br
+\fIoldPosition\fP Posição antiga da operação 
+.br
+\fInewPosition\fP Nova posição da operação 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+81 {
+82     if (*operations == NULL || jobs == NULL) // se as listas estiverem vazias
+83     {
+84         return false;
+85     }
+86 
+87     if (oldPosition == newPosition) // se as posições forem as mesmas
+88     {
+89         return false;
+90     }
+91 
+92     if (!searchJob(jobs, jobID)) // se o job não existir
+93     {
+94         return false;
+95     }
+96 
+97     Operation* currentOperationX = *operations, * previousOperationX = NULL; // para a antiga
+98     Operation* currentOperationY = *operations, * previousOperationY = NULL; // para a nova
+99 
+100     // procurar pela antiga posição
+101     while (currentOperationX && currentOperationX->position != oldPosition || currentOperationX->jobID != jobID)
+102     {
+103         previousOperationX = currentOperationX;
+104         currentOperationX = currentOperationX->next;
+105     }
+106 
+107     // procurar pela nova posição
+108     while (currentOperationY && currentOperationY->position != newPosition || currentOperationY->jobID != jobID)
+109     {
+110         previousOperationY = currentOperationY;
+111         currentOperationY = currentOperationY->next;
+112     }
+113 
+114     if (currentOperationX == NULL || currentOperationY == NULL) // se as operações relativas à antiga ou nova posição não foram encontradas
+115     {
+116         return false;
+117     }
+118 
+119     if (previousOperationX != NULL) // se a operação anterior não for o head da lista
+120     {
+121         previousOperationX->next = currentOperationY;
+122     }
+123     else // senão fazer que operação anterior seja o head
+124     {
+125         *operations = currentOperationY;
+126     }
+127 
+128     if (previousOperationY != NULL) // se a operação nova não for o head da lista
+129     {
+130         previousOperationY->next = currentOperationX;
+131     }
+132     else // senão fazer com que operação anterior seja o head
+133     {
+134         *operations = currentOperationX;
+135     }
+136 
+137     // trocar elementos
+138     Operation* tempOperation = currentOperationY->next;
+139     currentOperationY->next = currentOperationX->next;
+140     currentOperationX->next = tempOperation;
+141 
+142     return true;
+143 }
+.fi
+.SS "\fBbool\fP writeOperations (char fileName[], \fBOperation\fP * head)"
+
+.PP
+Armazenar lista de operações em ficheiro\&. 
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de operações 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da função (se funcionou ou não) 
+.RE
+.PP
+
+.PP
+.nf
+193 {
+194     if (head == NULL) // se lista está vazia
+195     {
+196         return false;
+197     }
+198 
+199     FILE* file = NULL;
+200     file = fopen(fileName, "wb");
+201     if (file == NULL) // se não foi possível abrir o ficheiro
+202     {
+203         return false;
+204     }
+205 
+206     Operation* current = head;
+207     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+208     {
+209         fwrite(current, sizeof(Operation), 1, file);
+210         current = current->next;
+211     }
+212 
+213     fclose(file);
+214 
+215     return true;
+216 }
+.fi
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Flexible Job Shop Problem a partir do cÃ³digo fonte\&.

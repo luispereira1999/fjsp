@@ -207,6 +207,12 @@ int main()
 				freeMachines(machines);
 				freeOperations(operations);
 				freeExecutions(executions);
+
+				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
+				jobs = NULL;
+				machines = NULL;
+				operations = NULL;
+				executions = NULL;
 #pragma endregion
 
 				break;

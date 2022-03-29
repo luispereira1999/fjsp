@@ -1,0 +1,356 @@
+.TH "C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/machines.c" 3 "Ter√ßa, 29 de Mar√ßo de 2022" "Version v1.2" "Flexible Job Shop Problem" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/machines.c \- Ficheiro com todas as funÁıes relativas ‡s m·quinas\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'header\&.h'\fP
+.br
+
+.SS "Fun√ß√µes"
+
+.in +1c
+.ti -1c
+.RI "\fBMachine\fP * \fBnewMachine\fP (int id, \fBbool\fP isBusy)"
+.br
+.RI "Criar nova m·quina\&. "
+.ti -1c
+.RI "\fBMachine\fP * \fBinsertMachineAtStart\fP (\fBMachine\fP *head, \fBMachine\fP *new)"
+.br
+.RI "Inserir nova m·quina no inÌcio da lista de m·quinas\&. "
+.ti -1c
+.RI "\fBbool\fP \fBwriteMachines\fP (char fileName[], \fBMachine\fP *head)"
+.br
+.RI "Armazenar lista de m·quinas em ficheiro\&. "
+.ti -1c
+.RI "\fBMachine\fP * \fBreadMachines\fP (char fileName[])"
+.br
+.RI "Ler lista de m·quinas de ficheiro\&. "
+.ti -1c
+.RI "\fBbool\fP \fBfreeMachines\fP (\fBMachine\fP *head)"
+.br
+.RI "Libertar a lista de m·quinas da memÛria\&. "
+.ti -1c
+.RI "\fBbool\fP \fBdisplayMachines\fP (\fBMachine\fP *head)"
+.br
+.RI "Mostrar a lista de m·quinas na consola\&. "
+.ti -1c
+.RI "\fBbool\fP \fBsearchMachine\fP (\fBMachine\fP *head, int id)"
+.br
+.RI "Procurar por uma m·quina na lista de m·quinas\&. "
+.in -1c
+.SH "Descri√ß√£o detalhada"
+.PP 
+Ficheiro com todas as funÁıes relativas ‡s m·quinas\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+LuÌs Pereira @email a18446@alunos.ipca.pt 
+.RE
+.PP
+\fBData\fP
+.RS 4
+25/03/2022 
+.RE
+.PP
+
+.SH "Documenta√ß√£o das fun√ß√µes"
+.PP 
+.SS "\fBbool\fP displayMachines (\fBMachine\fP * head)"
+
+.PP
+Mostrar a lista de m·quinas na consola\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+173 {
+174     if (head == NULL) // se lista est· vazia
+175     {
+176         return false;
+177     }
+178 
+179     Machine* current = head;
+180 
+181     while (current != NULL)
+182     {
+183         printf("ID: %d, Ocupada?: %s;\n", current->id, current->isBusy ? "Sim" : "N„o");
+184         current = current->next;
+185     }
+186 
+187     return true;
+188 }
+.fi
+.SS "\fBbool\fP freeMachines (\fBMachine\fP * head)"
+
+.PP
+Libertar a lista de m·quinas da memÛria\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+148 {
+149     if (head == NULL) // se lista est· vazia
+150     {
+151         return false;
+152     }
+153 
+154     Machine* current = NULL;
+155 
+156     while (head != NULL)
+157     {
+158         current = head;
+159         head = head->next;
+160         free(current);
+161     }
+162 
+163     return true;
+164 }
+.fi
+.SS "\fBMachine\fP * insertMachineAtStart (\fBMachine\fP * head, \fBMachine\fP * new)"
+
+.PP
+Inserir nova m·quina no inÌcio da lista de m·quinas\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.br
+\fInew\fP Nova m·quina 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de m·quinas atualizada 
+.RE
+.PP
+
+.PP
+.nf
+43 {
+44     if (searchMachine(head, new->id)) // n„o permitir inserir uma nova com o mesmo ID
+45     {
+46         return NULL;
+47     }
+48 
+49     if (head == NULL) // se a lista estiver vazia
+50     {
+51         head = new;
+52     }
+53     else // se existir algum elemento na lista
+54     {
+55         new->next = head;
+56         head = new;
+57     }
+58 
+59     return head;
+60 }
+.fi
+.SS "\fBMachine\fP * newMachine (int id, \fBbool\fP isBusy)"
+
+.PP
+Criar nova m·quina\&. Sobre m·quinas\&.
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIid\fP Identificador da m·quina 
+.br
+\fIisBusy\fP Booleano para se a m·quina est· ou n„o em utilizaÁ„o 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Nova m·quina 
+.RE
+.PP
+
+.PP
+.nf
+21 {
+22     Machine* new = (Machine*)malloc(sizeof(Machine));
+23     if (new == NULL) // se n„o houver memÛria para alocar
+24     {
+25         return NULL;
+26     }
+27 
+28     new->id = id;
+29     new->isBusy = isBusy;
+30     new->next = NULL;
+31 
+32     return new;
+33 }
+.fi
+.SS "\fBMachine\fP * readMachines (char fileName[])"
+
+.PP
+Ler lista de m·quinas de ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para ler a lista 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Lista de operaÁıes 
+.RE
+.PP
+
+.PP
+.nf
+102 {
+103     Machine* current = (Machine*)malloc(sizeof(Machine));
+104     if (current == NULL) // se n„o houver memÛria para alocar
+105     {
+106         return NULL;
+107     }
+108 
+109     Machine* head = NULL;
+110     Machine* last = NULL;
+111 
+112     FILE* file = NULL;
+113     file = fopen(fileName, "rb");
+114     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+115     {
+116         return NULL;
+117     }
+118 
+119     while (fread(current, sizeof(Machine), 1, file)) // ler todos os elementos da lista do ficheiro
+120     {
+121         if (head == NULL) // ler o primeiro elemento
+122         {
+123             head = last = (Machine*)malloc(sizeof(Machine));
+124         }
+125         else // ler os restantes elementos
+126         {
+127             last->next = (Machine*)malloc(sizeof(Machine));
+128             last = last->next;
+129         }
+130 
+131         last->id = current->id;
+132         last->isBusy = current->isBusy;
+133         last->next = NULL; // o prÛximo elemento da lista n„o existe, portanto È nulo
+134     }
+135 
+136     fclose(file);
+137 
+138     return head;
+139 }
+.fi
+.SS "\fBbool\fP searchMachine (\fBMachine\fP * head, int id)"
+
+.PP
+Procurar por uma m·quina na lista de m·quinas\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIhead\fP Lista de m·quinas 
+.br
+\fIid\fP Identificador da m·quina 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+198 {
+199     if (head == NULL) // se lista est· vazia
+200     {
+201         return false;
+202     }
+203 
+204     Machine* current = head;
+205 
+206     while (current != NULL)
+207     {
+208         if (current->id == id)
+209         {
+210             return true;
+211         }
+212         current = current->next;
+213     }
+214 
+215     return false;
+216 }
+.fi
+.SS "\fBbool\fP writeMachines (char fileName[], \fBMachine\fP * head)"
+
+.PP
+Armazenar lista de m·quinas em ficheiro\&. 
+.PP
+\fBPar√¢metros\fP
+.RS 4
+\fIfileName\fP Nome do ficheiro para armazenar a lista 
+.br
+\fIhead\fP Lista de m·quinas 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Booleano para o resultado da funÁ„o (se funcionou ou n„o) 
+.RE
+.PP
+
+.PP
+.nf
+70 {
+71     if (head == NULL) // se lista est· vazia
+72     {
+73         return false;
+74     }
+75 
+76     FILE* file = NULL;
+77     file = fopen(fileName, "wb");
+78     if (file == NULL) // se n„o foi possÌvel abrir o ficheiro
+79     {
+80         return false;
+81     }
+82 
+83     Machine* current = head;
+84     while (current != NULL) // escrever todos os elementos da lista no ficheiro
+85     {
+86         fwrite(current, sizeof(Machine), 1, file);
+87         current = current->next;
+88     }
+89 
+90     fclose(file);
+91 
+92     return true;
+93 }
+.fi
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Flexible Job Shop Problem a partir do c√≥digo fonte\&.

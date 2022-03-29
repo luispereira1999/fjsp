@@ -88,24 +88,27 @@ bool updatePosition(Operation** operations, Job* jobs, int jobID, int oldPositio
 		return false;
 	}
 
-	Operation* currentOperationX = *operations, * previousOperationX = NULL; // para a antiga
-	Operation* currentOperationY = *operations, * previousOperationY = NULL; // para a nova
+	Operation* currentOperationX = *operations;
+	Operation* previousOperationX = NULL; // para a antiga
+	Operation* currentOperationY = *operations;
+	Operation* previousOperationY = NULL; // para a nova
 
 	// procurar pela antiga posição
-	while (currentOperationX && currentOperationX->position != oldPosition || currentOperationX->jobID != jobID)
+	while (currentOperationX != NULL && currentOperationX->position != oldPosition || currentOperationX->jobID != jobID)
 	{
 		previousOperationX = currentOperationX;
 		currentOperationX = currentOperationX->next;
 	}
 
 	// procurar pela nova posição
-	while (currentOperationY && currentOperationY->position != newPosition || currentOperationY->jobID != jobID)
+	while (currentOperationY != NULL && currentOperationY->position != newPosition || currentOperationY->jobID != jobID)
 	{
 		previousOperationY = currentOperationY;
 		currentOperationY = currentOperationY->next;
 	}
 
-	if (currentOperationX == NULL || currentOperationY == NULL) // se as operações relativas à antiga ou nova posição não foram encontradas
+	// se as operações relativas à antiga ou nova posição não foram encontradas
+	if (currentOperationX == NULL || currentOperationY == NULL)
 	{
 		return false;
 	}

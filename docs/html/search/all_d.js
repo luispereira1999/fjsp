@@ -4,5 +4,5 @@ var searchData=
   ['readjobs_1',['readJobs',['../header_8h.html#a1c30247bf14e8f64a9dad8cf280f7f2a',1,'readJobs(char fileName[]):&#160;jobs.c'],['../jobs_8c.html#a1c30247bf14e8f64a9dad8cf280f7f2a',1,'readJobs(char fileName[]):&#160;jobs.c']]],
   ['readmachines_2',['readMachines',['../header_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97',1,'readMachines(char fileName[]):&#160;machines.c'],['../machines_8c.html#af87a8e5a625b71b8bccc15d4c98d6d97',1,'readMachines(char fileName[]):&#160;machines.c']]],
   ['readoperations_3',['readOperations',['../header_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b',1,'readOperations(char fileName[]):&#160;operations.c'],['../operations_8c.html#a0d7a168cfe9d62f2deb7f01f19966c7b',1,'readOperations(char fileName[]):&#160;operations.c']]],
-  ['runtime_4',['runtime',['../struct_execution.html#a03c0671808b07e0f28029565c8ea6747',1,'Execution']]]
+  ['runtime_4',['runtime',['../struct_execution.html#a6885fec41faff728c1e6173cfb69e81f',1,'Execution::runtime()'],['../struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f',1,'FileExecution::runtime()']]]
 ];

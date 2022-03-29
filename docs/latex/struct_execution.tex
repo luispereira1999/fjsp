@@ -2,45 +2,53 @@
 \label{struct_execution}\index{Execution@{Execution}}
 
 
+Estrutura de dados para a lista (em memória) das execuções das operações em máquinas.  
+
+
+
+
 {\ttfamily \#include $<$header.\+h$>$}
 
-\doxysubsection*{Atributos PÃºblicos}
+\doxysubsection*{Campos de Dados}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{struct_execution_a7432723e4b2d652d9f575c4271989ee5}{operation\+ID}}
+int \mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operation\+ID}}
 \item 
-int \mbox{\hyperlink{struct_execution_a7ceb164932482d2ef2618dd80e6e1728}{machine\+ID}}
+int \mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machine\+ID}}
 \item 
-int \mbox{\hyperlink{struct_execution_a03c0671808b07e0f28029565c8ea6747}{runtime}}
+int \mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}}
 \item 
-struct \mbox{\hyperlink{struct_execution}{Execution}} $\ast$ \mbox{\hyperlink{struct_execution_a2283edea4e48406d89677e3ed3953fa3}{next}}
+struct \mbox{\hyperlink{struct_execution}{Execution}} $\ast$ \mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}}
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{DocumentaÃ§Ã£o dos dados membro}
-\mbox{\Hypertarget{struct_execution_a7ceb164932482d2ef2618dd80e6e1728}\label{struct_execution_a7ceb164932482d2ef2618dd80e6e1728}} 
+\doxysubsection{DescriÃ§Ã£o detalhada}
+Estrutura de dados para a lista (em memória) das execuções das operações em máquinas. 
+
+\doxysubsection{DocumentaÃ§Ã£o dos campos e atributos}
+\mbox{\Hypertarget{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}\label{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}} 
 \index{Execution@{Execution}!machineID@{machineID}}
 \index{machineID@{machineID}!Execution@{Execution}}
 \doxysubsubsection{\texorpdfstring{machineID}{machineID}}
-{\footnotesize\ttfamily int Execution\+::machine\+ID}
+{\footnotesize\ttfamily int machine\+ID}
 
-\mbox{\Hypertarget{struct_execution_a2283edea4e48406d89677e3ed3953fa3}\label{struct_execution_a2283edea4e48406d89677e3ed3953fa3}} 
+\mbox{\Hypertarget{struct_execution_a5118f41fd71744302713d58c7ce39bd4}\label{struct_execution_a5118f41fd71744302713d58c7ce39bd4}} 
 \index{Execution@{Execution}!next@{next}}
 \index{next@{next}!Execution@{Execution}}
 \doxysubsubsection{\texorpdfstring{next}{next}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_execution}{Execution}}$\ast$ Execution\+::next}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_execution}{Execution}}$\ast$ next}
 
-\mbox{\Hypertarget{struct_execution_a7432723e4b2d652d9f575c4271989ee5}\label{struct_execution_a7432723e4b2d652d9f575c4271989ee5}} 
+\mbox{\Hypertarget{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}\label{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}} 
 \index{Execution@{Execution}!operationID@{operationID}}
 \index{operationID@{operationID}!Execution@{Execution}}
 \doxysubsubsection{\texorpdfstring{operationID}{operationID}}
-{\footnotesize\ttfamily int Execution\+::operation\+ID}
+{\footnotesize\ttfamily int operation\+ID}
 
-\mbox{\Hypertarget{struct_execution_a03c0671808b07e0f28029565c8ea6747}\label{struct_execution_a03c0671808b07e0f28029565c8ea6747}} 
+\mbox{\Hypertarget{struct_execution_a6885fec41faff728c1e6173cfb69e81f}\label{struct_execution_a6885fec41faff728c1e6173cfb69e81f}} 
 \index{Execution@{Execution}!runtime@{runtime}}
 \index{runtime@{runtime}!Execution@{Execution}}
 \doxysubsubsection{\texorpdfstring{runtime}{runtime}}
-{\footnotesize\ttfamily int Execution\+::runtime}
+{\footnotesize\ttfamily int runtime}
 
 
 

@@ -1,5 +1,10 @@
 \hypertarget{main_8c}{}\doxysection{ReferÃªncia ao ficheiro C\+:/\+LUIS-\/\+PEREIRA/\+Repositorios/fjssp/fjssp/main.c}
 \label{main_8c}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/main.c@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/main.c}}
+
+
+Ficheiro principal da aplicação, com menu e chamada de funções.  
+
+
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$locale.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
@@ -7,7 +12,24 @@
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função principal do programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+Ficheiro principal da aplicação, com menu e chamada de funções. 
+
+\begin{DoxyAuthor}{Autor}
+Luís Pereira @email \href{mailto:a18446@alunos.ipca.pt}{\texttt{ a18446@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+26/03/2022
+\end{DoxyDate}
+\DoxyHorRuler{0}
+
+
+Software desenvolvido para a proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção. \begin{DoxySeeAlso}{Veja tambÃ©m}
+\href{https://github.com/luispereira1999/fjssp}{\texttt{ https\+://github.\+com/luispereira1999/fjssp}} 
+\end{DoxySeeAlso}
 
 
 \doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
@@ -18,161 +40,224 @@ int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
+
+Função principal do programa. 
+
+\begin{DoxyReturn}{Retorna}
+Resultado do programa na linha de comando 
+\end{DoxyReturn}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{13 \{}
-\DoxyCodeLine{14     setlocale(LC\_ALL, \textcolor{stringliteral}{"{}Portuguese"{}}); \textcolor{comment}{// permitir caracteres especiais na consola}}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16     \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = NULL;}
-\DoxyCodeLine{17     \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = NULL;}
-\DoxyCodeLine{18     \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = NULL;}
-\DoxyCodeLine{19     \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = NULL;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     \textcolor{keywordtype}{int} menuOption = 0;}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     \textcolor{keywordflow}{do}}
-\DoxyCodeLine{24     \{}
-\DoxyCodeLine{25         \textcolor{comment}{// menu }}
-\DoxyCodeLine{26         printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n\(\backslash\)n"{}});}
-\DoxyCodeLine{27         printf(\textcolor{stringliteral}{"{}   M E N U\(\backslash\)n\(\backslash\)n"{}});}
-\DoxyCodeLine{28         printf(\textcolor{stringliteral}{"{}   1 -\/> Fase 1\(\backslash\)n"{}});}
-\DoxyCodeLine{29         printf(\textcolor{stringliteral}{"{}   2 -\/> Sobre\(\backslash\)n"{}});}
-\DoxyCodeLine{30         printf(\textcolor{stringliteral}{"{}   © Luís Pereira | 2022\(\backslash\)n\(\backslash\)n"{}});}
-\DoxyCodeLine{31         printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
-\DoxyCodeLine{32         printf(\textcolor{stringliteral}{"{}Escolha uma das opções acima: "{}});}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34         \textcolor{keywordflow}{if} (!scanf(\textcolor{stringliteral}{"{}\%d"{}}, \&menuOption)) \textcolor{comment}{// se não introduzir um número}}
-\DoxyCodeLine{35         \{}
-\DoxyCodeLine{36             menuOption = 0;}
-\DoxyCodeLine{37             fseek(stdin, 0, SEEK\_END); \textcolor{comment}{// repor buffer de entrada para evitar ciclo infinito}}
-\DoxyCodeLine{38             printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{39             printf(\textcolor{stringliteral}{"{}O carácter introduzido não é válido. Tente outro.\(\backslash\)n"{}});}
-\DoxyCodeLine{40         \}}
-\DoxyCodeLine{41         \textcolor{keywordflow}{else}}
-\DoxyCodeLine{42         \{}
-\DoxyCodeLine{43             printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45             \textcolor{keywordflow}{switch} (menuOption)}
-\DoxyCodeLine{46             \{}
-\DoxyCodeLine{47             \textcolor{keywordflow}{case} 1: \textcolor{comment}{// Fase 1 do projeto}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49                 \textcolor{comment}{// Carregar dados (tabela) para as listas}}
-\DoxyCodeLine{50                 \mbox{\hyperlink{data_8c_a9e20b602bea2105c4844c9488e0dac64}{loadData}}(\&\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}, \&\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}}, \&\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \&\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
-\DoxyCodeLine{51                 \textcolor{comment}{// Guardar os dados em ficheiros}}
-\DoxyCodeLine{52                 \mbox{\hyperlink{header_8h_a74854c567a784660b6259abbd47d821e}{writeJobs}}(\textcolor{stringliteral}{"{}jobs.data"{}}, \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
-\DoxyCodeLine{53                 \mbox{\hyperlink{header_8h_a535c92168a17ff038c2007300a75d708}{writeOperations}}(\textcolor{stringliteral}{"{}operations.data"{}}, \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
-\DoxyCodeLine{54                 \mbox{\hyperlink{header_8h_adeb9a16e75fb2739e26d1ceed9fbec78}{writeMachines}}(\textcolor{stringliteral}{"{}machines.data"{}}, \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
-\DoxyCodeLine{55                 \mbox{\hyperlink{executions_8c_aaae924901eb9d97606c03a74081b5291}{writeExecutions}}(\textcolor{stringliteral}{"{}executions.data"{}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
-\DoxyCodeLine{56                 printf(\textcolor{stringliteral}{"{}Dados exportados com sucesso!\(\backslash\)n"{}});}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58                 \textcolor{comment}{// Libertar memória das listas anteriores, para serem lidas dos ficheiros}}
-\DoxyCodeLine{59                 \mbox{\hyperlink{header_8h_a542b381bfbc143ae575e98f684117265}{freeJobs}}(\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
-\DoxyCodeLine{60                 \mbox{\hyperlink{header_8h_adf36b4d501a3dcbaf8ac959da2d76c8f}{freeMachines}}(\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
-\DoxyCodeLine{61                 \mbox{\hyperlink{header_8h_af64e219dfa9552b285dd100375c2c6a7}{freeOperations}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
-\DoxyCodeLine{62                 \mbox{\hyperlink{executions_8c_a67b917d9e7aff6fc85c7d3cee1150721}{freeExecutions}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
-\DoxyCodeLine{63                 \textcolor{comment}{// Depois de libertar memória, definir listas como NULL para evitar possíveis erros}}
-\DoxyCodeLine{64                 \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = NULL;}
-\DoxyCodeLine{65                 \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = NULL;}
-\DoxyCodeLine{66                 \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = NULL;}
-\DoxyCodeLine{67                 \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = NULL;}
-\DoxyCodeLine{68                 \textcolor{comment}{// Ler dados de ficheiros}}
-\DoxyCodeLine{69                 \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = \mbox{\hyperlink{header_8h_a1c30247bf14e8f64a9dad8cf280f7f2a}{readJobs}}(\textcolor{stringliteral}{"{}jobs.data"{}});}
-\DoxyCodeLine{70                 \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = \mbox{\hyperlink{header_8h_af87a8e5a625b71b8bccc15d4c98d6d97}{readMachines}}(\textcolor{stringliteral}{"{}machines.data"{}});}
-\DoxyCodeLine{71                 \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = \mbox{\hyperlink{header_8h_a0d7a168cfe9d62f2deb7f01f19966c7b}{readOperations}}(\textcolor{stringliteral}{"{}operations.data"{}});}
-\DoxyCodeLine{72                 \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = \mbox{\hyperlink{executions_8c_a362b69957d588d5dd03c4cfbbb26adab}{readExecutions}}(\textcolor{stringliteral}{"{}executions.data"{}});}
-\DoxyCodeLine{73                 printf(\textcolor{stringliteral}{"{}Dados importados com sucesso!\(\backslash\)n"{}});}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75                 \textcolor{comment}{// Remover operação}}
-\DoxyCodeLine{76                 \mbox{\hyperlink{header_8h_a233173b4692808bbaa16f5887ae19789}{deleteOperation}}(\&\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, 33);}
-\DoxyCodeLine{77                 printf(\textcolor{stringliteral}{"{}Operação removida com sucesso!\(\backslash\)n"{}});}
-\DoxyCodeLine{78                 \textcolor{keywordtype}{bool} allFound = \textcolor{keyword}{false};}
-\DoxyCodeLine{79                 \textcolor{keywordflow}{while} (allFound == \textcolor{keyword}{false}) \textcolor{comment}{// enquanto que encontrar operações, remover as execuções de operações associadas}}
-\DoxyCodeLine{80                 \{}
-\DoxyCodeLine{81                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{executions_8c_a36b277b1e8d937b6aeb2a5310d22177e}{searchExecutionByOperation}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 33))}
-\DoxyCodeLine{82                     \{}
-\DoxyCodeLine{83                         \textcolor{comment}{// Remover execução}}
-\DoxyCodeLine{84                         \mbox{\hyperlink{executions_8c_ac9f939da818fe28a3bf38bc69b72e04c}{deleteExecutionByOperation}}(\&\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 33);}
-\DoxyCodeLine{85                         printf(\textcolor{stringliteral}{"{}Execução associada à operação removida com sucesso!\(\backslash\)n"{}});}
-\DoxyCodeLine{86                     \}}
-\DoxyCodeLine{87                     \textcolor{keywordflow}{else}}
-\DoxyCodeLine{88                     \{}
-\DoxyCodeLine{89                         allFound = \textcolor{keyword}{true};}
-\DoxyCodeLine{90                     \}}
-\DoxyCodeLine{91                 \}}
-\DoxyCodeLine{92                 \textcolor{comment}{// Atualizar a posição da operação num determinado job}}
-\DoxyCodeLine{93                 \mbox{\hyperlink{header_8h_a3ccf794515369e3b7f3e240a93b5e067}{updateOperationPosition}}(\&\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}, 1, 4, 2);}
-\DoxyCodeLine{94                 printf(\textcolor{stringliteral}{"{}Posição da operação atualizada com sucesso!\(\backslash\)n"{}});}
-\DoxyCodeLine{95                 \textcolor{comment}{// Atualizar o tempo necessário para uma execução da operação}}
-\DoxyCodeLine{96                 \mbox{\hyperlink{executions_8c_a666d9b702a75b668af07f71865cf2f79}{updateRuntime}}(\&\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 2, 2, 10);}
-\DoxyCodeLine{97                 printf(\textcolor{stringliteral}{"{}Tempo necessário para a execução da operação atualizada com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     setlocale(LC\_ALL, \textcolor{stringliteral}{"{}Portuguese"{}}); \textcolor{comment}{// permitir caracteres especiais (portugueses)}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = NULL;}
+\DoxyCodeLine{29     \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = NULL;}
+\DoxyCodeLine{30     \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = NULL;}
+\DoxyCodeLine{31     \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = NULL;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} menuOption = 0;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{do}}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         \textcolor{comment}{// menu }}
+\DoxyCodeLine{38         printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{39         printf(\textcolor{stringliteral}{"{}   M E N U\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{40         printf(\textcolor{stringliteral}{"{}   1 -\/> Fase 1\(\backslash\)n"{}});}
+\DoxyCodeLine{41         printf(\textcolor{stringliteral}{"{}   2 -\/> Fase 2\(\backslash\)n"{}});}
+\DoxyCodeLine{42         printf(\textcolor{stringliteral}{"{}   3 -\/> Sobre\(\backslash\)n"{}});}
+\DoxyCodeLine{43         printf(\textcolor{stringliteral}{"{}   © Luís Pereira | 2022\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{44         printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{45         printf(\textcolor{stringliteral}{"{}Escolha uma das opções acima: "{}});}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (!scanf(\textcolor{stringliteral}{"{}\%d"{}}, \&menuOption)) \textcolor{comment}{// se não introduzir um número}}
+\DoxyCodeLine{48         \{}
+\DoxyCodeLine{49             fseek(stdin, 0, SEEK\_END); \textcolor{comment}{// repor buffer de entrada para evitar ciclo infinito}}
+\DoxyCodeLine{50             printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{51             printf(\textcolor{stringliteral}{"{}O carácter introduzido não é válido. Tente outro.\(\backslash\)n"{}});}
+\DoxyCodeLine{52         \}}
+\DoxyCodeLine{53         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{54         \{}
+\DoxyCodeLine{55             printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57             \textcolor{keywordflow}{switch} (menuOption)}
+\DoxyCodeLine{58             \{}
+\DoxyCodeLine{59             \textcolor{keywordflow}{case} 1: \textcolor{comment}{// fase 1 do projeto}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#pragma region funcionalidade 1: definir estruturas de dados dinâmicas}}
+\DoxyCodeLine{62                 printf(\textcolor{stringliteral}{"{}-\/  1. Definir estruturas de dados dinâmicas\(\backslash\)n"{}});}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64                 \textcolor{comment}{// carregar dados (tabela) para as listas}}
+\DoxyCodeLine{65                 \mbox{\hyperlink{data_8c_a9e20b602bea2105c4844c9488e0dac64}{loadData}}(\&\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}, \&\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}}, \&\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \&\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
+\DoxyCodeLine{66                 printf(\textcolor{stringliteral}{"{}Dados carregados em memória com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiro}}
+\DoxyCodeLine{70                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  2. Armazenar e ler as estruturas em ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72                 \textcolor{comment}{// guardar os dados em ficheiros}}
+\DoxyCodeLine{73                 \mbox{\hyperlink{header_8h_a74854c567a784660b6259abbd47d821e}{writeJobs}}(\textcolor{stringliteral}{"{}jobs.txt"{}}, \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
+\DoxyCodeLine{74                 \mbox{\hyperlink{header_8h_adeb9a16e75fb2739e26d1ceed9fbec78}{writeMachines}}(\textcolor{stringliteral}{"{}machines.txt"{}}, \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
+\DoxyCodeLine{75                 \mbox{\hyperlink{header_8h_a535c92168a17ff038c2007300a75d708}{writeOperations}}(\textcolor{stringliteral}{"{}operations.txt"{}}, \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
+\DoxyCodeLine{76                 \mbox{\hyperlink{executions_8c_aaae924901eb9d97606c03a74081b5291}{writeExecutions}}(\textcolor{stringliteral}{"{}executions.txt"{}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
+\DoxyCodeLine{77                 printf(\textcolor{stringliteral}{"{}Dados exportados com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79                 \textcolor{comment}{// libertar memória das listas anteriores, para serem lidas dos ficheiros}}
+\DoxyCodeLine{80                 \mbox{\hyperlink{header_8h_a542b381bfbc143ae575e98f684117265}{freeJobs}}(\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
+\DoxyCodeLine{81                 \mbox{\hyperlink{header_8h_adf36b4d501a3dcbaf8ac959da2d76c8f}{freeMachines}}(\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
+\DoxyCodeLine{82                 \mbox{\hyperlink{header_8h_af64e219dfa9552b285dd100375c2c6a7}{freeOperations}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
+\DoxyCodeLine{83                 \mbox{\hyperlink{executions_8c_a67b917d9e7aff6fc85c7d3cee1150721}{freeExecutions}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85                 \textcolor{comment}{// depois de libertar memória, definir listas como NULL para evitar possíveis erros}}
+\DoxyCodeLine{86                 \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = NULL;}
+\DoxyCodeLine{87                 \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = NULL;}
+\DoxyCodeLine{88                 \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = NULL;}
+\DoxyCodeLine{89                 \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = NULL;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91                 \textcolor{comment}{// ler dados de ficheiros}}
+\DoxyCodeLine{92                 \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = \mbox{\hyperlink{header_8h_a1c30247bf14e8f64a9dad8cf280f7f2a}{readJobs}}(\textcolor{stringliteral}{"{}jobs.txt"{}});}
+\DoxyCodeLine{93                 \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = \mbox{\hyperlink{header_8h_af87a8e5a625b71b8bccc15d4c98d6d97}{readMachines}}(\textcolor{stringliteral}{"{}machines.txt"{}});}
+\DoxyCodeLine{94                 \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = \mbox{\hyperlink{header_8h_a0d7a168cfe9d62f2deb7f01f19966c7b}{readOperations}}(\textcolor{stringliteral}{"{}operations.txt"{}});}
+\DoxyCodeLine{95                 \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = \mbox{\hyperlink{executions_8c_a362b69957d588d5dd03c4cfbbb26adab}{readExecutions}}(\textcolor{stringliteral}{"{}executions.txt"{}});}
+\DoxyCodeLine{96                 printf(\textcolor{stringliteral}{"{}Dados importados com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#pragma endregion}}
 \DoxyCodeLine{98 }
-\DoxyCodeLine{99                 \textcolor{comment}{// Inserir nova operação}}
-\DoxyCodeLine{100                 \mbox{\hyperlink{struct_operation}{Operation}}* operation = NULL;}
-\DoxyCodeLine{101                 operation = \mbox{\hyperlink{header_8h_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{newOperation}}(39, 2, 8);}
-\DoxyCodeLine{102                 \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = \mbox{\hyperlink{header_8h_a35e6e85bff558fe6ce5adb0b47684423}{insertOperationAtStart}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, operation);}
-\DoxyCodeLine{103                 \textcolor{comment}{// Inserir nova execução de uma operação}}
-\DoxyCodeLine{104                 \mbox{\hyperlink{struct_execution}{Execution}}* execution = NULL;}
-\DoxyCodeLine{105                 execution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(39, 5, 22);}
-\DoxyCodeLine{106                 \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = \mbox{\hyperlink{header_8h_a35e6e85bff558fe6ce5adb0b47684423}{insertOperationAtStart}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, execution);}
-\DoxyCodeLine{107                 \textcolor{comment}{// Guardar as novas inserções em ficheiros}}
-\DoxyCodeLine{108                 \mbox{\hyperlink{header_8h_a535c92168a17ff038c2007300a75d708}{writeOperations}}(\textcolor{stringliteral}{"{}operations.data"{}}, \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
-\DoxyCodeLine{109                 \mbox{\hyperlink{executions_8c_aaae924901eb9d97606c03a74081b5291}{writeExecutions}}(\textcolor{stringliteral}{"{}executions.data"{}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
-\DoxyCodeLine{110                 printf(\textcolor{stringliteral}{"{}Novos dados exportados com sucesso!\(\backslash\)n"{}});}
-\DoxyCodeLine{111 }
-\DoxyCodeLine{112                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n\(\backslash\)n"{}});}
-\DoxyCodeLine{113 }
-\DoxyCodeLine{114                 \textcolor{comment}{// Obter o tempo mínimo para completar um job e as respetivas operações}}
-\DoxyCodeLine{115                 \mbox{\hyperlink{struct_execution}{Execution}}* minExecutions = NULL;}
-\DoxyCodeLine{116                 \textcolor{keywordtype}{int} minTime = \mbox{\hyperlink{header_8h_adb172da9d0d3160fab2e852b1eee8eac}{getMinTimeToCompleteJob}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 1, \&minExecutions);}
-\DoxyCodeLine{117                 printf(\textcolor{stringliteral}{"{}Menor tempo necessário para completar o trabalho(ID: \%d) é \%d!\(\backslash\)n"{}}, 1, minTime);}
-\DoxyCodeLine{118                 printf(\textcolor{stringliteral}{"{}Operações com menor tempo:\(\backslash\)n"{}});}
-\DoxyCodeLine{119                 minExecutions = \mbox{\hyperlink{executions_8c_a2fac5de7bc7bbfcb23a4f60b54ef2e5e}{SortExecutionsByOperation}}(minExecutions);}
-\DoxyCodeLine{120                 \mbox{\hyperlink{executions_8c_a1d514c72e91412b8ec09efd02f6b7d4f}{displayExecutions}}(minExecutions);}
-\DoxyCodeLine{121                 \textcolor{comment}{// Obter o tempo máximo para completar um job}}
-\DoxyCodeLine{122                 \mbox{\hyperlink{struct_execution}{Execution}}* maxExecutions = NULL;}
-\DoxyCodeLine{123                 \textcolor{keywordtype}{int} maxTime = \mbox{\hyperlink{header_8h_a908d6b1317be2499678cf551f3234a2b}{getMaxTimeToCompleteJob}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 1, \&maxExecutions);}
-\DoxyCodeLine{124                 printf(\textcolor{stringliteral}{"{}Maior tempo necessário para completar o trabalho(ID: \%d) é \%d!\(\backslash\)n"{}}, 1, maxTime);}
-\DoxyCodeLine{125                 printf(\textcolor{stringliteral}{"{}Operações com maior tempo:\(\backslash\)n"{}});}
-\DoxyCodeLine{126                 maxExecutions = \mbox{\hyperlink{executions_8c_a2fac5de7bc7bbfcb23a4f60b54ef2e5e}{SortExecutionsByOperation}}(maxExecutions);}
-\DoxyCodeLine{127                 \mbox{\hyperlink{executions_8c_a1d514c72e91412b8ec09efd02f6b7d4f}{displayExecutions}}(maxExecutions);}
-\DoxyCodeLine{128                 \textcolor{comment}{// Obter o tempo médio para completar uma operação}}
-\DoxyCodeLine{129                 \textcolor{keywordtype}{float} average = \mbox{\hyperlink{header_8h_aae1f099b3ffebc5b9b49209b190ebe9f}{getAverageTimeToCompleteOperation}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 1);}
-\DoxyCodeLine{130                 printf(\textcolor{stringliteral}{"{}Média de tempo necessário para completar a operação(ID: \%d) é \%.2f!\(\backslash\)n"{}}, 1, average);}
-\DoxyCodeLine{131 }
-\DoxyCodeLine{132                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#pragma region funcionalidade 3: remover uma operação}}
+\DoxyCodeLine{100                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  3. Remover uma operação\(\backslash\)n"{}});}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102                 \textcolor{comment}{// remover operação}}
+\DoxyCodeLine{103                 \mbox{\hyperlink{header_8h_a233173b4692808bbaa16f5887ae19789}{deleteOperation}}(\&\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, 35);}
+\DoxyCodeLine{104                 printf(\textcolor{stringliteral}{"{}Operação removida com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106                 \textcolor{keywordtype}{bool} allFound = \textcolor{keyword}{false};}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{while} (allFound == \textcolor{keyword}{false}) \textcolor{comment}{// enquanto que encontrar operações, remover as execuções de operações associadas}}
+\DoxyCodeLine{108                 \{}
+\DoxyCodeLine{109                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{executions_8c_a36b277b1e8d937b6aeb2a5310d22177e}{searchExecutionByOperation}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 35))}
+\DoxyCodeLine{110                     \{}
+\DoxyCodeLine{111                         \textcolor{comment}{// remover execução}}
+\DoxyCodeLine{112                         \mbox{\hyperlink{executions_8c_ac9f939da818fe28a3bf38bc69b72e04c}{deleteExecutionByOperation}}(\&\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 35);}
+\DoxyCodeLine{113                         printf(\textcolor{stringliteral}{"{}Execução associada à operação removida com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{114                     \}}
+\DoxyCodeLine{115                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{116                     \{}
+\DoxyCodeLine{117                         allFound = \textcolor{keyword}{true};}
+\DoxyCodeLine{118                     \}}
+\DoxyCodeLine{119                 \}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#pragma region funcionalidade 4: atualizar uma operação}}
+\DoxyCodeLine{123                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  4. Atualizar uma operação\(\backslash\)n"{}});}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125                 \textcolor{comment}{// atualizar a posição da operação num determinado job}}
+\DoxyCodeLine{126                 \mbox{\hyperlink{header_8h_a672825dc79f93ea1f702e3122064bd21}{updatePosition}}(\&\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}, 1, 4, 2);}
+\DoxyCodeLine{127                 printf(\textcolor{stringliteral}{"{}Posição da operação atualizada com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129                 \textcolor{comment}{// atualizar o tempo necessário para uma execução da operação}}
+\DoxyCodeLine{130                 \mbox{\hyperlink{executions_8c_a666d9b702a75b668af07f71865cf2f79}{updateRuntime}}(\&\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 2, 2, 10);}
+\DoxyCodeLine{131                 printf(\textcolor{stringliteral}{"{}Tempo necessário para a execução da operação atualizada com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#pragma endregion}}
 \DoxyCodeLine{133 }
-\DoxyCodeLine{134                 \textcolor{comment}{// Mostrar dados na consola}}
-\DoxyCodeLine{135                 printf(\textcolor{stringliteral}{"{}Trabalhos:\(\backslash\)n"{}});}
-\DoxyCodeLine{136                 \mbox{\hyperlink{header_8h_a91295985e34799e3cea579e2fe66d0a8}{displayJobs}}(\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
-\DoxyCodeLine{137                 printf(\textcolor{stringliteral}{"{}Máquinas:\(\backslash\)n"{}});}
-\DoxyCodeLine{138                 \mbox{\hyperlink{header_8h_aa54244730868e6e7083ed3035581e01a}{displayMachines}}(\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
-\DoxyCodeLine{139                 printf(\textcolor{stringliteral}{"{}Operações:\(\backslash\)n"{}});}
-\DoxyCodeLine{140                 \mbox{\hyperlink{header_8h_a1cac0b2d491be7953af600a2b434cc56}{displayOperations}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
-\DoxyCodeLine{141                 printf(\textcolor{stringliteral}{"{}Execução de Operações:\(\backslash\)n"{}});}
-\DoxyCodeLine{142                 \mbox{\hyperlink{executions_8c_a1d514c72e91412b8ec09efd02f6b7d4f}{displayExecutions}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
-\DoxyCodeLine{143                 printf(\textcolor{stringliteral}{"{}Dados mostrados com sucesso!\(\backslash\)n"{}});}
-\DoxyCodeLine{144                 \textcolor{comment}{// Libertar memória}}
-\DoxyCodeLine{145                 \mbox{\hyperlink{header_8h_a542b381bfbc143ae575e98f684117265}{freeJobs}}(\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
-\DoxyCodeLine{146                 \mbox{\hyperlink{header_8h_adf36b4d501a3dcbaf8ac959da2d76c8f}{freeMachines}}(\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
-\DoxyCodeLine{147                 \mbox{\hyperlink{header_8h_af64e219dfa9552b285dd100375c2c6a7}{freeOperations}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
-\DoxyCodeLine{148                 \mbox{\hyperlink{executions_8c_a67b917d9e7aff6fc85c7d3cee1150721}{freeExecutions}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
-\DoxyCodeLine{149                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{150 }
-\DoxyCodeLine{151             \textcolor{keywordflow}{case} 2: \textcolor{comment}{// sobre aplicação}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#pragma region funcionalidade 5: inserir uma operação}}
+\DoxyCodeLine{135                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  5. Inserir uma operação\(\backslash\)n"{}});}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137                 \textcolor{comment}{// inserir nova operação}}
+\DoxyCodeLine{138                 \mbox{\hyperlink{struct_operation}{Operation}}* operation = NULL;}
+\DoxyCodeLine{139                 operation = \mbox{\hyperlink{header_8h_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{newOperation}}(39, 2, 8);}
+\DoxyCodeLine{140                 \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = \mbox{\hyperlink{header_8h_a35e6e85bff558fe6ce5adb0b47684423}{insertOperationAtStart}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, operation);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142                 \textcolor{comment}{// inserir nova execução de uma operação}}
+\DoxyCodeLine{143                 \mbox{\hyperlink{struct_execution}{Execution}}* execution = NULL;}
+\DoxyCodeLine{144                 execution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(39, 5, 17);}
+\DoxyCodeLine{145                 \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = \mbox{\hyperlink{executions_8c_ab00ae0278166111c8beb4c6cd8506718}{insertExecutionAtStart}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, execution);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147                 \textcolor{comment}{// guardar as novas inserções em ficheiros}}
+\DoxyCodeLine{148                 \mbox{\hyperlink{header_8h_a535c92168a17ff038c2007300a75d708}{writeOperations}}(\textcolor{stringliteral}{"{}operations.txt"{}}, \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
+\DoxyCodeLine{149                 \mbox{\hyperlink{executions_8c_aaae924901eb9d97606c03a74081b5291}{writeExecutions}}(\textcolor{stringliteral}{"{}executions.txt"{}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
+\DoxyCodeLine{150                 printf(\textcolor{stringliteral}{"{}Novos dados exportados com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#pragma endregion}}
 \DoxyCodeLine{152 }
-\DoxyCodeLine{153                 printf(\textcolor{stringliteral}{"{}Flexible Job Shop Problem -\/ Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\(\backslash\)n"{}});}
-\DoxyCodeLine{154                 printf(\textcolor{stringliteral}{"{}Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\(\backslash\)n"{}});}
-\DoxyCodeLine{155                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{157             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{158                 printf(\textcolor{stringliteral}{"{}Opção inválida. Tente novamente.\(\backslash\)n"{}});}
-\DoxyCodeLine{159                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{160             \}}
-\DoxyCodeLine{161         \}}
-\DoxyCodeLine{162 }
-\DoxyCodeLine{163         printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{164     \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
-\DoxyCodeLine{165 }
-\DoxyCodeLine{166     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{167 \}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#pragma region funcionalidade 6: determinar tempo mínimo para completar um trabalho e listagem das respetivas operações}}
+\DoxyCodeLine{154                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  6. Determinar tempo mínimo para completar um trabalho e listagem das respetivas operações\(\backslash\)n"{}});}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156                 \textcolor{comment}{// obter o tempo mínimo para completar um job e as respetivas operações}}
+\DoxyCodeLine{157                 \mbox{\hyperlink{struct_execution}{Execution}}* minExecutions = NULL;}
+\DoxyCodeLine{158                 \textcolor{keywordtype}{int} minTime = \mbox{\hyperlink{header_8h_a52f8c01701a8184c95cc0b0de65cdbef}{getMinTimeToCompleteJob}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 1, \&minExecutions);}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160                 \textcolor{comment}{// mostrar resultados}}
+\DoxyCodeLine{161                 printf(\textcolor{stringliteral}{"{}Menor tempo necessário para completar o trabalho(ID: \%d) é \%d!\(\backslash\)n"{}}, 1, minTime);}
+\DoxyCodeLine{162                 printf(\textcolor{stringliteral}{"{}Operações com menor tempo:\(\backslash\)n"{}});}
+\DoxyCodeLine{163                 minExecutions = \mbox{\hyperlink{executions_8c_a2fac5de7bc7bbfcb23a4f60b54ef2e5e}{SortExecutionsByOperation}}(minExecutions);}
+\DoxyCodeLine{164                 \mbox{\hyperlink{executions_8c_a1d514c72e91412b8ec09efd02f6b7d4f}{displayExecutions}}(minExecutions);}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#pragma region funcionalidade 7: determinar tempo máximo para completar um trabalho e listagem das respetivas operações}}
+\DoxyCodeLine{168                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  7. Determinar tempo máximo para completar um trabalho e listagem das respetivas operações\(\backslash\)n"{}});}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170                 \textcolor{comment}{// obter o tempo máximo para completar um job}}
+\DoxyCodeLine{171                 \mbox{\hyperlink{struct_execution}{Execution}}* maxExecutions = NULL;}
+\DoxyCodeLine{172                 \textcolor{keywordtype}{int} maxTime = \mbox{\hyperlink{header_8h_ac4666af18140d926937410a7bf7e0505}{getMaxTimeToCompleteJob}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 1, \&maxExecutions);}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174                 \textcolor{comment}{// mostrar resultados}}
+\DoxyCodeLine{175                 printf(\textcolor{stringliteral}{"{}Maior tempo necessário para completar o trabalho(ID: \%d) é \%d!\(\backslash\)n"{}}, 1, maxTime);}
+\DoxyCodeLine{176                 printf(\textcolor{stringliteral}{"{}Operações com maior tempo:\(\backslash\)n"{}});}
+\DoxyCodeLine{177                 maxExecutions = \mbox{\hyperlink{executions_8c_a2fac5de7bc7bbfcb23a4f60b54ef2e5e}{SortExecutionsByOperation}}(maxExecutions);}
+\DoxyCodeLine{178                 \mbox{\hyperlink{executions_8c_a1d514c72e91412b8ec09efd02f6b7d4f}{displayExecutions}}(maxExecutions);}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#pragma region funcionalidade 8: determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis}}
+\DoxyCodeLine{182                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  8. Determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis\(\backslash\)n"{}});}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184                 \textcolor{comment}{// obter o tempo médio para completar uma operação}}
+\DoxyCodeLine{185                 \textcolor{keywordtype}{float} average = \mbox{\hyperlink{header_8h_aae1f099b3ffebc5b9b49209b190ebe9f}{getAverageTimeToCompleteOperation}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, 1);}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187                 \textcolor{comment}{// mostrar resultado}}
+\DoxyCodeLine{188                 printf(\textcolor{stringliteral}{"{}Média de tempo necessário para completar a operação(ID: \%d) é \%.2f!\(\backslash\)n"{}}, 1, average);}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#pragma region mostrar dados}}
+\DoxyCodeLine{192                 printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n-\/  Mostrar dados\(\backslash\)n"{}});}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194                 \textcolor{comment}{// mostrar dados na consola}}
+\DoxyCodeLine{195                 printf(\textcolor{stringliteral}{"{}Trabalhos:\(\backslash\)n"{}});}
+\DoxyCodeLine{196                 \mbox{\hyperlink{header_8h_a91295985e34799e3cea579e2fe66d0a8}{displayJobs}}(\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
+\DoxyCodeLine{197                 printf(\textcolor{stringliteral}{"{}Máquinas:\(\backslash\)n"{}});}
+\DoxyCodeLine{198                 \mbox{\hyperlink{header_8h_aa54244730868e6e7083ed3035581e01a}{displayMachines}}(\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
+\DoxyCodeLine{199                 printf(\textcolor{stringliteral}{"{}Operações:\(\backslash\)n"{}});}
+\DoxyCodeLine{200                 \mbox{\hyperlink{header_8h_a1cac0b2d491be7953af600a2b434cc56}{displayOperations}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
+\DoxyCodeLine{201                 printf(\textcolor{stringliteral}{"{}Execuções de Operações:\(\backslash\)n"{}});}
+\DoxyCodeLine{202                 \mbox{\hyperlink{executions_8c_a1d514c72e91412b8ec09efd02f6b7d4f}{displayExecutions}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
+\DoxyCodeLine{203                 printf(\textcolor{stringliteral}{"{}Dados mostrados com sucesso!\(\backslash\)n"{}});}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205                 \textcolor{comment}{// libertar memória}}
+\DoxyCodeLine{206                 \mbox{\hyperlink{header_8h_a542b381bfbc143ae575e98f684117265}{freeJobs}}(\mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}});}
+\DoxyCodeLine{207                 \mbox{\hyperlink{header_8h_adf36b4d501a3dcbaf8ac959da2d76c8f}{freeMachines}}(\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
+\DoxyCodeLine{208                 \mbox{\hyperlink{header_8h_af64e219dfa9552b285dd100375c2c6a7}{freeOperations}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
+\DoxyCodeLine{209                 \mbox{\hyperlink{executions_8c_a67b917d9e7aff6fc85c7d3cee1150721}{freeExecutions}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214             \textcolor{keywordflow}{case} 2: \textcolor{comment}{// fase 2 do projeto}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216                 printf(\textcolor{stringliteral}{"{}Em breve!\(\backslash\)n"{}});}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219             \textcolor{keywordflow}{case} 3: \textcolor{comment}{// sobre aplicação}}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221                 printf(\textcolor{stringliteral}{"{}Flexible Job Shop Problem -\/ Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\(\backslash\)n"{}});}
+\DoxyCodeLine{222                 printf(\textcolor{stringliteral}{"{}Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\(\backslash\)n"{}});}
+\DoxyCodeLine{223                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{226                 printf(\textcolor{stringliteral}{"{}Opção inválida. Tente novamente.\(\backslash\)n"{}});}
+\DoxyCodeLine{227                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{228             \}}
+\DoxyCodeLine{229         \}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231         printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{232     \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{235 \}}
 
 \end{DoxyCode}

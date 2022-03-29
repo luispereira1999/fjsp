@@ -1,0 +1,387 @@
+.TH "C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/data.c" 3 "TerÃ§a, 29 de MarÃ§o de 2022" "Version v1.2" "Flexible Job Shop Problem" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/data.c \- Ficheiro com função para carregar dados em listas\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include 'header\&.h'\fP
+.br
+
+.SS "FunÃ§Ãµes"
+
+.in +1c
+.ti -1c
+.RI "void \fBloadData\fP (\fBJob\fP **\fBjobs\fP, \fBMachine\fP **\fBmachines\fP, \fBOperation\fP **\fBoperations\fP, \fBExecution\fP **\fBexecutions\fP)"
+.br
+.RI "Carregar dados para as listas\&. "
+.in -1c
+.SH "DescriÃ§Ã£o detalhada"
+.PP 
+Ficheiro com função para carregar dados em listas\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+Luís Pereira @email a18446@alunos.ipca.pt 
+.RE
+.PP
+\fBData\fP
+.RS 4
+25/03/2022 
+.RE
+.PP
+
+.SH "DocumentaÃ§Ã£o das funÃ§Ãµes"
+.PP 
+.SS "void loadData (\fBJob\fP ** jobs, \fBMachine\fP ** machines, \fBOperation\fP ** operations, \fBExecution\fP ** executions)"
+
+.PP
+Carregar dados para as listas\&. Carregar dados para listas\&.
+.PP
+\fBParÃ¢metros\fP
+.RS 4
+\fIjobs\fP Apontador para a lista de jobs 
+.br
+\fImachines\fP Apontador para a lista de máquinas 
+.br
+\fIoperations\fP Apontador para a lista de operações 
+.br
+\fIexecutions\fP Apontador para a lista de execuções de operações 
+.RE
+.PP
+
+.PP
+.nf
+21 {
+22     Job* job = NULL;
+23     Machine* machine = NULL;
+24     Operation* operation = NULL;
+25     Execution* execution = NULL;
+26 
+27     // jobs
+28     job = newJob(1);
+29     *jobs = insertJobAtStart(*jobs, job);
+30     job = newJob(2);
+31     *jobs = insertJobAtStart(*jobs, job);
+32     job = newJob(3);
+33     *jobs = insertJobAtStart(*jobs, job);
+34     job = newJob(4);
+35     *jobs = insertJobAtStart(*jobs, job);
+36     job = newJob(5);
+37     *jobs = insertJobAtStart(*jobs, job);
+38     job = newJob(6);
+39     *jobs = insertJobAtStart(*jobs, job);
+40     job = newJob(7);
+41     *jobs = insertJobAtStart(*jobs, job);
+42     job = newJob(8);
+43     *jobs = insertJobAtStart(*jobs, job);
+44     // machines
+45     machine = newMachine(1, false);
+46     *machines = insertMachineAtStart(*machines, machine);
+47     machine = newMachine(2, false);
+48     *machines = insertMachineAtStart(*machines, machine);
+49     machine = newMachine(3, false);
+50     *machines = insertMachineAtStart(*machines, machine);
+51     machine = newMachine(4, false);
+52     *machines = insertMachineAtStart(*machines, machine);
+53     machine = newMachine(5, false);
+54     *machines = insertMachineAtStart(*machines, machine);
+55     machine = newMachine(6, false);
+56     *machines = insertMachineAtStart(*machines, machine);
+57     machine = newMachine(7, false);
+58     *machines = insertMachineAtStart(*machines, machine);
+59     machine = newMachine(8, false);
+60     *machines = insertMachineAtStart(*machines, machine);
+61     // operations - job 1
+62     operation = newOperation(1, 1, 1);
+63     *operations = insertOperationAtStart(*operations, operation);
+64     operation = newOperation(2, 1, 2);
+65     *operations = insertOperationAtStart(*operations, operation);
+66     operation = newOperation(3, 1, 3);
+67     *operations = insertOperationAtStart(*operations, operation);
+68     operation = newOperation(4, 1, 4);
+69     *operations = insertOperationAtStart(*operations, operation);
+70     // operations - job 2
+71     operation = newOperation(5, 2, 1);
+72     *operations = insertOperationAtStart(*operations, operation);
+73     operation = newOperation(6, 2, 2);
+74     *operations = insertOperationAtStart(*operations, operation);
+75     operation = newOperation(7, 2, 3);
+76     *operations = insertOperationAtStart(*operations, operation);
+77     operation = newOperation(8, 2, 4);
+78     *operations = insertOperationAtStart(*operations, operation);
+79     operation = newOperation(9, 2, 5);
+80     *operations = insertOperationAtStart(*operations, operation);
+81     operation = newOperation(10, 2, 6);
+82     *operations = insertOperationAtStart(*operations, operation);
+83     operation = newOperation(11, 2, 7);
+84     *operations = insertOperationAtStart(*operations, operation);
+85     // operations - job 3
+86     operation = newOperation(12, 3, 1);
+87     *operations = insertOperationAtStart(*operations, operation);
+88     operation = newOperation(13, 3, 2);
+89     *operations = insertOperationAtStart(*operations, operation);
+90     operation = newOperation(14, 3, 3);
+91     *operations = insertOperationAtStart(*operations, operation);
+92     operation = newOperation(15, 3, 4);
+93     *operations = insertOperationAtStart(*operations, operation);
+94     operation = newOperation(16, 3, 5);
+95     *operations = insertOperationAtStart(*operations, operation);
+96     // operations - job 4
+97     operation = newOperation(17, 4, 1);
+98     *operations = insertOperationAtStart(*operations, operation);
+99     operation = newOperation(18, 4, 2);
+100     *operations = insertOperationAtStart(*operations, operation);
+101     operation = newOperation(19, 4, 3);
+102     *operations = insertOperationAtStart(*operations, operation);
+103     operation = newOperation(20, 4, 4);
+104     *operations = insertOperationAtStart(*operations, operation);
+105     // operations - job 5
+106     operation = newOperation(21, 5, 1);
+107     *operations = insertOperationAtStart(*operations, operation);
+108     operation = newOperation(22, 5, 2);
+109     *operations = insertOperationAtStart(*operations, operation);
+110     operation = newOperation(23, 5, 3);
+111     *operations = insertOperationAtStart(*operations, operation);
+112     operation = newOperation(24, 5, 4);
+113     *operations = insertOperationAtStart(*operations, operation);
+114     operation = newOperation(25, 5, 5);
+115     *operations = insertOperationAtStart(*operations, operation);
+116     // operations - job 6
+117     operation = newOperation(26, 6, 1);
+118     *operations = insertOperationAtStart(*operations, operation);
+119     operation = newOperation(27, 6, 2);
+120     *operations = insertOperationAtStart(*operations, operation);
+121     operation = newOperation(28, 6, 3);
+122     *operations = insertOperationAtStart(*operations, operation);
+123     // operations - job 7
+124     operation = newOperation(29, 7, 1);
+125     *operations = insertOperationAtStart(*operations, operation);
+126     operation = newOperation(30, 7, 2);
+127     *operations = insertOperationAtStart(*operations, operation);
+128     operation = newOperation(31, 7, 3);
+129     *operations = insertOperationAtStart(*operations, operation);
+130     operation = newOperation(32, 7, 4);
+131     *operations = insertOperationAtStart(*operations, operation);
+132     operation = newOperation(33, 7, 5);
+133     *operations = insertOperationAtStart(*operations, operation);
+134     // operations - job 8
+135     operation = newOperation(34, 8, 1);
+136     *operations = insertOperationAtStart(*operations, operation);
+137     operation = newOperation(35, 8, 2);
+138     *operations = insertOperationAtStart(*operations, operation);
+139     operation = newOperation(36, 8, 3);
+140     *operations = insertOperationAtStart(*operations, operation);
+141     operation = newOperation(37, 8, 4);
+142     *operations = insertOperationAtStart(*operations, operation);
+143     operation = newOperation(38, 8, 5);
+144     *operations = insertOperationAtStart(*operations, operation);
+145     // execution - job 1
+146     execution = newExecution(1, 1, 4);
+147     *executions = insertExecutionAtStart(*executions, execution);
+148     execution = newExecution(1, 3, 5);
+149     *executions = insertExecutionAtStart(*executions, execution);
+150     execution = newExecution(2, 2, 4);
+151     *executions = insertExecutionAtStart(*executions, execution);
+152     execution = newExecution(2, 4, 5);
+153     *executions = insertExecutionAtStart(*executions, execution);
+154     execution = newExecution(3, 3, 5);
+155     *executions = insertExecutionAtStart(*executions, execution);
+156     execution = newExecution(3, 5, 6);
+157     *executions = insertExecutionAtStart(*executions, execution);
+158     execution = newExecution(4, 4, 5);
+159     *executions = insertExecutionAtStart(*executions, execution);
+160     execution = newExecution(4, 5, 5);
+161     *executions = insertExecutionAtStart(*executions, execution);
+162     execution = newExecution(4, 6, 4);
+163     *executions = insertExecutionAtStart(*executions, execution);
+164     execution = newExecution(4, 7, 5);
+165     *executions = insertExecutionAtStart(*executions, execution);
+166     execution = newExecution(4, 8, 9);
+167     *executions = insertExecutionAtStart(*executions, execution);
+168     // execution - job 2
+169     execution = newExecution(5, 1, 1);
+170     *executions = insertExecutionAtStart(*executions, execution);
+171     execution = newExecution(5, 3, 5);
+172     *executions = insertExecutionAtStart(*executions, execution);
+173     execution = newExecution(5, 5, 7);
+174     *executions = insertExecutionAtStart(*executions, execution);
+175     execution = newExecution(6, 4, 5);
+176     *executions = insertExecutionAtStart(*executions, execution);
+177     execution = newExecution(6, 8, 4);
+178     *executions = insertExecutionAtStart(*executions, execution);
+179     execution = newExecution(7, 4, 1);
+180     *executions = insertExecutionAtStart(*executions, execution);
+181     execution = newExecution(7, 6, 6);
+182     *executions = insertExecutionAtStart(*executions, execution);
+183     execution = newExecution(8, 4, 4);
+184     *executions = insertExecutionAtStart(*executions, execution);
+185     execution = newExecution(8, 7, 4);
+186     *executions = insertExecutionAtStart(*executions, execution);
+187     execution = newExecution(8, 8, 7);
+188     *executions = insertExecutionAtStart(*executions, execution);
+189     execution = newExecution(9, 4, 1);
+190     *executions = insertExecutionAtStart(*executions, execution);
+191     execution = newExecution(9, 6, 2);
+192     *executions = insertExecutionAtStart(*executions, execution);
+193     execution = newExecution(10, 1, 5);
+194     *executions = insertExecutionAtStart(*executions, execution);
+195     execution = newExecution(10, 6, 6);
+196     *executions = insertExecutionAtStart(*executions, execution);
+197     execution = newExecution(10, 8, 4);
+198     *executions = insertExecutionAtStart(*executions, execution);
+199     execution = newExecution(11, 4, 4);
+200     *executions = insertExecutionAtStart(*executions, execution);
+201     // execution - job 3
+202     execution = newExecution(12, 2, 7);
+203     *executions = insertExecutionAtStart(*executions, execution);
+204     execution = newExecution(12, 3, 6);
+205     *executions = insertExecutionAtStart(*executions, execution);
+206     execution = newExecution(12, 8, 8);
+207     *executions = insertExecutionAtStart(*executions, execution);
+208     execution = newExecution(13, 4, 7);
+209     *executions = insertExecutionAtStart(*executions, execution);
+210     execution = newExecution(13, 8, 7);
+211     *executions = insertExecutionAtStart(*executions, execution);
+212     execution = newExecution(14, 3, 7);
+213     *executions = insertExecutionAtStart(*executions, execution);
+214     execution = newExecution(14, 5, 8);
+215     *executions = insertExecutionAtStart(*executions, execution);
+216     execution = newExecution(14, 7, 7);
+217     *executions = insertExecutionAtStart(*executions, execution);
+218     execution = newExecution(15, 4, 7);
+219     *executions = insertExecutionAtStart(*executions, execution);
+220     execution = newExecution(15, 6, 8);
+221     *executions = insertExecutionAtStart(*executions, execution);
+222     execution = newExecution(16, 1, 1);
+223     *executions = insertExecutionAtStart(*executions, execution);
+224     execution = newExecution(16, 2, 4);
+225     *executions = insertExecutionAtStart(*executions, execution);
+226     // execution - job 4
+227     execution = newExecution(17, 1, 4);
+228     *executions = insertExecutionAtStart(*executions, execution);
+229     execution = newExecution(17, 3, 3);
+230     *executions = insertExecutionAtStart(*executions, execution);
+231     execution = newExecution(17, 5, 7);
+232     *executions = insertExecutionAtStart(*executions, execution);
+233     execution = newExecution(18, 2, 4);
+234     *executions = insertExecutionAtStart(*executions, execution);
+235     execution = newExecution(18, 8, 4);
+236     *executions = insertExecutionAtStart(*executions, execution);
+237     execution = newExecution(19, 3, 4);
+238     *executions = insertExecutionAtStart(*executions, execution);
+239     execution = newExecution(19, 4, 5);
+240     *executions = insertExecutionAtStart(*executions, execution);
+241     execution = newExecution(19, 6, 6);
+242     *executions = insertExecutionAtStart(*executions, execution);
+243     execution = newExecution(19, 7, 7);
+244     *executions = insertExecutionAtStart(*executions, execution);
+245     execution = newExecution(20, 5, 3);
+246     *executions = insertExecutionAtStart(*executions, execution);
+247     execution = newExecution(20, 6, 5);
+248     *executions = insertExecutionAtStart(*executions, execution);
+249     execution = newExecution(20, 8, 5);
+250     *executions = insertExecutionAtStart(*executions, execution);
+251     // execution - job 5
+252     execution = newExecution(21, 1, 3);
+253     *executions = insertExecutionAtStart(*executions, execution);
+254     execution = newExecution(22, 2, 4);
+255     *executions = insertExecutionAtStart(*executions, execution);
+256     execution = newExecution(22, 4, 5);
+257     *executions = insertExecutionAtStart(*executions, execution);
+258     execution = newExecution(23, 3, 4);
+259     *executions = insertExecutionAtStart(*executions, execution);
+260     execution = newExecution(23, 8, 4);
+261     *executions = insertExecutionAtStart(*executions, execution);
+262     execution = newExecution(24, 5, 3);
+263     *executions = insertExecutionAtStart(*executions, execution);
+264     execution = newExecution(24, 6, 3);
+265     *executions = insertExecutionAtStart(*executions, execution);
+266     execution = newExecution(24, 8, 3);
+267     *executions = insertExecutionAtStart(*executions, execution);
+268     execution = newExecution(25, 4, 5);
+269     *executions = insertExecutionAtStart(*executions, execution);
+270     execution = newExecution(25, 6, 4);
+271     *executions = insertExecutionAtStart(*executions, execution);
+272     // execution - job 6
+273     execution = newExecution(26, 1, 3);
+274     *executions = insertExecutionAtStart(*executions, execution);
+275     execution = newExecution(26, 2, 5);
+276     *executions = insertExecutionAtStart(*executions, execution);
+277     execution = newExecution(26, 3, 6);
+278     *executions = insertExecutionAtStart(*executions, execution);
+279     execution = newExecution(27, 4, 7);
+280     *executions = insertExecutionAtStart(*executions, execution);
+281     execution = newExecution(27, 5, 8);
+282     *executions = insertExecutionAtStart(*executions, execution);
+283     execution = newExecution(28, 3, 9);
+284     *executions = insertExecutionAtStart(*executions, execution);
+285     execution = newExecution(28, 6, 8);
+286     *executions = insertExecutionAtStart(*executions, execution);
+287     // execution - job 7
+288     execution = newExecution(29, 3, 4);
+289     *executions = insertExecutionAtStart(*executions, execution);
+290     execution = newExecution(29, 5, 5);
+291     *executions = insertExecutionAtStart(*executions, execution);
+292     execution = newExecution(29, 6, 4);
+293     *executions = insertExecutionAtStart(*executions, execution);
+294     execution = newExecution(30, 4, 4);
+295     *executions = insertExecutionAtStart(*executions, execution);
+296     execution = newExecution(30, 7, 6);
+297     *executions = insertExecutionAtStart(*executions, execution);
+298     execution = newExecution(30, 8, 4);
+299     *executions = insertExecutionAtStart(*executions, execution);
+300     execution = newExecution(31, 1, 3);
+301     *executions = insertExecutionAtStart(*executions, execution);
+302     execution = newExecution(31, 3, 3);
+303     *executions = insertExecutionAtStart(*executions, execution);
+304     execution = newExecution(31, 4, 4);
+305     *executions = insertExecutionAtStart(*executions, execution);
+306     execution = newExecution(31, 5, 5);
+307     *executions = insertExecutionAtStart(*executions, execution);
+308     execution = newExecution(32, 4, 4);
+309     *executions = insertExecutionAtStart(*executions, execution);
+310     execution = newExecution(32, 6, 6);
+311     *executions = insertExecutionAtStart(*executions, execution);
+312     execution = newExecution(32, 8, 5);
+313     *executions = insertExecutionAtStart(*executions, execution);
+314     execution = newExecution(33, 1, 3);
+315     *executions = insertExecutionAtStart(*executions, execution);
+316     execution = newExecution(33, 3, 3);
+317     *executions = insertExecutionAtStart(*executions, execution);
+318     // execution - job 8
+319     execution = newExecution(34, 1, 3);
+320     *executions = insertExecutionAtStart(*executions, execution);
+321     execution = newExecution(34, 2, 4);
+322     *executions = insertExecutionAtStart(*executions, execution);
+323     execution = newExecution(34, 6, 4);
+324     *executions = insertExecutionAtStart(*executions, execution);
+325     execution = newExecution(35, 4, 6);
+326     *executions = insertExecutionAtStart(*executions, execution);
+327     execution = newExecution(35, 5, 5);
+328     *executions = insertExecutionAtStart(*executions, execution);
+329     execution = newExecution(35, 8, 4);
+330     *executions = insertExecutionAtStart(*executions, execution);
+331     execution = newExecution(36, 3, 4);
+332     *executions = insertExecutionAtStart(*executions, execution);
+333     execution = newExecution(36, 7, 5);
+334     *executions = insertExecutionAtStart(*executions, execution);
+335     execution = newExecution(37, 4, 4);
+336     *executions = insertExecutionAtStart(*executions, execution);
+337     execution = newExecution(37, 6, 6);
+338     *executions = insertExecutionAtStart(*executions, execution);
+339     execution = newExecution(38, 7, 1);
+340     *executions = insertExecutionAtStart(*executions, execution);
+341     execution = newExecution(38, 8, 2);
+342     *executions = insertExecutionAtStart(*executions, execution);
+343 }
+.fi
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Flexible Job Shop Problem a partir do cÃ³digo fonte\&.

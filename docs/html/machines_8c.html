@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
    </div>
    <div id="projectbrief">Proposta de escalonamento para a produ√ß√£o de um produto que envolve v√°rias opera√ß√µes e a utiliza√ß√£o de v√°rias m√°quinas, para minimizar o tempo necess√°rio na sua produ√ß√£o.</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_8dd1dfa35ca47062104663d393c26342.html">LUIS-PEREIRA</a></li><li class="navelem"><a class="el" href="dir_86fe3e9c105b3edfb74baaa70111661b.html">Repositorios</a></li><li class="navelem"><a class="el" href="dir_3a1c66de56c8744dba612bf955ca5b76.html">fjssp</a></li><li class="navelem"><a class="el" href="dir_7bead656e6da20e655bd0815459ee224.html">fjssp</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_45c3d416b95fca600a286ee78c23e56e.html">fjssp</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,6 +72,9 @@ $(function() {
   <div class="headertitle"><div class="title">Refer√™ncia ao ficheiro machines.c</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Ficheiro com todas as funÁıes relativas ‡s m·quinas.  
+<a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="header_8h_source.html">header.h</a>&quot;</code><br />
@@ -79,21 +82,32 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fun√ß√µes</h2></td></tr>
 <tr class="memitem:a6f116088fdb4bbfdc000a266ee200210"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_machine.html">Machine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machines_8c.html#a6f116088fdb4bbfdc000a266ee200210">newMachine</a> (int id, <a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> isBusy)</td></tr>
+<tr class="memdesc:a6f116088fdb4bbfdc000a266ee200210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar nova m·quina.  <a href="machines_8c.html#a6f116088fdb4bbfdc000a266ee200210">Mais...</a><br /></td></tr>
 <tr class="separator:a6f116088fdb4bbfdc000a266ee200210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ed3f8c67f63ba752767d86452bf83ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_machine.html">Machine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machines_8c.html#a5ed3f8c67f63ba752767d86452bf83ed">insertMachineAtStart</a> (<a class="el" href="struct_machine.html">Machine</a> *head, <a class="el" href="struct_machine.html">Machine</a> *new)</td></tr>
+<tr class="memdesc:a5ed3f8c67f63ba752767d86452bf83ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir nova m·quina no inÌcio da lista de m·quinas.  <a href="machines_8c.html#a5ed3f8c67f63ba752767d86452bf83ed">Mais...</a><br /></td></tr>
 <tr class="separator:a5ed3f8c67f63ba752767d86452bf83ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeb9a16e75fb2739e26d1ceed9fbec78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machines_8c.html#adeb9a16e75fb2739e26d1ceed9fbec78">writeMachines</a> (char fileName[], <a class="el" href="struct_machine.html">Machine</a> *head)</td></tr>
+<tr class="memdesc:adeb9a16e75fb2739e26d1ceed9fbec78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Armazenar lista de m·quinas em ficheiro bin·rio.  <a href="machines_8c.html#adeb9a16e75fb2739e26d1ceed9fbec78">Mais...</a><br /></td></tr>
 <tr class="separator:adeb9a16e75fb2739e26d1ceed9fbec78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87a8e5a625b71b8bccc15d4c98d6d97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_machine.html">Machine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machines_8c.html#af87a8e5a625b71b8bccc15d4c98d6d97">readMachines</a> (char fileName[])</td></tr>
+<tr class="memdesc:af87a8e5a625b71b8bccc15d4c98d6d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ler lista de m·quinas de ficheiro bin·rio.  <a href="machines_8c.html#af87a8e5a625b71b8bccc15d4c98d6d97">Mais...</a><br /></td></tr>
 <tr class="separator:af87a8e5a625b71b8bccc15d4c98d6d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf36b4d501a3dcbaf8ac959da2d76c8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machines_8c.html#adf36b4d501a3dcbaf8ac959da2d76c8f">freeMachines</a> (<a class="el" href="struct_machine.html">Machine</a> *head)</td></tr>
+<tr class="memdesc:adf36b4d501a3dcbaf8ac959da2d76c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libertar a lista de m·quinas da memÛria.  <a href="machines_8c.html#adf36b4d501a3dcbaf8ac959da2d76c8f">Mais...</a><br /></td></tr>
 <tr class="separator:adf36b4d501a3dcbaf8ac959da2d76c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa54244730868e6e7083ed3035581e01a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machines_8c.html#aa54244730868e6e7083ed3035581e01a">displayMachines</a> (<a class="el" href="struct_machine.html">Machine</a> *head)</td></tr>
+<tr class="memdesc:aa54244730868e6e7083ed3035581e01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar a lista de m·quinas na consola.  <a href="machines_8c.html#aa54244730868e6e7083ed3035581e01a">Mais...</a><br /></td></tr>
 <tr class="separator:aa54244730868e6e7083ed3035581e01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abab511c59eca20b8d1960a5a2cad6436"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">searchMachine</a> (<a class="el" href="struct_machine.html">Machine</a> *head, int id)</td></tr>
+<tr class="memdesc:abab511c59eca20b8d1960a5a2cad6436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procurar por uma m·quina na lista de m·quinas.  <a href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">Mais...</a><br /></td></tr>
 <tr class="separator:abab511c59eca20b8d1960a5a2cad6436"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documenta√ß√£o das fun√ß√µes</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descri√ß√£o detalhada</h2>
+<div class="textblock"><p >Ficheiro com todas as funÁıes relativas ‡s m·quinas. </p>
+<dl class="section author"><dt>Autor</dt><dd>LuÌs Pereira @email <a href="#" onclick="location.href='mai'+'lto:'+'a18'+'44'+'6@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1844<span class="obfuscator">.nosp@m.</span>6@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a> </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>25/03/2022 </dd></dl>
+</div><h2 class="groupheader">Documenta√ß√£o das fun√ß√µes</h2>
 <a id="aa54244730868e6e7083ed3035581e01a" name="aa54244730868e6e7083ed3035581e01a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa54244730868e6e7083ed3035581e01a">&#9670;&nbsp;</a></span>displayMachines()</h2>
 
@@ -109,26 +123,35 @@ Fun√ß√µes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  133</span>{</div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
-<div class="line"><span class="lineno">  135</span>    {</div>
-<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  137</span>    }</div>
-<div class="line"><span class="lineno">  138</span> </div>
-<div class="line"><span class="lineno">  139</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = head;</div>
-<div class="line"><span class="lineno">  140</span> </div>
-<div class="line"><span class="lineno">  141</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  142</span>    {</div>
-<div class="line"><span class="lineno">  143</span>        printf(<span class="stringliteral">&quot;ID: %d, Ocupada?: %s;\n&quot;</span>, current-&gt;<a class="code hl_variable" href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">id</a>, current-&gt;<a class="code hl_variable" href="struct_machine.html#a53a681bd87a5eb35f0dcdb562ab12727">isBusy</a> ? <span class="stringliteral">&quot;Sim&quot;</span> : <span class="stringliteral">&quot;N„o&quot;</span>);</div>
-<div class="line"><span class="lineno">  144</span>        current = current-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a>;</div>
-<div class="line"><span class="lineno">  145</span>    }</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  148</span>}</div>
-<div class="ttc" id="astruct_machine_html"><div class="ttname"><a href="struct_machine.html">Machine</a></div><div class="ttdef"><b>Definition:</b> header.h:32</div></div>
-<div class="ttc" id="astruct_machine_html_a53a681bd87a5eb35f0dcdb562ab12727"><div class="ttname"><a href="struct_machine.html#a53a681bd87a5eb35f0dcdb562ab12727">Machine::isBusy</a></div><div class="ttdeci">bool isBusy</div><div class="ttdef"><b>Definition:</b> header.h:34</div></div>
-<div class="ttc" id="astruct_machine_html_ac7eba856d5f936cf00a06d4452323826"><div class="ttname"><a href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">Machine::next</a></div><div class="ttdeci">struct Machine * next</div><div class="ttdef"><b>Definition:</b> header.h:35</div></div>
-<div class="ttc" id="astruct_machine_html_af36fc7731f360fc1b3b3cd7f95da0bb5"><div class="ttname"><a href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">Machine::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> header.h:33</div></div>
+
+<p>Mostrar a lista de m·quinas na consola. </p>
+<dl class="params"><dt>Par√¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Lista de m·quinas </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da funÁ„o (se funcionou ou n„o) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>{</div>
+<div class="line"><span class="lineno">  163</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
+<div class="line"><span class="lineno">  164</span>    {</div>
+<div class="line"><span class="lineno">  165</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  166</span>    }</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = head;</div>
+<div class="line"><span class="lineno">  169</span> </div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  171</span>    {</div>
+<div class="line"><span class="lineno">  172</span>        printf(<span class="stringliteral">&quot;ID: %d, Ocupada?: %s;\n&quot;</span>, current-&gt;<a class="code hl_variable" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>, current-&gt;<a class="code hl_variable" href="struct_machine.html#a099f725f22a344e190121634f53328d8">isBusy</a> ? <span class="stringliteral">&quot;Sim&quot;</span> : <span class="stringliteral">&quot;N„o&quot;</span>);</div>
+<div class="line"><span class="lineno">  173</span>        current = current-&gt;<a class="code hl_variable" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">next</a>;</div>
+<div class="line"><span class="lineno">  174</span>    }</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  177</span>}</div>
+<div class="ttc" id="astruct_machine_html"><div class="ttname"><a href="struct_machine.html">Machine</a></div><div class="ttdoc">Estrutura de dados para a lista (em memÛria) de m·quinas.</div><div class="ttdef"><b>Definition:</b> header.h:47</div></div>
+<div class="ttc" id="astruct_machine_html_a099f725f22a344e190121634f53328d8"><div class="ttname"><a href="struct_machine.html#a099f725f22a344e190121634f53328d8">Machine::isBusy</a></div><div class="ttdeci">bool isBusy</div><div class="ttdef"><b>Definition:</b> header.h:49</div></div>
+<div class="ttc" id="astruct_machine_html_a6427ea1ae4ce02f843d5bdbbd2592b27"><div class="ttname"><a href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">Machine::next</a></div><div class="ttdeci">struct Machine * next</div><div class="ttdef"><b>Definition:</b> header.h:50</div></div>
+<div class="ttc" id="astruct_machine_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">Machine::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> header.h:48</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -147,23 +170,32 @@ Fun√ß√µes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  114</span>{</div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
-<div class="line"><span class="lineno">  116</span>    {</div>
-<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  118</span>    }</div>
-<div class="line"><span class="lineno">  119</span> </div>
-<div class="line"><span class="lineno">  120</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = NULL;</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">while</span> (head != NULL)</div>
-<div class="line"><span class="lineno">  123</span>    {</div>
-<div class="line"><span class="lineno">  124</span>        current = head;</div>
-<div class="line"><span class="lineno">  125</span>        head = head-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a>;</div>
-<div class="line"><span class="lineno">  126</span>        free(current);</div>
-<div class="line"><span class="lineno">  127</span>    }</div>
-<div class="line"><span class="lineno">  128</span> </div>
-<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  130</span>}</div>
+
+<p>Libertar a lista de m·quinas da memÛria. </p>
+<dl class="params"><dt>Par√¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Lista de m·quinas </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da funÁ„o (se funcionou ou n„o) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  137</span>{</div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
+<div class="line"><span class="lineno">  139</span>    {</div>
+<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  141</span>    }</div>
+<div class="line"><span class="lineno">  142</span> </div>
+<div class="line"><span class="lineno">  143</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = NULL;</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">while</span> (head != NULL)</div>
+<div class="line"><span class="lineno">  146</span>    {</div>
+<div class="line"><span class="lineno">  147</span>        current = head;</div>
+<div class="line"><span class="lineno">  148</span>        head = head-&gt;<a class="code hl_variable" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">next</a>;</div>
+<div class="line"><span class="lineno">  149</span>        free(current);</div>
+<div class="line"><span class="lineno">  150</span>    }</div>
+<div class="line"><span class="lineno">  151</span> </div>
+<div class="line"><span class="lineno">  152</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  153</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -192,25 +224,35 @@ Fun√ß√µes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   28</span>{</div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">searchMachine</a>(head, new-&gt;<a class="code hl_variable" href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">id</a>)) <span class="comment">// n„o permitir inserir uma nova com o mesmo ID</span></div>
-<div class="line"><span class="lineno">   30</span>    {</div>
-<div class="line"><span class="lineno">   31</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   32</span>    }</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">   35</span>    {</div>
-<div class="line"><span class="lineno">   36</span>        head = <span class="keyword">new</span>;</div>
-<div class="line"><span class="lineno">   37</span>    }</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">else</span> <span class="comment">// se existir algum elemento na lista</span></div>
-<div class="line"><span class="lineno">   39</span>    {</div>
-<div class="line"><span class="lineno">   40</span>        <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a> = head;</div>
-<div class="line"><span class="lineno">   41</span>        head = <span class="keyword">new</span>;</div>
-<div class="line"><span class="lineno">   42</span>    }</div>
-<div class="line"><span class="lineno">   43</span> </div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">return</span> head;</div>
-<div class="line"><span class="lineno">   45</span>}</div>
-<div class="ttc" id="amachines_8c_html_abab511c59eca20b8d1960a5a2cad6436"><div class="ttname"><a href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">searchMachine</a></div><div class="ttdeci">bool searchMachine(Machine *head, int id)</div><div class="ttdef"><b>Definition:</b> machines.c:150</div></div>
+
+<p>Inserir nova m·quina no inÌcio da lista de m·quinas. </p>
+<dl class="params"><dt>Par√¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Lista de m·quinas </td></tr>
+    <tr><td class="paramname">new</td><td>Nova m·quina </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Lista de m·quinas atualizada </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">searchMachine</a>(head, new-&gt;<a class="code hl_variable" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>)) <span class="comment">// n„o permitir inserir uma nova com o mesmo ID</span></div>
+<div class="line"><span class="lineno">   45</span>    {</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">   50</span>    {</div>
+<div class="line"><span class="lineno">   51</span>        head = <span class="keyword">new</span>;</div>
+<div class="line"><span class="lineno">   52</span>    }</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">else</span> <span class="comment">// se existir algum elemento na lista</span></div>
+<div class="line"><span class="lineno">   54</span>    {</div>
+<div class="line"><span class="lineno">   55</span>        <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">next</a> = head;</div>
+<div class="line"><span class="lineno">   56</span>        head = <span class="keyword">new</span>;</div>
+<div class="line"><span class="lineno">   57</span>    }</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> head;</div>
+<div class="line"><span class="lineno">   60</span>}</div>
+<div class="ttc" id="amachines_8c_html_abab511c59eca20b8d1960a5a2cad6436"><div class="ttname"><a href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">searchMachine</a></div><div class="ttdeci">bool searchMachine(Machine *head, int id)</div><div class="ttdoc">Procurar por uma m·quina na lista de m·quinas.</div><div class="ttdef"><b>Definition:</b> machines.c:186</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -239,19 +281,30 @@ Fun√ß√µes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
-<div class="line"><span class="lineno">   14</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* <span class="keyword">new</span> = (<a class="code hl_struct" href="struct_machine.html">Machine</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_machine.html">Machine</a>));</div>
-<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">if</span> (<span class="keyword">new</span> == NULL) <span class="comment">// se n„o houver memÛria para alocar</span></div>
-<div class="line"><span class="lineno">   16</span>    {</div>
-<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   18</span>    }</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>    <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">id</a> = id;</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keyword">new</span>-&gt;isBusy = isBusy;</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keyword">new</span>-&gt;next = NULL;</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>;</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+
+<p>Criar nova m·quina. </p>
+<p >Sobre m·quinas.</p>
+<dl class="params"><dt>Par√¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Identificador da m·quina </td></tr>
+    <tr><td class="paramname">isBusy</td><td>Booleano para se a m·quina est· ou n„o em utilizaÁ„o </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Nova m·quina </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* <span class="keyword">new</span> = (<a class="code hl_struct" href="struct_machine.html">Machine</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_machine.html">Machine</a>));</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span> (<span class="keyword">new</span> == NULL) <span class="comment">// se n„o houver memÛria para alocar</span></div>
+<div class="line"><span class="lineno">   24</span>    {</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a> = id;</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keyword">new</span>-&gt;isBusy = isBusy;</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keyword">new</span>-&gt;next = NULL;</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>;</div>
+<div class="line"><span class="lineno">   33</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,44 +323,42 @@ Fun√ß√µes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
-<div class="line"><span class="lineno">   75</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = (<a class="code hl_struct" href="struct_machine.html">Machine</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_machine.html">Machine</a>));</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span> (current == NULL) <span class="comment">// se n„o houver memÛria para alocar</span></div>
-<div class="line"><span class="lineno">   77</span>    {</div>
-<div class="line"><span class="lineno">   78</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   79</span>    }</div>
-<div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* head = NULL;</div>
-<div class="line"><span class="lineno">   82</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* last = NULL;</div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>    FILE* file = NULL;</div>
-<div class="line"><span class="lineno">   85</span>    file = fopen(fileName, <span class="stringliteral">&quot;rb&quot;</span>);</div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span> (file == NULL) <span class="comment">// se n„o foi possÌvel abrir o ficheiro</span></div>
-<div class="line"><span class="lineno">   87</span>    {</div>
-<div class="line"><span class="lineno">   88</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">while</span> (fread(current, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_machine.html">Machine</a>), 1, file)) <span class="comment">// ler todos os elementos da lista do ficheiro</span></div>
-<div class="line"><span class="lineno">   92</span>    {</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">if</span> (head == NULL) <span class="comment">// ler o primeiro elemento</span></div>
-<div class="line"><span class="lineno">   94</span>        {</div>
-<div class="line"><span class="lineno">   95</span>            head = last = (<a class="code hl_struct" href="struct_machine.html">Machine</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_machine.html">Machine</a>));</div>
-<div class="line"><span class="lineno">   96</span>        }</div>
-<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">else</span> <span class="comment">// ler os restantes elementos</span></div>
-<div class="line"><span class="lineno">   98</span>        {</div>
-<div class="line"><span class="lineno">   99</span>            last-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a> = (<a class="code hl_struct" href="struct_machine.html">Machine</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_machine.html">Machine</a>));</div>
-<div class="line"><span class="lineno">  100</span>            last = last-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a>;</div>
-<div class="line"><span class="lineno">  101</span>        }</div>
-<div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span>        last-&gt;<a class="code hl_variable" href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">id</a> = current-&gt;<a class="code hl_variable" href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">id</a>;</div>
-<div class="line"><span class="lineno">  104</span>        last-&gt;<a class="code hl_variable" href="struct_machine.html#a53a681bd87a5eb35f0dcdb562ab12727">isBusy</a> = current-&gt;<a class="code hl_variable" href="struct_machine.html#a53a681bd87a5eb35f0dcdb562ab12727">isBusy</a>;</div>
-<div class="line"><span class="lineno">  105</span>        last-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a> = NULL; <span class="comment">// o prÛximo elemento da lista n„o existe, portanto È nulo</span></div>
-<div class="line"><span class="lineno">  106</span>    }</div>
-<div class="line"><span class="lineno">  107</span> </div>
-<div class="line"><span class="lineno">  108</span>    fclose(file);</div>
+
+<p>Ler lista de m·quinas de ficheiro bin·rio. </p>
+<dl class="params"><dt>Par√¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nome do ficheiro para ler a lista </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Lista de m·quinas </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
+<div class="line"><span class="lineno">  108</span>    FILE* file;</div>
 <div class="line"><span class="lineno">  109</span> </div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">return</span> head;</div>
-<div class="line"><span class="lineno">  111</span>}</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;rb&quot;</span>)) == NULL) <span class="comment">// se n„o foi possÌvel abrir o ficheiro</span></div>
+<div class="line"><span class="lineno">  111</span>    {</div>
+<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  113</span>    }</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* head = NULL;</div>
+<div class="line"><span class="lineno">  116</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = NULL;</div>
+<div class="line"><span class="lineno">  117</span>    <a class="code hl_struct" href="struct_file_machine.html">FileMachine</a> currentInFile; <span class="comment">// È a mesma estrutura mas sem o campo *next, uma vez que esse campo n„o È armazenado no ficheiro</span></div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">while</span> (fread(&amp;currentInFile, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_file_machine.html">FileMachine</a>), 1, file)) <span class="comment">// lÍ todos os registos do ficheiro e guarda na lista</span></div>
+<div class="line"><span class="lineno">  120</span>    {</div>
+<div class="line"><span class="lineno">  121</span>        current = <a class="code hl_function" href="machines_8c.html#a6f116088fdb4bbfdc000a266ee200210">newMachine</a>(currentInFile.<a class="code hl_variable" href="struct_file_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>, currentInFile.<a class="code hl_variable" href="struct_file_machine.html#a099f725f22a344e190121634f53328d8">isBusy</a>);</div>
+<div class="line"><span class="lineno">  122</span>        head = <a class="code hl_function" href="machines_8c.html#a5ed3f8c67f63ba752767d86452bf83ed">insertMachineAtStart</a>(head, current);</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
+<div class="line"><span class="lineno">  124</span> </div>
+<div class="line"><span class="lineno">  125</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">return</span> head;</div>
+<div class="line"><span class="lineno">  128</span>}</div>
+<div class="ttc" id="amachines_8c_html_a5ed3f8c67f63ba752767d86452bf83ed"><div class="ttname"><a href="machines_8c.html#a5ed3f8c67f63ba752767d86452bf83ed">insertMachineAtStart</a></div><div class="ttdeci">Machine * insertMachineAtStart(Machine *head, Machine *new)</div><div class="ttdoc">Inserir nova m·quina no inÌcio da lista de m·quinas.</div><div class="ttdef"><b>Definition:</b> machines.c:42</div></div>
+<div class="ttc" id="amachines_8c_html_a6f116088fdb4bbfdc000a266ee200210"><div class="ttname"><a href="machines_8c.html#a6f116088fdb4bbfdc000a266ee200210">newMachine</a></div><div class="ttdeci">Machine * newMachine(int id, bool isBusy)</div><div class="ttdoc">Criar nova m·quina.</div><div class="ttdef"><b>Definition:</b> machines.c:20</div></div>
+<div class="ttc" id="astruct_file_machine_html"><div class="ttname"><a href="struct_file_machine.html">FileMachine</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de m·quinas.</div><div class="ttdef"><b>Definition:</b> header.h:94</div></div>
+<div class="ttc" id="astruct_file_machine_html_a099f725f22a344e190121634f53328d8"><div class="ttname"><a href="struct_file_machine.html#a099f725f22a344e190121634f53328d8">FileMachine::isBusy</a></div><div class="ttdeci">bool isBusy</div><div class="ttdef"><b>Definition:</b> header.h:96</div></div>
+<div class="ttc" id="astruct_file_machine_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_file_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">FileMachine::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> header.h:95</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -336,25 +387,35 @@ Fun√ß√µes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  151</span>{</div>
-<div class="line"><span class="lineno">  152</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
-<div class="line"><span class="lineno">  153</span>    {</div>
-<div class="line"><span class="lineno">  154</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  155</span>    }</div>
-<div class="line"><span class="lineno">  156</span> </div>
-<div class="line"><span class="lineno">  157</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = head;</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  160</span>    {</div>
-<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_machine.html#af36fc7731f360fc1b3b3cd7f95da0bb5">id</a> == <span class="keywordtype">id</span>)</div>
-<div class="line"><span class="lineno">  162</span>        {</div>
-<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  164</span>        }</div>
-<div class="line"><span class="lineno">  165</span>        current = current-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a>;</div>
-<div class="line"><span class="lineno">  166</span>    }</div>
-<div class="line"><span class="lineno">  167</span> </div>
-<div class="line"><span class="lineno">  168</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  169</span>}</div>
+
+<p>Procurar por uma m·quina na lista de m·quinas. </p>
+<dl class="params"><dt>Par√¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Lista de m·quinas </td></tr>
+    <tr><td class="paramname">id</td><td>Identificador da m·quina </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da funÁ„o (se funcionou ou n„o) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  187</span>{</div>
+<div class="line"><span class="lineno">  188</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
+<div class="line"><span class="lineno">  189</span>    {</div>
+<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  191</span>    }</div>
+<div class="line"><span class="lineno">  192</span> </div>
+<div class="line"><span class="lineno">  193</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = head;</div>
+<div class="line"><span class="lineno">  194</span> </div>
+<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  196</span>    {</div>
+<div class="line"><span class="lineno">  197</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a> == <span class="keywordtype">id</span>)</div>
+<div class="line"><span class="lineno">  198</span>        {</div>
+<div class="line"><span class="lineno">  199</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  200</span>        }</div>
+<div class="line"><span class="lineno">  201</span>        current = current-&gt;<a class="code hl_variable" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">next</a>;</div>
+<div class="line"><span class="lineno">  202</span>    }</div>
+<div class="line"><span class="lineno">  203</span> </div>
+<div class="line"><span class="lineno">  204</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  205</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -383,30 +444,45 @@ Fun√ß√µes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   48</span>{</div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
-<div class="line"><span class="lineno">   50</span>    {</div>
-<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   52</span>    }</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    FILE* file = NULL;</div>
-<div class="line"><span class="lineno">   55</span>    file = fopen(fileName, <span class="stringliteral">&quot;wb&quot;</span>);</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (file == NULL) <span class="comment">// se n„o foi possÌvel abrir o ficheiro</span></div>
-<div class="line"><span class="lineno">   57</span>    {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = head;</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">while</span> (current != NULL) <span class="comment">// escrever todos os elementos da lista no ficheiro</span></div>
-<div class="line"><span class="lineno">   63</span>    {</div>
-<div class="line"><span class="lineno">   64</span>        fwrite(current, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_machine.html">Machine</a>), 1, file);</div>
-<div class="line"><span class="lineno">   65</span>        current = current-&gt;<a class="code hl_variable" href="struct_machine.html#ac7eba856d5f936cf00a06d4452323826">next</a>;</div>
-<div class="line"><span class="lineno">   66</span>    }</div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>    fclose(file);</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   71</span>}</div>
+
+<p>Armazenar lista de m·quinas em ficheiro bin·rio. </p>
+<dl class="params"><dt>Par√¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nome do ficheiro para armazenar a lista </td></tr>
+    <tr><td class="paramname">head</td><td>Lista de m·quinas </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da funÁ„o (se funcionou ou n„o) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista est· vazia</span></div>
+<div class="line"><span class="lineno">   72</span>    {</div>
+<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   74</span>    }</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>    FILE* file = NULL;</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;wb&quot;</span>)) == NULL) <span class="comment">// se n„o foi possÌvel abrir o ficheiro</span></div>
+<div class="line"><span class="lineno">   79</span>    {</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   81</span>    }</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* current = head;</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_struct" href="struct_file_machine.html">FileMachine</a> currentInFile; <span class="comment">// È a mesma estrutura mas sem o campo *next, uma vez que esse campo n„o È armazenado no ficheiro</span></div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">   87</span>    {</div>
+<div class="line"><span class="lineno">   88</span>        currentInFile.<a class="code hl_variable" href="struct_file_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a> = current-&gt;<a class="code hl_variable" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>;</div>
+<div class="line"><span class="lineno">   89</span>        currentInFile.<a class="code hl_variable" href="struct_file_machine.html#a099f725f22a344e190121634f53328d8">isBusy</a> = current-&gt;<a class="code hl_variable" href="struct_machine.html#a099f725f22a344e190121634f53328d8">isBusy</a>;</div>
+<div class="line"><span class="lineno">   90</span>        fwrite(&amp;currentInFile, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_file_machine.html">FileMachine</a>), 1, file); <span class="comment">// guarda cada registo da lista no ficheiro</span></div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>        current = current-&gt;<a class="code hl_variable" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">next</a>;</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>    fclose(file);</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   98</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

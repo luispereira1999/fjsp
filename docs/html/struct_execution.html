@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
    </div>
    <div id="projectbrief">Proposta de escalonamento para a produÃ§Ã£o de um produto que envolve vÃ¡rias operaÃ§Ãµes e a utilizaÃ§Ã£o de vÃ¡rias mÃ¡quinas, para minimizar o tempo necessÃ¡rio na sua produÃ§Ã£o.</div>
   </td>
@@ -64,76 +64,80 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Atributos PÃºblicos</a> &#124;
-<a href="struct_execution-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-attribs">Campos de Dados</a>  </div>
   <div class="headertitle"><div class="title">ReferÃªncia Ã  estrutura Execution</div></div>
 </div><!--header-->
 <div class="contents">
 
+<p>Estrutura de dados para a lista (em memória) das execuções das operações em máquinas.  
+ <a href="struct_execution.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="header_8h_source.html">header.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Atributos PÃºblicos</h2></td></tr>
-<tr class="memitem:a7432723e4b2d652d9f575c4271989ee5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#a7432723e4b2d652d9f575c4271989ee5">operationID</a></td></tr>
-<tr class="separator:a7432723e4b2d652d9f575c4271989ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ceb164932482d2ef2618dd80e6e1728"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#a7ceb164932482d2ef2618dd80e6e1728">machineID</a></td></tr>
-<tr class="separator:a7ceb164932482d2ef2618dd80e6e1728"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03c0671808b07e0f28029565c8ea6747"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#a03c0671808b07e0f28029565c8ea6747">runtime</a></td></tr>
-<tr class="separator:a03c0671808b07e0f28029565c8ea6747"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2283edea4e48406d89677e3ed3953fa3"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#a2283edea4e48406d89677e3ed3953fa3">next</a></td></tr>
-<tr class="separator:a2283edea4e48406d89677e3ed3953fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Campos de Dados</h2></td></tr>
+<tr class="memitem:a0be948f2b8f4cdb1a8527811a08ecfd5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a></td></tr>
+<tr class="separator:a0be948f2b8f4cdb1a8527811a08ecfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b5e7043ba4f62c59a7a67c2c1c440c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a></td></tr>
+<tr class="separator:ae0b5e7043ba4f62c59a7a67c2c1c440c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6885fec41faff728c1e6173cfb69e81f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a></td></tr>
+<tr class="separator:a6885fec41faff728c1e6173cfb69e81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5118f41fd71744302713d58c7ce39bd4"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a></td></tr>
+<tr class="separator:a5118f41fd71744302713d58c7ce39bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">DocumentaÃ§Ã£o dos dados membro</h2>
-<a id="a7ceb164932482d2ef2618dd80e6e1728" name="a7ceb164932482d2ef2618dd80e6e1728"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ceb164932482d2ef2618dd80e6e1728">&#9670;&nbsp;</a></span>machineID</h2>
+<a name="details" id="details"></a><h2 class="groupheader">DescriÃ§Ã£o detalhada</h2>
+<div class="textblock"><p >Estrutura de dados para a lista (em memória) das execuções das operações em máquinas. </p>
+</div><h2 class="groupheader">DocumentaÃ§Ã£o dos campos e atributos</h2>
+<a id="ae0b5e7043ba4f62c59a7a67c2c1c440c" name="ae0b5e7043ba4f62c59a7a67c2c1c440c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b5e7043ba4f62c59a7a67c2c1c440c">&#9670;&nbsp;</a></span>machineID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Execution::machineID</td>
+          <td class="memname">int machineID</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a2283edea4e48406d89677e3ed3953fa3" name="a2283edea4e48406d89677e3ed3953fa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2283edea4e48406d89677e3ed3953fa3">&#9670;&nbsp;</a></span>next</h2>
+<a id="a5118f41fd71744302713d58c7ce39bd4" name="a5118f41fd71744302713d58c7ce39bd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5118f41fd71744302713d58c7ce39bd4">&#9670;&nbsp;</a></span>next</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="struct_execution.html">Execution</a>* Execution::next</td>
+          <td class="memname">struct <a class="el" href="struct_execution.html">Execution</a>* next</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7432723e4b2d652d9f575c4271989ee5" name="a7432723e4b2d652d9f575c4271989ee5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7432723e4b2d652d9f575c4271989ee5">&#9670;&nbsp;</a></span>operationID</h2>
+<a id="a0be948f2b8f4cdb1a8527811a08ecfd5" name="a0be948f2b8f4cdb1a8527811a08ecfd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0be948f2b8f4cdb1a8527811a08ecfd5">&#9670;&nbsp;</a></span>operationID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Execution::operationID</td>
+          <td class="memname">int operationID</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a03c0671808b07e0f28029565c8ea6747" name="a03c0671808b07e0f28029565c8ea6747"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03c0671808b07e0f28029565c8ea6747">&#9670;&nbsp;</a></span>runtime</h2>
+<a id="a6885fec41faff728c1e6173cfb69e81f" name="a6885fec41faff728c1e6173cfb69e81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6885fec41faff728c1e6173cfb69e81f">&#9670;&nbsp;</a></span>runtime</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Execution::runtime</td>
+          <td class="memname">int runtime</td>
         </tr>
       </table>
 </div><div class="memdoc">

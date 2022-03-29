@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
    </div>
    <div id="projectbrief">Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.</div>
   </td>
@@ -64,76 +64,80 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Atributos Públicos</a> &#124;
-<a href="struct_operation-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-attribs">Campos de Dados</a>  </div>
   <div class="headertitle"><div class="title">Referência à estrutura Operation</div></div>
 </div><!--header-->
 <div class="contents">
 
+<p>Estrutura de dados para a lista (em mem�ria) de opera��es.  
+ <a href="struct_operation.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="header_8h_source.html">header.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Atributos Públicos</h2></td></tr>
-<tr class="memitem:a57c5633251488d8079e35edf5c479050"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#a57c5633251488d8079e35edf5c479050">id</a></td></tr>
-<tr class="separator:a57c5633251488d8079e35edf5c479050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78ef5b05b255c7281422373e9e086c01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#a78ef5b05b255c7281422373e9e086c01">jobID</a></td></tr>
-<tr class="separator:a78ef5b05b255c7281422373e9e086c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac93c42d8aa09280dea6ba2d7621e647a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#ac93c42d8aa09280dea6ba2d7621e647a">position</a></td></tr>
-<tr class="separator:ac93c42d8aa09280dea6ba2d7621e647a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53ffccad258967d5f14bf223bb837978"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#a53ffccad258967d5f14bf223bb837978">next</a></td></tr>
-<tr class="separator:a53ffccad258967d5f14bf223bb837978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Campos de Dados</h2></td></tr>
+<tr class="memitem:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a></td></tr>
+<tr class="separator:a7441ef0865bcb3db9b8064dd7375c1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad71a8c2a978cd38c498b77c5b914983b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#ad71a8c2a978cd38c498b77c5b914983b">jobID</a></td></tr>
+<tr class="separator:ad71a8c2a978cd38c498b77c5b914983b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a401e942526aac47cef94f478182486e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#a401e942526aac47cef94f478182486e7">position</a></td></tr>
+<tr class="separator:a401e942526aac47cef94f478182486e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db59830dec0306ea782bae1df0736d1"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html#a9db59830dec0306ea782bae1df0736d1">next</a></td></tr>
+<tr class="separator:a9db59830dec0306ea782bae1df0736d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação dos dados membro</h2>
-<a id="a57c5633251488d8079e35edf5c479050" name="a57c5633251488d8079e35edf5c479050"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57c5633251488d8079e35edf5c479050">&#9670;&nbsp;</a></span>id</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p >Estrutura de dados para a lista (em mem�ria) de opera��es. </p>
+</div><h2 class="groupheader">Documentação dos campos e atributos</h2>
+<a id="a7441ef0865bcb3db9b8064dd7375c1ea" name="a7441ef0865bcb3db9b8064dd7375c1ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7441ef0865bcb3db9b8064dd7375c1ea">&#9670;&nbsp;</a></span>id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Operation::id</td>
+          <td class="memname">int id</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a78ef5b05b255c7281422373e9e086c01" name="a78ef5b05b255c7281422373e9e086c01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78ef5b05b255c7281422373e9e086c01">&#9670;&nbsp;</a></span>jobID</h2>
+<a id="ad71a8c2a978cd38c498b77c5b914983b" name="ad71a8c2a978cd38c498b77c5b914983b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad71a8c2a978cd38c498b77c5b914983b">&#9670;&nbsp;</a></span>jobID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Operation::jobID</td>
+          <td class="memname">int jobID</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a53ffccad258967d5f14bf223bb837978" name="a53ffccad258967d5f14bf223bb837978"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53ffccad258967d5f14bf223bb837978">&#9670;&nbsp;</a></span>next</h2>
+<a id="a9db59830dec0306ea782bae1df0736d1" name="a9db59830dec0306ea782bae1df0736d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db59830dec0306ea782bae1df0736d1">&#9670;&nbsp;</a></span>next</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="struct_operation.html">Operation</a>* Operation::next</td>
+          <td class="memname">struct <a class="el" href="struct_operation.html">Operation</a>* next</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac93c42d8aa09280dea6ba2d7621e647a" name="ac93c42d8aa09280dea6ba2d7621e647a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac93c42d8aa09280dea6ba2d7621e647a">&#9670;&nbsp;</a></span>position</h2>
+<a id="a401e942526aac47cef94f478182486e7" name="a401e942526aac47cef94f478182486e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a401e942526aac47cef94f478182486e7">&#9670;&nbsp;</a></span>position</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Operation::position</td>
+          <td class="memname">int position</td>
         </tr>
       </table>
 </div><div class="memdoc">

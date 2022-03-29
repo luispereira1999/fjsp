@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['runtime_0',['runtime',['../struct_execution.html#a03c0671808b07e0f28029565c8ea6747',1,'Execution']]]
+  ['runtime_0',['runtime',['../struct_execution.html#a6885fec41faff728c1e6173cfb69e81f',1,'Execution::runtime()'],['../struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f',1,'FileExecution::runtime()']]]
 ];
