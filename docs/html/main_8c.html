@@ -294,32 +294,38 @@ FunÃ§Ãµes</h2></td></tr>
 <div class="line"><span class="lineno">  207</span>                <a class="code hl_function" href="header_8h.html#adf36b4d501a3dcbaf8ac959da2d76c8f">freeMachines</a>(<a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
 <div class="line"><span class="lineno">  208</span>                <a class="code hl_function" href="header_8h.html#af64e219dfa9552b285dd100375c2c6a7">freeOperations</a>(<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
 <div class="line"><span class="lineno">  209</span>                <a class="code hl_function" href="executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721">freeExecutions</a>(<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
-<div class="line"><span class="lineno">  210</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">  211</span> </div>
-<div class="line"><span class="lineno">  212</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  213</span> </div>
-<div class="line"><span class="lineno">  214</span>            <span class="keywordflow">case</span> 2: <span class="comment">// fase 2 do projeto</span></div>
-<div class="line"><span class="lineno">  215</span> </div>
-<div class="line"><span class="lineno">  216</span>                printf(<span class="stringliteral">&quot;Em breve!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  217</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  218</span> </div>
-<div class="line"><span class="lineno">  219</span>            <span class="keywordflow">case</span> 3: <span class="comment">// sobre aplicação</span></div>
-<div class="line"><span class="lineno">  220</span> </div>
-<div class="line"><span class="lineno">  221</span>                printf(<span class="stringliteral">&quot;Flexible Job Shop Problem - Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  222</span>                printf(<span class="stringliteral">&quot;Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  210</span> </div>
+<div class="line"><span class="lineno">  211</span>                <span class="comment">// depois de libertar memória, definir listas como NULL para evitar possíveis erros</span></div>
+<div class="line"><span class="lineno">  212</span>                <a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = NULL;</div>
+<div class="line"><span class="lineno">  213</span>                <a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = NULL;</div>
+<div class="line"><span class="lineno">  214</span>                <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = NULL;</div>
+<div class="line"><span class="lineno">  215</span>                <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = NULL;</div>
+<div class="line"><span class="lineno">  216</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  219</span> </div>
+<div class="line"><span class="lineno">  220</span>            <span class="keywordflow">case</span> 2: <span class="comment">// fase 2 do projeto</span></div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span>                printf(<span class="stringliteral">&quot;Em breve!\n&quot;</span>);</div>
 <div class="line"><span class="lineno">  223</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  224</span> </div>
-<div class="line"><span class="lineno">  225</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  226</span>                printf(<span class="stringliteral">&quot;Opção inválida. Tente novamente.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  227</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  228</span>            }</div>
-<div class="line"><span class="lineno">  229</span>        }</div>
+<div class="line"><span class="lineno">  225</span>            <span class="keywordflow">case</span> 3: <span class="comment">// sobre aplicação</span></div>
+<div class="line"><span class="lineno">  226</span> </div>
+<div class="line"><span class="lineno">  227</span>                printf(<span class="stringliteral">&quot;Flexible Job Shop Problem - Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  228</span>                printf(<span class="stringliteral">&quot;Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  229</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  230</span> </div>
-<div class="line"><span class="lineno">  231</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  232</span>    } <span class="keywordflow">while</span> (<span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  233</span> </div>
-<div class="line"><span class="lineno">  234</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  235</span>}</div>
+<div class="line"><span class="lineno">  231</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  232</span>                printf(<span class="stringliteral">&quot;Opção inválida. Tente novamente.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  233</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  234</span>            }</div>
+<div class="line"><span class="lineno">  235</span>        }</div>
+<div class="line"><span class="lineno">  236</span> </div>
+<div class="line"><span class="lineno">  237</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  238</span>    } <span class="keywordflow">while</span> (<span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  239</span> </div>
+<div class="line"><span class="lineno">  240</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  241</span>}</div>
 <div class="ttc" id="adata_8c_html_a9e20b602bea2105c4844c9488e0dac64"><div class="ttname"><a href="data_8c.html#a9e20b602bea2105c4844c9488e0dac64">loadData</a></div><div class="ttdeci">void loadData(Job **jobs, Machine **machines, Operation **operations, Execution **executions)</div><div class="ttdoc">Carregar dados para as listas.</div><div class="ttdef"><b>Definition:</b> data.c:20</div></div>
 <div class="ttc" id="aexecutions_8c_html_a1d514c72e91412b8ec09efd02f6b7d4f"><div class="ttname"><a href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">displayExecutions</a></div><div class="ttdeci">bool displayExecutions(Execution *head)</div><div class="ttdoc">Mostrar a lista de execuções na consola.</div><div class="ttdef"><b>Definition:</b> executions.c:280</div></div>
 <div class="ttc" id="aexecutions_8c_html_a2fac5de7bc7bbfcb23a4f60b54ef2e5e"><div class="ttname"><a href="executions_8c.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">SortExecutionsByOperation</a></div><div class="ttdeci">Execution * SortExecutionsByOperation(Execution *head)</div><div class="ttdoc">Ordenar lista de execuções por ordem crescente do identificador da operação.</div><div class="ttdef"><b>Definition:</b> executions.c:361</div></div>

@@ -233,31 +233,37 @@ Resultado do programa na linha de comando
 \DoxyCodeLine{207                 \mbox{\hyperlink{header_8h_adf36b4d501a3dcbaf8ac959da2d76c8f}{freeMachines}}(\mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}});}
 \DoxyCodeLine{208                 \mbox{\hyperlink{header_8h_af64e219dfa9552b285dd100375c2c6a7}{freeOperations}}(\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
 \DoxyCodeLine{209                 \mbox{\hyperlink{executions_8c_a67b917d9e7aff6fc85c7d3cee1150721}{freeExecutions}}(\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
-\DoxyCodeLine{210 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{211 }
-\DoxyCodeLine{212                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{213 }
-\DoxyCodeLine{214             \textcolor{keywordflow}{case} 2: \textcolor{comment}{// fase 2 do projeto}}
-\DoxyCodeLine{215 }
-\DoxyCodeLine{216                 printf(\textcolor{stringliteral}{"{}Em breve!\(\backslash\)n"{}});}
-\DoxyCodeLine{217                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{218 }
-\DoxyCodeLine{219             \textcolor{keywordflow}{case} 3: \textcolor{comment}{// sobre aplicação}}
-\DoxyCodeLine{220 }
-\DoxyCodeLine{221                 printf(\textcolor{stringliteral}{"{}Flexible Job Shop Problem -\/ Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\(\backslash\)n"{}});}
-\DoxyCodeLine{222                 printf(\textcolor{stringliteral}{"{}Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\(\backslash\)n"{}});}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211                 \textcolor{comment}{// depois de libertar memória, definir listas como NULL para evitar possíveis erros}}
+\DoxyCodeLine{212                 \mbox{\hyperlink{header_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = NULL;}
+\DoxyCodeLine{213                 \mbox{\hyperlink{header_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = NULL;}
+\DoxyCodeLine{214                 \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = NULL;}
+\DoxyCodeLine{215                 \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} = NULL;}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220             \textcolor{keywordflow}{case} 2: \textcolor{comment}{// fase 2 do projeto}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222                 printf(\textcolor{stringliteral}{"{}Em breve!\(\backslash\)n"{}});}
 \DoxyCodeLine{223                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{224 }
-\DoxyCodeLine{225             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{226                 printf(\textcolor{stringliteral}{"{}Opção inválida. Tente novamente.\(\backslash\)n"{}});}
-\DoxyCodeLine{227                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{228             \}}
-\DoxyCodeLine{229         \}}
+\DoxyCodeLine{225             \textcolor{keywordflow}{case} 3: \textcolor{comment}{// sobre aplicação}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227                 printf(\textcolor{stringliteral}{"{}Flexible Job Shop Problem -\/ Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\(\backslash\)n"{}});}
+\DoxyCodeLine{228                 printf(\textcolor{stringliteral}{"{}Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\(\backslash\)n"{}});}
+\DoxyCodeLine{229                 \textcolor{keywordflow}{break};}
 \DoxyCodeLine{230 }
-\DoxyCodeLine{231         printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{232     \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
-\DoxyCodeLine{233 }
-\DoxyCodeLine{234     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{235 \}}
+\DoxyCodeLine{231             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{232                 printf(\textcolor{stringliteral}{"{}Opção inválida. Tente novamente.\(\backslash\)n"{}});}
+\DoxyCodeLine{233                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{234             \}}
+\DoxyCodeLine{235         \}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237         printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{238     \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{241 \}}
 
 \end{DoxyCode}
