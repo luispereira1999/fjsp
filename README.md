@@ -6,7 +6,7 @@ Proposta de escalonamento para a produção de um produto que envolve várias op
 ## Instalação
 Para colocar o projeto a funcionar localmente em uma máquina basta:
 1. Clonar o repositório ```git clone https://github.com/luispereira1999/fjssp.git```.
-2. Utilizar o visual studio (2019 ou superior).
+2. Utilizar o Visual Studio (2019 ou superior).
 
 
 ## Desenvolvimento
