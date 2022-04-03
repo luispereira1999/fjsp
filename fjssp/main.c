@@ -122,10 +122,6 @@ int main()
 #pragma region funcionalidade 4: atualizar uma operação
 				printf("\n\n-  4. Atualizar uma operação\n");
 
-				// atualizar a posição da operação num determinado job
-				updatePosition(&operations, jobs, 1, 4, 2);
-				printf("Posição da operação atualizada com sucesso!\n");
-
 				// atualizar o tempo necessário para uma execução da operação
 				updateRuntime(&executions, 2, 2, 10);
 				printf("Tempo necessário para a execução da operação atualizada com sucesso!\n");
