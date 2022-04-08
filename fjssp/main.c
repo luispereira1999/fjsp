@@ -119,12 +119,12 @@ int main()
 				}
 #pragma endregion
 
-#pragma region funcionalidade 4: atualizar uma operação
-				printf("\n\n-  4. Atualizar uma operação\n");
+#pragma region funcionalidade 4: atualizar uma execução
+				printf("\n\n-  4. Atualizar uma execução\n");
 
 				// atualizar o tempo necessário para uma execução da operação
 				updateRuntime(&executions, 2, 2, 10);
-				printf("Tempo necessário para a execução da operação atualizada com sucesso!\n");
+				printf("Tempo necessário para a execução de operação atualizada com sucesso!\n");
 #pragma endregion
 
 #pragma region funcionalidade 5: inserir uma operação
@@ -257,27 +257,44 @@ int main()
 				printf("\n\n-  3. Remover um trabalho\n");
 
 				// remover trabalho
-				deleteJob(&jobs, 4);
+				deleteJob(&jobs, 1);
 				printf("Trabalho removido com sucesso!\n");
 
-				allFound = false;
-				while (!allFound) // enquanto que encontrar trabalhos, remover as operações associadas
+				bool operationsAllFound = false;
+				bool executionsAllFound = false;
+				while (!operationsAllFound) // enquanto que encontrar trabalhos, remover as operações associadas
 				{
-					if (searchOperationByJob(operations, 4))
+					if (searchOperationByJob(operations, 1))
 					{
 						// remover operação
-						deleteOperationByJob(&operations, 4);
+						int operationDeleted = deleteOperationByJob(&operations, 1);
 						printf("Operação associada ao trabalho removida com sucesso!\n");
+
+						while (!executionsAllFound) // enquanto que encontrar a respetiva operação, remover as execuções de operações associadas
+						{
+							if (searchExecutionByOperation(executions, operationDeleted))
+							{
+								// remover execução
+								deleteExecutionByOperation(&executions, operationDeleted);
+								printf("Execução associada à operação removida com sucesso!\n");
+							}
+							else
+							{
+								executionsAllFound = true;
+							}
+						}
 					}
 					else
 					{
-						allFound = true;
+						operationsAllFound = true;
 					}
+
+					executionsAllFound = false;
 				}
 #pragma endregion
 
-#pragma region funcionalidade 5: inserir um trabalho
-				printf("\n\n-  5. Inserir um trabalho\n");
+#pragma region funcionalidade 4: inserir um trabalho
+				printf("\n\n-  4. Inserir um trabalho\n");
 
 				// inserir novo trabalho
 				Job* job = NULL;
@@ -289,8 +306,8 @@ int main()
 				printf("Novos dados exportados com sucesso!\n");
 #pragma endregion
 
-#pragma region funcionalidade 3: remover uma operação
-				printf("\n\n-  3. Remover uma operação\n");
+#pragma region funcionalidade 5: remover uma operação
+				printf("\n\n-  5. Remover uma operação\n");
 
 				// remover operação
 				deleteOperation(&operations, 35);
@@ -312,8 +329,8 @@ int main()
 				}
 #pragma endregion
 
-#pragma region funcionalidade 5: inserir uma operação
-				printf("\n\n-  5. Inserir uma operação\n");
+#pragma region funcionalidade 7: inserir uma operação
+				printf("\n\n-  7. Inserir uma operação\n");
 
 				// inserir nova operação
 				operation = NULL;
