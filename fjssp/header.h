@@ -154,6 +154,7 @@ Operation* readOperations(char fileName[]);
 bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 bool searchOperation(Operation* head, int id);
+bool searchOperationByJob(Operation* head, int jobID);
 int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
 int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
 float getAverageTimeToCompleteOperation(Execution* head, int operationID);

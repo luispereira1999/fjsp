@@ -249,6 +249,34 @@ bool searchOperation(Operation* head, int id)
 
 
 /**
+* @brief	Procurar por uma operação através do identificador do trabalho, na lista de operações
+* @param	head			Lista de operações
+* @param	jobID			Identificador do trabalho
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool searchOperationByJob(Operation* head, int jobID)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		return false;
+	}
+
+	Operation* current = head;
+
+	while (current != NULL)
+	{
+		if (current->jobID == jobID)
+		{
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
+}
+
+
+/**
 * @brief	Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções
 * @param	operations		Lista de operações
 * @param	executions		Lista de execuções
