@@ -253,6 +253,19 @@ int main()
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 
+#pragma region funcionalidade 5: inserir um trabalho
+				printf("\n\n-  5. Inserir um trabalho\n");
+
+				// inserir novo trabalho
+				Job* job = NULL;
+				job = newJob(9);
+				jobs = insertJobAtStart(jobs, job);
+
+				// guardar a nova inserção em ficheiro
+				writeJobs("jobs.txt", jobs);
+				printf("Novos dados exportados com sucesso!\n");
+#pragma endregion
+
 #pragma region funcionalidade 3: remover uma operação
 				printf("\n\n-  3. Remover uma operação\n");
 
