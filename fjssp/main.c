@@ -253,6 +253,14 @@ int main()
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 
+#pragma region funcionalidade 3: remover um trabalho
+				printf("\n\n-  3. Remover um trabalho\n");
+
+				// remover trabalho
+				deleteJob(&jobs, 4);
+				printf("trabalho removido com sucesso!\n");
+#pragma endregion
+
 #pragma region funcionalidade 5: inserir um trabalho
 				printf("\n\n-  5. Inserir um trabalho\n");
 

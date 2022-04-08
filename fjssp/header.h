@@ -125,6 +125,7 @@ typedef struct FileOperation
  */
 Job* newJob(int id);
 Job* insertJobAtStart(Job* head, Job* new);
+bool deleteJob(Job** head, int id);
 bool writeJobs(char fileName[], Job* head);
 Job* readJobs(char fileName[]);
 bool freeJobs(Job* head);
