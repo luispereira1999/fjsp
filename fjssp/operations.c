@@ -103,6 +103,46 @@ bool deleteOperation(Operation** head, int id)
 
 
 /**
+* @brief	Remover operação pelo identificador do trabalho
+* @param	head			Apontador para a lista de operações
+* @param	jobID			Identificador do trabalho
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool deleteOperationByJob(Operation** head, int jobID)
+{
+	if (*head == NULL) // se a lista estiver vazia
+	{
+		return false;
+	}
+
+	Operation* current = *head;
+	Operation* previous = NULL;
+
+	if (current != NULL && current->jobID == jobID) { // se o elemento que será apagado é o primeiro da lista
+		*head = current->next;
+		free(current);
+		return true;
+	}
+
+	while (current != NULL && current->jobID != jobID) // procurar o elemento a ser apagado
+	{
+		previous = current;
+		current = current->next;
+	}
+
+	if (current == NULL) // se o elemento não foi encontrado
+	{
+		return false;
+	}
+
+	previous->next = current->next; // desassociar o elemento da lista
+	free(current);
+
+	return true;
+}
+
+
+/**
 * @brief	Armazenar lista de operações em ficheiro binário
 * @param	fileName	Nome do ficheiro para armazenar a lista
 * @param	head		Lista de operações

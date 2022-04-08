@@ -258,7 +258,22 @@ int main()
 
 				// remover trabalho
 				deleteJob(&jobs, 4);
-				printf("trabalho removido com sucesso!\n");
+				printf("Trabalho removido com sucesso!\n");
+
+				allFound = false;
+				while (!allFound) // enquanto que encontrar trabalhos, remover as operações associadas
+				{
+					if (searchOperationByJob(operations, 4))
+					{
+						// remover operação
+						deleteOperationByJob(&operations, 4);
+						printf("Operação associada ao trabalho removida com sucesso!\n");
+					}
+					else
+					{
+						allFound = true;
+					}
+				}
 #pragma endregion
 
 #pragma region funcionalidade 5: inserir um trabalho
