@@ -77,10 +77,10 @@ int main()
 				printf("Dados exportados com sucesso!\n");
 
 				// libertar memória das listas anteriores, para serem lidas dos ficheiros
-				freeJobs(jobs);
-				freeMachines(machines);
-				freeOperations(operations);
-				freeExecutions(executions);
+				//freeJobs(jobs);
+				//freeMachines(machines);
+				//freeOperations(operations);
+				//freeExecutions(executions);
 
 				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
 				jobs = NULL;
@@ -104,7 +104,7 @@ int main()
 				printf("Operação removida com sucesso!\n");
 
 				bool allFound = false;
-				while (allFound == false) // enquanto que encontrar operações, remover as execuções de operações associadas
+				while (!allFound) // enquanto que encontrar operações, remover as execuções de operações associadas
 				{
 					if (searchExecutionByOperation(executions, 35))
 					{
@@ -199,10 +199,10 @@ int main()
 				printf("Dados mostrados com sucesso!\n");
 
 				// libertar memória
-				freeJobs(jobs);
-				freeMachines(machines);
-				freeOperations(operations);
-				freeExecutions(executions);
+				//freeJobs(jobs);
+				//freeMachines(machines);
+				//freeOperations(operations);
+				//freeExecutions(executions);
 
 				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
 				jobs = NULL;
@@ -215,7 +215,113 @@ int main()
 
 			case 2: // fase 2 do projeto
 
-				printf("Em breve!\n");
+#pragma region funcionalidade 1: definir estruturas de dados dinâmicas
+				printf("-  1. Definir estruturas de dados dinâmicas\n");
+
+				// carregar dados (tabela) para as listas
+				loadData(&jobs, &machines, &operations, &executions);
+				printf("Dados carregados em memória com sucesso!\n");
+#pragma endregion
+
+#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiro
+				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiro\n");
+
+				// guardar os dados em ficheiros
+				writeJobs("jobs.txt", jobs);
+				writeMachines("machines.txt", machines);
+				writeOperations("operations.txt", operations);
+				writeExecutions("executions.txt", executions);
+				printf("Dados exportados com sucesso!\n");
+
+				// libertar memória das listas anteriores, para serem lidas dos ficheiros
+				//freeJobs(jobs);
+				//freeMachines(machines);
+				//freeOperations(operations);
+				//freeExecutions(executions);
+
+				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
+				jobs = NULL;
+				machines = NULL;
+				operations = NULL;
+				executions = NULL;
+
+				// ler dados de ficheiros
+				jobs = readJobs("jobs.txt");
+				machines = readMachines("machines.txt");
+				operations = readOperations("operations.txt");
+				executions = readExecutions("executions.txt");
+				printf("Dados importados com sucesso!\n");
+#pragma endregion
+
+#pragma region funcionalidade 3: remover uma operação
+				printf("\n\n-  3. Remover uma operação\n");
+
+				// remover operação
+				deleteOperation(&operations, 35);
+				printf("Operação removida com sucesso!\n");
+
+				allFound = false;
+				while (!allFound) // enquanto que encontrar operações, remover as execuções de operações associadas
+				{
+					if (searchExecutionByOperation(executions, 35))
+					{
+						// remover execução
+						deleteExecutionByOperation(&executions, 35);
+						printf("Execução associada à operação removida com sucesso!\n");
+					}
+					else
+					{
+						allFound = true;
+					}
+				}
+#pragma endregion
+
+#pragma region funcionalidade 5: inserir uma operação
+				printf("\n\n-  5. Inserir uma operação\n");
+
+				// inserir nova operação
+				operation = NULL;
+				operation = newOperation(39, 2, 8);
+				operations = insertOperationAtStart(operations, operation);
+
+				// inserir nova execução de uma operação
+				execution = NULL;
+				execution = newExecution(39, 5, 17);
+				executions = insertExecutionAtStart(executions, execution);
+
+				// guardar as novas inserções em ficheiros
+				writeOperations("operations.txt", operations);
+				writeExecutions("executions.txt", executions);
+				printf("Novos dados exportados com sucesso!\n");
+#pragma endregion
+
+#pragma region mostrar dados
+				printf("\n\n-  Mostrar dados\n");
+
+				// mostrar dados na consola
+				printf("Trabalhos:\n");
+				displayJobs(jobs);
+				printf("Máquinas:\n");
+				displayMachines(machines);
+				printf("Operações:\n");
+				displayOperations(operations);
+				printf("Execuções de Operações:\n");
+				displayExecutions(executions);
+				printf("Dados mostrados com sucesso!\n");
+
+				// libertar memória
+				//freeJobs(jobs);
+				//freeMachines(machines);
+				//freeOperations(operations);
+				//freeExecutions(executions);
+
+				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
+				jobs = NULL;
+				machines = NULL;
+				operations = NULL;
+				executions = NULL;
+#pragma endregion
+
 				break;
 
 			case 3: // sobre aplicação
