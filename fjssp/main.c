@@ -70,10 +70,10 @@ int main()
 				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiro\n");
 
 				// guardar os dados em ficheiros
-				writeJobs("jobs.txt", jobs);
-				writeMachines("machines.txt", machines);
-				writeOperations("operations.txt", operations);
-				writeExecutions("executions.txt", executions);
+				writeJobs(JOBS_FILENAME_BINARY, jobs);
+				writeMachines(MACHINES_FILENAME_BINARY, machines);
+				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
+				writeExecutions(EXECUTIONS_FILENAME_BINARY, executions);
 				printf("Dados exportados com sucesso!\n");
 
 				// libertar memória das listas anteriores, para serem lidas dos ficheiros
@@ -89,10 +89,10 @@ int main()
 				executions = NULL;
 
 				// ler dados de ficheiros
-				jobs = readJobs("jobs.txt");
-				machines = readMachines("machines.txt");
-				operations = readOperations("operations.txt");
-				executions = readExecutions("executions.txt");
+				jobs = readJobs(JOBS_FILENAME_BINARY);
+				machines = readMachines(MACHINES_FILENAME_BINARY);
+				operations = readOperations(OPERATIONS_FILENAME_BINARY);
+				executions = readExecutions(EXECUTIONS_FILENAME_BINARY);
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 
@@ -141,8 +141,8 @@ int main()
 				executions = insertExecutionAtStart(executions, execution);
 
 				// guardar as novas inserções em ficheiros
-				writeOperations("operations.txt", operations);
-				writeExecutions("executions.txt", executions);
+				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
+				writeExecutions(EXECUTIONS_FILENAME_BINARY, executions);
 				printf("Novos dados exportados com sucesso!\n");
 #pragma endregion
 
@@ -227,10 +227,10 @@ int main()
 				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiro\n");
 
 				// guardar os dados em ficheiros
-				writeJobs("jobs.txt", jobs);
-				writeMachines("machines.txt", machines);
-				writeOperations("operations.txt", operations);
-				writeExecutions("executions.txt", executions);
+				writeJobs(JOBS_FILENAME_BINARY, jobs);
+				writeMachines(MACHINES_FILENAME_BINARY, machines);
+				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
+				writeExecutions(EXECUTIONS_FILENAME_BINARY, executions);
 				printf("Dados exportados com sucesso!\n");
 
 				// libertar memória das listas anteriores, para serem lidas dos ficheiros
@@ -246,10 +246,10 @@ int main()
 				executions = NULL;
 
 				// ler dados de ficheiros
-				jobs = readJobs("jobs.txt");
-				machines = readMachines("machines.txt");
-				operations = readOperations("operations.txt");
-				executions = readExecutions("executions.txt");
+				jobs = readJobs(JOBS_FILENAME_BINARY);
+				machines = readMachines(MACHINES_FILENAME_BINARY);
+				operations = readOperations(OPERATIONS_FILENAME_BINARY);
+				executions = readExecutions(EXECUTIONS_FILENAME_BINARY);
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 
@@ -301,7 +301,7 @@ int main()
 				jobs = insertJobAtStart(jobs, job);
 
 				// guardar a nova inserção em ficheiro
-				writeJobs("jobs.txt", jobs);
+				writeJobs(JOBS_FILENAME_BINARY, jobs);
 				printf("Novos dados exportados com sucesso!\n");
 #pragma endregion
 
@@ -350,8 +350,8 @@ int main()
 				executions = insertExecutionAtStart(executions, execution);
 
 				// guardar as novas inserções em ficheiros
-				writeOperations("operations.txt", operations);
-				writeExecutions("executions.txt", executions);
+				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
+				writeExecutions(EXECUTIONS_FILENAME_BINARY, executions);
 				printf("Novos dados exportados com sucesso!\n");
 #pragma endregion
 

@@ -13,6 +13,14 @@
 
 #define HEADER_H
 
+/**
+ * @brief	Nomes para os ficheiros onde os dados são armazenados
+ */
+#define JOBS_FILENAME_BINARY "jobs.bin"
+#define MACHINES_FILENAME_BINARY "machines.bin"
+#define OPERATIONS_FILENAME_BINARY "operations.bin"
+#define EXECUTIONS_FILENAME_BINARY "executions.bin"
+
 #pragma endregion
 
 #pragma region representações
