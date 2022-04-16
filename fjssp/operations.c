@@ -63,6 +63,56 @@ Operation* insertOperationAtStart(Operation* head, Operation* new)
 
 
 /**
+* @brief	Atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
+* @param	head			Apontador para a lista de execuções
+* @param	xOperationID	Identificador de uma operação qualquer X
+* @param	yOperationID	Identificador de uma operação qualquer Y
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool updatePosition(Operation** head, int xOperationID, int yOperationID)
+{
+	if (*head == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
+	if (xOperationID == yOperationID) // se forem iguais
+	{
+		return false;
+	}
+
+	Operation* xOperation = NULL;
+	Operation* yOperation = NULL;
+
+	xOperation = getOperation(*head, xOperationID);
+	yOperation = getOperation(*head, yOperationID);
+
+	if (xOperation == NULL || yOperation == NULL) // se as operações não foram encontradas
+	{
+		return false;
+	}
+
+	Operation* current = *head;
+
+	while (current != NULL)
+	{
+		if (current->id == xOperation->id) // trocar a posição da operação X pela posição da operação Y
+		{
+			current->position = yOperation->position;
+		}
+		if (current->id == yOperation->id) // trocar a posição da operação Y pela posição da operação X
+		{
+			current->position = xOperation->position;
+		}
+
+		current = current->next;
+	}
+
+	return true;
+}
+
+
+/**
 * @brief	Remover uma operação da lista de operações
 * @param	head	Apontador para a lista de operações
 * @param	id		Identificador da operação
@@ -123,7 +173,7 @@ int deleteOperationByJob(Operation** head, int jobID)
 		operationDeleted = current->id;
 		*head = current->next;
 		free(current);
-		
+
 		return operationDeleted;
 	}
 
@@ -339,7 +389,8 @@ Operation* getOperation(Operation* head, int id)
 	{
 		if (current->id == id)
 		{
-			return current;
+			Operation* operation = newOperation(current->id, current->jobID, current->position); // criar cópia da operação
+			return operation;
 		}
 		current = current->next;
 	}

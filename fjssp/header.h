@@ -148,6 +148,7 @@ bool searchMachine(Machine* head, int id);
  */
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperationAtStart(Operation* head, Operation* new);
+bool updatePosition(Operation** head, int xOperationID, int yOperationID);
 bool deleteOperation(Operation** head, int id);
 int deleteOperationByJob(Operation** head, int jobID);
 bool writeOperations(char fileName[], Operation* head);

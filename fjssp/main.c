@@ -257,17 +257,17 @@ int main()
 				printf("\n\n-  3. Remover um trabalho\n");
 
 				// remover trabalho
-				deleteJob(&jobs, 1);
+				deleteJob(&jobs, 3);
 				printf("Trabalho removido com sucesso!\n");
 
 				bool operationsAllFound = false;
 				bool executionsAllFound = false;
 				while (!operationsAllFound) // enquanto que encontrar trabalhos, remover as operações associadas
 				{
-					if (searchOperationByJob(operations, 1))
+					if (searchOperationByJob(operations, 3))
 					{
 						// remover operação
-						int operationDeleted = deleteOperationByJob(&operations, 1);
+						int operationDeleted = deleteOperationByJob(&operations, 3);
 						printf("Operação associada ao trabalho removida com sucesso!\n");
 
 						while (!executionsAllFound) // enquanto que encontrar a respetiva operação, remover as execuções de operações associadas
@@ -331,7 +331,9 @@ int main()
 #pragma region funcionalidade 6: atualizar uma operação
 				printf("\n\n-  6. Atualizar uma operação\n");
 
-
+				// atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
+				updatePosition(&operations, 2, 4);
+				printf("As posições das operações foram trocadas com sucesso!\n");
 #pragma endregion
 
 #pragma region funcionalidade 7: inserir uma operação
