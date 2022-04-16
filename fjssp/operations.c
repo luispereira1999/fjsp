@@ -321,6 +321,34 @@ bool searchOperationByJob(Operation* head, int jobID)
 
 
 /**
+* @brief	Obter uma operação da lista de operações
+* @param	head	Lista de operações
+* @param	id		Identificador da operação
+* @return	Operação encontrada (ou NULL se não encontrou)
+*/
+Operation* getOperation(Operation* head, int id)
+{
+	if (head == NULL) // se lista está vazia
+	{
+		return NULL;
+	}
+
+	Operation* current = head;
+
+	while (current != NULL)
+	{
+		if (current->id == id)
+		{
+			return current;
+		}
+		current = current->next;
+	}
+
+	return NULL;
+}
+
+
+/**
 * @brief	Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções
 * @param	operations		Lista de operações
 * @param	executions		Lista de execuções

@@ -11,7 +11,7 @@
 
 
 /**
-* @brief	Carregar dados para as listas
+* @brief	Carregar dados para as listas em memória
 * @param	jobs		Apontador para a lista de jobs
 * @param	machines	Apontador para a lista de máquinas
 * @param	operations	Apontador para a lista de operações

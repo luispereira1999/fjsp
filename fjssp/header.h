@@ -156,6 +156,7 @@ bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 bool searchOperation(Operation* head, int id);
 bool searchOperationByJob(Operation* head, int jobID);
+Operation* getOperation(Operation* head, int id);
 int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
 int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
 float getAverageTimeToCompleteOperation(Execution* head, int operationID);
@@ -177,7 +178,7 @@ bool searchExecutionByOperation(Execution* head, int operationID);
 Execution* SortExecutionsByOperation(Execution* head);
 
 /**
- * @brief	Carregar dados para listas
+ * @brief	Carregar dados para listas em memória
  */
 void loadData(Job** jobs, Machine** machines, Operation** operations, Execution** executions);
 

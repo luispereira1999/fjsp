@@ -96,8 +96,8 @@ int main()
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 
-#pragma region funcionalidade 3: remover uma operação
-				printf("\n\n-  3. Remover uma operação\n");
+#pragma region funcionalidade 3: remover uma operação e respetivas execuções
+				printf("\n\n-  3. Remover uma operação e respetivas execuções\n");
 
 				// remover operação
 				deleteOperation(&operations, 35);
@@ -127,8 +127,8 @@ int main()
 				printf("Tempo necessário para a execução de operação atualizada com sucesso!\n");
 #pragma endregion
 
-#pragma region funcionalidade 5: inserir uma operação
-				printf("\n\n-  5. Inserir uma operação\n");
+#pragma region funcionalidade 5: inserir uma operação e uma execução
+				printf("\n\n-  5. Inserir uma operação e uma execução\n");
 
 				// inserir nova operação
 				Operation* operation = NULL;
@@ -283,13 +283,12 @@ int main()
 								executionsAllFound = true;
 							}
 						}
+						executionsAllFound = false; // necessário para voltar a percorrer o while acima, numva nova operação
 					}
 					else
 					{
 						operationsAllFound = true;
 					}
-
-					executionsAllFound = false;
 				}
 #pragma endregion
 
@@ -327,6 +326,12 @@ int main()
 						allFound = true;
 					}
 				}
+#pragma endregion
+
+#pragma region funcionalidade 6: atualizar uma operação
+				printf("\n\n-  6. Atualizar uma operação\n");
+
+
 #pragma endregion
 
 #pragma region funcionalidade 7: inserir uma operação
