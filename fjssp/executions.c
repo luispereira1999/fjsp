@@ -386,17 +386,24 @@ Execution* sortExecutionsByOperation(Execution* head)
 
 #pragma region trabalhar com tabela hash
 
-bool createExecutionsTable()
+ExecutionNode* createExecutionNode()
 {
-	bool created = false;
+	ExecutionNode* node = malloc(sizeof(ExecutionNode));
 
+	node->start = NULL;
+	node->numberOfExecutions = 0;
+
+	return node;
+}
+
+ExecutionNode** createExecutionsTable(ExecutionNode** table)
+{
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
-		executionsTable[i] = createExecutionList();
-		created = true;
+		table[i] = createExecutionNode();
 	}
 
-	return created;
+	return table;
 }
 
 #pragma endregion

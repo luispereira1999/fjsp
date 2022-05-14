@@ -32,8 +32,8 @@ int main()
 	Execution* executions = NULL;
 
 	// criar tabela hash vazia
-	ExecutionTable* executionsTable[HASH_TABLE_SIZE];
-	createExecutionsTable();
+	ExecutionNode* executionsTable[HASH_TABLE_SIZE];
+	*executionsTable = createExecutionsTable(executionsTable);
 
 	int menuOption = 0;
 

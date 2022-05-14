@@ -31,9 +31,9 @@
 
 #pragma region representações
 
-/**
- * @brief	Criar tipo de dados booleano
- */
+  /**
+   * @brief	Criar tipo de dados booleano
+   */
 typedef enum bool
 {
    false = 0,
@@ -104,10 +104,10 @@ extern Execution* executions;
 typedef struct {
 	Execution* start; // apontador para o primeiro elemento de cada posição da tabela
 	int numberOfExecutions; // quantidade de execuções de cada posição da tabela
-} ExecutionTable;
+} ExecutionNode;
 
 // tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente (um array de apontadores para listas de execuções)
-extern ExecutionTable* executionsTable[HASH_TABLE_SIZE];
+extern ExecutionNode* executionsTable[HASH_TABLE_SIZE];
 
 #pragma endregion
 
@@ -217,7 +217,8 @@ Execution* sortExecutionsByOperation(Execution* head);
 /**
  * @brief	Sobre execuções com tabela hash
  */
-bool createExecutionsTable();
+ExecutionNode* createExecutionNode();
+ExecutionNode** createExecutionsTable(ExecutionNode** table);
 
 /**
  * @brief	Carregar dados para listas em memória
