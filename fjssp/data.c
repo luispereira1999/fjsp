@@ -11,20 +11,13 @@
 
 
 /**
-* @brief	Carregar dados para as listas em memória
+* @brief	Carregar dados de trabalhos para lista em memória
 * @param	jobs		Apontador para a lista de jobs
-* @param	machines	Apontador para a lista de máquinas
-* @param	operations	Apontador para a lista de operações
-* @param	executions	Apontador para a lista de execuções de operações
 */
-void loadData(Job** jobs, Machine** machines, Operation** operations, Execution** executions)
+void loadJobs(Job** jobs)
 {
 	Job* job = NULL;
-	Machine* machine = NULL;
-	Operation* operation = NULL;
-	Execution* execution = NULL;
 
-	// jobs
 	job = newJob(1);
 	*jobs = insertJobAtStart(*jobs, job);
 	job = newJob(2);
@@ -41,7 +34,17 @@ void loadData(Job** jobs, Machine** machines, Operation** operations, Execution*
 	*jobs = insertJobAtStart(*jobs, job);
 	job = newJob(8);
 	*jobs = insertJobAtStart(*jobs, job);
-	// machines
+}
+
+
+/**
+* @brief	Carregar dados de máquinas para lista em memória
+* @param	machines	Apontador para a lista de máquinas
+*/
+void loadMachines(Machine** machines)
+{
+	Machine* machine = NULL;
+
 	machine = newMachine(1, false);
 	*machines = insertMachineAtStart(*machines, machine);
 	machine = newMachine(2, false);
@@ -58,6 +61,17 @@ void loadData(Job** jobs, Machine** machines, Operation** operations, Execution*
 	*machines = insertMachineAtStart(*machines, machine);
 	machine = newMachine(8, false);
 	*machines = insertMachineAtStart(*machines, machine);
+}
+
+
+/**
+* @brief	Carregar dados de operações para lista em memória
+* @param	operations	Apontador para a lista de operações
+*/
+void loadOperations(Operation** operations)
+{
+	Operation* operation = NULL;
+
 	// operations - job 1
 	operation = newOperation(1, 1, 1);
 	*operations = insertOperationAtStart(*operations, operation);
@@ -142,6 +156,17 @@ void loadData(Job** jobs, Machine** machines, Operation** operations, Execution*
 	*operations = insertOperationAtStart(*operations, operation);
 	operation = newOperation(38, 8, 5);
 	*operations = insertOperationAtStart(*operations, operation);
+}
+
+
+/**
+* @brief	Carregar dados de execuções de operações para lista em memória
+* @param	executions	Apontador para a lista de execuções de operações
+*/
+void loadExecutions(Execution** executions)
+{
+	Execution* execution = NULL;
+
 	// execution - job 1
 	execution = newExecution(1, 1, 4);
 	*executions = insertExecutionAtStart(*executions, execution);
