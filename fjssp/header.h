@@ -218,7 +218,8 @@ Execution* sortExecutionsByOperation(Execution* head);
  * @brief	Sobre execuções com tabela hash
  */
 ExecutionNode* createExecutionNode();
-ExecutionNode** createExecutionsTable(ExecutionNode** table);
+ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
+int generateHash(int id);
 
 /**
  * @brief	Carregar dados para listas em memória

@@ -396,14 +396,19 @@ ExecutionNode* createExecutionNode()
 	return node;
 }
 
-ExecutionNode** createExecutionsTable(ExecutionNode** table)
+ExecutionNode** createExecutionsTable(ExecutionNode* table[])
 {
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
 		table[i] = createExecutionNode();
 	}
 
-	return table;
+	return *table;
+}
+
+int generateHash(int operationID)
+{
+	return operationID % HASH_TABLE_SIZE;
 }
 
 #pragma endregion
