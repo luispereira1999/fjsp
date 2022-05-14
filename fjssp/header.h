@@ -28,6 +28,7 @@
 
 #pragma endregion
 
+
 #pragma region representações
 
 /**
@@ -41,6 +42,7 @@ typedef enum bool
 
 #pragma endregion
 
+
 #pragma region estruturas de dados em memória
 
 /**
@@ -51,6 +53,8 @@ typedef struct Job
 	int id;
 	struct Job* next;
 } Job;
+
+// lista de trabalhos
 extern Job* jobs; // extern: informar o compilador que esta variável está definida algures no código
 
 /**
@@ -62,6 +66,8 @@ typedef struct Machine
 	bool isBusy; // se a máquina está ou não em utilização
 	struct Machine* next;
 } Machine;
+
+// lista de máquinas
 extern Machine* machines;
 
 /**
@@ -74,6 +80,8 @@ typedef struct Operation
 	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
 	struct Operation* next;
 } Operation;
+
+// lista de operações
 extern Operation* operations;
 
 /**
@@ -86,18 +94,23 @@ typedef struct Execution
 	int runtime; // unidades de tempo necessárias para a execução da operação
 	struct Execution* next;
 } Execution;
+
+// lista de execuções
 extern Execution* executions;
 
-// tipo lista com um ponteiro para o primeiro elemento de cada posição da tabela
+/**
+ * @brief	Estrutura de dados para a lista (em memória) de cada posição da tabela hash de execuções
+ */
 typedef struct {
-	Execution* start;
-	int numberOfExecutions;
+	Execution* start; // apontador para o primeiro elemento de cada posição da tabela
+	int numberOfExecutions; // quantidade de execuções de cada posição da tabela
 } ExecutionTable;
 
-// a nossa tabela hash (um array de apontadores para listas de execuções)
-ExecutionTable* executions[HASH_TABLE_SIZE];
+// tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente (um array de apontadores para listas de execuções)
+extern ExecutionTable* executionsTable[HASH_TABLE_SIZE];
 
 #pragma endregion
+
 
 #pragma region estruturas de dados em ficheiros
 
@@ -139,6 +152,7 @@ typedef struct FileExecution
 } FileExecution;
 
 #pragma endregion
+
 
 #pragma region funções
 
@@ -185,7 +199,7 @@ int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 float getAverageTimeToCompleteOperation(Execution* head, int operationID);
 
 /**
- * @brief	Sobre execuções
+ * @brief	Sobre execuções com listas
  */
 Execution* newExecution(int operationID, int machineID, int runtime);
 Execution* insertExecutionAtStart(Execution* head, Execution* new);
@@ -198,7 +212,12 @@ bool freeExecutions(Execution* head);
 bool displayExecutions(Execution* head);
 bool searchExecution(Execution* head, int operationID, int machineID);
 bool searchExecutionByOperation(Execution* head, int operationID);
-Execution* SortExecutionsByOperation(Execution* head);
+Execution* sortExecutionsByOperation(Execution* head);
+
+/**
+ * @brief	Sobre execuções com tabela hash
+ */
+bool createExecutionsTable();
 
 /**
  * @brief	Carregar dados para listas em memória

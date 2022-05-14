@@ -11,6 +11,8 @@
 #include "header.h"
 
 
+#pragma region trabalhar com listas
+
 /**
 * @brief	Criar nova execução
 * @param	operationID		Identificador da operação
@@ -358,7 +360,7 @@ bool searchExecutionByOperation(Execution* head, int operationID)
 * @param	head			Lista de execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Execution* SortExecutionsByOperation(Execution* head)
+Execution* sortExecutionsByOperation(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -378,3 +380,23 @@ Execution* SortExecutionsByOperation(Execution* head)
 
 	return sorted;
 }
+
+#pragma endregion
+
+
+#pragma region trabalhar com tabela hash
+
+bool createExecutionsTable()
+{
+	bool created = false;
+
+	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	{
+		executionsTable[i] = createExecutionList();
+		created = true;
+	}
+
+	return created;
+}
+
+#pragma endregion

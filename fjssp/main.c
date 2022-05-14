@@ -25,10 +25,15 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese"); // permitir caracteres especiais (portugueses)
 
+	// listas de entidades
 	Job* jobs = NULL;
 	Operation* operations = NULL;
 	Machine* machines = NULL;
 	Execution* executions = NULL;
+
+	// criar tabela hash vazia
+	ExecutionTable* executionsTable[HASH_TABLE_SIZE];
+	createExecutionsTable();
 
 	int menuOption = 0;
 
