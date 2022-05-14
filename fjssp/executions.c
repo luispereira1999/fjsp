@@ -434,15 +434,38 @@ int generateHash(int operationID)
 * @param	table	Tabela hash das execuções
 * @return	Tabela hash das execuções atualizada
 */
-ExecutionNode** insertExecutionAtTable(ExecutionNode* table[])
+ExecutionNode** insertExecutionAtTable(ExecutionNode* table[], Execution* new)
 {
-	Execution* insert = newExecution(5, 5, 6);
-	int index = generateHash(insert->operationID);
-
-	table[index]->start = insertExecutionAtStart(table[index]->start, insert);
+	int index = generateHash(new->operationID);
+	
+	table[index]->start = insertExecutionAtStart(table[index]->start, new);
 	table[index]->numberOfExecutions++;
 
 	return *table;
+}
+
+
+/**
+* @brief	Mostrar a tabela hash com as listas de execuções na consola
+* @param	table	Tabela hash das execuções
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool displayExecutionsTable(ExecutionNode* table[])
+{
+	if (table == NULL)
+	{
+		return false;
+	}
+
+	printf("\n---------TABELA---------\n");
+	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	{
+		printf("%d Número de elementos da lista: %d\n", i, table[i]->numberOfExecutions);
+		displayExecutions(table[i]->start);
+	}
+	printf("\n-------FIM TABELA-------\n");
+
+	return true;
 }
 
 #pragma endregion
