@@ -46,7 +46,7 @@ typedef enum bool
 #pragma region estruturas de dados em memória
 
 /**
- * @brief	Estrutura de dados para a lista (em memória) de trabalhos
+ * @brief	Estrutura de dados para representar a lista de trabalhos (em memória)
  */
 typedef struct Job
 {
@@ -55,10 +55,10 @@ typedef struct Job
 } Job;
 
 // lista de trabalhos
-extern Job* jobs; // extern: informar o compilador que esta variável está definida algures no código
+extern Job* jobs; // extern: informa o compilador que esta variável está definida algures no código
 
 /**
- * @brief	Estrutura de dados para a lista (em memória) de máquinas
+ * @brief	Estrutura de dados para representar a lista de máquinas (em memória)
  */
 typedef struct Machine
 {
@@ -71,7 +71,7 @@ typedef struct Machine
 extern Machine* machines;
 
 /**
- * @brief	Estrutura de dados para a lista (em memória) de operações
+ * @brief	Estrutura de dados para representar a lista de operações (em memória)
  */
 typedef struct Operation
 {
@@ -85,7 +85,7 @@ typedef struct Operation
 extern Operation* operations;
 
 /**
- * @brief	Estrutura de dados para a lista (em memória) das execuções das operações em máquinas
+ * @brief	Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)
  */
 typedef struct Execution
 {
@@ -99,14 +99,15 @@ typedef struct Execution
 extern Execution* executions;
 
 /**
- * @brief	Estrutura de dados para a lista (em memória) de cada posição da tabela hash de execuções
+ * @brief	Estrutura de dados para representar cada nó (posição) da tabela hash das execuções (em memória)
  */
 typedef struct {
 	Execution* start; // apontador para o primeiro elemento de cada posição da tabela
 	int numberOfExecutions; // quantidade de execuções de cada posição da tabela
 } ExecutionNode;
 
-// tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente (um array de apontadores para listas de execuções)
+// tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente,
+// é um array de apontadores para listas de execuções
 extern ExecutionNode* executionsTable[HASH_TABLE_SIZE];
 
 #pragma endregion
@@ -220,15 +221,18 @@ Execution* sortExecutionsByOperation(Execution* head);
 ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
 ExecutionNode* createExecutionNode();
 int generateHash(int id);
-ExecutionNode** insertExecutionAtTable(ExecutionNode* table[]);
+ExecutionNode** insertExecutionAtTable(ExecutionNode* table[], Execution* new);
+bool displayExecutionsTable(ExecutionNode* table[]);
 
 /**
  * @brief	Carregar dados para listas em memória
+ * 
+ * ALTERAR
  */
-void loadJobs(Job** jobs);
-void loadMachines(Machine** machines);
-void loadOperations(Operation** operations);
-void loadExecutions(Execution** executions);
+Job* loadJobs(Job* jobs);
+Machine* loadMachines(Machine* machines);
+Operation* loadOperations(Operation* operations);
+ExecutionNode** loadExecutions(ExecutionNode* table[]);
 
 #pragma endregion
 

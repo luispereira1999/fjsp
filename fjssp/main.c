@@ -67,10 +67,11 @@ int main()
 				printf("-  1. Definir estruturas de dados dinâmicas\n");
 
 				// carregar dados (tabela) para as listas
-				loadJobs(&jobs);
-				loadMachines(&machines);
-				loadOperations(&operations);
-				loadExecutions(&executions);
+				jobs = loadJobs(jobs);
+				machines = loadMachines(machines);
+				operations = loadOperations(operations);
+				executions = loadExecutions(executions);
+				*executionsTable = loadExecutionsToTable(executionsTable);
 				printf("Dados carregados em memória com sucesso!\n");
 #pragma endregion
 
