@@ -217,14 +217,18 @@ Execution* sortExecutionsByOperation(Execution* head);
 /**
  * @brief	Sobre execuções com tabela hash
  */
-ExecutionNode* createExecutionNode();
 ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
+ExecutionNode* createExecutionNode();
 int generateHash(int id);
+ExecutionNode** insertExecutionAtTable(ExecutionNode* table[]);
 
 /**
  * @brief	Carregar dados para listas em memória
  */
-void loadData(Job** jobs, Machine** machines, Operation** operations, Execution** executions);
+void loadJobs(Job** jobs);
+void loadMachines(Machine** machines);
+void loadOperations(Operation** operations);
+void loadExecutions(Execution** executions);
 
 #pragma endregion
 

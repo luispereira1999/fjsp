@@ -386,16 +386,11 @@ Execution* sortExecutionsByOperation(Execution* head)
 
 #pragma region trabalhar com tabela hash
 
-ExecutionNode* createExecutionNode()
-{
-	ExecutionNode* node = malloc(sizeof(ExecutionNode));
-
-	node->start = NULL;
-	node->numberOfExecutions = 0;
-
-	return node;
-}
-
+/**
+* @brief	Criar tabela hash das execuções vazia
+* @param	table	Tabela hash das execuções
+* @return	Tabela hash das execuções criada
+*/
 ExecutionNode** createExecutionsTable(ExecutionNode* table[])
 {
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
@@ -406,9 +401,48 @@ ExecutionNode** createExecutionsTable(ExecutionNode* table[])
 	return *table;
 }
 
+
+/**
+* @brief	Criar nó vazio para uma posição da tabela hash das execuções
+* @return	Nó vazio da tabela hash das execuções criado
+*/
+ExecutionNode* createExecutionNode()
+{
+	ExecutionNode* node = malloc(sizeof(ExecutionNode));
+
+	node->start = NULL;
+	node->numberOfExecutions = 0;
+
+	return node;
+}
+
+
+/**
+* @brief	Gerar hash através de uma função.
+*			A função é representada pelo resto da divisão do identificador da operação pelo tamanho da tabela
+* @param	operationID		Identificador da operação
+* @return	Valor calculado pela função hash
+*/
 int generateHash(int operationID)
 {
 	return operationID % HASH_TABLE_SIZE;
+}
+
+
+/**
+* @brief	Inserir nova execução na tabela hash das execuções, numa determinada posição
+* @param	table	Tabela hash das execuções
+* @return	Tabela hash das execuções atualizada
+*/
+ExecutionNode** insertExecutionAtTable(ExecutionNode* table[])
+{
+	Execution* insert = newExecution(5, 5, 6);
+	int index = generateHash(insert->operationID);
+
+	table[index]->start = insertExecutionAtStart(table[index]->start, insert);
+	table[index]->numberOfExecutions++;
+
+	return *table;
 }
 
 #pragma endregion
