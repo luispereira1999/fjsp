@@ -14,8 +14,13 @@
 #define HEADER_H
 
 /**
- * @brief	Nomes para os ficheiros onde os dados são armazenados
+ * @brief	Tamanho da tabela hash que armazena as execuções
  */
+#define HASH_TABLE_SIZE 10
+
+ /**
+  * @brief	Nomes para os ficheiros onde os dados são armazenados.
+  */
 #define JOBS_FILENAME_BINARY "jobs.bin"
 #define MACHINES_FILENAME_BINARY "machines.bin"
 #define OPERATIONS_FILENAME_BINARY "operations.bin"
@@ -60,6 +65,18 @@ typedef struct Machine
 extern Machine* machines;
 
 /**
+ * @brief	Estrutura de dados para a lista (em memória) de operações
+ */
+typedef struct Operation
+{
+	int id;
+	int jobID;
+	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
+	struct Operation* next;
+} Operation;
+extern Operation* operations;
+
+/**
  * @brief	Estrutura de dados para a lista (em memória) das execuções das operações em máquinas
  */
 typedef struct Execution
@@ -71,17 +88,14 @@ typedef struct Execution
 } Execution;
 extern Execution* executions;
 
-/**
- * @brief	Estrutura de dados para a lista (em memória) de operações
- */
-typedef struct Operation
-{
-	int id;
-	int jobID;
-	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
-	struct Operation* next;
-} Operation;
-extern Operation* operations;
+// tipo lista com um ponteiro para o primeiro elemento de cada posição da tabela
+typedef struct {
+	Execution* start;
+	int numberOfExecutions;
+} ExecutionTable;
+
+// a nossa tabela hash (um array de apontadores para listas de execuções)
+ExecutionTable* executions[HASH_TABLE_SIZE];
 
 #pragma endregion
 
@@ -105,16 +119,6 @@ typedef struct FileMachine
 } FileMachine;
 
 /**
- * @brief	Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas
- */
-typedef struct FileExecution
-{
-	int operationID;
-	int machineID;
-	int runtime; // unidades de tempo necessárias para a execução da operação
-} FileExecution;
-
-/**
  * @brief	Estrutura de dados para armazenar em ficheiro a lista de operações
  */
 typedef struct FileOperation
@@ -123,6 +127,16 @@ typedef struct FileOperation
 	int jobID;
 	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
 } FileOperation;
+
+/**
+ * @brief	Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas
+ */
+typedef struct FileExecution
+{
+	int operationID;
+	int machineID;
+	int runtime; // unidades de tempo necessárias para a execução da operação
+} FileExecution;
 
 #pragma endregion
 
