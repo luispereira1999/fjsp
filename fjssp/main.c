@@ -29,7 +29,7 @@ int main()
 	Job* jobs = NULL;
 	Operation* operations = NULL;
 	Machine* machines = NULL;
-	Execution* executions = NULL;
+	//Execution* executions = NULL;
 
 	// criar tabela hash das execuções vazia
 	ExecutionNode* executionsTable[HASH_TABLE_SIZE];
@@ -115,26 +115,26 @@ int main()
 				bool executionsallfound = false;
 				while (!operationsallfound) // enquanto que encontrar trabalhos, remover as operações associadas
 				{
-					if (searchOperationByJob(operations, 3))
+					if (searchOperation_ByJob(operations, 3))
 					{
 						// remover operação
-						int operationdeleted = deleteOperationByJob(&operations, 3);
+						int operationdeleted = deleteOperation_ByJob(&operations, 3);
 						printf("operação associada ao trabalho removida com sucesso!\n");
 
-						while (!executionsallfound) // enquanto que encontrar a respetiva operação, remover as execuções de operações associadas
-						{
-							if (searchExecutionByOperation(executions, operationdeleted))
-							{
-								// remover execução
-								deleteExecutionByOperation(&executions, operationdeleted);
-								printf("execução associada à operação removida com sucesso!\n");
-							}
-							else
-							{
-								executionsallfound = true;
-							}
-						}
-						executionsallfound = false; // necessário para voltar a percorrer o while acima, numva nova operação
+						//while (!executionsallfound) // enquanto que encontrar a respetiva operação, remover as execuções de operações associadas
+						//{
+						//	if (searchExecutionByOperation(executions, operationdeleted))
+						//	{
+						//		// remover execução
+						//		deleteExecution_ByOperation(&executions, operationdeleted);
+						//		printf("execução associada à operação removida com sucesso!\n");
+						//	}
+						//	else
+						//	{
+						//		executionsallfound = true;
+						//	}
+						//}
+						//executionsallfound = false; // necessário para voltar a percorrer o while acima, numva nova operação
 					}
 					else
 					{
@@ -149,7 +149,7 @@ int main()
 				// inserir novo trabalho
 				Job* job = NULL;
 				job = newJob(9);
-				jobs = insertJobAtStart(jobs, job);
+				jobs = insertJob_AtStart(jobs, job);
 
 				// guardar a nova inserção em ficheiro
 				writeJobs(JOBS_FILENAME_BINARY, jobs);
@@ -163,20 +163,9 @@ int main()
 				deleteOperation(&operations, 35);
 				printf("Operação removida com sucesso!\n");
 
-				bool allFound = false;
-				while (!allFound) // enquanto que encontrar operações, remover as execuções de operações associadas
-				{
-					if (searchExecutionByOperation(executions, 35))
-					{
-						// remover execução
-						deleteExecutionByOperation(&executions, 35);
-						printf("Execução associada à operação removida com sucesso!\n");
-					}
-					else
-					{
-						allFound = true;
-					}
-				}
+				// remover execuções associadas à operação
+				deleteExecutions_ByOperation_AtTable(&executionsTable, 35);
+				printf("Execuções associadas à operação removidas com sucesso!\n");
 #pragma endregion
 
 #pragma region funcionalidade 6: atualizar uma operação
@@ -185,6 +174,10 @@ int main()
 				// atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
 				updatePosition(&operations, 2, 4);
 				printf("As posições das operações foram trocadas com sucesso!\n");
+
+				// atualizar o tempo de uma execução de operação
+		/*		executions = searchExecutionAtTable(executionsTable, 13, 8);
+				updateRuntime();*/
 #pragma endregion
 
 #pragma region funcionalidade 7: inserir uma operação
@@ -193,12 +186,12 @@ int main()
 				// inserir nova operação
 				Operation* operation = NULL;
 				operation = newOperation(39, 2, 8);
-				operations = insertOperationAtStart(operations, operation);
+				operations = insertOperation_AtStart(operations, operation);
 
 				// inserir nova execução de uma operação
-				Execution* execution = NULL;
-				execution = newExecution(51, 5, 17);
-				executions = insertExecutionAtTable(executionsTable, execution);
+			/*	Execution* execution = NULL;
+				execution = newExecution(39, 5, 17);
+				executions = insertExecution_AtTable(executionsTable, execution);*/
 
 				// guardar as novas inserções em ficheiros
 				writeOperations(OPERATIONS_FILENAME_BINARY, operations);

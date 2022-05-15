@@ -37,7 +37,7 @@ Job* newJob(int id)
 * @param	new		Novo trabalho
 * @return	Lista de trabalhos atualizada
 */
-Job* insertJobAtStart(Job* head, Job* new)
+Job* insertJob_AtStart(Job* head, Job* new)
 {
 	if (searchJob(head, new->id)) // não permitir inserir um novo com o mesmo ID
 	{
@@ -156,7 +156,7 @@ Job* readJobs(char fileName[])
 	while (fread(&currentInFile, sizeof(FileJob), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newJob(currentInFile.id);
-		head = insertJobAtStart(head, current);
+		head = insertJob_AtStart(head, current);
 	}
 
 	fclose(file);

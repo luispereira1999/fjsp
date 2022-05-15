@@ -39,7 +39,7 @@ Machine* newMachine(int id, bool isBusy)
 * @param	new		Nova máquina
 * @return	Lista de máquinas atualizada
 */
-Machine* insertMachineAtStart(Machine* head, Machine* new)
+Machine* insertMachine_AtStart(Machine* head, Machine* new)
 {
 	if (searchMachine(head, new->id)) // não permitir inserir uma nova com o mesmo ID
 	{
@@ -119,7 +119,7 @@ Machine* readMachines(char fileName[])
 	while (fread(&currentInFile, sizeof(FileMachine), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newMachine(currentInFile.id, currentInFile.isBusy);
-		head = insertMachineAtStart(head, current);
+		head = insertMachine_AtStart(head, current);
 	}
 
 	fclose(file);

@@ -161,7 +161,7 @@ typedef struct FileExecution
  * @brief	Sobre trabalhos
  */
 Job* newJob(int id);
-Job* insertJobAtStart(Job* head, Job* new);
+Job* insertJob_AtStart(Job* head, Job* new);
 bool deleteJob(Job** head, int id);
 bool writeJobs(char fileName[], Job* head);
 Job* readJobs(char fileName[]);
@@ -173,7 +173,7 @@ bool searchJob(Job* head, int id);
  * @brief	Sobre máquinas
  */
 Machine* newMachine(int id, bool isBusy);
-Machine* insertMachineAtStart(Machine* head, Machine* new);
+Machine* insertMachine_AtStart(Machine* head, Machine* new);
 bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
 bool freeMachines(Machine* head);
@@ -184,36 +184,36 @@ bool searchMachine(Machine* head, int id);
  * @brief	Sobre operações
  */
 Operation* newOperation(int id, int jobID, int position);
-Operation* insertOperationAtStart(Operation* head, Operation* new);
+Operation* insertOperation_AtStart(Operation* head, Operation* new);
 bool updatePosition(Operation** head, int xOperationID, int yOperationID);
 bool deleteOperation(Operation** head, int id);
-int deleteOperationByJob(Operation** head, int jobID);
+int deleteOperation_ByJob(Operation** head, int jobID);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
 bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 bool searchOperation(Operation* head, int id);
-bool searchOperationByJob(Operation* head, int jobID);
+bool searchOperation_ByJob(Operation* head, int jobID);
 Operation* getOperation(Operation* head, int id);
-int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
-int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
-float getAverageTimeToCompleteOperation(Execution* head, int operationID);
+int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
+int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
+float getAverageTime_ToCompleteOperation(Execution* head, int operationID);
 
 /**
  * @brief	Sobre execuções com listas
  */
 Execution* newExecution(int operationID, int machineID, int runtime);
-Execution* insertExecutionAtStart(Execution* head, Execution* new);
-Execution* insertExecutionByOperation(Execution* head, Execution* new);
+Execution* insertExecution_AtStart(Execution* head, Execution* new);
+Execution* insertExecution_ByOperation(Execution* head, Execution* new);
 bool updateRuntime(Execution** head, int operationID, int machineID, int runtime);
-bool deleteExecutionByOperation(Execution** head, int operationID);
+bool deleteExecution_ByOperation(Execution** head, int operationID);
 bool writeExecutions(char fileName[], Execution* head);
 Execution* readExecutions(char fileName[]);
 bool freeExecutions(Execution* head);
 bool displayExecutions(Execution* head);
 Execution* searchExecution(Execution* head, int operationID, int machineID);
-bool searchExecutionByOperation(Execution* head, int operationID);
-Execution* sortExecutionsByOperation(Execution* head);
+Execution* searchExecution_ByOperation(Execution* head, int operationID);
+Execution* sortExecutions_ByOperation(Execution* head);
 
 /**
  * @brief	Sobre execuções com tabela hash
@@ -221,9 +221,10 @@ Execution* sortExecutionsByOperation(Execution* head);
 ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
 ExecutionNode* createExecutionNode();
 int generateHash(int id);
-ExecutionNode** insertExecutionAtTable(ExecutionNode* table[], Execution* new);
+ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
 bool displayExecutionsTable(ExecutionNode* table[]);
-Execution* searchExecutionAtTable(ExecutionNode* table[], int operationID, int machineID);
+Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
+bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
 
 /**
  * @brief	Carregar dados para as estruturas em memória

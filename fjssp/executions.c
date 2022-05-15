@@ -43,7 +43,7 @@ Execution* newExecution(int operationID, int machineID, int runtime)
 * @param	new		Nova execução
 * @return	Lista de execuções atualizada
 */
-Execution* insertExecutionAtStart(Execution* head, Execution* new)
+Execution* insertExecution_AtStart(Execution* head, Execution* new)
 {
 	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
 	{
@@ -70,7 +70,7 @@ Execution* insertExecutionAtStart(Execution* head, Execution* new)
 * @param	new		Nova execução
 * @return	Lista de execuções atualizada
 */
-Execution* insertExecutionByOperation(Execution* head, Execution* new)
+Execution* insertExecution_ByOperation(Execution* head, Execution* new)
 {
 	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
 	{
@@ -146,9 +146,14 @@ bool updateRuntime(Execution** head, int operationID, int machineID, int runtime
 * @param	operationID		Identificador da operação
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool deleteExecutionByOperation(Execution** head, int operationID)
+bool deleteExecution_ByOperation(Execution** head, int operationID)
 {
 	if (*head == NULL) // se a lista estiver vazia
+	{
+		return false;
+	}
+
+	if (!searchExecution_ByOperation(*head, operationID)) // se não existir a execução para remover
 	{
 		return false;
 	}
@@ -240,7 +245,7 @@ Execution* readExecutions(char fileName[])
 	while (fread(&currentInFile, sizeof(FileExecution), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newExecution(currentInFile.operationID, currentInFile.machineID, currentInFile.runtime);
-		head = insertExecutionAtStart(head, current);
+		head = insertExecution_AtStart(head, current);
 	}
 
 	fclose(file);
@@ -333,7 +338,7 @@ Execution* searchExecution(Execution* head, int operationID, int machineID)
 * @param	operationID		Identificador da operação
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool searchExecutionByOperation(Execution* head, int operationID)
+Execution* searchExecution_ByOperation(Execution* head, int operationID)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -360,7 +365,7 @@ bool searchExecutionByOperation(Execution* head, int operationID)
 * @param	head			Lista de execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Execution* sortExecutionsByOperation(Execution* head)
+Execution* sortExecutions_ByOperation(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -374,7 +379,7 @@ Execution* sortExecutionsByOperation(Execution* head)
 	while (current != NULL)
 	{
 		new = newExecution(current->operationID, current->machineID, current->runtime);
-		sorted = insertExecutionByOperation(sorted, new);
+		sorted = insertExecution_ByOperation(sorted, new);
 		current = current->next;
 	}
 
@@ -434,14 +439,32 @@ int generateHash(int operationID)
 * @param	table	Tabela hash das execuções
 * @return	Tabela hash das execuções atualizada
 */
-ExecutionNode** insertExecutionAtTable(ExecutionNode* table[], Execution* new)
+ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new)
 {
 	int index = generateHash(new->operationID);
 
-	table[index]->start = insertExecutionAtStart(table[index]->start, new);
+	table[index]->start = insertExecution_AtStart(table[index]->start, new);
 	table[index]->numberOfExecutions++;
 
 	return *table;
+}
+
+
+bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID)
+{
+	ExecutionNode** current = table;
+
+	int index = generateHash(operationID);
+
+	bool deleted = false;
+
+	do
+	{
+		// enquanto que remover, significa que ainda existe operações e portanto continuará a remover até remover todas
+		deleted = deleteExecution_ByOperation(&current[index]->start, operationID);
+	} while (deleted == true);
+
+	return deleted;
 }
 
 
@@ -476,7 +499,7 @@ bool displayExecutionsTable(ExecutionNode* table[])
 * @param	machineID		Identificador da máquina
 * @return	Execução encontrada ou retorna nulo se não encontrar
 */
-Execution* searchExecutionAtTable(ExecutionNode* table[], int operationID, int machineID)
+Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID)
 {
 	if (table == NULL) // se a lista estiver vazia
 	{

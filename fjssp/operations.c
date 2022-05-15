@@ -41,7 +41,7 @@ Operation* newOperation(int id, int jobID, int position)
 * @param	new		Nova operação
 * @return	Lista de operações atualizada
 */
-Operation* insertOperationAtStart(Operation* head, Operation* new)
+Operation* insertOperation_AtStart(Operation* head, Operation* new)
 {
 	if (searchOperation(head, new->id)) // não permitir inserir uma nova com o mesmo ID
 	{
@@ -158,7 +158,7 @@ bool deleteOperation(Operation** head, int id)
 * @param	jobID			Identificador do trabalho
 * @return	Inteiro com o identificador da operação removida
 */
-int deleteOperationByJob(Operation** head, int jobID)
+int deleteOperation_ByJob(Operation** head, int jobID)
 {
 	if (*head == NULL) // se a lista estiver vazia
 	{
@@ -256,7 +256,7 @@ Operation* readOperations(char fileName[])
 	while (fread(&currentInFile, sizeof(FileOperation), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newOperation(currentInFile.id, currentInFile.jobID, currentInFile.position);
-		head = insertOperationAtStart(head, current);
+		head = insertOperation_AtStart(head, current);
 	}
 
 	fclose(file);
@@ -348,7 +348,7 @@ bool searchOperation(Operation* head, int id)
 * @param	jobID			Identificador do trabalho
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool searchOperationByJob(Operation* head, int jobID)
+bool searchOperation_ByJob(Operation* head, int jobID)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -407,14 +407,14 @@ Operation* getOperation(Operation* head, int id)
 * @param	minExecutions	Apontador para a lista de execuções a ser devolvida, relativamente ao tempo mínimo
 * @return	Quantidade de tempo
 */
-int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions)
+int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions)
 {
 	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
 	{
 		return -1;
 	}
 
-	int time = 99990;
+	int time = 999;
 	int counter = 0;
 
 	Operation* currentOperation = operations;
@@ -440,7 +440,7 @@ int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 				currentExecution = currentExecution->next;
 			}
 
-			*minExecutions = insertExecutionAtStart(*minExecutions, minExecution);
+			*minExecutions = insertExecution_AtStart(*minExecutions, minExecution);
 
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
 			freeExecutions(currentExecution);
@@ -465,7 +465,7 @@ int getMinTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 * @param	maxExecutions	Apontador para a lista de execuções a ser devolvida, relativamente ao tempo máximo
 * @return	Quantidade de tempo
 */
-int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions)
+int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions)
 {
 	if (operations == NULL || executions == NULL) // se as listas estiverem vazias
 	{
@@ -498,7 +498,7 @@ int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 				currentExecution = currentExecution->next;
 			}
 
-			*maxExecutions = insertExecutionAtStart(*maxExecutions, maxExecution);
+			*maxExecutions = insertExecution_AtStart(*maxExecutions, maxExecution);
 
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
 			freeExecutions(currentExecution);
@@ -521,7 +521,7 @@ int getMaxTimeToCompleteJob(Operation* operations, Execution* executions, int jo
 * @param	operationID		Identificador da operação
 * @return	Valor da média de tempo
 */
-float getAverageTimeToCompleteOperation(Execution* head, int operationID)
+float getAverageTime_ToCompleteOperation(Execution* head, int operationID)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
