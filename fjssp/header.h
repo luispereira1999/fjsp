@@ -16,7 +16,7 @@
 /**
  * @brief	Tamanho da tabela hash que armazena as execuções
  */
-#define HASH_TABLE_SIZE 10
+#define HASH_TABLE_SIZE 13
 
  /**
   * @brief	Nomes para os ficheiros onde os dados são armazenados.
@@ -211,7 +211,7 @@ bool writeExecutions(char fileName[], Execution* head);
 Execution* readExecutions(char fileName[]);
 bool freeExecutions(Execution* head);
 bool displayExecutions(Execution* head);
-bool searchExecution(Execution* head, int operationID, int machineID);
+Execution* searchExecution(Execution* head, int operationID, int machineID);
 bool searchExecutionByOperation(Execution* head, int operationID);
 Execution* sortExecutionsByOperation(Execution* head);
 
@@ -223,16 +223,15 @@ ExecutionNode* createExecutionNode();
 int generateHash(int id);
 ExecutionNode** insertExecutionAtTable(ExecutionNode* table[], Execution* new);
 bool displayExecutionsTable(ExecutionNode* table[]);
+Execution* searchExecutionAtTable(ExecutionNode* table[], int operationID, int machineID);
 
 /**
- * @brief	Carregar dados para listas em memória
- * 
- * ALTERAR
+ * @brief	Carregar dados para as estruturas em memória
  */
 Job* loadJobs(Job* jobs);
 Machine* loadMachines(Machine* machines);
 Operation* loadOperations(Operation* operations);
-ExecutionNode** loadExecutions(ExecutionNode* table[]);
+ExecutionNode** loadExecutionsTable(ExecutionNode* table[]);
 
 #pragma endregion
 

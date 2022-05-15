@@ -305,11 +305,11 @@ bool displayExecutions(Execution* head)
 * @param	machineID		Identificador da máquina
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool searchExecution(Execution* head, int operationID, int machineID)
+Execution* searchExecution(Execution* head, int operationID, int machineID)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
-		return false;
+		return NULL;
 	}
 
 	Execution* current = head;
@@ -318,12 +318,12 @@ bool searchExecution(Execution* head, int operationID, int machineID)
 	{
 		if (current->operationID == operationID && current->machineID == machineID)
 		{
-			return true;
+			return current;
 		}
 		current = current->next;
 	}
 
-	return false;
+	return NULL;
 }
 
 
@@ -437,7 +437,7 @@ int generateHash(int operationID)
 ExecutionNode** insertExecutionAtTable(ExecutionNode* table[], Execution* new)
 {
 	int index = generateHash(new->operationID);
-	
+
 	table[index]->start = insertExecutionAtStart(table[index]->start, new);
 	table[index]->numberOfExecutions++;
 
@@ -460,12 +460,38 @@ bool displayExecutionsTable(ExecutionNode* table[])
 	printf("\n---------TABELA---------\n");
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
-		printf("%d Número de elementos da lista: %d\n", i, table[i]->numberOfExecutions);
+		printf("Lista %d - Número de elementos: %d\n", i + 1, table[i]->numberOfExecutions);
 		displayExecutions(table[i]->start);
 	}
 	printf("\n-------FIM TABELA-------\n");
 
 	return true;
+}
+
+
+/**
+* @brief	Procurar por uma execução na tabela hash
+* @param	table			Tabela hash das execuções
+* @param	operationID		Identificador da operação
+* @param	machineID		Identificador da máquina
+* @return	Execução encontrada ou retorna nulo se não encontrar
+*/
+Execution* searchExecutionAtTable(ExecutionNode* table[], int operationID, int machineID)
+{
+	if (table == NULL) // se a lista estiver vazia
+	{
+		return NULL;
+	}
+
+	int index = generateHash(operationID);
+	Execution* search = searchExecution(table[index]->start, operationID, machineID);
+
+	if (search == NULL) // se a lista estiver vazia
+	{
+		return NULL;
+	}
+
+	return search;
 }
 
 #pragma endregion

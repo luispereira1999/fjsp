@@ -163,7 +163,7 @@ Operation* loadOperations(Operation* operations)
 * @brief	Carregar dados de execuções de operações para a tabela hash em memória
 * @param	table	Apontador para a tabela hash das execuções de operações
 */
-ExecutionNode** loadExecutions(ExecutionNode* table[])
+ExecutionNode** loadExecutionsTable(ExecutionNode* table[])
 {
 	Execution* execution = NULL;
 
