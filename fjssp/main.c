@@ -176,8 +176,7 @@ int main()
 				printf("As posições das operações foram trocadas com sucesso!\n");
 
 				// atualizar o tempo de uma execução de operação
-		/*		executions = searchExecutionAtTable(executionsTable, 13, 8);
-				updateRuntime();*/
+				updateRuntime_ByOperation_AtTable(executionsTable, 4, 4, 10);
 #pragma endregion
 
 #pragma region funcionalidade 7: inserir uma operação

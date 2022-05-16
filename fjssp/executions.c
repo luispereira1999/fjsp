@@ -124,6 +124,11 @@ bool updateRuntime(Execution** head, int operationID, int machineID, int runtime
 		return false;
 	}
 
+	if (!searchExecution(*head, operationID, machineID)) // se não existir a execução para remover
+	{
+		return false;
+	}
+
 	Execution* current = *head;
 
 	while (current != NULL)
@@ -447,6 +452,19 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new)
 	table[index]->numberOfExecutions++;
 
 	return *table;
+}
+
+
+bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime)
+{
+	ExecutionNode** current = table;
+
+	int index = generateHash(operationID);
+
+	bool updated = false;
+	updated = updateRuntime(&current[index]->start, operationID, machineID, runtime);
+
+	return updated;
 }
 
 

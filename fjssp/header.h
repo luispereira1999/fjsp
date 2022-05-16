@@ -225,6 +225,7 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
 bool displayExecutionsTable(ExecutionNode* table[]);
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
+bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);
 
 /**
  * @brief	Carregar dados para as estruturas em memória
