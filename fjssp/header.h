@@ -203,17 +203,17 @@ float getAverageTime_ToCompleteOperation(Execution* head, int operationID);
  * @brief	Sobre execuções com listas
  */
 Execution* newExecution(int operationID, int machineID, int runtime);
-Execution* insertExecution_AtStart(Execution* head, Execution* new);
-Execution* insertExecution_ByOperation(Execution* head, Execution* new);
-bool updateRuntime(Execution** head, int operationID, int machineID, int runtime);
-bool deleteExecution_ByOperation(Execution** head, int operationID);
+Execution* insertExecution_AtStart_AtList(Execution* head, Execution* new);
+Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new);
+bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int runtime);
+bool deleteExecution_ByOperation_AtList(Execution** head, int operationID);
 bool writeExecutions(char fileName[], Execution* head);
 Execution* readExecutions(char fileName[]);
 bool freeExecutions(Execution* head);
-bool displayExecutions(Execution* head);
-Execution* searchExecution(Execution* head, int operationID, int machineID);
-Execution* searchExecution_ByOperation(Execution* head, int operationID);
-Execution* sortExecutions_ByOperation(Execution* head);
+bool displayExecutions_AtList(Execution* head);
+Execution* searchExecution_AtList(Execution* head, int operationID, int machineID);
+Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);
+Execution* sortExecutions_ByOperation_AtList(Execution* head);
 
 /**
  * @brief	Sobre execuções com tabela hash
@@ -222,7 +222,7 @@ ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
 ExecutionNode* createExecutionNode();
 int generateHash(int id);
 ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
-bool displayExecutionsTable(ExecutionNode* table[]);
+bool displayExecutions_AtTable(ExecutionNode* table[]);
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);

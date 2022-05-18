@@ -440,7 +440,7 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 				currentExecution = currentExecution->next;
 			}
 
-			*minExecutions = insertExecution_AtStart(*minExecutions, minExecution);
+			*minExecutions = insertExecution_AtStart_AtList(*minExecutions, minExecution);
 
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
 			freeExecutions(currentExecution);
@@ -498,7 +498,7 @@ int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 				currentExecution = currentExecution->next;
 			}
 
-			*maxExecutions = insertExecution_AtStart(*maxExecutions, maxExecution);
+			*maxExecutions = insertExecution_AtStart_AtList(*maxExecutions, maxExecution);
 
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
 			freeExecutions(currentExecution);

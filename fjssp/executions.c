@@ -43,9 +43,9 @@ Execution* newExecution(int operationID, int machineID, int runtime)
 * @param	new		Nova execução
 * @return	Lista de execuções atualizada
 */
-Execution* insertExecution_AtStart(Execution* head, Execution* new)
+Execution* insertExecution_AtStart_AtList(Execution* head, Execution* new)
 {
-	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
+	if (searchExecution_AtList(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
 	{
 		return NULL;
 	}
@@ -70,9 +70,9 @@ Execution* insertExecution_AtStart(Execution* head, Execution* new)
 * @param	new		Nova execução
 * @return	Lista de execuções atualizada
 */
-Execution* insertExecution_ByOperation(Execution* head, Execution* new)
+Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new)
 {
-	if (searchExecution(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
+	if (searchExecution_AtList(head, new->operationID, new->machineID)) // não permitir inserir uma nova com o mesmo ID de operação e ID de máquina
 	{
 		return NULL;
 	}
@@ -117,14 +117,14 @@ Execution* insertExecution_ByOperation(Execution* head, Execution* new)
 * @param	runtime			Unidades de tempo
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool updateRuntime(Execution** head, int operationID, int machineID, int runtime)
+bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int runtime)
 {
 	if (*head == NULL) // se lista está vazia
 	{
 		return false;
 	}
 
-	if (!searchExecution(*head, operationID, machineID)) // se não existir a execução para remover
+	if (!searchExecution_AtList(*head, operationID, machineID)) // se não existir a execução para remover
 	{
 		return false;
 	}
@@ -151,14 +151,14 @@ bool updateRuntime(Execution** head, int operationID, int machineID, int runtime
 * @param	operationID		Identificador da operação
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool deleteExecution_ByOperation(Execution** head, int operationID)
+bool deleteExecution_ByOperation_AtList(Execution** head, int operationID)
 {
 	if (*head == NULL) // se a lista estiver vazia
 	{
 		return false;
 	}
 
-	if (!searchExecution_ByOperation(*head, operationID)) // se não existir a execução para remover
+	if (!searchExecution_ByOperation_AtList(*head, operationID)) // se não existir a execução para remover
 	{
 		return false;
 	}
@@ -250,7 +250,7 @@ Execution* readExecutions(char fileName[])
 	while (fread(&currentInFile, sizeof(FileExecution), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
 		current = newExecution(currentInFile.operationID, currentInFile.machineID, currentInFile.runtime);
-		head = insertExecution_AtStart(head, current);
+		head = insertExecution_AtStart_AtList(head, current);
 	}
 
 	fclose(file);
@@ -289,7 +289,7 @@ bool freeExecutions(Execution* head)
 * @param	head	Lista de execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool displayExecutions(Execution* head)
+bool displayExecutions_AtList(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -315,7 +315,7 @@ bool displayExecutions(Execution* head)
 * @param	machineID		Identificador da máquina
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Execution* searchExecution(Execution* head, int operationID, int machineID)
+Execution* searchExecution_AtList(Execution* head, int operationID, int machineID)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -343,7 +343,7 @@ Execution* searchExecution(Execution* head, int operationID, int machineID)
 * @param	operationID		Identificador da operação
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Execution* searchExecution_ByOperation(Execution* head, int operationID)
+Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -370,7 +370,7 @@ Execution* searchExecution_ByOperation(Execution* head, int operationID)
 * @param	head			Lista de execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Execution* sortExecutions_ByOperation(Execution* head)
+Execution* sortExecutions_ByOperation_AtList(Execution* head)
 {
 	if (head == NULL) // se a lista estiver vazia
 	{
@@ -384,7 +384,7 @@ Execution* sortExecutions_ByOperation(Execution* head)
 	while (current != NULL)
 	{
 		new = newExecution(current->operationID, current->machineID, current->runtime);
-		sorted = insertExecution_ByOperation(sorted, new);
+		sorted = insertExecution_ByOperation_AtList(sorted, new);
 		current = current->next;
 	}
 
@@ -448,13 +448,21 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new)
 {
 	int index = generateHash(new->operationID);
 
-	table[index]->start = insertExecution_AtStart(table[index]->start, new);
+	table[index]->start = insertExecution_AtStart_AtList(table[index]->start, new);
 	table[index]->numberOfExecutions++;
 
 	return *table;
 }
 
 
+/**
+* @brief	Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash
+* @param	table			Tabela hash das execuções
+* @param	operationID		Identificador da operação
+* @param	machineID		Identificador da máquina
+* @param	runtime			Unidades de tempo
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime)
 {
 	ExecutionNode** current = table;
@@ -462,24 +470,39 @@ bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID,
 	int index = generateHash(operationID);
 
 	bool updated = false;
-	updated = updateRuntime(&current[index]->start, operationID, machineID, runtime);
+	updated = updateRuntime_AtList(&current[index]->start, operationID, machineID, runtime);
 
 	return updated;
 }
 
 
+/**
+* @brief	Remover todas as execuções pelo identificador da operação na tabela
+* @param	table			Tabela hash das execuções
+* @param	operationID		Identificador da operação
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID)
 {
 	ExecutionNode** current = table;
 
 	int index = generateHash(operationID);
+	if (index <= -1)
+	{
+		return false;
+	}
 
 	bool deleted = false;
-
+	
 	do
 	{
-		// enquanto que remover, significa que ainda existe operações e portanto continuará a remover até remover todas
-		deleted = deleteExecution_ByOperation(&current[index]->start, operationID);
+		// enquanto que remover, significa que ainda existe operações e portanto continuará a remover, até remover todas
+		deleted = deleteExecution_ByOperation_AtList(&current[index]->start, operationID);
+
+		if (deleted)
+		{
+			current[index]->numberOfExecutions--;
+		}
 	} while (deleted == true);
 
 	return deleted;
@@ -491,7 +514,7 @@ bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operation
 * @param	table	Tabela hash das execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool displayExecutionsTable(ExecutionNode* table[])
+bool displayExecutions_AtTable(ExecutionNode* table[])
 {
 	if (table == NULL)
 	{
@@ -502,7 +525,7 @@ bool displayExecutionsTable(ExecutionNode* table[])
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
 		printf("Lista %d - Número de elementos: %d\n", i + 1, table[i]->numberOfExecutions);
-		displayExecutions(table[i]->start);
+		displayExecutions_AtList(table[i]->start);
 	}
 	printf("\n-------FIM TABELA-------\n");
 
@@ -525,7 +548,7 @@ Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int 
 	}
 
 	int index = generateHash(operationID);
-	Execution* search = searchExecution(table[index]->start, operationID, machineID);
+	Execution* search = searchExecution_AtList(table[index]->start, operationID, machineID);
 
 	if (search == NULL) // se a lista estiver vazia
 	{

@@ -111,36 +111,17 @@ int main()
 				deleteJob(&jobs, 3);
 				printf("trabalho removido com sucesso!\n");
 
-				bool operationsallfound = false;
-				bool executionsallfound = false;
-				while (!operationsallfound) // enquanto que encontrar trabalhos, remover as operações associadas
-				{
-					if (searchOperation_ByJob(operations, 3))
-					{
-						// remover operação
-						int operationdeleted = deleteOperation_ByJob(&operations, 3);
-						printf("operação associada ao trabalho removida com sucesso!\n");
+				int operationDeleted = 0;
 
-						//while (!executionsallfound) // enquanto que encontrar a respetiva operação, remover as execuções de operações associadas
-						//{
-						//	if (searchExecutionByOperation(executions, operationdeleted))
-						//	{
-						//		// remover execução
-						//		deleteExecution_ByOperation(&executions, operationdeleted);
-						//		printf("execução associada à operação removida com sucesso!\n");
-						//	}
-						//	else
-						//	{
-						//		executionsallfound = true;
-						//	}
-						//}
-						//executionsallfound = false; // necessário para voltar a percorrer o while acima, numva nova operação
-					}
-					else
-					{
-						operationsallfound = true;
-					}
-				}
+				do {
+					// remover as operações associadas ao jobs
+					operationDeleted = deleteOperation_ByJob(&operations, 3);
+					printf("Operações associadas ao trabalho removida com sucesso!\n");
+
+					// remover as execuções associadas a cada operação
+					deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeleted);
+					printf("Execuções associadas à operação removidas com sucesso!\n");
+				} while (operationDeleted != -1);
 #pragma endregion
 
 #pragma region funcionalidade 4: inserir um trabalho
@@ -188,9 +169,9 @@ int main()
 				operations = insertOperation_AtStart(operations, operation);
 
 				// inserir nova execução de uma operação
-			/*	Execution* execution = NULL;
+				Execution* execution = NULL;
 				execution = newExecution(39, 5, 17);
-				executions = insertExecution_AtTable(executionsTable, execution);*/
+				*executionsTable = insertExecution_AtTable(executionsTable, execution);
 
 				// guardar as novas inserções em ficheiros
 				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
@@ -202,17 +183,17 @@ int main()
 				printf("\n\n-  Mostrar dados\n");
 
 				// mostrar dados na consola
-				printf("Trabalhos:\n");
+				//printf("Trabalhos:\n");
 				//displayJobs(jobs);
 
-				printf("Máquinas:\n");
+				//printf("Máquinas:\n");
 				//displayMachines(machines);
 
-				printf("Operações:\n");
+				//printf("Operações:\n");
 				//displayOperations(operations);
 
 				printf("Execuções de Operações:\n");
-				displayExecutionsTable(executionsTable);
+				displayExecutions_AtTable(executionsTable);
 
 				printf("Dados mostrados com sucesso!\n");
 #pragma endregion
