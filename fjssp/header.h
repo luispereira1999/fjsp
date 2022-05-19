@@ -19,7 +19,7 @@
 #define HASH_TABLE_SIZE 13
 
  /**
-  * @brief	Nomes para os ficheiros onde os dados são armazenados.
+  * @brief	Nomes para os ficheiros onde os dados são armazenados
   */
 #define JOBS_FILENAME_BINARY "jobs.bin"
 #define MACHINES_FILENAME_BINARY "machines.bin"
@@ -207,7 +207,7 @@ Execution* insertExecution_AtStart_AtList(Execution* head, Execution* new);
 Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new);
 bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int runtime);
 bool deleteExecution_ByOperation_AtList(Execution** head, int operationID);
-bool writeExecutions(char fileName[], Execution* head);
+bool writeExecutions_AtList(char fileName[], Execution* head);
 Execution* readExecutions(char fileName[]);
 bool freeExecutions(Execution* head);
 bool displayExecutions_AtList(Execution* head);
@@ -222,10 +222,11 @@ ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
 ExecutionNode* createExecutionNode();
 int generateHash(int id);
 ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
+bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);
+bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
+bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[]);
 bool displayExecutions_AtTable(ExecutionNode* table[]);
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
-bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
-bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);
 
 /**
  * @brief	Carregar dados para as estruturas em memória

@@ -196,7 +196,7 @@ bool deleteExecution_ByOperation_AtList(Execution** head, int operationID)
 * @param	head		Lista de execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool writeExecutions(char fileName[], Execution* head)
+bool writeExecutions_AtList(char fileName[], Execution* head)
 {
 	if (head == NULL) // se lista está vazia
 	{
@@ -468,9 +468,7 @@ bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID,
 	ExecutionNode** current = table;
 
 	int index = generateHash(operationID);
-
-	bool updated = false;
-	updated = updateRuntime_AtList(&current[index]->start, operationID, machineID, runtime);
+	bool updated = updateRuntime_AtList(&current[index]->start, operationID, machineID, runtime);
 
 	return updated;
 }
@@ -493,7 +491,7 @@ bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operation
 	}
 
 	bool deleted = false;
-	
+
 	do
 	{
 		// enquanto que remover, significa que ainda existe operações e portanto continuará a remover, até remover todas
@@ -506,6 +504,32 @@ bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operation
 	} while (deleted == true);
 
 	return deleted;
+}
+
+
+/**
+* @brief	Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário
+* @param	fileName	Nome do ficheiro para armazenar os registos
+* @param	head		Lista de execuções
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
+{
+	if (table == NULL) // se tabela está vazia
+	{
+		return false;
+	}
+
+	ExecutionNode** current = table;
+
+	bool written = false;
+
+	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	{
+		written = writeExecutions_AtList(fileName, current[i]->start);
+	}
+
+	return written;
 }
 
 
