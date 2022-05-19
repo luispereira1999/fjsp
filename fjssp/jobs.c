@@ -166,31 +166,6 @@ Job* readJobs(char fileName[])
 
 
 /**
-* @brief	Libertar a lista de trabalhos da memória
-* @param	head	Lista de trabalhos
-* @return	Booleano para o resultado da função (se funcionou ou não)
-*/
-bool freeJobs(Job* head)
-{
-	if (head == NULL) // se lista está vazia
-	{
-		return false;
-	}
-
-	Job* current = NULL;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-
-	return true;
-}
-
-
-/**
 * @brief	Mostrar a lista de trabalhos na consola
 * @param	head	Lista de trabalhos
 * @return	Booleano para o resultado da função (se funcionou ou não)

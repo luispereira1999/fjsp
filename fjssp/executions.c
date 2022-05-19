@@ -260,31 +260,6 @@ Execution* readExecutions(char fileName[])
 
 
 /**
-* @brief	Libertar a lista de operações da memória
-* @param	head	Lista de operações
-* @return	Booleano para o resultado da função (se funcionou ou não)
-*/
-bool freeExecutions(Execution* head)
-{
-	if (head == NULL) // se a lista estiver vazia
-	{
-		return false;
-	}
-
-	Execution* current = NULL;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-
-	return true;
-}
-
-
-/**
 * @brief	Mostrar a lista de execuções na consola
 * @param	head	Lista de execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)

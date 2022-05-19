@@ -266,31 +266,6 @@ Operation* readOperations(char fileName[])
 
 
 /**
-* @brief	Libertar a lista de operações da memória
-* @param	head	Lista de operações
-* @return	Booleano para o resultado da função (se funcionou ou não)
-*/
-bool freeOperations(Operation* head)
-{
-	if (head == NULL) // se lista está vazia
-	{
-		return false;
-	}
-
-	Operation* current = NULL;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-
-	return true;
-}
-
-
-/**
 * @brief	Mostrar a lista de operações na consola
 * @param	head	Lista de operações
 * @return	Booleano para o resultado da função (se funcionou ou não)
@@ -443,7 +418,6 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 			*minExecutions = insertExecution_AtStart_AtList(*minExecutions, minExecution);
 
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
-			freeExecutions(currentExecution);
 			currentExecution = NULL;
 			currentExecution = executions;
 			counter += time; // acumular o tempo de utilização de cada execução de operação
@@ -501,7 +475,6 @@ int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 			*maxExecutions = insertExecution_AtStart_AtList(*maxExecutions, maxExecution);
 
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
-			freeExecutions(currentExecution);
 			currentExecution = NULL;
 			currentExecution = executions;
 			counter += time; // acumular o tempo de utilização de cada execução de operação

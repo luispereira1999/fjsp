@@ -165,7 +165,6 @@ Job* insertJob_AtStart(Job* head, Job* new);
 bool deleteJob(Job** head, int id);
 bool writeJobs(char fileName[], Job* head);
 Job* readJobs(char fileName[]);
-bool freeJobs(Job* head);
 bool displayJobs(Job* head);
 bool searchJob(Job* head, int id);
 
@@ -176,7 +175,6 @@ Machine* newMachine(int id, bool isBusy);
 Machine* insertMachine_AtStart(Machine* head, Machine* new);
 bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
-bool freeMachines(Machine* head);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
 
@@ -190,7 +188,6 @@ bool deleteOperation(Operation** head, int id);
 int deleteOperation_ByJob(Operation** head, int jobID);
 bool writeOperations(char fileName[], Operation* head);
 Operation* readOperations(char fileName[]);
-bool freeOperations(Operation* head);
 bool displayOperations(Operation* head);
 bool searchOperation(Operation* head, int id);
 bool searchOperation_ByJob(Operation* head, int jobID);
@@ -209,7 +206,6 @@ bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int 
 bool deleteExecution_ByOperation_AtList(Execution** head, int operationID);
 bool writeExecutions_AtList(char fileName[], Execution* head);
 Execution* readExecutions(char fileName[]);
-bool freeExecutions(Execution* head);
 bool displayExecutions_AtList(Execution* head);
 Execution* searchExecution_AtList(Execution* head, int operationID, int machineID);
 Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);

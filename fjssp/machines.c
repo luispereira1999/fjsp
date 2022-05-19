@@ -129,31 +129,6 @@ Machine* readMachines(char fileName[])
 
 
 /**
-* @brief	Libertar a lista de máquinas da memória
-* @param	head	Lista de máquinas
-* @return	Booleano para o resultado da função (se funcionou ou não)
-*/
-bool freeMachines(Machine* head)
-{
-	if (head == NULL) // se lista está vazia
-	{
-		return false;
-	}
-
-	Machine* current = NULL;
-
-	while (head != NULL)
-	{
-		current = head;
-		head = head->next;
-		free(current);
-	}
-
-	return true;
-}
-
-
-/**
 * @brief	Mostrar a lista de máquinas na consola
 * @param	head	Lista de máquinas
 * @return	Booleano para o resultado da função (se funcionou ou não)

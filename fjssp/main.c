@@ -19,7 +19,7 @@
 
 /**
 * @brief	Função principal do programa
-* @return	Resultado do programa na linha de comando
+* @return	Resultado do programa na linha de comandos
 */
 int main()
 {
@@ -29,7 +29,6 @@ int main()
 	Job* jobs = NULL;
 	Operation* operations = NULL;
 	Machine* machines = NULL;
-	//Execution* executions = NULL;
 
 	// criar tabela hash das execuções vazia
 	ExecutionNode* executionsTable[HASH_TABLE_SIZE];
@@ -73,35 +72,26 @@ int main()
 				printf("Dados carregados em memória com sucesso!\n");
 #pragma endregion
 
-#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiro
-				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiro\n");
+#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiros
+				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiros\n");
 
 				// guardar os dados em ficheiros
 				writeJobs(JOBS_FILENAME_BINARY, jobs);
 				writeMachines(MACHINES_FILENAME_BINARY, machines);
 				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
-				//writeExecutions(EXECUTIONS_FILENAME_BINARY, executions);
-				writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+				//writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
 				printf("Dados exportados com sucesso!\n");
 
-				// libertar memória das listas anteriores, para serem lidas dos ficheiros
-				//freeJobs(jobs);
-				//freeMachines(machines);
-				//freeOperations(operations);
-				//freeExecutions(executions);
-
-				// depois de libertar memória, definir listas como NULL para evitar possíveis erros
+				// definir listas como NULL para ficarem vazias para ler os dados de ficheiros
 				jobs = NULL;
 				machines = NULL;
 				operations = NULL;
-				//executions = NULL;
 				//*executionsTable = NULL;
 
 				// ler dados de ficheiros
 				jobs = readJobs(JOBS_FILENAME_BINARY);
 				machines = readMachines(MACHINES_FILENAME_BINARY);
 				operations = readOperations(OPERATIONS_FILENAME_BINARY);
-				//executions = readExecutions(EXECUTIONS_FILENAME_BINARY);
 				//executionsTable = readExecutionsTable(EXECUTIONS_FILENAME_BINARY);
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
@@ -185,14 +175,14 @@ int main()
 				printf("\n\n-  Mostrar dados\n");
 
 				// mostrar dados na consola
-				//printf("Trabalhos:\n");
-				//displayJobs(jobs);
+				printf("Trabalhos:\n");
+				displayJobs(jobs);
 
-				//printf("Máquinas:\n");
-				//displayMachines(machines);
+				printf("Máquinas:\n");
+				displayMachines(machines);
 
-				//printf("Operações:\n");
-				//displayOperations(operations);
+				printf("Operações:\n");
+				displayOperations(operations);
 
 				printf("Execuções de Operações:\n");
 				displayExecutions_AtTable(executionsTable);
