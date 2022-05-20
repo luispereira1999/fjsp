@@ -205,7 +205,7 @@ Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new);
 bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int runtime);
 bool deleteExecution_ByOperation_AtList(Execution** head, int operationID);
 bool writeExecutions_AtList(char fileName[], Execution* head);
-Execution* readExecutions(char fileName[]);
+Execution* readExecutions_AtList(char fileName[]);
 bool displayExecutions_AtList(Execution* head);
 Execution* searchExecution_AtList(Execution* head, int operationID, int machineID);
 Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);
@@ -221,6 +221,7 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
 bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[]);
+ExecutionNode** readExecutions_AtTable(char fileName[]);
 bool displayExecutions_AtTable(ExecutionNode* table[]);
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
 

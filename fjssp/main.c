@@ -79,20 +79,20 @@ int main()
 				writeJobs(JOBS_FILENAME_BINARY, jobs);
 				writeMachines(MACHINES_FILENAME_BINARY, machines);
 				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
-				//writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+				writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
 				printf("Dados exportados com sucesso!\n");
 
 				// definir listas como NULL para ficarem vazias para ler os dados de ficheiros
 				jobs = NULL;
 				machines = NULL;
 				operations = NULL;
-				//*executionsTable = NULL;
+				*executionsTable = NULL;
 
 				// ler dados de ficheiros
 				jobs = readJobs(JOBS_FILENAME_BINARY);
 				machines = readMachines(MACHINES_FILENAME_BINARY);
 				operations = readOperations(OPERATIONS_FILENAME_BINARY);
-				//executionsTable = readExecutionsTable(EXECUTIONS_FILENAME_BINARY);
+				*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY);
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 

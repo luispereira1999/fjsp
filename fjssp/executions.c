@@ -205,7 +205,7 @@ bool writeExecutions_AtList(char fileName[], Execution* head)
 
 	FILE* file = NULL;
 
-	if ((file = fopen(fileName, "wb")) == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "wb")) == NULL) // erro ao abrir o ficheiro
 	{
 		return false;
 	}
@@ -234,11 +234,11 @@ bool writeExecutions_AtList(char fileName[], Execution* head)
 * @param	fileName	Nome do ficheiro para ler a lista
 * @return	Lista de execuçõess
 */
-Execution* readExecutions(char fileName[])
+Execution* readExecutions_AtList(char fileName[])
 {
-	FILE* file;
+	FILE* file = NULL;
 
-	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
 	{
 		return NULL;
 	}
@@ -509,6 +509,42 @@ bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
 
 
 /**
+* @brief	Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário
+* @brief	Ler de ficheiro binário, os registos de todas as execuções para a tabela hash
+* @param	fileName	Nome do ficheiro para ler a lista
+* @return	Tabela hash de execuçõess
+*/
+ExecutionNode** readExecutions_AtTable(char fileName[])
+{
+	FILE* file = NULL;
+
+	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
+	{
+		return NULL;
+	}
+
+	Execution* list = NULL;
+	list = readExecutions_AtList(fileName);
+
+	if (list == NULL) // erro ao ler dados do ficheiro
+	{
+		return NULL;
+	}
+
+	ExecutionNode** table[HASH_TABLE_SIZE];
+	*table = createExecutionsTable(table);
+
+	while (list != NULL) // enquanto que houver dados na lista, guarda-os na tabela
+	{
+		*table = insertExecution_AtTable(table, list);
+		list = list->next;
+	}
+
+	return *table;
+}
+
+
+/**
 * @brief	Mostrar a tabela hash com as listas de execuções na consola
 * @param	table	Tabela hash das execuções
 * @return	Booleano para o resultado da função (se funcionou ou não)
@@ -520,13 +556,11 @@ bool displayExecutions_AtTable(ExecutionNode* table[])
 		return false;
 	}
 
-	printf("\n---------TABELA---------\n");
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
 		printf("Lista %d - Número de elementos: %d\n", i + 1, table[i]->numberOfExecutions);
 		displayExecutions_AtList(table[i]->start);
 	}
-	printf("\n-------FIM TABELA-------\n");
 
 	return true;
 }

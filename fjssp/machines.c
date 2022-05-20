@@ -75,7 +75,7 @@ bool writeMachines(char fileName[], Machine* head)
 
 	FILE* file = NULL;
 
-	if ((file = fopen(fileName, "wb")) == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "wb")) == NULL) // erro ao abrir o ficheiro
 	{
 		return false;
 	}
@@ -105,9 +105,9 @@ bool writeMachines(char fileName[], Machine* head)
 */
 Machine* readMachines(char fileName[])
 {
-	FILE* file;
+	FILE* file = NULL;
 
-	if ((file = fopen(fileName, "rb")) == NULL) // se não foi possível abrir o ficheiro
+	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
 	{
 		return NULL;
 	}
