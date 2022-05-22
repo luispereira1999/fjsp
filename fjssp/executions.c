@@ -211,7 +211,7 @@ bool writeExecutions_AtList(char fileName[], Execution* head)
 	}
 
 	Execution* current = head;
-	FileExecution currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+	FileExecution currentInFile = NULL; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
 
 	while (current != NULL)
 	{
@@ -366,6 +366,25 @@ Execution* sortExecutions_ByOperation_AtList(Execution* head)
 	return sorted;
 }
 
+
+
+Execution* getLastExecution_AtList(Execution* head)
+{
+	if (head == NULL) // return NULL is list is empty cf (Captain girafe && learningC)
+	{
+		return NULL;
+	}
+
+	Execution* current = head;
+
+	while (current->next != NULL) // check if next element is null then currentElement = next else return currentElement
+	{
+		current = current->next;
+	}
+
+	return current;
+}
+
 #pragma endregion
 
 
@@ -495,14 +514,25 @@ bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
 		return false;
 	}
 
-	ExecutionNode** current = table;
+	Execution* allList = NULL;
+	Execution* last = NULL;
 
 	bool written = false;
 
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
-		written = writeExecutions_AtList(fileName, current[i]->start);
+		if (i == 0)
+		{
+			allList = table[0]->start;
+		}
+		else
+		{
+			last = getLastElement(allList);
+			last->next = table[i]->start;
+		}
 	}
+
+	written = writeExecutions_AtList(fileName, allList);
 
 	return written;
 }
@@ -531,12 +561,16 @@ ExecutionNode** readExecutions_AtTable(char fileName[])
 		return NULL;
 	}
 
-	ExecutionNode** table[HASH_TABLE_SIZE];
+	ExecutionNode* table[HASH_TABLE_SIZE];
 	*table = createExecutionsTable(table);
+
+	Execution* execution = NULL;
 
 	while (list != NULL) // enquanto que houver dados na lista, guarda-os na tabela
 	{
-		*table = insertExecution_AtTable(table, list);
+		execution = newExecution(list->operationID, list->machineID, list->runtime);
+		*table = insertExecution_AtTable(table, execution);
+
 		list = list->next;
 	}
 

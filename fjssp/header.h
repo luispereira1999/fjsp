@@ -210,6 +210,7 @@ bool displayExecutions_AtList(Execution* head);
 Execution* searchExecution_AtList(Execution* head, int operationID, int machineID);
 Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);
 Execution* sortExecutions_ByOperation_AtList(Execution* head);
+Execution* getLastExecution_AtList(Execution* head);
 
 /**
  * @brief	Sobre execuções com tabela hash
