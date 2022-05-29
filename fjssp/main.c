@@ -34,7 +34,7 @@ int main()
 	ExecutionNode* executionsTable[HASH_TABLE_SIZE];
 
 	// matriz do plano de produção
-	Plan plan[NUMBER_MACHINES][MAX_RUNTIME];
+	Cell plan[NUMBER_MACHINES][MAX_TIME];
 
 	int menuOption = 0;
 
@@ -186,6 +186,9 @@ int main()
 
 				// iniciar um plano de produção vazio
 				startPlan(plan, -1, -1);
+
+				// preencher um célula no plano
+				fillOneCell(plan, 1, 2, 5, 1, 1);
 #pragma endregion
 
 #pragma region mostrar dados
@@ -201,8 +204,8 @@ int main()
 				//printf("Operações:\n");
 				//displayOperations(operations);
 
-				printf("Execuções de Operações:\n");
-				displayExecutions_AtTable(executionsTable);
+				//printf("Execuções de Operações:\n");
+				//displayExecutions_AtTable(executionsTable);
 
 				printf("Dados mostrados com sucesso!\n");
 #pragma endregion

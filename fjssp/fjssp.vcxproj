@@ -146,6 +146,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="executions.c" />
     <ClCompile Include="operations.c" />
+    <ClCompile Include="plan.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />

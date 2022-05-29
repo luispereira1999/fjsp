@@ -18,7 +18,7 @@
  */
 #define HASH_TABLE_SIZE 13
 #define NUMBER_MACHINES 8
-#define MAX_RUNTIME 10
+#define MAX_TIME 30
 
  /**
   * @brief	Nomes para os ficheiros onde os dados são armazenados
@@ -112,14 +112,18 @@ typedef struct {
 // é um array de apontadores para listas de execuções
 extern ExecutionNode* executionsTable[HASH_TABLE_SIZE];
 
-typedef struct Plan
+/**
+ * @brief	Estrutura de dados para representar um plano de produção
+ */
+typedef struct Cell
 {
 	int jobID;
-	int executionID;
-	bool isBusy; // se a máquina está em produção ou não
-} Plan;
+	int operationID;
+	int initialTime;
+	int finalTime;
+} Cell;
 
-extern Plan plan[NUMBER_MACHINES][MAX_RUNTIME];
+extern Cell plan[NUMBER_MACHINES][MAX_TIME];
 
 #pragma endregion
 
@@ -242,7 +246,8 @@ ExecutionNode** free_Execution_Table(ExecutionNode* table[]);
 /**
  * @brief	Sobre os planos de produção
  */
-bool startPlan(Plan p[][MAX_RUNTIME], int jobID, int executionID);
+bool startPlan(Cell plan[][MAX_TIME], int jobID, int executionID);
+bool fillOneCell(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft);
 
 /**
  * @brief	Carregar dados para as estruturas em memória
