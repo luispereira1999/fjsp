@@ -211,7 +211,7 @@ bool writeExecutions_AtList(char fileName[], Execution* head)
 	}
 
 	Execution* current = head;
-	FileExecution currentInFile = NULL; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+	FileExecution currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
 
 	while (current != NULL)
 	{
@@ -368,6 +368,7 @@ Execution* sortExecutions_ByOperation_AtList(Execution* head)
 
 
 
+
 Execution* getLastExecution_AtList(Execution* head)
 {
 	if (head == NULL) // return NULL is list is empty cf (Captain girafe && learningC)
@@ -380,6 +381,31 @@ Execution* getLastExecution_AtList(Execution* head)
 	while (current->next != NULL) // check if next element is null then currentElement = next else return currentElement
 	{
 		current = current->next;
+	}
+
+	return current;
+}
+
+
+/**
+* @brief	Libertar a lista de operações da memória
+* @param	head	Lista de operações
+* @return	Lista libertada da memória
+*/
+Execution* free_Execution_List(Execution* head)
+{
+	if (head) 
+	{
+		return NULL;
+	}
+
+	Execution* current = head;
+
+	while (head)
+	{
+		current = head;
+		head = head->next;
+		free(current);
 	}
 
 	return current;
@@ -527,7 +553,7 @@ bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
 		}
 		else
 		{
-			last = getLastElement(allList);
+			last = getLastExecution_AtList(allList);
 			last->next = table[i]->start;
 		}
 	}
@@ -544,7 +570,7 @@ bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
 * @param	fileName	Nome do ficheiro para ler a lista
 * @return	Tabela hash de execuçõess
 */
-ExecutionNode** readExecutions_AtTable(char fileName[])
+ExecutionNode** readExecutions_AtTable(char fileName[], ExecutionNode* table[])
 {
 	FILE* file = NULL;
 
@@ -553,6 +579,7 @@ ExecutionNode** readExecutions_AtTable(char fileName[])
 		return NULL;
 	}
 
+	Execution* execution = NULL;
 	Execution* list = NULL;
 	list = readExecutions_AtList(fileName);
 
@@ -560,11 +587,6 @@ ExecutionNode** readExecutions_AtTable(char fileName[])
 	{
 		return NULL;
 	}
-
-	ExecutionNode* table[HASH_TABLE_SIZE];
-	*table = createExecutionsTable(table);
-
-	Execution* execution = NULL;
 
 	while (list != NULL) // enquanto que houver dados na lista, guarda-os na tabela
 	{
