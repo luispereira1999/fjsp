@@ -11,33 +11,6 @@
 
 
 /**
-* @brief	Carregar dados de trabalhos para lista em memória
-* @param	jobs		Apontador para a lista de jobs
-*/
-Job* loadJobs(Job* jobs)
-{
-	Job* job = NULL;
-
-	job = newJob(1);
-	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(2);
-	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(3);
-	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(4);
-	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(5);
-	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(6);
-	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(7);
-	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(8);
-	jobs = insertJob_AtStart(jobs, job);
-}
-
-
-/**
 * @brief	Carregar dados de máquinas para lista em memória
 * @param	machines	Apontador para a lista de máquinas
 */

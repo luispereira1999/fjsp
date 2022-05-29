@@ -12,6 +12,42 @@
 
 
 /**
+ * @brief Carrega dados dos trabalhos de um ficheiro CSV para uma lista em memória
+ * @param fileName		Nome do ficheiro
+ * @return a lista de trabalhos do ficheiro CSV
+ */
+Job* loadJobs(char* fileName)
+{
+	char line[FILE_LINE_SIZE];
+	int a = 0;
+
+	Job* job = NULL;
+	Job* jobs = NULL;
+
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	while (!feof(file))
+	{
+		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
+		{
+			// exemplo: 1
+			sscanf(line, "%d", &a);
+			job = newJob(a);
+			jobs = insertJob_AtStart(jobs, job);
+		}
+	}
+
+	fclose(file);
+
+	return jobs;
+}
+
+
+/**
 * @brief	Criar novo trabalho
 * @param	id	Identificador do trabalho
 * @return	Novo trabalho

@@ -14,15 +14,24 @@
 #define HEADER_H
 
 /**
- * @brief	Tamanho relativos a estruturas de dados
+ * @brief	Tamanho relativos às estruturas de dados
  */
 #define HASH_TABLE_SIZE 13
 #define NUMBER_MACHINES 8
 #define MAX_TIME 18
 
- /**
-  * @brief	Nomes para os ficheiros onde os dados são armazenados
-  */
+/**
+ * @brief	Tamanhos e nomes relativos a ficheiros de texto
+ */
+#define FILE_LINE_SIZE 50
+#define JOBS_FILENAME_TEXT "text/jobs.csv"
+#define MACHINES_FILENAME_TEXT "text/machines.csv"
+#define OPERATIONS_FILENAME_TEXT "text/operations.csv"
+#define EXECUTIONS_FILENAME_TEXT "text/executions.csv"
+
+/**
+ * @brief	Nomes para os ficheiros binários onde os dados são armazenados durante a execução do programa
+ */
 #define JOBS_FILENAME_BINARY "jobs.bin"
 #define MACHINES_FILENAME_BINARY "machines.bin"
 #define OPERATIONS_FILENAME_BINARY "operations.bin"
@@ -175,6 +184,7 @@ typedef struct FileExecution
 /**
  * @brief	Sobre trabalhos
  */
+Job* loadJobs(char* fileName);
 Job* newJob(int id);
 Job* insertJob_AtStart(Job* head, Job* new);
 bool deleteJob(Job** head, int id);
@@ -254,7 +264,6 @@ bool displayPlan(Cell p[][MAX_TIME]);
 /**
  * @brief	Carregar dados para as estruturas em memória
  */
-Job* loadJobs(Job* jobs);
 Machine* loadMachines(Machine* machines);
 Operation* loadOperations(Operation* operations);
 ExecutionNode** loadExecutionsTable(ExecutionNode* table[]);

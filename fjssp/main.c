@@ -67,7 +67,7 @@ int main()
 				printf("-  1. Definir estruturas de dados dinâmicas\n");
 
 				// carregar listas em memória
-				jobs = loadJobs(jobs);
+				jobs = loadJobs(JOBS_FILENAME_TEXT);
 				machines = loadMachines(machines);
 				operations = loadOperations(operations);
 
@@ -201,7 +201,7 @@ int main()
 
 				// mostrar dados na consola
 				//printf("Trabalhos:\n");
-				//displayJobs(jobs);
+				displayJobs(jobs);
 
 				//printf("Máquinas:\n");
 				//displayMachines(machines);
