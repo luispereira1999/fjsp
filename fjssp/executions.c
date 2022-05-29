@@ -397,7 +397,7 @@ Execution* getLastExecution_AtList(Execution* head)
 */
 Execution* free_Execution_List(Execution* head)
 {
-	if (head) 
+	if (head)
 	{
 		return NULL;
 	}
@@ -418,6 +418,43 @@ Execution* free_Execution_List(Execution* head)
 
 
 #pragma region trabalhar com tabela hash
+
+/**
+ * @brief Carrega dados das execuções de um ficheiro CSV para uma tabela hash em memória
+ * @param fileName		Nome do ficheiro
+ * @return A tabela hash de execuções do ficheiro CSV
+ */
+ExecutionNode** loadExecutionsTable(char* fileName, ExecutionNode* table[])
+{
+	char line[FILE_LINE_SIZE];
+	int a = 0, b = 0, c = 0;
+
+	Execution* execution = NULL;
+
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	// iniciar tabela hash vazia
+	*table = createExecutionsTable(table);
+
+	while (!feof(file))
+	{
+		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
+		{
+			// exemplo: 1;1;1
+			sscanf(line, "%d;%d;%d", &a, &b, &c);
+
+			execution = newExecution(a, b, c);
+			*table = insertExecution_AtTable(table, execution);
+		}
+	}
+	fclose(file);
+
+	return *table;
+}
 
 /**
 * @brief	Criar tabela hash das execuções vazia

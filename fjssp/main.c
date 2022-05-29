@@ -71,11 +71,9 @@ int main()
 				machines = loadMachines(MACHINES_FILENAME_TEXT);
 				operations = loadOperations(OPERATIONS_FILENAME_TEXT);
 
-				// iniciar tabela hash das execuções vazia
-				*executionsTable = createExecutionsTable(executionsTable);
-
 				// carregar tabela hash em memória
-				*executionsTable = loadExecutionsTable(executionsTable);
+				*executionsTable = loadExecutionsTable(EXECUTIONS_FILENAME_TEXT, executionsTable);
+
 				printf("Dados carregados em memória com sucesso!\n");
 #pragma endregion
 
@@ -209,8 +207,8 @@ int main()
 				printf("Operações:\n");
 				displayOperations(operations);
 
-				//printf("Execuções de Operações:\n");
-				//displayExecutions_AtTable(executionsTable);
+				printf("Execuções de Operações:\n");
+				displayExecutions_AtTable(executionsTable);
 
 				printf("Dados mostrados com sucesso!\n");
 #pragma endregion

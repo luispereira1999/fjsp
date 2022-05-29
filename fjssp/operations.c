@@ -12,9 +12,9 @@
 
 
 /**
- * @brief Carrega dados das máquinas de um ficheiro CSV para uma lista em memória
+ * @brief Carrega dados das operações de um ficheiro CSV para uma lista em memória
  * @param fileName		Nome do ficheiro
- * @return A lista de máquinas do ficheiro CSV
+ * @return A lista de operações do ficheiro CSV
  */
 Operation* loadOperations(char* fileName)
 {
@@ -35,7 +35,7 @@ Operation* loadOperations(char* fileName)
 		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
 		{
 			// exemplo: 1;1;1
-			sscanf(line, "%d;%d", &a, &b, &c);
+			sscanf(line, "%d;%d;%d", &a, &b, &c);
 			operation = newOperation(a, b, c);
 			operations = insertOperation_AtStart(operations, operation);
 		}
