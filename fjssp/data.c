@@ -11,33 +11,6 @@
 
 
 /**
-* @brief	Carregar dados de máquinas para lista em memória
-* @param	machines	Apontador para a lista de máquinas
-*/
-Machine* loadMachines(Machine* machines)
-{
-	Machine* machine = NULL;
-
-	machine = newMachine(1, false);
-	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(2, false);
-	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(3, false);
-	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(4, false);
-	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(5, false);
-	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(6, false);
-	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(7, false);
-	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(8, false);
-	machines = insertMachine_AtStart(machines, machine);
-}
-
-
-/**
 * @brief	Carregar dados de operações para lista em memória
 * @param	operations	Apontador para a lista de operações
 */

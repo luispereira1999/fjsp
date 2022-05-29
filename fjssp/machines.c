@@ -12,6 +12,42 @@
 
 
 /**
+ * @brief Carrega dados das máquinas de um ficheiro CSV para uma lista em memória
+ * @param fileName		Nome do ficheiro
+ * @return A lista de máquinas do ficheiro CSV
+ */
+Machine* loadMachines(char* fileName)
+{
+	char line[FILE_LINE_SIZE];
+	int a = 0, b = 0;
+
+	Machine* machine = NULL;
+	Machine* machines = NULL;
+
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	while (!feof(file))
+	{
+		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
+		{
+			// exemplo: 1;0
+			sscanf(line, "%d;%d", &a, &b);
+			machine = newMachine(a, b);
+			machines = insertMachine_AtStart(machines, machine);
+		}
+	}
+
+	fclose(file);
+
+	return machines;
+}
+
+
+/**
 * @brief	Criar nova máquina
 * @param	id		Identificador da máquina
 * @param	isBusy	Booleano para se a máquina está ou não em utilização

@@ -14,7 +14,7 @@
 /**
  * @brief Carrega dados dos trabalhos de um ficheiro CSV para uma lista em memória
  * @param fileName		Nome do ficheiro
- * @return a lista de trabalhos do ficheiro CSV
+ * @return A lista de trabalhos do ficheiro CSV
  */
 Job* loadJobs(char* fileName)
 {

@@ -32,10 +32,10 @@
 /**
  * @brief	Nomes para os ficheiros binários onde os dados são armazenados durante a execução do programa
  */
-#define JOBS_FILENAME_BINARY "jobs.bin"
-#define MACHINES_FILENAME_BINARY "machines.bin"
-#define OPERATIONS_FILENAME_BINARY "operations.bin"
-#define EXECUTIONS_FILENAME_BINARY "executions.bin"
+#define JOBS_FILENAME_BINARY "binary/jobs.bin"
+#define MACHINES_FILENAME_BINARY "binary/machines.bin"
+#define OPERATIONS_FILENAME_BINARY "binary/operations.bin"
+#define EXECUTIONS_FILENAME_BINARY "binary/executions.bin"
 
 #pragma endregion
 
@@ -196,6 +196,7 @@ bool searchJob(Job* head, int id);
 /**
  * @brief	Sobre máquinas
  */
+Machine* loadMachines(char* fileName);
 Machine* newMachine(int id, bool isBusy);
 Machine* insertMachine_AtStart(Machine* head, Machine* new);
 bool writeMachines(char fileName[], Machine* head);
@@ -264,7 +265,6 @@ bool displayPlan(Cell p[][MAX_TIME]);
 /**
  * @brief	Carregar dados para as estruturas em memória
  */
-Machine* loadMachines(Machine* machines);
 Operation* loadOperations(Operation* operations);
 ExecutionNode** loadExecutionsTable(ExecutionNode* table[]);
 

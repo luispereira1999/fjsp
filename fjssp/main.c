@@ -68,7 +68,7 @@ int main()
 
 				// carregar listas em memória
 				jobs = loadJobs(JOBS_FILENAME_TEXT);
-				machines = loadMachines(machines);
+				machines = loadMachines(MACHINES_FILENAME_TEXT);
 				operations = loadOperations(operations);
 
 				// iniciar tabela hash das execuções vazia
@@ -200,11 +200,11 @@ int main()
 				printf("\n\n-  Mostrar dados\n");
 
 				// mostrar dados na consola
-				//printf("Trabalhos:\n");
+				printf("Trabalhos:\n");
 				displayJobs(jobs);
 
-				//printf("Máquinas:\n");
-				//displayMachines(machines);
+				printf("Máquinas:\n");
+				displayMachines(machines);
 
 				//printf("Operações:\n");
 				//displayOperations(operations);
