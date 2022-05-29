@@ -367,8 +367,11 @@ Execution* sortExecutions_ByOperation_AtList(Execution* head)
 }
 
 
-
-
+/**
+* @brief	Obter a última execução de uma lista de execuções
+* @param	head			Lista de execuções
+* @return	Última execução da lista
+*/
 Execution* getLastExecution_AtList(Execution* head)
 {
 	if (head == NULL) // return NULL is list is empty cf (Captain girafe && learningC)
@@ -388,8 +391,8 @@ Execution* getLastExecution_AtList(Execution* head)
 
 
 /**
-* @brief	Libertar a lista de operações da memória
-* @param	head	Lista de operações
+* @brief	Libertar a lista de execuções da memória
+* @param	head	Lista de execuções
 * @return	Lista libertada da memória
 */
 Execution* free_Execution_List(Execution* head)
@@ -645,6 +648,28 @@ Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int 
 	}
 
 	return search;
+}
+
+/**
+* @brief	Libertar a tabela hash de execuções da memória
+* @param	head	Lista de execuções
+* @return	Tabela hash libertada da memória
+*/
+ExecutionNode** free_Execution_Table(ExecutionNode* table[])
+{
+	ExecutionNode* current = NULL;
+
+	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	{
+		if (table[i] != NULL)
+		{
+			current = table[i];
+			free_Execution_List(current->start);
+			table[i] = NULL;
+		}
+	}
+
+	return *table;
 }
 
 #pragma endregion
