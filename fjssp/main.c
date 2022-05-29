@@ -69,7 +69,7 @@ int main()
 				// carregar listas em memória
 				jobs = loadJobs(JOBS_FILENAME_TEXT);
 				machines = loadMachines(MACHINES_FILENAME_TEXT);
-				operations = loadOperations(operations);
+				operations = loadOperations(OPERATIONS_FILENAME_TEXT);
 
 				// iniciar tabela hash das execuções vazia
 				*executionsTable = createExecutionsTable(executionsTable);
@@ -206,8 +206,8 @@ int main()
 				printf("Máquinas:\n");
 				displayMachines(machines);
 
-				//printf("Operações:\n");
-				//displayOperations(operations);
+				printf("Operações:\n");
+				displayOperations(operations);
 
 				//printf("Execuções de Operações:\n");
 				//displayExecutions_AtTable(executionsTable);

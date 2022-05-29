@@ -12,6 +12,42 @@
 
 
 /**
+ * @brief Carrega dados das máquinas de um ficheiro CSV para uma lista em memória
+ * @param fileName		Nome do ficheiro
+ * @return A lista de máquinas do ficheiro CSV
+ */
+Operation* loadOperations(char* fileName)
+{
+	char line[FILE_LINE_SIZE];
+	int a = 0, b = 0, c = 0;
+
+	Operation* operation = NULL;
+	Operation* operations = NULL;
+
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	while (!feof(file))
+	{
+		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
+		{
+			// exemplo: 1;1;1
+			sscanf(line, "%d;%d", &a, &b, &c);
+			operation = newOperation(a, b, c);
+			operations = insertOperation_AtStart(operations, operation);
+		}
+	}
+
+	fclose(file);
+
+	return operations;
+}
+
+
+/**
 * @brief	Criar nova operação
 * @param	id			Identificador da operação
 * @param	jobID		Identificador do trabalho

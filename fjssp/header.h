@@ -207,6 +207,7 @@ bool searchMachine(Machine* head, int id);
 /**
  * @brief	Sobre operações
  */
+Operation* loadOperations(char* fileName);
 Operation* newOperation(int id, int jobID, int position);
 Operation* insertOperation_AtStart(Operation* head, Operation* new);
 bool updatePosition(Operation** head, int xOperationID, int yOperationID);
@@ -265,7 +266,6 @@ bool displayPlan(Cell p[][MAX_TIME]);
 /**
  * @brief	Carregar dados para as estruturas em memória
  */
-Operation* loadOperations(Operation* operations);
 ExecutionNode** loadExecutionsTable(ExecutionNode* table[]);
 
 #pragma endregion
