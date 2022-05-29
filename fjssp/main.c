@@ -30,9 +30,11 @@ int main()
 	Operation* operations = NULL;
 	Machine* machines = NULL;
 
-	// criar tabela hash das execuções vazia
+	// tabela hash das execuções
 	ExecutionNode* executionsTable[HASH_TABLE_SIZE];
-	*executionsTable = createExecutionsTable(executionsTable);
+
+	// matriz do plano de produção
+	Plan plan[NUMBER_MACHINES][MAX_RUNTIME];
 
 	int menuOption = 0;
 
@@ -64,10 +66,15 @@ int main()
 #pragma region funcionalidade 1: definir estruturas de dados dinâmicas
 				printf("-  1. Definir estruturas de dados dinâmicas\n");
 
-				// carregar dados em memória
+				// carregar listas em memória
 				jobs = loadJobs(jobs);
 				machines = loadMachines(machines);
 				operations = loadOperations(operations);
+
+				// iniciar tabela hash das execuções vazia
+				*executionsTable = createExecutionsTable(executionsTable);
+
+				// carregar tabela hash em memória
 				*executionsTable = loadExecutionsTable(executionsTable);
 				printf("Dados carregados em memória com sucesso!\n");
 #pragma endregion
@@ -80,19 +87,22 @@ int main()
 				writeMachines(MACHINES_FILENAME_BINARY, machines);
 				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
 				writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+
 				printf("Dados exportados com sucesso!\n");
 
 				// definir listas como NULL para ficarem vazias para ler os dados de ficheiros
 				jobs = NULL;
 				machines = NULL;
 				operations = NULL;
-				*executionsTable = NULL;
+				*executionsTable = free_Execution_Table(executionsTable);
 
 				// ler dados de ficheiros
 				jobs = readJobs(JOBS_FILENAME_BINARY);
 				machines = readMachines(MACHINES_FILENAME_BINARY);
 				operations = readOperations(OPERATIONS_FILENAME_BINARY);
-				*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY);
+				*executionsTable = createExecutionsTable(executionsTable);
+				*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 
@@ -167,22 +177,29 @@ int main()
 
 				// guardar as novas inserções em ficheiros
 				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
-				//writeExecutions(EXECUTIONS_FILENAME_BINARY, executions);
+				//writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
 				printf("Novos dados exportados com sucesso!\n");
+#pragma endregion
+
+#pragma region funcionalidade 8: proposta de escalonamento
+				printf("\n\n-  8. Proposta de escalonamento\n");
+
+				// iniciar um plano de produção vazio
+				startPlan(plan, -1, -1);
 #pragma endregion
 
 #pragma region mostrar dados
 				printf("\n\n-  Mostrar dados\n");
 
 				// mostrar dados na consola
-				printf("Trabalhos:\n");
-				displayJobs(jobs);
+				//printf("Trabalhos:\n");
+				//displayJobs(jobs);
 
-				printf("Máquinas:\n");
-				displayMachines(machines);
+				//printf("Máquinas:\n");
+				//displayMachines(machines);
 
-				printf("Operações:\n");
-				displayOperations(operations);
+				//printf("Operações:\n");
+				//displayOperations(operations);
 
 				printf("Execuções de Operações:\n");
 				displayExecutions_AtTable(executionsTable);

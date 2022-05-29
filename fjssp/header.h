@@ -14,9 +14,11 @@
 #define HEADER_H
 
 /**
- * @brief	Tamanho da tabela hash que armazena as execuções
+ * @brief	Tamanho relativos a estruturas de dados
  */
 #define HASH_TABLE_SIZE 13
+#define NUMBER_MACHINES 8
+#define MAX_RUNTIME 10
 
  /**
   * @brief	Nomes para os ficheiros onde os dados são armazenados
@@ -109,6 +111,15 @@ typedef struct {
 // tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente,
 // é um array de apontadores para listas de execuções
 extern ExecutionNode* executionsTable[HASH_TABLE_SIZE];
+
+typedef struct Plan
+{
+	int jobID;
+	int executionID;
+	bool isBusy; // se a máquina está em produção ou não
+} Plan;
+
+extern Plan plan[NUMBER_MACHINES][MAX_RUNTIME];
 
 #pragma endregion
 
@@ -211,6 +222,7 @@ Execution* searchExecution_AtList(Execution* head, int operationID, int machineI
 Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);
 Execution* sortExecutions_ByOperation_AtList(Execution* head);
 Execution* getLastExecution_AtList(Execution* head);
+Execution* free_Execution_List(Execution* head);
 
 /**
  * @brief	Sobre execuções com tabela hash
@@ -222,9 +234,15 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
 bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[]);
-ExecutionNode** readExecutions_AtTable(char fileName[]);
+ExecutionNode** readExecutions_AtTable(char fileName[], ExecutionNode* tableee[]);
 bool displayExecutions_AtTable(ExecutionNode* table[]);
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
+ExecutionNode** free_Execution_Table(ExecutionNode* table[]);
+
+/**
+ * @brief	Sobre os planos de produção
+ */
+bool startPlan(Plan p[][MAX_RUNTIME], int jobID, int executionID);
 
 /**
  * @brief	Carregar dados para as estruturas em memória
