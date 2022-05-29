@@ -188,7 +188,10 @@ int main()
 				startPlan(plan, -1, -1);
 
 				// preencher um célula no plano
-				fillOneCell(plan, 1, 2, 5, 1, 1);
+				fillCells(plan, 1, 2, 5, 0, 1);
+				fillCells(plan, 2, 1, 2, 0, 4);
+
+				fillCells(plan, 1, 2, 5, 0, 3);
 #pragma endregion
 
 #pragma region mostrar dados

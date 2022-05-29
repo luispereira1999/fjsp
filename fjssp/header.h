@@ -18,7 +18,7 @@
  */
 #define HASH_TABLE_SIZE 13
 #define NUMBER_MACHINES 8
-#define MAX_TIME 30
+#define MAX_TIME 18
 
  /**
   * @brief	Nomes para os ficheiros onde os dados são armazenados
@@ -247,7 +247,8 @@ ExecutionNode** free_Execution_Table(ExecutionNode* table[]);
  * @brief	Sobre os planos de produção
  */
 bool startPlan(Cell plan[][MAX_TIME], int jobID, int executionID);
-bool fillOneCell(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft);
+bool fillCells(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft);
+bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft);
 
 /**
  * @brief	Carregar dados para as estruturas em memória

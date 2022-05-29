@@ -13,18 +13,18 @@
 
 /**
 * @brief	Inicia um novo plano, com todos os campos vazios
-* @param	jobID			Identificador do trabalho
-* @param	operationID		Identificador da operação
+* @param	jid		Identificador do trabalho
+* @param	oid		Identificador da operação
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID)
+bool startPlan(Cell plan[][MAX_TIME], int jid, int oid)
 {
 	for (int i = 0; i < NUMBER_MACHINES; i++)
 	{
 		for (int j = 0; j < MAX_TIME; j++)
 		{
-			plan[i][j].jobID = jobID;
-			plan[i][j].operationID = operationID;
+			plan[i][j].jobID = jid;
+			plan[i][j].operationID = oid;
 			plan[i][j].initialTime = 0;
 			plan[i][j].finalTime = 0;
 		}
@@ -41,10 +41,44 @@ bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID)
 * @param	ft		Tempo final desta célula
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool fillOneCell(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft)
+bool fillCells(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft)
 {
-	p[mid][it].jobID = jid;
-	p[mid][it].operationID = oid;
-	p[mid][it].initialTime = it;
-	p[mid][it].finalTime = ft;
+	// não permite ativar células que já estão ativas
+	if (searchActiveCells(p, mid, it, ft))
+	{
+		return false;
+	}
+
+	// preenche o intervalo de células disponíveis para este escalonamento
+	for (int i = it; i < ft; i++)
+	{
+		// mid - 1 porque os ID's das máquinas começam no 1 e a matriz do plano começa no 0
+		p[mid - 1][i].jobID = jid;
+		p[mid - 1][i].operationID = oid;
+		p[mid - 1][i].initialTime = it;
+		p[mid - 1][i].finalTime = ft;
+	}
+
+	return true;
+}
+
+
+/**
+* @brief	Procurar em um intervalo de células do plano, se existem células ativas
+* @param	mid		Identificador da máquina
+* @param	it		Tempo inicial desta célula
+* @param	ft		Tempo final desta célula
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft)
+{
+	for (int i = it; i < ft; i++)
+	{
+		if (p[mid-1][i].jobID > -1 || p[mid-1][i].operationID > -1)
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
