@@ -249,6 +249,7 @@ ExecutionNode** free_Execution_Table(ExecutionNode* table[]);
 bool startPlan(Cell plan[][MAX_TIME], int jobID, int executionID);
 bool fillCells(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft);
 bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft);
+bool displayPlan(Cell p[][MAX_TIME]);
 
 /**
  * @brief	Carregar dados para as estruturas em memória

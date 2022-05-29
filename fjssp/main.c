@@ -191,7 +191,9 @@ int main()
 				fillCells(plan, 1, 2, 5, 0, 1);
 				fillCells(plan, 2, 1, 2, 0, 4);
 
-				fillCells(plan, 1, 2, 5, 0, 3);
+				fillCells(plan, 1, 2, 5, 0, 3); // não irá preencher, porque já existe células ativas neste intervalo de tempo
+
+				displayPlan(plan);
 #pragma endregion
 
 #pragma region mostrar dados

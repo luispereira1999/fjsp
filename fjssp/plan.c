@@ -52,7 +52,7 @@ bool fillCells(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft)
 	// preenche o intervalo de células disponíveis para este escalonamento
 	for (int i = it; i < ft; i++)
 	{
-		// mid - 1 porque os ID's das máquinas começam no 1 e a matriz do plano começa no 0
+		// mid - 1 porque os IDs das máquinas começam em 1 e a matriz do plano começa em 0
 		p[mid - 1][i].jobID = jid;
 		p[mid - 1][i].operationID = oid;
 		p[mid - 1][i].initialTime = it;
@@ -81,4 +81,31 @@ bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft)
 	}
 
 	return false;
+}
+
+
+/**
+* @brief	Mostrar plano de escalonamento na consola
+* @param	p		Plano a ser mostrado
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool displayPlan(Cell p[][MAX_TIME])
+{
+	printf("\n");
+	for (int i = 0; i < NUMBER_MACHINES; i++)
+	{
+		for (int j = 0; j < MAX_TIME; j++)
+		{
+			if (p[i][j].jobID > -1 && p[i][j].operationID > -1)
+			{
+				printf("|j%d o%d", p[i][j].jobID, p[i][j].operationID);
+			}
+			else
+			{
+				printf("|     ");
+			}
+		}
+		printf("|\n");
+	}
+	printf("\n");
 }
