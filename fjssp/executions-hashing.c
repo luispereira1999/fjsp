@@ -297,7 +297,7 @@ ExecutionNode** free_Execution_Table(ExecutionNode* table[])
 		if (table[i] != NULL)
 		{
 			current = table[i];
-			free_Execution_List(current->start);
+			free_Execution_List(&current->start);
 			table[i] = NULL;
 		}
 	}

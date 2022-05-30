@@ -252,3 +252,28 @@ bool searchJob(Job* head, int id)
 
 	return false;
 }
+
+
+/**
+* @brief	Obter a quantidade de trabalhos totais
+* @param	head	Lista de trabalhos
+* @return	Número de trabalhos
+*/
+int countJobs(Job* head)
+{
+	if (head == NULL) // se lista está vazia
+	{
+		return -1;
+	}
+
+	Job* current = head;
+	int counter = 0;
+
+	while (current != NULL)
+	{
+		counter++;
+		current = current->next;
+	}
+
+	return counter;
+}

@@ -457,6 +457,7 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
 			currentExecution = NULL;
 			currentExecution = executions;
+		
 			counter += time; // acumular o tempo de utilização de cada execução de operação
 			time = 999; // resetar tempo para a próxima iteração
 		}

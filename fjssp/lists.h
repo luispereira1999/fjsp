@@ -22,6 +22,7 @@ bool writeJobs(char fileName[], Job* head);
 Job* readJobs(char fileName[]);
 bool displayJobs(Job* head);
 bool searchJob(Job* head, int id);
+int countJobs(Job* head);
 
 #pragma endregion
 
@@ -76,7 +77,7 @@ Execution* searchExecution_AtList(Execution* head, int operationID, int machineI
 Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);
 Execution* sortExecutions_ByOperation_AtList(Execution* head);
 Execution* getLastExecution_AtList(Execution* head);
-Execution* free_Execution_List(Execution* head);
+void free_Execution_List(Execution** head);
 
 #pragma endregion
 
