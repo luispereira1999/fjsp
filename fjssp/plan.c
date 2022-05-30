@@ -8,7 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include <string.h>
+#include "data-types.h"
+#include "lists.h"
 
 
 /**
@@ -74,7 +76,7 @@ bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft)
 {
 	for (int i = it; i < ft; i++)
 	{
-		if (p[mid-1][i].jobID > -1 || p[mid-1][i].operationID > -1)
+		if (p[mid - 1][i].jobID > -1 || p[mid - 1][i].operationID > -1)
 		{
 			return true;
 		}

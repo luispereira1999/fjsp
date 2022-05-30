@@ -14,7 +14,9 @@
 
 #include <stdio.h>
 #include <locale.h>
-#include "header.h"
+#include "data-types.h"
+#include "lists.h"
+#include "hashing.h"
 
 
 /**
@@ -70,7 +72,7 @@ int main()
 				jobs = loadJobs(JOBS_FILENAME_TEXT);
 				machines = loadMachines(MACHINES_FILENAME_TEXT);
 				operations = loadOperations(OPERATIONS_FILENAME_TEXT);
-
+				displayJobs(jobs);
 				// carregar tabela hash em memória
 				*executionsTable = loadExecutionsTable(EXECUTIONS_FILENAME_TEXT, executionsTable);
 
@@ -91,7 +93,6 @@ int main()
 				// definir listas como NULL para ficarem vazias para ler os dados de ficheiros
 				jobs = NULL;
 				machines = NULL;
-				operations = NULL;
 				*executionsTable = free_Execution_Table(executionsTable);
 
 				// ler dados de ficheiros
@@ -182,6 +183,12 @@ int main()
 #pragma region funcionalidade 8: proposta de escalonamento
 				printf("\n\n-  8. Proposta de escalonamento\n");
 
+
+				Execution* executions = NULL;
+				executions = loadExecutions(EXECUTIONS_FILENAME_TEXT);
+				displayExecutions_AtList(executions);
+				//int a=getMinTime_ToCompleteJob(operations);
+
 				// iniciar um plano de produção vazio
 				startPlan(plan, -1, -1);
 
@@ -191,7 +198,9 @@ int main()
 
 				fillCells(plan, 1, 2, 5, 0, 3); // não irá preencher, porque já existe células ativas neste intervalo de tempo
 
-				displayPlan(plan);
+				exportPlan(PLAN_FILENAME_TEXT, plan);
+
+				printf("Plano escalonado com sucesso!\n");
 #pragma endregion
 
 #pragma region mostrar dados
@@ -209,6 +218,9 @@ int main()
 
 				printf("Execuções de Operações:\n");
 				displayExecutions_AtTable(executionsTable);
+
+				printf("Plano:\n");
+				displayPlan(plan);
 
 				printf("Dados mostrados com sucesso!\n");
 #pragma endregion

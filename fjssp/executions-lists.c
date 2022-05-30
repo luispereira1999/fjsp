@@ -8,7 +8,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include "data-types.h"
+#include "lists.h"
 
 
 /**

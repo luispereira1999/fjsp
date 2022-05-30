@@ -8,7 +8,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include "data-types.h"
+#include "lists.h"
 
 
 /**
@@ -93,6 +94,41 @@ Machine* insertMachine_AtStart(Machine* head, Machine* new)
 	}
 
 	return head;
+}
+
+
+/**
+* @brief	Ocupa uma máquina, diz que no memento está ocupada
+* @param	h		Apontador para a lista de máquinas
+* @param	mid		Identificador da máquina
+* @param	ib		Booleano para da máquina
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool enableMachine(Machine** h, int mid, bool ib)
+{
+	if (*h == NULL) // se lista está vazia
+	{
+		return false;
+	}
+
+	if (!searchMachine(*h, mid))
+	{
+		return false;
+	}
+
+	Machine* current = *h;
+
+	while (current != NULL)
+	{
+		if (current->id == mid)
+		{
+			current->isBusy = ib;
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
 }
 
 

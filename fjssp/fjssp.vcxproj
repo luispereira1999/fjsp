@@ -140,16 +140,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="data.c" />
+    <ClCompile Include="executions-hashing.c" />
     <ClCompile Include="jobs.c" />
     <ClCompile Include="machines.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="executions.c" />
+    <ClCompile Include="executions-lists.c" />
     <ClCompile Include="operations.c" />
     <ClCompile Include="plan.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header.h" />
+    <ClInclude Include="data-types.h" />
+    <ClInclude Include="hashing.h" />
+    <ClInclude Include="lists.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,7 +8,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include "data-types.h"
+#include "lists.h"
 
 
 /**
@@ -457,7 +458,7 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 			currentExecution = NULL;
 			currentExecution = executions;
 			counter += time; // acumular o tempo de utilização de cada execução de operação
-			time = 99990; // resetar tempo para a próxima iteração
+			time = 999; // resetar tempo para a próxima iteração
 		}
 
 		currentOperation = currentOperation->next;
