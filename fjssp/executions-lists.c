@@ -12,6 +12,42 @@
 
 
 /**
+ * @brief Carrega dados das execuções de um ficheiro CSV para uma lista em memória
+ * @param fileName		Nome do ficheiro
+ * @return A lista de execuções do ficheiro CSV
+ */
+Execution* loadExecutions(char* fileName)
+{
+	char line[FILE_LINE_SIZE];
+	int a = 0, b = 0, c = 0;
+
+	Execution* execution = NULL;
+	Execution* executions = NULL;
+
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	while (!feof(file))
+	{
+		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
+		{
+			// exemplo: 1;1;1
+			sscanf(line, "%d;%d;%d", &a, &b, &c);
+			execution = newExecution(a, b, c);
+			executions = insertExecution_AtStart_AtList(executions, execution);
+		}
+	}
+
+	fclose(file);
+
+	return executions;
+}
+
+
+/**
 * @brief	Criar nova execução
 * @param	operationID		Identificador da operação
 * @param	machineID		Identificador da máquina
