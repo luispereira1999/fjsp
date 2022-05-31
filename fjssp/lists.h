@@ -23,6 +23,7 @@ Job* readJobs(char fileName[]);
 bool displayJobs(Job* head);
 bool searchJob(Job* head, int id);
 int countJobs(Job* head);
+void freeJobs(Job** head);
 
 #pragma endregion
 
@@ -37,6 +38,7 @@ bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
+void freeMachines(Machine** head);
 
 #pragma endregion
 
@@ -58,6 +60,14 @@ Operation* getOperation(Operation* head, int id);
 int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
 int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
 float getAverageTime_ToCompleteOperation(Execution* head, int operationID);
+void freeOperations(Operation** head);
+
+Operation* getNextOperation_InJob(Operation* operations, Job* jobs, int jobID);
+WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, int position, bool isDone);
+WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new);
+WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new);
+bool displayWorkPlans(WorkPlan* head);
+WorkPlan* sortWorkPlans_ByJob(WorkPlan* head);
 
 #pragma endregion
 
@@ -77,7 +87,7 @@ Execution* searchExecution_AtList(Execution* head, int operationID, int machineI
 Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);
 Execution* sortExecutions_ByOperation_AtList(Execution* head);
 Execution* getLastExecution_AtList(Execution* head);
-void free_Execution_List(Execution** head);
+void freeExecutions_List(Execution** head);
 
 #pragma endregion
 

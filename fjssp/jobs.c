@@ -277,3 +277,23 @@ int countJobs(Job* head)
 
 	return counter;
 }
+
+
+/**
+* @brief	Libertar a lista de trabalhos da memória
+* @param	head	Lista de trabalhos
+*/
+void freeJobs(Job** head)
+{
+	if (head != NULL)
+	{
+		Job* current;
+
+		while (*head)
+		{
+			current = *head;
+			*head = (*head)->next;
+			free(current);
+		}
+	}
+}

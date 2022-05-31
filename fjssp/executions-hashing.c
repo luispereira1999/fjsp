@@ -175,27 +175,31 @@ bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
 		return false;
 	}
 
-	Execution* allList = NULL;
-	Execution* last = NULL;
-
-	bool written = false;
+	FILE* file = NULL;
+	if ((file = fopen(fileName, "wb")) == NULL) // erro ao abrir o ficheiro
+	{
+		return false;
+	}
 
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
-		if (i == 0)
+		Execution* current = table[i]->start;
+		FileExecution currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+		while (current != NULL)
 		{
-			allList = table[0]->start;
-		}
-		else
-		{
-			last = getLastExecution_AtList(allList);
-			last->next = table[i]->start;
+			currentInFile.operationID = current->operationID;
+			currentInFile.machineID = current->machineID;
+			currentInFile.runtime = current->runtime;
+			fwrite(&currentInFile, sizeof(FileExecution), 1, file); // guarda cada registo da lista no ficheiro
+
+			current = current->next;
 		}
 	}
 
-	written = writeExecutions_AtList(fileName, allList);
+	fclose(file);
 
-	return written;
+	return true;
 }
 
 
@@ -288,19 +292,22 @@ Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int 
 * @param	head	Lista de execuções
 * @return	Tabela hash libertada da memória
 */
-ExecutionNode** free_Execution_Table(ExecutionNode* table[])
+void freeExecutions_Table(ExecutionNode** table[])
 {
-	ExecutionNode* current = NULL;
-
-	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	if (table != NULL)
 	{
-		if (table[i] != NULL)
+		ExecutionNode** table2 = *table;
+		ExecutionNode* current;
+		Execution* current2;
+
+		for (int i = 0; i < HASH_TABLE_SIZE; i++)
 		{
 			current = table[i];
-			free_Execution_List(&current->start);
-			table[i] = NULL;
+
+			//current = *head;
+			//*head = (*head)->start;
+			free(current);
+			//freeExecutionsNode(&current);
 		}
 	}
-
-	return *table;
 }

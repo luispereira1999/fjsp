@@ -22,10 +22,10 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
 bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[]);
-ExecutionNode** readExecutions_AtTable(char fileName[], ExecutionNode* tableee[]);
+ExecutionNode** readExecutions_AtTable(char fileName[], ExecutionNode* table[]);
 bool displayExecutions_AtTable(ExecutionNode* table[]);
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
-ExecutionNode** free_Execution_Table(ExecutionNode* table[]);
+void freeExecutions_Table(ExecutionNode** table[]);
 
 #pragma endregion
 

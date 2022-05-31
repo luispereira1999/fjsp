@@ -429,16 +429,17 @@ Execution* getLastExecution_AtList(Execution* head)
 * @brief	Libertar a lista de execuções da memória
 * @param	head	Lista de execuções
 */
-void free_Execution_List(Execution** head)
+void freeExecutions_List(Execution** head)
 {
 	if (head != NULL)
 	{
-		Execution* aux;
+		Execution* current;
 
-		while (*head) {
-			aux = *head;
+		while (*head)
+		{
+			current = *head;
 			*head = (*head)->next;
-			free(aux);
+			free(current);
 		}
 	}
 }

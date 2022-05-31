@@ -27,6 +27,15 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese"); // permitir caracteres especiais (portugueses)
 
+	//ExecutionNode* aa[HASH_TABLE_SIZE];
+	//*aa = createExecutionsTable(aa);
+	//*aa = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, aa);
+
+	//displayExecutions_AtTable(aa);
+	//printf("\n\n\n");
+
+
+
 	// listas
 	Job* jobs = NULL;
 	Operation* operations = NULL;
@@ -91,148 +100,113 @@ int main()
 				printf("Dados exportados com sucesso!\n");
 
 				// definir listas como NULL para ficarem vazias para ler os dados de ficheiros
-				jobs = NULL;
-				machines = NULL;
-				//*executionsTable = free_Execution_Table(executionsTable);
+				freeJobs(&jobs);
+				freeMachines(&machines);
+				freeOperations(&operations);
+				freeExecutions_Table(&executionsTable);
 
-				// ler dados de ficheiros
+				// ler listas de ficheiros
 				jobs = readJobs(JOBS_FILENAME_BINARY);
 				machines = readMachines(MACHINES_FILENAME_BINARY);
 				operations = readOperations(OPERATIONS_FILENAME_BINARY);
-				//*executionsTable = createExecutionsTable(executionsTable);
-				//*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+
+				// ler hash table de ficheiros
+				*executionsTable = createExecutionsTable(executionsTable);
+				*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
 
 				printf("Dados importados com sucesso!\n");
 #pragma endregion
 
-				//#pragma region funcionalidade 3: remover um trabalho
-				//				printf("\n\n-  3. remover um trabalho\n");
-				//
-				//				// remover trabalho
-				//				deleteJob(&jobs, 3);
-				//				printf("trabalho removido com sucesso!\n");
-				//
-				//				int operationDeleted = 0;
-				//
-				//				do {
-				//					// remover as operações associadas ao jobs
-				//					operationDeleted = deleteOperation_ByJob(&operations, 3);
-				//					printf("Operações associadas ao trabalho removida com sucesso!\n");
-				//
-				//					// remover as execuções associadas a cada operação
-				//					deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeleted);
-				//					printf("Execuções associadas à operação removidas com sucesso!\n");
-				//				} while (operationDeleted != -1);
-				//#pragma endregion
-				//
-				//#pragma region funcionalidade 4: inserir um trabalho
-				//				printf("\n\n-  4. Inserir um trabalho\n");
-				//
-				//				// inserir novo trabalho
-				//				Job* job = NULL;
-				//				job = newJob(9);
-				//				jobs = insertJob_AtStart(jobs, job);
-				//
-				//				// guardar a nova inserção em ficheiro
-				//				writeJobs(JOBS_FILENAME_BINARY, jobs);
-				//				printf("Novos dados exportados com sucesso!\n");
-				//#pragma endregion
-				//
-				//#pragma region funcionalidade 5: remover uma operação
-				//				printf("\n\n-  5. Remover uma operação\n");
-				//
-				//				// remover operação
-				//				deleteOperation(&operations, 35);
-				//				printf("Operação removida com sucesso!\n");
-				//
-				//				// remover execuções associadas à operação
-				//				deleteExecutions_ByOperation_AtTable(&executionsTable, 35);
-				//				printf("Execuções associadas à operação removidas com sucesso!\n");
-				//#pragma endregion
-				//
-				//#pragma region funcionalidade 6: atualizar uma operação
-				//				printf("\n\n-  6. Atualizar uma operação\n");
-				//
-				//				// atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
-				//				updatePosition(&operations, 2, 4);
-				//				printf("As posições das operações foram trocadas com sucesso!\n");
-				//
-				//				// atualizar o tempo de uma execução de operação
-				//				updateRuntime_ByOperation_AtTable(executionsTable, 4, 4, 10);
-				//#pragma endregion
-				//
-				//#pragma region funcionalidade 7: inserir uma operação
-				//				printf("\n\n-  7. Inserir uma operação\n");
-				//
-				//				// inserir nova operação
-				//				Operation* operation = NULL;
-				//				operation = newOperation(39, 2, 8);
-				//				operations = insertOperation_AtStart(operations, operation);
-				//
-				//				// inserir nova execução de uma operação
-				//				Execution* execution = NULL;
-				//				execution = newExecution(39, 5, 17);
-				//				*executionsTable = insertExecution_AtTable(executionsTable, execution);
-				//
-				//				// guardar as novas inserções em ficheiros
-				//				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
-				//				//writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
-				//				printf("Novos dados exportados com sucesso!\n");
-				//#pragma endregion
+#pragma region funcionalidade 3: remover um trabalho
+				printf("\n\n-  3. remover um trabalho\n");
 
-#pragma region funcionalidade 8: proposta de escalonamento
-				printf("\n\n-  8. Proposta de escalonamento\n");
+				// remover trabalho
+				deleteJob(&jobs, 3);
+				printf("trabalho removido com sucesso!\n");
 
-				Execution* executions = NULL;
-				executions = loadExecutions(EXECUTIONS_FILENAME_TEXT);
+				int operationDeleted = 0;
 
-				Job* currentJobs = jobs;
-				Execution* minExecutions = NULL;
-				int minTime = 0;
+				do {
+					// remover as operações associadas ao jobs
+					operationDeleted = deleteOperation_ByJob(&operations, 3);
+					printf("Operações associadas ao trabalho removida com sucesso!\n");
 
-				while (currentJobs)
-				{
-					// obter o tempo mínimo para completar um job e as respetivas operações
-					minTime = getMinTime_ToCompleteJob(operations, executions, currentJobs->id, &minExecutions);
+					// remover as execuções associadas a cada operação
+					deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeleted);
+					printf("Execuções associadas à operação removidas com sucesso!\n");
+				} while (operationDeleted != -1);
+#pragma endregion
 
-					// mostrar o tempo mínimo do trabalho atual
-					printf("\nMenor tempo necessário para completar o trabalho(ID: %d) é %d!\n", currentJobs->id, minTime);
+#pragma region funcionalidade 4: inserir um trabalho
+				printf("\n\n-  4. Inserir um trabalho\n");
 
-					currentJobs = currentJobs->next;
-				}
+				// inserir novo trabalho
+				Job* job = NULL;
+				job = newJob(9);
+				jobs = insertJob_AtStart(jobs, job);
 
-				minExecutions = sortExecutions_ByOperation_AtList(minExecutions);
-				displayExecutions_AtList(minExecutions);
+				// guardar a nova inserção em ficheiro
+				writeJobs(JOBS_FILENAME_BINARY, jobs);
+				printf("Novos dados exportados com sucesso!\n");
+#pragma endregion
 
-				// iniciar um plano de produção vazio
-				startPlan(plan, -1, -1);
+#pragma region funcionalidade 5: remover uma operação
+				printf("\n\n-  5. Remover uma operação\n");
 
-				// preencher um célula no plano
-				fillCells(plan, 1, 2, 5, 0, 1);
-				fillCells(plan, 2, 1, 2, 0, 4);
+				// remover operação
+				deleteOperation(&operations, 35);
+				printf("Operação removida com sucesso!\n");
 
-				fillCells(plan, 1, 2, 5, 0, 3); // não irá preencher, porque já existe células ativas neste intervalo de tempo
+				// remover execuções associadas à operação
+				deleteExecutions_ByOperation_AtTable(&executionsTable, 35);
+				printf("Execuções associadas à operação removidas com sucesso!\n");
+#pragma endregion
 
-				//exportPlan(PLAN_FILENAME_TEXT, plan);
+#pragma region funcionalidade 6: atualizar uma operação
+				printf("\n\n-  6. Atualizar uma operação\n");
 
-				printf("Plano escalonado com sucesso!\n");
+				// atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
+				updatePosition(&operations, 2, 4);
+				printf("As posições das operações foram trocadas com sucesso!\n");
+
+				// atualizar o tempo de uma execução de operação
+				updateRuntime_ByOperation_AtTable(executionsTable, 4, 4, 10);
+#pragma endregion
+
+#pragma region funcionalidade 7: inserir uma operação
+				printf("\n\n-  7. Inserir uma operação\n");
+
+				// inserir nova operação
+				Operation* operation = NULL;
+				operation = newOperation(39, 2, 8);
+				operations = insertOperation_AtStart(operations, operation);
+
+				// inserir nova execução de uma operação
+				Execution* execution = NULL;
+				execution = newExecution(39, 5, 17);
+				*executionsTable = insertExecution_AtTable(executionsTable, execution);
+
+				// guardar as novas inserções em ficheiros
+				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
+				//writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+				printf("Novos dados exportados com sucesso!\n");
 #pragma endregion
 
 #pragma region mostrar dados
 				printf("\n\n-  Mostrar dados\n");
 
 				// mostrar dados na consola
-				//printf("Trabalhos:\n");
-				//displayJobs(jobs);
+				printf("Trabalhos:\n");
+				displayJobs(jobs);
 
-				//printf("Máquinas:\n");
-				//displayMachines(machines);
+				printf("Máquinas:\n");
+				displayMachines(machines);
 
-				//printf("Operações:\n");
-				//displayOperations(operations);
+				printf("Operações:\n");
+				displayOperations(operations);
 
-				//printf("Execuções de Operações:\n");
-				//displayExecutions_AtTable(executionsTable);
+				printf("Execuções de Operações:\n");
+				displayExecutions_AtTable(executionsTable);
 
 				//printf("Plano:\n");
 				//displayPlan(plan);

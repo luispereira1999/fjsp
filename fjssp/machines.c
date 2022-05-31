@@ -250,3 +250,23 @@ bool searchMachine(Machine* head, int id)
 
 	return false;
 }
+
+
+/**
+* @brief	Libertar a lista de máquinas da memória
+* @param	head	Lista de máquinas
+*/
+void freeMachines(Machine** head)
+{
+	if (head != NULL)
+	{
+		Machine* current;
+
+		while (*head)
+		{
+			current = *head;
+			*head = (*head)->next;
+			free(current);
+		}
+	}
+}
