@@ -101,3 +101,27 @@ WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new)
 
 	return head;
 }
+
+
+/**
+* @brief	Mostrar a lista de planos de trabalhos na consola
+* @param	head	Lista de planos de trabalhos
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool displayWorkPlans(WorkPlan* head)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		return false;
+	}
+
+	WorkPlan* current = head;
+
+	while (current != NULL)
+	{
+		printf("ID Trabalho: %d, ID Operação: %d, ID Máquina: %d, Tempo de Execução: %d, Posição: %d;\n", current->jobID, current->operationID, current->machineID, current->runtime, current->position);
+		current = current->next;
+	}
+
+	return true;
+}
