@@ -38,3 +38,25 @@ WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, in
 
 	return new;
 }
+
+
+/**
+* @brief	Inserir no plano de trabalho no início da lista de operações
+* @param	head	Lista de planos de trabalhos
+* @param	new		Nova plano de trabalho
+* @return	Lista de planos de trabalhos
+*/
+WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		head = new;
+	}
+	else // se existir algum elemento na lista
+	{
+		new->next = head;
+		head = new;
+	}
+
+	return head;
+}
