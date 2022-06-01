@@ -152,3 +152,37 @@ WorkPlan* sortWorkPlans_ByJob(WorkPlan* head)
 
 	return sorted;
 }
+
+
+/**
+* @brief	Obter todos os planos de trabalhos para um realizar um plano de produção
+* @param	head			Lista de planos de trabalhos
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* executions)
+{
+	WorkPlan* workPlans = NULL, * workPlan = NULL;
+	Execution* minExecutions = NULL;
+	int minTime = 0;
+
+	while (jobs)
+	{
+		// obter o tempo mínimo para completar um job e as respetivas operações
+		minTime = getMinTime_ToCompleteJob(operations, executions, jobs->id, &minExecutions);
+
+		while (minExecutions)
+		{
+			Operation* currOper = getOperation(operations, minExecutions->operationID);
+
+			workPlan = newWorkPlan(jobs->id, minExecutions->operationID, minExecutions->machineID, minExecutions->runtime, currOper->position, false);
+			workPlans = insertWorkPlan_AtStart(workPlans, workPlan);
+
+			minExecutions = minExecutions->next;
+		}
+
+		freeExecutions_List(&minExecutions);
+		jobs = jobs->next;
+	}
+
+	return workPlans;
+}
