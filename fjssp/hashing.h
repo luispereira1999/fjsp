@@ -6,8 +6,6 @@
  * @date	25/03/2022
 */
 
-#include "data-types.h"
-
 
 #ifndef HASHING
 #define HASHING 1

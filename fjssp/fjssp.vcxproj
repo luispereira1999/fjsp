@@ -146,6 +146,7 @@
     <ClCompile Include="executions.c" />
     <ClCompile Include="operations.c" />
     <ClCompile Include="plan.c" />
+    <ClCompile Include="work-plans.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data-types.h" />
