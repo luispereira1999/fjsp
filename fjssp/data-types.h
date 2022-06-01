@@ -137,7 +137,7 @@ typedef struct WorkPlan
 
 
 /**
- * @brief	Estrutura de dados para representar um plano de produção
+ * @brief	Estrutura de dados para representar uma célula do plano de produção
  */
 typedef struct Cell
 {
@@ -148,18 +148,6 @@ typedef struct Cell
 
 // matriz do plano de produção
 extern Cell plan[NUMBER_MACHINES][MAX_TIME];
-
-/**
- * @brief	Estrutura de dados para representar um plano de produção que será exportado da aplicação
- */
-typedef struct CellExported
-{
-	int jobID;
-	int operationID;
-	int initalTime;
-	int finalTime;
-	struct CellExported* next;
-} CellExported;
 
 #pragma endregion
 
@@ -174,6 +162,7 @@ typedef struct FileJob
 	int id;
 } FileJob;
 
+
 /**
  * @brief	Estrutura de dados para armazenar em ficheiro a lista de máquinas
  */
@@ -182,6 +171,7 @@ typedef struct FileMachine
 	int id;
 	bool isBusy; // se a máquina está ou não em utilização
 } FileMachine;
+
 
 /**
  * @brief	Estrutura de dados para armazenar em ficheiro a lista de operações
@@ -193,6 +183,7 @@ typedef struct FileOperation
 	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
 } FileOperation;
 
+
 /**
  * @brief	Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas
  */
@@ -202,6 +193,20 @@ typedef struct FileExecution
 	int machineID;
 	int runtime; // unidades de tempo necessárias para a execução da operação
 } FileExecution;
+
+
+/**
+ * @brief	Estrutura de dados para armazenar em ficheiro uma célula do plano de produção
+ */
+typedef struct FileCell
+{
+	int machineID;
+	int jobID;
+	int operationID;
+	int initialTime;
+	int finalTime;
+	struct FileCell* next;
+} FileCell;
 
 #pragma endregion
 

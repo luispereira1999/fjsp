@@ -27,15 +27,6 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese"); // permitir caracteres especiais (portugueses)
 
-	//ExecutionNode* aa[HASH_TABLE_SIZE];
-	//*aa = createExecutionsTable(aa);
-	//*aa = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, aa);
-
-	//displayExecutions_AtTable(aa);
-	//printf("\n\n\n");
-
-
-
 	// listas
 	Job* jobs = NULL;
 	Operation* operations = NULL;
@@ -115,6 +106,36 @@ int main()
 				*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
 
 				printf("Dados importados com sucesso!\n");
+#pragma endregion
+
+#pragma region funcionalidade 8: proposta de escalonamento
+				printf("\n\n-  8. Proposta de escalonamento\n");
+
+				// carregar todos os dados das execuções para uma lista
+				Execution* executions = loadExecutions(EXECUTIONS_FILENAME_TEXT);
+
+				// obter todos os planos de trabalhos necessários para realizar um plano de produção
+				WorkPlan* workPlans = getAllWorkPlans(jobs, operations, executions);
+
+				// ordenar planos pela posição das operações nos jobs
+				workPlans = sortWorkPlans_ByJob(workPlans);
+
+				// iniciar um plano de produção vazio
+				startPlan(plan, -1, -1);
+
+				// preencher todo o plano
+				fillAllPlan(plan, workPlans);
+
+				// exportar plano para ficheiro .csv
+				FileCell* cells = getCellsToExport(plan);
+
+				// ordenar células que serão exportadas por máquinas
+				cells = sortFileCells_ByMachine(cells);
+
+				// exportar plano para ficheiro .csv
+				exportPlan(PLAN_FILENAME_TEXT, cells);
+
+				printf("Plano escalonado e exportado com sucesso!\n");
 #pragma endregion
 
 #pragma region funcionalidade 3: remover um trabalho
@@ -208,8 +229,8 @@ int main()
 				printf("Execuções de Operações:\n");
 				displayExecutions_AtTable(executionsTable);
 
-				//printf("Plano:\n");
-				//displayPlan(plan);
+				printf("Plano:\n");
+				displayPlan(plan);
 
 				printf("Dados mostrados com sucesso!\n");
 #pragma endregion

@@ -6,8 +6,6 @@
  * @date	25/03/2022
 */
 
-#include "data-types.h"
-
 
 #ifndef LISTS
 #define LISTS 1
@@ -62,13 +60,6 @@ int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 float getAverageTime_ToCompleteOperation(Execution* head, int operationID);
 void freeOperations(Operation** head);
 
-Operation* getNextOperation_InJob(Operation* operations, Job* jobs, int jobID);
-WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, int position, bool isDone);
-WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new);
-WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new);
-bool displayWorkPlans(WorkPlan* head);
-WorkPlan* sortWorkPlans_ByJob(WorkPlan* head);
-
 #pragma endregion
 
 
@@ -92,13 +83,39 @@ void freeExecutions_List(Execution** head);
 #pragma endregion
 
 
-#pragma region planos de produção
+#pragma region planos de trabalhos
 
-bool startPlan(Cell plan[][MAX_TIME], int jobID, int executionID);
-bool fillCells(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft);
-bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft);
-bool displayPlan(Cell p[][MAX_TIME]);
-bool exportPlan(char* fileName, Cell p[][MAX_TIME]);
+WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, int position);
+WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new);
+WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new);
+bool displayWorkPlans(WorkPlan* head);
+WorkPlan* sortWorkPlans_ByJob(WorkPlan* head);
+WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* executions);
+
+#pragma endregion
+
+
+#pragma region planos de produção em memória
+
+bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID);
+bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID, int initialTime, int finalTime);
+Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID);
+Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID);
+bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans);
+bool searchActiveCells(Cell plan[][MAX_TIME], int machineID, int initialTime, int finalTime);
+bool displayPlan(Cell plan[][MAX_TIME]);
+
+#pragma endregion
+
+
+#pragma region planos de produção para exportar para ficheiro
+
+FileCell* newFileCell(int machineID, int jobID, int operationID, int initialTime, int finalTime);
+FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new);
+FileCell* insertFileCell_ByMachine(FileCell* head, FileCell* new);
+FileCell* sortFileCells_ByMachine(FileCell* head);
+FileCell* getCellsToExport(Cell plan[][MAX_TIME]);
+bool exportPlan(char* fileName, FileCell* head);
 
 #pragma endregion
 
