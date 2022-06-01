@@ -186,3 +186,28 @@ WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* execution
 
 	return workPlans;
 }
+
+
+/**
+* @brief	Obter o tempo total do plano
+* @param	head			Lista de planos de trabalhos
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+int getFullTimeOfPlan(WorkPlan* head)
+{
+	if (head == NULL)
+	{
+		return -1;
+	}
+
+	int fullTime = 0;
+	WorkPlan* current = head;
+
+	while (current)
+	{
+		fullTime += current->runtime;
+		current = current->next;
+	}
+
+	return fullTime;
+}

@@ -43,12 +43,12 @@ int main()
 	do
 	{
 		// menu 
-		printf("---------------------------------\n\n");
+		printf("------------------------------------\n\n");
 		printf("   M E N U\n\n");
-		printf("   1 -> Fase 2\n");
+		printf("   1 -> Flexible Job Shop Problem\n");
 		printf("   2 -> Sobre\n");
 		printf("   © Luís Pereira | 2022\n\n");
-		printf("---------------------------------\n");
+		printf("------------------------------------\n");
 		printf("Escolha uma das opções acima: ");
 
 		if (!scanf("%d", &menuOption)) // se não introduzir um número
@@ -63,7 +63,7 @@ int main()
 
 			switch (menuOption)
 			{
-			case 1: // fase 2 da aplicação
+			case 1: // Flexible Job Shop Problem
 
 #pragma region funcionalidade 1: definir estruturas de dados dinâmicas
 				printf("-  1. Definir estruturas de dados dinâmicas\n");
@@ -116,6 +116,9 @@ int main()
 
 				// obter todos os planos de trabalhos necessários para realizar um plano de produção
 				WorkPlan* workPlans = getAllWorkPlans(jobs, operations, executions);
+
+				int fullTime = getFullTimeOfPlan(workPlans);
+				printf("Tempo total do plano é %d!\n", fullTime);
 
 				// ordenar planos pela posição das operações nos jobs
 				workPlans = sortWorkPlans_ByJob(workPlans);
@@ -237,7 +240,7 @@ int main()
 
 				break;
 
-			case 3: // sobre aplicação
+			case 2: // Sobre
 
 				printf("Flexible Job Shop Problem - Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\n");
 				printf("Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\n");

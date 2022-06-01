@@ -430,7 +430,7 @@ bool exportPlan(char* fileName, FileCell* head)
 	FileCell* current = head;
 	while (current)
 	{
-		fprintf(file, "Máquina %d, Trabalho %d - Operação %d, %d, %d\n", current->machineID, current->jobID, current->operationID, current->initialTime, current->finalTime);
+		fprintf(file, "Maquina %d, Trabalho %d - Operacao %d, %d, %d\n", current->machineID, current->jobID, current->operationID, current->initialTime, current->finalTime);
 		current = current->next;
 	}
 

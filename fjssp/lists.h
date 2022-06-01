@@ -91,6 +91,7 @@ WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new);
 bool displayWorkPlans(WorkPlan* head);
 WorkPlan* sortWorkPlans_ByJob(WorkPlan* head);
 WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* executions);
+int getFullTimeOfPlan(WorkPlan* head);
 
 #pragma endregion
 
