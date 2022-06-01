@@ -125,3 +125,30 @@ bool displayWorkPlans(WorkPlan* head)
 
 	return true;
 }
+
+
+/**
+* @brief	Ordenar planos de trabalhos por ordem crescente da posição das operações num job
+* @param	head			Lista de planos de trabalhos
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+WorkPlan* sortWorkPlans_ByJob(WorkPlan* head)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		return NULL;
+	}
+
+	WorkPlan* current = head;
+	WorkPlan* sorted = NULL;
+	WorkPlan* new = NULL;
+
+	while (current != NULL)
+	{
+		new = newWorkPlan(current->jobID, current->operationID, current->machineID, current->runtime, current->position);
+		sorted = insertWorkPlan_ByJob_AtList(sorted, new);
+		current = current->next;
+	}
+
+	return sorted;
+}
