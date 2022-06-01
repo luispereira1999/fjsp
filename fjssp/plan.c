@@ -1,5 +1,5 @@
 /**
- * @brief	Ficheiro com todas as funções relativas aos planos
+ * @brief	Ficheiro com todas as funções relativas aos planos de produção
  * @file	plan.c
  * @author	Luís Pereira
  * @email	a18446@alunos.ipca.pt
@@ -214,6 +214,38 @@ bool displayPlan(Cell plan[][MAX_TIME])
 		printf("|\n");
 	}
 	printf("\n");
+}
+
+#pragma endregion
+
+
+#pragma region planos de produção para exportar para ficheiro
+
+/**
+* @brief	Criar nova célula do plano que será exportada para um ficheiro
+* @param	machineID		Identificador da máquina
+* @param	jobID			Identificador do job
+* @param	operationID		Identificador da operação
+* @param	initialTime		Tempo inicial no plano de produção relativamente a esta operação
+* @param	finalTime		Tempo final no plano de produção relativamente a esta operação
+* @return	Nova célula
+*/
+FileCell* newFileCell(int machineID, int jobID, int operationID, int initialTime, int finalTime)
+{
+	FileCell* new = (FileCell*)malloc(sizeof(FileCell));
+	if (new == NULL) // se não houver memória para alocar
+	{
+		return NULL;
+	}
+
+	new->machineID = machineID;
+	new->jobID = jobID;
+	new->operationID = operationID;
+	new->initialTime = initialTime;
+	new->finalTime = finalTime;
+	new->next = NULL;
+
+	return new;
 }
 
 #pragma endregion
