@@ -15,7 +15,7 @@
 // tamanho relativos às estruturas de dados
 #define HASH_TABLE_SIZE 13
 #define NUMBER_MACHINES 8
-#define MAX_TIME 18
+#define MAX_TIME 35
 
 // tamanhos e nomes relativos a ficheiros de texto
 #define FILE_LINE_SIZE 50
@@ -65,6 +65,7 @@ typedef struct Job
 // lista de trabalhos
 extern Job* jobs; // extern: informa o compilador que esta variável está definida algures no código
 
+
 /**
  * @brief	Estrutura de dados para representar a lista de máquinas (em memória)
  */
@@ -77,6 +78,7 @@ typedef struct Machine
 
 // lista de máquinas
 extern Machine* machines;
+
 
 /**
  * @brief	Estrutura de dados para representar a lista de operações (em memória)
@@ -91,6 +93,7 @@ typedef struct Operation
 
 // lista de operações
 extern Operation* operations;
+
 
 /**
  * @brief	Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)
@@ -118,6 +121,21 @@ typedef struct {
 // é um array de apontadores para listas de execuções
 extern ExecutionNode* executionsTable[HASH_TABLE_SIZE];
 
+
+/**
+ * @brief	Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção
+ */
+typedef struct WorkPlan
+{
+	int jobID;
+	int operationID;
+	int machineID;
+	int runtime;
+	int position;
+	struct WorkPlan* next;
+} WorkPlan;
+
+
 /**
  * @brief	Estrutura de dados para representar um plano de produção
  */
@@ -125,33 +143,23 @@ typedef struct Cell
 {
 	int jobID;
 	int operationID;
-	int initialTime;
-	int finalTime;
+	int currentTime;
 } Cell;
 
-// matriz do plano
+// matriz do plano de produção
 extern Cell plan[NUMBER_MACHINES][MAX_TIME];
 
+/**
+ * @brief	Estrutura de dados para representar um plano de produção que será exportado da aplicação
+ */
 typedef struct CellExported
 {
 	int jobID;
-	char operationsIDs[OPEARATIONS_TEXT_SIZE];
-	int initialTime;
+	int operationID;
+	int initalTime;
 	int finalTime;
 	struct CellExported* next;
 } CellExported;
-
-///**
-// * @brief	Estrutura de dados para representar um plano de produção
-// */
-//typedef struct CellList
-//{
-//	int jobID;
-//	int operationID;
-//	int initialTime;
-//	int finalTime;
-//	CellList* next;
-//} CellList;
 
 #pragma endregion
 
