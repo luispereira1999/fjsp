@@ -338,4 +338,73 @@ FileCell* sortFileCells_ByMachine(FileCell* head)
 	return sorted;
 }
 
+
+/**
+* @brief	Obter células de um plano, para depois serem exportadas para um ficheiro
+* @param	plan		Plano atual
+* @return	Células que serão exportadas
+*/
+FileCell* getCellsToExport(Cell plan[][MAX_TIME])
+{
+	FileCell* cells = NULL;
+
+	int currJobID = -1;
+	int currOpID = -1;
+	int nextJobID = -1;
+
+	int initialTime = -1;
+	int finalTime = -1;
+	int tempFinalTime = -1;
+	int tempInitialTime = -1;
+
+	int equalCells = 0;
+
+	for (int i = 0; i < NUMBER_MACHINES; i++)
+	{
+		for (int j = 0; j < MAX_TIME; j++)
+		{
+			if (plan[i][j].jobID != -1)
+			{
+				currJobID = plan[i][j].jobID;
+				currOpID = plan[i][j].operationID;
+				nextJobID = plan[i][j + 1].jobID;
+				initialTime = j;
+				finalTime = initialTime;
+
+				if (currJobID == nextJobID)
+				{
+					initialTime = j;
+
+					equalCells++;
+					if (equalCells == 1)
+					{
+						tempInitialTime = initialTime;
+					}
+
+					tempFinalTime = finalTime;
+					tempFinalTime += 1;
+				}
+				else
+				{
+					if (equalCells == 0)
+					{
+						tempInitialTime = initialTime;
+					}
+
+					tempFinalTime += 1;
+
+					FileCell* cell = newFileCell(i + 1, currJobID, currOpID, tempInitialTime, tempFinalTime);
+					cells = insertFileCell_AtStart(cells, cell);
+
+					equalCells = 0;
+					tempInitialTime == -1;
+					tempFinalTime == -1;
+				}
+			}
+		}
+	}
+
+	return cells;
+}
+
 #pragma endregion
