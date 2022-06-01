@@ -248,4 +248,26 @@ FileCell* newFileCell(int machineID, int jobID, int operationID, int initialTime
 	return new;
 }
 
+
+/**
+* @brief	Inserir célula do plano no início da lista de células
+* @param	head	Lista de células do plano
+* @param	new		Nova célula do plano
+* @return	Lista de células do plano
+*/
+FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		head = new;
+	}
+	else // se existir algum elemento na lista
+	{
+		new->next = head;
+		head = new;
+	}
+
+	return head;
+}
+
 #pragma endregion
