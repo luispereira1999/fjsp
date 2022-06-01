@@ -311,4 +311,31 @@ FileCell* insertFileCell_ByMachine(FileCell* head, FileCell* new)
 	return head;
 }
 
+
+/**
+* @brief	Ordenar células por ordem crescente das máquinas
+* @param	head			Lista de células
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+FileCell* sortFileCells_ByMachine(FileCell* head)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		return NULL;
+	}
+
+	FileCell* current = head;
+	FileCell* sorted = NULL;
+	FileCell* new = NULL;
+
+	while (current != NULL)
+	{
+		new = newFileCell(current->machineID, current->jobID, current->operationID, current->initialTime, current->finalTime);
+		sorted = insertFileCell_ByMachine(sorted, new);
+		current = current->next;
+	}
+
+	return sorted;
+}
+
 #pragma endregion
