@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.3</span>
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
    </div>
    <div id="projectbrief">Proposta de escalonamento para a produÃ§Ã£o de um produto que envolve vÃ¡rias operaÃ§Ãµes e a utilizaÃ§Ã£o de vÃ¡rias mÃ¡quinas, para minimizar o tempo necessÃ¡rio na sua produÃ§Ã£o.</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_8dd1dfa35ca47062104663d393c26342.html">LUIS-PEREIRA</a></li><li class="navelem"><a class="el" href="dir_86fe3e9c105b3edfb74baaa70111661b.html">Repositorios</a></li><li class="navelem"><a class="el" href="dir_3a1c66de56c8744dba612bf955ca5b76.html">fjssp</a></li><li class="navelem"><a class="el" href="dir_7bead656e6da20e655bd0815459ee224.html">fjssp</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_45c3d416b95fca600a286ee78c23e56e.html">fjssp</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -77,7 +77,9 @@ $(function() {
 <a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;locale.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="header_8h_source.html">header.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="data-types_8h_source.html">data-types.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lists_8h_source.html">lists.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hashing_8h_source.html">hashing.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 FunÃ§Ãµes</h2></td></tr>
@@ -108,257 +110,309 @@ FunÃ§Ãµes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Função principal do programa. </p>
-<dl class="section return"><dt>Retorna</dt><dd>Resultado do programa na linha de comando </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>    setlocale(LC_ALL, <span class="stringliteral">&quot;Portuguese&quot;</span>); <span class="comment">// permitir caracteres especiais (portugueses)</span></div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_struct" href="struct_job.html">Job</a>* <a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = NULL;</div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_struct" href="struct_operation.html">Operation</a>* <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = NULL;</div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* <a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = NULL;</div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = NULL;</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordtype">int</span> menuOption = 0;</div>
+<dl class="section return"><dt>Retorna</dt><dd>Resultado do programa na linha de comandos </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>{</div>
+<div class="line"><span class="lineno">   28</span>    setlocale(LC_ALL, <span class="stringliteral">&quot;Portuguese&quot;</span>); <span class="comment">// permitir caracteres especiais (portugueses)</span></div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    <span class="comment">// listas</span></div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_struct" href="struct_job.html">Job</a>* <a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = NULL;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_struct" href="struct_operation.html">Operation</a>* <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = NULL;</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_struct" href="struct_machine.html">Machine</a>* <a class="code hl_variable" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = NULL;</div>
 <div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">do</span></div>
-<div class="line"><span class="lineno">   36</span>    {</div>
-<div class="line"><span class="lineno">   37</span>        <span class="comment">// menu </span></div>
-<div class="line"><span class="lineno">   38</span>        printf(<span class="stringliteral">&quot;---------------------------------\n\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   39</span>        printf(<span class="stringliteral">&quot;   M E N U\n\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   40</span>        printf(<span class="stringliteral">&quot;   1 -&gt; Fase 1\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   41</span>        printf(<span class="stringliteral">&quot;   2 -&gt; Fase 2\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   42</span>        printf(<span class="stringliteral">&quot;   3 -&gt; Sobre\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   43</span>        printf(<span class="stringliteral">&quot;   © Luís Pereira | 2022\n\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   44</span>        printf(<span class="stringliteral">&quot;---------------------------------\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   45</span>        printf(<span class="stringliteral">&quot;Escolha uma das opções acima: &quot;</span>);</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">if</span> (!scanf(<span class="stringliteral">&quot;%d&quot;</span>, &amp;menuOption)) <span class="comment">// se não introduzir um número</span></div>
-<div class="line"><span class="lineno">   48</span>        {</div>
-<div class="line"><span class="lineno">   49</span>            fseek(stdin, 0, SEEK_END); <span class="comment">// repor buffer de entrada para evitar ciclo infinito</span></div>
-<div class="line"><span class="lineno">   50</span>            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   51</span>            printf(<span class="stringliteral">&quot;O carácter introduzido não é válido. Tente outro.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   52</span>        }</div>
-<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   54</span>        {</div>
-<div class="line"><span class="lineno">   55</span>            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>            <span class="keywordflow">switch</span> (menuOption)</div>
-<div class="line"><span class="lineno">   58</span>            {</div>
-<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">case</span> 1: <span class="comment">// fase 1 do projeto</span></div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span><span class="preprocessor">#pragma region funcionalidade 1: definir estruturas de dados dinâmicas</span></div>
-<div class="line"><span class="lineno">   62</span>                printf(<span class="stringliteral">&quot;-  1. Definir estruturas de dados dinâmicas\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   35</span>    <span class="comment">// tabela hash das execuções</span></div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>* <a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>[<a class="code hl_define" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>];</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <span class="comment">// matriz do plano de produção</span></div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_struct" href="struct_cell.html">Cell</a> <a class="code hl_variable" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a>[<a class="code hl_define" href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">NUMBER_MACHINES</a>][<a class="code hl_define" href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">MAX_TIME</a>];</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordtype">int</span> menuOption = 0;</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">do</span></div>
+<div class="line"><span class="lineno">   44</span>    {</div>
+<div class="line"><span class="lineno">   45</span>        <span class="comment">// menu </span></div>
+<div class="line"><span class="lineno">   46</span>        printf(<span class="stringliteral">&quot;------------------------------------\n\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   47</span>        printf(<span class="stringliteral">&quot;   M E N U\n\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   48</span>        printf(<span class="stringliteral">&quot;   1 -&gt; Flexible Job Shop Problem\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   49</span>        printf(<span class="stringliteral">&quot;   2 -&gt; Sobre\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   50</span>        printf(<span class="stringliteral">&quot;   © Luís Pereira | 2022\n\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   51</span>        printf(<span class="stringliteral">&quot;------------------------------------\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   52</span>        printf(<span class="stringliteral">&quot;Escolha uma das opções acima: &quot;</span>);</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">if</span> (!scanf(<span class="stringliteral">&quot;%d&quot;</span>, &amp;menuOption)) <span class="comment">// se não introduzir um número</span></div>
+<div class="line"><span class="lineno">   55</span>        {</div>
+<div class="line"><span class="lineno">   56</span>            fseek(stdin, 0, SEEK_END); <span class="comment">// repor buffer de entrada para evitar ciclo infinito</span></div>
+<div class="line"><span class="lineno">   57</span>            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   58</span>            printf(<span class="stringliteral">&quot;O carácter introduzido não é válido. Tente outro.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   59</span>        }</div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   61</span>        {</div>
+<div class="line"><span class="lineno">   62</span>            printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>                <span class="comment">// carregar dados (tabela) para as listas</span></div>
-<div class="line"><span class="lineno">   65</span>                <a class="code hl_function" href="data_8c.html#a9e20b602bea2105c4844c9488e0dac64">loadData</a>(&amp;<a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>, &amp;<a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>, &amp;<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, &amp;<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
-<div class="line"><span class="lineno">   66</span>                printf(<span class="stringliteral">&quot;Dados carregados em memória com sucesso!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   67</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span><span class="preprocessor">#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiro</span></div>
-<div class="line"><span class="lineno">   70</span>                printf(<span class="stringliteral">&quot;\n\n-  2. Armazenar e ler as estruturas em ficheiro\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>                <span class="comment">// guardar os dados em ficheiros</span></div>
-<div class="line"><span class="lineno">   73</span>                <a class="code hl_function" href="header_8h.html#a74854c567a784660b6259abbd47d821e">writeJobs</a>(<span class="stringliteral">&quot;jobs.txt&quot;</span>, <a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
-<div class="line"><span class="lineno">   74</span>                <a class="code hl_function" href="header_8h.html#adeb9a16e75fb2739e26d1ceed9fbec78">writeMachines</a>(<span class="stringliteral">&quot;machines.txt&quot;</span>, <a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
-<div class="line"><span class="lineno">   75</span>                <a class="code hl_function" href="header_8h.html#a535c92168a17ff038c2007300a75d708">writeOperations</a>(<span class="stringliteral">&quot;operations.txt&quot;</span>, <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
-<div class="line"><span class="lineno">   76</span>                <a class="code hl_function" href="executions_8c.html#aaae924901eb9d97606c03a74081b5291">writeExecutions</a>(<span class="stringliteral">&quot;executions.txt&quot;</span>, <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
-<div class="line"><span class="lineno">   77</span>                printf(<span class="stringliteral">&quot;Dados exportados com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   64</span>            <span class="keywordflow">switch</span> (menuOption)</div>
+<div class="line"><span class="lineno">   65</span>            {</div>
+<div class="line"><span class="lineno">   66</span>            <span class="keywordflow">case</span> 1: <span class="comment">// Flexible Job Shop Problem</span></div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span><span class="preprocessor">#pragma region funcionalidade 1: definir estruturas de dados dinâmicas</span></div>
+<div class="line"><span class="lineno">   69</span>                printf(<span class="stringliteral">&quot;-  1. Definir estruturas de dados dinâmicas\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>                <span class="comment">// carregar listas em memória</span></div>
+<div class="line"><span class="lineno">   72</span>                <a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = <a class="code hl_function" href="jobs_8c.html#a3767c4c6655e4d9db698c65cc1efc2cf">loadJobs</a>(<a class="code hl_define" href="data-types_8h.html#a92d724b49f4c5f6f087396e833e95411">JOBS_FILENAME_TEXT</a>);</div>
+<div class="line"><span class="lineno">   73</span>                <a class="code hl_variable" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = <a class="code hl_function" href="lists_8h.html#a66314cd1d0360ba77833955b765c6078">loadMachines</a>(<a class="code hl_define" href="data-types_8h.html#a0cee344c6f8f2c5f0f1c953ae30ad79c">MACHINES_FILENAME_TEXT</a>);</div>
+<div class="line"><span class="lineno">   74</span>                <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = <a class="code hl_function" href="lists_8h.html#aa207662e983cab853fbd1cd3d3415d4e">loadOperations</a>(<a class="code hl_define" href="data-types_8h.html#ae8a4c9c1d13c9e3db4d2238ef43be113">OPERATIONS_FILENAME_TEXT</a>);</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>                <span class="comment">// carregar tabela hash em memória</span></div>
+<div class="line"><span class="lineno">   77</span>                *<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a> = <a class="code hl_function" href="executions_8c.html#ae5d4ea413106ade02d7003df3d7c04f1">loadExecutionsTable</a>(<a class="code hl_define" href="data-types_8h.html#a0778c62b500b00edb448466ddcd06d13">EXECUTIONS_FILENAME_TEXT</a>, <a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>);</div>
 <div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>                <span class="comment">// libertar memória das listas anteriores, para serem lidas dos ficheiros</span></div>
-<div class="line"><span class="lineno">   80</span>                <a class="code hl_function" href="header_8h.html#a542b381bfbc143ae575e98f684117265">freeJobs</a>(<a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
-<div class="line"><span class="lineno">   81</span>                <a class="code hl_function" href="header_8h.html#adf36b4d501a3dcbaf8ac959da2d76c8f">freeMachines</a>(<a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
-<div class="line"><span class="lineno">   82</span>                <a class="code hl_function" href="header_8h.html#af64e219dfa9552b285dd100375c2c6a7">freeOperations</a>(<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
-<div class="line"><span class="lineno">   83</span>                <a class="code hl_function" href="executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721">freeExecutions</a>(<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
+<div class="line"><span class="lineno">   79</span>                printf(<span class="stringliteral">&quot;Dados carregados em memória com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   80</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span><span class="preprocessor">#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiros</span></div>
+<div class="line"><span class="lineno">   83</span>                printf(<span class="stringliteral">&quot;\n\n-  2. Armazenar e ler as estruturas em ficheiros\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   84</span> </div>
-<div class="line"><span class="lineno">   85</span>                <span class="comment">// depois de libertar memória, definir listas como NULL para evitar possíveis erros</span></div>
-<div class="line"><span class="lineno">   86</span>                <a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = NULL;</div>
-<div class="line"><span class="lineno">   87</span>                <a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = NULL;</div>
-<div class="line"><span class="lineno">   88</span>                <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = NULL;</div>
-<div class="line"><span class="lineno">   89</span>                <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = NULL;</div>
+<div class="line"><span class="lineno">   85</span>                <span class="comment">// guardar os dados em ficheiros</span></div>
+<div class="line"><span class="lineno">   86</span>                <a class="code hl_function" href="jobs_8c.html#a74854c567a784660b6259abbd47d821e">writeJobs</a>(<a class="code hl_define" href="data-types_8h.html#a2c01afb31522618361a6f72fd5f251e3">JOBS_FILENAME_BINARY</a>, <a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
+<div class="line"><span class="lineno">   87</span>                <a class="code hl_function" href="lists_8h.html#adeb9a16e75fb2739e26d1ceed9fbec78">writeMachines</a>(<a class="code hl_define" href="data-types_8h.html#a98c496e67aa9615cc4b453c809b23791">MACHINES_FILENAME_BINARY</a>, <a class="code hl_variable" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
+<div class="line"><span class="lineno">   88</span>                <a class="code hl_function" href="lists_8h.html#a535c92168a17ff038c2007300a75d708">writeOperations</a>(<a class="code hl_define" href="data-types_8h.html#a3c6c24386c8e549126bc8ec7ba4ff952">OPERATIONS_FILENAME_BINARY</a>, <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
+<div class="line"><span class="lineno">   89</span>                <a class="code hl_function" href="executions_8c.html#aefd476173ba3d625348e353c22707c36">writeExecutions_AtTable</a>(<a class="code hl_define" href="data-types_8h.html#aa2212b6c51d5f434ba0f309964d4b02b">EXECUTIONS_FILENAME_BINARY</a>, <a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>);</div>
 <div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>                <span class="comment">// ler dados de ficheiros</span></div>
-<div class="line"><span class="lineno">   92</span>                <a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = <a class="code hl_function" href="header_8h.html#a1c30247bf14e8f64a9dad8cf280f7f2a">readJobs</a>(<span class="stringliteral">&quot;jobs.txt&quot;</span>);</div>
-<div class="line"><span class="lineno">   93</span>                <a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = <a class="code hl_function" href="header_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97">readMachines</a>(<span class="stringliteral">&quot;machines.txt&quot;</span>);</div>
-<div class="line"><span class="lineno">   94</span>                <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = <a class="code hl_function" href="header_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b">readOperations</a>(<span class="stringliteral">&quot;operations.txt&quot;</span>);</div>
-<div class="line"><span class="lineno">   95</span>                <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = <a class="code hl_function" href="executions_8c.html#a362b69957d588d5dd03c4cfbbb26adab">readExecutions</a>(<span class="stringliteral">&quot;executions.txt&quot;</span>);</div>
-<div class="line"><span class="lineno">   96</span>                printf(<span class="stringliteral">&quot;Dados importados com sucesso!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   97</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">   91</span>                printf(<span class="stringliteral">&quot;Dados exportados com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>                <span class="comment">// definir listas como NULL para ficarem vazias para ler os dados de ficheiros</span></div>
+<div class="line"><span class="lineno">   94</span>                <a class="code hl_function" href="jobs_8c.html#a72cbadab093ab1d12140ac0f70196359">freeJobs</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
+<div class="line"><span class="lineno">   95</span>                <a class="code hl_function" href="lists_8h.html#a45e40b72215808e4587470756ce0cd0f">freeMachines</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
+<div class="line"><span class="lineno">   96</span>                <a class="code hl_function" href="lists_8h.html#a67f132c293a67eb039eeaccad8a6cd36">freeOperations</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
+<div class="line"><span class="lineno">   97</span>                <a class="code hl_function" href="executions_8c.html#a7c503615b2b7aef617ccb9c6ff5cdfc2">freeExecutions_Table</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>);</div>
 <div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span><span class="preprocessor">#pragma region funcionalidade 3: remover uma operação</span></div>
-<div class="line"><span class="lineno">  100</span>                printf(<span class="stringliteral">&quot;\n\n-  3. Remover uma operação\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>                <span class="comment">// remover operação</span></div>
-<div class="line"><span class="lineno">  103</span>                <a class="code hl_function" href="header_8h.html#a233173b4692808bbaa16f5887ae19789">deleteOperation</a>(&amp;<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, 35);</div>
-<div class="line"><span class="lineno">  104</span>                printf(<span class="stringliteral">&quot;Operação removida com sucesso!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>                <span class="keywordtype">bool</span> allFound = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  107</span>                <span class="keywordflow">while</span> (allFound == <span class="keyword">false</span>) <span class="comment">// enquanto que encontrar operações, remover as execuções de operações associadas</span></div>
-<div class="line"><span class="lineno">  108</span>                {</div>
-<div class="line"><span class="lineno">  109</span>                    <span class="keywordflow">if</span> (<a class="code hl_function" href="executions_8c.html#a36b277b1e8d937b6aeb2a5310d22177e">searchExecutionByOperation</a>(<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, 35))</div>
-<div class="line"><span class="lineno">  110</span>                    {</div>
-<div class="line"><span class="lineno">  111</span>                        <span class="comment">// remover execução</span></div>
-<div class="line"><span class="lineno">  112</span>                        <a class="code hl_function" href="executions_8c.html#ac9f939da818fe28a3bf38bc69b72e04c">deleteExecutionByOperation</a>(&amp;<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, 35);</div>
-<div class="line"><span class="lineno">  113</span>                        printf(<span class="stringliteral">&quot;Execução associada à operação removida com sucesso!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  114</span>                    }</div>
-<div class="line"><span class="lineno">  115</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  116</span>                    {</div>
-<div class="line"><span class="lineno">  117</span>                        allFound = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  118</span>                    }</div>
-<div class="line"><span class="lineno">  119</span>                }</div>
-<div class="line"><span class="lineno">  120</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span><span class="preprocessor">#pragma region funcionalidade 4: atualizar uma operação</span></div>
-<div class="line"><span class="lineno">  123</span>                printf(<span class="stringliteral">&quot;\n\n-  4. Atualizar uma operação\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>                <span class="comment">// atualizar o tempo necessário para uma execução da operação</span></div>
-<div class="line"><span class="lineno">  126</span>                <a class="code hl_function" href="executions_8c.html#a666d9b702a75b668af07f71865cf2f79">updateRuntime</a>(&amp;<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, 2, 2, 10);</div>
-<div class="line"><span class="lineno">  127</span>                printf(<span class="stringliteral">&quot;Tempo necessário para a execução da operação atualizada com sucesso!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  128</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span><span class="preprocessor">#pragma region funcionalidade 5: inserir uma operação</span></div>
-<div class="line"><span class="lineno">  131</span>                printf(<span class="stringliteral">&quot;\n\n-  5. Inserir uma operação\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  132</span> </div>
-<div class="line"><span class="lineno">  133</span>                <span class="comment">// inserir nova operação</span></div>
-<div class="line"><span class="lineno">  134</span>                <a class="code hl_struct" href="struct_operation.html">Operation</a>* operation = NULL;</div>
-<div class="line"><span class="lineno">  135</span>                operation = <a class="code hl_function" href="header_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">newOperation</a>(39, 2, 8);</div>
-<div class="line"><span class="lineno">  136</span>                <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = <a class="code hl_function" href="header_8h.html#a35e6e85bff558fe6ce5adb0b47684423">insertOperationAtStart</a>(<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, operation);</div>
+<div class="line"><span class="lineno">   99</span>                <span class="comment">// ler listas de ficheiros</span></div>
+<div class="line"><span class="lineno">  100</span>                <a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = <a class="code hl_function" href="jobs_8c.html#a1c30247bf14e8f64a9dad8cf280f7f2a">readJobs</a>(<a class="code hl_define" href="data-types_8h.html#a2c01afb31522618361a6f72fd5f251e3">JOBS_FILENAME_BINARY</a>);</div>
+<div class="line"><span class="lineno">  101</span>                <a class="code hl_variable" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = <a class="code hl_function" href="lists_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97">readMachines</a>(<a class="code hl_define" href="data-types_8h.html#a98c496e67aa9615cc4b453c809b23791">MACHINES_FILENAME_BINARY</a>);</div>
+<div class="line"><span class="lineno">  102</span>                <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = <a class="code hl_function" href="lists_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b">readOperations</a>(<a class="code hl_define" href="data-types_8h.html#a3c6c24386c8e549126bc8ec7ba4ff952">OPERATIONS_FILENAME_BINARY</a>);</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>                <span class="comment">// ler hash table de ficheiros</span></div>
+<div class="line"><span class="lineno">  105</span>                *<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a> = <a class="code hl_function" href="executions_8c.html#a0001c4cf520ad185db5413445b1e461a">createExecutionsTable</a>(<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>);</div>
+<div class="line"><span class="lineno">  106</span>                *<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a> = <a class="code hl_function" href="executions_8c.html#a34f3703871bfdbbca009e8d1f16f70d3">readExecutions_AtTable</a>(<a class="code hl_define" href="data-types_8h.html#aa2212b6c51d5f434ba0f309964d4b02b">EXECUTIONS_FILENAME_BINARY</a>, <a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>);</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>                printf(<span class="stringliteral">&quot;Dados importados com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  109</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  111</span><span class="preprocessor">#pragma region funcionalidade 8: proposta de escalonamento</span></div>
+<div class="line"><span class="lineno">  112</span>                printf(<span class="stringliteral">&quot;\n\n-  8. Proposta de escalonamento\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>                <span class="comment">// carregar todos os dados das execuções para uma lista</span></div>
+<div class="line"><span class="lineno">  115</span>                <a class="code hl_struct" href="struct_execution.html">Execution</a>* <a class="code hl_variable" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = <a class="code hl_function" href="executions_8c.html#a53a932cfddc381cc966c1bc8f0fd05e8">loadExecutions</a>(<a class="code hl_define" href="data-types_8h.html#a0778c62b500b00edb448466ddcd06d13">EXECUTIONS_FILENAME_TEXT</a>);</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>                <span class="comment">// obter todos os planos de trabalhos necessários para realizar um plano de produção</span></div>
+<div class="line"><span class="lineno">  118</span>                <a class="code hl_struct" href="struct_work_plan.html">WorkPlan</a>* workPlans = <a class="code hl_function" href="lists_8h.html#a2e6befb227913b848f0109b2ed92f4eb">getAllWorkPlans</a>(<a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>, <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, <a class="code hl_variable" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  120</span>                <span class="keywordtype">int</span> fullTime = <a class="code hl_function" href="lists_8h.html#a825edfecbd8e0d59e20057411e24b1ae">getFullTimeOfPlan</a>(workPlans);</div>
+<div class="line"><span class="lineno">  121</span>                printf(<span class="stringliteral">&quot;Tempo total do plano é %d!\n&quot;</span>, fullTime);</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>                <span class="comment">// ordenar planos pela posição das operações nos jobs</span></div>
+<div class="line"><span class="lineno">  124</span>                workPlans = <a class="code hl_function" href="lists_8h.html#ac04ab13b740af9d6610c37e07a62a4a2">sortWorkPlans_ByJob</a>(workPlans);</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>                <span class="comment">// iniciar um plano de produção vazio</span></div>
+<div class="line"><span class="lineno">  127</span>                <a class="code hl_function" href="lists_8h.html#af2f37ca35802ce396f568506ad8ac323">startPlan</a>(<a class="code hl_variable" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a>, -1, -1);</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>                <span class="comment">// preencher todo o plano</span></div>
+<div class="line"><span class="lineno">  130</span>                <a class="code hl_function" href="lists_8h.html#a7d28c8573c3c9f74d0b8add376798451">fillAllPlan</a>(<a class="code hl_variable" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a>, workPlans);</div>
+<div class="line"><span class="lineno">  131</span> </div>
+<div class="line"><span class="lineno">  132</span>                <span class="comment">// exportar plano para ficheiro .csv</span></div>
+<div class="line"><span class="lineno">  133</span>                <a class="code hl_struct" href="struct_file_cell.html">FileCell</a>* cells = <a class="code hl_function" href="lists_8h.html#ab1e0858531fe4b32081edfb3697bc33c">getCellsToExport</a>(<a class="code hl_variable" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a>);</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span>                <span class="comment">// ordenar células que serão exportadas por máquinas</span></div>
+<div class="line"><span class="lineno">  136</span>                cells = <a class="code hl_function" href="lists_8h.html#a6c13b4baff07a85895982bd1ff921181">sortFileCells_ByMachine</a>(cells);</div>
 <div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>                <span class="comment">// inserir nova execução de uma operação</span></div>
-<div class="line"><span class="lineno">  139</span>                <a class="code hl_struct" href="struct_execution.html">Execution</a>* execution = NULL;</div>
-<div class="line"><span class="lineno">  140</span>                execution = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(39, 5, 17);</div>
-<div class="line"><span class="lineno">  141</span>                <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = <a class="code hl_function" href="executions_8c.html#ab00ae0278166111c8beb4c6cd8506718">insertExecutionAtStart</a>(<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, execution);</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>                <span class="comment">// guardar as novas inserções em ficheiros</span></div>
-<div class="line"><span class="lineno">  144</span>                <a class="code hl_function" href="header_8h.html#a535c92168a17ff038c2007300a75d708">writeOperations</a>(<span class="stringliteral">&quot;operations.txt&quot;</span>, <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
-<div class="line"><span class="lineno">  145</span>                <a class="code hl_function" href="executions_8c.html#aaae924901eb9d97606c03a74081b5291">writeExecutions</a>(<span class="stringliteral">&quot;executions.txt&quot;</span>, <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
-<div class="line"><span class="lineno">  146</span>                printf(<span class="stringliteral">&quot;Novos dados exportados com sucesso!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  147</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">  148</span> </div>
-<div class="line"><span class="lineno">  149</span><span class="preprocessor">#pragma region funcionalidade 6: determinar tempo mínimo para completar um trabalho e listagem das respetivas operações</span></div>
-<div class="line"><span class="lineno">  150</span>                printf(<span class="stringliteral">&quot;\n\n-  6. Determinar tempo mínimo para completar um trabalho e listagem das respetivas operações\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  151</span> </div>
-<div class="line"><span class="lineno">  152</span>                <span class="comment">// obter o tempo mínimo para completar um job e as respetivas operações</span></div>
-<div class="line"><span class="lineno">  153</span>                <a class="code hl_struct" href="struct_execution.html">Execution</a>* minExecutions = NULL;</div>
-<div class="line"><span class="lineno">  154</span>                <span class="keywordtype">int</span> minTime = <a class="code hl_function" href="header_8h.html#a52f8c01701a8184c95cc0b0de65cdbef">getMinTimeToCompleteJob</a>(<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, 1, &amp;minExecutions);</div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>                <span class="comment">// mostrar resultados</span></div>
-<div class="line"><span class="lineno">  157</span>                printf(<span class="stringliteral">&quot;Menor tempo necessário para completar o trabalho(ID: %d) é %d!\n&quot;</span>, 1, minTime);</div>
-<div class="line"><span class="lineno">  158</span>                printf(<span class="stringliteral">&quot;Operações com menor tempo:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  159</span>                minExecutions = <a class="code hl_function" href="executions_8c.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">SortExecutionsByOperation</a>(minExecutions);</div>
-<div class="line"><span class="lineno">  160</span>                <a class="code hl_function" href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">displayExecutions</a>(minExecutions);</div>
-<div class="line"><span class="lineno">  161</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">  162</span> </div>
-<div class="line"><span class="lineno">  163</span><span class="preprocessor">#pragma region funcionalidade 7: determinar tempo máximo para completar um trabalho e listagem das respetivas operações</span></div>
-<div class="line"><span class="lineno">  164</span>                printf(<span class="stringliteral">&quot;\n\n-  7. Determinar tempo máximo para completar um trabalho e listagem das respetivas operações\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  165</span> </div>
-<div class="line"><span class="lineno">  166</span>                <span class="comment">// obter o tempo máximo para completar um job</span></div>
-<div class="line"><span class="lineno">  167</span>                <a class="code hl_struct" href="struct_execution.html">Execution</a>* maxExecutions = NULL;</div>
-<div class="line"><span class="lineno">  168</span>                <span class="keywordtype">int</span> maxTime = <a class="code hl_function" href="header_8h.html#ac4666af18140d926937410a7bf7e0505">getMaxTimeToCompleteJob</a>(<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, 1, &amp;maxExecutions);</div>
-<div class="line"><span class="lineno">  169</span> </div>
-<div class="line"><span class="lineno">  170</span>                <span class="comment">// mostrar resultados</span></div>
-<div class="line"><span class="lineno">  171</span>                printf(<span class="stringliteral">&quot;Maior tempo necessário para completar o trabalho(ID: %d) é %d!\n&quot;</span>, 1, maxTime);</div>
-<div class="line"><span class="lineno">  172</span>                printf(<span class="stringliteral">&quot;Operações com maior tempo:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  173</span>                maxExecutions = <a class="code hl_function" href="executions_8c.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">SortExecutionsByOperation</a>(maxExecutions);</div>
-<div class="line"><span class="lineno">  174</span>                <a class="code hl_function" href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">displayExecutions</a>(maxExecutions);</div>
+<div class="line"><span class="lineno">  138</span>                <span class="comment">// exportar plano para ficheiro .csv</span></div>
+<div class="line"><span class="lineno">  139</span>                <a class="code hl_function" href="lists_8h.html#ac3605da0d42c8486e9430e84f5f790fc">exportPlan</a>(<a class="code hl_define" href="data-types_8h.html#a545550cbf83abfc8fba0c2e55b547cf0">PLAN_FILENAME_TEXT</a>, cells);</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>                printf(<span class="stringliteral">&quot;Plano escalonado e exportado com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  142</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span><span class="preprocessor">#pragma region funcionalidade 3: remover um trabalho</span></div>
+<div class="line"><span class="lineno">  145</span>                printf(<span class="stringliteral">&quot;\n\n-  3. remover um trabalho\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  146</span> </div>
+<div class="line"><span class="lineno">  147</span>                <span class="comment">// remover trabalho</span></div>
+<div class="line"><span class="lineno">  148</span>                <a class="code hl_function" href="jobs_8c.html#a2c34d85e5a249e35be61dd94b5be3e87">deleteJob</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>, 3);</div>
+<div class="line"><span class="lineno">  149</span>                printf(<span class="stringliteral">&quot;trabalho removido com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>                <span class="keywordtype">int</span> operationDeleted = 0;</div>
+<div class="line"><span class="lineno">  152</span> </div>
+<div class="line"><span class="lineno">  153</span>                <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">  154</span>                    <span class="comment">// remover as operações associadas ao jobs</span></div>
+<div class="line"><span class="lineno">  155</span>                    operationDeleted = <a class="code hl_function" href="lists_8h.html#a7bd69f169a9c02bdc3d8fe298fbabab3">deleteOperation_ByJob</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, 3);</div>
+<div class="line"><span class="lineno">  156</span>                    printf(<span class="stringliteral">&quot;Operações associadas ao trabalho removida com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  157</span> </div>
+<div class="line"><span class="lineno">  158</span>                    <span class="comment">// remover as execuções associadas a cada operação</span></div>
+<div class="line"><span class="lineno">  159</span>                    <a class="code hl_function" href="executions_8c.html#afe647db2279682c65d3262a7bfaa9ce4">deleteExecutions_ByOperation_AtTable</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>, operationDeleted);</div>
+<div class="line"><span class="lineno">  160</span>                    printf(<span class="stringliteral">&quot;Execuções associadas à operação removidas com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  161</span>                } <span class="keywordflow">while</span> (operationDeleted != -1);</div>
+<div class="line"><span class="lineno">  162</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  163</span> </div>
+<div class="line"><span class="lineno">  164</span><span class="preprocessor">#pragma region funcionalidade 4: inserir um trabalho</span></div>
+<div class="line"><span class="lineno">  165</span>                printf(<span class="stringliteral">&quot;\n\n-  4. Inserir um trabalho\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  166</span> </div>
+<div class="line"><span class="lineno">  167</span>                <span class="comment">// inserir novo trabalho</span></div>
+<div class="line"><span class="lineno">  168</span>                <a class="code hl_struct" href="struct_job.html">Job</a>* job = NULL;</div>
+<div class="line"><span class="lineno">  169</span>                job = <a class="code hl_function" href="jobs_8c.html#a84de6ff490cb65dbc4995f2d8b98de1f">newJob</a>(9);</div>
+<div class="line"><span class="lineno">  170</span>                <a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = <a class="code hl_function" href="jobs_8c.html#aa8b6bc212b95408dfcdf536979b40d9c">insertJob_AtStart</a>(<a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>, job);</div>
+<div class="line"><span class="lineno">  171</span> </div>
+<div class="line"><span class="lineno">  172</span>                <span class="comment">// guardar a nova inserção em ficheiro</span></div>
+<div class="line"><span class="lineno">  173</span>                <a class="code hl_function" href="jobs_8c.html#a74854c567a784660b6259abbd47d821e">writeJobs</a>(<a class="code hl_define" href="data-types_8h.html#a2c01afb31522618361a6f72fd5f251e3">JOBS_FILENAME_BINARY</a>, <a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
+<div class="line"><span class="lineno">  174</span>                printf(<span class="stringliteral">&quot;Novos dados exportados com sucesso!\n&quot;</span>);</div>
 <div class="line"><span class="lineno">  175</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><span class="lineno">  176</span> </div>
-<div class="line"><span class="lineno">  177</span><span class="preprocessor">#pragma region funcionalidade 8: determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis</span></div>
-<div class="line"><span class="lineno">  178</span>                printf(<span class="stringliteral">&quot;\n\n-  8. Determinar tempo médio para completar uma operação, considerando todas as alternativas possíveis\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  177</span><span class="preprocessor">#pragma region funcionalidade 5: remover uma operação</span></div>
+<div class="line"><span class="lineno">  178</span>                printf(<span class="stringliteral">&quot;\n\n-  5. Remover uma operação\n&quot;</span>);</div>
 <div class="line"><span class="lineno">  179</span> </div>
-<div class="line"><span class="lineno">  180</span>                <span class="comment">// obter o tempo médio para completar uma operação</span></div>
-<div class="line"><span class="lineno">  181</span>                <span class="keywordtype">float</span> average = <a class="code hl_function" href="header_8h.html#aae1f099b3ffebc5b9b49209b190ebe9f">getAverageTimeToCompleteOperation</a>(<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, 1);</div>
-<div class="line"><span class="lineno">  182</span> </div>
-<div class="line"><span class="lineno">  183</span>                <span class="comment">// mostrar resultado</span></div>
-<div class="line"><span class="lineno">  184</span>                printf(<span class="stringliteral">&quot;Média de tempo necessário para completar a operação(ID: %d) é %.2f!\n&quot;</span>, 1, average);</div>
-<div class="line"><span class="lineno">  185</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">  186</span> </div>
-<div class="line"><span class="lineno">  187</span><span class="preprocessor">#pragma region mostrar dados</span></div>
-<div class="line"><span class="lineno">  188</span>                printf(<span class="stringliteral">&quot;\n\n-  Mostrar dados\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  189</span> </div>
-<div class="line"><span class="lineno">  190</span>                <span class="comment">// mostrar dados na consola</span></div>
-<div class="line"><span class="lineno">  191</span>                printf(<span class="stringliteral">&quot;Trabalhos:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  192</span>                <a class="code hl_function" href="header_8h.html#a91295985e34799e3cea579e2fe66d0a8">displayJobs</a>(<a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
-<div class="line"><span class="lineno">  193</span>                printf(<span class="stringliteral">&quot;Máquinas:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  194</span>                <a class="code hl_function" href="header_8h.html#aa54244730868e6e7083ed3035581e01a">displayMachines</a>(<a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
-<div class="line"><span class="lineno">  195</span>                printf(<span class="stringliteral">&quot;Operações:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  196</span>                <a class="code hl_function" href="header_8h.html#a1cac0b2d491be7953af600a2b434cc56">displayOperations</a>(<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
-<div class="line"><span class="lineno">  197</span>                printf(<span class="stringliteral">&quot;Execuções de Operações:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  198</span>                <a class="code hl_function" href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">displayExecutions</a>(<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
-<div class="line"><span class="lineno">  199</span>                printf(<span class="stringliteral">&quot;Dados mostrados com sucesso!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  200</span> </div>
-<div class="line"><span class="lineno">  201</span>                <span class="comment">// libertar memória</span></div>
-<div class="line"><span class="lineno">  202</span>                <a class="code hl_function" href="header_8h.html#a542b381bfbc143ae575e98f684117265">freeJobs</a>(<a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
-<div class="line"><span class="lineno">  203</span>                <a class="code hl_function" href="header_8h.html#adf36b4d501a3dcbaf8ac959da2d76c8f">freeMachines</a>(<a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
-<div class="line"><span class="lineno">  204</span>                <a class="code hl_function" href="header_8h.html#af64e219dfa9552b285dd100375c2c6a7">freeOperations</a>(<a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
-<div class="line"><span class="lineno">  205</span>                <a class="code hl_function" href="executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721">freeExecutions</a>(<a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>);</div>
-<div class="line"><span class="lineno">  206</span> </div>
-<div class="line"><span class="lineno">  207</span>                <span class="comment">// depois de libertar memória, definir listas como NULL para evitar possíveis erros</span></div>
-<div class="line"><span class="lineno">  208</span>                <a class="code hl_variable" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a> = NULL;</div>
-<div class="line"><span class="lineno">  209</span>                <a class="code hl_variable" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a> = NULL;</div>
-<div class="line"><span class="lineno">  210</span>                <a class="code hl_variable" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = NULL;</div>
-<div class="line"><span class="lineno">  211</span>                <a class="code hl_variable" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = NULL;</div>
-<div class="line"><span class="lineno">  212</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><span class="lineno">  213</span> </div>
-<div class="line"><span class="lineno">  214</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  215</span> </div>
-<div class="line"><span class="lineno">  216</span>            <span class="keywordflow">case</span> 2: <span class="comment">// fase 2 do projeto</span></div>
-<div class="line"><span class="lineno">  217</span> </div>
-<div class="line"><span class="lineno">  218</span>                printf(<span class="stringliteral">&quot;Em breve!\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  219</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  220</span> </div>
-<div class="line"><span class="lineno">  221</span>            <span class="keywordflow">case</span> 3: <span class="comment">// sobre aplicação</span></div>
-<div class="line"><span class="lineno">  222</span> </div>
-<div class="line"><span class="lineno">  223</span>                printf(<span class="stringliteral">&quot;Flexible Job Shop Problem - Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  224</span>                printf(<span class="stringliteral">&quot;Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  225</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  226</span> </div>
-<div class="line"><span class="lineno">  227</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  228</span>                printf(<span class="stringliteral">&quot;Opção inválida. Tente novamente.\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  229</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  230</span>            }</div>
-<div class="line"><span class="lineno">  231</span>        }</div>
-<div class="line"><span class="lineno">  232</span> </div>
-<div class="line"><span class="lineno">  233</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  234</span>    } <span class="keywordflow">while</span> (<span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  235</span> </div>
-<div class="line"><span class="lineno">  236</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  237</span>}</div>
-<div class="ttc" id="adata_8c_html_a9e20b602bea2105c4844c9488e0dac64"><div class="ttname"><a href="data_8c.html#a9e20b602bea2105c4844c9488e0dac64">loadData</a></div><div class="ttdeci">void loadData(Job **jobs, Machine **machines, Operation **operations, Execution **executions)</div><div class="ttdoc">Carregar dados para as listas.</div><div class="ttdef"><b>Definition:</b> data.c:20</div></div>
-<div class="ttc" id="aexecutions_8c_html_a1d514c72e91412b8ec09efd02f6b7d4f"><div class="ttname"><a href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">displayExecutions</a></div><div class="ttdeci">bool displayExecutions(Execution *head)</div><div class="ttdoc">Mostrar a lista de execuções na consola.</div><div class="ttdef"><b>Definition:</b> executions.c:280</div></div>
-<div class="ttc" id="aexecutions_8c_html_a2fac5de7bc7bbfcb23a4f60b54ef2e5e"><div class="ttname"><a href="executions_8c.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">SortExecutionsByOperation</a></div><div class="ttdeci">Execution * SortExecutionsByOperation(Execution *head)</div><div class="ttdoc">Ordenar lista de execuções por ordem crescente do identificador da operação.</div><div class="ttdef"><b>Definition:</b> executions.c:361</div></div>
-<div class="ttc" id="aexecutions_8c_html_a362b69957d588d5dd03c4cfbbb26adab"><div class="ttname"><a href="executions_8c.html#a362b69957d588d5dd03c4cfbbb26adab">readExecutions</a></div><div class="ttdeci">Execution * readExecutions(char fileName[])</div><div class="ttdoc">Ler lista de execuções de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> executions.c:225</div></div>
-<div class="ttc" id="aexecutions_8c_html_a36b277b1e8d937b6aeb2a5310d22177e"><div class="ttname"><a href="executions_8c.html#a36b277b1e8d937b6aeb2a5310d22177e">searchExecutionByOperation</a></div><div class="ttdeci">bool searchExecutionByOperation(Execution *head, int operationID)</div><div class="ttdoc">Procurar por uma execução através do identificador da operação, na lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:334</div></div>
-<div class="ttc" id="aexecutions_8c_html_a666d9b702a75b668af07f71865cf2f79"><div class="ttname"><a href="executions_8c.html#a666d9b702a75b668af07f71865cf2f79">updateRuntime</a></div><div class="ttdeci">bool updateRuntime(Execution **head, int operationID, int machineID, int runtime)</div><div class="ttdoc">Atualizar as unidades de tempo necessárias para a execução de uma operação.</div><div class="ttdef"><b>Definition:</b> executions.c:118</div></div>
-<div class="ttc" id="aexecutions_8c_html_a67b917d9e7aff6fc85c7d3cee1150721"><div class="ttname"><a href="executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721">freeExecutions</a></div><div class="ttdeci">bool freeExecutions(Execution *head)</div><div class="ttdoc">Libertar a lista de operações da memória.</div><div class="ttdef"><b>Definition:</b> executions.c:255</div></div>
-<div class="ttc" id="aexecutions_8c_html_aaae924901eb9d97606c03a74081b5291"><div class="ttname"><a href="executions_8c.html#aaae924901eb9d97606c03a74081b5291">writeExecutions</a></div><div class="ttdeci">bool writeExecutions(char fileName[], Execution *head)</div><div class="ttdoc">Armazenar lista de execuções em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> executions.c:187</div></div>
-<div class="ttc" id="aexecutions_8c_html_ab00ae0278166111c8beb4c6cd8506718"><div class="ttname"><a href="executions_8c.html#ab00ae0278166111c8beb4c6cd8506718">insertExecutionAtStart</a></div><div class="ttdeci">Execution * insertExecutionAtStart(Execution *head, Execution *new)</div><div class="ttdoc">Inserir nova execução no início da lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:44</div></div>
-<div class="ttc" id="aexecutions_8c_html_ac9f939da818fe28a3bf38bc69b72e04c"><div class="ttname"><a href="executions_8c.html#ac9f939da818fe28a3bf38bc69b72e04c">deleteExecutionByOperation</a></div><div class="ttdeci">bool deleteExecutionByOperation(Execution **head, int operationID)</div><div class="ttdoc">Remover execução pelo identificador da operação.</div><div class="ttdef"><b>Definition:</b> executions.c:147</div></div>
-<div class="ttc" id="aexecutions_8c_html_ae39c2c7c8130a6883f8cbd371e374725"><div class="ttname"><a href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a></div><div class="ttdeci">Execution * newExecution(int operationID, int machineID, int runtime)</div><div class="ttdoc">Criar nova execução.</div><div class="ttdef"><b>Definition:</b> executions.c:21</div></div>
-<div class="ttc" id="aheader_8h_html_a06f928c4814f71d1aa98651c8b7d98f9"><div class="ttname"><a href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a></div><div class="ttdeci">Execution * executions</div></div>
-<div class="ttc" id="aheader_8h_html_a0d7a168cfe9d62f2deb7f01f19966c7b"><div class="ttname"><a href="header_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b">readOperations</a></div><div class="ttdeci">Operation * readOperations(char fileName[])</div><div class="ttdoc">Ler lista de operações de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> operations.c:149</div></div>
-<div class="ttc" id="aheader_8h_html_a141d2a58898a5ea72097da30116580ee"><div class="ttname"><a href="header_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a></div><div class="ttdeci">Operation * operations</div></div>
-<div class="ttc" id="aheader_8h_html_a1c30247bf14e8f64a9dad8cf280f7f2a"><div class="ttname"><a href="header_8h.html#a1c30247bf14e8f64a9dad8cf280f7f2a">readJobs</a></div><div class="ttdeci">Job * readJobs(char fileName[])</div><div class="ttdoc">Ler lista de trabalhos de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> jobs.c:103</div></div>
-<div class="ttc" id="aheader_8h_html_a1cac0b2d491be7953af600a2b434cc56"><div class="ttname"><a href="header_8h.html#a1cac0b2d491be7953af600a2b434cc56">displayOperations</a></div><div class="ttdeci">bool displayOperations(Operation *head)</div><div class="ttdoc">Mostrar a lista de operações na consola.</div><div class="ttdef"><b>Definition:</b> operations.c:204</div></div>
-<div class="ttc" id="aheader_8h_html_a233173b4692808bbaa16f5887ae19789"><div class="ttname"><a href="header_8h.html#a233173b4692808bbaa16f5887ae19789">deleteOperation</a></div><div class="ttdeci">bool deleteOperation(Operation **head, int id)</div><div class="ttdoc">Remover uma operação da lista de operações.</div><div class="ttdef"><b>Definition:</b> operations.c:71</div></div>
-<div class="ttc" id="aheader_8h_html_a35e6e85bff558fe6ce5adb0b47684423"><div class="ttname"><a href="header_8h.html#a35e6e85bff558fe6ce5adb0b47684423">insertOperationAtStart</a></div><div class="ttdeci">Operation * insertOperationAtStart(Operation *head, Operation *new)</div><div class="ttdoc">Inserir nova operação no início da lista de operações.</div><div class="ttdef"><b>Definition:</b> operations.c:44</div></div>
-<div class="ttc" id="aheader_8h_html_a52f8c01701a8184c95cc0b0de65cdbef"><div class="ttname"><a href="header_8h.html#a52f8c01701a8184c95cc0b0de65cdbef">getMinTimeToCompleteJob</a></div><div class="ttdeci">int getMinTimeToCompleteJob(Operation *operations, Execution *executions, int jobID, Execution **minExecutions)</div><div class="ttdoc">Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções.</div><div class="ttdef"><b>Definition:</b> operations.c:259</div></div>
-<div class="ttc" id="aheader_8h_html_a535c92168a17ff038c2007300a75d708"><div class="ttname"><a href="header_8h.html#a535c92168a17ff038c2007300a75d708">writeOperations</a></div><div class="ttdeci">bool writeOperations(char fileName[], Operation *head)</div><div class="ttdoc">Armazenar lista de operações em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> operations.c:111</div></div>
-<div class="ttc" id="aheader_8h_html_a542b381bfbc143ae575e98f684117265"><div class="ttname"><a href="header_8h.html#a542b381bfbc143ae575e98f684117265">freeJobs</a></div><div class="ttdeci">bool freeJobs(Job *head)</div><div class="ttdoc">Libertar a lista de trabalhos da memória.</div><div class="ttdef"><b>Definition:</b> jobs.c:133</div></div>
-<div class="ttc" id="aheader_8h_html_a5aba9fa4b62a768af157854c4db1e7ff"><div class="ttname"><a href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a></div><div class="ttdeci">Job * jobs</div></div>
-<div class="ttc" id="aheader_8h_html_a74854c567a784660b6259abbd47d821e"><div class="ttname"><a href="header_8h.html#a74854c567a784660b6259abbd47d821e">writeJobs</a></div><div class="ttdeci">bool writeJobs(char fileName[], Job *head)</div><div class="ttdoc">Armazenar lista de trabalhos em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> jobs.c:67</div></div>
-<div class="ttc" id="aheader_8h_html_a7c589580d7f2357c2e3c5cbec30dcacf"><div class="ttname"><a href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a></div><div class="ttdeci">Machine * machines</div></div>
-<div class="ttc" id="aheader_8h_html_a91295985e34799e3cea579e2fe66d0a8"><div class="ttname"><a href="header_8h.html#a91295985e34799e3cea579e2fe66d0a8">displayJobs</a></div><div class="ttdeci">bool displayJobs(Job *head)</div><div class="ttdoc">Mostrar a lista de trabalhos na consola.</div><div class="ttdef"><b>Definition:</b> jobs.c:158</div></div>
-<div class="ttc" id="aheader_8h_html_aa54244730868e6e7083ed3035581e01a"><div class="ttname"><a href="header_8h.html#aa54244730868e6e7083ed3035581e01a">displayMachines</a></div><div class="ttdeci">bool displayMachines(Machine *head)</div><div class="ttdoc">Mostrar a lista de máquinas na consola.</div><div class="ttdef"><b>Definition:</b> machines.c:161</div></div>
-<div class="ttc" id="aheader_8h_html_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6"><div class="ttname"><a href="header_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">newOperation</a></div><div class="ttdeci">Operation * newOperation(int id, int jobID, int position)</div><div class="ttdoc">Sobre operações.</div><div class="ttdef"><b>Definition:</b> operations.c:21</div></div>
-<div class="ttc" id="aheader_8h_html_aae1f099b3ffebc5b9b49209b190ebe9f"><div class="ttname"><a href="header_8h.html#aae1f099b3ffebc5b9b49209b190ebe9f">getAverageTimeToCompleteOperation</a></div><div class="ttdeci">float getAverageTimeToCompleteOperation(Execution *head, int operationID)</div><div class="ttdoc">Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis.</div><div class="ttdef"><b>Definition:</b> operations.c:373</div></div>
-<div class="ttc" id="aheader_8h_html_ac4666af18140d926937410a7bf7e0505"><div class="ttname"><a href="header_8h.html#ac4666af18140d926937410a7bf7e0505">getMaxTimeToCompleteJob</a></div><div class="ttdeci">int getMaxTimeToCompleteJob(Operation *operations, Execution *executions, int jobID, Execution **maxExecutions)</div><div class="ttdoc">Obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções.</div><div class="ttdef"><b>Definition:</b> operations.c:317</div></div>
-<div class="ttc" id="aheader_8h_html_adeb9a16e75fb2739e26d1ceed9fbec78"><div class="ttname"><a href="header_8h.html#adeb9a16e75fb2739e26d1ceed9fbec78">writeMachines</a></div><div class="ttdeci">bool writeMachines(char fileName[], Machine *head)</div><div class="ttdoc">Armazenar lista de máquinas em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> machines.c:69</div></div>
-<div class="ttc" id="aheader_8h_html_adf36b4d501a3dcbaf8ac959da2d76c8f"><div class="ttname"><a href="header_8h.html#adf36b4d501a3dcbaf8ac959da2d76c8f">freeMachines</a></div><div class="ttdeci">bool freeMachines(Machine *head)</div><div class="ttdoc">Libertar a lista de máquinas da memória.</div><div class="ttdef"><b>Definition:</b> machines.c:136</div></div>
-<div class="ttc" id="aheader_8h_html_af64e219dfa9552b285dd100375c2c6a7"><div class="ttname"><a href="header_8h.html#af64e219dfa9552b285dd100375c2c6a7">freeOperations</a></div><div class="ttdeci">bool freeOperations(Operation *head)</div><div class="ttdoc">Libertar a lista de operações da memória.</div><div class="ttdef"><b>Definition:</b> operations.c:179</div></div>
-<div class="ttc" id="aheader_8h_html_af87a8e5a625b71b8bccc15d4c98d6d97"><div class="ttname"><a href="header_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97">readMachines</a></div><div class="ttdeci">Machine * readMachines(char fileName[])</div><div class="ttdoc">Ler lista de máquinas de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> machines.c:106</div></div>
-<div class="ttc" id="astruct_execution_html"><div class="ttname"><a href="struct_execution.html">Execution</a></div><div class="ttdoc">Estrutura de dados para a lista (em memória) das execuções das operações em máquinas.</div><div class="ttdef"><b>Definition:</b> header.h:58</div></div>
-<div class="ttc" id="astruct_job_html"><div class="ttname"><a href="struct_job.html">Job</a></div><div class="ttdoc">Estrutura de dados para a lista (em memória) de trabalhos.</div><div class="ttdef"><b>Definition:</b> header.h:37</div></div>
-<div class="ttc" id="astruct_machine_html"><div class="ttname"><a href="struct_machine.html">Machine</a></div><div class="ttdoc">Estrutura de dados para a lista (em memória) de máquinas.</div><div class="ttdef"><b>Definition:</b> header.h:47</div></div>
-<div class="ttc" id="astruct_operation_html"><div class="ttname"><a href="struct_operation.html">Operation</a></div><div class="ttdoc">Estrutura de dados para a lista (em memória) de operações.</div><div class="ttdef"><b>Definition:</b> header.h:70</div></div>
+<div class="line"><span class="lineno">  180</span>                <span class="comment">// remover operação</span></div>
+<div class="line"><span class="lineno">  181</span>                <a class="code hl_function" href="lists_8h.html#a233173b4692808bbaa16f5887ae19789">deleteOperation</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, 35);</div>
+<div class="line"><span class="lineno">  182</span>                printf(<span class="stringliteral">&quot;Operação removida com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  183</span> </div>
+<div class="line"><span class="lineno">  184</span>                <span class="comment">// remover execuções associadas à operação</span></div>
+<div class="line"><span class="lineno">  185</span>                <a class="code hl_function" href="executions_8c.html#afe647db2279682c65d3262a7bfaa9ce4">deleteExecutions_ByOperation_AtTable</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>, 35);</div>
+<div class="line"><span class="lineno">  186</span>                printf(<span class="stringliteral">&quot;Execuções associadas à operação removidas com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  187</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  188</span> </div>
+<div class="line"><span class="lineno">  189</span><span class="preprocessor">#pragma region funcionalidade 6: atualizar uma operação</span></div>
+<div class="line"><span class="lineno">  190</span>                printf(<span class="stringliteral">&quot;\n\n-  6. Atualizar uma operação\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  191</span> </div>
+<div class="line"><span class="lineno">  192</span>                <span class="comment">// atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa</span></div>
+<div class="line"><span class="lineno">  193</span>                <a class="code hl_function" href="lists_8h.html#a972c19e4f8dc3006cf300b9e8bd0e172">updatePosition</a>(&amp;<a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, 2, 4);</div>
+<div class="line"><span class="lineno">  194</span>                printf(<span class="stringliteral">&quot;As posições das operações foram trocadas com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>                <span class="comment">// atualizar o tempo de uma execução de operação</span></div>
+<div class="line"><span class="lineno">  197</span>                <a class="code hl_function" href="executions_8c.html#a2402b39f2448988448bf820534f21758">updateRuntime_ByOperation_AtTable</a>(<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>, 4, 4, 10);</div>
+<div class="line"><span class="lineno">  198</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  199</span> </div>
+<div class="line"><span class="lineno">  200</span><span class="preprocessor">#pragma region funcionalidade 7: inserir uma operação</span></div>
+<div class="line"><span class="lineno">  201</span>                printf(<span class="stringliteral">&quot;\n\n-  7. Inserir uma operação\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>                <span class="comment">// inserir nova operação</span></div>
+<div class="line"><span class="lineno">  204</span>                <a class="code hl_struct" href="struct_operation.html">Operation</a>* operation = NULL;</div>
+<div class="line"><span class="lineno">  205</span>                operation = <a class="code hl_function" href="lists_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">newOperation</a>(39, 2, 8);</div>
+<div class="line"><span class="lineno">  206</span>                <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a> = <a class="code hl_function" href="lists_8h.html#a738597c7756493ff091418a0a283ac25">insertOperation_AtStart</a>(<a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>, operation);</div>
+<div class="line"><span class="lineno">  207</span> </div>
+<div class="line"><span class="lineno">  208</span>                <span class="comment">// inserir nova execução de uma operação</span></div>
+<div class="line"><span class="lineno">  209</span>                <a class="code hl_struct" href="struct_execution.html">Execution</a>* execution = NULL;</div>
+<div class="line"><span class="lineno">  210</span>                execution = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(39, 5, 17);</div>
+<div class="line"><span class="lineno">  211</span>                *<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a> = <a class="code hl_function" href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">insertExecution_AtTable</a>(<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>, execution);</div>
+<div class="line"><span class="lineno">  212</span> </div>
+<div class="line"><span class="lineno">  213</span>                <span class="comment">// guardar as novas inserções em ficheiros</span></div>
+<div class="line"><span class="lineno">  214</span>                <a class="code hl_function" href="lists_8h.html#a535c92168a17ff038c2007300a75d708">writeOperations</a>(<a class="code hl_define" href="data-types_8h.html#a3c6c24386c8e549126bc8ec7ba4ff952">OPERATIONS_FILENAME_BINARY</a>, <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
+<div class="line"><span class="lineno">  215</span>                <span class="comment">//writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);</span></div>
+<div class="line"><span class="lineno">  216</span>                printf(<span class="stringliteral">&quot;Novos dados exportados com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  217</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  218</span> </div>
+<div class="line"><span class="lineno">  219</span><span class="preprocessor">#pragma region mostrar dados</span></div>
+<div class="line"><span class="lineno">  220</span>                printf(<span class="stringliteral">&quot;\n\n-  Mostrar dados\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span>                <span class="comment">// mostrar dados na consola</span></div>
+<div class="line"><span class="lineno">  223</span>                printf(<span class="stringliteral">&quot;Trabalhos:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  224</span>                <a class="code hl_function" href="jobs_8c.html#a91295985e34799e3cea579e2fe66d0a8">displayJobs</a>(<a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>);</div>
+<div class="line"><span class="lineno">  225</span> </div>
+<div class="line"><span class="lineno">  226</span>                printf(<span class="stringliteral">&quot;Máquinas:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  227</span>                <a class="code hl_function" href="lists_8h.html#aa54244730868e6e7083ed3035581e01a">displayMachines</a>(<a class="code hl_variable" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>);</div>
+<div class="line"><span class="lineno">  228</span> </div>
+<div class="line"><span class="lineno">  229</span>                printf(<span class="stringliteral">&quot;Operações:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  230</span>                <a class="code hl_function" href="lists_8h.html#a1cac0b2d491be7953af600a2b434cc56">displayOperations</a>(<a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>);</div>
+<div class="line"><span class="lineno">  231</span> </div>
+<div class="line"><span class="lineno">  232</span>                printf(<span class="stringliteral">&quot;Execuções de Operações:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  233</span>                <a class="code hl_function" href="executions_8c.html#abe6834a2be75b22fc1a593753608a024">displayExecutions_AtTable</a>(<a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>);</div>
+<div class="line"><span class="lineno">  234</span> </div>
+<div class="line"><span class="lineno">  235</span>                printf(<span class="stringliteral">&quot;Plano:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  236</span>                <a class="code hl_function" href="lists_8h.html#ab074cf1a0b599b4206956bc751e29548">displayPlan</a>(<a class="code hl_variable" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a>);</div>
+<div class="line"><span class="lineno">  237</span> </div>
+<div class="line"><span class="lineno">  238</span>                printf(<span class="stringliteral">&quot;Dados mostrados com sucesso!\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  239</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><span class="lineno">  240</span> </div>
+<div class="line"><span class="lineno">  241</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  242</span> </div>
+<div class="line"><span class="lineno">  243</span>            <span class="keywordflow">case</span> 2: <span class="comment">// Sobre</span></div>
+<div class="line"><span class="lineno">  244</span> </div>
+<div class="line"><span class="lineno">  245</span>                printf(<span class="stringliteral">&quot;Flexible Job Shop Problem - Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  246</span>                printf(<span class="stringliteral">&quot;Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  247</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  248</span> </div>
+<div class="line"><span class="lineno">  249</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  250</span>                printf(<span class="stringliteral">&quot;Opção inválida. Tente novamente.\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  251</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  252</span>            }</div>
+<div class="line"><span class="lineno">  253</span>        }</div>
+<div class="line"><span class="lineno">  254</span> </div>
+<div class="line"><span class="lineno">  255</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  256</span>    } <span class="keywordflow">while</span> (<span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  257</span> </div>
+<div class="line"><span class="lineno">  258</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  259</span>}</div>
+<div class="ttc" id="adata-types_8h_html_a06f928c4814f71d1aa98651c8b7d98f9"><div class="ttname"><a href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a></div><div class="ttdeci">Execution * executions</div></div>
+<div class="ttc" id="adata-types_8h_html_a0778c62b500b00edb448466ddcd06d13"><div class="ttname"><a href="data-types_8h.html#a0778c62b500b00edb448466ddcd06d13">EXECUTIONS_FILENAME_TEXT</a></div><div class="ttdeci">#define EXECUTIONS_FILENAME_TEXT</div><div class="ttdef"><b>Definition:</b> data-types.h:25</div></div>
+<div class="ttc" id="adata-types_8h_html_a0cee344c6f8f2c5f0f1c953ae30ad79c"><div class="ttname"><a href="data-types_8h.html#a0cee344c6f8f2c5f0f1c953ae30ad79c">MACHINES_FILENAME_TEXT</a></div><div class="ttdeci">#define MACHINES_FILENAME_TEXT</div><div class="ttdef"><b>Definition:</b> data-types.h:23</div></div>
+<div class="ttc" id="adata-types_8h_html_a141d2a58898a5ea72097da30116580ee"><div class="ttname"><a href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a></div><div class="ttdeci">Operation * operations</div></div>
+<div class="ttc" id="adata-types_8h_html_a2c01afb31522618361a6f72fd5f251e3"><div class="ttname"><a href="data-types_8h.html#a2c01afb31522618361a6f72fd5f251e3">JOBS_FILENAME_BINARY</a></div><div class="ttdeci">#define JOBS_FILENAME_BINARY</div><div class="ttdef"><b>Definition:</b> data-types.h:32</div></div>
+<div class="ttc" id="adata-types_8h_html_a3c6c24386c8e549126bc8ec7ba4ff952"><div class="ttname"><a href="data-types_8h.html#a3c6c24386c8e549126bc8ec7ba4ff952">OPERATIONS_FILENAME_BINARY</a></div><div class="ttdeci">#define OPERATIONS_FILENAME_BINARY</div><div class="ttdef"><b>Definition:</b> data-types.h:34</div></div>
+<div class="ttc" id="adata-types_8h_html_a5320d4457a472d8888ec1905bc0e0a1c"><div class="ttname"><a href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">MAX_TIME</a></div><div class="ttdeci">#define MAX_TIME</div><div class="ttdef"><b>Definition:</b> data-types.h:18</div></div>
+<div class="ttc" id="adata-types_8h_html_a545550cbf83abfc8fba0c2e55b547cf0"><div class="ttname"><a href="data-types_8h.html#a545550cbf83abfc8fba0c2e55b547cf0">PLAN_FILENAME_TEXT</a></div><div class="ttdeci">#define PLAN_FILENAME_TEXT</div><div class="ttdef"><b>Definition:</b> data-types.h:26</div></div>
+<div class="ttc" id="adata-types_8h_html_a5aba9fa4b62a768af157854c4db1e7ff"><div class="ttname"><a href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a></div><div class="ttdeci">Job * jobs</div></div>
+<div class="ttc" id="adata-types_8h_html_a7ad917416d63c60b78e7c5996a98803f"><div class="ttname"><a href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a></div><div class="ttdeci">Cell plan[NUMBER_MACHINES][MAX_TIME]</div></div>
+<div class="ttc" id="adata-types_8h_html_a7c589580d7f2357c2e3c5cbec30dcacf"><div class="ttname"><a href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a></div><div class="ttdeci">Machine * machines</div></div>
+<div class="ttc" id="adata-types_8h_html_a92d724b49f4c5f6f087396e833e95411"><div class="ttname"><a href="data-types_8h.html#a92d724b49f4c5f6f087396e833e95411">JOBS_FILENAME_TEXT</a></div><div class="ttdeci">#define JOBS_FILENAME_TEXT</div><div class="ttdef"><b>Definition:</b> data-types.h:22</div></div>
+<div class="ttc" id="adata-types_8h_html_a98c496e67aa9615cc4b453c809b23791"><div class="ttname"><a href="data-types_8h.html#a98c496e67aa9615cc4b453c809b23791">MACHINES_FILENAME_BINARY</a></div><div class="ttdeci">#define MACHINES_FILENAME_BINARY</div><div class="ttdef"><b>Definition:</b> data-types.h:33</div></div>
+<div class="ttc" id="adata-types_8h_html_a9cca8a4d7145b6602de842ff0421283f"><div class="ttname"><a href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a></div><div class="ttdeci">ExecutionNode * executionsTable[HASH_TABLE_SIZE]</div></div>
+<div class="ttc" id="adata-types_8h_html_aa2212b6c51d5f434ba0f309964d4b02b"><div class="ttname"><a href="data-types_8h.html#aa2212b6c51d5f434ba0f309964d4b02b">EXECUTIONS_FILENAME_BINARY</a></div><div class="ttdeci">#define EXECUTIONS_FILENAME_BINARY</div><div class="ttdef"><b>Definition:</b> data-types.h:35</div></div>
+<div class="ttc" id="adata-types_8h_html_abfd8510b1fadf533d685965730e2969b"><div class="ttname"><a href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a></div><div class="ttdeci">#define HASH_TABLE_SIZE</div><div class="ttdef"><b>Definition:</b> data-types.h:16</div></div>
+<div class="ttc" id="adata-types_8h_html_ad24db60c59551899be0cf71702a20314"><div class="ttname"><a href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">NUMBER_MACHINES</a></div><div class="ttdeci">#define NUMBER_MACHINES</div><div class="ttdef"><b>Definition:</b> data-types.h:17</div></div>
+<div class="ttc" id="adata-types_8h_html_ae8a4c9c1d13c9e3db4d2238ef43be113"><div class="ttname"><a href="data-types_8h.html#ae8a4c9c1d13c9e3db4d2238ef43be113">OPERATIONS_FILENAME_TEXT</a></div><div class="ttdeci">#define OPERATIONS_FILENAME_TEXT</div><div class="ttdef"><b>Definition:</b> data-types.h:24</div></div>
+<div class="ttc" id="aexecutions_8c_html_a0001c4cf520ad185db5413445b1e461a"><div class="ttname"><a href="executions_8c.html#a0001c4cf520ad185db5413445b1e461a">createExecutionsTable</a></div><div class="ttdeci">ExecutionNode ** createExecutionsTable(ExecutionNode *table[])</div><div class="ttdoc">Criar tabela hash das execuções vazia.</div><div class="ttdef"><b>Definition:</b> executions.c:498</div></div>
+<div class="ttc" id="aexecutions_8c_html_a2402b39f2448988448bf820534f21758"><div class="ttname"><a href="executions_8c.html#a2402b39f2448988448bf820534f21758">updateRuntime_ByOperation_AtTable</a></div><div class="ttdeci">bool updateRuntime_ByOperation_AtTable(ExecutionNode **table[], int operationID, int machineID, int runtime)</div><div class="ttdoc">Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash.</div><div class="ttdef"><b>Definition:</b> executions.c:560</div></div>
+<div class="ttc" id="aexecutions_8c_html_a34f3703871bfdbbca009e8d1f16f70d3"><div class="ttname"><a href="executions_8c.html#a34f3703871bfdbbca009e8d1f16f70d3">readExecutions_AtTable</a></div><div class="ttdeci">ExecutionNode ** readExecutions_AtTable(char fileName[], ExecutionNode *table[])</div><div class="ttdoc">Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> executions.c:651</div></div>
+<div class="ttc" id="aexecutions_8c_html_a53a932cfddc381cc966c1bc8f0fd05e8"><div class="ttname"><a href="executions_8c.html#a53a932cfddc381cc966c1bc8f0fd05e8">loadExecutions</a></div><div class="ttdeci">Execution * loadExecutions(char *fileName)</div><div class="ttdoc">Carrega dados das execuções de um ficheiro CSV para uma lista em memória.</div><div class="ttdef"><b>Definition:</b> executions.c:23</div></div>
+<div class="ttc" id="aexecutions_8c_html_a6c9b801e5a5276639bad0c449566b0a3"><div class="ttname"><a href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">insertExecution_AtTable</a></div><div class="ttdeci">ExecutionNode ** insertExecution_AtTable(ExecutionNode *table[], Execution *new)</div><div class="ttdoc">Inserir nova execução na tabela hash das execuções, numa determinada posição.</div><div class="ttdef"><b>Definition:</b> executions.c:541</div></div>
+<div class="ttc" id="aexecutions_8c_html_a7c503615b2b7aef617ccb9c6ff5cdfc2"><div class="ttname"><a href="executions_8c.html#a7c503615b2b7aef617ccb9c6ff5cdfc2">freeExecutions_Table</a></div><div class="ttdeci">void freeExecutions_Table(ExecutionNode **table[])</div><div class="ttdoc">Libertar a tabela hash de execuções da memória.</div><div class="ttdef"><b>Definition:</b> executions.c:734</div></div>
+<div class="ttc" id="aexecutions_8c_html_abe6834a2be75b22fc1a593753608a024"><div class="ttname"><a href="executions_8c.html#abe6834a2be75b22fc1a593753608a024">displayExecutions_AtTable</a></div><div class="ttdeci">bool displayExecutions_AtTable(ExecutionNode *table[])</div><div class="ttdoc">Mostrar a tabela hash com as listas de execuções na consola.</div><div class="ttdef"><b>Definition:</b> executions.c:686</div></div>
+<div class="ttc" id="aexecutions_8c_html_ae39c2c7c8130a6883f8cbd371e374725"><div class="ttname"><a href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a></div><div class="ttdeci">Execution * newExecution(int operationID, int machineID, int runtime)</div><div class="ttdoc">Criar nova execução.</div><div class="ttdef"><b>Definition:</b> executions.c:61</div></div>
+<div class="ttc" id="aexecutions_8c_html_ae5d4ea413106ade02d7003df3d7c04f1"><div class="ttname"><a href="executions_8c.html#ae5d4ea413106ade02d7003df3d7c04f1">loadExecutionsTable</a></div><div class="ttdeci">ExecutionNode ** loadExecutionsTable(char *fileName, ExecutionNode *table[])</div><div class="ttdoc">Carrega dados das execuções de um ficheiro CSV para uma tabela hash em memória.</div><div class="ttdef"><b>Definition:</b> executions.c:460</div></div>
+<div class="ttc" id="aexecutions_8c_html_aefd476173ba3d625348e353c22707c36"><div class="ttname"><a href="executions_8c.html#aefd476173ba3d625348e353c22707c36">writeExecutions_AtTable</a></div><div class="ttdeci">bool writeExecutions_AtTable(char fileName[], ExecutionNode *table[])</div><div class="ttdoc">Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> executions.c:610</div></div>
+<div class="ttc" id="aexecutions_8c_html_afe647db2279682c65d3262a7bfaa9ce4"><div class="ttname"><a href="executions_8c.html#afe647db2279682c65d3262a7bfaa9ce4">deleteExecutions_ByOperation_AtTable</a></div><div class="ttdeci">bool deleteExecutions_ByOperation_AtTable(ExecutionNode **table[], int operationID)</div><div class="ttdoc">Remover todas as execuções pelo identificador da operação na tabela.</div><div class="ttdef"><b>Definition:</b> executions.c:577</div></div>
+<div class="ttc" id="ajobs_8c_html_a1c30247bf14e8f64a9dad8cf280f7f2a"><div class="ttname"><a href="jobs_8c.html#a1c30247bf14e8f64a9dad8cf280f7f2a">readJobs</a></div><div class="ttdeci">Job * readJobs(char fileName[])</div><div class="ttdoc">Ler lista de trabalhos de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> jobs.c:180</div></div>
+<div class="ttc" id="ajobs_8c_html_a2c34d85e5a249e35be61dd94b5be3e87"><div class="ttname"><a href="jobs_8c.html#a2c34d85e5a249e35be61dd94b5be3e87">deleteJob</a></div><div class="ttdeci">bool deleteJob(Job **head, int id)</div><div class="ttdoc">Remover um trabalho da lista de trabalhos.</div><div class="ttdef"><b>Definition:</b> jobs.c:104</div></div>
+<div class="ttc" id="ajobs_8c_html_a3767c4c6655e4d9db698c65cc1efc2cf"><div class="ttname"><a href="jobs_8c.html#a3767c4c6655e4d9db698c65cc1efc2cf">loadJobs</a></div><div class="ttdeci">Job * loadJobs(char *fileName)</div><div class="ttdoc">Carrega dados dos trabalhos de um ficheiro CSV para uma lista em memória.</div><div class="ttdef"><b>Definition:</b> jobs.c:20</div></div>
+<div class="ttc" id="ajobs_8c_html_a72cbadab093ab1d12140ac0f70196359"><div class="ttname"><a href="jobs_8c.html#a72cbadab093ab1d12140ac0f70196359">freeJobs</a></div><div class="ttdeci">void freeJobs(Job **head)</div><div class="ttdoc">Libertar a lista de trabalhos da memória.</div><div class="ttdef"><b>Definition:</b> jobs.c:286</div></div>
+<div class="ttc" id="ajobs_8c_html_a74854c567a784660b6259abbd47d821e"><div class="ttname"><a href="jobs_8c.html#a74854c567a784660b6259abbd47d821e">writeJobs</a></div><div class="ttdeci">bool writeJobs(char fileName[], Job *head)</div><div class="ttdoc">Armazenar lista de trabalhos em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> jobs.c:144</div></div>
+<div class="ttc" id="ajobs_8c_html_a84de6ff490cb65dbc4995f2d8b98de1f"><div class="ttname"><a href="jobs_8c.html#a84de6ff490cb65dbc4995f2d8b98de1f">newJob</a></div><div class="ttdeci">Job * newJob(int id)</div><div class="ttdoc">Criar novo trabalho.</div><div class="ttdef"><b>Definition:</b> jobs.c:56</div></div>
+<div class="ttc" id="ajobs_8c_html_a91295985e34799e3cea579e2fe66d0a8"><div class="ttname"><a href="jobs_8c.html#a91295985e34799e3cea579e2fe66d0a8">displayJobs</a></div><div class="ttdeci">bool displayJobs(Job *head)</div><div class="ttdoc">Mostrar a lista de trabalhos na consola.</div><div class="ttdef"><b>Definition:</b> jobs.c:210</div></div>
+<div class="ttc" id="ajobs_8c_html_aa8b6bc212b95408dfcdf536979b40d9c"><div class="ttname"><a href="jobs_8c.html#aa8b6bc212b95408dfcdf536979b40d9c">insertJob_AtStart</a></div><div class="ttdeci">Job * insertJob_AtStart(Job *head, Job *new)</div><div class="ttdoc">Inserir novo trabalho no início da lista de trabalhos.</div><div class="ttdef"><b>Definition:</b> jobs.c:77</div></div>
+<div class="ttc" id="alists_8h_html_a0d7a168cfe9d62f2deb7f01f19966c7b"><div class="ttname"><a href="lists_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b">readOperations</a></div><div class="ttdeci">Operation * readOperations(char fileName[])</div><div class="ttdoc">Ler lista de operações de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> operations.c:280</div></div>
+<div class="ttc" id="alists_8h_html_a1cac0b2d491be7953af600a2b434cc56"><div class="ttname"><a href="lists_8h.html#a1cac0b2d491be7953af600a2b434cc56">displayOperations</a></div><div class="ttdeci">bool displayOperations(Operation *head)</div><div class="ttdoc">Mostrar a lista de operações na consola.</div><div class="ttdef"><b>Definition:</b> operations.c:310</div></div>
+<div class="ttc" id="alists_8h_html_a233173b4692808bbaa16f5887ae19789"><div class="ttname"><a href="lists_8h.html#a233173b4692808bbaa16f5887ae19789">deleteOperation</a></div><div class="ttdeci">bool deleteOperation(Operation **head, int id)</div><div class="ttdoc">Remover uma operação da lista de operações.</div><div class="ttdef"><b>Definition:</b> operations.c:158</div></div>
+<div class="ttc" id="alists_8h_html_a2e6befb227913b848f0109b2ed92f4eb"><div class="ttname"><a href="lists_8h.html#a2e6befb227913b848f0109b2ed92f4eb">getAllWorkPlans</a></div><div class="ttdeci">WorkPlan * getAllWorkPlans(Job *jobs, Operation *operations, Execution *executions)</div><div class="ttdoc">Obter todos os planos de trabalhos para um realizar um plano de produção.</div><div class="ttdef"><b>Definition:</b> work-plans.c:162</div></div>
+<div class="ttc" id="alists_8h_html_a45e40b72215808e4587470756ce0cd0f"><div class="ttname"><a href="lists_8h.html#a45e40b72215808e4587470756ce0cd0f">freeMachines</a></div><div class="ttdeci">void freeMachines(Machine **head)</div><div class="ttdoc">Libertar a lista de máquinas da memória.</div><div class="ttdef"><b>Definition:</b> machines.c:259</div></div>
+<div class="ttc" id="alists_8h_html_a535c92168a17ff038c2007300a75d708"><div class="ttname"><a href="lists_8h.html#a535c92168a17ff038c2007300a75d708">writeOperations</a></div><div class="ttdeci">bool writeOperations(char fileName[], Operation *head)</div><div class="ttdoc">Armazenar lista de operações em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> operations.c:242</div></div>
+<div class="ttc" id="alists_8h_html_a66314cd1d0360ba77833955b765c6078"><div class="ttname"><a href="lists_8h.html#a66314cd1d0360ba77833955b765c6078">loadMachines</a></div><div class="ttdeci">Machine * loadMachines(char *fileName)</div><div class="ttdoc">Carrega dados das máquinas de um ficheiro CSV para uma lista em memória.</div><div class="ttdef"><b>Definition:</b> machines.c:20</div></div>
+<div class="ttc" id="alists_8h_html_a67f132c293a67eb039eeaccad8a6cd36"><div class="ttname"><a href="lists_8h.html#a67f132c293a67eb039eeaccad8a6cd36">freeOperations</a></div><div class="ttdeci">void freeOperations(Operation **head)</div><div class="ttdoc">Libertar a lista de operações da memória.</div><div class="ttdef"><b>Definition:</b> operations.c:572</div></div>
+<div class="ttc" id="alists_8h_html_a6c13b4baff07a85895982bd1ff921181"><div class="ttname"><a href="lists_8h.html#a6c13b4baff07a85895982bd1ff921181">sortFileCells_ByMachine</a></div><div class="ttdeci">FileCell * sortFileCells_ByMachine(FileCell *head)</div><div class="ttdoc">Ordenar células por ordem crescente das máquinas.</div><div class="ttdef"><b>Definition:</b> plan.c:320</div></div>
+<div class="ttc" id="alists_8h_html_a738597c7756493ff091418a0a283ac25"><div class="ttname"><a href="lists_8h.html#a738597c7756493ff091418a0a283ac25">insertOperation_AtStart</a></div><div class="ttdeci">Operation * insertOperation_AtStart(Operation *head, Operation *new)</div><div class="ttdoc">Inserir nova operação no início da lista de operações.</div><div class="ttdef"><b>Definition:</b> operations.c:81</div></div>
+<div class="ttc" id="alists_8h_html_a7bd69f169a9c02bdc3d8fe298fbabab3"><div class="ttname"><a href="lists_8h.html#a7bd69f169a9c02bdc3d8fe298fbabab3">deleteOperation_ByJob</a></div><div class="ttdeci">int deleteOperation_ByJob(Operation **head, int jobID)</div><div class="ttdoc">Remover operação pelo identificador do trabalho.</div><div class="ttdef"><b>Definition:</b> operations.c:198</div></div>
+<div class="ttc" id="alists_8h_html_a7d28c8573c3c9f74d0b8add376798451"><div class="ttname"><a href="lists_8h.html#a7d28c8573c3c9f74d0b8add376798451">fillAllPlan</a></div><div class="ttdeci">bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan *workPlans)</div><div class="ttdoc">Preencher todas as células do plano relativamente a uma lista de planos de trabalhos.</div><div class="ttdef"><b>Definition:</b> plan.c:139</div></div>
+<div class="ttc" id="alists_8h_html_a825edfecbd8e0d59e20057411e24b1ae"><div class="ttname"><a href="lists_8h.html#a825edfecbd8e0d59e20057411e24b1ae">getFullTimeOfPlan</a></div><div class="ttdeci">int getFullTimeOfPlan(WorkPlan *head)</div><div class="ttdoc">Obter o tempo total do plano.</div><div class="ttdef"><b>Definition:</b> work-plans.c:196</div></div>
+<div class="ttc" id="alists_8h_html_a972c19e4f8dc3006cf300b9e8bd0e172"><div class="ttname"><a href="lists_8h.html#a972c19e4f8dc3006cf300b9e8bd0e172">updatePosition</a></div><div class="ttdeci">bool updatePosition(Operation **head, int xOperationID, int yOperationID)</div><div class="ttdoc">Atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa.</div><div class="ttdef"><b>Definition:</b> operations.c:109</div></div>
+<div class="ttc" id="alists_8h_html_aa207662e983cab853fbd1cd3d3415d4e"><div class="ttname"><a href="lists_8h.html#aa207662e983cab853fbd1cd3d3415d4e">loadOperations</a></div><div class="ttdeci">Operation * loadOperations(char *fileName)</div><div class="ttdoc">Carrega dados das operações de um ficheiro CSV para uma lista em memória.</div><div class="ttdef"><b>Definition:</b> operations.c:20</div></div>
+<div class="ttc" id="alists_8h_html_aa54244730868e6e7083ed3035581e01a"><div class="ttname"><a href="lists_8h.html#aa54244730868e6e7083ed3035581e01a">displayMachines</a></div><div class="ttdeci">bool displayMachines(Machine *head)</div><div class="ttdoc">Mostrar a lista de máquinas na consola.</div><div class="ttdef"><b>Definition:</b> machines.c:208</div></div>
+<div class="ttc" id="alists_8h_html_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6"><div class="ttname"><a href="lists_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">newOperation</a></div><div class="ttdeci">Operation * newOperation(int id, int jobID, int position)</div><div class="ttdoc">Criar nova operação.</div><div class="ttdef"><b>Definition:</b> operations.c:58</div></div>
+<div class="ttc" id="alists_8h_html_ab074cf1a0b599b4206956bc751e29548"><div class="ttname"><a href="lists_8h.html#ab074cf1a0b599b4206956bc751e29548">displayPlan</a></div><div class="ttdeci">bool displayPlan(Cell plan[][MAX_TIME])</div><div class="ttdoc">Mostrar plano de escalonamento na consola.</div><div class="ttdef"><b>Definition:</b> plan.c:198</div></div>
+<div class="ttc" id="alists_8h_html_ab1e0858531fe4b32081edfb3697bc33c"><div class="ttname"><a href="lists_8h.html#ab1e0858531fe4b32081edfb3697bc33c">getCellsToExport</a></div><div class="ttdeci">FileCell * getCellsToExport(Cell plan[][MAX_TIME])</div><div class="ttdoc">Obter células de um plano, para depois serem exportadas para um ficheiro.</div><div class="ttdef"><b>Definition:</b> plan.c:347</div></div>
+<div class="ttc" id="alists_8h_html_ac04ab13b740af9d6610c37e07a62a4a2"><div class="ttname"><a href="lists_8h.html#ac04ab13b740af9d6610c37e07a62a4a2">sortWorkPlans_ByJob</a></div><div class="ttdeci">WorkPlan * sortWorkPlans_ByJob(WorkPlan *head)</div><div class="ttdoc">Ordenar planos de trabalhos por ordem crescente da posição das operações num job.</div><div class="ttdef"><b>Definition:</b> work-plans.c:135</div></div>
+<div class="ttc" id="alists_8h_html_ac3605da0d42c8486e9430e84f5f790fc"><div class="ttname"><a href="lists_8h.html#ac3605da0d42c8486e9430e84f5f790fc">exportPlan</a></div><div class="ttdeci">bool exportPlan(char *fileName, FileCell *head)</div><div class="ttdoc">Exportar plano para um ficheiro.</div><div class="ttdef"><b>Definition:</b> plan.c:417</div></div>
+<div class="ttc" id="alists_8h_html_adeb9a16e75fb2739e26d1ceed9fbec78"><div class="ttname"><a href="lists_8h.html#adeb9a16e75fb2739e26d1ceed9fbec78">writeMachines</a></div><div class="ttdeci">bool writeMachines(char fileName[], Machine *head)</div><div class="ttdoc">Armazenar lista de máquinas em ficheiro binário.</div><div class="ttdef"><b>Definition:</b> machines.c:141</div></div>
+<div class="ttc" id="alists_8h_html_af2f37ca35802ce396f568506ad8ac323"><div class="ttname"><a href="lists_8h.html#af2f37ca35802ce396f568506ad8ac323">startPlan</a></div><div class="ttdeci">bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID)</div><div class="ttdoc">Iniciar um novo plano com todos as células vazias.</div><div class="ttdef"><b>Definition:</b> plan.c:25</div></div>
+<div class="ttc" id="alists_8h_html_af87a8e5a625b71b8bccc15d4c98d6d97"><div class="ttname"><a href="lists_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97">readMachines</a></div><div class="ttdeci">Machine * readMachines(char fileName[])</div><div class="ttdoc">Ler lista de máquinas de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> machines.c:178</div></div>
+<div class="ttc" id="astruct_cell_html"><div class="ttname"><a href="struct_cell.html">Cell</a></div><div class="ttdoc">Estrutura de dados para representar uma célula do plano de produção.</div><div class="ttdef"><b>Definition:</b> data-types.h:143</div></div>
+<div class="ttc" id="astruct_execution_html"><div class="ttname"><a href="struct_execution.html">Execution</a></div><div class="ttdoc">Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:102</div></div>
+<div class="ttc" id="astruct_execution_node_html"><div class="ttname"><a href="struct_execution_node.html">ExecutionNode</a></div><div class="ttdoc">Estrutura de dados para representar cada nó (posição) da tabela hash das execuções (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:115</div></div>
+<div class="ttc" id="astruct_file_cell_html"><div class="ttname"><a href="struct_file_cell.html">FileCell</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro uma célula do plano de produção.</div><div class="ttdef"><b>Definition:</b> data-types.h:202</div></div>
+<div class="ttc" id="astruct_job_html"><div class="ttname"><a href="struct_job.html">Job</a></div><div class="ttdoc">Estrutura de dados para representar a lista de trabalhos (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:60</div></div>
+<div class="ttc" id="astruct_machine_html"><div class="ttname"><a href="struct_machine.html">Machine</a></div><div class="ttdoc">Estrutura de dados para representar a lista de máquinas (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:73</div></div>
+<div class="ttc" id="astruct_operation_html"><div class="ttname"><a href="struct_operation.html">Operation</a></div><div class="ttdoc">Estrutura de dados para representar a lista de operações (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:87</div></div>
+<div class="ttc" id="astruct_work_plan_html"><div class="ttname"><a href="struct_work_plan.html">WorkPlan</a></div><div class="ttdoc">Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plan...</div><div class="ttdef"><b>Definition:</b> data-types.h:129</div></div>
 </div><!-- fragment -->
 </div>
 </div>

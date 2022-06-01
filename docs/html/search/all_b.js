@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['operation_0',['Operation',['../struct_operation.html',1,'Operation'],['../header_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c',1,'Operation():&#160;header.h']]],
-  ['operationid_1',['operationID',['../struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5',1,'Execution::operationID()'],['../struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5',1,'FileExecution::operationID()']]],
-  ['operations_2',['operations',['../header_8h.html#a141d2a58898a5ea72097da30116580ee',1,'header.h']]],
-  ['operations_2ec_3',['operations.c',['../operations_8c.html',1,'']]]
+  ['newexecution_0',['newExecution',['../executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725',1,'newExecution(int operationID, int machineID, int runtime):&#160;executions.c'],['../lists_8h.html#ae39c2c7c8130a6883f8cbd371e374725',1,'newExecution(int operationID, int machineID, int runtime):&#160;executions.c']]],
+  ['newfilecell_1',['newFileCell',['../lists_8h.html#a38ad819b8536fc74fbd1b8d16a77c676',1,'newFileCell(int machineID, int jobID, int operationID, int initialTime, int finalTime):&#160;plan.c'],['../plan_8c.html#a38ad819b8536fc74fbd1b8d16a77c676',1,'newFileCell(int machineID, int jobID, int operationID, int initialTime, int finalTime):&#160;plan.c']]],
+  ['newjob_2',['newJob',['../jobs_8c.html#a84de6ff490cb65dbc4995f2d8b98de1f',1,'newJob(int id):&#160;jobs.c'],['../lists_8h.html#a84de6ff490cb65dbc4995f2d8b98de1f',1,'newJob(int id):&#160;jobs.c']]],
+  ['newmachine_3',['newMachine',['../lists_8h.html#a6f116088fdb4bbfdc000a266ee200210',1,'newMachine(int id, bool isBusy):&#160;machines.c'],['../machines_8c.html#a6f116088fdb4bbfdc000a266ee200210',1,'newMachine(int id, bool isBusy):&#160;machines.c']]],
+  ['newoperation_4',['newOperation',['../lists_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6',1,'newOperation(int id, int jobID, int position):&#160;operations.c'],['../operations_8c.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6',1,'newOperation(int id, int jobID, int position):&#160;operations.c']]],
+  ['newworkplan_5',['newWorkPlan',['../lists_8h.html#a9d91c27cd0a905114a14ab0f12d22c5a',1,'newWorkPlan(int jobID, int operationID, int machineID, int runtime, int position):&#160;work-plans.c'],['../work-plans_8c.html#a9d91c27cd0a905114a14ab0f12d22c5a',1,'newWorkPlan(int jobID, int operationID, int machineID, int runtime, int position):&#160;work-plans.c']]],
+  ['next_6',['next',['../struct_job.html#a23043319aa98624f196cafc0ba57a0b1',1,'Job::next()'],['../struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27',1,'Machine::next()'],['../struct_operation.html#a9db59830dec0306ea782bae1df0736d1',1,'Operation::next()'],['../struct_execution.html#a5118f41fd71744302713d58c7ce39bd4',1,'Execution::next()'],['../struct_work_plan.html#a49cffc406616a06f988e9fd2251d57d3',1,'WorkPlan::next()'],['../struct_file_cell.html#ae98b5aca33fe7726f63eeeae76843663',1,'FileCell::next()']]],
+  ['number_5fmachines_7',['NUMBER_MACHINES',['../data-types_8h.html#ad24db60c59551899be0cf71702a20314',1,'data-types.h']]],
+  ['numberofexecutions_8',['numberOfExecutions',['../struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737',1,'ExecutionNode']]]
 ];

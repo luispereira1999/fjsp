@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.3</span>
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
    </div>
    <div id="projectbrief">Proposta de escalonamento para a produÃ§Ã£o de um produto que envolve vÃ¡rias operaÃ§Ãµes e a utilizaÃ§Ã£o de vÃ¡rias mÃ¡quinas, para minimizar o tempo necessÃ¡rio na sua produÃ§Ã£o.</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_8dd1dfa35ca47062104663d393c26342.html">LUIS-PEREIRA</a></li><li class="navelem"><a class="el" href="dir_86fe3e9c105b3edfb74baaa70111661b.html">Repositorios</a></li><li class="navelem"><a class="el" href="dir_3a1c66de56c8744dba612bf955ca5b76.html">fjssp</a></li><li class="navelem"><a class="el" href="dir_7bead656e6da20e655bd0815459ee224.html">fjssp</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_45c3d416b95fca600a286ee78c23e56e.html">fjssp</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,64 +73,176 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Ficheiro com todas as funções relativas às execuções de operações.  
+<p>Ficheiro com todas as funções relativas às execuções de operações com listas e hash table.  
 <a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="header_8h_source.html">header.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="data-types_8h_source.html">data-types.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lists_8h_source.html">lists.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hashing_8h_source.html">hashing.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 FunÃ§Ãµes</h2></td></tr>
+<tr class="memitem:a53a932cfddc381cc966c1bc8f0fd05e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a53a932cfddc381cc966c1bc8f0fd05e8">loadExecutions</a> (char *fileName)</td></tr>
+<tr class="memdesc:a53a932cfddc381cc966c1bc8f0fd05e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega dados das execuções de um ficheiro CSV para uma lista em memória.  <a href="executions_8c.html#a53a932cfddc381cc966c1bc8f0fd05e8">Mais...</a><br /></td></tr>
+<tr class="separator:a53a932cfddc381cc966c1bc8f0fd05e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae39c2c7c8130a6883f8cbd371e374725"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a> (int operationID, int machineID, int runtime)</td></tr>
 <tr class="memdesc:ae39c2c7c8130a6883f8cbd371e374725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar nova execução.  <a href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">Mais...</a><br /></td></tr>
 <tr class="separator:ae39c2c7c8130a6883f8cbd371e374725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab00ae0278166111c8beb4c6cd8506718"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ab00ae0278166111c8beb4c6cd8506718">insertExecutionAtStart</a> (<a class="el" href="struct_execution.html">Execution</a> *head, <a class="el" href="struct_execution.html">Execution</a> *new)</td></tr>
-<tr class="memdesc:ab00ae0278166111c8beb4c6cd8506718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir nova execução no início da lista de execuções.  <a href="executions_8c.html#ab00ae0278166111c8beb4c6cd8506718">Mais...</a><br /></td></tr>
-<tr class="separator:ab00ae0278166111c8beb4c6cd8506718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0da64583f80d681ef7e60d5f498ea7f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a0da64583f80d681ef7e60d5f498ea7f6">insertExecutionByOperation</a> (<a class="el" href="struct_execution.html">Execution</a> *head, <a class="el" href="struct_execution.html">Execution</a> *new)</td></tr>
-<tr class="memdesc:a0da64583f80d681ef7e60d5f498ea7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir execução ordenada pelo ID da operação na lista de execuções.  <a href="executions_8c.html#a0da64583f80d681ef7e60d5f498ea7f6">Mais...</a><br /></td></tr>
-<tr class="separator:a0da64583f80d681ef7e60d5f498ea7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a666d9b702a75b668af07f71865cf2f79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a666d9b702a75b668af07f71865cf2f79">updateRuntime</a> (<a class="el" href="struct_execution.html">Execution</a> **head, int operationID, int machineID, int runtime)</td></tr>
-<tr class="memdesc:a666d9b702a75b668af07f71865cf2f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualizar as unidades de tempo necessárias para a execução de uma operação.  <a href="executions_8c.html#a666d9b702a75b668af07f71865cf2f79">Mais...</a><br /></td></tr>
-<tr class="separator:a666d9b702a75b668af07f71865cf2f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9f939da818fe28a3bf38bc69b72e04c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ac9f939da818fe28a3bf38bc69b72e04c">deleteExecutionByOperation</a> (<a class="el" href="struct_execution.html">Execution</a> **head, int operationID)</td></tr>
-<tr class="memdesc:ac9f939da818fe28a3bf38bc69b72e04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remover execução pelo identificador da operação.  <a href="executions_8c.html#ac9f939da818fe28a3bf38bc69b72e04c">Mais...</a><br /></td></tr>
-<tr class="separator:ac9f939da818fe28a3bf38bc69b72e04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaae924901eb9d97606c03a74081b5291"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#aaae924901eb9d97606c03a74081b5291">writeExecutions</a> (char fileName[], <a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
-<tr class="memdesc:aaae924901eb9d97606c03a74081b5291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Armazenar lista de execuções em ficheiro binário.  <a href="executions_8c.html#aaae924901eb9d97606c03a74081b5291">Mais...</a><br /></td></tr>
-<tr class="separator:aaae924901eb9d97606c03a74081b5291"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a362b69957d588d5dd03c4cfbbb26adab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a362b69957d588d5dd03c4cfbbb26adab">readExecutions</a> (char fileName[])</td></tr>
-<tr class="memdesc:a362b69957d588d5dd03c4cfbbb26adab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ler lista de execuções de ficheiro binário.  <a href="executions_8c.html#a362b69957d588d5dd03c4cfbbb26adab">Mais...</a><br /></td></tr>
-<tr class="separator:a362b69957d588d5dd03c4cfbbb26adab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67b917d9e7aff6fc85c7d3cee1150721"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721">freeExecutions</a> (<a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
-<tr class="memdesc:a67b917d9e7aff6fc85c7d3cee1150721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libertar a lista de operações da memória.  <a href="executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721">Mais...</a><br /></td></tr>
-<tr class="separator:a67b917d9e7aff6fc85c7d3cee1150721"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d514c72e91412b8ec09efd02f6b7d4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">displayExecutions</a> (<a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
-<tr class="memdesc:a1d514c72e91412b8ec09efd02f6b7d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar a lista de execuções na consola.  <a href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">Mais...</a><br /></td></tr>
-<tr class="separator:a1d514c72e91412b8ec09efd02f6b7d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dc84ad226731def4b2b4b5631992402"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a1dc84ad226731def4b2b4b5631992402">searchExecution</a> (<a class="el" href="struct_execution.html">Execution</a> *head, int operationID, int machineID)</td></tr>
-<tr class="memdesc:a1dc84ad226731def4b2b4b5631992402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procurar por uma execução na lista de execuções.  <a href="executions_8c.html#a1dc84ad226731def4b2b4b5631992402">Mais...</a><br /></td></tr>
-<tr class="separator:a1dc84ad226731def4b2b4b5631992402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36b277b1e8d937b6aeb2a5310d22177e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a36b277b1e8d937b6aeb2a5310d22177e">searchExecutionByOperation</a> (<a class="el" href="struct_execution.html">Execution</a> *head, int operationID)</td></tr>
-<tr class="memdesc:a36b277b1e8d937b6aeb2a5310d22177e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procurar por uma execução através do identificador da operação, na lista de execuções.  <a href="executions_8c.html#a36b277b1e8d937b6aeb2a5310d22177e">Mais...</a><br /></td></tr>
-<tr class="separator:a36b277b1e8d937b6aeb2a5310d22177e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fac5de7bc7bbfcb23a4f60b54ef2e5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">SortExecutionsByOperation</a> (<a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
-<tr class="memdesc:a2fac5de7bc7bbfcb23a4f60b54ef2e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ordenar lista de execuções por ordem crescente do identificador da operação.  <a href="executions_8c.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">Mais...</a><br /></td></tr>
-<tr class="separator:a2fac5de7bc7bbfcb23a4f60b54ef2e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d0b32dd8d9b5bd0ceb43fdd5ef79edb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">insertExecution_AtStart_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> *head, <a class="el" href="struct_execution.html">Execution</a> *new)</td></tr>
+<tr class="memdesc:a9d0b32dd8d9b5bd0ceb43fdd5ef79edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir nova execução no início da lista de execuções.  <a href="executions_8c.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">Mais...</a><br /></td></tr>
+<tr class="separator:a9d0b32dd8d9b5bd0ceb43fdd5ef79edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50f97d7d5afd1f90e6b8371befc23b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ac50f97d7d5afd1f90e6b8371befc23b4">insertExecution_ByOperation_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> *head, <a class="el" href="struct_execution.html">Execution</a> *new)</td></tr>
+<tr class="memdesc:ac50f97d7d5afd1f90e6b8371befc23b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir execução ordenada pelo ID da operação na lista de execuções.  <a href="executions_8c.html#ac50f97d7d5afd1f90e6b8371befc23b4">Mais...</a><br /></td></tr>
+<tr class="separator:ac50f97d7d5afd1f90e6b8371befc23b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa707b2d78dce25e19aff4d2a2ce77c36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#aa707b2d78dce25e19aff4d2a2ce77c36">updateRuntime_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> **head, int operationID, int machineID, int runtime)</td></tr>
+<tr class="memdesc:aa707b2d78dce25e19aff4d2a2ce77c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualizar as unidades de tempo necessárias para a execução de uma operação.  <a href="executions_8c.html#aa707b2d78dce25e19aff4d2a2ce77c36">Mais...</a><br /></td></tr>
+<tr class="separator:aa707b2d78dce25e19aff4d2a2ce77c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f1c8469fd5be248139fb23655a88787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a3f1c8469fd5be248139fb23655a88787">deleteExecution_ByOperation_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> **head, int operationID)</td></tr>
+<tr class="memdesc:a3f1c8469fd5be248139fb23655a88787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remover execução pelo identificador da operação.  <a href="executions_8c.html#a3f1c8469fd5be248139fb23655a88787">Mais...</a><br /></td></tr>
+<tr class="separator:a3f1c8469fd5be248139fb23655a88787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430f8d8e37d3b4e17ce4e19c7de31dbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a430f8d8e37d3b4e17ce4e19c7de31dbb">writeExecutions_AtList</a> (char fileName[], <a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
+<tr class="memdesc:a430f8d8e37d3b4e17ce4e19c7de31dbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Armazenar lista de execuções em ficheiro binário.  <a href="executions_8c.html#a430f8d8e37d3b4e17ce4e19c7de31dbb">Mais...</a><br /></td></tr>
+<tr class="separator:a430f8d8e37d3b4e17ce4e19c7de31dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac243dbf8dd9253190d63d7523d403c42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ac243dbf8dd9253190d63d7523d403c42">readExecutions_AtList</a> (char fileName[])</td></tr>
+<tr class="memdesc:ac243dbf8dd9253190d63d7523d403c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ler lista de execuções de ficheiro binário.  <a href="executions_8c.html#ac243dbf8dd9253190d63d7523d403c42">Mais...</a><br /></td></tr>
+<tr class="separator:ac243dbf8dd9253190d63d7523d403c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af71ebace66f1a24bf562109b2c037c64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#af71ebace66f1a24bf562109b2c037c64">displayExecutions_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
+<tr class="memdesc:af71ebace66f1a24bf562109b2c037c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar a lista de execuções na consola.  <a href="executions_8c.html#af71ebace66f1a24bf562109b2c037c64">Mais...</a><br /></td></tr>
+<tr class="separator:af71ebace66f1a24bf562109b2c037c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac992cca7f2da24cbd1b940efce93a06e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">searchExecution_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> *head, int operationID, int machineID)</td></tr>
+<tr class="memdesc:ac992cca7f2da24cbd1b940efce93a06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procurar por uma execução na lista de execuções.  <a href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">Mais...</a><br /></td></tr>
+<tr class="separator:ac992cca7f2da24cbd1b940efce93a06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cd9f6a62ad6afc978e6b374d571fa16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a5cd9f6a62ad6afc978e6b374d571fa16">searchExecution_ByOperation_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> *head, int operationID)</td></tr>
+<tr class="memdesc:a5cd9f6a62ad6afc978e6b374d571fa16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procurar por uma execução através do identificador da operação, na lista de execuções.  <a href="executions_8c.html#a5cd9f6a62ad6afc978e6b374d571fa16">Mais...</a><br /></td></tr>
+<tr class="separator:a5cd9f6a62ad6afc978e6b374d571fa16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db97f4567e3f5d417d6c948419f964f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a8db97f4567e3f5d417d6c948419f964f">sortExecutions_ByOperation_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
+<tr class="memdesc:a8db97f4567e3f5d417d6c948419f964f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ordenar lista de execuções por ordem crescente do identificador da operação.  <a href="executions_8c.html#a8db97f4567e3f5d417d6c948419f964f">Mais...</a><br /></td></tr>
+<tr class="separator:a8db97f4567e3f5d417d6c948419f964f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1705d388aa5c4bf7c17519e7c5a435"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#aac1705d388aa5c4bf7c17519e7c5a435">getLastExecution_AtList</a> (<a class="el" href="struct_execution.html">Execution</a> *head)</td></tr>
+<tr class="memdesc:aac1705d388aa5c4bf7c17519e7c5a435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obter a última execução de uma lista de execuções.  <a href="executions_8c.html#aac1705d388aa5c4bf7c17519e7c5a435">Mais...</a><br /></td></tr>
+<tr class="separator:aac1705d388aa5c4bf7c17519e7c5a435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa5a8328ff70ca63ea1a3bd5a8a3f59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#afaa5a8328ff70ca63ea1a3bd5a8a3f59">freeExecutions_List</a> (<a class="el" href="struct_execution.html">Execution</a> **head)</td></tr>
+<tr class="memdesc:afaa5a8328ff70ca63ea1a3bd5a8a3f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libertar a lista de execuções da memória.  <a href="executions_8c.html#afaa5a8328ff70ca63ea1a3bd5a8a3f59">Mais...</a><br /></td></tr>
+<tr class="separator:afaa5a8328ff70ca63ea1a3bd5a8a3f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5d4ea413106ade02d7003df3d7c04f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution_node.html">ExecutionNode</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ae5d4ea413106ade02d7003df3d7c04f1">loadExecutionsTable</a> (char *fileName, <a class="el" href="struct_execution_node.html">ExecutionNode</a> *table[])</td></tr>
+<tr class="memdesc:ae5d4ea413106ade02d7003df3d7c04f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega dados das execuções de um ficheiro CSV para uma tabela hash em memória.  <a href="executions_8c.html#ae5d4ea413106ade02d7003df3d7c04f1">Mais...</a><br /></td></tr>
+<tr class="separator:ae5d4ea413106ade02d7003df3d7c04f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0001c4cf520ad185db5413445b1e461a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution_node.html">ExecutionNode</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a0001c4cf520ad185db5413445b1e461a">createExecutionsTable</a> (<a class="el" href="struct_execution_node.html">ExecutionNode</a> *table[])</td></tr>
+<tr class="memdesc:a0001c4cf520ad185db5413445b1e461a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar tabela hash das execuções vazia.  <a href="executions_8c.html#a0001c4cf520ad185db5413445b1e461a">Mais...</a><br /></td></tr>
+<tr class="separator:a0001c4cf520ad185db5413445b1e461a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c80c06ef32843a9af68abccd166cfaf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a4c80c06ef32843a9af68abccd166cfaf">createExecutionNode</a> ()</td></tr>
+<tr class="memdesc:a4c80c06ef32843a9af68abccd166cfaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar nó vazio para uma posição da tabela hash das execuções.  <a href="executions_8c.html#a4c80c06ef32843a9af68abccd166cfaf">Mais...</a><br /></td></tr>
+<tr class="separator:a4c80c06ef32843a9af68abccd166cfaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c200281c48846597568efc4e71806c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a8c200281c48846597568efc4e71806c8">generateHash</a> (int operationID)</td></tr>
+<tr class="memdesc:a8c200281c48846597568efc4e71806c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gerar hash através de uma função. A função é representada pelo resto da divisão do identificador da operação pelo tamanho da tabela.  <a href="executions_8c.html#a8c200281c48846597568efc4e71806c8">Mais...</a><br /></td></tr>
+<tr class="separator:a8c200281c48846597568efc4e71806c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9b801e5a5276639bad0c449566b0a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution_node.html">ExecutionNode</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">insertExecution_AtTable</a> (<a class="el" href="struct_execution_node.html">ExecutionNode</a> *table[], <a class="el" href="struct_execution.html">Execution</a> *new)</td></tr>
+<tr class="memdesc:a6c9b801e5a5276639bad0c449566b0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir nova execução na tabela hash das execuções, numa determinada posição.  <a href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">Mais...</a><br /></td></tr>
+<tr class="separator:a6c9b801e5a5276639bad0c449566b0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2402b39f2448988448bf820534f21758"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a2402b39f2448988448bf820534f21758">updateRuntime_ByOperation_AtTable</a> (<a class="el" href="struct_execution_node.html">ExecutionNode</a> **table[], int operationID, int machineID, int runtime)</td></tr>
+<tr class="memdesc:a2402b39f2448988448bf820534f21758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash.  <a href="executions_8c.html#a2402b39f2448988448bf820534f21758">Mais...</a><br /></td></tr>
+<tr class="separator:a2402b39f2448988448bf820534f21758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe647db2279682c65d3262a7bfaa9ce4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#afe647db2279682c65d3262a7bfaa9ce4">deleteExecutions_ByOperation_AtTable</a> (<a class="el" href="struct_execution_node.html">ExecutionNode</a> **table[], int operationID)</td></tr>
+<tr class="memdesc:afe647db2279682c65d3262a7bfaa9ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remover todas as execuções pelo identificador da operação na tabela.  <a href="executions_8c.html#afe647db2279682c65d3262a7bfaa9ce4">Mais...</a><br /></td></tr>
+<tr class="separator:afe647db2279682c65d3262a7bfaa9ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd476173ba3d625348e353c22707c36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#aefd476173ba3d625348e353c22707c36">writeExecutions_AtTable</a> (char fileName[], <a class="el" href="struct_execution_node.html">ExecutionNode</a> *table[])</td></tr>
+<tr class="memdesc:aefd476173ba3d625348e353c22707c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário.  <a href="executions_8c.html#aefd476173ba3d625348e353c22707c36">Mais...</a><br /></td></tr>
+<tr class="separator:aefd476173ba3d625348e353c22707c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34f3703871bfdbbca009e8d1f16f70d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution_node.html">ExecutionNode</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a34f3703871bfdbbca009e8d1f16f70d3">readExecutions_AtTable</a> (char fileName[], <a class="el" href="struct_execution_node.html">ExecutionNode</a> *table[])</td></tr>
+<tr class="memdesc:a34f3703871bfdbbca009e8d1f16f70d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário.  <a href="executions_8c.html#a34f3703871bfdbbca009e8d1f16f70d3">Mais...</a><br /></td></tr>
+<tr class="separator:a34f3703871bfdbbca009e8d1f16f70d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe6834a2be75b22fc1a593753608a024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#abe6834a2be75b22fc1a593753608a024">displayExecutions_AtTable</a> (<a class="el" href="struct_execution_node.html">ExecutionNode</a> *table[])</td></tr>
+<tr class="memdesc:abe6834a2be75b22fc1a593753608a024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar a tabela hash com as listas de execuções na consola.  <a href="executions_8c.html#abe6834a2be75b22fc1a593753608a024">Mais...</a><br /></td></tr>
+<tr class="separator:abe6834a2be75b22fc1a593753608a024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade482462e6c9fbe78b9134d1d95f996b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#ade482462e6c9fbe78b9134d1d95f996b">searchExecution_AtTable</a> (<a class="el" href="struct_execution_node.html">ExecutionNode</a> *table[], int operationID, int machineID)</td></tr>
+<tr class="memdesc:ade482462e6c9fbe78b9134d1d95f996b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procurar por uma execução na tabela hash.  <a href="executions_8c.html#ade482462e6c9fbe78b9134d1d95f996b">Mais...</a><br /></td></tr>
+<tr class="separator:ade482462e6c9fbe78b9134d1d95f996b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c503615b2b7aef617ccb9c6ff5cdfc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="executions_8c.html#a7c503615b2b7aef617ccb9c6ff5cdfc2">freeExecutions_Table</a> (<a class="el" href="struct_execution_node.html">ExecutionNode</a> **table[])</td></tr>
+<tr class="memdesc:a7c503615b2b7aef617ccb9c6ff5cdfc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libertar a tabela hash de execuções da memória.  <a href="executions_8c.html#a7c503615b2b7aef617ccb9c6ff5cdfc2">Mais...</a><br /></td></tr>
+<tr class="separator:a7c503615b2b7aef617ccb9c6ff5cdfc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">DescriÃ§Ã£o detalhada</h2>
-<div class="textblock"><p >Ficheiro com todas as funções relativas às execuções de operações. </p>
+<div class="textblock"><p >Ficheiro com todas as funções relativas às execuções de operações com listas e hash table. </p>
 <dl class="section author"><dt>Autor</dt><dd>Luís Pereira @email <a href="#" onclick="location.href='mai'+'lto:'+'a18'+'44'+'6@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1844<span class="obfuscator">.nosp@m.</span>6@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a> </dd></dl>
 <dl class="section date"><dt>Data</dt><dd>25/03/2022 </dd></dl>
 </div><h2 class="groupheader">DocumentaÃ§Ã£o das funÃ§Ãµes</h2>
-<a id="ac9f939da818fe28a3bf38bc69b72e04c" name="ac9f939da818fe28a3bf38bc69b72e04c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9f939da818fe28a3bf38bc69b72e04c">&#9670;&nbsp;</a></span>deleteExecutionByOperation()</h2>
+<a id="a4c80c06ef32843a9af68abccd166cfaf" name="a4c80c06ef32843a9af68abccd166cfaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c80c06ef32843a9af68abccd166cfaf">&#9670;&nbsp;</a></span>createExecutionNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> deleteExecutionByOperation </td>
+          <td class="memname"><a class="el" href="struct_execution_node.html">ExecutionNode</a> * createExecutionNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Criar nó vazio para uma posição da tabela hash das execuções. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Nó vazio da tabela hash das execuções criado </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  514</span>{</div>
+<div class="line"><span class="lineno">  515</span>    <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>* node = malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>));</div>
+<div class="line"><span class="lineno">  516</span> </div>
+<div class="line"><span class="lineno">  517</span>    node-&gt;<a class="code hl_variable" href="struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c">start</a> = NULL;</div>
+<div class="line"><span class="lineno">  518</span>    node-&gt;<a class="code hl_variable" href="struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737">numberOfExecutions</a> = 0;</div>
+<div class="line"><span class="lineno">  519</span> </div>
+<div class="line"><span class="lineno">  520</span>    <span class="keywordflow">return</span> node;</div>
+<div class="line"><span class="lineno">  521</span>}</div>
+<div class="ttc" id="astruct_execution_node_html"><div class="ttname"><a href="struct_execution_node.html">ExecutionNode</a></div><div class="ttdoc">Estrutura de dados para representar cada nó (posição) da tabela hash das execuções (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:115</div></div>
+<div class="ttc" id="astruct_execution_node_html_aa95a151910734e9c0dd67a2912c2621c"><div class="ttname"><a href="struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c">ExecutionNode::start</a></div><div class="ttdeci">Execution * start</div><div class="ttdef"><b>Definition:</b> data-types.h:116</div></div>
+<div class="ttc" id="astruct_execution_node_html_ab1f76925bf29b8f0f5c7f0702eaeb737"><div class="ttname"><a href="struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737">ExecutionNode::numberOfExecutions</a></div><div class="ttdeci">int numberOfExecutions</div><div class="ttdef"><b>Definition:</b> data-types.h:117</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0001c4cf520ad185db5413445b1e461a" name="a0001c4cf520ad185db5413445b1e461a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0001c4cf520ad185db5413445b1e461a">&#9670;&nbsp;</a></span>createExecutionsTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution_node.html">ExecutionNode</a> ** createExecutionsTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td>
+          <td class="paramname"><em>table</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Criar tabela hash das execuções vazia. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabela hash das execuções </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Tabela hash das execuções criada </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  499</span>{</div>
+<div class="line"><span class="lineno">  500</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>; i++)</div>
+<div class="line"><span class="lineno">  501</span>    {</div>
+<div class="line"><span class="lineno">  502</span>        table[i] = <a class="code hl_function" href="executions_8c.html#a4c80c06ef32843a9af68abccd166cfaf">createExecutionNode</a>();</div>
+<div class="line"><span class="lineno">  503</span>    }</div>
+<div class="line"><span class="lineno">  504</span> </div>
+<div class="line"><span class="lineno">  505</span>    <span class="keywordflow">return</span> *table;</div>
+<div class="line"><span class="lineno">  506</span>}</div>
+<div class="ttc" id="adata-types_8h_html_abfd8510b1fadf533d685965730e2969b"><div class="ttname"><a href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a></div><div class="ttdeci">#define HASH_TABLE_SIZE</div><div class="ttdef"><b>Definition:</b> data-types.h:16</div></div>
+<div class="ttc" id="aexecutions_8c_html_a4c80c06ef32843a9af68abccd166cfaf"><div class="ttname"><a href="executions_8c.html#a4c80c06ef32843a9af68abccd166cfaf">createExecutionNode</a></div><div class="ttdeci">ExecutionNode * createExecutionNode()</div><div class="ttdoc">Criar nó vazio para uma posição da tabela hash das execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:513</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3f1c8469fd5be248139fb23655a88787" name="a3f1c8469fd5be248139fb23655a88787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1c8469fd5be248139fb23655a88787">&#9670;&nbsp;</a></span>deleteExecution_ByOperation_AtList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> deleteExecution_ByOperation_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> **&#160;</td>
           <td class="paramname"><em>head</em>, </td>
@@ -158,51 +270,121 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  148</span>{</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">if</span> (*head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">  150</span>    {</div>
-<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  152</span>    }</div>
-<div class="line"><span class="lineno">  153</span> </div>
-<div class="line"><span class="lineno">  154</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = *head;</div>
-<div class="line"><span class="lineno">  155</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* previous = NULL;</div>
-<div class="line"><span class="lineno">  156</span> </div>
-<div class="line"><span class="lineno">  157</span>    <span class="keywordflow">if</span> (current != NULL &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID) { <span class="comment">// se o elemento que será apagado é o primeiro da lista</span></div>
-<div class="line"><span class="lineno">  158</span>        *head = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  159</span>        free(current);</div>
-<div class="line"><span class="lineno">  160</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  161</span>    }</div>
-<div class="line"><span class="lineno">  162</span> </div>
-<div class="line"><span class="lineno">  163</span>    <span class="keywordflow">while</span> (current != NULL &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> != operationID) <span class="comment">// procurar o elemento a ser apagado</span></div>
-<div class="line"><span class="lineno">  164</span>    {</div>
-<div class="line"><span class="lineno">  165</span>        previous = current;</div>
-<div class="line"><span class="lineno">  166</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  167</span>    }</div>
-<div class="line"><span class="lineno">  168</span> </div>
-<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">if</span> (current == NULL) <span class="comment">// se o elemento não foi encontrado</span></div>
-<div class="line"><span class="lineno">  170</span>    {</div>
-<div class="line"><span class="lineno">  171</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  172</span>    }</div>
-<div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span>    previous-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>; <span class="comment">// desassociar o elemento da lista</span></div>
-<div class="line"><span class="lineno">  175</span>    free(current);</div>
-<div class="line"><span class="lineno">  176</span> </div>
-<div class="line"><span class="lineno">  177</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  178</span>}</div>
-<div class="ttc" id="astruct_execution_html"><div class="ttname"><a href="struct_execution.html">Execution</a></div><div class="ttdoc">Estrutura de dados para a lista (em memória) das execuções das operações em máquinas.</div><div class="ttdef"><b>Definition:</b> header.h:58</div></div>
-<div class="ttc" id="astruct_execution_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">Execution::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> header.h:59</div></div>
-<div class="ttc" id="astruct_execution_html_a5118f41fd71744302713d58c7ce39bd4"><div class="ttname"><a href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">Execution::next</a></div><div class="ttdeci">struct Execution * next</div><div class="ttdef"><b>Definition:</b> header.h:62</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  193</span>{</div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordflow">if</span> (*head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  195</span>    {</div>
+<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  197</span>    }</div>
+<div class="line"><span class="lineno">  198</span> </div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="executions_8c.html#a5cd9f6a62ad6afc978e6b374d571fa16">searchExecution_ByOperation_AtList</a>(*head, operationID)) <span class="comment">// se não existir a execução para remover</span></div>
+<div class="line"><span class="lineno">  200</span>    {</div>
+<div class="line"><span class="lineno">  201</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  202</span>    }</div>
+<div class="line"><span class="lineno">  203</span> </div>
+<div class="line"><span class="lineno">  204</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = *head;</div>
+<div class="line"><span class="lineno">  205</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* previous = NULL;</div>
+<div class="line"><span class="lineno">  206</span> </div>
+<div class="line"><span class="lineno">  207</span>    <span class="keywordflow">if</span> (current != NULL &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID) { <span class="comment">// se o elemento que será apagado é o primeiro da lista</span></div>
+<div class="line"><span class="lineno">  208</span>        *head = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  209</span>        free(current);</div>
+<div class="line"><span class="lineno">  210</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  211</span>    }</div>
+<div class="line"><span class="lineno">  212</span> </div>
+<div class="line"><span class="lineno">  213</span>    <span class="keywordflow">while</span> (current != NULL &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> != operationID) <span class="comment">// procurar o elemento a ser apagado</span></div>
+<div class="line"><span class="lineno">  214</span>    {</div>
+<div class="line"><span class="lineno">  215</span>        previous = current;</div>
+<div class="line"><span class="lineno">  216</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  217</span>    }</div>
+<div class="line"><span class="lineno">  218</span> </div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordflow">if</span> (current == NULL) <span class="comment">// se o elemento não foi encontrado</span></div>
+<div class="line"><span class="lineno">  220</span>    {</div>
+<div class="line"><span class="lineno">  221</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  222</span>    }</div>
+<div class="line"><span class="lineno">  223</span> </div>
+<div class="line"><span class="lineno">  224</span>    previous-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>; <span class="comment">// desassociar o elemento da lista</span></div>
+<div class="line"><span class="lineno">  225</span>    free(current);</div>
+<div class="line"><span class="lineno">  226</span> </div>
+<div class="line"><span class="lineno">  227</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  228</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_a5cd9f6a62ad6afc978e6b374d571fa16"><div class="ttname"><a href="executions_8c.html#a5cd9f6a62ad6afc978e6b374d571fa16">searchExecution_ByOperation_AtList</a></div><div class="ttdeci">Execution * searchExecution_ByOperation_AtList(Execution *head, int operationID)</div><div class="ttdoc">Procurar por uma execução através do identificador da operação, na lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:359</div></div>
+<div class="ttc" id="astruct_execution_html"><div class="ttname"><a href="struct_execution.html">Execution</a></div><div class="ttdoc">Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:102</div></div>
+<div class="ttc" id="astruct_execution_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">Execution::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> data-types.h:103</div></div>
+<div class="ttc" id="astruct_execution_html_a5118f41fd71744302713d58c7ce39bd4"><div class="ttname"><a href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">Execution::next</a></div><div class="ttdeci">struct Execution * next</div><div class="ttdef"><b>Definition:</b> data-types.h:106</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a1d514c72e91412b8ec09efd02f6b7d4f" name="a1d514c72e91412b8ec09efd02f6b7d4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d514c72e91412b8ec09efd02f6b7d4f">&#9670;&nbsp;</a></span>displayExecutions()</h2>
+<a id="afe647db2279682c65d3262a7bfaa9ce4" name="afe647db2279682c65d3262a7bfaa9ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe647db2279682c65d3262a7bfaa9ce4">&#9670;&nbsp;</a></span>deleteExecutions_ByOperation_AtTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> displayExecutions </td>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> deleteExecutions_ByOperation_AtTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> **&#160;</td>
+          <td class="paramname"><em>table</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>operationID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remover todas as execuções pelo identificador da operação na tabela. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabela hash das execuções </td></tr>
+    <tr><td class="paramname">operationID</td><td>Identificador da operação </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  578</span>{</div>
+<div class="line"><span class="lineno">  579</span>    <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>** current = table;</div>
+<div class="line"><span class="lineno">  580</span> </div>
+<div class="line"><span class="lineno">  581</span>    <span class="keywordtype">int</span> index = <a class="code hl_function" href="executions_8c.html#a8c200281c48846597568efc4e71806c8">generateHash</a>(operationID);</div>
+<div class="line"><span class="lineno">  582</span>    <span class="keywordflow">if</span> (index &lt;= -1)</div>
+<div class="line"><span class="lineno">  583</span>    {</div>
+<div class="line"><span class="lineno">  584</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  585</span>    }</div>
+<div class="line"><span class="lineno">  586</span> </div>
+<div class="line"><span class="lineno">  587</span>    <span class="keywordtype">bool</span> deleted = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  588</span> </div>
+<div class="line"><span class="lineno">  589</span>    <span class="keywordflow">do</span></div>
+<div class="line"><span class="lineno">  590</span>    {</div>
+<div class="line"><span class="lineno">  591</span>        <span class="comment">// enquanto que remover, significa que ainda existe operações e portanto continuará a remover, até remover todas</span></div>
+<div class="line"><span class="lineno">  592</span>        deleted = <a class="code hl_function" href="executions_8c.html#a3f1c8469fd5be248139fb23655a88787">deleteExecution_ByOperation_AtList</a>(&amp;current[index]-&gt;start, operationID);</div>
+<div class="line"><span class="lineno">  593</span> </div>
+<div class="line"><span class="lineno">  594</span>        <span class="keywordflow">if</span> (deleted)</div>
+<div class="line"><span class="lineno">  595</span>        {</div>
+<div class="line"><span class="lineno">  596</span>            current[index]-&gt;<a class="code hl_variable" href="struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737">numberOfExecutions</a>--;</div>
+<div class="line"><span class="lineno">  597</span>        }</div>
+<div class="line"><span class="lineno">  598</span>    } <span class="keywordflow">while</span> (deleted == <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  599</span> </div>
+<div class="line"><span class="lineno">  600</span>    <span class="keywordflow">return</span> deleted;</div>
+<div class="line"><span class="lineno">  601</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_a3f1c8469fd5be248139fb23655a88787"><div class="ttname"><a href="executions_8c.html#a3f1c8469fd5be248139fb23655a88787">deleteExecution_ByOperation_AtList</a></div><div class="ttdeci">bool deleteExecution_ByOperation_AtList(Execution **head, int operationID)</div><div class="ttdoc">Remover execução pelo identificador da operação.</div><div class="ttdef"><b>Definition:</b> executions.c:192</div></div>
+<div class="ttc" id="aexecutions_8c_html_a8c200281c48846597568efc4e71806c8"><div class="ttname"><a href="executions_8c.html#a8c200281c48846597568efc4e71806c8">generateHash</a></div><div class="ttdeci">int generateHash(int operationID)</div><div class="ttdoc">Gerar hash através de uma função. A função é representada pelo resto da divisão do identificador da operação pelo...</div><div class="ttdef"><b>Definition:</b> executions.c:530</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af71ebace66f1a24bf562109b2c037c64" name="af71ebace66f1a24bf562109b2c037c64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af71ebace66f1a24bf562109b2c037c64">&#9670;&nbsp;</a></span>displayExecutions_AtList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> displayExecutions_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
           <td class="paramname"><em>head</em></td><td>)</td>
@@ -219,35 +401,187 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  281</span>{</div>
-<div class="line"><span class="lineno">  282</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">  283</span>    {</div>
-<div class="line"><span class="lineno">  284</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  285</span>    }</div>
-<div class="line"><span class="lineno">  286</span> </div>
-<div class="line"><span class="lineno">  287</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
-<div class="line"><span class="lineno">  288</span> </div>
-<div class="line"><span class="lineno">  289</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  290</span>    {</div>
-<div class="line"><span class="lineno">  291</span>        printf(<span class="stringliteral">&quot;ID Operação: %d, ID Máquina: %d, Tempo de Execução: %d;\n&quot;</span>, current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>);</div>
-<div class="line"><span class="lineno">  292</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  293</span>    }</div>
-<div class="line"><span class="lineno">  294</span> </div>
-<div class="line"><span class="lineno">  295</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  296</span>}</div>
-<div class="ttc" id="astruct_execution_html_a6885fec41faff728c1e6173cfb69e81f"><div class="ttname"><a href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">Execution::runtime</a></div><div class="ttdeci">int runtime</div><div class="ttdef"><b>Definition:</b> header.h:61</div></div>
-<div class="ttc" id="astruct_execution_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">Execution::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> header.h:60</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  306</span>{</div>
+<div class="line"><span class="lineno">  307</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  308</span>    {</div>
+<div class="line"><span class="lineno">  309</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  310</span>    }</div>
+<div class="line"><span class="lineno">  311</span> </div>
+<div class="line"><span class="lineno">  312</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
+<div class="line"><span class="lineno">  313</span> </div>
+<div class="line"><span class="lineno">  314</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  315</span>    {</div>
+<div class="line"><span class="lineno">  316</span>        printf(<span class="stringliteral">&quot;ID Operação: %d, ID Máquina: %d, Tempo de Execução: %d;\n&quot;</span>, current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>);</div>
+<div class="line"><span class="lineno">  317</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  318</span>    }</div>
+<div class="line"><span class="lineno">  319</span> </div>
+<div class="line"><span class="lineno">  320</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  321</span>}</div>
+<div class="ttc" id="astruct_execution_html_a6885fec41faff728c1e6173cfb69e81f"><div class="ttname"><a href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">Execution::runtime</a></div><div class="ttdeci">int runtime</div><div class="ttdef"><b>Definition:</b> data-types.h:105</div></div>
+<div class="ttc" id="astruct_execution_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">Execution::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> data-types.h:104</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a67b917d9e7aff6fc85c7d3cee1150721" name="a67b917d9e7aff6fc85c7d3cee1150721"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67b917d9e7aff6fc85c7d3cee1150721">&#9670;&nbsp;</a></span>freeExecutions()</h2>
+<a id="abe6834a2be75b22fc1a593753608a024" name="abe6834a2be75b22fc1a593753608a024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6834a2be75b22fc1a593753608a024">&#9670;&nbsp;</a></span>displayExecutions_AtTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> freeExecutions </td>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> displayExecutions_AtTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td>
+          <td class="paramname"><em>table</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mostrar a tabela hash com as listas de execuções na consola. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabela hash das execuções </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  687</span>{</div>
+<div class="line"><span class="lineno">  688</span>    <span class="keywordflow">if</span> (table == NULL)</div>
+<div class="line"><span class="lineno">  689</span>    {</div>
+<div class="line"><span class="lineno">  690</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  691</span>    }</div>
+<div class="line"><span class="lineno">  692</span> </div>
+<div class="line"><span class="lineno">  693</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>; i++)</div>
+<div class="line"><span class="lineno">  694</span>    {</div>
+<div class="line"><span class="lineno">  695</span>        printf(<span class="stringliteral">&quot;Lista %d - Número de elementos: %d\n&quot;</span>, i + 1, table[i]-&gt;numberOfExecutions);</div>
+<div class="line"><span class="lineno">  696</span>        <a class="code hl_function" href="executions_8c.html#af71ebace66f1a24bf562109b2c037c64">displayExecutions_AtList</a>(table[i]-&gt;start);</div>
+<div class="line"><span class="lineno">  697</span>    }</div>
+<div class="line"><span class="lineno">  698</span> </div>
+<div class="line"><span class="lineno">  699</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  700</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_af71ebace66f1a24bf562109b2c037c64"><div class="ttname"><a href="executions_8c.html#af71ebace66f1a24bf562109b2c037c64">displayExecutions_AtList</a></div><div class="ttdeci">bool displayExecutions_AtList(Execution *head)</div><div class="ttdoc">Mostrar a lista de execuções na consola.</div><div class="ttdef"><b>Definition:</b> executions.c:305</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afaa5a8328ff70ca63ea1a3bd5a8a3f59" name="afaa5a8328ff70ca63ea1a3bd5a8a3f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa5a8328ff70ca63ea1a3bd5a8a3f59">&#9670;&nbsp;</a></span>freeExecutions_List()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeExecutions_List </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> **&#160;</td>
+          <td class="paramname"><em>head</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libertar a lista de execuções da memória. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Lista de execuções </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">  436</span>{</div>
+<div class="line"><span class="lineno">  437</span>    <span class="keywordflow">if</span> (head != NULL)</div>
+<div class="line"><span class="lineno">  438</span>    {</div>
+<div class="line"><span class="lineno">  439</span>        <a class="code hl_struct" href="struct_execution.html">Execution</a>* current;</div>
+<div class="line"><span class="lineno">  440</span> </div>
+<div class="line"><span class="lineno">  441</span>        <span class="keywordflow">while</span> (*head)</div>
+<div class="line"><span class="lineno">  442</span>        {</div>
+<div class="line"><span class="lineno">  443</span>            current = *head;</div>
+<div class="line"><span class="lineno">  444</span>            *head = (*head)-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  445</span>            free(current);</div>
+<div class="line"><span class="lineno">  446</span>        }</div>
+<div class="line"><span class="lineno">  447</span>    }</div>
+<div class="line"><span class="lineno">  448</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7c503615b2b7aef617ccb9c6ff5cdfc2" name="a7c503615b2b7aef617ccb9c6ff5cdfc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c503615b2b7aef617ccb9c6ff5cdfc2">&#9670;&nbsp;</a></span>freeExecutions_Table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeExecutions_Table </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> **&#160;</td>
+          <td class="paramname"><em>table</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libertar a tabela hash de execuções da memória. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Lista de execuções </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Tabela hash libertada da memória </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  735</span>{</div>
+<div class="line"><span class="lineno">  736</span>    <span class="keywordflow">if</span> (table != NULL)</div>
+<div class="line"><span class="lineno">  737</span>    {</div>
+<div class="line"><span class="lineno">  738</span>        <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>** table2 = *table;</div>
+<div class="line"><span class="lineno">  739</span>        <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>* current;</div>
+<div class="line"><span class="lineno">  740</span>        <a class="code hl_struct" href="struct_execution.html">Execution</a>* current2;</div>
+<div class="line"><span class="lineno">  741</span> </div>
+<div class="line"><span class="lineno">  742</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>; i++)</div>
+<div class="line"><span class="lineno">  743</span>        {</div>
+<div class="line"><span class="lineno">  744</span>            current = table[i];</div>
+<div class="line"><span class="lineno">  745</span>            free(current);</div>
+<div class="line"><span class="lineno">  746</span>        }</div>
+<div class="line"><span class="lineno">  747</span>    }</div>
+<div class="line"><span class="lineno">  748</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8c200281c48846597568efc4e71806c8" name="a8c200281c48846597568efc4e71806c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c200281c48846597568efc4e71806c8">&#9670;&nbsp;</a></span>generateHash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int generateHash </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>operationID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gerar hash através de uma função. A função é representada pelo resto da divisão do identificador da operação pelo tamanho da tabela. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">operationID</td><td>Identificador da operação </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Valor calculado pela função hash </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  531</span>{</div>
+<div class="line"><span class="lineno">  532</span>    <span class="keywordflow">return</span> operationID % <a class="code hl_define" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><span class="lineno">  533</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aac1705d388aa5c4bf7c17519e7c5a435" name="aac1705d388aa5c4bf7c17519e7c5a435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1705d388aa5c4bf7c17519e7c5a435">&#9670;&nbsp;</a></span>getLastExecution_AtList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * getLastExecution_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
           <td class="paramname"><em>head</em></td><td>)</td>
@@ -256,42 +590,40 @@ FunÃ§Ãµes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Libertar a lista de operações da memória. </p>
+<p>Obter a última execução de uma lista de execuções. </p>
 <dl class="params"><dt>ParÃ¢metros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">head</td><td>Lista de operações </td></tr>
+    <tr><td class="paramname">head</td><td>Lista de execuções </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  256</span>{</div>
-<div class="line"><span class="lineno">  257</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">  258</span>    {</div>
-<div class="line"><span class="lineno">  259</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  260</span>    }</div>
-<div class="line"><span class="lineno">  261</span> </div>
-<div class="line"><span class="lineno">  262</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = NULL;</div>
-<div class="line"><span class="lineno">  263</span> </div>
-<div class="line"><span class="lineno">  264</span>    <span class="keywordflow">while</span> (head != NULL)</div>
-<div class="line"><span class="lineno">  265</span>    {</div>
-<div class="line"><span class="lineno">  266</span>        current = head;</div>
-<div class="line"><span class="lineno">  267</span>        head = head-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  268</span>        free(current);</div>
-<div class="line"><span class="lineno">  269</span>    }</div>
-<div class="line"><span class="lineno">  270</span> </div>
-<div class="line"><span class="lineno">  271</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  272</span>}</div>
+<dl class="section return"><dt>Retorna</dt><dd>Última execução da lista </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  414</span>{</div>
+<div class="line"><span class="lineno">  415</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// return NULL is list is empty cf (Captain girafe &amp;&amp; learningC)</span></div>
+<div class="line"><span class="lineno">  416</span>    {</div>
+<div class="line"><span class="lineno">  417</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  418</span>    }</div>
+<div class="line"><span class="lineno">  419</span> </div>
+<div class="line"><span class="lineno">  420</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
+<div class="line"><span class="lineno">  421</span> </div>
+<div class="line"><span class="lineno">  422</span>    <span class="keywordflow">while</span> (current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> != NULL) <span class="comment">// check if next element is null then currentElement = next else return currentElement</span></div>
+<div class="line"><span class="lineno">  423</span>    {</div>
+<div class="line"><span class="lineno">  424</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  425</span>    }</div>
+<div class="line"><span class="lineno">  426</span> </div>
+<div class="line"><span class="lineno">  427</span>    <span class="keywordflow">return</span> current;</div>
+<div class="line"><span class="lineno">  428</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ab00ae0278166111c8beb4c6cd8506718" name="ab00ae0278166111c8beb4c6cd8506718"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab00ae0278166111c8beb4c6cd8506718">&#9670;&nbsp;</a></span>insertExecutionAtStart()</h2>
+<a id="a9d0b32dd8d9b5bd0ceb43fdd5ef79edb" name="a9d0b32dd8d9b5bd0ceb43fdd5ef79edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">&#9670;&nbsp;</a></span>insertExecution_AtStart_AtList()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * insertExecutionAtStart </td>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * insertExecution_AtStart_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
           <td class="paramname"><em>head</em>, </td>
@@ -319,36 +651,82 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Lista de execuções atualizada </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="executions_8c.html#a1dc84ad226731def4b2b4b5631992402">searchExecution</a>(head, new-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, new-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>)) <span class="comment">// não permitir inserir uma nova com o mesmo ID de operação e ID de máquina</span></div>
-<div class="line"><span class="lineno">   47</span>    {</div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   49</span>    }</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">   52</span>    {</div>
-<div class="line"><span class="lineno">   53</span>        head = <span class="keyword">new</span>;</div>
-<div class="line"><span class="lineno">   54</span>    }</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">else</span> <span class="comment">// se existir algum elemento na lista</span></div>
-<div class="line"><span class="lineno">   56</span>    {</div>
-<div class="line"><span class="lineno">   57</span>        <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = head;</div>
-<div class="line"><span class="lineno">   58</span>        head = <span class="keyword">new</span>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> head;</div>
-<div class="line"><span class="lineno">   62</span>}</div>
-<div class="ttc" id="aexecutions_8c_html_a1dc84ad226731def4b2b4b5631992402"><div class="ttname"><a href="executions_8c.html#a1dc84ad226731def4b2b4b5631992402">searchExecution</a></div><div class="ttdeci">bool searchExecution(Execution *head, int operationID, int machineID)</div><div class="ttdoc">Procurar por uma execução na lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:306</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   85</span>{</div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">searchExecution_AtList</a>(head, new-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, new-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>)) <span class="comment">// não permitir inserir uma nova com o mesmo ID de operação e ID de máquina</span></div>
+<div class="line"><span class="lineno">   87</span>    {</div>
+<div class="line"><span class="lineno">   88</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   89</span>    }</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">   92</span>    {</div>
+<div class="line"><span class="lineno">   93</span>        head = <span class="keyword">new</span>;</div>
+<div class="line"><span class="lineno">   94</span>    }</div>
+<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">else</span> <span class="comment">// se existir algum elemento na lista</span></div>
+<div class="line"><span class="lineno">   96</span>    {</div>
+<div class="line"><span class="lineno">   97</span>        <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = head;</div>
+<div class="line"><span class="lineno">   98</span>        head = <span class="keyword">new</span>;</div>
+<div class="line"><span class="lineno">   99</span>    }</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">return</span> head;</div>
+<div class="line"><span class="lineno">  102</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_ac992cca7f2da24cbd1b940efce93a06e"><div class="ttname"><a href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">searchExecution_AtList</a></div><div class="ttdeci">Execution * searchExecution_AtList(Execution *head, int operationID, int machineID)</div><div class="ttdoc">Procurar por uma execução na lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:331</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a0da64583f80d681ef7e60d5f498ea7f6" name="a0da64583f80d681ef7e60d5f498ea7f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0da64583f80d681ef7e60d5f498ea7f6">&#9670;&nbsp;</a></span>insertExecutionByOperation()</h2>
+<a id="a6c9b801e5a5276639bad0c449566b0a3" name="a6c9b801e5a5276639bad0c449566b0a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c9b801e5a5276639bad0c449566b0a3">&#9670;&nbsp;</a></span>insertExecution_AtTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * insertExecutionByOperation </td>
+          <td class="memname"><a class="el" href="struct_execution_node.html">ExecutionNode</a> ** insertExecution_AtTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td>
+          <td class="paramname"><em>table</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
+          <td class="paramname"><em>new</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserir nova execução na tabela hash das execuções, numa determinada posição. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabela hash das execuções </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Tabela hash das execuções atualizada </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  542</span>{</div>
+<div class="line"><span class="lineno">  543</span>    <span class="keywordtype">int</span> index = <a class="code hl_function" href="executions_8c.html#a8c200281c48846597568efc4e71806c8">generateHash</a>(new-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>);</div>
+<div class="line"><span class="lineno">  544</span> </div>
+<div class="line"><span class="lineno">  545</span>    table[index]-&gt;<a class="code hl_variable" href="struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c">start</a> = <a class="code hl_function" href="executions_8c.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">insertExecution_AtStart_AtList</a>(table[index]-&gt;start, <span class="keyword">new</span>);</div>
+<div class="line"><span class="lineno">  546</span>    table[index]-&gt;<a class="code hl_variable" href="struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737">numberOfExecutions</a>++;</div>
+<div class="line"><span class="lineno">  547</span> </div>
+<div class="line"><span class="lineno">  548</span>    <span class="keywordflow">return</span> *table;</div>
+<div class="line"><span class="lineno">  549</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_a9d0b32dd8d9b5bd0ceb43fdd5ef79edb"><div class="ttname"><a href="executions_8c.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">insertExecution_AtStart_AtList</a></div><div class="ttdeci">Execution * insertExecution_AtStart_AtList(Execution *head, Execution *new)</div><div class="ttdoc">Inserir nova execução no início da lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:84</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac50f97d7d5afd1f90e6b8371befc23b4" name="ac50f97d7d5afd1f90e6b8371befc23b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50f97d7d5afd1f90e6b8371befc23b4">&#9670;&nbsp;</a></span>insertExecution_ByOperation_AtList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * insertExecution_ByOperation_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
           <td class="paramname"><em>head</em>, </td>
@@ -376,42 +754,169 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Lista de execuções atualizada </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>{</div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="executions_8c.html#a1dc84ad226731def4b2b4b5631992402">searchExecution</a>(head, new-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, new-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>)) <span class="comment">// não permitir inserir uma nova com o mesmo ID de operação e ID de máquina</span></div>
-<div class="line"><span class="lineno">   74</span>    {</div>
-<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   76</span>    }</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">   79</span>    {</div>
-<div class="line"><span class="lineno">   80</span>        head = <span class="keyword">new</span>; <span class="comment">// inserir no início</span></div>
-<div class="line"><span class="lineno">   81</span>    }</div>
-<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   83</span>    {</div>
-<div class="line"><span class="lineno">   84</span>        <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
-<div class="line"><span class="lineno">   85</span>        <a class="code hl_struct" href="struct_execution.html">Execution</a>* previous = NULL;</div>
-<div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span>        <span class="comment">// enquanto que atual tem o ID menor que a nova</span></div>
-<div class="line"><span class="lineno">   88</span>        <span class="keywordflow">while</span> (current != NULL &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> &lt; new-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>)</div>
-<div class="line"><span class="lineno">   89</span>        {</div>
-<div class="line"><span class="lineno">   90</span>            previous = current;</div>
-<div class="line"><span class="lineno">   91</span>            current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">   92</span>        }</div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">if</span> (previous == NULL)</div>
-<div class="line"><span class="lineno">   95</span>        {</div>
-<div class="line"><span class="lineno">   96</span>            <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = head;</div>
-<div class="line"><span class="lineno">   97</span>            head = <span class="keyword">new</span>; <span class="comment">// inserir no meio</span></div>
-<div class="line"><span class="lineno">   98</span>        }</div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  100</span>        {</div>
-<div class="line"><span class="lineno">  101</span>            previous-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = <span class="keyword">new</span>;</div>
-<div class="line"><span class="lineno">  102</span>            <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = current; <span class="comment">// inserir no fim</span></div>
-<div class="line"><span class="lineno">  103</span>        }</div>
-<div class="line"><span class="lineno">  104</span>    }</div>
-<div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">return</span> head;</div>
-<div class="line"><span class="lineno">  107</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">searchExecution_AtList</a>(head, new-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, new-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>)) <span class="comment">// não permitir inserir uma nova com o mesmo ID de operação e ID de máquina</span></div>
+<div class="line"><span class="lineno">  114</span>    {</div>
+<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  116</span>    }</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  119</span>    {</div>
+<div class="line"><span class="lineno">  120</span>        head = <span class="keyword">new</span>; <span class="comment">// inserir no início</span></div>
+<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  123</span>    {</div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
+<div class="line"><span class="lineno">  125</span>        <a class="code hl_struct" href="struct_execution.html">Execution</a>* previous = NULL;</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>        <span class="comment">// enquanto que atual tem o ID menor que a nova</span></div>
+<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">while</span> (current != NULL &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> &lt; new-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>)</div>
+<div class="line"><span class="lineno">  129</span>        {</div>
+<div class="line"><span class="lineno">  130</span>            previous = current;</div>
+<div class="line"><span class="lineno">  131</span>            current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  132</span>        }</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>        <span class="keywordflow">if</span> (previous == NULL)</div>
+<div class="line"><span class="lineno">  135</span>        {</div>
+<div class="line"><span class="lineno">  136</span>            <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = head;</div>
+<div class="line"><span class="lineno">  137</span>            head = <span class="keyword">new</span>; <span class="comment">// inserir no meio</span></div>
+<div class="line"><span class="lineno">  138</span>        }</div>
+<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  140</span>        {</div>
+<div class="line"><span class="lineno">  141</span>            previous-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = <span class="keyword">new</span>;</div>
+<div class="line"><span class="lineno">  142</span>            <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a> = current; <span class="comment">// inserir no fim</span></div>
+<div class="line"><span class="lineno">  143</span>        }</div>
+<div class="line"><span class="lineno">  144</span>    }</div>
+<div class="line"><span class="lineno">  145</span> </div>
+<div class="line"><span class="lineno">  146</span>    <span class="keywordflow">return</span> head;</div>
+<div class="line"><span class="lineno">  147</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a53a932cfddc381cc966c1bc8f0fd05e8" name="a53a932cfddc381cc966c1bc8f0fd05e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53a932cfddc381cc966c1bc8f0fd05e8">&#9670;&nbsp;</a></span>loadExecutions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * loadExecutions </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carrega dados das execuções de um ficheiro CSV para uma lista em memória. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nome do ficheiro </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>A lista de execuções do ficheiro CSV </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>{</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordtype">char</span> line[<a class="code hl_define" href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">FILE_LINE_SIZE</a>];</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordtype">int</span> a = 0, b = 0, c = 0;</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* execution = NULL;</div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* <a class="code hl_variable" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = NULL;</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    FILE* file = fopen(fileName, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span> (file == NULL)</div>
+<div class="line"><span class="lineno">   33</span>    {</div>
+<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   35</span>    }</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">while</span> (!feof(file))</div>
+<div class="line"><span class="lineno">   38</span>    {</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">if</span> (fgets(line, <a class="code hl_define" href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">FILE_LINE_SIZE</a>, file) != NULL)</div>
+<div class="line"><span class="lineno">   40</span>        {</div>
+<div class="line"><span class="lineno">   41</span>            <span class="comment">// exemplo: 1;1;1</span></div>
+<div class="line"><span class="lineno">   42</span>            sscanf(line, <span class="stringliteral">&quot;%d;%d;%d&quot;</span>, &amp;a, &amp;b, &amp;c);</div>
+<div class="line"><span class="lineno">   43</span>            execution = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(a, b, c);</div>
+<div class="line"><span class="lineno">   44</span>            <a class="code hl_variable" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a> = <a class="code hl_function" href="executions_8c.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">insertExecution_AtStart_AtList</a>(<a class="code hl_variable" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>, execution);</div>
+<div class="line"><span class="lineno">   45</span>        }</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    fclose(file);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>;</div>
+<div class="line"><span class="lineno">   51</span>}</div>
+<div class="ttc" id="adata-types_8h_html_a06f928c4814f71d1aa98651c8b7d98f9"><div class="ttname"><a href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a></div><div class="ttdeci">Execution * executions</div></div>
+<div class="ttc" id="adata-types_8h_html_af4dd63083e24ffd8dd2c455b355106c0"><div class="ttname"><a href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">FILE_LINE_SIZE</a></div><div class="ttdeci">#define FILE_LINE_SIZE</div><div class="ttdef"><b>Definition:</b> data-types.h:21</div></div>
+<div class="ttc" id="aexecutions_8c_html_ae39c2c7c8130a6883f8cbd371e374725"><div class="ttname"><a href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a></div><div class="ttdeci">Execution * newExecution(int operationID, int machineID, int runtime)</div><div class="ttdoc">Criar nova execução.</div><div class="ttdef"><b>Definition:</b> executions.c:61</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae5d4ea413106ade02d7003df3d7c04f1" name="ae5d4ea413106ade02d7003df3d7c04f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5d4ea413106ade02d7003df3d7c04f1">&#9670;&nbsp;</a></span>loadExecutionsTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution_node.html">ExecutionNode</a> ** loadExecutionsTable </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td>
+          <td class="paramname"><em>table</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carrega dados das execuções de um ficheiro CSV para uma tabela hash em memória. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nome do ficheiro </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>A tabela hash de execuções do ficheiro CSV </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  461</span>{</div>
+<div class="line"><span class="lineno">  462</span>    <span class="keywordtype">char</span> line[<a class="code hl_define" href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">FILE_LINE_SIZE</a>];</div>
+<div class="line"><span class="lineno">  463</span>    <span class="keywordtype">int</span> a = 0, b = 0, c = 0;</div>
+<div class="line"><span class="lineno">  464</span> </div>
+<div class="line"><span class="lineno">  465</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* execution = NULL;</div>
+<div class="line"><span class="lineno">  466</span> </div>
+<div class="line"><span class="lineno">  467</span>    FILE* file = fopen(fileName, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><span class="lineno">  468</span>    <span class="keywordflow">if</span> (file == NULL)</div>
+<div class="line"><span class="lineno">  469</span>    {</div>
+<div class="line"><span class="lineno">  470</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  471</span>    }</div>
+<div class="line"><span class="lineno">  472</span> </div>
+<div class="line"><span class="lineno">  473</span>    <span class="comment">// iniciar tabela hash vazia</span></div>
+<div class="line"><span class="lineno">  474</span>    *table = <a class="code hl_function" href="executions_8c.html#a0001c4cf520ad185db5413445b1e461a">createExecutionsTable</a>(table);</div>
+<div class="line"><span class="lineno">  475</span> </div>
+<div class="line"><span class="lineno">  476</span>    <span class="keywordflow">while</span> (!feof(file))</div>
+<div class="line"><span class="lineno">  477</span>    {</div>
+<div class="line"><span class="lineno">  478</span>        <span class="keywordflow">if</span> (fgets(line, <a class="code hl_define" href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">FILE_LINE_SIZE</a>, file) != NULL)</div>
+<div class="line"><span class="lineno">  479</span>        {</div>
+<div class="line"><span class="lineno">  480</span>            <span class="comment">// exemplo: 1;1;1</span></div>
+<div class="line"><span class="lineno">  481</span>            sscanf(line, <span class="stringliteral">&quot;%d;%d;%d&quot;</span>, &amp;a, &amp;b, &amp;c);</div>
+<div class="line"><span class="lineno">  482</span> </div>
+<div class="line"><span class="lineno">  483</span>            execution = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(a, b, c);</div>
+<div class="line"><span class="lineno">  484</span>            *table = <a class="code hl_function" href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">insertExecution_AtTable</a>(table, execution);</div>
+<div class="line"><span class="lineno">  485</span>        }</div>
+<div class="line"><span class="lineno">  486</span>    }</div>
+<div class="line"><span class="lineno">  487</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  488</span> </div>
+<div class="line"><span class="lineno">  489</span>    <span class="keywordflow">return</span> *table;</div>
+<div class="line"><span class="lineno">  490</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_a0001c4cf520ad185db5413445b1e461a"><div class="ttname"><a href="executions_8c.html#a0001c4cf520ad185db5413445b1e461a">createExecutionsTable</a></div><div class="ttdeci">ExecutionNode ** createExecutionsTable(ExecutionNode *table[])</div><div class="ttdoc">Criar tabela hash das execuções vazia.</div><div class="ttdef"><b>Definition:</b> executions.c:498</div></div>
+<div class="ttc" id="aexecutions_8c_html_a6c9b801e5a5276639bad0c449566b0a3"><div class="ttname"><a href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">insertExecution_AtTable</a></div><div class="ttdeci">ExecutionNode ** insertExecution_AtTable(ExecutionNode *table[], Execution *new)</div><div class="ttdoc">Inserir nova execução na tabela hash das execuções, numa determinada posição.</div><div class="ttdef"><b>Definition:</b> executions.c:541</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -448,7 +953,6 @@ FunÃ§Ãµes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Criar nova execução. </p>
-<p >Sobre execuções.</p>
 <dl class="params"><dt>ParÃ¢metros</dt><dd>
   <table class="params">
     <tr><td class="paramname">operationID</td><td>Identificador da operação </td></tr>
@@ -458,31 +962,31 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Nova execução </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>{</div>
-<div class="line"><span class="lineno">   23</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* <span class="keyword">new</span> = (<a class="code hl_struct" href="struct_execution.html">Execution</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_execution.html">Execution</a>));</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> (<span class="keyword">new</span> == NULL) <span class="comment">// se não houver memória para alocar</span></div>
-<div class="line"><span class="lineno">   25</span>    {</div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   27</span>    }</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> = operationID;</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keyword">new</span>-&gt;machineID = machineID;</div>
-<div class="line"><span class="lineno">   31</span>    <span class="keyword">new</span>-&gt;runtime = runtime;</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keyword">new</span>-&gt;next = NULL;</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>;</div>
-<div class="line"><span class="lineno">   35</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* <span class="keyword">new</span> = (<a class="code hl_struct" href="struct_execution.html">Execution</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_execution.html">Execution</a>));</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (<span class="keyword">new</span> == NULL) <span class="comment">// se não houver memória para alocar</span></div>
+<div class="line"><span class="lineno">   65</span>    {</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   67</span>    }</div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>    <span class="keyword">new</span>-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> = operationID;</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keyword">new</span>-&gt;machineID = machineID;</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keyword">new</span>-&gt;runtime = runtime;</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keyword">new</span>-&gt;next = NULL;</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>;</div>
+<div class="line"><span class="lineno">   75</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a362b69957d588d5dd03c4cfbbb26adab" name="a362b69957d588d5dd03c4cfbbb26adab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a362b69957d588d5dd03c4cfbbb26adab">&#9670;&nbsp;</a></span>readExecutions()</h2>
+<a id="ac243dbf8dd9253190d63d7523d403c42" name="ac243dbf8dd9253190d63d7523d403c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac243dbf8dd9253190d63d7523d403c42">&#9670;&nbsp;</a></span>readExecutions_AtList()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * readExecutions </td>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * readExecutions_AtList </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>fileName</em>[]</td><td>)</td>
@@ -499,45 +1003,108 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Lista de execuçõess </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  226</span>{</div>
-<div class="line"><span class="lineno">  227</span>    FILE* file;</div>
-<div class="line"><span class="lineno">  228</span> </div>
-<div class="line"><span class="lineno">  229</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;rb&quot;</span>)) == NULL) <span class="comment">// se não foi possível abrir o ficheiro</span></div>
-<div class="line"><span class="lineno">  230</span>    {</div>
-<div class="line"><span class="lineno">  231</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  232</span>    }</div>
-<div class="line"><span class="lineno">  233</span> </div>
-<div class="line"><span class="lineno">  234</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* head = NULL;</div>
-<div class="line"><span class="lineno">  235</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = NULL;</div>
-<div class="line"><span class="lineno">  236</span>    <a class="code hl_struct" href="struct_file_execution.html">FileExecution</a> currentInFile; <span class="comment">// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro</span></div>
-<div class="line"><span class="lineno">  237</span> </div>
-<div class="line"><span class="lineno">  238</span>    <span class="keywordflow">while</span> (fread(&amp;currentInFile, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_file_execution.html">FileExecution</a>), 1, file)) <span class="comment">// lê todos os registos do ficheiro e guarda na lista</span></div>
-<div class="line"><span class="lineno">  239</span>    {</div>
-<div class="line"><span class="lineno">  240</span>        current = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, currentInFile.<a class="code hl_variable" href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>, currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>);</div>
-<div class="line"><span class="lineno">  241</span>        head = <a class="code hl_function" href="executions_8c.html#ab00ae0278166111c8beb4c6cd8506718">insertExecutionAtStart</a>(head, current);</div>
-<div class="line"><span class="lineno">  242</span>    }</div>
-<div class="line"><span class="lineno">  243</span> </div>
-<div class="line"><span class="lineno">  244</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  245</span> </div>
-<div class="line"><span class="lineno">  246</span>    <span class="keywordflow">return</span> head;</div>
-<div class="line"><span class="lineno">  247</span>}</div>
-<div class="ttc" id="aexecutions_8c_html_ab00ae0278166111c8beb4c6cd8506718"><div class="ttname"><a href="executions_8c.html#ab00ae0278166111c8beb4c6cd8506718">insertExecutionAtStart</a></div><div class="ttdeci">Execution * insertExecutionAtStart(Execution *head, Execution *new)</div><div class="ttdoc">Inserir nova execução no início da lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:44</div></div>
-<div class="ttc" id="aexecutions_8c_html_ae39c2c7c8130a6883f8cbd371e374725"><div class="ttname"><a href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a></div><div class="ttdeci">Execution * newExecution(int operationID, int machineID, int runtime)</div><div class="ttdoc">Criar nova execução.</div><div class="ttdef"><b>Definition:</b> executions.c:21</div></div>
-<div class="ttc" id="astruct_file_execution_html"><div class="ttname"><a href="struct_file_execution.html">FileExecution</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas.</div><div class="ttdef"><b>Definition:</b> header.h:103</div></div>
-<div class="ttc" id="astruct_file_execution_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">FileExecution::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> header.h:104</div></div>
-<div class="ttc" id="astruct_file_execution_html_a6885fec41faff728c1e6173cfb69e81f"><div class="ttname"><a href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">FileExecution::runtime</a></div><div class="ttdeci">int runtime</div><div class="ttdef"><b>Definition:</b> header.h:106</div></div>
-<div class="ttc" id="astruct_file_execution_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">FileExecution::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> header.h:105</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  276</span>{</div>
+<div class="line"><span class="lineno">  277</span>    FILE* file = NULL;</div>
+<div class="line"><span class="lineno">  278</span> </div>
+<div class="line"><span class="lineno">  279</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;rb&quot;</span>)) == NULL) <span class="comment">// erro ao abrir o ficheiro</span></div>
+<div class="line"><span class="lineno">  280</span>    {</div>
+<div class="line"><span class="lineno">  281</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  282</span>    }</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* head = NULL;</div>
+<div class="line"><span class="lineno">  285</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = NULL;</div>
+<div class="line"><span class="lineno">  286</span>    <a class="code hl_struct" href="struct_file_execution.html">FileExecution</a> currentInFile; <span class="comment">// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro</span></div>
+<div class="line"><span class="lineno">  287</span> </div>
+<div class="line"><span class="lineno">  288</span>    <span class="keywordflow">while</span> (fread(&amp;currentInFile, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_file_execution.html">FileExecution</a>), 1, file)) <span class="comment">// lê todos os registos do ficheiro e guarda na lista</span></div>
+<div class="line"><span class="lineno">  289</span>    {</div>
+<div class="line"><span class="lineno">  290</span>        current = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, currentInFile.<a class="code hl_variable" href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>, currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>);</div>
+<div class="line"><span class="lineno">  291</span>        head = <a class="code hl_function" href="executions_8c.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">insertExecution_AtStart_AtList</a>(head, current);</div>
+<div class="line"><span class="lineno">  292</span>    }</div>
+<div class="line"><span class="lineno">  293</span> </div>
+<div class="line"><span class="lineno">  294</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  295</span> </div>
+<div class="line"><span class="lineno">  296</span>    <span class="keywordflow">return</span> head;</div>
+<div class="line"><span class="lineno">  297</span>}</div>
+<div class="ttc" id="astruct_file_execution_html"><div class="ttname"><a href="struct_file_execution.html">FileExecution</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas.</div><div class="ttdef"><b>Definition:</b> data-types.h:191</div></div>
+<div class="ttc" id="astruct_file_execution_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">FileExecution::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> data-types.h:192</div></div>
+<div class="ttc" id="astruct_file_execution_html_a6885fec41faff728c1e6173cfb69e81f"><div class="ttname"><a href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">FileExecution::runtime</a></div><div class="ttdeci">int runtime</div><div class="ttdef"><b>Definition:</b> data-types.h:194</div></div>
+<div class="ttc" id="astruct_file_execution_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">FileExecution::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> data-types.h:193</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a1dc84ad226731def4b2b4b5631992402" name="a1dc84ad226731def4b2b4b5631992402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dc84ad226731def4b2b4b5631992402">&#9670;&nbsp;</a></span>searchExecution()</h2>
+<a id="a34f3703871bfdbbca009e8d1f16f70d3" name="a34f3703871bfdbbca009e8d1f16f70d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34f3703871bfdbbca009e8d1f16f70d3">&#9670;&nbsp;</a></span>readExecutions_AtTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> searchExecution </td>
+          <td class="memname"><a class="el" href="struct_execution_node.html">ExecutionNode</a> ** readExecutions_AtTable </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>fileName</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td>
+          <td class="paramname"><em>table</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário. </p>
+<p >Ler de ficheiro binário, os registos de todas as execuções para a tabela hash </p><dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nome do ficheiro para ler a lista </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Tabela hash de execuçõess </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  652</span>{</div>
+<div class="line"><span class="lineno">  653</span>    FILE* file = NULL;</div>
+<div class="line"><span class="lineno">  654</span> </div>
+<div class="line"><span class="lineno">  655</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;rb&quot;</span>)) == NULL) <span class="comment">// erro ao abrir o ficheiro</span></div>
+<div class="line"><span class="lineno">  656</span>    {</div>
+<div class="line"><span class="lineno">  657</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  658</span>    }</div>
+<div class="line"><span class="lineno">  659</span> </div>
+<div class="line"><span class="lineno">  660</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* execution = NULL;</div>
+<div class="line"><span class="lineno">  661</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* list = NULL;</div>
+<div class="line"><span class="lineno">  662</span>    list = <a class="code hl_function" href="executions_8c.html#ac243dbf8dd9253190d63d7523d403c42">readExecutions_AtList</a>(fileName);</div>
+<div class="line"><span class="lineno">  663</span> </div>
+<div class="line"><span class="lineno">  664</span>    <span class="keywordflow">if</span> (list == NULL) <span class="comment">// erro ao ler dados do ficheiro</span></div>
+<div class="line"><span class="lineno">  665</span>    {</div>
+<div class="line"><span class="lineno">  666</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  667</span>    }</div>
+<div class="line"><span class="lineno">  668</span> </div>
+<div class="line"><span class="lineno">  669</span>    <span class="keywordflow">while</span> (list != NULL) <span class="comment">// enquanto que houver dados na lista, guarda-os na tabela</span></div>
+<div class="line"><span class="lineno">  670</span>    {</div>
+<div class="line"><span class="lineno">  671</span>        execution = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(list-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, list-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>, list-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>);</div>
+<div class="line"><span class="lineno">  672</span>        *table = <a class="code hl_function" href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">insertExecution_AtTable</a>(table, execution);</div>
+<div class="line"><span class="lineno">  673</span> </div>
+<div class="line"><span class="lineno">  674</span>        list = list-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  675</span>    }</div>
+<div class="line"><span class="lineno">  676</span> </div>
+<div class="line"><span class="lineno">  677</span>    <span class="keywordflow">return</span> *table;</div>
+<div class="line"><span class="lineno">  678</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_ac243dbf8dd9253190d63d7523d403c42"><div class="ttname"><a href="executions_8c.html#ac243dbf8dd9253190d63d7523d403c42">readExecutions_AtList</a></div><div class="ttdeci">Execution * readExecutions_AtList(char fileName[])</div><div class="ttdoc">Ler lista de execuções de ficheiro binário.</div><div class="ttdef"><b>Definition:</b> executions.c:275</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac992cca7f2da24cbd1b940efce93a06e" name="ac992cca7f2da24cbd1b940efce93a06e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac992cca7f2da24cbd1b940efce93a06e">&#9670;&nbsp;</a></span>searchExecution_AtList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * searchExecution_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
           <td class="paramname"><em>head</em>, </td>
@@ -572,36 +1139,97 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  307</span>{</div>
-<div class="line"><span class="lineno">  308</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">  309</span>    {</div>
-<div class="line"><span class="lineno">  310</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  311</span>    }</div>
-<div class="line"><span class="lineno">  312</span> </div>
-<div class="line"><span class="lineno">  313</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
-<div class="line"><span class="lineno">  314</span> </div>
-<div class="line"><span class="lineno">  315</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  316</span>    {</div>
-<div class="line"><span class="lineno">  317</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a> == machineID)</div>
-<div class="line"><span class="lineno">  318</span>        {</div>
-<div class="line"><span class="lineno">  319</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  320</span>        }</div>
-<div class="line"><span class="lineno">  321</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  322</span>    }</div>
-<div class="line"><span class="lineno">  323</span> </div>
-<div class="line"><span class="lineno">  324</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  325</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  332</span>{</div>
+<div class="line"><span class="lineno">  333</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  334</span>    {</div>
+<div class="line"><span class="lineno">  335</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  336</span>    }</div>
+<div class="line"><span class="lineno">  337</span> </div>
+<div class="line"><span class="lineno">  338</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
+<div class="line"><span class="lineno">  339</span> </div>
+<div class="line"><span class="lineno">  340</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  341</span>    {</div>
+<div class="line"><span class="lineno">  342</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a> == machineID)</div>
+<div class="line"><span class="lineno">  343</span>        {</div>
+<div class="line"><span class="lineno">  344</span>            <span class="keywordflow">return</span> current;</div>
+<div class="line"><span class="lineno">  345</span>        }</div>
+<div class="line"><span class="lineno">  346</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  347</span>    }</div>
+<div class="line"><span class="lineno">  348</span> </div>
+<div class="line"><span class="lineno">  349</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  350</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a36b277b1e8d937b6aeb2a5310d22177e" name="a36b277b1e8d937b6aeb2a5310d22177e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36b277b1e8d937b6aeb2a5310d22177e">&#9670;&nbsp;</a></span>searchExecutionByOperation()</h2>
+<a id="ade482462e6c9fbe78b9134d1d95f996b" name="ade482462e6c9fbe78b9134d1d95f996b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade482462e6c9fbe78b9134d1d95f996b">&#9670;&nbsp;</a></span>searchExecution_AtTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> searchExecutionByOperation </td>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * searchExecution_AtTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td>
+          <td class="paramname"><em>table</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>operationID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>machineID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procurar por uma execução na tabela hash. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabela hash das execuções </td></tr>
+    <tr><td class="paramname">operationID</td><td>Identificador da operação </td></tr>
+    <tr><td class="paramname">machineID</td><td>Identificador da máquina </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Execução encontrada ou retorna nulo se não encontrar </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  711</span>{</div>
+<div class="line"><span class="lineno">  712</span>    <span class="keywordflow">if</span> (table == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  713</span>    {</div>
+<div class="line"><span class="lineno">  714</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  715</span>    }</div>
+<div class="line"><span class="lineno">  716</span> </div>
+<div class="line"><span class="lineno">  717</span>    <span class="keywordtype">int</span> index = <a class="code hl_function" href="executions_8c.html#a8c200281c48846597568efc4e71806c8">generateHash</a>(operationID);</div>
+<div class="line"><span class="lineno">  718</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* search = <a class="code hl_function" href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">searchExecution_AtList</a>(table[index]-&gt;start, operationID, machineID);</div>
+<div class="line"><span class="lineno">  719</span> </div>
+<div class="line"><span class="lineno">  720</span>    <span class="keywordflow">if</span> (search == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  721</span>    {</div>
+<div class="line"><span class="lineno">  722</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  723</span>    }</div>
+<div class="line"><span class="lineno">  724</span> </div>
+<div class="line"><span class="lineno">  725</span>    <span class="keywordflow">return</span> search;</div>
+<div class="line"><span class="lineno">  726</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5cd9f6a62ad6afc978e6b374d571fa16" name="a5cd9f6a62ad6afc978e6b374d571fa16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cd9f6a62ad6afc978e6b374d571fa16">&#9670;&nbsp;</a></span>searchExecution_ByOperation_AtList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * searchExecution_ByOperation_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
           <td class="paramname"><em>head</em>, </td>
@@ -629,36 +1257,36 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  335</span>{</div>
-<div class="line"><span class="lineno">  336</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">  337</span>    {</div>
-<div class="line"><span class="lineno">  338</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  339</span>    }</div>
-<div class="line"><span class="lineno">  340</span> </div>
-<div class="line"><span class="lineno">  341</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
-<div class="line"><span class="lineno">  342</span> </div>
-<div class="line"><span class="lineno">  343</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  344</span>    {</div>
-<div class="line"><span class="lineno">  345</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID)</div>
-<div class="line"><span class="lineno">  346</span>        {</div>
-<div class="line"><span class="lineno">  347</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  348</span>        }</div>
-<div class="line"><span class="lineno">  349</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  350</span>    }</div>
-<div class="line"><span class="lineno">  351</span> </div>
-<div class="line"><span class="lineno">  352</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  353</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  360</span>{</div>
+<div class="line"><span class="lineno">  361</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  362</span>    {</div>
+<div class="line"><span class="lineno">  363</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  364</span>    }</div>
+<div class="line"><span class="lineno">  365</span> </div>
+<div class="line"><span class="lineno">  366</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
+<div class="line"><span class="lineno">  367</span> </div>
+<div class="line"><span class="lineno">  368</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  369</span>    {</div>
+<div class="line"><span class="lineno">  370</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID)</div>
+<div class="line"><span class="lineno">  371</span>        {</div>
+<div class="line"><span class="lineno">  372</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  373</span>        }</div>
+<div class="line"><span class="lineno">  374</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  375</span>    }</div>
+<div class="line"><span class="lineno">  376</span> </div>
+<div class="line"><span class="lineno">  377</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  378</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a2fac5de7bc7bbfcb23a4f60b54ef2e5e" name="a2fac5de7bc7bbfcb23a4f60b54ef2e5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">&#9670;&nbsp;</a></span>SortExecutionsByOperation()</h2>
+<a id="a8db97f4567e3f5d417d6c948419f964f" name="a8db97f4567e3f5d417d6c948419f964f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8db97f4567e3f5d417d6c948419f964f">&#9670;&nbsp;</a></span>sortExecutions_ByOperation_AtList()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * SortExecutionsByOperation </td>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a> * sortExecutions_ByOperation_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td>
           <td class="paramname"><em>head</em></td><td>)</td>
@@ -675,37 +1303,37 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  362</span>{</div>
-<div class="line"><span class="lineno">  363</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
-<div class="line"><span class="lineno">  364</span>    {</div>
-<div class="line"><span class="lineno">  365</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  366</span>    }</div>
-<div class="line"><span class="lineno">  367</span> </div>
-<div class="line"><span class="lineno">  368</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
-<div class="line"><span class="lineno">  369</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* sorted = NULL;</div>
-<div class="line"><span class="lineno">  370</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* <span class="keyword">new</span> = NULL;</div>
-<div class="line"><span class="lineno">  371</span> </div>
-<div class="line"><span class="lineno">  372</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  373</span>    {</div>
-<div class="line"><span class="lineno">  374</span>        <span class="keyword">new</span> = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>);</div>
-<div class="line"><span class="lineno">  375</span>        sorted = <a class="code hl_function" href="executions_8c.html#a0da64583f80d681ef7e60d5f498ea7f6">insertExecutionByOperation</a>(sorted, <span class="keyword">new</span>);</div>
-<div class="line"><span class="lineno">  376</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  377</span>    }</div>
-<div class="line"><span class="lineno">  378</span> </div>
-<div class="line"><span class="lineno">  379</span>    <span class="keywordflow">return</span> sorted;</div>
-<div class="line"><span class="lineno">  380</span>}</div>
-<div class="ttc" id="aexecutions_8c_html_a0da64583f80d681ef7e60d5f498ea7f6"><div class="ttname"><a href="executions_8c.html#a0da64583f80d681ef7e60d5f498ea7f6">insertExecutionByOperation</a></div><div class="ttdeci">Execution * insertExecutionByOperation(Execution *head, Execution *new)</div><div class="ttdoc">Inserir execução ordenada pelo ID da operação na lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:71</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  387</span>{</div>
+<div class="line"><span class="lineno">  388</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se a lista estiver vazia</span></div>
+<div class="line"><span class="lineno">  389</span>    {</div>
+<div class="line"><span class="lineno">  390</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  391</span>    }</div>
+<div class="line"><span class="lineno">  392</span> </div>
+<div class="line"><span class="lineno">  393</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
+<div class="line"><span class="lineno">  394</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* sorted = NULL;</div>
+<div class="line"><span class="lineno">  395</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* <span class="keyword">new</span> = NULL;</div>
+<div class="line"><span class="lineno">  396</span> </div>
+<div class="line"><span class="lineno">  397</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  398</span>    {</div>
+<div class="line"><span class="lineno">  399</span>        <span class="keyword">new</span> = <a class="code hl_function" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">newExecution</a>(current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>, current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>);</div>
+<div class="line"><span class="lineno">  400</span>        sorted = <a class="code hl_function" href="executions_8c.html#ac50f97d7d5afd1f90e6b8371befc23b4">insertExecution_ByOperation_AtList</a>(sorted, <span class="keyword">new</span>);</div>
+<div class="line"><span class="lineno">  401</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  402</span>    }</div>
+<div class="line"><span class="lineno">  403</span> </div>
+<div class="line"><span class="lineno">  404</span>    <span class="keywordflow">return</span> sorted;</div>
+<div class="line"><span class="lineno">  405</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_ac50f97d7d5afd1f90e6b8371befc23b4"><div class="ttname"><a href="executions_8c.html#ac50f97d7d5afd1f90e6b8371befc23b4">insertExecution_ByOperation_AtList</a></div><div class="ttdeci">Execution * insertExecution_ByOperation_AtList(Execution *head, Execution *new)</div><div class="ttdoc">Inserir execução ordenada pelo ID da operação na lista de execuções.</div><div class="ttdef"><b>Definition:</b> executions.c:111</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a666d9b702a75b668af07f71865cf2f79" name="a666d9b702a75b668af07f71865cf2f79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a666d9b702a75b668af07f71865cf2f79">&#9670;&nbsp;</a></span>updateRuntime()</h2>
+<a id="aa707b2d78dce25e19aff4d2a2ce77c36" name="aa707b2d78dce25e19aff4d2a2ce77c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa707b2d78dce25e19aff4d2a2ce77c36">&#9670;&nbsp;</a></span>updateRuntime_AtList()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> updateRuntime </td>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> updateRuntime_AtList </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_execution.html">Execution</a> **&#160;</td>
           <td class="paramname"><em>head</em>, </td>
@@ -747,37 +1375,103 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  119</span>{</div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span> (*head == NULL) <span class="comment">// se lista está vazia</span></div>
-<div class="line"><span class="lineno">  121</span>    {</div>
-<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  123</span>    }</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = *head;</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  128</span>    {</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a> == machineID)</div>
-<div class="line"><span class="lineno">  130</span>        {</div>
-<div class="line"><span class="lineno">  131</span>            current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a> = runtime;</div>
-<div class="line"><span class="lineno">  132</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  133</span>        }</div>
-<div class="line"><span class="lineno">  134</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  135</span>    }</div>
-<div class="line"><span class="lineno">  136</span> </div>
-<div class="line"><span class="lineno">  137</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  138</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  159</span>{</div>
+<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">if</span> (*head == NULL) <span class="comment">// se lista está vazia</span></div>
+<div class="line"><span class="lineno">  161</span>    {</div>
+<div class="line"><span class="lineno">  162</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  163</span>    }</div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">searchExecution_AtList</a>(*head, operationID, machineID)) <span class="comment">// se não existir a execução para remover</span></div>
+<div class="line"><span class="lineno">  166</span>    {</div>
+<div class="line"><span class="lineno">  167</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  168</span>    }</div>
+<div class="line"><span class="lineno">  169</span> </div>
+<div class="line"><span class="lineno">  170</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = *head;</div>
+<div class="line"><span class="lineno">  171</span> </div>
+<div class="line"><span class="lineno">  172</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  173</span>    {</div>
+<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">if</span> (current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> == operationID &amp;&amp; current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a> == machineID)</div>
+<div class="line"><span class="lineno">  175</span>        {</div>
+<div class="line"><span class="lineno">  176</span>            current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a> = runtime;</div>
+<div class="line"><span class="lineno">  177</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  178</span>        }</div>
+<div class="line"><span class="lineno">  179</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  180</span>    }</div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  183</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aaae924901eb9d97606c03a74081b5291" name="aaae924901eb9d97606c03a74081b5291"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaae924901eb9d97606c03a74081b5291">&#9670;&nbsp;</a></span>writeExecutions()</h2>
+<a id="a2402b39f2448988448bf820534f21758" name="a2402b39f2448988448bf820534f21758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2402b39f2448988448bf820534f21758">&#9670;&nbsp;</a></span>updateRuntime_ByOperation_AtTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> writeExecutions </td>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> updateRuntime_ByOperation_AtTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> **&#160;</td>
+          <td class="paramname"><em>table</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>operationID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>machineID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Tabela hash das execuções </td></tr>
+    <tr><td class="paramname">operationID</td><td>Identificador da operação </td></tr>
+    <tr><td class="paramname">machineID</td><td>Identificador da máquina </td></tr>
+    <tr><td class="paramname">runtime</td><td>Unidades de tempo </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  561</span>{</div>
+<div class="line"><span class="lineno">  562</span>    <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>** current = table;</div>
+<div class="line"><span class="lineno">  563</span> </div>
+<div class="line"><span class="lineno">  564</span>    <span class="keywordtype">int</span> index = <a class="code hl_function" href="executions_8c.html#a8c200281c48846597568efc4e71806c8">generateHash</a>(operationID);</div>
+<div class="line"><span class="lineno">  565</span>    <span class="keywordtype">bool</span> updated = <a class="code hl_function" href="executions_8c.html#aa707b2d78dce25e19aff4d2a2ce77c36">updateRuntime_AtList</a>(&amp;current[index]-&gt;start, operationID, machineID, runtime);</div>
+<div class="line"><span class="lineno">  566</span> </div>
+<div class="line"><span class="lineno">  567</span>    <span class="keywordflow">return</span> updated;</div>
+<div class="line"><span class="lineno">  568</span>}</div>
+<div class="ttc" id="aexecutions_8c_html_aa707b2d78dce25e19aff4d2a2ce77c36"><div class="ttname"><a href="executions_8c.html#aa707b2d78dce25e19aff4d2a2ce77c36">updateRuntime_AtList</a></div><div class="ttdeci">bool updateRuntime_AtList(Execution **head, int operationID, int machineID, int runtime)</div><div class="ttdoc">Atualizar as unidades de tempo necessárias para a execução de uma operação.</div><div class="ttdef"><b>Definition:</b> executions.c:158</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a430f8d8e37d3b4e17ce4e19c7de31dbb" name="a430f8d8e37d3b4e17ce4e19c7de31dbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430f8d8e37d3b4e17ce4e19c7de31dbb">&#9670;&nbsp;</a></span>writeExecutions_AtList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> writeExecutions_AtList </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>fileName</em>[], </td>
@@ -805,36 +1499,106 @@ FunÃ§Ãµes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  188</span>{</div>
-<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista está vazia</span></div>
-<div class="line"><span class="lineno">  190</span>    {</div>
-<div class="line"><span class="lineno">  191</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  192</span>    }</div>
-<div class="line"><span class="lineno">  193</span> </div>
-<div class="line"><span class="lineno">  194</span>    FILE* file = NULL;</div>
-<div class="line"><span class="lineno">  195</span> </div>
-<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;wb&quot;</span>)) == NULL) <span class="comment">// se não foi possível abrir o ficheiro</span></div>
-<div class="line"><span class="lineno">  197</span>    {</div>
-<div class="line"><span class="lineno">  198</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  199</span>    }</div>
-<div class="line"><span class="lineno">  200</span> </div>
-<div class="line"><span class="lineno">  201</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
-<div class="line"><span class="lineno">  202</span>    <a class="code hl_struct" href="struct_file_execution.html">FileExecution</a> currentInFile; <span class="comment">// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro</span></div>
-<div class="line"><span class="lineno">  203</span> </div>
-<div class="line"><span class="lineno">  204</span>    <span class="keywordflow">while</span> (current != NULL)</div>
-<div class="line"><span class="lineno">  205</span>    {</div>
-<div class="line"><span class="lineno">  206</span>        currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
-<div class="line"><span class="lineno">  207</span>        currentInFile.<a class="code hl_variable" href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>;</div>
-<div class="line"><span class="lineno">  208</span>        currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>;</div>
-<div class="line"><span class="lineno">  209</span>        fwrite(&amp;currentInFile, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_file_execution.html">FileExecution</a>), 1, file); <span class="comment">// guarda cada registo da lista no ficheiro</span></div>
-<div class="line"><span class="lineno">  210</span> </div>
-<div class="line"><span class="lineno">  211</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
-<div class="line"><span class="lineno">  212</span>    }</div>
-<div class="line"><span class="lineno">  213</span> </div>
-<div class="line"><span class="lineno">  214</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  215</span> </div>
-<div class="line"><span class="lineno">  216</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  217</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  238</span>{</div>
+<div class="line"><span class="lineno">  239</span>    <span class="keywordflow">if</span> (head == NULL) <span class="comment">// se lista está vazia</span></div>
+<div class="line"><span class="lineno">  240</span>    {</div>
+<div class="line"><span class="lineno">  241</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  242</span>    }</div>
+<div class="line"><span class="lineno">  243</span> </div>
+<div class="line"><span class="lineno">  244</span>    FILE* file = NULL;</div>
+<div class="line"><span class="lineno">  245</span> </div>
+<div class="line"><span class="lineno">  246</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;wb&quot;</span>)) == NULL) <span class="comment">// erro ao abrir o ficheiro</span></div>
+<div class="line"><span class="lineno">  247</span>    {</div>
+<div class="line"><span class="lineno">  248</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  249</span>    }</div>
+<div class="line"><span class="lineno">  250</span> </div>
+<div class="line"><span class="lineno">  251</span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = head;</div>
+<div class="line"><span class="lineno">  252</span>    <a class="code hl_struct" href="struct_file_execution.html">FileExecution</a> currentInFile; <span class="comment">// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro</span></div>
+<div class="line"><span class="lineno">  253</span> </div>
+<div class="line"><span class="lineno">  254</span>    <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  255</span>    {</div>
+<div class="line"><span class="lineno">  256</span>        currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
+<div class="line"><span class="lineno">  257</span>        currentInFile.<a class="code hl_variable" href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>;</div>
+<div class="line"><span class="lineno">  258</span>        currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>;</div>
+<div class="line"><span class="lineno">  259</span>        fwrite(&amp;currentInFile, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_file_execution.html">FileExecution</a>), 1, file); <span class="comment">// guarda cada registo da lista no ficheiro</span></div>
+<div class="line"><span class="lineno">  260</span> </div>
+<div class="line"><span class="lineno">  261</span>        current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  262</span>    }</div>
+<div class="line"><span class="lineno">  263</span> </div>
+<div class="line"><span class="lineno">  264</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  265</span> </div>
+<div class="line"><span class="lineno">  266</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  267</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aefd476173ba3d625348e353c22707c36" name="aefd476173ba3d625348e353c22707c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd476173ba3d625348e353c22707c36">&#9670;&nbsp;</a></span>writeExecutions_AtTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> writeExecutions_AtTable </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>fileName</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td>
+          <td class="paramname"><em>table</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário. </p>
+<dl class="params"><dt>ParÃ¢metros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nome do ficheiro para armazenar os registos </td></tr>
+    <tr><td class="paramname">head</td><td>Lista de execuções </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Booleano para o resultado da função (se funcionou ou não) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  611</span>{</div>
+<div class="line"><span class="lineno">  612</span>    <span class="keywordflow">if</span> (table == NULL) <span class="comment">// se tabela está vazia</span></div>
+<div class="line"><span class="lineno">  613</span>    {</div>
+<div class="line"><span class="lineno">  614</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  615</span>    }</div>
+<div class="line"><span class="lineno">  616</span> </div>
+<div class="line"><span class="lineno">  617</span>    FILE* file = NULL;</div>
+<div class="line"><span class="lineno">  618</span>    <span class="keywordflow">if</span> ((file = fopen(fileName, <span class="stringliteral">&quot;wb&quot;</span>)) == NULL) <span class="comment">// erro ao abrir o ficheiro</span></div>
+<div class="line"><span class="lineno">  619</span>    {</div>
+<div class="line"><span class="lineno">  620</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  621</span>    }</div>
+<div class="line"><span class="lineno">  622</span> </div>
+<div class="line"><span class="lineno">  623</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>; i++)</div>
+<div class="line"><span class="lineno">  624</span>    {</div>
+<div class="line"><span class="lineno">  625</span>        <a class="code hl_struct" href="struct_execution.html">Execution</a>* current = table[i]-&gt;<a class="code hl_variable" href="struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c">start</a>;</div>
+<div class="line"><span class="lineno">  626</span>        <a class="code hl_struct" href="struct_file_execution.html">FileExecution</a> currentInFile; <span class="comment">// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro</span></div>
+<div class="line"><span class="lineno">  627</span> </div>
+<div class="line"><span class="lineno">  628</span>        <span class="keywordflow">while</span> (current != NULL)</div>
+<div class="line"><span class="lineno">  629</span>        {</div>
+<div class="line"><span class="lineno">  630</span>            currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
+<div class="line"><span class="lineno">  631</span>            currentInFile.<a class="code hl_variable" href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>;</div>
+<div class="line"><span class="lineno">  632</span>            currentInFile.<a class="code hl_variable" href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a> = current-&gt;<a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>;</div>
+<div class="line"><span class="lineno">  633</span>            fwrite(&amp;currentInFile, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_file_execution.html">FileExecution</a>), 1, file); <span class="comment">// guarda cada registo da lista no ficheiro</span></div>
+<div class="line"><span class="lineno">  634</span> </div>
+<div class="line"><span class="lineno">  635</span>            current = current-&gt;<a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><span class="lineno">  636</span>        }</div>
+<div class="line"><span class="lineno">  637</span>    }</div>
+<div class="line"><span class="lineno">  638</span> </div>
+<div class="line"><span class="lineno">  639</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  640</span> </div>
+<div class="line"><span class="lineno">  641</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  642</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -7,24 +7,29 @@ Ficheiro com todas as funções relativas às máquinas.
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}data-\/types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lists.\+h\char`\"{}}\newline
 \doxysubsection*{FunÃ§Ãµes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{machines_8c_a6f116088fdb4bbfdc000a266ee200210}{new\+Machine}} (int id, \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} is\+Busy)
+\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{machines_8c_a66314cd1d0360ba77833955b765c6078}{load\+Machines}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Carrega dados das máquinas de um ficheiro CSV para uma lista em memória. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{machines_8c_a6f116088fdb4bbfdc000a266ee200210}{new\+Machine}} (int id, \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} is\+Busy)
 \begin{DoxyCompactList}\small\item\em Criar nova máquina. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{machines_8c_a5ed3f8c67f63ba752767d86452bf83ed}{insert\+Machine\+At\+Start}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head, \mbox{\hyperlink{struct_machine}{Machine}} $\ast$new)
+\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{machines_8c_a09fd34b09b768439c306f071a29aba75}{insert\+Machine\+\_\+\+At\+Start}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head, \mbox{\hyperlink{struct_machine}{Machine}} $\ast$new)
 \begin{DoxyCompactList}\small\item\em Inserir nova máquina no início da lista de máquinas. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_adeb9a16e75fb2739e26d1ceed9fbec78}{write\+Machines}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_machine}{Machine}} $\ast$head)
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_a84a442265a9f1e01405b51c3b958160b}{enable\+Machine}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$$\ast$h, int mid, \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} ib)
+\begin{DoxyCompactList}\small\item\em Ocupa uma máquina, diz que no memento está ocupada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_adeb9a16e75fb2739e26d1ceed9fbec78}{write\+Machines}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_machine}{Machine}} $\ast$head)
 \begin{DoxyCompactList}\small\item\em Armazenar lista de máquinas em ficheiro binário. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{machines_8c_af87a8e5a625b71b8bccc15d4c98d6d97}{read\+Machines}} (char file\+Name\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Ler lista de máquinas de ficheiro binário. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_adf36b4d501a3dcbaf8ac959da2d76c8f}{free\+Machines}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head)
-\begin{DoxyCompactList}\small\item\em Libertar a lista de máquinas da memória. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_aa54244730868e6e7083ed3035581e01a}{display\+Machines}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head)
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_aa54244730868e6e7083ed3035581e01a}{display\+Machines}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head)
 \begin{DoxyCompactList}\small\item\em Mostrar a lista de máquinas na consola. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{search\+Machine}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head, int id)
-\begin{DoxyCompactList}\small\item\em Procurar por uma máquina na lista de máquinas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{search\+Machine}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head, int id)
+\begin{DoxyCompactList}\small\item\em Procurar por uma máquina na lista de máquinas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{machines_8c_a45e40b72215808e4587470756ce0cd0f}{free\+Machines}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$$\ast$head)
+\begin{DoxyCompactList}\small\item\em Libertar a lista de máquinas da memória. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{DescriÃ§Ã£o detalhada}
@@ -43,7 +48,7 @@ Luís Pereira @email \href{mailto:a18446@alunos.ipca.pt}{\texttt{ a18446@alunos.\
 \index{machines.c@{machines.c}!displayMachines@{displayMachines}}
 \index{displayMachines@{displayMachines}!machines.c@{machines.c}}
 \doxysubsubsection{\texorpdfstring{displayMachines()}{displayMachines()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Machines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Machines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head }\end{DoxyParamCaption})}
 
 
 
@@ -59,29 +64,80 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{162 \{}
-\DoxyCodeLine{163     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{164     \{}
-\DoxyCodeLine{165         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{166     \}}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
-\DoxyCodeLine{169 }
-\DoxyCodeLine{170     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{171     \{}
-\DoxyCodeLine{172         printf(\textcolor{stringliteral}{"{}ID: \%d, Ocupada?: \%s;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}} ? \textcolor{stringliteral}{"{}Sim"{}} : \textcolor{stringliteral}{"{}Não"{}});}
-\DoxyCodeLine{173         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{174     \}}
-\DoxyCodeLine{175 }
-\DoxyCodeLine{176     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{177 \}}
+\DoxyCodeLine{209 \{}
+\DoxyCodeLine{210     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{211     \{}
+\DoxyCodeLine{212         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{213     \}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{218     \{}
+\DoxyCodeLine{219         printf(\textcolor{stringliteral}{"{}ID: \%d, Ocupada?: \%s;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}} ? \textcolor{stringliteral}{"{}Sim"{}} : \textcolor{stringliteral}{"{}Não"{}});}
+\DoxyCodeLine{220         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{224 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{machines_8c_adf36b4d501a3dcbaf8ac959da2d76c8f}\label{machines_8c_adf36b4d501a3dcbaf8ac959da2d76c8f}} 
+\mbox{\Hypertarget{machines_8c_a84a442265a9f1e01405b51c3b958160b}\label{machines_8c_a84a442265a9f1e01405b51c3b958160b}} 
+\index{machines.c@{machines.c}!enableMachine@{enableMachine}}
+\index{enableMachine@{enableMachine}!machines.c@{machines.c}}
+\doxysubsubsection{\texorpdfstring{enableMachine()}{enableMachine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} enable\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$$\ast$}]{h,  }\item[{int}]{mid,  }\item[{\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}]{ib }\end{DoxyParamCaption})}
+
+
+
+Ocupa uma máquina, diz que no memento está ocupada. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em h} & Apontador para a lista de máquinas \\
+\hline
+{\em mid} & Identificador da máquina \\
+\hline
+{\em ib} & Booleano para da máquina \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108 \{}
+\DoxyCodeLine{109     \textcolor{keywordflow}{if} (*h == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{110     \{}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{112     \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{searchMachine}}(*h, mid))}
+\DoxyCodeLine{115     \{}
+\DoxyCodeLine{116         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \mbox{\hyperlink{struct_machine}{Machine}}* current = *h;}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{122     \{}
+\DoxyCodeLine{123         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == mid)}
+\DoxyCodeLine{124         \{}
+\DoxyCodeLine{125             current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}} = ib;}
+\DoxyCodeLine{126             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{127         \}}
+\DoxyCodeLine{128         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{132 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{machines_8c_a45e40b72215808e4587470756ce0cd0f}\label{machines_8c_a45e40b72215808e4587470756ce0cd0f}} 
 \index{machines.c@{machines.c}!freeMachines@{freeMachines}}
 \index{freeMachines@{freeMachines}!machines.c@{machines.c}}
 \doxysubsubsection{\texorpdfstring{freeMachines()}{freeMachines()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} free\+Machines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void free\+Machines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
 
 
 
@@ -92,35 +148,28 @@ Libertar a lista de máquinas da memória.
 {\em head} & Lista de máquinas \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-Booleano para o resultado da função (se funcionou ou não) 
-\end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{137 \{}
-\DoxyCodeLine{138     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{139     \{}
-\DoxyCodeLine{140         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{141     \}}
-\DoxyCodeLine{142 }
-\DoxyCodeLine{143     \mbox{\hyperlink{struct_machine}{Machine}}* current = NULL;}
-\DoxyCodeLine{144 }
-\DoxyCodeLine{145     \textcolor{keywordflow}{while} (head != NULL)}
-\DoxyCodeLine{146     \{}
-\DoxyCodeLine{147         current = head;}
-\DoxyCodeLine{148         head = head-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{149         free(current);}
-\DoxyCodeLine{150     \}}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{152     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{153 \}}
+\DoxyCodeLine{260 \{}
+\DoxyCodeLine{261     \textcolor{keywordflow}{if} (head != NULL)}
+\DoxyCodeLine{262     \{}
+\DoxyCodeLine{263         \mbox{\hyperlink{struct_machine}{Machine}}* current;}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265         \textcolor{keywordflow}{while} (*head)}
+\DoxyCodeLine{266         \{}
+\DoxyCodeLine{267             current = *head;}
+\DoxyCodeLine{268             *head = (*head)-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{269             free(current);}
+\DoxyCodeLine{270         \}}
+\DoxyCodeLine{271     \}}
+\DoxyCodeLine{272 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{machines_8c_a5ed3f8c67f63ba752767d86452bf83ed}\label{machines_8c_a5ed3f8c67f63ba752767d86452bf83ed}} 
-\index{machines.c@{machines.c}!insertMachineAtStart@{insertMachineAtStart}}
-\index{insertMachineAtStart@{insertMachineAtStart}!machines.c@{machines.c}}
-\doxysubsubsection{\texorpdfstring{insertMachineAtStart()}{insertMachineAtStart()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ insert\+Machine\+At\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{new }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{machines_8c_a09fd34b09b768439c306f071a29aba75}\label{machines_8c_a09fd34b09b768439c306f071a29aba75}} 
+\index{machines.c@{machines.c}!insertMachine\_AtStart@{insertMachine\_AtStart}}
+\index{insertMachine\_AtStart@{insertMachine\_AtStart}!machines.c@{machines.c}}
+\doxysubsubsection{\texorpdfstring{insertMachine\_AtStart()}{insertMachine\_AtStart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ insert\+Machine\+\_\+\+At\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{new }\end{DoxyParamCaption})}
 
 
 
@@ -138,37 +187,85 @@ Lista de máquinas atualizada
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{43 \{}
-\DoxyCodeLine{44     \textcolor{keywordflow}{if} (\mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{searchMachine}}(head, new-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})) \textcolor{comment}{// não permitir inserir uma nova com o mesmo ID}}
-\DoxyCodeLine{45     \{}
-\DoxyCodeLine{46         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{47     \}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{50     \{}
-\DoxyCodeLine{51         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{52     \}}
-\DoxyCodeLine{53     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
-\DoxyCodeLine{54     \{}
-\DoxyCodeLine{55         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}} = head;}
-\DoxyCodeLine{56         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{57     \}}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{60 \}}
+\DoxyCodeLine{80 \{}
+\DoxyCodeLine{81     \textcolor{keywordflow}{if} (\mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{searchMachine}}(head, new-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})) \textcolor{comment}{// não permitir inserir uma nova com o mesmo ID}}
+\DoxyCodeLine{82     \{}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
+\DoxyCodeLine{91     \{}
+\DoxyCodeLine{92         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}} = head;}
+\DoxyCodeLine{93         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{97 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{machines_8c_a66314cd1d0360ba77833955b765c6078}\label{machines_8c_a66314cd1d0360ba77833955b765c6078}} 
+\index{machines.c@{machines.c}!loadMachines@{loadMachines}}
+\index{loadMachines@{loadMachines}!machines.c@{machines.c}}
+\doxysubsubsection{\texorpdfstring{loadMachines()}{loadMachines()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ load\+Machines (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Carrega dados das máquinas de um ficheiro CSV para uma lista em memória. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em file\+Name} & Nome do ficheiro \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+A lista de máquinas do ficheiro CSV 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{char} line[\mbox{\hyperlink{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}{FILE\_LINE\_SIZE}}];}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} a = 0, b = 0;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{struct_machine}{Machine}}* machine = NULL;}
+\DoxyCodeLine{26     \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = NULL;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     FILE* file = fopen(fileName, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} (file == NULL)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{while} (!feof(file))}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} (fgets(line, \mbox{\hyperlink{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}{FILE\_LINE\_SIZE}}, file) != NULL)}
+\DoxyCodeLine{37         \{}
+\DoxyCodeLine{38             \textcolor{comment}{// exemplo: 1;0}}
+\DoxyCodeLine{39             sscanf(line, \textcolor{stringliteral}{"{}\%d;\%d"{}}, \&a, \&b);}
+\DoxyCodeLine{40             machine = \mbox{\hyperlink{machines_8c_a6f116088fdb4bbfdc000a266ee200210}{newMachine}}(a, b);}
+\DoxyCodeLine{41             \mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = \mbox{\hyperlink{machines_8c_a09fd34b09b768439c306f071a29aba75}{insertMachine\_AtStart}}(\mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}}, machine);}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     fclose(file);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} \mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}};}
+\DoxyCodeLine{48 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{machines_8c_a6f116088fdb4bbfdc000a266ee200210}\label{machines_8c_a6f116088fdb4bbfdc000a266ee200210}} 
 \index{machines.c@{machines.c}!newMachine@{newMachine}}
 \index{newMachine@{newMachine}!machines.c@{machines.c}}
 \doxysubsubsection{\texorpdfstring{newMachine()}{newMachine()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ new\+Machine (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}]{is\+Busy }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ new\+Machine (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}]{is\+Busy }\end{DoxyParamCaption})}
 
 
 
 Criar nova máquina. 
-
-Sobre máquinas.
 
 
 \begin{DoxyParams}{ParÃ¢metros}
@@ -182,19 +279,19 @@ Nova máquina
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{21 \{}
-\DoxyCodeLine{22     \mbox{\hyperlink{struct_machine}{Machine}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_machine}{Machine}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_machine}{Machine}}));}
-\DoxyCodeLine{23     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
-\DoxyCodeLine{24     \{}
-\DoxyCodeLine{25         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{26     \}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = id;}
-\DoxyCodeLine{29     \textcolor{keyword}{new}-\/>isBusy = isBusy;}
-\DoxyCodeLine{30     \textcolor{keyword}{new}-\/>next = NULL;}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
-\DoxyCodeLine{33 \}}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \mbox{\hyperlink{struct_machine}{Machine}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_machine}{Machine}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_machine}{Machine}}));}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = id;}
+\DoxyCodeLine{66     \textcolor{keyword}{new}-\/>isBusy = isBusy;}
+\DoxyCodeLine{67     \textcolor{keyword}{new}-\/>next = NULL;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
+\DoxyCodeLine{70 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{machines_8c_af87a8e5a625b71b8bccc15d4c98d6d97}\label{machines_8c_af87a8e5a625b71b8bccc15d4c98d6d97}} 
@@ -217,35 +314,35 @@ Lista de máquinas
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{107 \{}
-\DoxyCodeLine{108     FILE* file;}
-\DoxyCodeLine{109 }
-\DoxyCodeLine{110     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}})) == NULL) \textcolor{comment}{// se não foi possível abrir o ficheiro}}
-\DoxyCodeLine{111     \{}
-\DoxyCodeLine{112         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{113     \}}
-\DoxyCodeLine{114 }
-\DoxyCodeLine{115     \mbox{\hyperlink{struct_machine}{Machine}}* head = NULL;}
-\DoxyCodeLine{116     \mbox{\hyperlink{struct_machine}{Machine}}* current = NULL;}
-\DoxyCodeLine{117     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
-\DoxyCodeLine{118 }
-\DoxyCodeLine{119     \textcolor{keywordflow}{while} (fread(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file)) \textcolor{comment}{// lê todos os registos do ficheiro e guarda na lista}}
-\DoxyCodeLine{120     \{}
-\DoxyCodeLine{121         current = \mbox{\hyperlink{machines_8c_a6f116088fdb4bbfdc000a266ee200210}{newMachine}}(currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, currentInFile.\mbox{\hyperlink{struct_file_machine_a099f725f22a344e190121634f53328d8}{isBusy}});}
-\DoxyCodeLine{122         head = \mbox{\hyperlink{machines_8c_a5ed3f8c67f63ba752767d86452bf83ed}{insertMachineAtStart}}(head, current);}
-\DoxyCodeLine{123     \}}
-\DoxyCodeLine{124 }
-\DoxyCodeLine{125     fclose(file);}
-\DoxyCodeLine{126 }
-\DoxyCodeLine{127     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{128 \}}
+\DoxyCodeLine{179 \{}
+\DoxyCodeLine{180     FILE* file = NULL;}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{183     \{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \mbox{\hyperlink{struct_machine}{Machine}}* head = NULL;}
+\DoxyCodeLine{188     \mbox{\hyperlink{struct_machine}{Machine}}* current = NULL;}
+\DoxyCodeLine{189     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{keywordflow}{while} (fread(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file)) \textcolor{comment}{// lê todos os registos do ficheiro e guarda na lista}}
+\DoxyCodeLine{192     \{}
+\DoxyCodeLine{193         current = \mbox{\hyperlink{machines_8c_a6f116088fdb4bbfdc000a266ee200210}{newMachine}}(currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, currentInFile.\mbox{\hyperlink{struct_file_machine_a099f725f22a344e190121634f53328d8}{isBusy}});}
+\DoxyCodeLine{194         head = \mbox{\hyperlink{machines_8c_a09fd34b09b768439c306f071a29aba75}{insertMachine\_AtStart}}(head, current);}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     fclose(file);}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{200 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{machines_8c_abab511c59eca20b8d1960a5a2cad6436}\label{machines_8c_abab511c59eca20b8d1960a5a2cad6436}} 
 \index{machines.c@{machines.c}!searchMachine@{searchMachine}}
 \index{searchMachine@{searchMachine}!machines.c@{machines.c}}
 \doxysubsubsection{\texorpdfstring{searchMachine()}{searchMachine()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} search\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} search\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -263,32 +360,32 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{187 \{}
-\DoxyCodeLine{188     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{189     \{}
-\DoxyCodeLine{190         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{191     \}}
-\DoxyCodeLine{192 }
-\DoxyCodeLine{193     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
-\DoxyCodeLine{194 }
-\DoxyCodeLine{195     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{196     \{}
-\DoxyCodeLine{197         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id})}
-\DoxyCodeLine{198         \{}
-\DoxyCodeLine{199             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{200         \}}
-\DoxyCodeLine{201         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{202     \}}
-\DoxyCodeLine{203 }
-\DoxyCodeLine{204     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{205 \}}
+\DoxyCodeLine{234 \{}
+\DoxyCodeLine{235     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{236     \{}
+\DoxyCodeLine{237         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{238     \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{243     \{}
+\DoxyCodeLine{244         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id})}
+\DoxyCodeLine{245         \{}
+\DoxyCodeLine{246             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{247         \}}
+\DoxyCodeLine{248         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{249     \}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{252 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{machines_8c_adeb9a16e75fb2739e26d1ceed9fbec78}\label{machines_8c_adeb9a16e75fb2739e26d1ceed9fbec78}} 
 \index{machines.c@{machines.c}!writeMachines@{writeMachines}}
 \index{writeMachines@{writeMachines}!machines.c@{machines.c}}
 \doxysubsubsection{\texorpdfstring{writeMachines()}{writeMachines()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} write\+Machines (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} write\+Machines (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$}]{head }\end{DoxyParamCaption})}
 
 
 
@@ -306,34 +403,34 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{70 \{}
-\DoxyCodeLine{71     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{72     \{}
-\DoxyCodeLine{73         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{74     \}}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{76     FILE* file = NULL;}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}})) == NULL) \textcolor{comment}{// se não foi possível abrir o ficheiro}}
-\DoxyCodeLine{79     \{}
-\DoxyCodeLine{80         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{81     \}}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
-\DoxyCodeLine{84     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{87     \{}
-\DoxyCodeLine{88         currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{89         currentInFile.\mbox{\hyperlink{struct_file_machine_a099f725f22a344e190121634f53328d8}{isBusy}} = current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}};}
-\DoxyCodeLine{90         fwrite(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file); \textcolor{comment}{// guarda cada registo da lista no ficheiro}}
-\DoxyCodeLine{91 }
-\DoxyCodeLine{92         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{93     \}}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95     fclose(file);}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{98 \}}
+\DoxyCodeLine{142 \{}
+\DoxyCodeLine{143     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{144     \{}
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     FILE* file = NULL;}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{151     \{}
+\DoxyCodeLine{152         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{153     \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
+\DoxyCodeLine{156     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{159     \{}
+\DoxyCodeLine{160         currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{161         currentInFile.\mbox{\hyperlink{struct_file_machine_a099f725f22a344e190121634f53328d8}{isBusy}} = current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}};}
+\DoxyCodeLine{162         fwrite(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file); \textcolor{comment}{// guarda cada registo da lista no ficheiro}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     fclose(file);}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{170 \}}
 
 \end{DoxyCode}

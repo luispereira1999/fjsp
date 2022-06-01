@@ -1,6 +1,17 @@
 var searchData=
 [
-  ['execution_0',['Execution',['../struct_execution.html',1,'Execution'],['../header_8h.html#aace4a8a5be0edf7bb2ffc9da31308511',1,'Execution():&#160;header.h']]],
-  ['executions_1',['executions',['../header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9',1,'header.h']]],
-  ['executions_2ec_2',['executions.c',['../executions_8c.html',1,'']]]
+  ['data_2dtypes_2eh_0',['data-types.h',['../data-types_8h.html',1,'']]],
+  ['data_2ec_1',['data.c',['../data_8c.html',1,'']]],
+  ['deleteexecution_5fbyoperation_5fatlist_2',['deleteExecution_ByOperation_AtList',['../executions_8c.html#a3f1c8469fd5be248139fb23655a88787',1,'deleteExecution_ByOperation_AtList(Execution **head, int operationID):&#160;executions.c'],['../lists_8h.html#a3f1c8469fd5be248139fb23655a88787',1,'deleteExecution_ByOperation_AtList(Execution **head, int operationID):&#160;executions.c']]],
+  ['deleteexecutions_5fbyoperation_5fattable_3',['deleteExecutions_ByOperation_AtTable',['../executions_8c.html#afe647db2279682c65d3262a7bfaa9ce4',1,'deleteExecutions_ByOperation_AtTable(ExecutionNode **table[], int operationID):&#160;executions.c'],['../hashing_8h.html#afe647db2279682c65d3262a7bfaa9ce4',1,'deleteExecutions_ByOperation_AtTable(ExecutionNode **table[], int operationID):&#160;executions.c']]],
+  ['deletejob_4',['deleteJob',['../jobs_8c.html#a2c34d85e5a249e35be61dd94b5be3e87',1,'deleteJob(Job **head, int id):&#160;jobs.c'],['../lists_8h.html#a2c34d85e5a249e35be61dd94b5be3e87',1,'deleteJob(Job **head, int id):&#160;jobs.c']]],
+  ['deleteoperation_5',['deleteOperation',['../lists_8h.html#a233173b4692808bbaa16f5887ae19789',1,'deleteOperation(Operation **head, int id):&#160;operations.c'],['../operations_8c.html#a233173b4692808bbaa16f5887ae19789',1,'deleteOperation(Operation **head, int id):&#160;operations.c']]],
+  ['deleteoperation_5fbyjob_6',['deleteOperation_ByJob',['../lists_8h.html#a7bd69f169a9c02bdc3d8fe298fbabab3',1,'deleteOperation_ByJob(Operation **head, int jobID):&#160;operations.c'],['../operations_8c.html#a7bd69f169a9c02bdc3d8fe298fbabab3',1,'deleteOperation_ByJob(Operation **head, int jobID):&#160;operations.c']]],
+  ['displayexecutions_5fatlist_7',['displayExecutions_AtList',['../executions_8c.html#af71ebace66f1a24bf562109b2c037c64',1,'displayExecutions_AtList(Execution *head):&#160;executions.c'],['../lists_8h.html#af71ebace66f1a24bf562109b2c037c64',1,'displayExecutions_AtList(Execution *head):&#160;executions.c']]],
+  ['displayexecutions_5fattable_8',['displayExecutions_AtTable',['../executions_8c.html#abe6834a2be75b22fc1a593753608a024',1,'displayExecutions_AtTable(ExecutionNode *table[]):&#160;executions.c'],['../hashing_8h.html#abe6834a2be75b22fc1a593753608a024',1,'displayExecutions_AtTable(ExecutionNode *table[]):&#160;executions.c']]],
+  ['displayjobs_9',['displayJobs',['../jobs_8c.html#a91295985e34799e3cea579e2fe66d0a8',1,'displayJobs(Job *head):&#160;jobs.c'],['../lists_8h.html#a91295985e34799e3cea579e2fe66d0a8',1,'displayJobs(Job *head):&#160;jobs.c']]],
+  ['displaymachines_10',['displayMachines',['../lists_8h.html#aa54244730868e6e7083ed3035581e01a',1,'displayMachines(Machine *head):&#160;machines.c'],['../machines_8c.html#aa54244730868e6e7083ed3035581e01a',1,'displayMachines(Machine *head):&#160;machines.c']]],
+  ['displayoperations_11',['displayOperations',['../lists_8h.html#a1cac0b2d491be7953af600a2b434cc56',1,'displayOperations(Operation *head):&#160;operations.c'],['../operations_8c.html#a1cac0b2d491be7953af600a2b434cc56',1,'displayOperations(Operation *head):&#160;operations.c']]],
+  ['displayplan_12',['displayPlan',['../lists_8h.html#ab074cf1a0b599b4206956bc751e29548',1,'displayPlan(Cell plan[][MAX_TIME]):&#160;plan.c'],['../plan_8c.html#ab074cf1a0b599b4206956bc751e29548',1,'displayPlan(Cell plan[][MAX_TIME]):&#160;plan.c']]],
+  ['displayworkplans_13',['displayWorkPlans',['../lists_8h.html#a05442746cf729c59ad9396084b796594',1,'displayWorkPlans(WorkPlan *head):&#160;work-plans.c'],['../work-plans_8c.html#a05442746cf729c59ad9396084b796594',1,'displayWorkPlans(WorkPlan *head):&#160;work-plans.c']]]
 ];

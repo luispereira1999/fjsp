@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['next_0',['next',['../struct_job.html#a23043319aa98624f196cafc0ba57a0b1',1,'Job::next()'],['../struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27',1,'Machine::next()'],['../struct_execution.html#a5118f41fd71744302713d58c7ce39bd4',1,'Execution::next()'],['../struct_operation.html#a9db59830dec0306ea782bae1df0736d1',1,'Operation::next()']]]
+  ['jobid_0',['jobID',['../struct_operation.html#ad71a8c2a978cd38c498b77c5b914983b',1,'Operation::jobID()'],['../struct_work_plan.html#ad71a8c2a978cd38c498b77c5b914983b',1,'WorkPlan::jobID()'],['../struct_cell.html#ad71a8c2a978cd38c498b77c5b914983b',1,'Cell::jobID()'],['../struct_file_operation.html#ad71a8c2a978cd38c498b77c5b914983b',1,'FileOperation::jobID()'],['../struct_file_cell.html#ad71a8c2a978cd38c498b77c5b914983b',1,'FileCell::jobID()']]],
+  ['jobs_1',['jobs',['../data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff',1,'data-types.h']]]
 ];

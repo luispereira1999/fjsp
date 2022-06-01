@@ -1,0 +1,405 @@
+\hypertarget{data-types_8h}{}\doxysection{ReferÃªncia ao ficheiro C\+:/\+LUIS-\/\+PEREIRA/\+Repositorios/fjssp/fjssp/data-\/types.h}
+\label{data-types_8h}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/data-\/types.h@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/data-\/types.h}}
+
+
+Ficheiro com todas as assinaturas globais necessários para a utilização dos tipos e estruturas de dados.  
+
+
+\doxysubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_job}{Job}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista de trabalhos (em memória) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_machine}{Machine}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista de máquinas (em memória) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_operation}{Operation}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista de operações (em memória) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_execution}{Execution}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_execution_node}{Execution\+Node}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar cada nó (posição) da tabela hash das execuções (em memória) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_work_plan}{Work\+Plan}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cell}{Cell}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar uma célula do plano de produção. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_file_job}{File\+Job}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de trabalhos. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_file_machine}{File\+Machine}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de máquinas. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_file_operation}{File\+Operation}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de operações. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_file_execution}{File\+Execution}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_file_cell}{File\+Cell}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro uma célula do plano de produção. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\+\_\+\+TABLE\+\_\+\+SIZE}}~13
+\item 
+\#define \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\+\_\+\+MACHINES}}~8
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}~35
+\item 
+\#define \mbox{\hyperlink{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}{FILE\+\_\+\+LINE\+\_\+\+SIZE}}~50
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a92d724b49f4c5f6f087396e833e95411}{JOBS\+\_\+\+FILENAME\+\_\+\+TEXT}}~\char`\"{}text/jobs.\+csv\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a0cee344c6f8f2c5f0f1c953ae30ad79c}{MACHINES\+\_\+\+FILENAME\+\_\+\+TEXT}}~\char`\"{}text/machines.\+csv\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_ae8a4c9c1d13c9e3db4d2238ef43be113}{OPERATIONS\+\_\+\+FILENAME\+\_\+\+TEXT}}~\char`\"{}text/operations.\+csv\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a0778c62b500b00edb448466ddcd06d13}{EXECUTIONS\+\_\+\+FILENAME\+\_\+\+TEXT}}~\char`\"{}text/executions.\+csv\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a545550cbf83abfc8fba0c2e55b547cf0}{PLAN\+\_\+\+FILENAME\+\_\+\+TEXT}}~\char`\"{}text/plan.\+csv\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a10c81b4fa8dd6f1a738151f4d0fbbe25}{OPEARATIONS\+\_\+\+TEXT\+\_\+\+SIZE}}~50
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a2c01afb31522618361a6f72fd5f251e3}{JOBS\+\_\+\+FILENAME\+\_\+\+BINARY}}~\char`\"{}binary/jobs.\+bin\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a98c496e67aa9615cc4b453c809b23791}{MACHINES\+\_\+\+FILENAME\+\_\+\+BINARY}}~\char`\"{}binary/machines.\+bin\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_a3c6c24386c8e549126bc8ec7ba4ff952}{OPERATIONS\+\_\+\+FILENAME\+\_\+\+BINARY}}~\char`\"{}binary/operations.\+bin\char`\"{}
+\item 
+\#define \mbox{\hyperlink{data-types_8h_aa2212b6c51d5f434ba0f309964d4b02b}{EXECUTIONS\+\_\+\+FILENAME\+\_\+\+BINARY}}~\char`\"{}binary/executions.\+bin\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{DefiniÃ§Ãµes de tipos}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{data-types_8h_ac42e06a86a5419b9bb1eeee85c78c4e9}{bool}}
+\begin{DoxyCompactList}\small\item\em Criar tipo de dados booleano. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_job}{Job}} \mbox{\hyperlink{data-types_8h_a7f678ed7503a7b4211821d14323751d8}{Job}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista de trabalhos (em memória) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_machine}{Machine}} \mbox{\hyperlink{data-types_8h_ac5435b96779b7d7659b398b8275b6cbf}{Machine}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista de máquinas (em memória) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_operation}{Operation}} \mbox{\hyperlink{data-types_8h_a482954e58a1aa24c2a67b81bb6d92d9c}{Operation}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista de operações (em memória) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_execution}{Execution}} \mbox{\hyperlink{data-types_8h_aace4a8a5be0edf7bb2ffc9da31308511}{Execution}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} \mbox{\hyperlink{data-types_8h_a6cd3c4460fccd7d3d5a3292941e5fa05}{Work\+Plan}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a60bf09598e66928bf67a21a22bc17814}{Cell}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para representar uma célula do plano de produção. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_file_job}{File\+Job}} \mbox{\hyperlink{data-types_8h_abfb6a214f53f16cdb5113036e731a2e2}{File\+Job}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de trabalhos. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_file_machine}{File\+Machine}} \mbox{\hyperlink{data-types_8h_a7c190f983ffc1790c1d1315b0884b4d3}{File\+Machine}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de máquinas. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_file_operation}{File\+Operation}} \mbox{\hyperlink{data-types_8h_ac9fda784e10ac5624195204a6d499a65}{File\+Operation}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de operações. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_file_execution}{File\+Execution}} \mbox{\hyperlink{data-types_8h_a460a67751b57788df2d041efe14c70df}{File\+Execution}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_file_cell}{File\+Cell}} \mbox{\hyperlink{data-types_8h_a50e77eabd575f4455c13aa0cfda3935d}{File\+Cell}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados para armazenar em ficheiro uma célula do plano de produção. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{EnumeraÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \{ \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}{false}} = 0
+, \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}{true}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Criar tipo de dados booleano. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{VariÃ¡veis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_job}{Job}} $\ast$ \mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}
+\item 
+\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}}
+\item 
+\mbox{\hyperlink{struct_operation}{Operation}} $\ast$ \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}
+\item 
+\mbox{\hyperlink{struct_execution}{Execution}} $\ast$ \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}
+\item 
+\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$ \mbox{\hyperlink{data-types_8h_a9cca8a4d7145b6602de842ff0421283f}{executions\+Table}} \mbox{[}\mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\+\_\+\+TABLE\+\_\+\+SIZE}}\mbox{]}
+\item 
+\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}} \mbox{[}\mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\+\_\+\+MACHINES}}\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+Ficheiro com todas as assinaturas globais necessários para a utilização dos tipos e estruturas de dados. 
+
+\begin{DoxyAuthor}{Autor}
+Luís Pereira @email \href{mailto:a18446@alunos.ipca.pt}{\texttt{ a18446@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+25/03/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{DocumentaÃ§Ã£o das macros}
+\mbox{\Hypertarget{data-types_8h_aa2212b6c51d5f434ba0f309964d4b02b}\label{data-types_8h_aa2212b6c51d5f434ba0f309964d4b02b}} 
+\index{data-\/types.h@{data-\/types.h}!EXECUTIONS\_FILENAME\_BINARY@{EXECUTIONS\_FILENAME\_BINARY}}
+\index{EXECUTIONS\_FILENAME\_BINARY@{EXECUTIONS\_FILENAME\_BINARY}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{EXECUTIONS\_FILENAME\_BINARY}{EXECUTIONS\_FILENAME\_BINARY}}
+{\footnotesize\ttfamily \#define EXECUTIONS\+\_\+\+FILENAME\+\_\+\+BINARY~\char`\"{}binary/executions.\+bin\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_a0778c62b500b00edb448466ddcd06d13}\label{data-types_8h_a0778c62b500b00edb448466ddcd06d13}} 
+\index{data-\/types.h@{data-\/types.h}!EXECUTIONS\_FILENAME\_TEXT@{EXECUTIONS\_FILENAME\_TEXT}}
+\index{EXECUTIONS\_FILENAME\_TEXT@{EXECUTIONS\_FILENAME\_TEXT}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{EXECUTIONS\_FILENAME\_TEXT}{EXECUTIONS\_FILENAME\_TEXT}}
+{\footnotesize\ttfamily \#define EXECUTIONS\+\_\+\+FILENAME\+\_\+\+TEXT~\char`\"{}text/executions.\+csv\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}\label{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}} 
+\index{data-\/types.h@{data-\/types.h}!FILE\_LINE\_SIZE@{FILE\_LINE\_SIZE}}
+\index{FILE\_LINE\_SIZE@{FILE\_LINE\_SIZE}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{FILE\_LINE\_SIZE}{FILE\_LINE\_SIZE}}
+{\footnotesize\ttfamily \#define FILE\+\_\+\+LINE\+\_\+\+SIZE~50}
+
+\mbox{\Hypertarget{data-types_8h_abfd8510b1fadf533d685965730e2969b}\label{data-types_8h_abfd8510b1fadf533d685965730e2969b}} 
+\index{data-\/types.h@{data-\/types.h}!HASH\_TABLE\_SIZE@{HASH\_TABLE\_SIZE}}
+\index{HASH\_TABLE\_SIZE@{HASH\_TABLE\_SIZE}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{HASH\_TABLE\_SIZE}{HASH\_TABLE\_SIZE}}
+{\footnotesize\ttfamily \#define HASH\+\_\+\+TABLE\+\_\+\+SIZE~13}
+
+\mbox{\Hypertarget{data-types_8h_a2c01afb31522618361a6f72fd5f251e3}\label{data-types_8h_a2c01afb31522618361a6f72fd5f251e3}} 
+\index{data-\/types.h@{data-\/types.h}!JOBS\_FILENAME\_BINARY@{JOBS\_FILENAME\_BINARY}}
+\index{JOBS\_FILENAME\_BINARY@{JOBS\_FILENAME\_BINARY}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{JOBS\_FILENAME\_BINARY}{JOBS\_FILENAME\_BINARY}}
+{\footnotesize\ttfamily \#define JOBS\+\_\+\+FILENAME\+\_\+\+BINARY~\char`\"{}binary/jobs.\+bin\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_a92d724b49f4c5f6f087396e833e95411}\label{data-types_8h_a92d724b49f4c5f6f087396e833e95411}} 
+\index{data-\/types.h@{data-\/types.h}!JOBS\_FILENAME\_TEXT@{JOBS\_FILENAME\_TEXT}}
+\index{JOBS\_FILENAME\_TEXT@{JOBS\_FILENAME\_TEXT}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{JOBS\_FILENAME\_TEXT}{JOBS\_FILENAME\_TEXT}}
+{\footnotesize\ttfamily \#define JOBS\+\_\+\+FILENAME\+\_\+\+TEXT~\char`\"{}text/jobs.\+csv\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_a98c496e67aa9615cc4b453c809b23791}\label{data-types_8h_a98c496e67aa9615cc4b453c809b23791}} 
+\index{data-\/types.h@{data-\/types.h}!MACHINES\_FILENAME\_BINARY@{MACHINES\_FILENAME\_BINARY}}
+\index{MACHINES\_FILENAME\_BINARY@{MACHINES\_FILENAME\_BINARY}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{MACHINES\_FILENAME\_BINARY}{MACHINES\_FILENAME\_BINARY}}
+{\footnotesize\ttfamily \#define MACHINES\+\_\+\+FILENAME\+\_\+\+BINARY~\char`\"{}binary/machines.\+bin\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_a0cee344c6f8f2c5f0f1c953ae30ad79c}\label{data-types_8h_a0cee344c6f8f2c5f0f1c953ae30ad79c}} 
+\index{data-\/types.h@{data-\/types.h}!MACHINES\_FILENAME\_TEXT@{MACHINES\_FILENAME\_TEXT}}
+\index{MACHINES\_FILENAME\_TEXT@{MACHINES\_FILENAME\_TEXT}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{MACHINES\_FILENAME\_TEXT}{MACHINES\_FILENAME\_TEXT}}
+{\footnotesize\ttfamily \#define MACHINES\+\_\+\+FILENAME\+\_\+\+TEXT~\char`\"{}text/machines.\+csv\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}\label{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}} 
+\index{data-\/types.h@{data-\/types.h}!MAX\_TIME@{MAX\_TIME}}
+\index{MAX\_TIME@{MAX\_TIME}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_TIME}{MAX\_TIME}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+TIME~35}
+
+\mbox{\Hypertarget{data-types_8h_ad24db60c59551899be0cf71702a20314}\label{data-types_8h_ad24db60c59551899be0cf71702a20314}} 
+\index{data-\/types.h@{data-\/types.h}!NUMBER\_MACHINES@{NUMBER\_MACHINES}}
+\index{NUMBER\_MACHINES@{NUMBER\_MACHINES}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_MACHINES}{NUMBER\_MACHINES}}
+{\footnotesize\ttfamily \#define NUMBER\+\_\+\+MACHINES~8}
+
+\mbox{\Hypertarget{data-types_8h_a10c81b4fa8dd6f1a738151f4d0fbbe25}\label{data-types_8h_a10c81b4fa8dd6f1a738151f4d0fbbe25}} 
+\index{data-\/types.h@{data-\/types.h}!OPEARATIONS\_TEXT\_SIZE@{OPEARATIONS\_TEXT\_SIZE}}
+\index{OPEARATIONS\_TEXT\_SIZE@{OPEARATIONS\_TEXT\_SIZE}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{OPEARATIONS\_TEXT\_SIZE}{OPEARATIONS\_TEXT\_SIZE}}
+{\footnotesize\ttfamily \#define OPEARATIONS\+\_\+\+TEXT\+\_\+\+SIZE~50}
+
+\mbox{\Hypertarget{data-types_8h_a3c6c24386c8e549126bc8ec7ba4ff952}\label{data-types_8h_a3c6c24386c8e549126bc8ec7ba4ff952}} 
+\index{data-\/types.h@{data-\/types.h}!OPERATIONS\_FILENAME\_BINARY@{OPERATIONS\_FILENAME\_BINARY}}
+\index{OPERATIONS\_FILENAME\_BINARY@{OPERATIONS\_FILENAME\_BINARY}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{OPERATIONS\_FILENAME\_BINARY}{OPERATIONS\_FILENAME\_BINARY}}
+{\footnotesize\ttfamily \#define OPERATIONS\+\_\+\+FILENAME\+\_\+\+BINARY~\char`\"{}binary/operations.\+bin\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_ae8a4c9c1d13c9e3db4d2238ef43be113}\label{data-types_8h_ae8a4c9c1d13c9e3db4d2238ef43be113}} 
+\index{data-\/types.h@{data-\/types.h}!OPERATIONS\_FILENAME\_TEXT@{OPERATIONS\_FILENAME\_TEXT}}
+\index{OPERATIONS\_FILENAME\_TEXT@{OPERATIONS\_FILENAME\_TEXT}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{OPERATIONS\_FILENAME\_TEXT}{OPERATIONS\_FILENAME\_TEXT}}
+{\footnotesize\ttfamily \#define OPERATIONS\+\_\+\+FILENAME\+\_\+\+TEXT~\char`\"{}text/operations.\+csv\char`\"{}}
+
+\mbox{\Hypertarget{data-types_8h_a545550cbf83abfc8fba0c2e55b547cf0}\label{data-types_8h_a545550cbf83abfc8fba0c2e55b547cf0}} 
+\index{data-\/types.h@{data-\/types.h}!PLAN\_FILENAME\_TEXT@{PLAN\_FILENAME\_TEXT}}
+\index{PLAN\_FILENAME\_TEXT@{PLAN\_FILENAME\_TEXT}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{PLAN\_FILENAME\_TEXT}{PLAN\_FILENAME\_TEXT}}
+{\footnotesize\ttfamily \#define PLAN\+\_\+\+FILENAME\+\_\+\+TEXT~\char`\"{}text/plan.\+csv\char`\"{}}
+
+
+
+\doxysubsection{DocumentaÃ§Ã£o dos tipos}
+\mbox{\Hypertarget{data-types_8h_ac42e06a86a5419b9bb1eeee85c78c4e9}\label{data-types_8h_ac42e06a86a5419b9bb1eeee85c78c4e9}} 
+\index{data-\/types.h@{data-\/types.h}!bool@{bool}}
+\index{bool@{bool}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{bool}{bool}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}
+
+
+
+Criar tipo de dados booleano. 
+
+\mbox{\Hypertarget{data-types_8h_a60bf09598e66928bf67a21a22bc17814}\label{data-types_8h_a60bf09598e66928bf67a21a22bc17814}} 
+\index{data-\/types.h@{data-\/types.h}!Cell@{Cell}}
+\index{Cell@{Cell}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{Cell}{Cell}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{struct_cell}{Cell}}}
+
+
+
+Estrutura de dados para representar uma célula do plano de produção. 
+
+\mbox{\Hypertarget{data-types_8h_aace4a8a5be0edf7bb2ffc9da31308511}\label{data-types_8h_aace4a8a5be0edf7bb2ffc9da31308511}} 
+\index{data-\/types.h@{data-\/types.h}!Execution@{Execution}}
+\index{Execution@{Execution}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{Execution}{Execution}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_execution}{Execution}} \mbox{\hyperlink{struct_execution}{Execution}}}
+
+
+
+Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória) 
+
+\mbox{\Hypertarget{data-types_8h_a50e77eabd575f4455c13aa0cfda3935d}\label{data-types_8h_a50e77eabd575f4455c13aa0cfda3935d}} 
+\index{data-\/types.h@{data-\/types.h}!FileCell@{FileCell}}
+\index{FileCell@{FileCell}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{FileCell}{FileCell}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_file_cell}{File\+Cell}} \mbox{\hyperlink{struct_file_cell}{File\+Cell}}}
+
+
+
+Estrutura de dados para armazenar em ficheiro uma célula do plano de produção. 
+
+\mbox{\Hypertarget{data-types_8h_a460a67751b57788df2d041efe14c70df}\label{data-types_8h_a460a67751b57788df2d041efe14c70df}} 
+\index{data-\/types.h@{data-\/types.h}!FileExecution@{FileExecution}}
+\index{FileExecution@{FileExecution}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{FileExecution}{FileExecution}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_file_execution}{File\+Execution}} \mbox{\hyperlink{struct_file_execution}{File\+Execution}}}
+
+
+
+Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas. 
+
+\mbox{\Hypertarget{data-types_8h_abfb6a214f53f16cdb5113036e731a2e2}\label{data-types_8h_abfb6a214f53f16cdb5113036e731a2e2}} 
+\index{data-\/types.h@{data-\/types.h}!FileJob@{FileJob}}
+\index{FileJob@{FileJob}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{FileJob}{FileJob}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_file_job}{File\+Job}} \mbox{\hyperlink{struct_file_job}{File\+Job}}}
+
+
+
+Estrutura de dados para armazenar em ficheiro a lista de trabalhos. 
+
+\mbox{\Hypertarget{data-types_8h_a7c190f983ffc1790c1d1315b0884b4d3}\label{data-types_8h_a7c190f983ffc1790c1d1315b0884b4d3}} 
+\index{data-\/types.h@{data-\/types.h}!FileMachine@{FileMachine}}
+\index{FileMachine@{FileMachine}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{FileMachine}{FileMachine}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_file_machine}{File\+Machine}} \mbox{\hyperlink{struct_file_machine}{File\+Machine}}}
+
+
+
+Estrutura de dados para armazenar em ficheiro a lista de máquinas. 
+
+\mbox{\Hypertarget{data-types_8h_ac9fda784e10ac5624195204a6d499a65}\label{data-types_8h_ac9fda784e10ac5624195204a6d499a65}} 
+\index{data-\/types.h@{data-\/types.h}!FileOperation@{FileOperation}}
+\index{FileOperation@{FileOperation}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{FileOperation}{FileOperation}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_file_operation}{File\+Operation}} \mbox{\hyperlink{struct_file_operation}{File\+Operation}}}
+
+
+
+Estrutura de dados para armazenar em ficheiro a lista de operações. 
+
+\mbox{\Hypertarget{data-types_8h_a7f678ed7503a7b4211821d14323751d8}\label{data-types_8h_a7f678ed7503a7b4211821d14323751d8}} 
+\index{data-\/types.h@{data-\/types.h}!Job@{Job}}
+\index{Job@{Job}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{Job}{Job}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_job}{Job}} \mbox{\hyperlink{struct_job}{Job}}}
+
+
+
+Estrutura de dados para representar a lista de trabalhos (em memória) 
+
+\mbox{\Hypertarget{data-types_8h_ac5435b96779b7d7659b398b8275b6cbf}\label{data-types_8h_ac5435b96779b7d7659b398b8275b6cbf}} 
+\index{data-\/types.h@{data-\/types.h}!Machine@{Machine}}
+\index{Machine@{Machine}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{Machine}{Machine}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_machine}{Machine}} \mbox{\hyperlink{struct_machine}{Machine}}}
+
+
+
+Estrutura de dados para representar a lista de máquinas (em memória) 
+
+\mbox{\Hypertarget{data-types_8h_a482954e58a1aa24c2a67b81bb6d92d9c}\label{data-types_8h_a482954e58a1aa24c2a67b81bb6d92d9c}} 
+\index{data-\/types.h@{data-\/types.h}!Operation@{Operation}}
+\index{Operation@{Operation}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{Operation}{Operation}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_operation}{Operation}} \mbox{\hyperlink{struct_operation}{Operation}}}
+
+
+
+Estrutura de dados para representar a lista de operações (em memória) 
+
+\mbox{\Hypertarget{data-types_8h_a6cd3c4460fccd7d3d5a3292941e5fa05}\label{data-types_8h_a6cd3c4460fccd7d3d5a3292941e5fa05}} 
+\index{data-\/types.h@{data-\/types.h}!WorkPlan@{WorkPlan}}
+\index{WorkPlan@{WorkPlan}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{WorkPlan}{WorkPlan}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} \mbox{\hyperlink{struct_work_plan}{Work\+Plan}}}
+
+
+
+Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção. 
+
+
+
+\doxysubsection{DocumentaÃ§Ã£o dos valores da enumeraÃ§Ã£o}
+\mbox{\Hypertarget{data-types_8h_af6a258d8f3ee5206d682d799316314b1}\label{data-types_8h_af6a258d8f3ee5206d682d799316314b1}} 
+\index{data-\/types.h@{data-\/types.h}!bool@{bool}}
+\index{bool@{bool}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{bool}{bool}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}
+
+
+
+Criar tipo de dados booleano. 
+
+\begin{DoxyEnumFields}{Valores de enumeraÃ§Ãµes}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{false@{false}!data-\/types.h@{data-\/types.h}}\index{data-\/types.h@{data-\/types.h}!false@{false}}}\mbox{\Hypertarget{data-types_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}\label{data-types_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}} 
+false&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{true@{true}!data-\/types.h@{data-\/types.h}}\index{data-\/types.h@{data-\/types.h}!true@{true}}}\mbox{\Hypertarget{data-types_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}\label{data-types_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}} 
+true&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47    \textcolor{keyword}{false} = 0,}
+\DoxyCodeLine{48    \textcolor{keyword}{true} = 1}
+\DoxyCodeLine{49 \} \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{DocumentaÃ§Ã£o das variÃ¡veis}
+\mbox{\Hypertarget{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}\label{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}} 
+\index{data-\/types.h@{data-\/types.h}!executions@{executions}}
+\index{executions@{executions}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{executions}{executions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution}{Execution}}$\ast$ executions\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{data-types_8h_a9cca8a4d7145b6602de842ff0421283f}\label{data-types_8h_a9cca8a4d7145b6602de842ff0421283f}} 
+\index{data-\/types.h@{data-\/types.h}!executionsTable@{executionsTable}}
+\index{executionsTable@{executionsTable}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{executionsTable}{executionsTable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution_node}{Execution\+Node}}$\ast$ executions\+Table\mbox{[}\mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\+\_\+\+TABLE\+\_\+\+SIZE}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}\label{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}} 
+\index{data-\/types.h@{data-\/types.h}!jobs@{jobs}}
+\index{jobs@{jobs}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{jobs}{jobs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_job}{Job}}$\ast$ jobs\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}\label{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}} 
+\index{data-\/types.h@{data-\/types.h}!machines@{machines}}
+\index{machines@{machines}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{machines}{machines}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}}$\ast$ machines\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{data-types_8h_a141d2a58898a5ea72097da30116580ee}\label{data-types_8h_a141d2a58898a5ea72097da30116580ee}} 
+\index{data-\/types.h@{data-\/types.h}!operations@{operations}}
+\index{operations@{operations}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{operations}{operations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_operation}{Operation}}$\ast$ operations\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}\label{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}} 
+\index{data-\/types.h@{data-\/types.h}!plan@{plan}}
+\index{plan@{plan}!data-\/types.h@{data-\/types.h}}
+\doxysubsubsection{\texorpdfstring{plan}{plan}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cell}{Cell}} plan\mbox{[}\mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\+\_\+\+MACHINES}}\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

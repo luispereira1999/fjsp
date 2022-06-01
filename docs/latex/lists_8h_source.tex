@@ -1,0 +1,121 @@
+\hypertarget{lists_8h_source}{}\doxysection{lists.\+h}
+\label{lists_8h_source}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/lists.h@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/lists.h}}
+\mbox{\hyperlink{lists_8h}{Ir para a documentaÃ§Ã£o deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef LISTS}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define LISTS 1}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma region trabalhos}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{lists_8h_a3767c4c6655e4d9db698c65cc1efc2cf}{loadJobs}}(\textcolor{keywordtype}{char}* fileName);}
+\DoxyCodeLine{16 \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{lists_8h_a84de6ff490cb65dbc4995f2d8b98de1f}{newJob}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{17 \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{lists_8h_aa8b6bc212b95408dfcdf536979b40d9c}{insertJob\_AtStart}}(\mbox{\hyperlink{struct_job}{Job}}* head, \mbox{\hyperlink{struct_job}{Job}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{18 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a2c34d85e5a249e35be61dd94b5be3e87}{deleteJob}}(\mbox{\hyperlink{struct_job}{Job}}** head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{19 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a74854c567a784660b6259abbd47d821e}{writeJobs}}(\textcolor{keywordtype}{char} fileName[], \mbox{\hyperlink{struct_job}{Job}}* head);}
+\DoxyCodeLine{20 \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{lists_8h_a1c30247bf14e8f64a9dad8cf280f7f2a}{readJobs}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{21 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a91295985e34799e3cea579e2fe66d0a8}{displayJobs}}(\mbox{\hyperlink{struct_job}{Job}}* head);}
+\DoxyCodeLine{22 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_acb39186105e381d629e2db05d66ddbaa}{searchJob}}(\mbox{\hyperlink{struct_job}{Job}}* head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{23 \textcolor{keywordtype}{int} \mbox{\hyperlink{lists_8h_a4e9b4f83d12b971cdcd6637db523331b}{countJobs}}(\mbox{\hyperlink{struct_job}{Job}}* head);}
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} \mbox{\hyperlink{lists_8h_a72cbadab093ab1d12140ac0f70196359}{freeJobs}}(\mbox{\hyperlink{struct_job}{Job}}** head);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#pragma region máquinas}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{lists_8h_a66314cd1d0360ba77833955b765c6078}{loadMachines}}(\textcolor{keywordtype}{char}* fileName);}
+\DoxyCodeLine{32 \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{lists_8h_a6f116088fdb4bbfdc000a266ee200210}{newMachine}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{bool} isBusy);}
+\DoxyCodeLine{33 \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{lists_8h_a09fd34b09b768439c306f071a29aba75}{insertMachine\_AtStart}}(\mbox{\hyperlink{struct_machine}{Machine}}* head, \mbox{\hyperlink{struct_machine}{Machine}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{34 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a84a442265a9f1e01405b51c3b958160b}{enableMachine}}(\mbox{\hyperlink{struct_machine}{Machine}}** h, \textcolor{keywordtype}{int} mid, \textcolor{keywordtype}{bool} ib);}
+\DoxyCodeLine{35 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_adeb9a16e75fb2739e26d1ceed9fbec78}{writeMachines}}(\textcolor{keywordtype}{char} fileName[], \mbox{\hyperlink{struct_machine}{Machine}}* head);}
+\DoxyCodeLine{36 \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{lists_8h_af87a8e5a625b71b8bccc15d4c98d6d97}{readMachines}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{37 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_aa54244730868e6e7083ed3035581e01a}{displayMachines}}(\mbox{\hyperlink{struct_machine}{Machine}}* head);}
+\DoxyCodeLine{38 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_abab511c59eca20b8d1960a5a2cad6436}{searchMachine}}(\mbox{\hyperlink{struct_machine}{Machine}}* head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{39 \textcolor{keywordtype}{void} \mbox{\hyperlink{lists_8h_a45e40b72215808e4587470756ce0cd0f}{freeMachines}}(\mbox{\hyperlink{struct_machine}{Machine}}** head);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#pragma region operações}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{lists_8h_aa207662e983cab853fbd1cd3d3415d4e}{loadOperations}}(\textcolor{keywordtype}{char}* fileName);}
+\DoxyCodeLine{47 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{lists_8h_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{newOperation}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} position);}
+\DoxyCodeLine{48 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{lists_8h_a738597c7756493ff091418a0a283ac25}{insertOperation\_AtStart}}(\mbox{\hyperlink{struct_operation}{Operation}}* head, \mbox{\hyperlink{struct_operation}{Operation}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{49 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a972c19e4f8dc3006cf300b9e8bd0e172}{updatePosition}}(\mbox{\hyperlink{struct_operation}{Operation}}** head, \textcolor{keywordtype}{int} xOperationID, \textcolor{keywordtype}{int} yOperationID);}
+\DoxyCodeLine{50 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a233173b4692808bbaa16f5887ae19789}{deleteOperation}}(\mbox{\hyperlink{struct_operation}{Operation}}** head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{51 \textcolor{keywordtype}{int} \mbox{\hyperlink{lists_8h_a7bd69f169a9c02bdc3d8fe298fbabab3}{deleteOperation\_ByJob}}(\mbox{\hyperlink{struct_operation}{Operation}}** head, \textcolor{keywordtype}{int} jobID);}
+\DoxyCodeLine{52 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a535c92168a17ff038c2007300a75d708}{writeOperations}}(\textcolor{keywordtype}{char} fileName[], \mbox{\hyperlink{struct_operation}{Operation}}* head);}
+\DoxyCodeLine{53 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{lists_8h_a0d7a168cfe9d62f2deb7f01f19966c7b}{readOperations}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{54 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a1cac0b2d491be7953af600a2b434cc56}{displayOperations}}(\mbox{\hyperlink{struct_operation}{Operation}}* head);}
+\DoxyCodeLine{55 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a885845bc6bd1e81fb26161ba1a82979d}{searchOperation}}(\mbox{\hyperlink{struct_operation}{Operation}}* head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{56 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_ab49dd927385119f3193df3b0ab8bea3c}{searchOperation\_ByJob}}(\mbox{\hyperlink{struct_operation}{Operation}}* head, \textcolor{keywordtype}{int} jobID);}
+\DoxyCodeLine{57 \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{lists_8h_a824f152dae067c44c4a2c3ce6676cfa0}{getOperation}}(\mbox{\hyperlink{struct_operation}{Operation}}* head, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{58 \textcolor{keywordtype}{int} \mbox{\hyperlink{lists_8h_ae41e1ffc9f3b9524442901a6a6598615}{getMinTime\_ToCompleteJob}}(\mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, \textcolor{keywordtype}{int} jobID, \mbox{\hyperlink{struct_execution}{Execution}}** minExecutions);}
+\DoxyCodeLine{59 \textcolor{keywordtype}{int} \mbox{\hyperlink{lists_8h_a1073d5880eec1c93cb694a7e418ab1d1}{getMaxTime\_ToCompleteJob}}(\mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, \textcolor{keywordtype}{int} jobID, \mbox{\hyperlink{struct_execution}{Execution}}** maxExecutions);}
+\DoxyCodeLine{60 \textcolor{keywordtype}{float} \mbox{\hyperlink{lists_8h_a4753b850ae4cab838edb5f6a3bb10ca0}{getAverageTime\_ToCompleteOperation}}(\mbox{\hyperlink{struct_execution}{Execution}}* head, \textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{61 \textcolor{keywordtype}{void} \mbox{\hyperlink{lists_8h_a67f132c293a67eb039eeaccad8a6cd36}{freeOperations}}(\mbox{\hyperlink{struct_operation}{Operation}}** head);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#pragma region execuções}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_a53a932cfddc381cc966c1bc8f0fd05e8}{loadExecutions}}(\textcolor{keywordtype}{char}* fileName);}
+\DoxyCodeLine{69 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(\textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} runtime);}
+\DoxyCodeLine{70 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_a9d0b32dd8d9b5bd0ceb43fdd5ef79edb}{insertExecution\_AtStart\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}* head, \mbox{\hyperlink{struct_execution}{Execution}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{71 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_ac50f97d7d5afd1f90e6b8371befc23b4}{insertExecution\_ByOperation\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}* head, \mbox{\hyperlink{struct_execution}{Execution}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{72 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_aa707b2d78dce25e19aff4d2a2ce77c36}{updateRuntime\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}** head, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} runtime);}
+\DoxyCodeLine{73 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a3f1c8469fd5be248139fb23655a88787}{deleteExecution\_ByOperation\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}** head, \textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{74 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a430f8d8e37d3b4e17ce4e19c7de31dbb}{writeExecutions\_AtList}}(\textcolor{keywordtype}{char} fileName[], \mbox{\hyperlink{struct_execution}{Execution}}* head);}
+\DoxyCodeLine{75 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_ac243dbf8dd9253190d63d7523d403c42}{readExecutions\_AtList}}(\textcolor{keywordtype}{char} fileName[]);}
+\DoxyCodeLine{76 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_af71ebace66f1a24bf562109b2c037c64}{displayExecutions\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}* head);}
+\DoxyCodeLine{77 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_ac992cca7f2da24cbd1b940efce93a06e}{searchExecution\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}* head, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID);}
+\DoxyCodeLine{78 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_a5cd9f6a62ad6afc978e6b374d571fa16}{searchExecution\_ByOperation\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}* head, \textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{79 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_a8db97f4567e3f5d417d6c948419f964f}{sortExecutions\_ByOperation\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}* head);}
+\DoxyCodeLine{80 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{lists_8h_aac1705d388aa5c4bf7c17519e7c5a435}{getLastExecution\_AtList}}(\mbox{\hyperlink{struct_execution}{Execution}}* head);}
+\DoxyCodeLine{81 \textcolor{keywordtype}{void} \mbox{\hyperlink{lists_8h_afaa5a8328ff70ca63ea1a3bd5a8a3f59}{freeExecutions\_List}}(\mbox{\hyperlink{struct_execution}{Execution}}** head);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#pragma region planos de trabalhos}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \mbox{\hyperlink{lists_8h_a9d91c27cd0a905114a14ab0f12d22c5a}{newWorkPlan}}(\textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} runtime, \textcolor{keywordtype}{int} position);}
+\DoxyCodeLine{89 \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \mbox{\hyperlink{lists_8h_a41ca9cc709483758909c825ec05be48a}{insertWorkPlan\_AtStart}}(\mbox{\hyperlink{struct_work_plan}{WorkPlan}}* head, \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{90 \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \mbox{\hyperlink{lists_8h_adbe79b8a4b64aa05edb2545c1ba33674}{insertWorkPlan\_ByJob\_AtList}}(\mbox{\hyperlink{struct_work_plan}{WorkPlan}}* head, \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{91 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a05442746cf729c59ad9396084b796594}{displayWorkPlans}}(\mbox{\hyperlink{struct_work_plan}{WorkPlan}}* head);}
+\DoxyCodeLine{92 \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \mbox{\hyperlink{lists_8h_ac04ab13b740af9d6610c37e07a62a4a2}{sortWorkPlans\_ByJob}}(\mbox{\hyperlink{struct_work_plan}{WorkPlan}}* head);}
+\DoxyCodeLine{93 \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \mbox{\hyperlink{lists_8h_a2e6befb227913b848f0109b2ed92f4eb}{getAllWorkPlans}}(\mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}, \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}});}
+\DoxyCodeLine{94 \textcolor{keywordtype}{int} \mbox{\hyperlink{lists_8h_a825edfecbd8e0d59e20057411e24b1ae}{getFullTimeOfPlan}}(\mbox{\hyperlink{struct_work_plan}{WorkPlan}}* head);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#pragma region planos de produção em memória}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_af2f37ca35802ce396f568506ad8ac323}{startPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{102 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a55b29a5d3ac64404e1934a055b890d8a}{fillCells}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
+\DoxyCodeLine{103 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_af43dbc69f5fd43eca03707fd09d2178c}{getLastCellFilled\_InMachine}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID);}
+\DoxyCodeLine{104 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_a59885a4edc46fac7c9a3b626ad2066a6}{getLastCellFilled\_OfJob}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} jobID);}
+\DoxyCodeLine{105 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a7d28c8573c3c9f74d0b8add376798451}{fillAllPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* workPlans);}
+\DoxyCodeLine{106 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_aa5765f54f7d6a6629c836b36983ec86b}{searchActiveCells}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
+\DoxyCodeLine{107 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_ab074cf1a0b599b4206956bc751e29548}{displayPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}]);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#pragma region planos de produção para exportar para ficheiro}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(\textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
+\DoxyCodeLine{115 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a4afcec772dd72159d179c3efde63f309}{insertFileCell\_AtStart}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head, \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{116 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_afccf2f91e2cce72936b8826cb843dc28}{insertFileCell\_ByMachine}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head, \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{117 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a6c13b4baff07a85895982bd1ff921181}{sortFileCells\_ByMachine}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head);}
+\DoxyCodeLine{118 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_ab1e0858531fe4b32081edfb3697bc33c}{getCellsToExport}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}]);}
+\DoxyCodeLine{119 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_ac3605da0d42c8486e9430e84f5f790fc}{exportPlan}}(\textcolor{keywordtype}{char}* fileName, \mbox{\hyperlink{struct_file_cell}{FileCell}}* head);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

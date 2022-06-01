@@ -1,0 +1,776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Flexible Job Shop Problem: ReferÃªncia ao ficheiro C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/data-types.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
+   </div>
+   <div id="projectbrief">Proposta de escalonamento para a produÃ§Ã£o de um produto que envolve vÃ¡rias operaÃ§Ãµes e a utilizaÃ§Ã£o de vÃ¡rias mÃ¡quinas, para minimizar o tempo necessÃ¡rio na sua produÃ§Ã£o.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_45c3d416b95fca600a286ee78c23e56e.html">fjssp</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estruturas de Dados</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">DefiniÃ§Ãµes de tipos</a> &#124;
+<a href="#enum-members">EnumeraÃ§Ãµes</a> &#124;
+<a href="#var-members">VariÃ¡veis</a>  </div>
+  <div class="headertitle"><div class="title">ReferÃªncia ao ficheiro data-types.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Ficheiro com todas as assinaturas globais necessários para a utilização dos tipos e estruturas de dados.  
+<a href="#details">Mais...</a></p>
+
+<p><a href="data-types_8h_source.html">Ir para o cÃ³digo fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Estruturas de Dados</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_job.html">Job</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista de trabalhos (em memória)  <a href="struct_job.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_machine.html">Machine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista de máquinas (em memória)  <a href="struct_machine.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_operation.html">Operation</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista de operações (em memória)  <a href="struct_operation.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution.html">Execution</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)  <a href="struct_execution.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_execution_node.html">ExecutionNode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar cada nó (posição) da tabela hash das execuções (em memória)  <a href="struct_execution_node.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_work_plan.html">WorkPlan</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção.  <a href="struct_work_plan.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_cell.html">Cell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar uma célula do plano de produção.  <a href="struct_cell.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_job.html">FileJob</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de trabalhos.  <a href="struct_file_job.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_machine.html">FileMachine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de máquinas.  <a href="struct_file_machine.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_operation.html">FileOperation</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de operações.  <a href="struct_file_operation.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_execution.html">FileExecution</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas.  <a href="struct_file_execution.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_cell.html">FileCell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro uma célula do plano de produção.  <a href="struct_file_cell.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:abfd8510b1fadf533d685965730e2969b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>&#160;&#160;&#160;13</td></tr>
+<tr class="separator:abfd8510b1fadf533d685965730e2969b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24db60c59551899be0cf71702a20314"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">NUMBER_MACHINES</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:ad24db60c59551899be0cf71702a20314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5320d4457a472d8888ec1905bc0e0a1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">MAX_TIME</a>&#160;&#160;&#160;35</td></tr>
+<tr class="separator:a5320d4457a472d8888ec1905bc0e0a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4dd63083e24ffd8dd2c455b355106c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">FILE_LINE_SIZE</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:af4dd63083e24ffd8dd2c455b355106c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92d724b49f4c5f6f087396e833e95411"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a92d724b49f4c5f6f087396e833e95411">JOBS_FILENAME_TEXT</a>&#160;&#160;&#160;&quot;text/jobs.csv&quot;</td></tr>
+<tr class="separator:a92d724b49f4c5f6f087396e833e95411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cee344c6f8f2c5f0f1c953ae30ad79c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a0cee344c6f8f2c5f0f1c953ae30ad79c">MACHINES_FILENAME_TEXT</a>&#160;&#160;&#160;&quot;text/machines.csv&quot;</td></tr>
+<tr class="separator:a0cee344c6f8f2c5f0f1c953ae30ad79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8a4c9c1d13c9e3db4d2238ef43be113"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#ae8a4c9c1d13c9e3db4d2238ef43be113">OPERATIONS_FILENAME_TEXT</a>&#160;&#160;&#160;&quot;text/operations.csv&quot;</td></tr>
+<tr class="separator:ae8a4c9c1d13c9e3db4d2238ef43be113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0778c62b500b00edb448466ddcd06d13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a0778c62b500b00edb448466ddcd06d13">EXECUTIONS_FILENAME_TEXT</a>&#160;&#160;&#160;&quot;text/executions.csv&quot;</td></tr>
+<tr class="separator:a0778c62b500b00edb448466ddcd06d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545550cbf83abfc8fba0c2e55b547cf0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a545550cbf83abfc8fba0c2e55b547cf0">PLAN_FILENAME_TEXT</a>&#160;&#160;&#160;&quot;text/plan.csv&quot;</td></tr>
+<tr class="separator:a545550cbf83abfc8fba0c2e55b547cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c81b4fa8dd6f1a738151f4d0fbbe25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a10c81b4fa8dd6f1a738151f4d0fbbe25">OPEARATIONS_TEXT_SIZE</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a10c81b4fa8dd6f1a738151f4d0fbbe25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c01afb31522618361a6f72fd5f251e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a2c01afb31522618361a6f72fd5f251e3">JOBS_FILENAME_BINARY</a>&#160;&#160;&#160;&quot;binary/jobs.bin&quot;</td></tr>
+<tr class="separator:a2c01afb31522618361a6f72fd5f251e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98c496e67aa9615cc4b453c809b23791"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a98c496e67aa9615cc4b453c809b23791">MACHINES_FILENAME_BINARY</a>&#160;&#160;&#160;&quot;binary/machines.bin&quot;</td></tr>
+<tr class="separator:a98c496e67aa9615cc4b453c809b23791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6c24386c8e549126bc8ec7ba4ff952"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a3c6c24386c8e549126bc8ec7ba4ff952">OPERATIONS_FILENAME_BINARY</a>&#160;&#160;&#160;&quot;binary/operations.bin&quot;</td></tr>
+<tr class="separator:a3c6c24386c8e549126bc8ec7ba4ff952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2212b6c51d5f434ba0f309964d4b02b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#aa2212b6c51d5f434ba0f309964d4b02b">EXECUTIONS_FILENAME_BINARY</a>&#160;&#160;&#160;&quot;binary/executions.bin&quot;</td></tr>
+<tr class="separator:aa2212b6c51d5f434ba0f309964d4b02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+DefiniÃ§Ãµes de tipos</h2></td></tr>
+<tr class="memitem:ac42e06a86a5419b9bb1eeee85c78c4e9"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#ac42e06a86a5419b9bb1eeee85c78c4e9">bool</a></td></tr>
+<tr class="memdesc:ac42e06a86a5419b9bb1eeee85c78c4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar tipo de dados booleano.  <a href="data-types_8h.html#ac42e06a86a5419b9bb1eeee85c78c4e9">Mais...</a><br /></td></tr>
+<tr class="separator:ac42e06a86a5419b9bb1eeee85c78c4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f678ed7503a7b4211821d14323751d8"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_job.html">Job</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a7f678ed7503a7b4211821d14323751d8">Job</a></td></tr>
+<tr class="memdesc:a7f678ed7503a7b4211821d14323751d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista de trabalhos (em memória)  <a href="data-types_8h.html#a7f678ed7503a7b4211821d14323751d8">Mais...</a><br /></td></tr>
+<tr class="separator:a7f678ed7503a7b4211821d14323751d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5435b96779b7d7659b398b8275b6cbf"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_machine.html">Machine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#ac5435b96779b7d7659b398b8275b6cbf">Machine</a></td></tr>
+<tr class="memdesc:ac5435b96779b7d7659b398b8275b6cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista de máquinas (em memória)  <a href="data-types_8h.html#ac5435b96779b7d7659b398b8275b6cbf">Mais...</a><br /></td></tr>
+<tr class="separator:ac5435b96779b7d7659b398b8275b6cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a482954e58a1aa24c2a67b81bb6d92d9c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_operation.html">Operation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c">Operation</a></td></tr>
+<tr class="memdesc:a482954e58a1aa24c2a67b81bb6d92d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista de operações (em memória)  <a href="data-types_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c">Mais...</a><br /></td></tr>
+<tr class="separator:a482954e58a1aa24c2a67b81bb6d92d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace4a8a5be0edf7bb2ffc9da31308511"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_execution.html">Execution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#aace4a8a5be0edf7bb2ffc9da31308511">Execution</a></td></tr>
+<tr class="memdesc:aace4a8a5be0edf7bb2ffc9da31308511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)  <a href="data-types_8h.html#aace4a8a5be0edf7bb2ffc9da31308511">Mais...</a><br /></td></tr>
+<tr class="separator:aace4a8a5be0edf7bb2ffc9da31308511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd3c4460fccd7d3d5a3292941e5fa05"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_work_plan.html">WorkPlan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a6cd3c4460fccd7d3d5a3292941e5fa05">WorkPlan</a></td></tr>
+<tr class="memdesc:a6cd3c4460fccd7d3d5a3292941e5fa05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção.  <a href="data-types_8h.html#a6cd3c4460fccd7d3d5a3292941e5fa05">Mais...</a><br /></td></tr>
+<tr class="separator:a6cd3c4460fccd7d3d5a3292941e5fa05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60bf09598e66928bf67a21a22bc17814"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_cell.html">Cell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a60bf09598e66928bf67a21a22bc17814">Cell</a></td></tr>
+<tr class="memdesc:a60bf09598e66928bf67a21a22bc17814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para representar uma célula do plano de produção.  <a href="data-types_8h.html#a60bf09598e66928bf67a21a22bc17814">Mais...</a><br /></td></tr>
+<tr class="separator:a60bf09598e66928bf67a21a22bc17814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb6a214f53f16cdb5113036e731a2e2"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_file_job.html">FileJob</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#abfb6a214f53f16cdb5113036e731a2e2">FileJob</a></td></tr>
+<tr class="memdesc:abfb6a214f53f16cdb5113036e731a2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de trabalhos.  <a href="data-types_8h.html#abfb6a214f53f16cdb5113036e731a2e2">Mais...</a><br /></td></tr>
+<tr class="separator:abfb6a214f53f16cdb5113036e731a2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c190f983ffc1790c1d1315b0884b4d3"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_file_machine.html">FileMachine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a7c190f983ffc1790c1d1315b0884b4d3">FileMachine</a></td></tr>
+<tr class="memdesc:a7c190f983ffc1790c1d1315b0884b4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de máquinas.  <a href="data-types_8h.html#a7c190f983ffc1790c1d1315b0884b4d3">Mais...</a><br /></td></tr>
+<tr class="separator:a7c190f983ffc1790c1d1315b0884b4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9fda784e10ac5624195204a6d499a65"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_file_operation.html">FileOperation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#ac9fda784e10ac5624195204a6d499a65">FileOperation</a></td></tr>
+<tr class="memdesc:ac9fda784e10ac5624195204a6d499a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de operações.  <a href="data-types_8h.html#ac9fda784e10ac5624195204a6d499a65">Mais...</a><br /></td></tr>
+<tr class="separator:ac9fda784e10ac5624195204a6d499a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460a67751b57788df2d041efe14c70df"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_file_execution.html">FileExecution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a460a67751b57788df2d041efe14c70df">FileExecution</a></td></tr>
+<tr class="memdesc:a460a67751b57788df2d041efe14c70df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas.  <a href="data-types_8h.html#a460a67751b57788df2d041efe14c70df">Mais...</a><br /></td></tr>
+<tr class="separator:a460a67751b57788df2d041efe14c70df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50e77eabd575f4455c13aa0cfda3935d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_file_cell.html">FileCell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a50e77eabd575f4455c13aa0cfda3935d">FileCell</a></td></tr>
+<tr class="memdesc:a50e77eabd575f4455c13aa0cfda3935d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de dados para armazenar em ficheiro uma célula do plano de produção.  <a href="data-types_8h.html#a50e77eabd575f4455c13aa0cfda3935d">Mais...</a><br /></td></tr>
+<tr class="separator:a50e77eabd575f4455c13aa0cfda3935d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+EnumeraÃ§Ãµes</h2></td></tr>
+<tr class="memitem:af6a258d8f3ee5206d682d799316314b1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> { <a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c">false</a> = 0
+, <a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b">true</a> = 1
+ }</td></tr>
+<tr class="memdesc:af6a258d8f3ee5206d682d799316314b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Criar tipo de dados booleano.  <a href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">Mais...</a><br /></td></tr>
+<tr class="separator:af6a258d8f3ee5206d682d799316314b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+VariÃ¡veis</h2></td></tr>
+<tr class="memitem:a5aba9fa4b62a768af157854c4db1e7ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_job.html">Job</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a></td></tr>
+<tr class="separator:a5aba9fa4b62a768af157854c4db1e7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c589580d7f2357c2e3c5cbec30dcacf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_machine.html">Machine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a></td></tr>
+<tr class="separator:a7c589580d7f2357c2e3c5cbec30dcacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141d2a58898a5ea72097da30116580ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_operation.html">Operation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a></td></tr>
+<tr class="separator:a141d2a58898a5ea72097da30116580ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f928c4814f71d1aa98651c8b7d98f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution.html">Execution</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a></td></tr>
+<tr class="separator:a06f928c4814f71d1aa98651c8b7d98f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cca8a4d7145b6602de842ff0421283f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_execution_node.html">ExecutionNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a> [<a class="el" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>]</td></tr>
+<tr class="separator:a9cca8a4d7145b6602de842ff0421283f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad917416d63c60b78e7c5996a98803f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cell.html">Cell</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a> [<a class="el" href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">NUMBER_MACHINES</a>][<a class="el" href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">MAX_TIME</a>]</td></tr>
+<tr class="separator:a7ad917416d63c60b78e7c5996a98803f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">DescriÃ§Ã£o detalhada</h2>
+<div class="textblock"><p >Ficheiro com todas as assinaturas globais necessários para a utilização dos tipos e estruturas de dados. </p>
+<dl class="section author"><dt>Autor</dt><dd>Luís Pereira @email <a href="#" onclick="location.href='mai'+'lto:'+'a18'+'44'+'6@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1844<span class="obfuscator">.nosp@m.</span>6@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a> </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>25/03/2022 </dd></dl>
+</div><h2 class="groupheader">DocumentaÃ§Ã£o das macros</h2>
+<a id="aa2212b6c51d5f434ba0f309964d4b02b" name="aa2212b6c51d5f434ba0f309964d4b02b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2212b6c51d5f434ba0f309964d4b02b">&#9670;&nbsp;</a></span>EXECUTIONS_FILENAME_BINARY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXECUTIONS_FILENAME_BINARY&#160;&#160;&#160;&quot;binary/executions.bin&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0778c62b500b00edb448466ddcd06d13" name="a0778c62b500b00edb448466ddcd06d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0778c62b500b00edb448466ddcd06d13">&#9670;&nbsp;</a></span>EXECUTIONS_FILENAME_TEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXECUTIONS_FILENAME_TEXT&#160;&#160;&#160;&quot;text/executions.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4dd63083e24ffd8dd2c455b355106c0" name="af4dd63083e24ffd8dd2c455b355106c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4dd63083e24ffd8dd2c455b355106c0">&#9670;&nbsp;</a></span>FILE_LINE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FILE_LINE_SIZE&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfd8510b1fadf533d685965730e2969b" name="abfd8510b1fadf533d685965730e2969b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd8510b1fadf533d685965730e2969b">&#9670;&nbsp;</a></span>HASH_TABLE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HASH_TABLE_SIZE&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c01afb31522618361a6f72fd5f251e3" name="a2c01afb31522618361a6f72fd5f251e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c01afb31522618361a6f72fd5f251e3">&#9670;&nbsp;</a></span>JOBS_FILENAME_BINARY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JOBS_FILENAME_BINARY&#160;&#160;&#160;&quot;binary/jobs.bin&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92d724b49f4c5f6f087396e833e95411" name="a92d724b49f4c5f6f087396e833e95411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92d724b49f4c5f6f087396e833e95411">&#9670;&nbsp;</a></span>JOBS_FILENAME_TEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JOBS_FILENAME_TEXT&#160;&#160;&#160;&quot;text/jobs.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98c496e67aa9615cc4b453c809b23791" name="a98c496e67aa9615cc4b453c809b23791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98c496e67aa9615cc4b453c809b23791">&#9670;&nbsp;</a></span>MACHINES_FILENAME_BINARY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MACHINES_FILENAME_BINARY&#160;&#160;&#160;&quot;binary/machines.bin&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cee344c6f8f2c5f0f1c953ae30ad79c" name="a0cee344c6f8f2c5f0f1c953ae30ad79c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cee344c6f8f2c5f0f1c953ae30ad79c">&#9670;&nbsp;</a></span>MACHINES_FILENAME_TEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MACHINES_FILENAME_TEXT&#160;&#160;&#160;&quot;text/machines.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5320d4457a472d8888ec1905bc0e0a1c" name="a5320d4457a472d8888ec1905bc0e0a1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5320d4457a472d8888ec1905bc0e0a1c">&#9670;&nbsp;</a></span>MAX_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_TIME&#160;&#160;&#160;35</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad24db60c59551899be0cf71702a20314" name="ad24db60c59551899be0cf71702a20314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24db60c59551899be0cf71702a20314">&#9670;&nbsp;</a></span>NUMBER_MACHINES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NUMBER_MACHINES&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10c81b4fa8dd6f1a738151f4d0fbbe25" name="a10c81b4fa8dd6f1a738151f4d0fbbe25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c81b4fa8dd6f1a738151f4d0fbbe25">&#9670;&nbsp;</a></span>OPEARATIONS_TEXT_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OPEARATIONS_TEXT_SIZE&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c6c24386c8e549126bc8ec7ba4ff952" name="a3c6c24386c8e549126bc8ec7ba4ff952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6c24386c8e549126bc8ec7ba4ff952">&#9670;&nbsp;</a></span>OPERATIONS_FILENAME_BINARY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OPERATIONS_FILENAME_BINARY&#160;&#160;&#160;&quot;binary/operations.bin&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8a4c9c1d13c9e3db4d2238ef43be113" name="ae8a4c9c1d13c9e3db4d2238ef43be113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8a4c9c1d13c9e3db4d2238ef43be113">&#9670;&nbsp;</a></span>OPERATIONS_FILENAME_TEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OPERATIONS_FILENAME_TEXT&#160;&#160;&#160;&quot;text/operations.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a545550cbf83abfc8fba0c2e55b547cf0" name="a545550cbf83abfc8fba0c2e55b547cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545550cbf83abfc8fba0c2e55b547cf0">&#9670;&nbsp;</a></span>PLAN_FILENAME_TEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PLAN_FILENAME_TEXT&#160;&#160;&#160;&quot;text/plan.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">DocumentaÃ§Ã£o dos tipos</h2>
+<a id="ac42e06a86a5419b9bb1eeee85c78c4e9" name="ac42e06a86a5419b9bb1eeee85c78c4e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac42e06a86a5419b9bb1eeee85c78c4e9">&#9670;&nbsp;</a></span>bool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> <a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Criar tipo de dados booleano. </p>
+
+</div>
+</div>
+<a id="a60bf09598e66928bf67a21a22bc17814" name="a60bf09598e66928bf67a21a22bc17814"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60bf09598e66928bf67a21a22bc17814">&#9670;&nbsp;</a></span>Cell</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_cell.html">Cell</a> <a class="el" href="struct_cell.html">Cell</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para representar uma célula do plano de produção. </p>
+
+</div>
+</div>
+<a id="aace4a8a5be0edf7bb2ffc9da31308511" name="aace4a8a5be0edf7bb2ffc9da31308511"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aace4a8a5be0edf7bb2ffc9da31308511">&#9670;&nbsp;</a></span>Execution</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_execution.html">Execution</a> <a class="el" href="struct_execution.html">Execution</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória) </p>
+
+</div>
+</div>
+<a id="a50e77eabd575f4455c13aa0cfda3935d" name="a50e77eabd575f4455c13aa0cfda3935d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50e77eabd575f4455c13aa0cfda3935d">&#9670;&nbsp;</a></span>FileCell</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_file_cell.html">FileCell</a> <a class="el" href="struct_file_cell.html">FileCell</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para armazenar em ficheiro uma célula do plano de produção. </p>
+
+</div>
+</div>
+<a id="a460a67751b57788df2d041efe14c70df" name="a460a67751b57788df2d041efe14c70df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460a67751b57788df2d041efe14c70df">&#9670;&nbsp;</a></span>FileExecution</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_file_execution.html">FileExecution</a> <a class="el" href="struct_file_execution.html">FileExecution</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas. </p>
+
+</div>
+</div>
+<a id="abfb6a214f53f16cdb5113036e731a2e2" name="abfb6a214f53f16cdb5113036e731a2e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb6a214f53f16cdb5113036e731a2e2">&#9670;&nbsp;</a></span>FileJob</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_file_job.html">FileJob</a> <a class="el" href="struct_file_job.html">FileJob</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para armazenar em ficheiro a lista de trabalhos. </p>
+
+</div>
+</div>
+<a id="a7c190f983ffc1790c1d1315b0884b4d3" name="a7c190f983ffc1790c1d1315b0884b4d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c190f983ffc1790c1d1315b0884b4d3">&#9670;&nbsp;</a></span>FileMachine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_file_machine.html">FileMachine</a> <a class="el" href="struct_file_machine.html">FileMachine</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para armazenar em ficheiro a lista de máquinas. </p>
+
+</div>
+</div>
+<a id="ac9fda784e10ac5624195204a6d499a65" name="ac9fda784e10ac5624195204a6d499a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9fda784e10ac5624195204a6d499a65">&#9670;&nbsp;</a></span>FileOperation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_file_operation.html">FileOperation</a> <a class="el" href="struct_file_operation.html">FileOperation</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para armazenar em ficheiro a lista de operações. </p>
+
+</div>
+</div>
+<a id="a7f678ed7503a7b4211821d14323751d8" name="a7f678ed7503a7b4211821d14323751d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f678ed7503a7b4211821d14323751d8">&#9670;&nbsp;</a></span>Job</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_job.html">Job</a> <a class="el" href="struct_job.html">Job</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para representar a lista de trabalhos (em memória) </p>
+
+</div>
+</div>
+<a id="ac5435b96779b7d7659b398b8275b6cbf" name="ac5435b96779b7d7659b398b8275b6cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5435b96779b7d7659b398b8275b6cbf">&#9670;&nbsp;</a></span>Machine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_machine.html">Machine</a> <a class="el" href="struct_machine.html">Machine</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para representar a lista de máquinas (em memória) </p>
+
+</div>
+</div>
+<a id="a482954e58a1aa24c2a67b81bb6d92d9c" name="a482954e58a1aa24c2a67b81bb6d92d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a482954e58a1aa24c2a67b81bb6d92d9c">&#9670;&nbsp;</a></span>Operation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_operation.html">Operation</a> <a class="el" href="struct_operation.html">Operation</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para representar a lista de operações (em memória) </p>
+
+</div>
+</div>
+<a id="a6cd3c4460fccd7d3d5a3292941e5fa05" name="a6cd3c4460fccd7d3d5a3292941e5fa05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd3c4460fccd7d3d5a3292941e5fa05">&#9670;&nbsp;</a></span>WorkPlan</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_work_plan.html">WorkPlan</a> <a class="el" href="struct_work_plan.html">WorkPlan</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção. </p>
+
+</div>
+</div>
+<h2 class="groupheader">DocumentaÃ§Ã£o dos valores da enumeraÃ§Ã£o</h2>
+<a id="af6a258d8f3ee5206d682d799316314b1" name="af6a258d8f3ee5206d682d799316314b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a258d8f3ee5206d682d799316314b1">&#9670;&nbsp;</a></span>bool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Criar tipo de dados booleano. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraÃ§Ãµes</th></tr><tr><td class="fieldname"><a id="af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c" name="af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c"></a>false&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b" name="af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b"></a>true&#160;</td><td class="fielddoc"></td></tr>
+</table>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>{</div>
+<div class="line"><span class="lineno">   47</span>   <span class="keyword">false</span> = 0,</div>
+<div class="line"><span class="lineno">   48</span>   <span class="keyword">true</span> = 1</div>
+<div class="line"><span class="lineno">   49</span>} <a class="code hl_enumeration" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>;</div>
+<div class="ttc" id="adata-types_8h_html_af6a258d8f3ee5206d682d799316314b1"><div class="ttname"><a href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a></div><div class="ttdeci">bool</div><div class="ttdoc">Criar tipo de dados booleano.</div><div class="ttdef"><b>Definition:</b> data-types.h:46</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">DocumentaÃ§Ã£o das variÃ¡veis</h2>
+<a id="a06f928c4814f71d1aa98651c8b7d98f9" name="a06f928c4814f71d1aa98651c8b7d98f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f928c4814f71d1aa98651c8b7d98f9">&#9670;&nbsp;</a></span>executions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution.html">Execution</a>* executions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cca8a4d7145b6602de842ff0421283f" name="a9cca8a4d7145b6602de842ff0421283f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cca8a4d7145b6602de842ff0421283f">&#9670;&nbsp;</a></span>executionsTable</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_execution_node.html">ExecutionNode</a>* executionsTable[<a class="el" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5aba9fa4b62a768af157854c4db1e7ff" name="a5aba9fa4b62a768af157854c4db1e7ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aba9fa4b62a768af157854c4db1e7ff">&#9670;&nbsp;</a></span>jobs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_job.html">Job</a>* jobs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c589580d7f2357c2e3c5cbec30dcacf" name="a7c589580d7f2357c2e3c5cbec30dcacf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c589580d7f2357c2e3c5cbec30dcacf">&#9670;&nbsp;</a></span>machines</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_machine.html">Machine</a>* machines</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a141d2a58898a5ea72097da30116580ee" name="a141d2a58898a5ea72097da30116580ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a141d2a58898a5ea72097da30116580ee">&#9670;&nbsp;</a></span>operations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_operation.html">Operation</a>* operations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ad917416d63c60b78e7c5996a98803f" name="a7ad917416d63c60b78e7c5996a98803f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ad917416d63c60b78e7c5996a98803f">&#9670;&nbsp;</a></span>plan</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_cell.html">Cell</a> plan[<a class="el" href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">NUMBER_MACHINES</a>][<a class="el" href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">MAX_TIME</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+</small></address>
+</body>
+</html>

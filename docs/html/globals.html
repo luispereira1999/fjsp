@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.3</span>
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
    </div>
    <div id="projectbrief">Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.</div>
   </td>
@@ -66,120 +66,194 @@ $(function() {
 <div class="textblock">Lista de todas as funções, variáveis, definições, enumerações e definições de tipo com referência para o ficheiro a que pertecem:</div>
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>bool&#160;:&#160;<a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1">header.h</a></li>
+<li>bool&#160;:&#160;<a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">data-types.h</a></li>
+</ul>
+
+
+<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>Cell&#160;:&#160;<a class="el" href="data-types_8h.html#a60bf09598e66928bf67a21a22bc17814">data-types.h</a></li>
+<li>countJobs()&#160;:&#160;<a class="el" href="jobs_8c.html#a4e9b4f83d12b971cdcd6637db523331b">jobs.c</a>, <a class="el" href="lists_8h.html#a4e9b4f83d12b971cdcd6637db523331b">lists.h</a></li>
+<li>createExecutionNode()&#160;:&#160;<a class="el" href="executions_8c.html#a4c80c06ef32843a9af68abccd166cfaf">executions.c</a>, <a class="el" href="hashing_8h.html#a4c80c06ef32843a9af68abccd166cfaf">hashing.h</a></li>
+<li>createExecutionsTable()&#160;:&#160;<a class="el" href="executions_8c.html#a0001c4cf520ad185db5413445b1e461a">executions.c</a>, <a class="el" href="hashing_8h.html#a0001c4cf520ad185db5413445b1e461a">hashing.h</a></li>
 </ul>
 
 
 <h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
-<li>deleteExecutionByOperation()&#160;:&#160;<a class="el" href="executions_8c.html#ac9f939da818fe28a3bf38bc69b72e04c">executions.c</a>, <a class="el" href="header_8h.html#ac9f939da818fe28a3bf38bc69b72e04c">header.h</a></li>
-<li>deleteOperation()&#160;:&#160;<a class="el" href="header_8h.html#a233173b4692808bbaa16f5887ae19789">header.h</a>, <a class="el" href="operations_8c.html#a233173b4692808bbaa16f5887ae19789">operations.c</a></li>
-<li>displayExecutions()&#160;:&#160;<a class="el" href="executions_8c.html#a1d514c72e91412b8ec09efd02f6b7d4f">executions.c</a>, <a class="el" href="header_8h.html#a1d514c72e91412b8ec09efd02f6b7d4f">header.h</a></li>
-<li>displayJobs()&#160;:&#160;<a class="el" href="header_8h.html#a91295985e34799e3cea579e2fe66d0a8">header.h</a>, <a class="el" href="jobs_8c.html#a91295985e34799e3cea579e2fe66d0a8">jobs.c</a></li>
-<li>displayMachines()&#160;:&#160;<a class="el" href="header_8h.html#aa54244730868e6e7083ed3035581e01a">header.h</a>, <a class="el" href="machines_8c.html#aa54244730868e6e7083ed3035581e01a">machines.c</a></li>
-<li>displayOperations()&#160;:&#160;<a class="el" href="header_8h.html#a1cac0b2d491be7953af600a2b434cc56">header.h</a>, <a class="el" href="operations_8c.html#a1cac0b2d491be7953af600a2b434cc56">operations.c</a></li>
+<li>deleteExecution_ByOperation_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#a3f1c8469fd5be248139fb23655a88787">executions.c</a>, <a class="el" href="lists_8h.html#a3f1c8469fd5be248139fb23655a88787">lists.h</a></li>
+<li>deleteExecutions_ByOperation_AtTable()&#160;:&#160;<a class="el" href="executions_8c.html#afe647db2279682c65d3262a7bfaa9ce4">executions.c</a>, <a class="el" href="hashing_8h.html#afe647db2279682c65d3262a7bfaa9ce4">hashing.h</a></li>
+<li>deleteJob()&#160;:&#160;<a class="el" href="jobs_8c.html#a2c34d85e5a249e35be61dd94b5be3e87">jobs.c</a>, <a class="el" href="lists_8h.html#a2c34d85e5a249e35be61dd94b5be3e87">lists.h</a></li>
+<li>deleteOperation()&#160;:&#160;<a class="el" href="lists_8h.html#a233173b4692808bbaa16f5887ae19789">lists.h</a>, <a class="el" href="operations_8c.html#a233173b4692808bbaa16f5887ae19789">operations.c</a></li>
+<li>deleteOperation_ByJob()&#160;:&#160;<a class="el" href="lists_8h.html#a7bd69f169a9c02bdc3d8fe298fbabab3">lists.h</a>, <a class="el" href="operations_8c.html#a7bd69f169a9c02bdc3d8fe298fbabab3">operations.c</a></li>
+<li>displayExecutions_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#af71ebace66f1a24bf562109b2c037c64">executions.c</a>, <a class="el" href="lists_8h.html#af71ebace66f1a24bf562109b2c037c64">lists.h</a></li>
+<li>displayExecutions_AtTable()&#160;:&#160;<a class="el" href="executions_8c.html#abe6834a2be75b22fc1a593753608a024">executions.c</a>, <a class="el" href="hashing_8h.html#abe6834a2be75b22fc1a593753608a024">hashing.h</a></li>
+<li>displayJobs()&#160;:&#160;<a class="el" href="jobs_8c.html#a91295985e34799e3cea579e2fe66d0a8">jobs.c</a>, <a class="el" href="lists_8h.html#a91295985e34799e3cea579e2fe66d0a8">lists.h</a></li>
+<li>displayMachines()&#160;:&#160;<a class="el" href="lists_8h.html#aa54244730868e6e7083ed3035581e01a">lists.h</a>, <a class="el" href="machines_8c.html#aa54244730868e6e7083ed3035581e01a">machines.c</a></li>
+<li>displayOperations()&#160;:&#160;<a class="el" href="lists_8h.html#a1cac0b2d491be7953af600a2b434cc56">lists.h</a>, <a class="el" href="operations_8c.html#a1cac0b2d491be7953af600a2b434cc56">operations.c</a></li>
+<li>displayPlan()&#160;:&#160;<a class="el" href="lists_8h.html#ab074cf1a0b599b4206956bc751e29548">lists.h</a>, <a class="el" href="plan_8c.html#ab074cf1a0b599b4206956bc751e29548">plan.c</a></li>
+<li>displayWorkPlans()&#160;:&#160;<a class="el" href="lists_8h.html#a05442746cf729c59ad9396084b796594">lists.h</a>, <a class="el" href="work-plans_8c.html#a05442746cf729c59ad9396084b796594">work-plans.c</a></li>
 </ul>
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>Execution&#160;:&#160;<a class="el" href="header_8h.html#aace4a8a5be0edf7bb2ffc9da31308511">header.h</a></li>
-<li>executions&#160;:&#160;<a class="el" href="header_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">header.h</a></li>
+<li>enableMachine()&#160;:&#160;<a class="el" href="lists_8h.html#a84a442265a9f1e01405b51c3b958160b">lists.h</a>, <a class="el" href="machines_8c.html#a84a442265a9f1e01405b51c3b958160b">machines.c</a></li>
+<li>Execution&#160;:&#160;<a class="el" href="data-types_8h.html#aace4a8a5be0edf7bb2ffc9da31308511">data-types.h</a></li>
+<li>executions&#160;:&#160;<a class="el" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">data-types.h</a></li>
+<li>EXECUTIONS_FILENAME_BINARY&#160;:&#160;<a class="el" href="data-types_8h.html#aa2212b6c51d5f434ba0f309964d4b02b">data-types.h</a></li>
+<li>EXECUTIONS_FILENAME_TEXT&#160;:&#160;<a class="el" href="data-types_8h.html#a0778c62b500b00edb448466ddcd06d13">data-types.h</a></li>
+<li>executionsTable&#160;:&#160;<a class="el" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">data-types.h</a></li>
+<li>exportPlan()&#160;:&#160;<a class="el" href="lists_8h.html#ac3605da0d42c8486e9430e84f5f790fc">lists.h</a>, <a class="el" href="plan_8c.html#ac3605da0d42c8486e9430e84f5f790fc">plan.c</a></li>
 </ul>
 
 
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
-<li>false&#160;:&#160;<a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c">header.h</a></li>
-<li>FileExecution&#160;:&#160;<a class="el" href="header_8h.html#a460a67751b57788df2d041efe14c70df">header.h</a></li>
-<li>FileJob&#160;:&#160;<a class="el" href="header_8h.html#abfb6a214f53f16cdb5113036e731a2e2">header.h</a></li>
-<li>FileMachine&#160;:&#160;<a class="el" href="header_8h.html#a7c190f983ffc1790c1d1315b0884b4d3">header.h</a></li>
-<li>FileOperation&#160;:&#160;<a class="el" href="header_8h.html#ac9fda784e10ac5624195204a6d499a65">header.h</a></li>
-<li>freeExecutions()&#160;:&#160;<a class="el" href="executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721">executions.c</a>, <a class="el" href="header_8h.html#a67b917d9e7aff6fc85c7d3cee1150721">header.h</a></li>
-<li>freeJobs()&#160;:&#160;<a class="el" href="header_8h.html#a542b381bfbc143ae575e98f684117265">header.h</a>, <a class="el" href="jobs_8c.html#a542b381bfbc143ae575e98f684117265">jobs.c</a></li>
-<li>freeMachines()&#160;:&#160;<a class="el" href="header_8h.html#adf36b4d501a3dcbaf8ac959da2d76c8f">header.h</a>, <a class="el" href="machines_8c.html#adf36b4d501a3dcbaf8ac959da2d76c8f">machines.c</a></li>
-<li>freeOperations()&#160;:&#160;<a class="el" href="header_8h.html#af64e219dfa9552b285dd100375c2c6a7">header.h</a>, <a class="el" href="operations_8c.html#af64e219dfa9552b285dd100375c2c6a7">operations.c</a></li>
+<li>false&#160;:&#160;<a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c">data-types.h</a></li>
+<li>FILE_LINE_SIZE&#160;:&#160;<a class="el" href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">data-types.h</a></li>
+<li>FileCell&#160;:&#160;<a class="el" href="data-types_8h.html#a50e77eabd575f4455c13aa0cfda3935d">data-types.h</a></li>
+<li>FileExecution&#160;:&#160;<a class="el" href="data-types_8h.html#a460a67751b57788df2d041efe14c70df">data-types.h</a></li>
+<li>FileJob&#160;:&#160;<a class="el" href="data-types_8h.html#abfb6a214f53f16cdb5113036e731a2e2">data-types.h</a></li>
+<li>FileMachine&#160;:&#160;<a class="el" href="data-types_8h.html#a7c190f983ffc1790c1d1315b0884b4d3">data-types.h</a></li>
+<li>FileOperation&#160;:&#160;<a class="el" href="data-types_8h.html#ac9fda784e10ac5624195204a6d499a65">data-types.h</a></li>
+<li>fillAllPlan()&#160;:&#160;<a class="el" href="lists_8h.html#a7d28c8573c3c9f74d0b8add376798451">lists.h</a>, <a class="el" href="plan_8c.html#a7d28c8573c3c9f74d0b8add376798451">plan.c</a></li>
+<li>fillCells()&#160;:&#160;<a class="el" href="lists_8h.html#a55b29a5d3ac64404e1934a055b890d8a">lists.h</a>, <a class="el" href="plan_8c.html#a55b29a5d3ac64404e1934a055b890d8a">plan.c</a></li>
+<li>freeExecutions_List()&#160;:&#160;<a class="el" href="executions_8c.html#afaa5a8328ff70ca63ea1a3bd5a8a3f59">executions.c</a>, <a class="el" href="lists_8h.html#afaa5a8328ff70ca63ea1a3bd5a8a3f59">lists.h</a></li>
+<li>freeExecutions_Table()&#160;:&#160;<a class="el" href="executions_8c.html#a7c503615b2b7aef617ccb9c6ff5cdfc2">executions.c</a>, <a class="el" href="hashing_8h.html#a7c503615b2b7aef617ccb9c6ff5cdfc2">hashing.h</a></li>
+<li>freeJobs()&#160;:&#160;<a class="el" href="jobs_8c.html#a72cbadab093ab1d12140ac0f70196359">jobs.c</a>, <a class="el" href="lists_8h.html#a72cbadab093ab1d12140ac0f70196359">lists.h</a></li>
+<li>freeMachines()&#160;:&#160;<a class="el" href="lists_8h.html#a45e40b72215808e4587470756ce0cd0f">lists.h</a>, <a class="el" href="machines_8c.html#a45e40b72215808e4587470756ce0cd0f">machines.c</a></li>
+<li>freeOperations()&#160;:&#160;<a class="el" href="lists_8h.html#a67f132c293a67eb039eeaccad8a6cd36">lists.h</a>, <a class="el" href="operations_8c.html#a67f132c293a67eb039eeaccad8a6cd36">operations.c</a></li>
 </ul>
 
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>getAverageTimeToCompleteOperation()&#160;:&#160;<a class="el" href="header_8h.html#aae1f099b3ffebc5b9b49209b190ebe9f">header.h</a>, <a class="el" href="operations_8c.html#aae1f099b3ffebc5b9b49209b190ebe9f">operations.c</a></li>
-<li>getMaxTimeToCompleteJob()&#160;:&#160;<a class="el" href="header_8h.html#ac4666af18140d926937410a7bf7e0505">header.h</a>, <a class="el" href="operations_8c.html#ac4666af18140d926937410a7bf7e0505">operations.c</a></li>
-<li>getMinTimeToCompleteJob()&#160;:&#160;<a class="el" href="header_8h.html#a52f8c01701a8184c95cc0b0de65cdbef">header.h</a>, <a class="el" href="operations_8c.html#a52f8c01701a8184c95cc0b0de65cdbef">operations.c</a></li>
+<li>generateHash()&#160;:&#160;<a class="el" href="executions_8c.html#a8c200281c48846597568efc4e71806c8">executions.c</a>, <a class="el" href="hashing_8h.html#a482e8e08727fd13d388900a6ab98e45d">hashing.h</a></li>
+<li>getAllWorkPlans()&#160;:&#160;<a class="el" href="lists_8h.html#a2e6befb227913b848f0109b2ed92f4eb">lists.h</a>, <a class="el" href="work-plans_8c.html#a2e6befb227913b848f0109b2ed92f4eb">work-plans.c</a></li>
+<li>getAverageTime_ToCompleteOperation()&#160;:&#160;<a class="el" href="lists_8h.html#a4753b850ae4cab838edb5f6a3bb10ca0">lists.h</a>, <a class="el" href="operations_8c.html#a4753b850ae4cab838edb5f6a3bb10ca0">operations.c</a></li>
+<li>getCellsToExport()&#160;:&#160;<a class="el" href="lists_8h.html#ab1e0858531fe4b32081edfb3697bc33c">lists.h</a>, <a class="el" href="plan_8c.html#ab1e0858531fe4b32081edfb3697bc33c">plan.c</a></li>
+<li>getFullTimeOfPlan()&#160;:&#160;<a class="el" href="lists_8h.html#a825edfecbd8e0d59e20057411e24b1ae">lists.h</a>, <a class="el" href="work-plans_8c.html#a825edfecbd8e0d59e20057411e24b1ae">work-plans.c</a></li>
+<li>getLastCellFilled_InMachine()&#160;:&#160;<a class="el" href="lists_8h.html#af43dbc69f5fd43eca03707fd09d2178c">lists.h</a>, <a class="el" href="plan_8c.html#af43dbc69f5fd43eca03707fd09d2178c">plan.c</a></li>
+<li>getLastCellFilled_OfJob()&#160;:&#160;<a class="el" href="lists_8h.html#a59885a4edc46fac7c9a3b626ad2066a6">lists.h</a>, <a class="el" href="plan_8c.html#a59885a4edc46fac7c9a3b626ad2066a6">plan.c</a></li>
+<li>getLastExecution_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#aac1705d388aa5c4bf7c17519e7c5a435">executions.c</a>, <a class="el" href="lists_8h.html#aac1705d388aa5c4bf7c17519e7c5a435">lists.h</a></li>
+<li>getMaxTime_ToCompleteJob()&#160;:&#160;<a class="el" href="lists_8h.html#a1073d5880eec1c93cb694a7e418ab1d1">lists.h</a>, <a class="el" href="operations_8c.html#a1073d5880eec1c93cb694a7e418ab1d1">operations.c</a></li>
+<li>getMinTime_ToCompleteJob()&#160;:&#160;<a class="el" href="lists_8h.html#ae41e1ffc9f3b9524442901a6a6598615">lists.h</a>, <a class="el" href="operations_8c.html#ae41e1ffc9f3b9524442901a6a6598615">operations.c</a></li>
+<li>getOperation()&#160;:&#160;<a class="el" href="lists_8h.html#a824f152dae067c44c4a2c3ce6676cfa0">lists.h</a>, <a class="el" href="operations_8c.html#a824f152dae067c44c4a2c3ce6676cfa0">operations.c</a></li>
+</ul>
+
+
+<h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
+<li>HASH_TABLE_SIZE&#160;:&#160;<a class="el" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">data-types.h</a></li>
 </ul>
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>insertExecutionAtStart()&#160;:&#160;<a class="el" href="executions_8c.html#ab00ae0278166111c8beb4c6cd8506718">executions.c</a>, <a class="el" href="header_8h.html#ab00ae0278166111c8beb4c6cd8506718">header.h</a></li>
-<li>insertExecutionByOperation()&#160;:&#160;<a class="el" href="executions_8c.html#a0da64583f80d681ef7e60d5f498ea7f6">executions.c</a>, <a class="el" href="header_8h.html#a0da64583f80d681ef7e60d5f498ea7f6">header.h</a></li>
-<li>insertJobAtStart()&#160;:&#160;<a class="el" href="header_8h.html#a1903b78e4151d6cc8c9ba08f2343cfcc">header.h</a>, <a class="el" href="jobs_8c.html#a1903b78e4151d6cc8c9ba08f2343cfcc">jobs.c</a></li>
-<li>insertMachineAtStart()&#160;:&#160;<a class="el" href="header_8h.html#a5ed3f8c67f63ba752767d86452bf83ed">header.h</a>, <a class="el" href="machines_8c.html#a5ed3f8c67f63ba752767d86452bf83ed">machines.c</a></li>
-<li>insertOperationAtStart()&#160;:&#160;<a class="el" href="header_8h.html#a35e6e85bff558fe6ce5adb0b47684423">header.h</a>, <a class="el" href="operations_8c.html#a35e6e85bff558fe6ce5adb0b47684423">operations.c</a></li>
+<li>insertExecution_AtStart_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">executions.c</a>, <a class="el" href="lists_8h.html#a9d0b32dd8d9b5bd0ceb43fdd5ef79edb">lists.h</a></li>
+<li>insertExecution_AtTable()&#160;:&#160;<a class="el" href="executions_8c.html#a6c9b801e5a5276639bad0c449566b0a3">executions.c</a>, <a class="el" href="hashing_8h.html#a6c9b801e5a5276639bad0c449566b0a3">hashing.h</a></li>
+<li>insertExecution_ByOperation_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#ac50f97d7d5afd1f90e6b8371befc23b4">executions.c</a>, <a class="el" href="lists_8h.html#ac50f97d7d5afd1f90e6b8371befc23b4">lists.h</a></li>
+<li>insertFileCell_AtStart()&#160;:&#160;<a class="el" href="lists_8h.html#a4afcec772dd72159d179c3efde63f309">lists.h</a>, <a class="el" href="plan_8c.html#a4afcec772dd72159d179c3efde63f309">plan.c</a></li>
+<li>insertFileCell_ByMachine()&#160;:&#160;<a class="el" href="lists_8h.html#afccf2f91e2cce72936b8826cb843dc28">lists.h</a>, <a class="el" href="plan_8c.html#afccf2f91e2cce72936b8826cb843dc28">plan.c</a></li>
+<li>insertJob_AtStart()&#160;:&#160;<a class="el" href="jobs_8c.html#aa8b6bc212b95408dfcdf536979b40d9c">jobs.c</a>, <a class="el" href="lists_8h.html#aa8b6bc212b95408dfcdf536979b40d9c">lists.h</a></li>
+<li>insertMachine_AtStart()&#160;:&#160;<a class="el" href="lists_8h.html#a09fd34b09b768439c306f071a29aba75">lists.h</a>, <a class="el" href="machines_8c.html#a09fd34b09b768439c306f071a29aba75">machines.c</a></li>
+<li>insertOperation_AtStart()&#160;:&#160;<a class="el" href="lists_8h.html#a738597c7756493ff091418a0a283ac25">lists.h</a>, <a class="el" href="operations_8c.html#a738597c7756493ff091418a0a283ac25">operations.c</a></li>
+<li>insertWorkPlan_AtStart()&#160;:&#160;<a class="el" href="lists_8h.html#a41ca9cc709483758909c825ec05be48a">lists.h</a>, <a class="el" href="work-plans_8c.html#a41ca9cc709483758909c825ec05be48a">work-plans.c</a></li>
+<li>insertWorkPlan_ByJob_AtList()&#160;:&#160;<a class="el" href="lists_8h.html#adbe79b8a4b64aa05edb2545c1ba33674">lists.h</a>, <a class="el" href="work-plans_8c.html#adbe79b8a4b64aa05edb2545c1ba33674">work-plans.c</a></li>
 </ul>
 
 
 <h3><a id="index_j" name="index_j"></a>- j -</h3><ul>
-<li>Job&#160;:&#160;<a class="el" href="header_8h.html#a7f678ed7503a7b4211821d14323751d8">header.h</a></li>
-<li>jobs&#160;:&#160;<a class="el" href="header_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">header.h</a></li>
+<li>Job&#160;:&#160;<a class="el" href="data-types_8h.html#a7f678ed7503a7b4211821d14323751d8">data-types.h</a></li>
+<li>jobs&#160;:&#160;<a class="el" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">data-types.h</a></li>
+<li>JOBS_FILENAME_BINARY&#160;:&#160;<a class="el" href="data-types_8h.html#a2c01afb31522618361a6f72fd5f251e3">data-types.h</a></li>
+<li>JOBS_FILENAME_TEXT&#160;:&#160;<a class="el" href="data-types_8h.html#a92d724b49f4c5f6f087396e833e95411">data-types.h</a></li>
 </ul>
 
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>loadData()&#160;:&#160;<a class="el" href="data_8c.html#a9e20b602bea2105c4844c9488e0dac64">data.c</a>, <a class="el" href="header_8h.html#a9e20b602bea2105c4844c9488e0dac64">header.h</a></li>
+<li>loadExecutions()&#160;:&#160;<a class="el" href="executions_8c.html#a53a932cfddc381cc966c1bc8f0fd05e8">executions.c</a>, <a class="el" href="lists_8h.html#a53a932cfddc381cc966c1bc8f0fd05e8">lists.h</a></li>
+<li>loadExecutionsTable()&#160;:&#160;<a class="el" href="executions_8c.html#ae5d4ea413106ade02d7003df3d7c04f1">executions.c</a>, <a class="el" href="hashing_8h.html#ae5d4ea413106ade02d7003df3d7c04f1">hashing.h</a></li>
+<li>loadJobs()&#160;:&#160;<a class="el" href="jobs_8c.html#a3767c4c6655e4d9db698c65cc1efc2cf">jobs.c</a>, <a class="el" href="lists_8h.html#a3767c4c6655e4d9db698c65cc1efc2cf">lists.h</a></li>
+<li>loadMachines()&#160;:&#160;<a class="el" href="lists_8h.html#a66314cd1d0360ba77833955b765c6078">lists.h</a>, <a class="el" href="machines_8c.html#a66314cd1d0360ba77833955b765c6078">machines.c</a></li>
+<li>loadOperations()&#160;:&#160;<a class="el" href="lists_8h.html#aa207662e983cab853fbd1cd3d3415d4e">lists.h</a>, <a class="el" href="operations_8c.html#aa207662e983cab853fbd1cd3d3415d4e">operations.c</a></li>
 </ul>
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>Machine&#160;:&#160;<a class="el" href="header_8h.html#ac5435b96779b7d7659b398b8275b6cbf">header.h</a></li>
-<li>machines&#160;:&#160;<a class="el" href="header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">header.h</a></li>
+<li>Machine&#160;:&#160;<a class="el" href="data-types_8h.html#ac5435b96779b7d7659b398b8275b6cbf">data-types.h</a></li>
+<li>machines&#160;:&#160;<a class="el" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">data-types.h</a></li>
+<li>MACHINES_FILENAME_BINARY&#160;:&#160;<a class="el" href="data-types_8h.html#a98c496e67aa9615cc4b453c809b23791">data-types.h</a></li>
+<li>MACHINES_FILENAME_TEXT&#160;:&#160;<a class="el" href="data-types_8h.html#a0cee344c6f8f2c5f0f1c953ae30ad79c">data-types.h</a></li>
 <li>main()&#160;:&#160;<a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main.c</a></li>
+<li>MAX_TIME&#160;:&#160;<a class="el" href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">data-types.h</a></li>
 </ul>
 
 
 <h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
-<li>newExecution()&#160;:&#160;<a class="el" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">executions.c</a>, <a class="el" href="header_8h.html#ae39c2c7c8130a6883f8cbd371e374725">header.h</a></li>
-<li>newJob()&#160;:&#160;<a class="el" href="header_8h.html#a84de6ff490cb65dbc4995f2d8b98de1f">header.h</a>, <a class="el" href="jobs_8c.html#a84de6ff490cb65dbc4995f2d8b98de1f">jobs.c</a></li>
-<li>newMachine()&#160;:&#160;<a class="el" href="header_8h.html#a6f116088fdb4bbfdc000a266ee200210">header.h</a>, <a class="el" href="machines_8c.html#a6f116088fdb4bbfdc000a266ee200210">machines.c</a></li>
-<li>newOperation()&#160;:&#160;<a class="el" href="header_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">header.h</a>, <a class="el" href="operations_8c.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">operations.c</a></li>
+<li>newExecution()&#160;:&#160;<a class="el" href="executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725">executions.c</a>, <a class="el" href="lists_8h.html#ae39c2c7c8130a6883f8cbd371e374725">lists.h</a></li>
+<li>newFileCell()&#160;:&#160;<a class="el" href="lists_8h.html#a38ad819b8536fc74fbd1b8d16a77c676">lists.h</a>, <a class="el" href="plan_8c.html#a38ad819b8536fc74fbd1b8d16a77c676">plan.c</a></li>
+<li>newJob()&#160;:&#160;<a class="el" href="jobs_8c.html#a84de6ff490cb65dbc4995f2d8b98de1f">jobs.c</a>, <a class="el" href="lists_8h.html#a84de6ff490cb65dbc4995f2d8b98de1f">lists.h</a></li>
+<li>newMachine()&#160;:&#160;<a class="el" href="lists_8h.html#a6f116088fdb4bbfdc000a266ee200210">lists.h</a>, <a class="el" href="machines_8c.html#a6f116088fdb4bbfdc000a266ee200210">machines.c</a></li>
+<li>newOperation()&#160;:&#160;<a class="el" href="lists_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">lists.h</a>, <a class="el" href="operations_8c.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6">operations.c</a></li>
+<li>newWorkPlan()&#160;:&#160;<a class="el" href="lists_8h.html#a9d91c27cd0a905114a14ab0f12d22c5a">lists.h</a>, <a class="el" href="work-plans_8c.html#a9d91c27cd0a905114a14ab0f12d22c5a">work-plans.c</a></li>
+<li>NUMBER_MACHINES&#160;:&#160;<a class="el" href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">data-types.h</a></li>
 </ul>
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>Operation&#160;:&#160;<a class="el" href="header_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c">header.h</a></li>
-<li>operations&#160;:&#160;<a class="el" href="header_8h.html#a141d2a58898a5ea72097da30116580ee">header.h</a></li>
+<li>OPEARATIONS_TEXT_SIZE&#160;:&#160;<a class="el" href="data-types_8h.html#a10c81b4fa8dd6f1a738151f4d0fbbe25">data-types.h</a></li>
+<li>Operation&#160;:&#160;<a class="el" href="data-types_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c">data-types.h</a></li>
+<li>operations&#160;:&#160;<a class="el" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">data-types.h</a></li>
+<li>OPERATIONS_FILENAME_BINARY&#160;:&#160;<a class="el" href="data-types_8h.html#a3c6c24386c8e549126bc8ec7ba4ff952">data-types.h</a></li>
+<li>OPERATIONS_FILENAME_TEXT&#160;:&#160;<a class="el" href="data-types_8h.html#ae8a4c9c1d13c9e3db4d2238ef43be113">data-types.h</a></li>
+</ul>
+
+
+<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
+<li>plan&#160;:&#160;<a class="el" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">data-types.h</a></li>
+<li>PLAN_FILENAME_TEXT&#160;:&#160;<a class="el" href="data-types_8h.html#a545550cbf83abfc8fba0c2e55b547cf0">data-types.h</a></li>
 </ul>
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>readExecutions()&#160;:&#160;<a class="el" href="executions_8c.html#a362b69957d588d5dd03c4cfbbb26adab">executions.c</a>, <a class="el" href="header_8h.html#a362b69957d588d5dd03c4cfbbb26adab">header.h</a></li>
-<li>readJobs()&#160;:&#160;<a class="el" href="header_8h.html#a1c30247bf14e8f64a9dad8cf280f7f2a">header.h</a>, <a class="el" href="jobs_8c.html#a1c30247bf14e8f64a9dad8cf280f7f2a">jobs.c</a></li>
-<li>readMachines()&#160;:&#160;<a class="el" href="header_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97">header.h</a>, <a class="el" href="machines_8c.html#af87a8e5a625b71b8bccc15d4c98d6d97">machines.c</a></li>
-<li>readOperations()&#160;:&#160;<a class="el" href="header_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b">header.h</a>, <a class="el" href="operations_8c.html#a0d7a168cfe9d62f2deb7f01f19966c7b">operations.c</a></li>
+<li>readExecutions_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#ac243dbf8dd9253190d63d7523d403c42">executions.c</a>, <a class="el" href="lists_8h.html#ac243dbf8dd9253190d63d7523d403c42">lists.h</a></li>
+<li>readExecutions_AtTable()&#160;:&#160;<a class="el" href="executions_8c.html#a34f3703871bfdbbca009e8d1f16f70d3">executions.c</a>, <a class="el" href="hashing_8h.html#a34f3703871bfdbbca009e8d1f16f70d3">hashing.h</a></li>
+<li>readJobs()&#160;:&#160;<a class="el" href="jobs_8c.html#a1c30247bf14e8f64a9dad8cf280f7f2a">jobs.c</a>, <a class="el" href="lists_8h.html#a1c30247bf14e8f64a9dad8cf280f7f2a">lists.h</a></li>
+<li>readMachines()&#160;:&#160;<a class="el" href="lists_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97">lists.h</a>, <a class="el" href="machines_8c.html#af87a8e5a625b71b8bccc15d4c98d6d97">machines.c</a></li>
+<li>readOperations()&#160;:&#160;<a class="el" href="lists_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b">lists.h</a>, <a class="el" href="operations_8c.html#a0d7a168cfe9d62f2deb7f01f19966c7b">operations.c</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>searchExecution()&#160;:&#160;<a class="el" href="executions_8c.html#a1dc84ad226731def4b2b4b5631992402">executions.c</a>, <a class="el" href="header_8h.html#a1dc84ad226731def4b2b4b5631992402">header.h</a></li>
-<li>searchExecutionByOperation()&#160;:&#160;<a class="el" href="executions_8c.html#a36b277b1e8d937b6aeb2a5310d22177e">executions.c</a>, <a class="el" href="header_8h.html#a36b277b1e8d937b6aeb2a5310d22177e">header.h</a></li>
-<li>searchJob()&#160;:&#160;<a class="el" href="header_8h.html#acb39186105e381d629e2db05d66ddbaa">header.h</a>, <a class="el" href="jobs_8c.html#acb39186105e381d629e2db05d66ddbaa">jobs.c</a></li>
-<li>searchMachine()&#160;:&#160;<a class="el" href="header_8h.html#abab511c59eca20b8d1960a5a2cad6436">header.h</a>, <a class="el" href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">machines.c</a></li>
-<li>searchOperation()&#160;:&#160;<a class="el" href="header_8h.html#a885845bc6bd1e81fb26161ba1a82979d">header.h</a>, <a class="el" href="operations_8c.html#a885845bc6bd1e81fb26161ba1a82979d">operations.c</a></li>
-<li>SortExecutionsByOperation()&#160;:&#160;<a class="el" href="executions_8c.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">executions.c</a>, <a class="el" href="header_8h.html#a2fac5de7bc7bbfcb23a4f60b54ef2e5e">header.h</a></li>
+<li>searchActiveCells()&#160;:&#160;<a class="el" href="lists_8h.html#aa5765f54f7d6a6629c836b36983ec86b">lists.h</a>, <a class="el" href="plan_8c.html#aa5765f54f7d6a6629c836b36983ec86b">plan.c</a></li>
+<li>searchExecution_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#ac992cca7f2da24cbd1b940efce93a06e">executions.c</a>, <a class="el" href="lists_8h.html#ac992cca7f2da24cbd1b940efce93a06e">lists.h</a></li>
+<li>searchExecution_AtTable()&#160;:&#160;<a class="el" href="executions_8c.html#ade482462e6c9fbe78b9134d1d95f996b">executions.c</a>, <a class="el" href="hashing_8h.html#ade482462e6c9fbe78b9134d1d95f996b">hashing.h</a></li>
+<li>searchExecution_ByOperation_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#a5cd9f6a62ad6afc978e6b374d571fa16">executions.c</a>, <a class="el" href="lists_8h.html#a5cd9f6a62ad6afc978e6b374d571fa16">lists.h</a></li>
+<li>searchJob()&#160;:&#160;<a class="el" href="jobs_8c.html#acb39186105e381d629e2db05d66ddbaa">jobs.c</a>, <a class="el" href="lists_8h.html#acb39186105e381d629e2db05d66ddbaa">lists.h</a></li>
+<li>searchMachine()&#160;:&#160;<a class="el" href="lists_8h.html#abab511c59eca20b8d1960a5a2cad6436">lists.h</a>, <a class="el" href="machines_8c.html#abab511c59eca20b8d1960a5a2cad6436">machines.c</a></li>
+<li>searchOperation()&#160;:&#160;<a class="el" href="lists_8h.html#a885845bc6bd1e81fb26161ba1a82979d">lists.h</a>, <a class="el" href="operations_8c.html#a885845bc6bd1e81fb26161ba1a82979d">operations.c</a></li>
+<li>searchOperation_ByJob()&#160;:&#160;<a class="el" href="lists_8h.html#ab49dd927385119f3193df3b0ab8bea3c">lists.h</a>, <a class="el" href="operations_8c.html#ab49dd927385119f3193df3b0ab8bea3c">operations.c</a></li>
+<li>sortExecutions_ByOperation_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#a8db97f4567e3f5d417d6c948419f964f">executions.c</a>, <a class="el" href="lists_8h.html#a8db97f4567e3f5d417d6c948419f964f">lists.h</a></li>
+<li>sortFileCells_ByMachine()&#160;:&#160;<a class="el" href="lists_8h.html#a6c13b4baff07a85895982bd1ff921181">lists.h</a>, <a class="el" href="plan_8c.html#a6c13b4baff07a85895982bd1ff921181">plan.c</a></li>
+<li>sortWorkPlans_ByJob()&#160;:&#160;<a class="el" href="lists_8h.html#ac04ab13b740af9d6610c37e07a62a4a2">lists.h</a>, <a class="el" href="work-plans_8c.html#ac04ab13b740af9d6610c37e07a62a4a2">work-plans.c</a></li>
+<li>startPlan()&#160;:&#160;<a class="el" href="lists_8h.html#af2f37ca35802ce396f568506ad8ac323">lists.h</a>, <a class="el" href="plan_8c.html#af2f37ca35802ce396f568506ad8ac323">plan.c</a></li>
 </ul>
 
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>true&#160;:&#160;<a class="el" href="header_8h.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b">header.h</a></li>
+<li>true&#160;:&#160;<a class="el" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b">data-types.h</a></li>
 </ul>
 
 
 <h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
-<li>updateRuntime()&#160;:&#160;<a class="el" href="executions_8c.html#a666d9b702a75b668af07f71865cf2f79">executions.c</a>, <a class="el" href="header_8h.html#a666d9b702a75b668af07f71865cf2f79">header.h</a></li>
+<li>updatePosition()&#160;:&#160;<a class="el" href="lists_8h.html#a972c19e4f8dc3006cf300b9e8bd0e172">lists.h</a>, <a class="el" href="operations_8c.html#a972c19e4f8dc3006cf300b9e8bd0e172">operations.c</a></li>
+<li>updateRuntime_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#aa707b2d78dce25e19aff4d2a2ce77c36">executions.c</a>, <a class="el" href="lists_8h.html#aa707b2d78dce25e19aff4d2a2ce77c36">lists.h</a></li>
+<li>updateRuntime_ByOperation_AtTable()&#160;:&#160;<a class="el" href="executions_8c.html#a2402b39f2448988448bf820534f21758">executions.c</a>, <a class="el" href="hashing_8h.html#a2402b39f2448988448bf820534f21758">hashing.h</a></li>
 </ul>
 
 
 <h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>writeExecutions()&#160;:&#160;<a class="el" href="executions_8c.html#aaae924901eb9d97606c03a74081b5291">executions.c</a>, <a class="el" href="header_8h.html#aaae924901eb9d97606c03a74081b5291">header.h</a></li>
-<li>writeJobs()&#160;:&#160;<a class="el" href="header_8h.html#a74854c567a784660b6259abbd47d821e">header.h</a>, <a class="el" href="jobs_8c.html#a74854c567a784660b6259abbd47d821e">jobs.c</a></li>
-<li>writeMachines()&#160;:&#160;<a class="el" href="header_8h.html#adeb9a16e75fb2739e26d1ceed9fbec78">header.h</a>, <a class="el" href="machines_8c.html#adeb9a16e75fb2739e26d1ceed9fbec78">machines.c</a></li>
-<li>writeOperations()&#160;:&#160;<a class="el" href="header_8h.html#a535c92168a17ff038c2007300a75d708">header.h</a>, <a class="el" href="operations_8c.html#a535c92168a17ff038c2007300a75d708">operations.c</a></li>
+<li>WorkPlan&#160;:&#160;<a class="el" href="data-types_8h.html#a6cd3c4460fccd7d3d5a3292941e5fa05">data-types.h</a></li>
+<li>writeExecutions_AtList()&#160;:&#160;<a class="el" href="executions_8c.html#a430f8d8e37d3b4e17ce4e19c7de31dbb">executions.c</a>, <a class="el" href="lists_8h.html#a430f8d8e37d3b4e17ce4e19c7de31dbb">lists.h</a></li>
+<li>writeExecutions_AtTable()&#160;:&#160;<a class="el" href="executions_8c.html#aefd476173ba3d625348e353c22707c36">executions.c</a>, <a class="el" href="hashing_8h.html#aefd476173ba3d625348e353c22707c36">hashing.h</a></li>
+<li>writeJobs()&#160;:&#160;<a class="el" href="jobs_8c.html#a74854c567a784660b6259abbd47d821e">jobs.c</a>, <a class="el" href="lists_8h.html#a74854c567a784660b6259abbd47d821e">lists.h</a></li>
+<li>writeMachines()&#160;:&#160;<a class="el" href="lists_8h.html#adeb9a16e75fb2739e26d1ceed9fbec78">lists.h</a>, <a class="el" href="machines_8c.html#adeb9a16e75fb2739e26d1ceed9fbec78">machines.c</a></li>
+<li>writeOperations()&#160;:&#160;<a class="el" href="lists_8h.html#a535c92168a17ff038c2007300a75d708">lists.h</a>, <a class="el" href="operations_8c.html#a535c92168a17ff038c2007300a75d708">operations.c</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

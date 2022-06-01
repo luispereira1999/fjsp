@@ -1,0 +1,678 @@
+\hypertarget{plan_8c}{}\doxysection{ReferÃªncia ao ficheiro C\+:/\+LUIS-\/\+PEREIRA/\+Repositorios/fjssp/fjssp/plan.c}
+\label{plan_8c}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/plan.c@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/plan.c}}
+
+
+Ficheiro com todas as funções relativas aos planos de produção.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}data-\/types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lists.\+h\char`\"{}}\newline
+\doxysubsection*{FunÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{plan_8c_af2f37ca35802ce396f568506ad8ac323}{start\+Plan}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, int job\+ID, int operation\+ID)
+\begin{DoxyCompactList}\small\item\em Iniciar um novo plano com todos as células vazias. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{plan_8c_a55b29a5d3ac64404e1934a055b890d8a}{fill\+Cells}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, int machine\+ID, int job\+ID, int operation\+ID, int initial\+Time, int final\+Time)
+\begin{DoxyCompactList}\small\item\em Preencher células do plano em um intervalo de tempo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{plan_8c_af43dbc69f5fd43eca03707fd09d2178c}{get\+Last\+Cell\+Filled\+\_\+\+In\+Machine}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, int machine\+ID)
+\begin{DoxyCompactList}\small\item\em Obter última célula preenchida de uma máquina. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{plan_8c_a59885a4edc46fac7c9a3b626ad2066a6}{get\+Last\+Cell\+Filled\+\_\+\+Of\+Job}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, int job\+ID)
+\begin{DoxyCompactList}\small\item\em Obter última célula preenchida em relação a um trabalho. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{plan_8c_a7d28c8573c3c9f74d0b8add376798451}{fill\+All\+Plan}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$work\+Plans)
+\begin{DoxyCompactList}\small\item\em Preencher todas as células do plano relativamente a uma lista de planos de trabalhos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{plan_8c_aa5765f54f7d6a6629c836b36983ec86b}{search\+Active\+Cells}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, int machine\+ID, int initial\+Time, int final\+Time)
+\begin{DoxyCompactList}\small\item\em Procurar num intervalo de células do plano, se existem células ativas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{plan_8c_ab074cf1a0b599b4206956bc751e29548}{display\+Plan}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Mostrar plano de escalonamento na consola. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ \mbox{\hyperlink{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}{new\+File\+Cell}} (int machine\+ID, int job\+ID, int operation\+ID, int initial\+Time, int final\+Time)
+\begin{DoxyCompactList}\small\item\em Criar nova célula do plano que será exportada para um ficheiro. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ \mbox{\hyperlink{plan_8c_a4afcec772dd72159d179c3efde63f309}{insert\+File\+Cell\+\_\+\+At\+Start}} (\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$head, \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$new)
+\begin{DoxyCompactList}\small\item\em Inserir célula do plano no início da lista de células. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ \mbox{\hyperlink{plan_8c_afccf2f91e2cce72936b8826cb843dc28}{insert\+File\+Cell\+\_\+\+By\+Machine}} (\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$head, \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$new)
+\begin{DoxyCompactList}\small\item\em Inserir célula ordenada por máquina, na lista de células. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ \mbox{\hyperlink{plan_8c_a6c13b4baff07a85895982bd1ff921181}{sort\+File\+Cells\+\_\+\+By\+Machine}} (\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Ordenar células por ordem crescente das máquinas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ \mbox{\hyperlink{plan_8c_ab1e0858531fe4b32081edfb3697bc33c}{get\+Cells\+To\+Export}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Obter células de um plano, para depois serem exportadas para um ficheiro. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{plan_8c_ac3605da0d42c8486e9430e84f5f790fc}{export\+Plan}} (char $\ast$file\+Name, \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Exportar plano para um ficheiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+Ficheiro com todas as funções relativas aos planos de produção. 
+
+\begin{DoxyAuthor}{Autor}
+Luís Pereira @email \href{mailto:a18446@alunos.ipca.pt}{\texttt{ a18446@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+29/05/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
+\mbox{\Hypertarget{plan_8c_ab074cf1a0b599b4206956bc751e29548}\label{plan_8c_ab074cf1a0b599b4206956bc751e29548}} 
+\index{plan.c@{plan.c}!displayPlan@{displayPlan}}
+\index{displayPlan@{displayPlan}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{displayPlan()}{displayPlan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Mostrar plano de escalonamento na consola. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano a ser mostrado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199 \{}
+\DoxyCodeLine{200     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{201     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
+\DoxyCodeLine{202     \{}
+\DoxyCodeLine{203         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
+\DoxyCodeLine{204         \{}
+\DoxyCodeLine{205             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID > -\/1 \&\& \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].operationID > -\/1)}
+\DoxyCodeLine{206             \{}
+\DoxyCodeLine{207                 printf(\textcolor{stringliteral}{"{}|j\%d o\%d"{}}, \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID, \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].operationID);}
+\DoxyCodeLine{208             \}}
+\DoxyCodeLine{209             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{210             \{}
+\DoxyCodeLine{211                 printf(\textcolor{stringliteral}{"{}|     "{}});}
+\DoxyCodeLine{212             \}}
+\DoxyCodeLine{213         \}}
+\DoxyCodeLine{214         printf(\textcolor{stringliteral}{"{}|\(\backslash\)n"{}});}
+\DoxyCodeLine{215     \}}
+\DoxyCodeLine{216     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{217 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_ac3605da0d42c8486e9430e84f5f790fc}\label{plan_8c_ac3605da0d42c8486e9430e84f5f790fc}} 
+\index{plan.c@{plan.c}!exportPlan@{exportPlan}}
+\index{exportPlan@{exportPlan}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{exportPlan()}{exportPlan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} export\+Plan (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Exportar plano para um ficheiro. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em file\+Name} & Nome do ficheiro onde será guardado as células \\
+\hline
+{\em head} & Lista de células para exportar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{418 \{}
+\DoxyCodeLine{419     \textcolor{keywordflow}{if} (head == NULL)}
+\DoxyCodeLine{420     \{}
+\DoxyCodeLine{421         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{422     \}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424     FILE* file = fopen(fileName, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{425     \textcolor{keywordflow}{if} (file == NULL)}
+\DoxyCodeLine{426     \{}
+\DoxyCodeLine{427         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{428     \}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430     \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
+\DoxyCodeLine{431     \textcolor{keywordflow}{while} (current)}
+\DoxyCodeLine{432     \{}
+\DoxyCodeLine{433         fprintf(file, \textcolor{stringliteral}{"{}Maquina \%d, Trabalho \%d -\/ Operacao \%d, \%d, \%d\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}}, current-\/>\mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}});}
+\DoxyCodeLine{434         current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
+\DoxyCodeLine{435     \}}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437     fclose(file);}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{439     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{440 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_a7d28c8573c3c9f74d0b8add376798451}\label{plan_8c_a7d28c8573c3c9f74d0b8add376798451}} 
+\index{plan.c@{plan.c}!fillAllPlan@{fillAllPlan}}
+\index{fillAllPlan@{fillAllPlan}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{fillAllPlan()}{fillAllPlan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} fill\+All\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{work\+Plans }\end{DoxyParamCaption})}
+
+
+
+Preencher todas as células do plano relativamente a uma lista de planos de trabalhos. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano atual \\
+\hline
+{\em work\+Plans} & Lista de planos de trabalhos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140 \{}
+\DoxyCodeLine{141     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* currentWorkPlan = workPlans;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{144     \textcolor{keywordflow}{while} (currentWorkPlan \&\& i < 24)}
+\DoxyCodeLine{145     \{}
+\DoxyCodeLine{146         \mbox{\hyperlink{struct_cell}{Cell}} lastCellInMachine = \mbox{\hyperlink{plan_8c_af43dbc69f5fd43eca03707fd09d2178c}{getLastCellFilled\_InMachine}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}});}
+\DoxyCodeLine{147         \mbox{\hyperlink{struct_cell}{Cell}} lastCellOfJob = \mbox{\hyperlink{plan_8c_a59885a4edc46fac7c9a3b626ad2066a6}{getLastCellFilled\_OfJob}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}});}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149         \textcolor{keywordflow}{if} (lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} == -\/1)}
+\DoxyCodeLine{150         \{}
+\DoxyCodeLine{151             \textcolor{keywordflow}{if} (lastCellOfJob.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} != -\/1)}
+\DoxyCodeLine{152             \{}
+\DoxyCodeLine{153                 lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = lastCellOfJob.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}};}
+\DoxyCodeLine{154             \}}
+\DoxyCodeLine{155         \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157         \textcolor{keywordflow}{if} (lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} == -\/1)}
+\DoxyCodeLine{158         \{}
+\DoxyCodeLine{159             lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = 0;}
+\DoxyCodeLine{160         \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \mbox{\hyperlink{plan_8c_a55b29a5d3ac64404e1934a055b890d8a}{fillCells}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}},}
+\DoxyCodeLine{163             lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165         currentWorkPlan = currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
+\DoxyCodeLine{166         i++;}
+\DoxyCodeLine{167     \}}
+\DoxyCodeLine{168 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_a55b29a5d3ac64404e1934a055b890d8a}\label{plan_8c_a55b29a5d3ac64404e1934a055b890d8a}} 
+\index{plan.c@{plan.c}!fillCells@{fillCells}}
+\index{fillCells@{fillCells}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{fillCells()}{fillCells()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} fill\+Cells (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{int}]{machine\+ID,  }\item[{int}]{job\+ID,  }\item[{int}]{operation\+ID,  }\item[{int}]{initial\+Time,  }\item[{int}]{final\+Time }\end{DoxyParamCaption})}
+
+
+
+Preencher células do plano em um intervalo de tempo. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano atual \\
+\hline
+{\em machine\+ID} & Identificador da máquina \\
+\hline
+{\em job\+ID} & Identificador do trabalho \\
+\hline
+{\em operation\+ID} & Identificador da operação \\
+\hline
+{\em initial\+Time} & Tempo inicial do intervalo \\
+\hline
+{\em final\+Time} & Tempo final do intervalo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{comment}{// não permite ativar células que já estão ativas}}
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} (\mbox{\hyperlink{plan_8c_aa5765f54f7d6a6629c836b36983ec86b}{searchActiveCells}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, machineID, initialTime, finalTime))}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{55     \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{// preenche o intervalo de células disponíveis para este escalonamento}}
+\DoxyCodeLine{58     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = initialTime; i < initialTime + finalTime; i++)}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{comment}{// mid -\/ 1 porque os IDs das máquinas começam em 1 e a matriz do plano começa em 0}}
+\DoxyCodeLine{61         \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} = jobID;}
+\DoxyCodeLine{62         \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].\mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} = operationID;}
+\DoxyCodeLine{63         \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = initialTime + finalTime;}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_ab1e0858531fe4b32081edfb3697bc33c}\label{plan_8c_ab1e0858531fe4b32081edfb3697bc33c}} 
+\index{plan.c@{plan.c}!getCellsToExport@{getCellsToExport}}
+\index{getCellsToExport@{getCellsToExport}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{getCellsToExport()}{getCellsToExport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ get\+Cells\+To\+Export (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Obter células de um plano, para depois serem exportadas para um ficheiro. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Células que serão exportadas 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{348 \{}
+\DoxyCodeLine{349     \mbox{\hyperlink{struct_file_cell}{FileCell}}* cells = NULL;}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351     \textcolor{keywordtype}{int} currJobID = -\/1;}
+\DoxyCodeLine{352     \textcolor{keywordtype}{int} currOpID = -\/1;}
+\DoxyCodeLine{353     \textcolor{keywordtype}{int} nextJobID = -\/1;}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355     \textcolor{keywordtype}{int} initialTime = -\/1;}
+\DoxyCodeLine{356     \textcolor{keywordtype}{int} finalTime = -\/1;}
+\DoxyCodeLine{357     \textcolor{keywordtype}{int} tempFinalTime = -\/1;}
+\DoxyCodeLine{358     \textcolor{keywordtype}{int} tempInitialTime = -\/1;}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360     \textcolor{keywordtype}{int} equalCells = 0;}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
+\DoxyCodeLine{363     \{}
+\DoxyCodeLine{364         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
+\DoxyCodeLine{365         \{}
+\DoxyCodeLine{366             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID != -\/1)}
+\DoxyCodeLine{367             \{}
+\DoxyCodeLine{368                 currJobID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{369                 currOpID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{370                 nextJobID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j + 1].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{371                 initialTime = j;}
+\DoxyCodeLine{372                 finalTime = initialTime;}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374                 \textcolor{keywordflow}{if} (currJobID == nextJobID)}
+\DoxyCodeLine{375                 \{}
+\DoxyCodeLine{376                     initialTime = j;}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378                     equalCells++;}
+\DoxyCodeLine{379                     \textcolor{keywordflow}{if} (equalCells == 1)}
+\DoxyCodeLine{380                     \{}
+\DoxyCodeLine{381                         tempInitialTime = initialTime;}
+\DoxyCodeLine{382                     \}}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384                     tempFinalTime = finalTime;}
+\DoxyCodeLine{385                     tempFinalTime += 1;}
+\DoxyCodeLine{386                 \}}
+\DoxyCodeLine{387                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{388                 \{}
+\DoxyCodeLine{389                     \textcolor{keywordflow}{if} (equalCells == 0)}
+\DoxyCodeLine{390                     \{}
+\DoxyCodeLine{391                         tempInitialTime = initialTime;}
+\DoxyCodeLine{392                     \}}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394                     tempFinalTime += 1;}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396                     \mbox{\hyperlink{struct_file_cell}{FileCell}}* cell = \mbox{\hyperlink{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(i + 1, currJobID, currOpID, tempInitialTime, tempFinalTime);}
+\DoxyCodeLine{397                     cells = \mbox{\hyperlink{plan_8c_a4afcec772dd72159d179c3efde63f309}{insertFileCell\_AtStart}}(cells, cell);}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399                     equalCells = 0;}
+\DoxyCodeLine{400                     tempInitialTime == -\/1;}
+\DoxyCodeLine{401                     tempFinalTime == -\/1;}
+\DoxyCodeLine{402                 \}}
+\DoxyCodeLine{403             \}}
+\DoxyCodeLine{404         \}}
+\DoxyCodeLine{405     \}}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407     \textcolor{keywordflow}{return} cells;}
+\DoxyCodeLine{408 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_af43dbc69f5fd43eca03707fd09d2178c}\label{plan_8c_af43dbc69f5fd43eca03707fd09d2178c}} 
+\index{plan.c@{plan.c}!getLastCellFilled\_InMachine@{getLastCellFilled\_InMachine}}
+\index{getLastCellFilled\_InMachine@{getLastCellFilled\_InMachine}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{getLastCellFilled\_InMachine()}{getLastCellFilled\_InMachine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cell}{Cell}} get\+Last\+Cell\+Filled\+\_\+\+In\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{int}]{machine\+ID }\end{DoxyParamCaption})}
+
+
+
+Obter última célula preenchida de uma máquina. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano atual \\
+\hline
+{\em machine\+ID} & Identificador da máquina \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Célula obtida 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77 \{}
+\DoxyCodeLine{78     \mbox{\hyperlink{struct_cell}{Cell}} last;}
+\DoxyCodeLine{79     last.\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} = -\/1;}
+\DoxyCodeLine{80     last.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = -\/1;}
+\DoxyCodeLine{81     last.\mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} = -\/1;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
+\DoxyCodeLine{84     \{}
+\DoxyCodeLine{85         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
+\DoxyCodeLine{86         \{}
+\DoxyCodeLine{87             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID != -\/1)}
+\DoxyCodeLine{88             \{}
+\DoxyCodeLine{89                 \textcolor{comment}{// -\/1 porque o índice na matriz é -\/1 do que o identificador}}
+\DoxyCodeLine{90                 \textcolor{keywordflow}{if} (machineID -\/ 1 == i)}
+\DoxyCodeLine{91                 \{}
+\DoxyCodeLine{92                     last = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j];}
+\DoxyCodeLine{93                 \}}
+\DoxyCodeLine{94             \}}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{keywordflow}{return} last;}
+\DoxyCodeLine{99 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_a59885a4edc46fac7c9a3b626ad2066a6}\label{plan_8c_a59885a4edc46fac7c9a3b626ad2066a6}} 
+\index{plan.c@{plan.c}!getLastCellFilled\_OfJob@{getLastCellFilled\_OfJob}}
+\index{getLastCellFilled\_OfJob@{getLastCellFilled\_OfJob}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{getLastCellFilled\_OfJob()}{getLastCellFilled\_OfJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cell}{Cell}} get\+Last\+Cell\+Filled\+\_\+\+Of\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{int}]{job\+ID }\end{DoxyParamCaption})}
+
+
+
+Obter última célula preenchida em relação a um trabalho. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano atual \\
+\hline
+{\em machine\+ID} & Identificador do trabalho \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Célula obtida 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{109 \{}
+\DoxyCodeLine{110     \mbox{\hyperlink{struct_cell}{Cell}} last;}
+\DoxyCodeLine{111     last.\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} = -\/1;}
+\DoxyCodeLine{112     last.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = -\/1;}
+\DoxyCodeLine{113     last.\mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} = -\/1;}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
+\DoxyCodeLine{116     \{}
+\DoxyCodeLine{117         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
+\DoxyCodeLine{118         \{}
+\DoxyCodeLine{119             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID != -\/1)}
+\DoxyCodeLine{120             \{}
+\DoxyCodeLine{121                 \textcolor{keywordflow}{if} (jobID == \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID)}
+\DoxyCodeLine{122                 \{}
+\DoxyCodeLine{123                     last = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j];}
+\DoxyCodeLine{124                 \}}
+\DoxyCodeLine{125             \}}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} last;}
+\DoxyCodeLine{130 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_a4afcec772dd72159d179c3efde63f309}\label{plan_8c_a4afcec772dd72159d179c3efde63f309}} 
+\index{plan.c@{plan.c}!insertFileCell\_AtStart@{insertFileCell\_AtStart}}
+\index{insertFileCell\_AtStart@{insertFileCell\_AtStart}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{insertFileCell\_AtStart()}{insertFileCell\_AtStart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ insert\+File\+Cell\+\_\+\+At\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Inserir célula do plano no início da lista de células. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de células do plano \\
+\hline
+{\em new} & Nova célula do plano \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Lista de células do plano 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{259 \{}
+\DoxyCodeLine{260     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{261     \{}
+\DoxyCodeLine{262         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{263     \}}
+\DoxyCodeLine{264     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
+\DoxyCodeLine{265     \{}
+\DoxyCodeLine{266         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = head;}
+\DoxyCodeLine{267         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{268     \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{271 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_afccf2f91e2cce72936b8826cb843dc28}\label{plan_8c_afccf2f91e2cce72936b8826cb843dc28}} 
+\index{plan.c@{plan.c}!insertFileCell\_ByMachine@{insertFileCell\_ByMachine}}
+\index{insertFileCell\_ByMachine@{insertFileCell\_ByMachine}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{insertFileCell\_ByMachine()}{insertFileCell\_ByMachine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ insert\+File\+Cell\+\_\+\+By\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Inserir célula ordenada por máquina, na lista de células. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de células \\
+\hline
+{\em new} & Nova célula \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Lista de células atualizada 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{281 \{}
+\DoxyCodeLine{282     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{283     \{}
+\DoxyCodeLine{284         head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no início}}
+\DoxyCodeLine{285     \}}
+\DoxyCodeLine{286     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{287     \{}
+\DoxyCodeLine{288         \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
+\DoxyCodeLine{289         \mbox{\hyperlink{struct_file_cell}{FileCell}}* previous = NULL;}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291         \textcolor{comment}{// enquanto que o atual tem o ID da máquina menor que o novo}}
+\DoxyCodeLine{292         \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}} < new-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}})}
+\DoxyCodeLine{293         \{}
+\DoxyCodeLine{294             previous = current;}
+\DoxyCodeLine{295             current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297         \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299         \textcolor{keywordflow}{if} (previous == NULL)}
+\DoxyCodeLine{300         \{}
+\DoxyCodeLine{301             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = head;}
+\DoxyCodeLine{302             head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no meio}}
+\DoxyCodeLine{303         \}}
+\DoxyCodeLine{304         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{305         \{}
+\DoxyCodeLine{306             previous-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = \textcolor{keyword}{new};}
+\DoxyCodeLine{307             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = current; \textcolor{comment}{// inserir no fim}}
+\DoxyCodeLine{308         \}}
+\DoxyCodeLine{309     \}}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{312 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}\label{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}} 
+\index{plan.c@{plan.c}!newFileCell@{newFileCell}}
+\index{newFileCell@{newFileCell}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{newFileCell()}{newFileCell()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ new\+File\+Cell (\begin{DoxyParamCaption}\item[{int}]{machine\+ID,  }\item[{int}]{job\+ID,  }\item[{int}]{operation\+ID,  }\item[{int}]{initial\+Time,  }\item[{int}]{final\+Time }\end{DoxyParamCaption})}
+
+
+
+Criar nova célula do plano que será exportada para um ficheiro. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em machine\+ID} & Identificador da máquina \\
+\hline
+{\em job\+ID} & Identificador do job \\
+\hline
+{\em operation\+ID} & Identificador da operação \\
+\hline
+{\em initial\+Time} & Tempo inicial no plano de produção relativamente a esta operação \\
+\hline
+{\em final\+Time} & Tempo final no plano de produção relativamente a esta operação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nova célula 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{234 \{}
+\DoxyCodeLine{235     \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_file_cell}{FileCell}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_cell}{FileCell}}));}
+\DoxyCodeLine{236     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{237     \{}
+\DoxyCodeLine{238         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{239     \}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}} = machineID;}
+\DoxyCodeLine{242     \textcolor{keyword}{new}-\/>jobID = jobID;}
+\DoxyCodeLine{243     \textcolor{keyword}{new}-\/>operationID = operationID;}
+\DoxyCodeLine{244     \textcolor{keyword}{new}-\/>initialTime = initialTime;}
+\DoxyCodeLine{245     \textcolor{keyword}{new}-\/>finalTime = finalTime;}
+\DoxyCodeLine{246     \textcolor{keyword}{new}-\/>next = NULL;}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
+\DoxyCodeLine{249 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_aa5765f54f7d6a6629c836b36983ec86b}\label{plan_8c_aa5765f54f7d6a6629c836b36983ec86b}} 
+\index{plan.c@{plan.c}!searchActiveCells@{searchActiveCells}}
+\index{searchActiveCells@{searchActiveCells}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{searchActiveCells()}{searchActiveCells()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} search\+Active\+Cells (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{int}]{machine\+ID,  }\item[{int}]{initial\+Time,  }\item[{int}]{final\+Time }\end{DoxyParamCaption})}
+
+
+
+Procurar num intervalo de células do plano, se existem células ativas. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano atual \\
+\hline
+{\em machine\+ID} & Identificador da máquina \\
+\hline
+{\em initial\+Time} & Tempo inicial desta célula \\
+\hline
+{\em final\+Time} & Tempo final desta célula \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = initialTime; i < finalTime; i++)}
+\DoxyCodeLine{182     \{}
+\DoxyCodeLine{183         \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].jobID > -\/1 || \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].operationID > -\/1)}
+\DoxyCodeLine{184         \{}
+\DoxyCodeLine{185             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{186         \}}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{190 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_a6c13b4baff07a85895982bd1ff921181}\label{plan_8c_a6c13b4baff07a85895982bd1ff921181}} 
+\index{plan.c@{plan.c}!sortFileCells\_ByMachine@{sortFileCells\_ByMachine}}
+\index{sortFileCells\_ByMachine@{sortFileCells\_ByMachine}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{sortFileCells\_ByMachine()}{sortFileCells\_ByMachine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$ sort\+File\+Cells\+\_\+\+By\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_file_cell}{File\+Cell}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Ordenar células por ordem crescente das máquinas. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de células \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{321 \{}
+\DoxyCodeLine{322     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{323     \{}
+\DoxyCodeLine{324         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{325     \}}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{327     \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
+\DoxyCodeLine{328     \mbox{\hyperlink{struct_file_cell}{FileCell}}* sorted = NULL;}
+\DoxyCodeLine{329     \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new} = NULL;}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{332     \{}
+\DoxyCodeLine{333         \textcolor{keyword}{new} = \mbox{\hyperlink{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}}, current-\/>\mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}});}
+\DoxyCodeLine{334         sorted = \mbox{\hyperlink{plan_8c_afccf2f91e2cce72936b8826cb843dc28}{insertFileCell\_ByMachine}}(sorted, \textcolor{keyword}{new});}
+\DoxyCodeLine{335         current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
+\DoxyCodeLine{336     \}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338     \textcolor{keywordflow}{return} sorted;}
+\DoxyCodeLine{339 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{plan_8c_af2f37ca35802ce396f568506ad8ac323}\label{plan_8c_af2f37ca35802ce396f568506ad8ac323}} 
+\index{plan.c@{plan.c}!startPlan@{startPlan}}
+\index{startPlan@{startPlan}!plan.c@{plan.c}}
+\doxysubsubsection{\texorpdfstring{startPlan()}{startPlan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} start\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{int}]{job\+ID,  }\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
+
+
+
+Iniciar um novo plano com todos as células vazias. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em plan} & Plano a ser iniciado \\
+\hline
+{\em job\+ID} & Identificador do trabalho \\
+\hline
+{\em operation\+ID} & Identificador da operação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
+\DoxyCodeLine{30         \{}
+\DoxyCodeLine{31             \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} = jobID;}
+\DoxyCodeLine{32             \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} = operationID;}
+\DoxyCodeLine{33             \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = 0;}
+\DoxyCodeLine{34         \}}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}

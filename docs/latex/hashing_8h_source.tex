@@ -1,0 +1,28 @@
+\hypertarget{hashing_8h_source}{}\doxysection{hashing.\+h}
+\label{hashing_8h_source}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/hashing.h@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/hashing.h}}
+\mbox{\hyperlink{hashing_8h}{Ir para a documentaÃ§Ã£o deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef HASHING}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define HASHING 1}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#pragma region execuções}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** \mbox{\hyperlink{hashing_8h_ae5d4ea413106ade02d7003df3d7c04f1}{loadExecutionsTable}}(\textcolor{keywordtype}{char}* fileName, \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* table[]);}
+\DoxyCodeLine{16 \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** \mbox{\hyperlink{hashing_8h_a0001c4cf520ad185db5413445b1e461a}{createExecutionsTable}}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* table[]);}
+\DoxyCodeLine{17 \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* \mbox{\hyperlink{hashing_8h_a4c80c06ef32843a9af68abccd166cfaf}{createExecutionNode}}();}
+\DoxyCodeLine{18 \textcolor{keywordtype}{int} \mbox{\hyperlink{hashing_8h_a482e8e08727fd13d388900a6ab98e45d}{generateHash}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{19 \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** \mbox{\hyperlink{hashing_8h_a6c9b801e5a5276639bad0c449566b0a3}{insertExecution\_AtTable}}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* table[], \mbox{\hyperlink{struct_execution}{Execution}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{20 \textcolor{keywordtype}{bool} \mbox{\hyperlink{hashing_8h_a2402b39f2448988448bf820534f21758}{updateRuntime\_ByOperation\_AtTable}}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** table[], \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} runtime);}
+\DoxyCodeLine{21 \textcolor{keywordtype}{bool} \mbox{\hyperlink{hashing_8h_afe647db2279682c65d3262a7bfaa9ce4}{deleteExecutions\_ByOperation\_AtTable}}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** table[], \textcolor{keywordtype}{int} operationID);}
+\DoxyCodeLine{22 \textcolor{keywordtype}{bool} \mbox{\hyperlink{hashing_8h_aefd476173ba3d625348e353c22707c36}{writeExecutions\_AtTable}}(\textcolor{keywordtype}{char} fileName[], \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* table[]);}
+\DoxyCodeLine{23 \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** \mbox{\hyperlink{hashing_8h_a34f3703871bfdbbca009e8d1f16f70d3}{readExecutions\_AtTable}}(\textcolor{keywordtype}{char} fileName[], \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* table[]);}
+\DoxyCodeLine{24 \textcolor{keywordtype}{bool} \mbox{\hyperlink{hashing_8h_abe6834a2be75b22fc1a593753608a024}{displayExecutions\_AtTable}}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* table[]);}
+\DoxyCodeLine{25 \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{hashing_8h_ade482462e6c9fbe78b9134d1d95f996b}{searchExecution\_AtTable}}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* table[], \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} machineID);}
+\DoxyCodeLine{26 \textcolor{keywordtype}{void} \mbox{\hyperlink{hashing_8h_a7c503615b2b7aef617ccb9c6ff5cdfc2}{freeExecutions\_Table}}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** table[]);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

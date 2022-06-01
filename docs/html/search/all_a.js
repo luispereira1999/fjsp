@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['newexecution_0',['newExecution',['../executions_8c.html#ae39c2c7c8130a6883f8cbd371e374725',1,'newExecution(int operationID, int machineID, int runtime):&#160;executions.c'],['../header_8h.html#ae39c2c7c8130a6883f8cbd371e374725',1,'newExecution(int operationID, int machineID, int runtime):&#160;executions.c']]],
-  ['newjob_1',['newJob',['../header_8h.html#a84de6ff490cb65dbc4995f2d8b98de1f',1,'newJob(int id):&#160;jobs.c'],['../jobs_8c.html#a84de6ff490cb65dbc4995f2d8b98de1f',1,'newJob(int id):&#160;jobs.c']]],
-  ['newmachine_2',['newMachine',['../header_8h.html#a6f116088fdb4bbfdc000a266ee200210',1,'newMachine(int id, bool isBusy):&#160;machines.c'],['../machines_8c.html#a6f116088fdb4bbfdc000a266ee200210',1,'newMachine(int id, bool isBusy):&#160;machines.c']]],
-  ['newoperation_3',['newOperation',['../header_8h.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6',1,'newOperation(int id, int jobID, int position):&#160;operations.c'],['../operations_8c.html#aa55d8ef5cf2b1ccc10452fa6a2c2c9f6',1,'newOperation(int id, int jobID, int position):&#160;operations.c']]],
-  ['next_4',['next',['../struct_job.html#a23043319aa98624f196cafc0ba57a0b1',1,'Job::next()'],['../struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27',1,'Machine::next()'],['../struct_execution.html#a5118f41fd71744302713d58c7ce39bd4',1,'Execution::next()'],['../struct_operation.html#a9db59830dec0306ea782bae1df0736d1',1,'Operation::next()']]]
+  ['machine_0',['Machine',['../struct_machine.html',1,'Machine'],['../data-types_8h.html#ac5435b96779b7d7659b398b8275b6cbf',1,'Machine():&#160;data-types.h']]],
+  ['machineid_1',['machineID',['../struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c',1,'Execution::machineID()'],['../struct_work_plan.html#ae0b5e7043ba4f62c59a7a67c2c1c440c',1,'WorkPlan::machineID()'],['../struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c',1,'FileExecution::machineID()'],['../struct_file_cell.html#ae0b5e7043ba4f62c59a7a67c2c1c440c',1,'FileCell::machineID()']]],
+  ['machines_2',['machines',['../data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf',1,'data-types.h']]],
+  ['machines_2ec_3',['machines.c',['../machines_8c.html',1,'']]],
+  ['machines_5ffilename_5fbinary_4',['MACHINES_FILENAME_BINARY',['../data-types_8h.html#a98c496e67aa9615cc4b453c809b23791',1,'data-types.h']]],
+  ['machines_5ffilename_5ftext_5',['MACHINES_FILENAME_TEXT',['../data-types_8h.html#a0cee344c6f8f2c5f0f1c953ae30ad79c',1,'data-types.h']]],
+  ['main_6',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.c']]],
+  ['main_2ec_7',['main.c',['../main_8c.html',1,'']]],
+  ['max_5ftime_8',['MAX_TIME',['../data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c',1,'data-types.h']]]
 ];

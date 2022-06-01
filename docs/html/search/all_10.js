@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updateruntime_0',['updateRuntime',['../executions_8c.html#a666d9b702a75b668af07f71865cf2f79',1,'updateRuntime(Execution **head, int operationID, int machineID, int runtime):&#160;executions.c'],['../header_8h.html#a666d9b702a75b668af07f71865cf2f79',1,'updateRuntime(Execution **head, int operationID, int machineID, int runtime):&#160;executions.c']]]
+  ['true_0',['true',['../data-types_8h.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b',1,'data-types.h']]]
 ];

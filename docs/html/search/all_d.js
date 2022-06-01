@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['readexecutions_0',['readExecutions',['../executions_8c.html#a362b69957d588d5dd03c4cfbbb26adab',1,'readExecutions(char fileName[]):&#160;executions.c'],['../header_8h.html#a362b69957d588d5dd03c4cfbbb26adab',1,'readExecutions(char fileName[]):&#160;executions.c']]],
-  ['readjobs_1',['readJobs',['../header_8h.html#a1c30247bf14e8f64a9dad8cf280f7f2a',1,'readJobs(char fileName[]):&#160;jobs.c'],['../jobs_8c.html#a1c30247bf14e8f64a9dad8cf280f7f2a',1,'readJobs(char fileName[]):&#160;jobs.c']]],
-  ['readmachines_2',['readMachines',['../header_8h.html#af87a8e5a625b71b8bccc15d4c98d6d97',1,'readMachines(char fileName[]):&#160;machines.c'],['../machines_8c.html#af87a8e5a625b71b8bccc15d4c98d6d97',1,'readMachines(char fileName[]):&#160;machines.c']]],
-  ['readoperations_3',['readOperations',['../header_8h.html#a0d7a168cfe9d62f2deb7f01f19966c7b',1,'readOperations(char fileName[]):&#160;operations.c'],['../operations_8c.html#a0d7a168cfe9d62f2deb7f01f19966c7b',1,'readOperations(char fileName[]):&#160;operations.c']]],
-  ['runtime_4',['runtime',['../struct_execution.html#a6885fec41faff728c1e6173cfb69e81f',1,'Execution::runtime()'],['../struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f',1,'FileExecution::runtime()']]]
+  ['plan_0',['plan',['../data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f',1,'data-types.h']]],
+  ['plan_2ec_1',['plan.c',['../plan_8c.html',1,'']]],
+  ['plan_5ffilename_5ftext_2',['PLAN_FILENAME_TEXT',['../data-types_8h.html#a545550cbf83abfc8fba0c2e55b547cf0',1,'data-types.h']]],
+  ['position_3',['position',['../struct_operation.html#a401e942526aac47cef94f478182486e7',1,'Operation::position()'],['../struct_work_plan.html#a401e942526aac47cef94f478182486e7',1,'WorkPlan::position()'],['../struct_file_operation.html#a401e942526aac47cef94f478182486e7',1,'FileOperation::position()']]]
 ];

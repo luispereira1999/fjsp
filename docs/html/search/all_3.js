@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['false_0',['false',['../header_8h.html#af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c',1,'header.h']]],
-  ['fileexecution_1',['FileExecution',['../struct_file_execution.html',1,'FileExecution'],['../header_8h.html#a460a67751b57788df2d041efe14c70df',1,'FileExecution():&#160;header.h']]],
-  ['filejob_2',['FileJob',['../struct_file_job.html',1,'FileJob'],['../header_8h.html#abfb6a214f53f16cdb5113036e731a2e2',1,'FileJob():&#160;header.h']]],
-  ['filemachine_3',['FileMachine',['../struct_file_machine.html',1,'FileMachine'],['../header_8h.html#a7c190f983ffc1790c1d1315b0884b4d3',1,'FileMachine():&#160;header.h']]],
-  ['fileoperation_4',['FileOperation',['../struct_file_operation.html',1,'FileOperation'],['../header_8h.html#ac9fda784e10ac5624195204a6d499a65',1,'FileOperation():&#160;header.h']]],
-  ['freeexecutions_5',['freeExecutions',['../executions_8c.html#a67b917d9e7aff6fc85c7d3cee1150721',1,'freeExecutions(Execution *head):&#160;executions.c'],['../header_8h.html#a67b917d9e7aff6fc85c7d3cee1150721',1,'freeExecutions(Execution *head):&#160;executions.c']]],
-  ['freejobs_6',['freeJobs',['../header_8h.html#a542b381bfbc143ae575e98f684117265',1,'freeJobs(Job *head):&#160;jobs.c'],['../jobs_8c.html#a542b381bfbc143ae575e98f684117265',1,'freeJobs(Job *head):&#160;jobs.c']]],
-  ['freemachines_7',['freeMachines',['../header_8h.html#adf36b4d501a3dcbaf8ac959da2d76c8f',1,'freeMachines(Machine *head):&#160;machines.c'],['../machines_8c.html#adf36b4d501a3dcbaf8ac959da2d76c8f',1,'freeMachines(Machine *head):&#160;machines.c']]],
-  ['freeoperations_8',['freeOperations',['../header_8h.html#af64e219dfa9552b285dd100375c2c6a7',1,'freeOperations(Operation *head):&#160;operations.c'],['../operations_8c.html#af64e219dfa9552b285dd100375c2c6a7',1,'freeOperations(Operation *head):&#160;operations.c']]]
+  ['enablemachine_0',['enableMachine',['../lists_8h.html#a84a442265a9f1e01405b51c3b958160b',1,'enableMachine(Machine **h, int mid, bool ib):&#160;machines.c'],['../machines_8c.html#a84a442265a9f1e01405b51c3b958160b',1,'enableMachine(Machine **h, int mid, bool ib):&#160;machines.c']]],
+  ['execution_1',['Execution',['../struct_execution.html',1,'Execution'],['../data-types_8h.html#aace4a8a5be0edf7bb2ffc9da31308511',1,'Execution():&#160;data-types.h']]],
+  ['executionnode_2',['ExecutionNode',['../struct_execution_node.html',1,'']]],
+  ['executions_3',['executions',['../data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9',1,'data-types.h']]],
+  ['executions_2dhashing_2ec_4',['executions-hashing.c',['../executions-hashing_8c.html',1,'']]],
+  ['executions_2ec_5',['executions.c',['../executions_8c.html',1,'']]],
+  ['executions_5ffilename_5fbinary_6',['EXECUTIONS_FILENAME_BINARY',['../data-types_8h.html#aa2212b6c51d5f434ba0f309964d4b02b',1,'data-types.h']]],
+  ['executions_5ffilename_5ftext_7',['EXECUTIONS_FILENAME_TEXT',['../data-types_8h.html#a0778c62b500b00edb448466ddcd06d13',1,'data-types.h']]],
+  ['executionstable_8',['executionsTable',['../data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f',1,'data-types.h']]],
+  ['exportplan_9',['exportPlan',['../lists_8h.html#ac3605da0d42c8486e9430e84f5f790fc',1,'exportPlan(char *fileName, FileCell *head):&#160;plan.c'],['../plan_8c.html#ac3605da0d42c8486e9430e84f5f790fc',1,'exportPlan(char *fileName, FileCell *head):&#160;plan.c']]]
 ];

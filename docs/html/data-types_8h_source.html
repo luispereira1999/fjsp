@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Flexible Job Shop Problem: CÃ³digo-Fonte de C:/LUIS-PEREIRA/Repositorios/fjssp/fjssp/data-types.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Flexible Job Shop Problem<span id="projectnumber">&#160;v1.2</span>
+   </div>
+   <div id="projectbrief">Proposta de escalonamento para a produÃ§Ã£o de um produto que envolve vÃ¡rias operaÃ§Ãµes e a utilizaÃ§Ã£o de vÃ¡rias mÃ¡quinas, para minimizar o tempo necessÃ¡rio na sua produÃ§Ã£o.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.3 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_45c3d416b95fca600a286ee78c23e56e.html">fjssp</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">data-types.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="data-types_8h.html">Ir para a documentaÃ§Ã£o deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef DATATYPES</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define DATATYPES 1</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#pragma region constantes</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// tamanho relativos às estruturas de dados</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">   16</a></span><span class="preprocessor">#define HASH_TABLE_SIZE 13</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">   17</a></span><span class="preprocessor">#define NUMBER_MACHINES 8</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">   18</a></span><span class="preprocessor">#define MAX_TIME 35</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// tamanhos e nomes relativos a ficheiros de texto</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="data-types_8h.html#af4dd63083e24ffd8dd2c455b355106c0">   21</a></span><span class="preprocessor">#define FILE_LINE_SIZE 50</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="data-types_8h.html#a92d724b49f4c5f6f087396e833e95411">   22</a></span><span class="preprocessor">#define JOBS_FILENAME_TEXT &quot;text/jobs.csv&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="data-types_8h.html#a0cee344c6f8f2c5f0f1c953ae30ad79c">   23</a></span><span class="preprocessor">#define MACHINES_FILENAME_TEXT &quot;text/machines.csv&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="data-types_8h.html#ae8a4c9c1d13c9e3db4d2238ef43be113">   24</a></span><span class="preprocessor">#define OPERATIONS_FILENAME_TEXT &quot;text/operations.csv&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="data-types_8h.html#a0778c62b500b00edb448466ddcd06d13">   25</a></span><span class="preprocessor">#define EXECUTIONS_FILENAME_TEXT &quot;text/executions.csv&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="data-types_8h.html#a545550cbf83abfc8fba0c2e55b547cf0">   26</a></span><span class="preprocessor">#define PLAN_FILENAME_TEXT &quot;text/plan.csv&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// tamanho da quantidade de operações que são guardadas em cada linha do plano exportado</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="data-types_8h.html#a10c81b4fa8dd6f1a738151f4d0fbbe25">   29</a></span><span class="preprocessor">#define OPEARATIONS_TEXT_SIZE 50</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// nomes para os ficheiros binários onde os dados são armazenados durante a execução do programa</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="data-types_8h.html#a2c01afb31522618361a6f72fd5f251e3">   32</a></span><span class="preprocessor">#define JOBS_FILENAME_BINARY &quot;binary/jobs.bin&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="data-types_8h.html#a98c496e67aa9615cc4b453c809b23791">   33</a></span><span class="preprocessor">#define MACHINES_FILENAME_BINARY &quot;binary/machines.bin&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="data-types_8h.html#a3c6c24386c8e549126bc8ec7ba4ff952">   34</a></span><span class="preprocessor">#define OPERATIONS_FILENAME_BINARY &quot;binary/operations.bin&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="data-types_8h.html#aa2212b6c51d5f434ba0f309964d4b02b">   35</a></span><span class="preprocessor">#define EXECUTIONS_FILENAME_BINARY &quot;binary/executions.bin&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#pragma region representações</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">   45</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c">   47</a></span>   <span class="keyword">false</span> = 0,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <span class="keyword">true</span> = 1</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="data-types_8h.html#ac42e06a86a5419b9bb1eeee85c78c4e9">   49</a></span>} <a class="code hl_enumeration" href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#pragma region estruturas de dados em memória</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="struct_job.html">   59</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_job.html">Job</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="struct_job.html#a7441ef0865bcb3db9b8064dd7375c1ea">   61</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_job.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="struct_job.html#a23043319aa98624f196cafc0ba57a0b1">   62</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_job.html">Job</a>* <a class="code hl_variable" href="struct_job.html#a23043319aa98624f196cafc0ba57a0b1">next</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="data-types_8h.html#a7f678ed7503a7b4211821d14323751d8">   63</a></span>} <a class="code hl_typedef" href="data-types_8h.html#a7f678ed7503a7b4211821d14323751d8">Job</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// lista de trabalhos</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_job.html">Job</a>* <a class="code hl_variable" href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a>; <span class="comment">// extern: informa o compilador que esta variável está definida algures no código</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="struct_machine.html">   72</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_machine.html">Machine</a></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">   74</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="struct_machine.html#a099f725f22a344e190121634f53328d8">   75</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_machine.html#a099f725f22a344e190121634f53328d8">isBusy</a>; <span class="comment">// se a máquina está ou não em utilização</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">   76</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_machine.html">Machine</a>* <a class="code hl_variable" href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">next</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="data-types_8h.html#ac5435b96779b7d7659b398b8275b6cbf">   77</a></span>} <a class="code hl_typedef" href="data-types_8h.html#ac5435b96779b7d7659b398b8275b6cbf">Machine</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">// lista de máquinas</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_machine.html">Machine</a>* <a class="code hl_variable" href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="struct_operation.html">   86</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_operation.html">Operation</a></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="struct_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea">   88</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="struct_operation.html#ad71a8c2a978cd38c498b77c5b914983b">   89</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_operation.html#ad71a8c2a978cd38c498b77c5b914983b">jobID</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="struct_operation.html#a401e942526aac47cef94f478182486e7">   90</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_operation.html#a401e942526aac47cef94f478182486e7">position</a>; <span class="comment">// posição da operação (se é a 1º, 2º, 3º... a ser executada)</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="struct_operation.html#a9db59830dec0306ea782bae1df0736d1">   91</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_operation.html">Operation</a>* <a class="code hl_variable" href="struct_operation.html#a9db59830dec0306ea782bae1df0736d1">next</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="data-types_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c">   92</a></span>} <a class="code hl_typedef" href="data-types_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c">Operation</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">// lista de operações</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_operation.html">Operation</a>* <a class="code hl_variable" href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="struct_execution.html">  101</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_execution.html">Execution</a></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">  103</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">  104</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">  105</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>; <span class="comment">// unidades de tempo necessárias para a execução da operação</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">  106</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_execution.html">Execution</a>* <a class="code hl_variable" href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">next</a>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="data-types_8h.html#aace4a8a5be0edf7bb2ffc9da31308511">  107</a></span>} <a class="code hl_typedef" href="data-types_8h.html#aace4a8a5be0edf7bb2ffc9da31308511">Execution</a>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">// lista de execuções</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_execution.html">Execution</a>* <a class="code hl_variable" href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct_execution_node.html">  115</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c">  116</a></span>    <a class="code hl_struct" href="struct_execution.html">Execution</a>* <a class="code hl_variable" href="struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c">start</a>; <span class="comment">// apontador para o primeiro elemento de cada posição da tabela</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737">  117</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737">numberOfExecutions</a>; <span class="comment">// quantidade de execuções de cada posição da tabela</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>} <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">// tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente,</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">// é um array de apontadores para listas de execuções</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_execution_node.html">ExecutionNode</a>* <a class="code hl_variable" href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a>[<a class="code hl_define" href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>];</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="struct_work_plan.html">  128</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_work_plan.html">WorkPlan</a></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>{</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="struct_work_plan.html#ad71a8c2a978cd38c498b77c5b914983b">  130</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_work_plan.html#ad71a8c2a978cd38c498b77c5b914983b">jobID</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="struct_work_plan.html#a0be948f2b8f4cdb1a8527811a08ecfd5">  131</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_work_plan.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="struct_work_plan.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">  132</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_work_plan.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="struct_work_plan.html#a6885fec41faff728c1e6173cfb69e81f">  133</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_work_plan.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="struct_work_plan.html#a401e942526aac47cef94f478182486e7">  134</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_work_plan.html#a401e942526aac47cef94f478182486e7">position</a>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="struct_work_plan.html#a49cffc406616a06f988e9fd2251d57d3">  135</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_work_plan.html">WorkPlan</a>* <a class="code hl_variable" href="struct_work_plan.html#a49cffc406616a06f988e9fd2251d57d3">next</a>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="data-types_8h.html#a6cd3c4460fccd7d3d5a3292941e5fa05">  136</a></span>} <a class="code hl_typedef" href="data-types_8h.html#a6cd3c4460fccd7d3d5a3292941e5fa05">WorkPlan</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="struct_cell.html">  142</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_cell.html">Cell</a></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>{</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="struct_cell.html#ad71a8c2a978cd38c498b77c5b914983b">  144</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_cell.html#ad71a8c2a978cd38c498b77c5b914983b">jobID</a>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="struct_cell.html#a0be948f2b8f4cdb1a8527811a08ecfd5">  145</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_cell.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="struct_cell.html#a73ab6b9ae8c97849c3323ef4fe822ad3">  146</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_cell.html#a73ab6b9ae8c97849c3323ef4fe822ad3">currentTime</a>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="data-types_8h.html#a60bf09598e66928bf67a21a22bc17814">  147</a></span>} <a class="code hl_typedef" href="data-types_8h.html#a60bf09598e66928bf67a21a22bc17814">Cell</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">// matriz do plano de produção</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_cell.html">Cell</a> <a class="code hl_variable" href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a>[<a class="code hl_define" href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">NUMBER_MACHINES</a>][<a class="code hl_define" href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">MAX_TIME</a>];</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#pragma region estruturas de dados em ficheiros</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="struct_file_job.html">  160</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_file_job.html">FileJob</a></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>{</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="struct_file_job.html#a7441ef0865bcb3db9b8064dd7375c1ea">  162</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_job.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="data-types_8h.html#abfb6a214f53f16cdb5113036e731a2e2">  163</a></span>} <a class="code hl_typedef" href="data-types_8h.html#abfb6a214f53f16cdb5113036e731a2e2">FileJob</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="struct_file_machine.html">  169</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_file_machine.html">FileMachine</a></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>{</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="struct_file_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">  171</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="struct_file_machine.html#a099f725f22a344e190121634f53328d8">  172</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_file_machine.html#a099f725f22a344e190121634f53328d8">isBusy</a>; <span class="comment">// se a máquina está ou não em utilização</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="data-types_8h.html#a7c190f983ffc1790c1d1315b0884b4d3">  173</a></span>} <a class="code hl_typedef" href="data-types_8h.html#a7c190f983ffc1790c1d1315b0884b4d3">FileMachine</a>;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="struct_file_operation.html">  179</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_file_operation.html">FileOperation</a></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>{</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="struct_file_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea">  181</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="struct_file_operation.html#ad71a8c2a978cd38c498b77c5b914983b">  182</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_operation.html#ad71a8c2a978cd38c498b77c5b914983b">jobID</a>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="struct_file_operation.html#a401e942526aac47cef94f478182486e7">  183</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_operation.html#a401e942526aac47cef94f478182486e7">position</a>; <span class="comment">// posição da operação (se é a 1º, 2º, 3º... a ser executada)</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="data-types_8h.html#ac9fda784e10ac5624195204a6d499a65">  184</a></span>} <a class="code hl_typedef" href="data-types_8h.html#ac9fda784e10ac5624195204a6d499a65">FileOperation</a>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="struct_file_execution.html">  190</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_file_execution.html">FileExecution</a></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>{</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">  192</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">  193</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">  194</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">runtime</a>; <span class="comment">// unidades de tempo necessárias para a execução da operação</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="data-types_8h.html#a460a67751b57788df2d041efe14c70df">  195</a></span>} <a class="code hl_typedef" href="data-types_8h.html#a460a67751b57788df2d041efe14c70df">FileExecution</a>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="struct_file_cell.html">  201</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_file_cell.html">FileCell</a></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="struct_file_cell.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">  203</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_cell.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">machineID</a>;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="struct_file_cell.html#ad71a8c2a978cd38c498b77c5b914983b">  204</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_cell.html#ad71a8c2a978cd38c498b77c5b914983b">jobID</a>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="struct_file_cell.html#a0be948f2b8f4cdb1a8527811a08ecfd5">  205</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_cell.html#a0be948f2b8f4cdb1a8527811a08ecfd5">operationID</a>;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="struct_file_cell.html#ababa900afd511e06fbc4fdc59153da5a">  206</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_cell.html#ababa900afd511e06fbc4fdc59153da5a">initialTime</a>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="struct_file_cell.html#adefa6058e65d910b89b24511022d93d6">  207</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_file_cell.html#adefa6058e65d910b89b24511022d93d6">finalTime</a>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="struct_file_cell.html#ae98b5aca33fe7726f63eeeae76843663">  208</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_file_cell.html">FileCell</a>* <a class="code hl_variable" href="struct_file_cell.html#ae98b5aca33fe7726f63eeeae76843663">next</a>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="data-types_8h.html#a50e77eabd575f4455c13aa0cfda3935d">  209</a></span>} <a class="code hl_typedef" href="data-types_8h.html#a50e77eabd575f4455c13aa0cfda3935d">FileCell</a>;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="adata-types_8h_html_a06f928c4814f71d1aa98651c8b7d98f9"><div class="ttname"><a href="data-types_8h.html#a06f928c4814f71d1aa98651c8b7d98f9">executions</a></div><div class="ttdeci">Execution * executions</div></div>
+<div class="ttc" id="adata-types_8h_html_a141d2a58898a5ea72097da30116580ee"><div class="ttname"><a href="data-types_8h.html#a141d2a58898a5ea72097da30116580ee">operations</a></div><div class="ttdeci">Operation * operations</div></div>
+<div class="ttc" id="adata-types_8h_html_a460a67751b57788df2d041efe14c70df"><div class="ttname"><a href="data-types_8h.html#a460a67751b57788df2d041efe14c70df">FileExecution</a></div><div class="ttdeci">struct FileExecution FileExecution</div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas.</div></div>
+<div class="ttc" id="adata-types_8h_html_a482954e58a1aa24c2a67b81bb6d92d9c"><div class="ttname"><a href="data-types_8h.html#a482954e58a1aa24c2a67b81bb6d92d9c">Operation</a></div><div class="ttdeci">struct Operation Operation</div><div class="ttdoc">Estrutura de dados para representar a lista de operações (em memória)</div></div>
+<div class="ttc" id="adata-types_8h_html_a50e77eabd575f4455c13aa0cfda3935d"><div class="ttname"><a href="data-types_8h.html#a50e77eabd575f4455c13aa0cfda3935d">FileCell</a></div><div class="ttdeci">struct FileCell FileCell</div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro uma célula do plano de produção.</div></div>
+<div class="ttc" id="adata-types_8h_html_a5320d4457a472d8888ec1905bc0e0a1c"><div class="ttname"><a href="data-types_8h.html#a5320d4457a472d8888ec1905bc0e0a1c">MAX_TIME</a></div><div class="ttdeci">#define MAX_TIME</div><div class="ttdef"><b>Definition:</b> data-types.h:18</div></div>
+<div class="ttc" id="adata-types_8h_html_a5aba9fa4b62a768af157854c4db1e7ff"><div class="ttname"><a href="data-types_8h.html#a5aba9fa4b62a768af157854c4db1e7ff">jobs</a></div><div class="ttdeci">Job * jobs</div></div>
+<div class="ttc" id="adata-types_8h_html_a60bf09598e66928bf67a21a22bc17814"><div class="ttname"><a href="data-types_8h.html#a60bf09598e66928bf67a21a22bc17814">Cell</a></div><div class="ttdeci">struct Cell Cell</div><div class="ttdoc">Estrutura de dados para representar uma célula do plano de produção.</div></div>
+<div class="ttc" id="adata-types_8h_html_a6cd3c4460fccd7d3d5a3292941e5fa05"><div class="ttname"><a href="data-types_8h.html#a6cd3c4460fccd7d3d5a3292941e5fa05">WorkPlan</a></div><div class="ttdeci">struct WorkPlan WorkPlan</div><div class="ttdoc">Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plan...</div></div>
+<div class="ttc" id="adata-types_8h_html_a7ad917416d63c60b78e7c5996a98803f"><div class="ttname"><a href="data-types_8h.html#a7ad917416d63c60b78e7c5996a98803f">plan</a></div><div class="ttdeci">Cell plan[NUMBER_MACHINES][MAX_TIME]</div></div>
+<div class="ttc" id="adata-types_8h_html_a7c190f983ffc1790c1d1315b0884b4d3"><div class="ttname"><a href="data-types_8h.html#a7c190f983ffc1790c1d1315b0884b4d3">FileMachine</a></div><div class="ttdeci">struct FileMachine FileMachine</div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de máquinas.</div></div>
+<div class="ttc" id="adata-types_8h_html_a7c589580d7f2357c2e3c5cbec30dcacf"><div class="ttname"><a href="data-types_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf">machines</a></div><div class="ttdeci">Machine * machines</div></div>
+<div class="ttc" id="adata-types_8h_html_a7f678ed7503a7b4211821d14323751d8"><div class="ttname"><a href="data-types_8h.html#a7f678ed7503a7b4211821d14323751d8">Job</a></div><div class="ttdeci">struct Job Job</div><div class="ttdoc">Estrutura de dados para representar a lista de trabalhos (em memória)</div></div>
+<div class="ttc" id="adata-types_8h_html_a9cca8a4d7145b6602de842ff0421283f"><div class="ttname"><a href="data-types_8h.html#a9cca8a4d7145b6602de842ff0421283f">executionsTable</a></div><div class="ttdeci">ExecutionNode * executionsTable[HASH_TABLE_SIZE]</div></div>
+<div class="ttc" id="adata-types_8h_html_aace4a8a5be0edf7bb2ffc9da31308511"><div class="ttname"><a href="data-types_8h.html#aace4a8a5be0edf7bb2ffc9da31308511">Execution</a></div><div class="ttdeci">struct Execution Execution</div><div class="ttdoc">Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)</div></div>
+<div class="ttc" id="adata-types_8h_html_abfb6a214f53f16cdb5113036e731a2e2"><div class="ttname"><a href="data-types_8h.html#abfb6a214f53f16cdb5113036e731a2e2">FileJob</a></div><div class="ttdeci">struct FileJob FileJob</div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de trabalhos.</div></div>
+<div class="ttc" id="adata-types_8h_html_abfd8510b1fadf533d685965730e2969b"><div class="ttname"><a href="data-types_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a></div><div class="ttdeci">#define HASH_TABLE_SIZE</div><div class="ttdef"><b>Definition:</b> data-types.h:16</div></div>
+<div class="ttc" id="adata-types_8h_html_ac5435b96779b7d7659b398b8275b6cbf"><div class="ttname"><a href="data-types_8h.html#ac5435b96779b7d7659b398b8275b6cbf">Machine</a></div><div class="ttdeci">struct Machine Machine</div><div class="ttdoc">Estrutura de dados para representar a lista de máquinas (em memória)</div></div>
+<div class="ttc" id="adata-types_8h_html_ac9fda784e10ac5624195204a6d499a65"><div class="ttname"><a href="data-types_8h.html#ac9fda784e10ac5624195204a6d499a65">FileOperation</a></div><div class="ttdeci">struct FileOperation FileOperation</div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de operações.</div></div>
+<div class="ttc" id="adata-types_8h_html_ad24db60c59551899be0cf71702a20314"><div class="ttname"><a href="data-types_8h.html#ad24db60c59551899be0cf71702a20314">NUMBER_MACHINES</a></div><div class="ttdeci">#define NUMBER_MACHINES</div><div class="ttdef"><b>Definition:</b> data-types.h:17</div></div>
+<div class="ttc" id="adata-types_8h_html_af6a258d8f3ee5206d682d799316314b1"><div class="ttname"><a href="data-types_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a></div><div class="ttdeci">bool</div><div class="ttdoc">Criar tipo de dados booleano.</div><div class="ttdef"><b>Definition:</b> data-types.h:46</div></div>
+<div class="ttc" id="astruct_cell_html"><div class="ttname"><a href="struct_cell.html">Cell</a></div><div class="ttdoc">Estrutura de dados para representar uma célula do plano de produção.</div><div class="ttdef"><b>Definition:</b> data-types.h:143</div></div>
+<div class="ttc" id="astruct_cell_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_cell.html#a0be948f2b8f4cdb1a8527811a08ecfd5">Cell::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> data-types.h:145</div></div>
+<div class="ttc" id="astruct_cell_html_a73ab6b9ae8c97849c3323ef4fe822ad3"><div class="ttname"><a href="struct_cell.html#a73ab6b9ae8c97849c3323ef4fe822ad3">Cell::currentTime</a></div><div class="ttdeci">int currentTime</div><div class="ttdef"><b>Definition:</b> data-types.h:146</div></div>
+<div class="ttc" id="astruct_cell_html_ad71a8c2a978cd38c498b77c5b914983b"><div class="ttname"><a href="struct_cell.html#ad71a8c2a978cd38c498b77c5b914983b">Cell::jobID</a></div><div class="ttdeci">int jobID</div><div class="ttdef"><b>Definition:</b> data-types.h:144</div></div>
+<div class="ttc" id="astruct_execution_html"><div class="ttname"><a href="struct_execution.html">Execution</a></div><div class="ttdoc">Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:102</div></div>
+<div class="ttc" id="astruct_execution_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">Execution::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> data-types.h:103</div></div>
+<div class="ttc" id="astruct_execution_html_a5118f41fd71744302713d58c7ce39bd4"><div class="ttname"><a href="struct_execution.html#a5118f41fd71744302713d58c7ce39bd4">Execution::next</a></div><div class="ttdeci">struct Execution * next</div><div class="ttdef"><b>Definition:</b> data-types.h:106</div></div>
+<div class="ttc" id="astruct_execution_html_a6885fec41faff728c1e6173cfb69e81f"><div class="ttname"><a href="struct_execution.html#a6885fec41faff728c1e6173cfb69e81f">Execution::runtime</a></div><div class="ttdeci">int runtime</div><div class="ttdef"><b>Definition:</b> data-types.h:105</div></div>
+<div class="ttc" id="astruct_execution_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">Execution::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> data-types.h:104</div></div>
+<div class="ttc" id="astruct_execution_node_html"><div class="ttname"><a href="struct_execution_node.html">ExecutionNode</a></div><div class="ttdoc">Estrutura de dados para representar cada nó (posição) da tabela hash das execuções (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:115</div></div>
+<div class="ttc" id="astruct_execution_node_html_aa95a151910734e9c0dd67a2912c2621c"><div class="ttname"><a href="struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c">ExecutionNode::start</a></div><div class="ttdeci">Execution * start</div><div class="ttdef"><b>Definition:</b> data-types.h:116</div></div>
+<div class="ttc" id="astruct_execution_node_html_ab1f76925bf29b8f0f5c7f0702eaeb737"><div class="ttname"><a href="struct_execution_node.html#ab1f76925bf29b8f0f5c7f0702eaeb737">ExecutionNode::numberOfExecutions</a></div><div class="ttdeci">int numberOfExecutions</div><div class="ttdef"><b>Definition:</b> data-types.h:117</div></div>
+<div class="ttc" id="astruct_file_cell_html"><div class="ttname"><a href="struct_file_cell.html">FileCell</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro uma célula do plano de produção.</div><div class="ttdef"><b>Definition:</b> data-types.h:202</div></div>
+<div class="ttc" id="astruct_file_cell_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_file_cell.html#a0be948f2b8f4cdb1a8527811a08ecfd5">FileCell::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> data-types.h:205</div></div>
+<div class="ttc" id="astruct_file_cell_html_ababa900afd511e06fbc4fdc59153da5a"><div class="ttname"><a href="struct_file_cell.html#ababa900afd511e06fbc4fdc59153da5a">FileCell::initialTime</a></div><div class="ttdeci">int initialTime</div><div class="ttdef"><b>Definition:</b> data-types.h:206</div></div>
+<div class="ttc" id="astruct_file_cell_html_ad71a8c2a978cd38c498b77c5b914983b"><div class="ttname"><a href="struct_file_cell.html#ad71a8c2a978cd38c498b77c5b914983b">FileCell::jobID</a></div><div class="ttdeci">int jobID</div><div class="ttdef"><b>Definition:</b> data-types.h:204</div></div>
+<div class="ttc" id="astruct_file_cell_html_adefa6058e65d910b89b24511022d93d6"><div class="ttname"><a href="struct_file_cell.html#adefa6058e65d910b89b24511022d93d6">FileCell::finalTime</a></div><div class="ttdeci">int finalTime</div><div class="ttdef"><b>Definition:</b> data-types.h:207</div></div>
+<div class="ttc" id="astruct_file_cell_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_file_cell.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">FileCell::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> data-types.h:203</div></div>
+<div class="ttc" id="astruct_file_cell_html_ae98b5aca33fe7726f63eeeae76843663"><div class="ttname"><a href="struct_file_cell.html#ae98b5aca33fe7726f63eeeae76843663">FileCell::next</a></div><div class="ttdeci">struct FileCell * next</div><div class="ttdef"><b>Definition:</b> data-types.h:208</div></div>
+<div class="ttc" id="astruct_file_execution_html"><div class="ttname"><a href="struct_file_execution.html">FileExecution</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas.</div><div class="ttdef"><b>Definition:</b> data-types.h:191</div></div>
+<div class="ttc" id="astruct_file_execution_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_file_execution.html#a0be948f2b8f4cdb1a8527811a08ecfd5">FileExecution::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> data-types.h:192</div></div>
+<div class="ttc" id="astruct_file_execution_html_a6885fec41faff728c1e6173cfb69e81f"><div class="ttname"><a href="struct_file_execution.html#a6885fec41faff728c1e6173cfb69e81f">FileExecution::runtime</a></div><div class="ttdeci">int runtime</div><div class="ttdef"><b>Definition:</b> data-types.h:194</div></div>
+<div class="ttc" id="astruct_file_execution_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">FileExecution::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> data-types.h:193</div></div>
+<div class="ttc" id="astruct_file_job_html"><div class="ttname"><a href="struct_file_job.html">FileJob</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de trabalhos.</div><div class="ttdef"><b>Definition:</b> data-types.h:161</div></div>
+<div class="ttc" id="astruct_file_job_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_file_job.html#a7441ef0865bcb3db9b8064dd7375c1ea">FileJob::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> data-types.h:162</div></div>
+<div class="ttc" id="astruct_file_machine_html"><div class="ttname"><a href="struct_file_machine.html">FileMachine</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de máquinas.</div><div class="ttdef"><b>Definition:</b> data-types.h:170</div></div>
+<div class="ttc" id="astruct_file_machine_html_a099f725f22a344e190121634f53328d8"><div class="ttname"><a href="struct_file_machine.html#a099f725f22a344e190121634f53328d8">FileMachine::isBusy</a></div><div class="ttdeci">bool isBusy</div><div class="ttdef"><b>Definition:</b> data-types.h:172</div></div>
+<div class="ttc" id="astruct_file_machine_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_file_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">FileMachine::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> data-types.h:171</div></div>
+<div class="ttc" id="astruct_file_operation_html"><div class="ttname"><a href="struct_file_operation.html">FileOperation</a></div><div class="ttdoc">Estrutura de dados para armazenar em ficheiro a lista de operações.</div><div class="ttdef"><b>Definition:</b> data-types.h:180</div></div>
+<div class="ttc" id="astruct_file_operation_html_a401e942526aac47cef94f478182486e7"><div class="ttname"><a href="struct_file_operation.html#a401e942526aac47cef94f478182486e7">FileOperation::position</a></div><div class="ttdeci">int position</div><div class="ttdef"><b>Definition:</b> data-types.h:183</div></div>
+<div class="ttc" id="astruct_file_operation_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_file_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea">FileOperation::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> data-types.h:181</div></div>
+<div class="ttc" id="astruct_file_operation_html_ad71a8c2a978cd38c498b77c5b914983b"><div class="ttname"><a href="struct_file_operation.html#ad71a8c2a978cd38c498b77c5b914983b">FileOperation::jobID</a></div><div class="ttdeci">int jobID</div><div class="ttdef"><b>Definition:</b> data-types.h:182</div></div>
+<div class="ttc" id="astruct_job_html"><div class="ttname"><a href="struct_job.html">Job</a></div><div class="ttdoc">Estrutura de dados para representar a lista de trabalhos (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:60</div></div>
+<div class="ttc" id="astruct_job_html_a23043319aa98624f196cafc0ba57a0b1"><div class="ttname"><a href="struct_job.html#a23043319aa98624f196cafc0ba57a0b1">Job::next</a></div><div class="ttdeci">struct Job * next</div><div class="ttdef"><b>Definition:</b> data-types.h:62</div></div>
+<div class="ttc" id="astruct_job_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_job.html#a7441ef0865bcb3db9b8064dd7375c1ea">Job::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> data-types.h:61</div></div>
+<div class="ttc" id="astruct_machine_html"><div class="ttname"><a href="struct_machine.html">Machine</a></div><div class="ttdoc">Estrutura de dados para representar a lista de máquinas (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:73</div></div>
+<div class="ttc" id="astruct_machine_html_a099f725f22a344e190121634f53328d8"><div class="ttname"><a href="struct_machine.html#a099f725f22a344e190121634f53328d8">Machine::isBusy</a></div><div class="ttdeci">bool isBusy</div><div class="ttdef"><b>Definition:</b> data-types.h:75</div></div>
+<div class="ttc" id="astruct_machine_html_a6427ea1ae4ce02f843d5bdbbd2592b27"><div class="ttname"><a href="struct_machine.html#a6427ea1ae4ce02f843d5bdbbd2592b27">Machine::next</a></div><div class="ttdeci">struct Machine * next</div><div class="ttdef"><b>Definition:</b> data-types.h:76</div></div>
+<div class="ttc" id="astruct_machine_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea">Machine::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> data-types.h:74</div></div>
+<div class="ttc" id="astruct_operation_html"><div class="ttname"><a href="struct_operation.html">Operation</a></div><div class="ttdoc">Estrutura de dados para representar a lista de operações (em memória)</div><div class="ttdef"><b>Definition:</b> data-types.h:87</div></div>
+<div class="ttc" id="astruct_operation_html_a401e942526aac47cef94f478182486e7"><div class="ttname"><a href="struct_operation.html#a401e942526aac47cef94f478182486e7">Operation::position</a></div><div class="ttdeci">int position</div><div class="ttdef"><b>Definition:</b> data-types.h:90</div></div>
+<div class="ttc" id="astruct_operation_html_a7441ef0865bcb3db9b8064dd7375c1ea"><div class="ttname"><a href="struct_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea">Operation::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> data-types.h:88</div></div>
+<div class="ttc" id="astruct_operation_html_a9db59830dec0306ea782bae1df0736d1"><div class="ttname"><a href="struct_operation.html#a9db59830dec0306ea782bae1df0736d1">Operation::next</a></div><div class="ttdeci">struct Operation * next</div><div class="ttdef"><b>Definition:</b> data-types.h:91</div></div>
+<div class="ttc" id="astruct_operation_html_ad71a8c2a978cd38c498b77c5b914983b"><div class="ttname"><a href="struct_operation.html#ad71a8c2a978cd38c498b77c5b914983b">Operation::jobID</a></div><div class="ttdeci">int jobID</div><div class="ttdef"><b>Definition:</b> data-types.h:89</div></div>
+<div class="ttc" id="astruct_work_plan_html"><div class="ttname"><a href="struct_work_plan.html">WorkPlan</a></div><div class="ttdoc">Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plan...</div><div class="ttdef"><b>Definition:</b> data-types.h:129</div></div>
+<div class="ttc" id="astruct_work_plan_html_a0be948f2b8f4cdb1a8527811a08ecfd5"><div class="ttname"><a href="struct_work_plan.html#a0be948f2b8f4cdb1a8527811a08ecfd5">WorkPlan::operationID</a></div><div class="ttdeci">int operationID</div><div class="ttdef"><b>Definition:</b> data-types.h:131</div></div>
+<div class="ttc" id="astruct_work_plan_html_a401e942526aac47cef94f478182486e7"><div class="ttname"><a href="struct_work_plan.html#a401e942526aac47cef94f478182486e7">WorkPlan::position</a></div><div class="ttdeci">int position</div><div class="ttdef"><b>Definition:</b> data-types.h:134</div></div>
+<div class="ttc" id="astruct_work_plan_html_a49cffc406616a06f988e9fd2251d57d3"><div class="ttname"><a href="struct_work_plan.html#a49cffc406616a06f988e9fd2251d57d3">WorkPlan::next</a></div><div class="ttdeci">struct WorkPlan * next</div><div class="ttdef"><b>Definition:</b> data-types.h:135</div></div>
+<div class="ttc" id="astruct_work_plan_html_a6885fec41faff728c1e6173cfb69e81f"><div class="ttname"><a href="struct_work_plan.html#a6885fec41faff728c1e6173cfb69e81f">WorkPlan::runtime</a></div><div class="ttdeci">int runtime</div><div class="ttdef"><b>Definition:</b> data-types.h:133</div></div>
+<div class="ttc" id="astruct_work_plan_html_ad71a8c2a978cd38c498b77c5b914983b"><div class="ttname"><a href="struct_work_plan.html#ad71a8c2a978cd38c498b77c5b914983b">WorkPlan::jobID</a></div><div class="ttdeci">int jobID</div><div class="ttdef"><b>Definition:</b> data-types.h:130</div></div>
+<div class="ttc" id="astruct_work_plan_html_ae0b5e7043ba4f62c59a7a67c2c1c440c"><div class="ttname"><a href="struct_work_plan.html#ae0b5e7043ba4f62c59a7a67c2c1c440c">WorkPlan::machineID</a></div><div class="ttdeci">int machineID</div><div class="ttdef"><b>Definition:</b> data-types.h:132</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+</small></address>
+</body>
+</html>

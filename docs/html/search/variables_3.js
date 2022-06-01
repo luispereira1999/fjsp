@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['machineid_0',['machineID',['../struct_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c',1,'Execution::machineID()'],['../struct_file_execution.html#ae0b5e7043ba4f62c59a7a67c2c1c440c',1,'FileExecution::machineID()']]],
-  ['machines_1',['machines',['../header_8h.html#a7c589580d7f2357c2e3c5cbec30dcacf',1,'header.h']]]
+  ['id_0',['id',['../struct_job.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'Job::id()'],['../struct_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'Machine::id()'],['../struct_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'Operation::id()'],['../struct_file_job.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'FileJob::id()'],['../struct_file_machine.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'FileMachine::id()'],['../struct_file_operation.html#a7441ef0865bcb3db9b8064dd7375c1ea',1,'FileOperation::id()']]],
+  ['initialtime_1',['initialTime',['../struct_file_cell.html#ababa900afd511e06fbc4fdc59153da5a',1,'FileCell']]],
+  ['isbusy_2',['isBusy',['../struct_machine.html#a099f725f22a344e190121634f53328d8',1,'Machine::isBusy()'],['../struct_file_machine.html#a099f725f22a344e190121634f53328d8',1,'FileMachine::isBusy()']]]
 ];

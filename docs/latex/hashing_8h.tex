@@ -1,0 +1,513 @@
+\hypertarget{hashing_8h}{}\doxysection{ReferÃªncia ao ficheiro C\+:/\+LUIS-\/\+PEREIRA/\+Repositorios/fjssp/fjssp/hashing.h}
+\label{hashing_8h}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/hashing.h@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/hashing.h}}
+
+
+Ficheiro com todas as assinaturas globais necessários para a utilização de hash tables.  
+
+
+\doxysubsection*{FunÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ \mbox{\hyperlink{hashing_8h_ae5d4ea413106ade02d7003df3d7c04f1}{load\+Executions\+Table}} (char $\ast$file\+Name, \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Carrega dados das execuções de um ficheiro CSV para uma tabela hash em memória. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ \mbox{\hyperlink{hashing_8h_a0001c4cf520ad185db5413445b1e461a}{create\+Executions\+Table}} (\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Criar tabela hash das execuções vazia. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$ \mbox{\hyperlink{hashing_8h_a4c80c06ef32843a9af68abccd166cfaf}{create\+Execution\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Criar nó vazio para uma posição da tabela hash das execuções. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hashing_8h_a482e8e08727fd13d388900a6ab98e45d}{generate\+Hash}} (int id)
+\begin{DoxyCompactList}\small\item\em Gerar hash através de uma função. A função é representada pelo resto da divisão do identificador da operação pelo tamanho da tabela. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ \mbox{\hyperlink{hashing_8h_a6c9b801e5a5276639bad0c449566b0a3}{insert\+Execution\+\_\+\+At\+Table}} (\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$table\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$new)
+\begin{DoxyCompactList}\small\item\em Inserir nova execução na tabela hash das execuções, numa determinada posição. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{hashing_8h_a2402b39f2448988448bf820534f21758}{update\+Runtime\+\_\+\+By\+Operation\+\_\+\+At\+Table}} (\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$table\mbox{[}$\,$\mbox{]}, int operation\+ID, int machine\+ID, int runtime)
+\begin{DoxyCompactList}\small\item\em Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{hashing_8h_afe647db2279682c65d3262a7bfaa9ce4}{delete\+Executions\+\_\+\+By\+Operation\+\_\+\+At\+Table}} (\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$table\mbox{[}$\,$\mbox{]}, int operation\+ID)
+\begin{DoxyCompactList}\small\item\em Remover todas as execuções pelo identificador da operação na tabela. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{hashing_8h_aefd476173ba3d625348e353c22707c36}{write\+Executions\+\_\+\+At\+Table}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ \mbox{\hyperlink{hashing_8h_a34f3703871bfdbbca009e8d1f16f70d3}{read\+Executions\+\_\+\+At\+Table}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{hashing_8h_abe6834a2be75b22fc1a593753608a024}{display\+Executions\+\_\+\+At\+Table}} (\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Mostrar a tabela hash com as listas de execuções na consola. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_execution}{Execution}} $\ast$ \mbox{\hyperlink{hashing_8h_ade482462e6c9fbe78b9134d1d95f996b}{search\+Execution\+\_\+\+At\+Table}} (\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$table\mbox{[}$\,$\mbox{]}, int operation\+ID, int machine\+ID)
+\begin{DoxyCompactList}\small\item\em Procurar por uma execução na tabela hash. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hashing_8h_a7c503615b2b7aef617ccb9c6ff5cdfc2}{free\+Executions\+\_\+\+Table}} (\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$table\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Libertar a tabela hash de execuções da memória. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+Ficheiro com todas as assinaturas globais necessários para a utilização de hash tables. 
+
+\begin{DoxyAuthor}{Autor}
+Luís Pereira @email \href{mailto:a18446@alunos.ipca.pt}{\texttt{ a18446@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+25/03/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
+\mbox{\Hypertarget{hashing_8h_a4c80c06ef32843a9af68abccd166cfaf}\label{hashing_8h_a4c80c06ef32843a9af68abccd166cfaf}} 
+\index{hashing.h@{hashing.h}!createExecutionNode@{createExecutionNode}}
+\index{createExecutionNode@{createExecutionNode}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{createExecutionNode()}{createExecutionNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$ create\+Execution\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Criar nó vazio para uma posição da tabela hash das execuções. 
+
+\begin{DoxyReturn}{Retorna}
+Nó vazio da tabela hash das execuções criado 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{514 \{}
+\DoxyCodeLine{515     \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* node = malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_execution_node}{ExecutionNode}}));}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517     node-\/>\mbox{\hyperlink{struct_execution_node_aa95a151910734e9c0dd67a2912c2621c}{start}} = NULL;}
+\DoxyCodeLine{518     node-\/>\mbox{\hyperlink{struct_execution_node_ab1f76925bf29b8f0f5c7f0702eaeb737}{numberOfExecutions}} = 0;}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{520     \textcolor{keywordflow}{return} node;}
+\DoxyCodeLine{521 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_a0001c4cf520ad185db5413445b1e461a}\label{hashing_8h_a0001c4cf520ad185db5413445b1e461a}} 
+\index{hashing.h@{hashing.h}!createExecutionsTable@{createExecutionsTable}}
+\index{createExecutionsTable@{createExecutionsTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{createExecutionsTable()}{createExecutionsTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ create\+Executions\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$}]{table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Criar tabela hash das execuções vazia. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em table} & Tabela hash das execuções \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Tabela hash das execuções criada 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{499 \{}
+\DoxyCodeLine{500     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\_TABLE\_SIZE}}; i++)}
+\DoxyCodeLine{501     \{}
+\DoxyCodeLine{502         table[i] = \mbox{\hyperlink{executions_8c_a4c80c06ef32843a9af68abccd166cfaf}{createExecutionNode}}();}
+\DoxyCodeLine{503     \}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505     \textcolor{keywordflow}{return} *table;}
+\DoxyCodeLine{506 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_afe647db2279682c65d3262a7bfaa9ce4}\label{hashing_8h_afe647db2279682c65d3262a7bfaa9ce4}} 
+\index{hashing.h@{hashing.h}!deleteExecutions\_ByOperation\_AtTable@{deleteExecutions\_ByOperation\_AtTable}}
+\index{deleteExecutions\_ByOperation\_AtTable@{deleteExecutions\_ByOperation\_AtTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{deleteExecutions\_ByOperation\_AtTable()}{deleteExecutions\_ByOperation\_AtTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} delete\+Executions\+\_\+\+By\+Operation\+\_\+\+At\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$}]{table\mbox{[}$\,$\mbox{]},  }\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
+
+
+
+Remover todas as execuções pelo identificador da operação na tabela. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em table} & Tabela hash das execuções \\
+\hline
+{\em operation\+ID} & Identificador da operação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{578 \{}
+\DoxyCodeLine{579     \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** current = table;}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{581     \textcolor{keywordtype}{int} index = \mbox{\hyperlink{executions_8c_a8c200281c48846597568efc4e71806c8}{generateHash}}(operationID);}
+\DoxyCodeLine{582     \textcolor{keywordflow}{if} (index <= -\/1)}
+\DoxyCodeLine{583     \{}
+\DoxyCodeLine{584         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{585     \}}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{587     \textcolor{keywordtype}{bool} deleted = \textcolor{keyword}{false};}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589     \textcolor{keywordflow}{do}}
+\DoxyCodeLine{590     \{}
+\DoxyCodeLine{591         \textcolor{comment}{// enquanto que remover, significa que ainda existe operações e portanto continuará a remover, até remover todas}}
+\DoxyCodeLine{592         deleted = \mbox{\hyperlink{executions_8c_a3f1c8469fd5be248139fb23655a88787}{deleteExecution\_ByOperation\_AtList}}(\&current[index]-\/>start, operationID);}
+\DoxyCodeLine{593 }
+\DoxyCodeLine{594         \textcolor{keywordflow}{if} (deleted)}
+\DoxyCodeLine{595         \{}
+\DoxyCodeLine{596             current[index]-\/>\mbox{\hyperlink{struct_execution_node_ab1f76925bf29b8f0f5c7f0702eaeb737}{numberOfExecutions}}-\/-\/;}
+\DoxyCodeLine{597         \}}
+\DoxyCodeLine{598     \} \textcolor{keywordflow}{while} (deleted == \textcolor{keyword}{true});}
+\DoxyCodeLine{599 }
+\DoxyCodeLine{600     \textcolor{keywordflow}{return} deleted;}
+\DoxyCodeLine{601 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_abe6834a2be75b22fc1a593753608a024}\label{hashing_8h_abe6834a2be75b22fc1a593753608a024}} 
+\index{hashing.h@{hashing.h}!displayExecutions\_AtTable@{displayExecutions\_AtTable}}
+\index{displayExecutions\_AtTable@{displayExecutions\_AtTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{displayExecutions\_AtTable()}{displayExecutions\_AtTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Executions\+\_\+\+At\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$}]{table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Mostrar a tabela hash com as listas de execuções na consola. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em table} & Tabela hash das execuções \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{687 \{}
+\DoxyCodeLine{688     \textcolor{keywordflow}{if} (table == NULL)}
+\DoxyCodeLine{689     \{}
+\DoxyCodeLine{690         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{691     \}}
+\DoxyCodeLine{692 }
+\DoxyCodeLine{693     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\_TABLE\_SIZE}}; i++)}
+\DoxyCodeLine{694     \{}
+\DoxyCodeLine{695         printf(\textcolor{stringliteral}{"{}Lista \%d -\/ Número de elementos: \%d\(\backslash\)n"{}}, i + 1, table[i]-\/>numberOfExecutions);}
+\DoxyCodeLine{696         \mbox{\hyperlink{executions_8c_af71ebace66f1a24bf562109b2c037c64}{displayExecutions\_AtList}}(table[i]-\/>start);}
+\DoxyCodeLine{697     \}}
+\DoxyCodeLine{698 }
+\DoxyCodeLine{699     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{700 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_a7c503615b2b7aef617ccb9c6ff5cdfc2}\label{hashing_8h_a7c503615b2b7aef617ccb9c6ff5cdfc2}} 
+\index{hashing.h@{hashing.h}!freeExecutions\_Table@{freeExecutions\_Table}}
+\index{freeExecutions\_Table@{freeExecutions\_Table}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{freeExecutions\_Table()}{freeExecutions\_Table()}}
+{\footnotesize\ttfamily void free\+Executions\+\_\+\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$}]{table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Libertar a tabela hash de execuções da memória. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de execuções \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Tabela hash libertada da memória 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{735 \{}
+\DoxyCodeLine{736     \textcolor{keywordflow}{if} (table != NULL)}
+\DoxyCodeLine{737     \{}
+\DoxyCodeLine{738         \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** table2 = *table;}
+\DoxyCodeLine{739         \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* current;}
+\DoxyCodeLine{740         \mbox{\hyperlink{struct_execution}{Execution}}* current2;}
+\DoxyCodeLine{741 }
+\DoxyCodeLine{742         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\_TABLE\_SIZE}}; i++)}
+\DoxyCodeLine{743         \{}
+\DoxyCodeLine{744             current = table[i];}
+\DoxyCodeLine{745             free(current);}
+\DoxyCodeLine{746         \}}
+\DoxyCodeLine{747     \}}
+\DoxyCodeLine{748 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_a482e8e08727fd13d388900a6ab98e45d}\label{hashing_8h_a482e8e08727fd13d388900a6ab98e45d}} 
+\index{hashing.h@{hashing.h}!generateHash@{generateHash}}
+\index{generateHash@{generateHash}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{generateHash()}{generateHash()}}
+{\footnotesize\ttfamily int generate\+Hash (\begin{DoxyParamCaption}\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
+
+
+
+Gerar hash através de uma função. A função é representada pelo resto da divisão do identificador da operação pelo tamanho da tabela. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em operation\+ID} & Identificador da operação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor calculado pela função hash 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{531 \{}
+\DoxyCodeLine{532     \textcolor{keywordflow}{return} operationID \% \mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\_TABLE\_SIZE}};}
+\DoxyCodeLine{533 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_a6c9b801e5a5276639bad0c449566b0a3}\label{hashing_8h_a6c9b801e5a5276639bad0c449566b0a3}} 
+\index{hashing.h@{hashing.h}!insertExecution\_AtTable@{insertExecution\_AtTable}}
+\index{insertExecution\_AtTable@{insertExecution\_AtTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{insertExecution\_AtTable()}{insertExecution\_AtTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ insert\+Execution\+\_\+\+At\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$}]{table\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Inserir nova execução na tabela hash das execuções, numa determinada posição. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em table} & Tabela hash das execuções \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Tabela hash das execuções atualizada 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{542 \{}
+\DoxyCodeLine{543     \textcolor{keywordtype}{int} index = \mbox{\hyperlink{executions_8c_a8c200281c48846597568efc4e71806c8}{generateHash}}(new-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}});}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545     table[index]-\/>\mbox{\hyperlink{struct_execution_node_aa95a151910734e9c0dd67a2912c2621c}{start}} = \mbox{\hyperlink{executions_8c_a9d0b32dd8d9b5bd0ceb43fdd5ef79edb}{insertExecution\_AtStart\_AtList}}(table[index]-\/>start, \textcolor{keyword}{new});}
+\DoxyCodeLine{546     table[index]-\/>\mbox{\hyperlink{struct_execution_node_ab1f76925bf29b8f0f5c7f0702eaeb737}{numberOfExecutions}}++;}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{548     \textcolor{keywordflow}{return} *table;}
+\DoxyCodeLine{549 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_ae5d4ea413106ade02d7003df3d7c04f1}\label{hashing_8h_ae5d4ea413106ade02d7003df3d7c04f1}} 
+\index{hashing.h@{hashing.h}!loadExecutionsTable@{loadExecutionsTable}}
+\index{loadExecutionsTable@{loadExecutionsTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{loadExecutionsTable()}{loadExecutionsTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ load\+Executions\+Table (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$}]{table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Carrega dados das execuções de um ficheiro CSV para uma tabela hash em memória. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em file\+Name} & Nome do ficheiro \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+A tabela hash de execuções do ficheiro CSV 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{461 \{}
+\DoxyCodeLine{462     \textcolor{keywordtype}{char} line[\mbox{\hyperlink{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}{FILE\_LINE\_SIZE}}];}
+\DoxyCodeLine{463     \textcolor{keywordtype}{int} a = 0, b = 0, c = 0;}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465     \mbox{\hyperlink{struct_execution}{Execution}}* execution = NULL;}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467     FILE* file = fopen(fileName, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{468     \textcolor{keywordflow}{if} (file == NULL)}
+\DoxyCodeLine{469     \{}
+\DoxyCodeLine{470         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{471     \}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473     \textcolor{comment}{// iniciar tabela hash vazia}}
+\DoxyCodeLine{474     *table = \mbox{\hyperlink{executions_8c_a0001c4cf520ad185db5413445b1e461a}{createExecutionsTable}}(table);}
+\DoxyCodeLine{475 }
+\DoxyCodeLine{476     \textcolor{keywordflow}{while} (!feof(file))}
+\DoxyCodeLine{477     \{}
+\DoxyCodeLine{478         \textcolor{keywordflow}{if} (fgets(line, \mbox{\hyperlink{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}{FILE\_LINE\_SIZE}}, file) != NULL)}
+\DoxyCodeLine{479         \{}
+\DoxyCodeLine{480             \textcolor{comment}{// exemplo: 1;1;1}}
+\DoxyCodeLine{481             sscanf(line, \textcolor{stringliteral}{"{}\%d;\%d;\%d"{}}, \&a, \&b, \&c);}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483             execution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(a, b, c);}
+\DoxyCodeLine{484             *table = \mbox{\hyperlink{executions_8c_a6c9b801e5a5276639bad0c449566b0a3}{insertExecution\_AtTable}}(table, execution);}
+\DoxyCodeLine{485         \}}
+\DoxyCodeLine{486     \}}
+\DoxyCodeLine{487     fclose(file);}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489     \textcolor{keywordflow}{return} *table;}
+\DoxyCodeLine{490 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_a34f3703871bfdbbca009e8d1f16f70d3}\label{hashing_8h_a34f3703871bfdbbca009e8d1f16f70d3}} 
+\index{hashing.h@{hashing.h}!readExecutions\_AtTable@{readExecutions\_AtTable}}
+\index{readExecutions\_AtTable@{readExecutions\_AtTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{readExecutions\_AtTable()}{readExecutions\_AtTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$ read\+Executions\+\_\+\+At\+Table (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$}]{table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário. 
+
+Ler de ficheiro binário, os registos de todas as execuções para a tabela hash 
+\begin{DoxyParams}{ParÃ¢metros}
+{\em file\+Name} & Nome do ficheiro para ler a lista \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Tabela hash de execuçõess 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{652 \{}
+\DoxyCodeLine{653     FILE* file = NULL;}
+\DoxyCodeLine{654 }
+\DoxyCodeLine{655     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{656     \{}
+\DoxyCodeLine{657         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{658     \}}
+\DoxyCodeLine{659 }
+\DoxyCodeLine{660     \mbox{\hyperlink{struct_execution}{Execution}}* execution = NULL;}
+\DoxyCodeLine{661     \mbox{\hyperlink{struct_execution}{Execution}}* list = NULL;}
+\DoxyCodeLine{662     list = \mbox{\hyperlink{executions_8c_ac243dbf8dd9253190d63d7523d403c42}{readExecutions\_AtList}}(fileName);}
+\DoxyCodeLine{663 }
+\DoxyCodeLine{664     \textcolor{keywordflow}{if} (list == NULL) \textcolor{comment}{// erro ao ler dados do ficheiro}}
+\DoxyCodeLine{665     \{}
+\DoxyCodeLine{666         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{667     \}}
+\DoxyCodeLine{668 }
+\DoxyCodeLine{669     \textcolor{keywordflow}{while} (list != NULL) \textcolor{comment}{// enquanto que houver dados na lista, guarda-\/os na tabela}}
+\DoxyCodeLine{670     \{}
+\DoxyCodeLine{671         execution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(list-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, list-\/>\mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, list-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
+\DoxyCodeLine{672         *table = \mbox{\hyperlink{executions_8c_a6c9b801e5a5276639bad0c449566b0a3}{insertExecution\_AtTable}}(table, execution);}
+\DoxyCodeLine{673 }
+\DoxyCodeLine{674         list = list-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
+\DoxyCodeLine{675     \}}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{677     \textcolor{keywordflow}{return} *table;}
+\DoxyCodeLine{678 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_ade482462e6c9fbe78b9134d1d95f996b}\label{hashing_8h_ade482462e6c9fbe78b9134d1d95f996b}} 
+\index{hashing.h@{hashing.h}!searchExecution\_AtTable@{searchExecution\_AtTable}}
+\index{searchExecution\_AtTable@{searchExecution\_AtTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{searchExecution\_AtTable()}{searchExecution\_AtTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_execution}{Execution}} $\ast$ search\+Execution\+\_\+\+At\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$}]{table\mbox{[}$\,$\mbox{]},  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID }\end{DoxyParamCaption})}
+
+
+
+Procurar por uma execução na tabela hash. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em table} & Tabela hash das execuções \\
+\hline
+{\em operation\+ID} & Identificador da operação \\
+\hline
+{\em machine\+ID} & Identificador da máquina \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Execução encontrada ou retorna nulo se não encontrar 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{711 \{}
+\DoxyCodeLine{712     \textcolor{keywordflow}{if} (table == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{713     \{}
+\DoxyCodeLine{714         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{715     \}}
+\DoxyCodeLine{716 }
+\DoxyCodeLine{717     \textcolor{keywordtype}{int} index = \mbox{\hyperlink{executions_8c_a8c200281c48846597568efc4e71806c8}{generateHash}}(operationID);}
+\DoxyCodeLine{718     \mbox{\hyperlink{struct_execution}{Execution}}* search = \mbox{\hyperlink{executions_8c_ac992cca7f2da24cbd1b940efce93a06e}{searchExecution\_AtList}}(table[index]-\/>start, operationID, machineID);}
+\DoxyCodeLine{719 }
+\DoxyCodeLine{720     \textcolor{keywordflow}{if} (search == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{721     \{}
+\DoxyCodeLine{722         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{723     \}}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{725     \textcolor{keywordflow}{return} search;}
+\DoxyCodeLine{726 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_a2402b39f2448988448bf820534f21758}\label{hashing_8h_a2402b39f2448988448bf820534f21758}} 
+\index{hashing.h@{hashing.h}!updateRuntime\_ByOperation\_AtTable@{updateRuntime\_ByOperation\_AtTable}}
+\index{updateRuntime\_ByOperation\_AtTable@{updateRuntime\_ByOperation\_AtTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{updateRuntime\_ByOperation\_AtTable()}{updateRuntime\_ByOperation\_AtTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} update\+Runtime\+\_\+\+By\+Operation\+\_\+\+At\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$$\ast$}]{table\mbox{[}$\,$\mbox{]},  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID,  }\item[{int}]{runtime }\end{DoxyParamCaption})}
+
+
+
+Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em table} & Tabela hash das execuções \\
+\hline
+{\em operation\+ID} & Identificador da operação \\
+\hline
+{\em machine\+ID} & Identificador da máquina \\
+\hline
+{\em runtime} & Unidades de tempo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{561 \{}
+\DoxyCodeLine{562     \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}** current = table;}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564     \textcolor{keywordtype}{int} index = \mbox{\hyperlink{executions_8c_a8c200281c48846597568efc4e71806c8}{generateHash}}(operationID);}
+\DoxyCodeLine{565     \textcolor{keywordtype}{bool} updated = \mbox{\hyperlink{executions_8c_aa707b2d78dce25e19aff4d2a2ce77c36}{updateRuntime\_AtList}}(\&current[index]-\/>start, operationID, machineID, runtime);}
+\DoxyCodeLine{566 }
+\DoxyCodeLine{567     \textcolor{keywordflow}{return} updated;}
+\DoxyCodeLine{568 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hashing_8h_aefd476173ba3d625348e353c22707c36}\label{hashing_8h_aefd476173ba3d625348e353c22707c36}} 
+\index{hashing.h@{hashing.h}!writeExecutions\_AtTable@{writeExecutions\_AtTable}}
+\index{writeExecutions\_AtTable@{writeExecutions\_AtTable}!hashing.h@{hashing.h}}
+\doxysubsubsection{\texorpdfstring{writeExecutions\_AtTable()}{writeExecutions\_AtTable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} write\+Executions\+\_\+\+At\+Table (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_execution_node}{Execution\+Node}} $\ast$}]{table\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em file\+Name} & Nome do ficheiro para armazenar os registos \\
+\hline
+{\em head} & Lista de execuções \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{611 \{}
+\DoxyCodeLine{612     \textcolor{keywordflow}{if} (table == NULL) \textcolor{comment}{// se tabela está vazia}}
+\DoxyCodeLine{613     \{}
+\DoxyCodeLine{614         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{615     \}}
+\DoxyCodeLine{616 }
+\DoxyCodeLine{617     FILE* file = NULL;}
+\DoxyCodeLine{618     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{619     \{}
+\DoxyCodeLine{620         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{621     \}}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\_TABLE\_SIZE}}; i++)}
+\DoxyCodeLine{624     \{}
+\DoxyCodeLine{625         \mbox{\hyperlink{struct_execution}{Execution}}* current = table[i]-\/>\mbox{\hyperlink{struct_execution_node_aa95a151910734e9c0dd67a2912c2621c}{start}};}
+\DoxyCodeLine{626         \mbox{\hyperlink{struct_file_execution}{FileExecution}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{628         \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{629         \{}
+\DoxyCodeLine{630             currentInFile.\mbox{\hyperlink{struct_file_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} = current-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{631             currentInFile.\mbox{\hyperlink{struct_file_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}} = current-\/>\mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
+\DoxyCodeLine{632             currentInFile.\mbox{\hyperlink{struct_file_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}} = current-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
+\DoxyCodeLine{633             fwrite(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_execution}{FileExecution}}), 1, file); \textcolor{comment}{// guarda cada registo da lista no ficheiro}}
+\DoxyCodeLine{634 }
+\DoxyCodeLine{635             current = current-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
+\DoxyCodeLine{636         \}}
+\DoxyCodeLine{637     \}}
+\DoxyCodeLine{638 }
+\DoxyCodeLine{639     fclose(file);}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{641     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{642 \}}
+
+\end{DoxyCode}

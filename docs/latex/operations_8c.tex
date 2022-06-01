@@ -7,32 +7,43 @@ Ficheiro com todas as funções relativas às operações.
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}data-\/types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lists.\+h\char`\"{}}\newline
 \doxysubsection*{FunÃ§Ãµes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{struct_operation}{Operation}} $\ast$ \mbox{\hyperlink{operations_8c_aa207662e983cab853fbd1cd3d3415d4e}{load\+Operations}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Carrega dados das operações de um ficheiro CSV para uma lista em memória. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_operation}{Operation}} $\ast$ \mbox{\hyperlink{operations_8c_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{new\+Operation}} (int id, int job\+ID, int position)
 \begin{DoxyCompactList}\small\item\em Criar nova operação. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_operation}{Operation}} $\ast$ \mbox{\hyperlink{operations_8c_a35e6e85bff558fe6ce5adb0b47684423}{insert\+Operation\+At\+Start}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head, \mbox{\hyperlink{struct_operation}{Operation}} $\ast$new)
+\mbox{\hyperlink{struct_operation}{Operation}} $\ast$ \mbox{\hyperlink{operations_8c_a738597c7756493ff091418a0a283ac25}{insert\+Operation\+\_\+\+At\+Start}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head, \mbox{\hyperlink{struct_operation}{Operation}} $\ast$new)
 \begin{DoxyCompactList}\small\item\em Inserir nova operação no início da lista de operações. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a233173b4692808bbaa16f5887ae19789}{delete\+Operation}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$head, int id)
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a972c19e4f8dc3006cf300b9e8bd0e172}{update\+Position}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$head, int x\+Operation\+ID, int y\+Operation\+ID)
+\begin{DoxyCompactList}\small\item\em Atualizar a posição de uma operação X pela posição de uma operação Y, e vice-\/versa. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a233173b4692808bbaa16f5887ae19789}{delete\+Operation}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$head, int id)
 \begin{DoxyCompactList}\small\item\em Remover uma operação da lista de operações. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a535c92168a17ff038c2007300a75d708}{write\+Operations}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_operation}{Operation}} $\ast$head)
+int \mbox{\hyperlink{operations_8c_a7bd69f169a9c02bdc3d8fe298fbabab3}{delete\+Operation\+\_\+\+By\+Job}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$head, int job\+ID)
+\begin{DoxyCompactList}\small\item\em Remover operação pelo identificador do trabalho. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a535c92168a17ff038c2007300a75d708}{write\+Operations}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_operation}{Operation}} $\ast$head)
 \begin{DoxyCompactList}\small\item\em Armazenar lista de operações em ficheiro binário. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_operation}{Operation}} $\ast$ \mbox{\hyperlink{operations_8c_a0d7a168cfe9d62f2deb7f01f19966c7b}{read\+Operations}} (char file\+Name\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Ler lista de operações de ficheiro binário. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_af64e219dfa9552b285dd100375c2c6a7}{free\+Operations}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head)
-\begin{DoxyCompactList}\small\item\em Libertar a lista de operações da memória. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a1cac0b2d491be7953af600a2b434cc56}{display\+Operations}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head)
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a1cac0b2d491be7953af600a2b434cc56}{display\+Operations}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head)
 \begin{DoxyCompactList}\small\item\em Mostrar a lista de operações na consola. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a885845bc6bd1e81fb26161ba1a82979d}{search\+Operation}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head, int id)
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_a885845bc6bd1e81fb26161ba1a82979d}{search\+Operation}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head, int id)
 \begin{DoxyCompactList}\small\item\em Procurar por uma operação na lista de operações. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{operations_8c_a52f8c01701a8184c95cc0b0de65cdbef}{get\+Min\+Time\+To\+Complete\+Job}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, int job\+ID, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$min\+Executions)
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{operations_8c_ab49dd927385119f3193df3b0ab8bea3c}{search\+Operation\+\_\+\+By\+Job}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head, int job\+ID)
+\begin{DoxyCompactList}\small\item\em Procurar por uma operação através do identificador do trabalho, na lista de operações. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_operation}{Operation}} $\ast$ \mbox{\hyperlink{operations_8c_a824f152dae067c44c4a2c3ce6676cfa0}{get\+Operation}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$head, int id)
+\begin{DoxyCompactList}\small\item\em Obter uma operação da lista de operações. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{operations_8c_ae41e1ffc9f3b9524442901a6a6598615}{get\+Min\+Time\+\_\+\+To\+Complete\+Job}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$\mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, int job\+ID, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$min\+Executions)
 \begin{DoxyCompactList}\small\item\em Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{operations_8c_ac4666af18140d926937410a7bf7e0505}{get\+Max\+Time\+To\+Complete\+Job}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$\mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, int job\+ID, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$max\+Executions)
+int \mbox{\hyperlink{operations_8c_a1073d5880eec1c93cb694a7e418ab1d1}{get\+Max\+Time\+\_\+\+To\+Complete\+Job}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$\mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, int job\+ID, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$max\+Executions)
 \begin{DoxyCompactList}\small\item\em Obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{operations_8c_aae1f099b3ffebc5b9b49209b190ebe9f}{get\+Average\+Time\+To\+Complete\+Operation}} (\mbox{\hyperlink{struct_execution}{Execution}} $\ast$head, int operation\+ID)
-\begin{DoxyCompactList}\small\item\em Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+float \mbox{\hyperlink{operations_8c_a4753b850ae4cab838edb5f6a3bb10ca0}{get\+Average\+Time\+\_\+\+To\+Complete\+Operation}} (\mbox{\hyperlink{struct_execution}{Execution}} $\ast$head, int operation\+ID)
+\begin{DoxyCompactList}\small\item\em Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{operations_8c_a67f132c293a67eb039eeaccad8a6cd36}{free\+Operations}} (\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$head)
+\begin{DoxyCompactList}\small\item\em Libertar a lista de operações da memória. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{DescriÃ§Ã£o detalhada}
@@ -51,7 +62,7 @@ Luís Pereira @email \href{mailto:a18446@alunos.ipca.pt}{\texttt{ a18446@alunos.\
 \index{operations.c@{operations.c}!deleteOperation@{deleteOperation}}
 \index{deleteOperation@{deleteOperation}!operations.c@{operations.c}}
 \doxysubsubsection{\texorpdfstring{deleteOperation()}{deleteOperation()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} delete\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} delete\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -69,44 +80,103 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{72 \{}
-\DoxyCodeLine{73     \textcolor{keywordflow}{if} (*head == NULL)}
-\DoxyCodeLine{74     \{}
-\DoxyCodeLine{75         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{76     \}}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78     \mbox{\hyperlink{struct_operation}{Operation}}* current = *head;}
-\DoxyCodeLine{79     \mbox{\hyperlink{struct_operation}{Operation}}* previous = NULL;}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{81     \textcolor{keywordflow}{if} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id}) \{ \textcolor{comment}{// se o elemento que será apagado é o primeiro da lista}}
-\DoxyCodeLine{82         *head = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{83         free(current);}
-\DoxyCodeLine{84         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{85     \}}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87     \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} != \textcolor{keywordtype}{id}) \textcolor{comment}{// procurar o elemento a ser apagado}}
-\DoxyCodeLine{88     \{}
-\DoxyCodeLine{89         previous = current;}
-\DoxyCodeLine{90         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{91     \}}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93     \textcolor{keywordflow}{if} (current == NULL) \textcolor{comment}{// se o elemento não foi encontrado}}
-\DoxyCodeLine{94     \{}
-\DoxyCodeLine{95         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{96     \}}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98     previous-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}} = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}}; \textcolor{comment}{// desassociar o elemento da lista}}
-\DoxyCodeLine{99     free(current);}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{101     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{102 \}}
+\DoxyCodeLine{159 \{}
+\DoxyCodeLine{160     \textcolor{keywordflow}{if} (*head == NULL)}
+\DoxyCodeLine{161     \{}
+\DoxyCodeLine{162         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{163     \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \mbox{\hyperlink{struct_operation}{Operation}}* current = *head;}
+\DoxyCodeLine{166     \mbox{\hyperlink{struct_operation}{Operation}}* previous = NULL;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{keywordflow}{if} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id}) \{ \textcolor{comment}{// se o elemento que será apagado é o primeiro da lista}}
+\DoxyCodeLine{169         *head = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{170         free(current);}
+\DoxyCodeLine{171         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{172     \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} != \textcolor{keywordtype}{id}) \textcolor{comment}{// procurar o elemento a ser apagado}}
+\DoxyCodeLine{175     \{}
+\DoxyCodeLine{176         previous = current;}
+\DoxyCodeLine{177         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{178     \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{keywordflow}{if} (current == NULL) \textcolor{comment}{// se o elemento não foi encontrado}}
+\DoxyCodeLine{181     \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     previous-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}} = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}}; \textcolor{comment}{// desassociar o elemento da lista}}
+\DoxyCodeLine{186     free(current);}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{189 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{operations_8c_a7bd69f169a9c02bdc3d8fe298fbabab3}\label{operations_8c_a7bd69f169a9c02bdc3d8fe298fbabab3}} 
+\index{operations.c@{operations.c}!deleteOperation\_ByJob@{deleteOperation\_ByJob}}
+\index{deleteOperation\_ByJob@{deleteOperation\_ByJob}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{deleteOperation\_ByJob()}{deleteOperation\_ByJob()}}
+{\footnotesize\ttfamily int delete\+Operation\+\_\+\+By\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$}]{head,  }\item[{int}]{job\+ID }\end{DoxyParamCaption})}
+
+
+
+Remover operação pelo identificador do trabalho. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Apontador para a lista de operações \\
+\hline
+{\em job\+ID} & Identificador do trabalho \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Inteiro com o identificador da operação removida 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199 \{}
+\DoxyCodeLine{200     \textcolor{keywordflow}{if} (*head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{201     \{}
+\DoxyCodeLine{202         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \mbox{\hyperlink{struct_operation}{Operation}}* current = *head;}
+\DoxyCodeLine{206     \mbox{\hyperlink{struct_operation}{Operation}}* previous = NULL;}
+\DoxyCodeLine{207     \textcolor{keywordtype}{int} operationDeleted = 0;}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     \textcolor{keywordflow}{if} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} == jobID) \{ \textcolor{comment}{// se o elemento que será apagado é o primeiro da lista}}
+\DoxyCodeLine{210         operationDeleted = current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{211         *head = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{212         free(current);}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214         \textcolor{keywordflow}{return} operationDeleted;}
+\DoxyCodeLine{215     \}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} != jobID) \textcolor{comment}{// procurar o elemento a ser apagado}}
+\DoxyCodeLine{218     \{}
+\DoxyCodeLine{219         previous = current;}
+\DoxyCodeLine{220         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{keywordflow}{if} (current == NULL) \textcolor{comment}{// se o elemento não foi encontrado}}
+\DoxyCodeLine{224     \{}
+\DoxyCodeLine{225         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228     operationDeleted = current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{229     previous-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}} = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}}; \textcolor{comment}{// desassociar o elemento da lista}}
+\DoxyCodeLine{230     free(current);}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \textcolor{keywordflow}{return} operationDeleted;}
+\DoxyCodeLine{233 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{operations_8c_a1cac0b2d491be7953af600a2b434cc56}\label{operations_8c_a1cac0b2d491be7953af600a2b434cc56}} 
 \index{operations.c@{operations.c}!displayOperations@{displayOperations}}
 \index{displayOperations@{displayOperations}!operations.c@{operations.c}}
 \doxysubsubsection{\texorpdfstring{displayOperations()}{displayOperations()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Operations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Operations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head }\end{DoxyParamCaption})}
 
 
 
@@ -122,29 +192,29 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{205 \{}
-\DoxyCodeLine{206     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{207     \{}
-\DoxyCodeLine{208         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{209     \}}
-\DoxyCodeLine{210 }
-\DoxyCodeLine{211     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
-\DoxyCodeLine{212 }
-\DoxyCodeLine{213     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{214     \{}
-\DoxyCodeLine{215         printf(\textcolor{stringliteral}{"{}ID: \%d, ID Trabalho: \%d, Posição: \%d;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}});}
-\DoxyCodeLine{216         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{217     \}}
-\DoxyCodeLine{218 }
-\DoxyCodeLine{219     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{220 \}}
+\DoxyCodeLine{311 \{}
+\DoxyCodeLine{312     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{313     \{}
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{315     \}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{320     \{}
+\DoxyCodeLine{321         printf(\textcolor{stringliteral}{"{}ID: \%d, ID Trabalho: \%d, Posição: \%d;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}});}
+\DoxyCodeLine{322         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{323     \}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{326 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{operations_8c_af64e219dfa9552b285dd100375c2c6a7}\label{operations_8c_af64e219dfa9552b285dd100375c2c6a7}} 
+\mbox{\Hypertarget{operations_8c_a67f132c293a67eb039eeaccad8a6cd36}\label{operations_8c_a67f132c293a67eb039eeaccad8a6cd36}} 
 \index{operations.c@{operations.c}!freeOperations@{freeOperations}}
 \index{freeOperations@{freeOperations}!operations.c@{operations.c}}
 \doxysubsubsection{\texorpdfstring{freeOperations()}{freeOperations()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} free\+Operations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void free\+Operations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
 
 
 
@@ -155,35 +225,28 @@ Libertar a lista de operações da memória.
 {\em head} & Lista de operações \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-Booleano para o resultado da função (se funcionou ou não) 
-\end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{180 \{}
-\DoxyCodeLine{181     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{182     \{}
-\DoxyCodeLine{183         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{184     \}}
-\DoxyCodeLine{185 }
-\DoxyCodeLine{186     \mbox{\hyperlink{struct_operation}{Operation}}* current = NULL;}
-\DoxyCodeLine{187 }
-\DoxyCodeLine{188     \textcolor{keywordflow}{while} (head != NULL)}
-\DoxyCodeLine{189     \{}
-\DoxyCodeLine{190         current = head;}
-\DoxyCodeLine{191         head = head-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{192         free(current);}
-\DoxyCodeLine{193     \}}
-\DoxyCodeLine{194 }
-\DoxyCodeLine{195     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{196 \}}
+\DoxyCodeLine{573 \{}
+\DoxyCodeLine{574     \textcolor{keywordflow}{if} (head != NULL)}
+\DoxyCodeLine{575     \{}
+\DoxyCodeLine{576         \mbox{\hyperlink{struct_operation}{Operation}}* current;}
+\DoxyCodeLine{577 }
+\DoxyCodeLine{578         \textcolor{keywordflow}{while} (*head)}
+\DoxyCodeLine{579         \{}
+\DoxyCodeLine{580             current = *head;}
+\DoxyCodeLine{581             *head = (*head)-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{582             free(current);}
+\DoxyCodeLine{583         \}}
+\DoxyCodeLine{584     \}}
+\DoxyCodeLine{585 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{operations_8c_aae1f099b3ffebc5b9b49209b190ebe9f}\label{operations_8c_aae1f099b3ffebc5b9b49209b190ebe9f}} 
-\index{operations.c@{operations.c}!getAverageTimeToCompleteOperation@{getAverageTimeToCompleteOperation}}
-\index{getAverageTimeToCompleteOperation@{getAverageTimeToCompleteOperation}!operations.c@{operations.c}}
-\doxysubsubsection{\texorpdfstring{getAverageTimeToCompleteOperation()}{getAverageTimeToCompleteOperation()}}
-{\footnotesize\ttfamily float get\+Average\+Time\+To\+Complete\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{head,  }\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{operations_8c_a4753b850ae4cab838edb5f6a3bb10ca0}\label{operations_8c_a4753b850ae4cab838edb5f6a3bb10ca0}} 
+\index{operations.c@{operations.c}!getAverageTime\_ToCompleteOperation@{getAverageTime\_ToCompleteOperation}}
+\index{getAverageTime\_ToCompleteOperation@{getAverageTime\_ToCompleteOperation}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{getAverageTime\_ToCompleteOperation()}{getAverageTime\_ToCompleteOperation()}}
+{\footnotesize\ttfamily float get\+Average\+Time\+\_\+\+To\+Complete\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{head,  }\item[{int}]{operation\+ID }\end{DoxyParamCaption})}
 
 
 
@@ -201,42 +264,42 @@ Valor da média de tempo
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{374 \{}
-\DoxyCodeLine{375     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{376     \{}
-\DoxyCodeLine{377         \textcolor{keywordflow}{return} -\/1.0f;}
-\DoxyCodeLine{378     \}}
-\DoxyCodeLine{379 }
-\DoxyCodeLine{380     \textcolor{keywordtype}{int} sum = 0;}
-\DoxyCodeLine{381     \textcolor{keywordtype}{float} average = 0;}
-\DoxyCodeLine{382     \textcolor{keywordtype}{float} numberOfExecutions = 0;}
-\DoxyCodeLine{383 }
-\DoxyCodeLine{384     \mbox{\hyperlink{struct_execution}{Execution}}* current = head;}
-\DoxyCodeLine{385 }
-\DoxyCodeLine{386     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{387     \{}
-\DoxyCodeLine{388         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} == operationID) \textcolor{comment}{// se encontrar a execução de operação relativa à operação}}
-\DoxyCodeLine{389         \{}
-\DoxyCodeLine{390             sum += current-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
-\DoxyCodeLine{391             numberOfExecutions++;}
-\DoxyCodeLine{392         \}}
-\DoxyCodeLine{393         current = current-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
-\DoxyCodeLine{394     \}}
-\DoxyCodeLine{395 }
-\DoxyCodeLine{396     \textcolor{keywordflow}{if} (numberOfExecutions > 0) \textcolor{comment}{// para não permitir divisão por 0}}
-\DoxyCodeLine{397     \{}
-\DoxyCodeLine{398         average = sum / numberOfExecutions;}
-\DoxyCodeLine{399     \}}
-\DoxyCodeLine{400 }
-\DoxyCodeLine{401     \textcolor{keywordflow}{return} average;}
-\DoxyCodeLine{402 \}}
+\DoxyCodeLine{537 \{}
+\DoxyCodeLine{538     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{539     \{}
+\DoxyCodeLine{540         \textcolor{keywordflow}{return} -\/1.0f;}
+\DoxyCodeLine{541     \}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543     \textcolor{keywordtype}{int} sum = 0;}
+\DoxyCodeLine{544     \textcolor{keywordtype}{float} average = 0;}
+\DoxyCodeLine{545     \textcolor{keywordtype}{float} numberOfExecutions = 0;}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547     \mbox{\hyperlink{struct_execution}{Execution}}* current = head;}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{549     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{550     \{}
+\DoxyCodeLine{551         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} == operationID) \textcolor{comment}{// se encontrar a execução de operação relativa à operação}}
+\DoxyCodeLine{552         \{}
+\DoxyCodeLine{553             sum += current-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
+\DoxyCodeLine{554             numberOfExecutions++;}
+\DoxyCodeLine{555         \}}
+\DoxyCodeLine{556         current = current-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
+\DoxyCodeLine{557     \}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559     \textcolor{keywordflow}{if} (numberOfExecutions > 0) \textcolor{comment}{// para não permitir divisão por 0}}
+\DoxyCodeLine{560     \{}
+\DoxyCodeLine{561         average = sum / numberOfExecutions;}
+\DoxyCodeLine{562     \}}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564     \textcolor{keywordflow}{return} average;}
+\DoxyCodeLine{565 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{operations_8c_ac4666af18140d926937410a7bf7e0505}\label{operations_8c_ac4666af18140d926937410a7bf7e0505}} 
-\index{operations.c@{operations.c}!getMaxTimeToCompleteJob@{getMaxTimeToCompleteJob}}
-\index{getMaxTimeToCompleteJob@{getMaxTimeToCompleteJob}!operations.c@{operations.c}}
-\doxysubsubsection{\texorpdfstring{getMaxTimeToCompleteJob()}{getMaxTimeToCompleteJob()}}
-{\footnotesize\ttfamily int get\+Max\+Time\+To\+Complete\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{operations,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{executions,  }\item[{int}]{job\+ID,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$}]{max\+Executions }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{operations_8c_a1073d5880eec1c93cb694a7e418ab1d1}\label{operations_8c_a1073d5880eec1c93cb694a7e418ab1d1}} 
+\index{operations.c@{operations.c}!getMaxTime\_ToCompleteJob@{getMaxTime\_ToCompleteJob}}
+\index{getMaxTime\_ToCompleteJob@{getMaxTime\_ToCompleteJob}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{getMaxTime\_ToCompleteJob()}{getMaxTime\_ToCompleteJob()}}
+{\footnotesize\ttfamily int get\+Max\+Time\+\_\+\+To\+Complete\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{operations,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{executions,  }\item[{int}]{job\+ID,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$}]{max\+Executions }\end{DoxyParamCaption})}
 
 
 
@@ -258,60 +321,60 @@ Quantidade de tempo
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{318 \{}
-\DoxyCodeLine{319     \textcolor{keywordflow}{if} (\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} == NULL || \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} == NULL) \textcolor{comment}{// se as listas estiverem vazias}}
-\DoxyCodeLine{320     \{}
-\DoxyCodeLine{321         \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{322     \}}
-\DoxyCodeLine{323 }
-\DoxyCodeLine{324     \textcolor{keywordtype}{int} time = 0;}
-\DoxyCodeLine{325     \textcolor{keywordtype}{int} counter = 0;}
-\DoxyCodeLine{326 }
-\DoxyCodeLine{327     \mbox{\hyperlink{struct_operation}{Operation}}* currentOperation = \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}};}
-\DoxyCodeLine{328     \mbox{\hyperlink{struct_execution}{Execution}}* currentExecution = \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
-\DoxyCodeLine{329     \mbox{\hyperlink{struct_execution}{Execution}}* maxExecution = NULL;}
-\DoxyCodeLine{330 }
-\DoxyCodeLine{331     \textcolor{keywordflow}{while} (currentOperation != NULL) \textcolor{comment}{// percorrer lista de operações}}
-\DoxyCodeLine{332     \{}
-\DoxyCodeLine{333         \textcolor{keywordflow}{if} (currentOperation-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} == jobID) \textcolor{comment}{// se encontrar o job relativo à operação}}
-\DoxyCodeLine{334         \{}
-\DoxyCodeLine{335             \textcolor{keywordflow}{while} (currentExecution != NULL) \textcolor{comment}{// percorrer lista de execução de operações}}
-\DoxyCodeLine{336             \{}
-\DoxyCodeLine{337                 \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} == currentOperation-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}) \textcolor{comment}{// se encontrar a execução de operação relativa à operação}}
-\DoxyCodeLine{338                 \{}
-\DoxyCodeLine{339                     \textcolor{comment}{// guardar execução de operação com maior tempo de utilização}}
-\DoxyCodeLine{340                     \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}} > time)}
-\DoxyCodeLine{341                     \{}
-\DoxyCodeLine{342                         time = currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
-\DoxyCodeLine{343                         maxExecution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
-\DoxyCodeLine{344                     \}}
-\DoxyCodeLine{345                 \}}
-\DoxyCodeLine{346 }
-\DoxyCodeLine{347                 currentExecution = currentExecution-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
-\DoxyCodeLine{348             \}}
-\DoxyCodeLine{349 }
-\DoxyCodeLine{350             *maxExecutions = \mbox{\hyperlink{executions_8c_ab00ae0278166111c8beb4c6cd8506718}{insertExecutionAtStart}}(*maxExecutions, maxExecution);}
-\DoxyCodeLine{351 }
-\DoxyCodeLine{352             \textcolor{comment}{// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo}}
-\DoxyCodeLine{353             \mbox{\hyperlink{executions_8c_a67b917d9e7aff6fc85c7d3cee1150721}{freeExecutions}}(currentExecution);}
-\DoxyCodeLine{354             currentExecution = NULL;}
-\DoxyCodeLine{355             currentExecution = \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
-\DoxyCodeLine{356             counter += time; \textcolor{comment}{// acumular o tempo de utilização de cada execução de operação}}
-\DoxyCodeLine{357             time = 0; \textcolor{comment}{// resetar tempo de utilização para a próxima iteração}}
-\DoxyCodeLine{358         \}}
-\DoxyCodeLine{359 }
-\DoxyCodeLine{360         currentOperation = currentOperation-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{361     \}}
-\DoxyCodeLine{362 }
-\DoxyCodeLine{363     \textcolor{keywordflow}{return} counter;}
-\DoxyCodeLine{364 \}}
+\DoxyCodeLine{481 \{}
+\DoxyCodeLine{482     \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}} == NULL || \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} == NULL) \textcolor{comment}{// se as listas estiverem vazias}}
+\DoxyCodeLine{483     \{}
+\DoxyCodeLine{484         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{485     \}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{487     \textcolor{keywordtype}{int} time = 0;}
+\DoxyCodeLine{488     \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490     \mbox{\hyperlink{struct_operation}{Operation}}* currentOperation = \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}};}
+\DoxyCodeLine{491     \mbox{\hyperlink{struct_execution}{Execution}}* currentExecution = \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
+\DoxyCodeLine{492     \mbox{\hyperlink{struct_execution}{Execution}}* maxExecution = NULL;}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{494     \textcolor{keywordflow}{while} (currentOperation != NULL) \textcolor{comment}{// percorrer lista de operações}}
+\DoxyCodeLine{495     \{}
+\DoxyCodeLine{496         \textcolor{keywordflow}{if} (currentOperation-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} == jobID) \textcolor{comment}{// se encontrar o job relativo à operação}}
+\DoxyCodeLine{497         \{}
+\DoxyCodeLine{498             \textcolor{keywordflow}{while} (currentExecution != NULL) \textcolor{comment}{// percorrer lista de execução de operações}}
+\DoxyCodeLine{499             \{}
+\DoxyCodeLine{500                 \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} == currentOperation-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}) \textcolor{comment}{// se encontrar a execução de operação relativa à operação}}
+\DoxyCodeLine{501                 \{}
+\DoxyCodeLine{502                     \textcolor{comment}{// guardar execução de operação com maior tempo de utilização}}
+\DoxyCodeLine{503                     \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}} > time)}
+\DoxyCodeLine{504                     \{}
+\DoxyCodeLine{505                         time = currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
+\DoxyCodeLine{506                         maxExecution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
+\DoxyCodeLine{507                     \}}
+\DoxyCodeLine{508                 \}}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510                 currentExecution = currentExecution-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
+\DoxyCodeLine{511             \}}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513             *maxExecutions = \mbox{\hyperlink{executions_8c_a9d0b32dd8d9b5bd0ceb43fdd5ef79edb}{insertExecution\_AtStart\_AtList}}(*maxExecutions, maxExecution);}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515             \textcolor{comment}{// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo}}
+\DoxyCodeLine{516             currentExecution = NULL;}
+\DoxyCodeLine{517             currentExecution = \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519             counter += time; \textcolor{comment}{// acumular o tempo de utilização de cada execução de operação}}
+\DoxyCodeLine{520             time = 0; \textcolor{comment}{// resetar tempo de utilização para a próxima iteração}}
+\DoxyCodeLine{521         \}}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{523         currentOperation = currentOperation-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{524     \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526     \textcolor{keywordflow}{return} counter;}
+\DoxyCodeLine{527 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{operations_8c_a52f8c01701a8184c95cc0b0de65cdbef}\label{operations_8c_a52f8c01701a8184c95cc0b0de65cdbef}} 
-\index{operations.c@{operations.c}!getMinTimeToCompleteJob@{getMinTimeToCompleteJob}}
-\index{getMinTimeToCompleteJob@{getMinTimeToCompleteJob}!operations.c@{operations.c}}
-\doxysubsubsection{\texorpdfstring{getMinTimeToCompleteJob()}{getMinTimeToCompleteJob()}}
-{\footnotesize\ttfamily int get\+Min\+Time\+To\+Complete\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{operations,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{executions,  }\item[{int}]{job\+ID,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$}]{min\+Executions }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{operations_8c_ae41e1ffc9f3b9524442901a6a6598615}\label{operations_8c_ae41e1ffc9f3b9524442901a6a6598615}} 
+\index{operations.c@{operations.c}!getMinTime\_ToCompleteJob@{getMinTime\_ToCompleteJob}}
+\index{getMinTime\_ToCompleteJob@{getMinTime\_ToCompleteJob}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{getMinTime\_ToCompleteJob()}{getMinTime\_ToCompleteJob()}}
+{\footnotesize\ttfamily int get\+Min\+Time\+\_\+\+To\+Complete\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{operations,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{executions,  }\item[{int}]{job\+ID,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$$\ast$}]{min\+Executions }\end{DoxyParamCaption})}
 
 
 
@@ -333,60 +396,104 @@ Quantidade de tempo
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{260 \{}
-\DoxyCodeLine{261     \textcolor{keywordflow}{if} (\mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}} == NULL || \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} == NULL) \textcolor{comment}{// se as listas estiverem vazias}}
-\DoxyCodeLine{262     \{}
-\DoxyCodeLine{263         \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{264     \}}
-\DoxyCodeLine{265 }
-\DoxyCodeLine{266     \textcolor{keywordtype}{int} time = 99990;}
-\DoxyCodeLine{267     \textcolor{keywordtype}{int} counter = 0;}
-\DoxyCodeLine{268 }
-\DoxyCodeLine{269     \mbox{\hyperlink{struct_operation}{Operation}}* currentOperation = \mbox{\hyperlink{header_8h_a141d2a58898a5ea72097da30116580ee}{operations}};}
-\DoxyCodeLine{270     \mbox{\hyperlink{struct_execution}{Execution}}* currentExecution = \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
-\DoxyCodeLine{271     \mbox{\hyperlink{struct_execution}{Execution}}* minExecution = NULL;}
-\DoxyCodeLine{272 }
-\DoxyCodeLine{273     \textcolor{keywordflow}{while} (currentOperation != NULL) \textcolor{comment}{// percorrer lista de operações}}
-\DoxyCodeLine{274     \{}
-\DoxyCodeLine{275         \textcolor{keywordflow}{if} (currentOperation-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} == jobID) \textcolor{comment}{// se encontrar o job relativo à operação}}
-\DoxyCodeLine{276         \{}
-\DoxyCodeLine{277             \textcolor{keywordflow}{while} (currentExecution != NULL) \textcolor{comment}{// percorrer lista de execução de operações}}
-\DoxyCodeLine{278             \{}
-\DoxyCodeLine{279                 \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} == currentOperation-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}) \textcolor{comment}{// se encontrar a execução de operação relativa à operação}}
-\DoxyCodeLine{280                 \{}
-\DoxyCodeLine{281                     \textcolor{comment}{// guardar execução de operação com menor tempo de utilização}}
-\DoxyCodeLine{282                     \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}} < time)}
-\DoxyCodeLine{283                     \{}
-\DoxyCodeLine{284                         time = currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
-\DoxyCodeLine{285                         minExecution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
-\DoxyCodeLine{286                     \}}
-\DoxyCodeLine{287                 \}}
-\DoxyCodeLine{288 }
-\DoxyCodeLine{289                 currentExecution = currentExecution-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
-\DoxyCodeLine{290             \}}
-\DoxyCodeLine{291 }
-\DoxyCodeLine{292             *minExecutions = \mbox{\hyperlink{executions_8c_ab00ae0278166111c8beb4c6cd8506718}{insertExecutionAtStart}}(*minExecutions, minExecution);}
-\DoxyCodeLine{293 }
-\DoxyCodeLine{294             \textcolor{comment}{// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo}}
-\DoxyCodeLine{295             \mbox{\hyperlink{executions_8c_a67b917d9e7aff6fc85c7d3cee1150721}{freeExecutions}}(currentExecution);}
-\DoxyCodeLine{296             currentExecution = NULL;}
-\DoxyCodeLine{297             currentExecution = \mbox{\hyperlink{header_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
-\DoxyCodeLine{298             counter += time; \textcolor{comment}{// acumular o tempo de utilização de cada execução de operação}}
-\DoxyCodeLine{299             time = 99990; \textcolor{comment}{// resetar tempo para a próxima iteração}}
-\DoxyCodeLine{300         \}}
-\DoxyCodeLine{301 }
-\DoxyCodeLine{302         currentOperation = currentOperation-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{303     \}}
-\DoxyCodeLine{304 }
-\DoxyCodeLine{305     \textcolor{keywordflow}{return} counter;}
-\DoxyCodeLine{306 \}}
+\DoxyCodeLine{423 \{}
+\DoxyCodeLine{424     \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}} == NULL || \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}} == NULL) \textcolor{comment}{// se as listas estiverem vazias}}
+\DoxyCodeLine{425     \{}
+\DoxyCodeLine{426         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{427     \}}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429     \textcolor{keywordtype}{int} time = 999;}
+\DoxyCodeLine{430     \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432     \mbox{\hyperlink{struct_operation}{Operation}}* currentOperation = \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}};}
+\DoxyCodeLine{433     \mbox{\hyperlink{struct_execution}{Execution}}* currentExecution = \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
+\DoxyCodeLine{434     \mbox{\hyperlink{struct_execution}{Execution}}* minExecution = NULL;}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436     \textcolor{keywordflow}{while} (currentOperation != NULL) \textcolor{comment}{// percorrer lista de operações}}
+\DoxyCodeLine{437     \{}
+\DoxyCodeLine{438         \textcolor{keywordflow}{if} (currentOperation-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} == jobID) \textcolor{comment}{// se encontrar o job relativo à operação}}
+\DoxyCodeLine{439         \{}
+\DoxyCodeLine{440             \textcolor{keywordflow}{while} (currentExecution != NULL) \textcolor{comment}{// percorrer lista de execução de operações}}
+\DoxyCodeLine{441             \{}
+\DoxyCodeLine{442                 \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}} == currentOperation-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}) \textcolor{comment}{// se encontrar a execução de operação relativa à operação}}
+\DoxyCodeLine{443                 \{}
+\DoxyCodeLine{444                     \textcolor{comment}{// guardar execução de operação com menor tempo de utilização}}
+\DoxyCodeLine{445                     \textcolor{keywordflow}{if} (currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}} < time)}
+\DoxyCodeLine{446                     \{}
+\DoxyCodeLine{447                         time = currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
+\DoxyCodeLine{448                         minExecution = \mbox{\hyperlink{executions_8c_ae39c2c7c8130a6883f8cbd371e374725}{newExecution}}(currentExecution-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, currentExecution-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
+\DoxyCodeLine{449                     \}}
+\DoxyCodeLine{450                 \}}
+\DoxyCodeLine{451 }
+\DoxyCodeLine{452                 currentExecution = currentExecution-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
+\DoxyCodeLine{453             \}}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455             *minExecutions = \mbox{\hyperlink{executions_8c_a9d0b32dd8d9b5bd0ceb43fdd5ef79edb}{insertExecution\_AtStart\_AtList}}(*minExecutions, minExecution);}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457             \textcolor{comment}{// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo}}
+\DoxyCodeLine{458             currentExecution = NULL;}
+\DoxyCodeLine{459             currentExecution = \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461             counter += time; \textcolor{comment}{// acumular o tempo de utilização de cada execução de operação}}
+\DoxyCodeLine{462             time = 999; \textcolor{comment}{// resetar tempo para a próxima iteração}}
+\DoxyCodeLine{463         \}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465         currentOperation = currentOperation-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{466     \}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{468     \textcolor{keywordflow}{return} counter;}
+\DoxyCodeLine{469 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{operations_8c_a35e6e85bff558fe6ce5adb0b47684423}\label{operations_8c_a35e6e85bff558fe6ce5adb0b47684423}} 
-\index{operations.c@{operations.c}!insertOperationAtStart@{insertOperationAtStart}}
-\index{insertOperationAtStart@{insertOperationAtStart}!operations.c@{operations.c}}
-\doxysubsubsection{\texorpdfstring{insertOperationAtStart()}{insertOperationAtStart()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_operation}{Operation}} $\ast$ insert\+Operation\+At\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{new }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{operations_8c_a824f152dae067c44c4a2c3ce6676cfa0}\label{operations_8c_a824f152dae067c44c4a2c3ce6676cfa0}} 
+\index{operations.c@{operations.c}!getOperation@{getOperation}}
+\index{getOperation@{getOperation}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{getOperation()}{getOperation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_operation}{Operation}} $\ast$ get\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Obter uma operação da lista de operações. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de operações \\
+\hline
+{\em id} & Identificador da operação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Operação encontrada (ou NULL se não encontrou) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{392 \{}
+\DoxyCodeLine{393     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{394     \{}
+\DoxyCodeLine{395         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{396     \}}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{401     \{}
+\DoxyCodeLine{402         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id})}
+\DoxyCodeLine{403         \{}
+\DoxyCodeLine{404             \mbox{\hyperlink{struct_operation}{Operation}}* operation = \mbox{\hyperlink{operations_8c_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{newOperation}}(current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}}); \textcolor{comment}{// criar cópia da operação}}
+\DoxyCodeLine{405             \textcolor{keywordflow}{return} operation;}
+\DoxyCodeLine{406         \}}
+\DoxyCodeLine{407         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{408     \}}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410     \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{411 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{operations_8c_a738597c7756493ff091418a0a283ac25}\label{operations_8c_a738597c7756493ff091418a0a283ac25}} 
+\index{operations.c@{operations.c}!insertOperation\_AtStart@{insertOperation\_AtStart}}
+\index{insertOperation\_AtStart@{insertOperation\_AtStart}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{insertOperation\_AtStart()}{insertOperation\_AtStart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_operation}{Operation}} $\ast$ insert\+Operation\+\_\+\+At\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{new }\end{DoxyParamCaption})}
 
 
 
@@ -404,24 +511,74 @@ Lista de operações atualizada
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{45 \{}
-\DoxyCodeLine{46     \textcolor{keywordflow}{if} (\mbox{\hyperlink{operations_8c_a885845bc6bd1e81fb26161ba1a82979d}{searchOperation}}(head, new-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})) \textcolor{comment}{// não permitir inserir uma nova com o mesmo ID}}
-\DoxyCodeLine{47     \{}
-\DoxyCodeLine{48         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{49     \}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{52     \{}
-\DoxyCodeLine{53         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{54     \}}
-\DoxyCodeLine{55     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
-\DoxyCodeLine{56     \{}
-\DoxyCodeLine{57         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}} = head;}
-\DoxyCodeLine{58         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{59     \}}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{62 \}}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \textcolor{keywordflow}{if} (\mbox{\hyperlink{operations_8c_a885845bc6bd1e81fb26161ba1a82979d}{searchOperation}}(head, new-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})) \textcolor{comment}{// não permitir inserir uma nova com o mesmo ID}}
+\DoxyCodeLine{84     \{}
+\DoxyCodeLine{85         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
+\DoxyCodeLine{93     \{}
+\DoxyCodeLine{94         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}} = head;}
+\DoxyCodeLine{95         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{99 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{operations_8c_aa207662e983cab853fbd1cd3d3415d4e}\label{operations_8c_aa207662e983cab853fbd1cd3d3415d4e}} 
+\index{operations.c@{operations.c}!loadOperations@{loadOperations}}
+\index{loadOperations@{loadOperations}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{loadOperations()}{loadOperations()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_operation}{Operation}} $\ast$ load\+Operations (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Carrega dados das operações de um ficheiro CSV para uma lista em memória. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em file\+Name} & Nome do ficheiro \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+A lista de operações do ficheiro CSV 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{char} line[\mbox{\hyperlink{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}{FILE\_LINE\_SIZE}}];}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} a = 0, b = 0, c = 0;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{struct_operation}{Operation}}* operation = NULL;}
+\DoxyCodeLine{26     \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = NULL;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     FILE* file = fopen(fileName, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} (file == NULL)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{while} (!feof(file))}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} (fgets(line, \mbox{\hyperlink{data-types_8h_af4dd63083e24ffd8dd2c455b355106c0}{FILE\_LINE\_SIZE}}, file) != NULL)}
+\DoxyCodeLine{37         \{}
+\DoxyCodeLine{38             \textcolor{comment}{// exemplo: 1;1;1}}
+\DoxyCodeLine{39             sscanf(line, \textcolor{stringliteral}{"{}\%d;\%d;\%d"{}}, \&a, \&b, \&c);}
+\DoxyCodeLine{40             operation = \mbox{\hyperlink{operations_8c_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{newOperation}}(a, b, c);}
+\DoxyCodeLine{41             \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}} = \mbox{\hyperlink{operations_8c_a738597c7756493ff091418a0a283ac25}{insertOperation\_AtStart}}(\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, operation);}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     fclose(file);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}};}
+\DoxyCodeLine{48 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{operations_8c_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}\label{operations_8c_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}} 
@@ -433,8 +590,6 @@ Lista de operações atualizada
 
 
 Criar nova operação. 
-
-Sobre operações.
 
 
 \begin{DoxyParams}{ParÃ¢metros}
@@ -450,20 +605,20 @@ Nova operação
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{22 \{}
-\DoxyCodeLine{23     \mbox{\hyperlink{struct_operation}{Operation}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_operation}{Operation}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_operation}{Operation}}));}
-\DoxyCodeLine{24     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
-\DoxyCodeLine{25     \{}
-\DoxyCodeLine{26         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{27     \}}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = id;}
-\DoxyCodeLine{30     \textcolor{keyword}{new}-\/>jobID = jobID;}
-\DoxyCodeLine{31     \textcolor{keyword}{new}-\/>position = position;}
-\DoxyCodeLine{32     \textcolor{keyword}{new}-\/>next = NULL;}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
-\DoxyCodeLine{35 \}}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60     \mbox{\hyperlink{struct_operation}{Operation}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_operation}{Operation}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_operation}{Operation}}));}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = id;}
+\DoxyCodeLine{67     \textcolor{keyword}{new}-\/>jobID = jobID;}
+\DoxyCodeLine{68     \textcolor{keyword}{new}-\/>position = position;}
+\DoxyCodeLine{69     \textcolor{keyword}{new}-\/>next = NULL;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
+\DoxyCodeLine{72 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{operations_8c_a0d7a168cfe9d62f2deb7f01f19966c7b}\label{operations_8c_a0d7a168cfe9d62f2deb7f01f19966c7b}} 
@@ -486,35 +641,35 @@ Lista de operações
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{150 \{}
-\DoxyCodeLine{151     FILE* file;}
-\DoxyCodeLine{152 }
-\DoxyCodeLine{153     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}})) == NULL) \textcolor{comment}{// se não foi possível abrir o ficheiro}}
-\DoxyCodeLine{154     \{}
-\DoxyCodeLine{155         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{156     \}}
-\DoxyCodeLine{157 }
-\DoxyCodeLine{158     \mbox{\hyperlink{struct_operation}{Operation}}* head = NULL;}
-\DoxyCodeLine{159     \mbox{\hyperlink{struct_operation}{Operation}}* current = NULL;}
-\DoxyCodeLine{160     \mbox{\hyperlink{struct_file_operation}{FileOperation}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
-\DoxyCodeLine{161 }
-\DoxyCodeLine{162     \textcolor{keywordflow}{while} (fread(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_operation}{FileOperation}}), 1, file)) \textcolor{comment}{// lê todos os registos do ficheiro e guarda na lista}}
-\DoxyCodeLine{163     \{}
-\DoxyCodeLine{164         current = \mbox{\hyperlink{operations_8c_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{newOperation}}(currentInFile.\mbox{\hyperlink{struct_file_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, currentInFile.\mbox{\hyperlink{struct_file_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, currentInFile.\mbox{\hyperlink{struct_file_operation_a401e942526aac47cef94f478182486e7}{position}});}
-\DoxyCodeLine{165         head = \mbox{\hyperlink{operations_8c_a35e6e85bff558fe6ce5adb0b47684423}{insertOperationAtStart}}(head, current);}
-\DoxyCodeLine{166     \}}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168     fclose(file);}
-\DoxyCodeLine{169 }
-\DoxyCodeLine{170     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{171 \}}
+\DoxyCodeLine{281 \{}
+\DoxyCodeLine{282     FILE* file = NULL;}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{285     \{}
+\DoxyCodeLine{286         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{287     \}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289     \mbox{\hyperlink{struct_operation}{Operation}}* head = NULL;}
+\DoxyCodeLine{290     \mbox{\hyperlink{struct_operation}{Operation}}* current = NULL;}
+\DoxyCodeLine{291     \mbox{\hyperlink{struct_file_operation}{FileOperation}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293     \textcolor{keywordflow}{while} (fread(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_operation}{FileOperation}}), 1, file)) \textcolor{comment}{// lê todos os registos do ficheiro e guarda na lista}}
+\DoxyCodeLine{294     \{}
+\DoxyCodeLine{295         current = \mbox{\hyperlink{operations_8c_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}{newOperation}}(currentInFile.\mbox{\hyperlink{struct_file_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, currentInFile.\mbox{\hyperlink{struct_file_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, currentInFile.\mbox{\hyperlink{struct_file_operation_a401e942526aac47cef94f478182486e7}{position}});}
+\DoxyCodeLine{296         head = \mbox{\hyperlink{operations_8c_a738597c7756493ff091418a0a283ac25}{insertOperation\_AtStart}}(head, current);}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299     fclose(file);}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{302 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{operations_8c_a885845bc6bd1e81fb26161ba1a82979d}\label{operations_8c_a885845bc6bd1e81fb26161ba1a82979d}} 
 \index{operations.c@{operations.c}!searchOperation@{searchOperation}}
 \index{searchOperation@{searchOperation}!operations.c@{operations.c}}
 \doxysubsubsection{\texorpdfstring{searchOperation()}{searchOperation()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} search\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} search\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head,  }\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -532,32 +687,141 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{230 \{}
-\DoxyCodeLine{231     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{232     \{}
-\DoxyCodeLine{233         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{234     \}}
-\DoxyCodeLine{235 }
-\DoxyCodeLine{236     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
-\DoxyCodeLine{237 }
-\DoxyCodeLine{238     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{239     \{}
-\DoxyCodeLine{240         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id})}
-\DoxyCodeLine{241         \{}
-\DoxyCodeLine{242             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{243         \}}
-\DoxyCodeLine{244         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{245     \}}
-\DoxyCodeLine{246 }
-\DoxyCodeLine{247     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{248 \}}
+\DoxyCodeLine{336 \{}
+\DoxyCodeLine{337     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{338     \{}
+\DoxyCodeLine{339         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{340     \}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{345     \{}
+\DoxyCodeLine{346         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id})}
+\DoxyCodeLine{347         \{}
+\DoxyCodeLine{348             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{349         \}}
+\DoxyCodeLine{350         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{351     \}}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{354 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{operations_8c_ab49dd927385119f3193df3b0ab8bea3c}\label{operations_8c_ab49dd927385119f3193df3b0ab8bea3c}} 
+\index{operations.c@{operations.c}!searchOperation\_ByJob@{searchOperation\_ByJob}}
+\index{searchOperation\_ByJob@{searchOperation\_ByJob}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{searchOperation\_ByJob()}{searchOperation\_ByJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} search\+Operation\+\_\+\+By\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head,  }\item[{int}]{job\+ID }\end{DoxyParamCaption})}
+
+
+
+Procurar por uma operação através do identificador do trabalho, na lista de operações. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de operações \\
+\hline
+{\em job\+ID} & Identificador do trabalho \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{364 \{}
+\DoxyCodeLine{365     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{366     \{}
+\DoxyCodeLine{367         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{368     \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{373     \{}
+\DoxyCodeLine{374         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} == jobID)}
+\DoxyCodeLine{375         \{}
+\DoxyCodeLine{376             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{377         \}}
+\DoxyCodeLine{378         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{379     \}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{382 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{operations_8c_a972c19e4f8dc3006cf300b9e8bd0e172}\label{operations_8c_a972c19e4f8dc3006cf300b9e8bd0e172}} 
+\index{operations.c@{operations.c}!updatePosition@{updatePosition}}
+\index{updatePosition@{updatePosition}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{updatePosition()}{updatePosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} update\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$$\ast$}]{head,  }\item[{int}]{x\+Operation\+ID,  }\item[{int}]{y\+Operation\+ID }\end{DoxyParamCaption})}
+
+
+
+Atualizar a posição de uma operação X pela posição de uma operação Y, e vice-\/versa. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Apontador para a lista de execuções \\
+\hline
+{\em x\+Operation\+ID} & Identificador de uma operação qualquer X \\
+\hline
+{\em y\+Operation\+ID} & Identificador de uma operação qualquer Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111     \textcolor{keywordflow}{if} (*head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{112     \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} (xOperationID == yOperationID) \textcolor{comment}{// se forem iguais}}
+\DoxyCodeLine{117     \{}
+\DoxyCodeLine{118         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{119     \}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \mbox{\hyperlink{struct_operation}{Operation}}* xOperation = NULL;}
+\DoxyCodeLine{122     \mbox{\hyperlink{struct_operation}{Operation}}* yOperation = NULL;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     xOperation = \mbox{\hyperlink{operations_8c_a824f152dae067c44c4a2c3ce6676cfa0}{getOperation}}(*head, xOperationID);}
+\DoxyCodeLine{125     yOperation = \mbox{\hyperlink{operations_8c_a824f152dae067c44c4a2c3ce6676cfa0}{getOperation}}(*head, yOperationID);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{keywordflow}{if} (xOperation == NULL || yOperation == NULL) \textcolor{comment}{// se as operações não foram encontradas}}
+\DoxyCodeLine{128     \{}
+\DoxyCodeLine{129         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{130     \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \mbox{\hyperlink{struct_operation}{Operation}}* current = *head;}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{135     \{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == xOperation-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}) \textcolor{comment}{// trocar a posição da operação X pela posição da operação Y}}
+\DoxyCodeLine{137         \{}
+\DoxyCodeLine{138             current-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}} = yOperation-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}};}
+\DoxyCodeLine{139         \}}
+\DoxyCodeLine{140         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == yOperation-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}) \textcolor{comment}{// trocar a posição da operação Y pela posição da operação X}}
+\DoxyCodeLine{141         \{}
+\DoxyCodeLine{142             current-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}} = xOperation-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}};}
+\DoxyCodeLine{143         \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{149 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{operations_8c_a535c92168a17ff038c2007300a75d708}\label{operations_8c_a535c92168a17ff038c2007300a75d708}} 
 \index{operations.c@{operations.c}!writeOperations@{writeOperations}}
 \index{writeOperations@{writeOperations}!operations.c@{operations.c}}
 \doxysubsubsection{\texorpdfstring{writeOperations()}{writeOperations()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{header_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} write\+Operations (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} write\+Operations (\begin{DoxyParamCaption}\item[{char}]{file\+Name\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{head }\end{DoxyParamCaption})}
 
 
 
@@ -575,35 +839,35 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{112 \{}
-\DoxyCodeLine{113     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{114     \{}
-\DoxyCodeLine{115         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{116     \}}
-\DoxyCodeLine{117 }
-\DoxyCodeLine{118     FILE* file = NULL;}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{120     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}})) == NULL) \textcolor{comment}{// se não foi possível abrir o ficheiro}}
-\DoxyCodeLine{121     \{}
-\DoxyCodeLine{122         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{123     \}}
-\DoxyCodeLine{124 }
-\DoxyCodeLine{125     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
-\DoxyCodeLine{126     \mbox{\hyperlink{struct_file_operation}{FileOperation}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
-\DoxyCodeLine{127 }
-\DoxyCodeLine{128     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{129     \{}
-\DoxyCodeLine{130         currentInFile.\mbox{\hyperlink{struct_file_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{131         currentInFile.\mbox{\hyperlink{struct_file_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} = current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{132         currentInFile.\mbox{\hyperlink{struct_file_operation_a401e942526aac47cef94f478182486e7}{position}} = current-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}};}
-\DoxyCodeLine{133         fwrite(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_operation}{FileOperation}}), 1, file); \textcolor{comment}{// guarda cada registo da lista no ficheiro}}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{135         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{136     \}}
-\DoxyCodeLine{137 }
-\DoxyCodeLine{138     fclose(file);}
-\DoxyCodeLine{139 }
-\DoxyCodeLine{140     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{141 \}}
+\DoxyCodeLine{243 \{}
+\DoxyCodeLine{244     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{245     \{}
+\DoxyCodeLine{246         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{247     \}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249     FILE* file = NULL;}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{252     \{}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     \mbox{\hyperlink{struct_operation}{Operation}}* current = head;}
+\DoxyCodeLine{257     \mbox{\hyperlink{struct_file_operation}{FileOperation}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{260     \{}
+\DoxyCodeLine{261         currentInFile.\mbox{\hyperlink{struct_file_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = current-\/>\mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{262         currentInFile.\mbox{\hyperlink{struct_file_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} = current-\/>\mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{263         currentInFile.\mbox{\hyperlink{struct_file_operation_a401e942526aac47cef94f478182486e7}{position}} = current-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}};}
+\DoxyCodeLine{264         fwrite(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_operation}{FileOperation}}), 1, file); \textcolor{comment}{// guarda cada registo da lista no ficheiro}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266         current = current-\/>\mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     fclose(file);}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{272 \}}
 
 \end{DoxyCode}

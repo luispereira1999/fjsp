@@ -1,0 +1,347 @@
+\hypertarget{work-plans_8c}{}\doxysection{ReferÃªncia ao ficheiro C\+:/\+LUIS-\/\+PEREIRA/\+Repositorios/fjssp/fjssp/work-\/plans.c}
+\label{work-plans_8c}\index{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/work-\/plans.c@{C:/LUIS-\/PEREIRA/Repositorios/fjssp/fjssp/work-\/plans.c}}
+
+
+Ficheiro com todas as funções relativas aos trabalhos para produção.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}data-\/types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lists.\+h\char`\"{}}\newline
+\doxysubsection*{FunÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ \mbox{\hyperlink{work-plans_8c_a9d91c27cd0a905114a14ab0f12d22c5a}{new\+Work\+Plan}} (int job\+ID, int operation\+ID, int machine\+ID, int runtime, int position)
+\begin{DoxyCompactList}\small\item\em Criar novo plano de trabalho. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ \mbox{\hyperlink{work-plans_8c_a41ca9cc709483758909c825ec05be48a}{insert\+Work\+Plan\+\_\+\+At\+Start}} (\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$head, \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$new)
+\begin{DoxyCompactList}\small\item\em Inserir no plano de trabalho no início da lista de operações. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ \mbox{\hyperlink{work-plans_8c_adbe79b8a4b64aa05edb2545c1ba33674}{insert\+Work\+Plan\+\_\+\+By\+Job\+\_\+\+At\+List}} (\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$head, \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$new)
+\begin{DoxyCompactList}\small\item\em Inserir plano de trabalho ordenado pelo posição das operações num job na lista de planos de trabalhos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{work-plans_8c_a05442746cf729c59ad9396084b796594}{display\+Work\+Plans}} (\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Mostrar a lista de planos de trabalhos na consola. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ \mbox{\hyperlink{work-plans_8c_ac04ab13b740af9d6610c37e07a62a4a2}{sort\+Work\+Plans\+\_\+\+By\+Job}} (\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Ordenar planos de trabalhos por ordem crescente da posição das operações num job. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ \mbox{\hyperlink{work-plans_8c_a2e6befb227913b848f0109b2ed92f4eb}{get\+All\+Work\+Plans}} (\mbox{\hyperlink{struct_job}{Job}} $\ast$\mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}, \mbox{\hyperlink{struct_operation}{Operation}} $\ast$\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{struct_execution}{Execution}} $\ast$\mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}})
+\begin{DoxyCompactList}\small\item\em Obter todos os planos de trabalhos para um realizar um plano de produção. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{work-plans_8c_a825edfecbd8e0d59e20057411e24b1ae}{get\+Full\+Time\+Of\+Plan}} (\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Obter o tempo total do plano. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+Ficheiro com todas as funções relativas aos trabalhos para produção. 
+
+\begin{DoxyAuthor}{Autor}
+Luís Pereira @email \href{mailto:a18446@alunos.ipca.pt}{\texttt{ a18446@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+1/6/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
+\mbox{\Hypertarget{work-plans_8c_a05442746cf729c59ad9396084b796594}\label{work-plans_8c_a05442746cf729c59ad9396084b796594}} 
+\index{work-\/plans.c@{work-\/plans.c}!displayWorkPlans@{displayWorkPlans}}
+\index{displayWorkPlans@{displayWorkPlans}!work-\/plans.c@{work-\/plans.c}}
+\doxysubsubsection{\texorpdfstring{displayWorkPlans()}{displayWorkPlans()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} display\+Work\+Plans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Mostrar a lista de planos de trabalhos na consola. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de planos de trabalhos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \{}
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{114     \{}
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* current = head;}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{121     \{}
+\DoxyCodeLine{122         printf(\textcolor{stringliteral}{"{}ID Trabalho: \%d, ID Operação: \%d, ID Máquina: \%d, Tempo de Execução: \%d, Posição: \%d;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_work_plan_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}}, current-\/>\mbox{\hyperlink{struct_work_plan_a401e942526aac47cef94f478182486e7}{position}});}
+\DoxyCodeLine{123         current = current-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{127 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{work-plans_8c_a2e6befb227913b848f0109b2ed92f4eb}\label{work-plans_8c_a2e6befb227913b848f0109b2ed92f4eb}} 
+\index{work-\/plans.c@{work-\/plans.c}!getAllWorkPlans@{getAllWorkPlans}}
+\index{getAllWorkPlans@{getAllWorkPlans}!work-\/plans.c@{work-\/plans.c}}
+\doxysubsubsection{\texorpdfstring{getAllWorkPlans()}{getAllWorkPlans()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ get\+All\+Work\+Plans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_job}{Job}} $\ast$}]{jobs,  }\item[{\mbox{\hyperlink{struct_operation}{Operation}} $\ast$}]{operations,  }\item[{\mbox{\hyperlink{struct_execution}{Execution}} $\ast$}]{executions }\end{DoxyParamCaption})}
+
+
+
+Obter todos os planos de trabalhos para um realizar um plano de produção. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de planos de trabalhos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163 \{}
+\DoxyCodeLine{164     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* workPlans = NULL, * workPlan = NULL;}
+\DoxyCodeLine{165     \mbox{\hyperlink{struct_execution}{Execution}}* minExecutions = NULL;}
+\DoxyCodeLine{166     \textcolor{keywordtype}{int} minTime = 0;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{keywordflow}{while} (\mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}})}
+\DoxyCodeLine{169     \{}
+\DoxyCodeLine{170         \textcolor{comment}{// obter o tempo mínimo para completar um job e as respetivas operações}}
+\DoxyCodeLine{171         minTime = \mbox{\hyperlink{lists_8h_ae41e1ffc9f3b9524442901a6a6598615}{getMinTime\_ToCompleteJob}}(\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}}, \mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}-\/>\mbox{\hyperlink{struct_job_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, \&minExecutions);}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173         \textcolor{keywordflow}{while} (minExecutions)}
+\DoxyCodeLine{174         \{}
+\DoxyCodeLine{175             \mbox{\hyperlink{struct_operation}{Operation}}* currOper = \mbox{\hyperlink{lists_8h_a824f152dae067c44c4a2c3ce6676cfa0}{getOperation}}(\mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}}, minExecutions-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}});}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177             workPlan = \mbox{\hyperlink{work-plans_8c_a9d91c27cd0a905114a14ab0f12d22c5a}{newWorkPlan}}(\mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}-\/>\mbox{\hyperlink{struct_job_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, minExecutions-\/>\mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, minExecutions-\/>\mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, minExecutions-\/>\mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}}, currOper-\/>\mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}}, \textcolor{keyword}{false});}
+\DoxyCodeLine{178             workPlans = \mbox{\hyperlink{work-plans_8c_a41ca9cc709483758909c825ec05be48a}{insertWorkPlan\_AtStart}}(workPlans, workPlan);}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180             minExecutions = minExecutions-\/>\mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
+\DoxyCodeLine{181         \}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183         \mbox{\hyperlink{executions_8c_afaa5a8328ff70ca63ea1a3bd5a8a3f59}{freeExecutions\_List}}(\&minExecutions);}
+\DoxyCodeLine{184         \mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}} = \mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}-\/>\mbox{\hyperlink{struct_job_a23043319aa98624f196cafc0ba57a0b1}{next}};}
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{keywordflow}{return} workPlans;}
+\DoxyCodeLine{188 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{work-plans_8c_a825edfecbd8e0d59e20057411e24b1ae}\label{work-plans_8c_a825edfecbd8e0d59e20057411e24b1ae}} 
+\index{work-\/plans.c@{work-\/plans.c}!getFullTimeOfPlan@{getFullTimeOfPlan}}
+\index{getFullTimeOfPlan@{getFullTimeOfPlan}!work-\/plans.c@{work-\/plans.c}}
+\doxysubsubsection{\texorpdfstring{getFullTimeOfPlan()}{getFullTimeOfPlan()}}
+{\footnotesize\ttfamily int get\+Full\+Time\+Of\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Obter o tempo total do plano. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de planos de trabalhos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198     \textcolor{keywordflow}{if} (head == NULL)}
+\DoxyCodeLine{199     \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{201     \}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203     \textcolor{keywordtype}{int} fullTime = 0;}
+\DoxyCodeLine{204     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* current = head;}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \textcolor{keywordflow}{while} (current)}
+\DoxyCodeLine{207     \{}
+\DoxyCodeLine{208         fullTime += current-\/>\mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
+\DoxyCodeLine{209         current = current-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
+\DoxyCodeLine{210     \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{keywordflow}{return} fullTime;}
+\DoxyCodeLine{213 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{work-plans_8c_a41ca9cc709483758909c825ec05be48a}\label{work-plans_8c_a41ca9cc709483758909c825ec05be48a}} 
+\index{work-\/plans.c@{work-\/plans.c}!insertWorkPlan\_AtStart@{insertWorkPlan\_AtStart}}
+\index{insertWorkPlan\_AtStart@{insertWorkPlan\_AtStart}!work-\/plans.c@{work-\/plans.c}}
+\doxysubsubsection{\texorpdfstring{insertWorkPlan\_AtStart()}{insertWorkPlan\_AtStart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ insert\+Work\+Plan\+\_\+\+At\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Inserir no plano de trabalho no início da lista de operações. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de planos de trabalhos \\
+\hline
+{\em new} & Nova plano de trabalho \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Lista de planos de trabalhos 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}} = head;}
+\DoxyCodeLine{58         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{work-plans_8c_adbe79b8a4b64aa05edb2545c1ba33674}\label{work-plans_8c_adbe79b8a4b64aa05edb2545c1ba33674}} 
+\index{work-\/plans.c@{work-\/plans.c}!insertWorkPlan\_ByJob\_AtList@{insertWorkPlan\_ByJob\_AtList}}
+\index{insertWorkPlan\_ByJob\_AtList@{insertWorkPlan\_ByJob\_AtList}!work-\/plans.c@{work-\/plans.c}}
+\doxysubsubsection{\texorpdfstring{insertWorkPlan\_ByJob\_AtList()}{insertWorkPlan\_ByJob\_AtList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ insert\+Work\+Plan\+\_\+\+By\+Job\+\_\+\+At\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Inserir plano de trabalho ordenado pelo posição das operações num job na lista de planos de trabalhos. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de planos de trabalhos \\
+\hline
+{\em new} & Novo plano de trabalho \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Lista de planos de trabalhos atualizada 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72 \{}
+\DoxyCodeLine{73     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75         head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no início}}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79         \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* current = head;}
+\DoxyCodeLine{80         \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* previous = NULL;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         \textcolor{comment}{// enquanto que o atual tem a posição da operação menor que o novo}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_work_plan_a401e942526aac47cef94f478182486e7}{position}} < new-\/>\mbox{\hyperlink{struct_work_plan_a401e942526aac47cef94f478182486e7}{position}})}
+\DoxyCodeLine{84         \{}
+\DoxyCodeLine{85             previous = current;}
+\DoxyCodeLine{86             current = current-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         \textcolor{keywordflow}{if} (previous == NULL)}
+\DoxyCodeLine{91         \{}
+\DoxyCodeLine{92             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}} = head;}
+\DoxyCodeLine{93             head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no meio}}
+\DoxyCodeLine{94         \}}
+\DoxyCodeLine{95         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{96         \{}
+\DoxyCodeLine{97             previous-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}} = \textcolor{keyword}{new};}
+\DoxyCodeLine{98             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}} = current; \textcolor{comment}{// inserir no fim}}
+\DoxyCodeLine{99         \}}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{103 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{work-plans_8c_a9d91c27cd0a905114a14ab0f12d22c5a}\label{work-plans_8c_a9d91c27cd0a905114a14ab0f12d22c5a}} 
+\index{work-\/plans.c@{work-\/plans.c}!newWorkPlan@{newWorkPlan}}
+\index{newWorkPlan@{newWorkPlan}!work-\/plans.c@{work-\/plans.c}}
+\doxysubsubsection{\texorpdfstring{newWorkPlan()}{newWorkPlan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ new\+Work\+Plan (\begin{DoxyParamCaption}\item[{int}]{job\+ID,  }\item[{int}]{operation\+ID,  }\item[{int}]{machine\+ID,  }\item[{int}]{runtime,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Criar novo plano de trabalho. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em job\+ID} & Identificador do job \\
+\hline
+{\em operation\+ID} & Identificador da operação \\
+\hline
+{\em machine\+ID} & Identificador da máquina \\
+\hline
+{\em runtime} & Tempo de execução da operação \\
+\hline
+{\em position} & Posição da operação a ser executada relativamente ao trabalho \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Nova plano de trabalho 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_work_plan}{WorkPlan}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_work_plan}{WorkPlan}}));}
+\DoxyCodeLine{27     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}} = jobID;}
+\DoxyCodeLine{33     \textcolor{keyword}{new}-\/>machineID = machineID;}
+\DoxyCodeLine{34     \textcolor{keyword}{new}-\/>operationID = operationID;}
+\DoxyCodeLine{35     \textcolor{keyword}{new}-\/>runtime = runtime;}
+\DoxyCodeLine{36     \textcolor{keyword}{new}-\/>position = position;}
+\DoxyCodeLine{37     \textcolor{keyword}{new}-\/>next = NULL;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
+\DoxyCodeLine{40 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{work-plans_8c_ac04ab13b740af9d6610c37e07a62a4a2}\label{work-plans_8c_ac04ab13b740af9d6610c37e07a62a4a2}} 
+\index{work-\/plans.c@{work-\/plans.c}!sortWorkPlans\_ByJob@{sortWorkPlans\_ByJob}}
+\index{sortWorkPlans\_ByJob@{sortWorkPlans\_ByJob}!work-\/plans.c@{work-\/plans.c}}
+\doxysubsubsection{\texorpdfstring{sortWorkPlans\_ByJob()}{sortWorkPlans\_ByJob()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$ sort\+Work\+Plans\+\_\+\+By\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Ordenar planos de trabalhos por ordem crescente da posição das operações num job. 
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em head} & Lista de planos de trabalhos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Booleano para o resultado da função (se funcionou ou não) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136 \{}
+\DoxyCodeLine{137     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{138     \{}
+\DoxyCodeLine{139         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* current = head;}
+\DoxyCodeLine{143     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* sorted = NULL;}
+\DoxyCodeLine{144     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \textcolor{keyword}{new} = NULL;}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{147     \{}
+\DoxyCodeLine{148         \textcolor{keyword}{new} = \mbox{\hyperlink{work-plans_8c_a9d91c27cd0a905114a14ab0f12d22c5a}{newWorkPlan}}(current-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_work_plan_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}}, current-\/>\mbox{\hyperlink{struct_work_plan_a401e942526aac47cef94f478182486e7}{position}});}
+\DoxyCodeLine{149         sorted = \mbox{\hyperlink{work-plans_8c_adbe79b8a4b64aa05edb2545c1ba33674}{insertWorkPlan\_ByJob\_AtList}}(sorted, \textcolor{keyword}{new});}
+\DoxyCodeLine{150         current = current-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{keywordflow}{return} sorted;}
+\DoxyCodeLine{154 \}}
+
+\end{DoxyCode}
