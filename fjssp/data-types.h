@@ -25,9 +25,6 @@
 #define EXECUTIONS_FILENAME_TEXT "text/executions.csv"
 #define PLAN_FILENAME_TEXT "text/plan.csv"
 
-// tamanho da quantidade de operações que são guardadas em cada linha do plano exportado
-#define OPEARATIONS_TEXT_SIZE 50
-
 // nomes para os ficheiros binários onde os dados são armazenados durante a execução do programa
 #define JOBS_FILENAME_BINARY "binary/jobs.bin"
 #define MACHINES_FILENAME_BINARY "binary/machines.bin"
@@ -72,7 +69,6 @@ extern Job* jobs; // extern: informa o compilador que esta variável está definid
 typedef struct Machine
 {
 	int id;
-	bool isBusy; // se a máquina está ou não em utilização
 	struct Machine* next;
 } Machine;
 
@@ -169,7 +165,6 @@ typedef struct FileJob
 typedef struct FileMachine
 {
 	int id;
-	bool isBusy; // se a máquina está ou não em utilização
 } FileMachine;
 
 

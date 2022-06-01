@@ -51,10 +51,9 @@ Machine* loadMachines(char* fileName)
 /**
 * @brief	Criar nova máquina
 * @param	id		Identificador da máquina
-* @param	isBusy	Booleano para se a máquina está ou não em utilização
 * @return	Nova máquina
 */
-Machine* newMachine(int id, bool isBusy)
+Machine* newMachine(int id)
 {
 	Machine* new = (Machine*)malloc(sizeof(Machine));
 	if (new == NULL) // se não houver memória para alocar
@@ -63,7 +62,6 @@ Machine* newMachine(int id, bool isBusy)
 	}
 
 	new->id = id;
-	new->isBusy = isBusy;
 	new->next = NULL;
 
 	return new;
@@ -98,41 +96,6 @@ Machine* insertMachine_AtStart(Machine* head, Machine* new)
 
 
 /**
-* @brief	Ocupa uma máquina, diz que no memento está ocupada
-* @param	h		Apontador para a lista de máquinas
-* @param	mid		Identificador da máquina
-* @param	ib		Booleano para da máquina
-* @return	Booleano para o resultado da função (se funcionou ou não)
-*/
-bool enableMachine(Machine** h, int mid, bool ib)
-{
-	if (*h == NULL) // se lista está vazia
-	{
-		return false;
-	}
-
-	if (!searchMachine(*h, mid))
-	{
-		return false;
-	}
-
-	Machine* current = *h;
-
-	while (current != NULL)
-	{
-		if (current->id == mid)
-		{
-			current->isBusy = ib;
-			return true;
-		}
-		current = current->next;
-	}
-
-	return false;
-}
-
-
-/**
 * @brief	Armazenar lista de máquinas em ficheiro binário
 * @param	fileName	Nome do ficheiro para armazenar a lista
 * @param	head		Lista de máquinas
@@ -158,7 +121,6 @@ bool writeMachines(char fileName[], Machine* head)
 	while (current != NULL)
 	{
 		currentInFile.id = current->id;
-		currentInFile.isBusy = current->isBusy;
 		fwrite(&currentInFile, sizeof(FileMachine), 1, file); // guarda cada registo da lista no ficheiro
 
 		current = current->next;
@@ -190,7 +152,7 @@ Machine* readMachines(char fileName[])
 
 	while (fread(&currentInFile, sizeof(FileMachine), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
-		current = newMachine(currentInFile.id, currentInFile.isBusy);
+		current = newMachine(currentInFile.id);
 		head = insertMachine_AtStart(head, current);
 	}
 
@@ -216,7 +178,7 @@ bool displayMachines(Machine* head)
 
 	while (current != NULL)
 	{
-		printf("ID: %d, Ocupada?: %s;\n", current->id, current->isBusy ? "Sim" : "Não");
+		printf("ID: %d;\n", current->id);
 		current = current->next;
 	}
 

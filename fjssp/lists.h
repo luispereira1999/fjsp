@@ -29,9 +29,8 @@ void freeJobs(Job** head);
 #pragma region máquinas
 
 Machine* loadMachines(char* fileName);
-Machine* newMachine(int id, bool isBusy);
+Machine* newMachine(int id);
 Machine* insertMachine_AtStart(Machine* head, Machine* new);
-bool enableMachine(Machine** h, int mid, bool ib);
 bool writeMachines(char fileName[], Machine* head);
 Machine* readMachines(char fileName[]);
 bool displayMachines(Machine* head);
