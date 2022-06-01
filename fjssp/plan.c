@@ -134,14 +134,15 @@ Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID)
 * @brief	Preencher todas as células do plano relativamente a uma lista de planos de trabalhos
 * @param	plan			Plano atual
 * @param	workPlans		Lista de planos de trabalhos
+* @param	numberOfCells	Quantidade de células a preencher
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans)
+bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans, int numberOfCells)
 {
 	WorkPlan* currentWorkPlan = workPlans;
 
 	int i = 0;
-	while (currentWorkPlan && i < 24)
+	while (currentWorkPlan && i < numberOfCells)
 	{
 		Cell lastCellInMachine = getLastCellFilled_InMachine(plan, currentWorkPlan->machineID);
 		Cell lastCellOfJob = getLastCellFilled_OfJob(plan, currentWorkPlan->jobID);

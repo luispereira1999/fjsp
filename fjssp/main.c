@@ -127,7 +127,7 @@ int main()
 				startPlan(plan, -1, -1);
 
 				// preencher todo o plano
-				fillAllPlan(plan, workPlans);
+				fillAllPlan(plan, workPlans, 24); // teste: 24 = 3 operações de cada 8 trabalhos
 
 				// exportar plano para ficheiro .csv
 				FileCell* cells = getCellsToExport(plan);

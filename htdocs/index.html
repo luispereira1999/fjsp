@@ -1,0 +1,66 @@
+<!--
+Adapted
+by lufer
+-->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="jquery.csv.min.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['timeline'] });
+
+        //Carrega dados de csv
+        var arrayData;
+        $(function () {
+            // ler CSV
+            $.get("plan.csv", function (csvString) {
+                arrayData = $.csv.toArrays(csvString, { onParseValue: $.csv.hooks.castToScalar });
+                //Para analisar dados de entrada!
+                console.table(arrayData);
+            });
+        });
+
+        google.charts.setOnLoadCallback(function () {
+            drawChart(arrayData);
+        });
+
+        function drawChart(arrayData) {
+            var container = document.getElementById('timeline');
+            var chart = new google.visualization.Timeline(container);
+            var dataTable = new google.visualization.DataTable();
+
+            dataTable.addColumn({ type: 'string', id: 'Maquina' });
+            dataTable.addColumn({ type: 'string', id: 'Label' });
+            dataTable.addColumn({ type: 'number', id: 'Start' });
+            dataTable.addColumn({ type: 'number', id: 'End' });
+            dataTable.addRows(arrayData);
+
+            var options = {
+                timeline: {
+                    showRowLabels: true,
+                    colorByRowLabel: true,
+                },
+                backgroundColor: '#ffd',
+                legend: { position: 'above' },
+            };
+
+            chart.draw(dataTable, options);
+        }
+    </script>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Planeamento de um Flexible Job Shop Problem</h2>
+    <h4 style="text-align: center;">Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.</h4>
+
+    <!--Encnntrar css e colocar em "style"-->
+    <div id="timeline" style="height: 1000%;"></div>
+</body>
+
+</html>

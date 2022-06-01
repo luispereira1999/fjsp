@@ -11,7 +11,7 @@
 \DoxyCodeLine{15 \textcolor{comment}{// tamanho relativos às estruturas de dados}}
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#define HASH\_TABLE\_SIZE 13}}
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#define NUMBER\_MACHINES 8}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#define MAX\_TIME 35}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define MAX\_TIME 35 }\textcolor{comment}{// teste: 35 tempo suficiente para concluir 3 operações de cada 8 trabalhos para o plano pretendido}}
 \DoxyCodeLine{19 }
 \DoxyCodeLine{20 \textcolor{comment}{// tamanhos e nomes relativos a ficheiros de texto}}
 \DoxyCodeLine{21 \textcolor{preprocessor}{\#define FILE\_LINE\_SIZE 50}}
@@ -21,152 +21,147 @@
 \DoxyCodeLine{25 \textcolor{preprocessor}{\#define EXECUTIONS\_FILENAME\_TEXT "{}text/executions.csv"{}}}
 \DoxyCodeLine{26 \textcolor{preprocessor}{\#define PLAN\_FILENAME\_TEXT "{}text/plan.csv"{}}}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{28 \textcolor{comment}{// tamanho da quantidade de operações que são guardadas em cada linha do plano exportado}}
-\DoxyCodeLine{29 \textcolor{preprocessor}{\#define OPEARATIONS\_TEXT\_SIZE 50}}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{comment}{// nomes para os ficheiros binários onde os dados são armazenados durante a execução do programa}}
-\DoxyCodeLine{32 \textcolor{preprocessor}{\#define JOBS\_FILENAME\_BINARY "{}binary/jobs.bin"{}}}
-\DoxyCodeLine{33 \textcolor{preprocessor}{\#define MACHINES\_FILENAME\_BINARY "{}binary/machines.bin"{}}}
-\DoxyCodeLine{34 \textcolor{preprocessor}{\#define OPERATIONS\_FILENAME\_BINARY "{}binary/operations.bin"{}}}
-\DoxyCodeLine{35 \textcolor{preprocessor}{\#define EXECUTIONS\_FILENAME\_BINARY "{}binary/executions.bin"{}}}
+\DoxyCodeLine{28 \textcolor{comment}{// nomes para os ficheiros binários onde os dados são armazenados durante a execução do programa}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define JOBS\_FILENAME\_BINARY "{}binary/jobs.bin"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define MACHINES\_FILENAME\_BINARY "{}binary/machines.bin"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define OPERATIONS\_FILENAME\_BINARY "{}binary/operations.bin"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define EXECUTIONS\_FILENAME\_BINARY "{}binary/executions.bin"{}}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{35 }
 \DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#pragma region representações}}
 \DoxyCodeLine{38 }
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \textcolor{preprocessor}{\#pragma region representações}}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{45 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{46 \{}
-\DoxyCodeLine{47    \textcolor{keyword}{false} = 0,}
-\DoxyCodeLine{48    \textcolor{keyword}{true} = 1}
-\DoxyCodeLine{49 \} \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}};}
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44    \textcolor{keyword}{false} = 0,}
+\DoxyCodeLine{45    \textcolor{keyword}{true} = 1}
+\DoxyCodeLine{46 \} \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{49 }
 \DoxyCodeLine{50 }
-\DoxyCodeLine{51 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#pragma region estruturas de dados em memória}}
 \DoxyCodeLine{52 }
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \textcolor{preprocessor}{\#pragma region estruturas de dados em memória}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{59 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_job}{Job}}}
-\DoxyCodeLine{60 \{}
-\DoxyCodeLine{61     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_job_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{62     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{struct_job_a23043319aa98624f196cafc0ba57a0b1}{next}};}
-\DoxyCodeLine{63 \} \mbox{\hyperlink{data-types_8h_a7f678ed7503a7b4211821d14323751d8}{Job}};}
+\DoxyCodeLine{56 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_job}{Job}}}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_job_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{59     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{struct_job_a23043319aa98624f196cafc0ba57a0b1}{next}};}
+\DoxyCodeLine{60 \} \mbox{\hyperlink{data-types_8h_a7f678ed7503a7b4211821d14323751d8}{Job}};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{// lista de trabalhos}}
+\DoxyCodeLine{63 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}; \textcolor{comment}{// extern: informa o compilador que esta variável está definida algures no código}}
 \DoxyCodeLine{64 }
-\DoxyCodeLine{65 \textcolor{comment}{// lista de trabalhos}}
-\DoxyCodeLine{66 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_job}{Job}}* \mbox{\hyperlink{data-types_8h_a5aba9fa4b62a768af157854c4db1e7ff}{jobs}}; \textcolor{comment}{// extern: informa o compilador que esta variável está definida algures no código}}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68 }
-\DoxyCodeLine{72 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_machine}{Machine}}}
-\DoxyCodeLine{73 \{}
-\DoxyCodeLine{74     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{75     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}}; \textcolor{comment}{// se a máquina está ou não em utilização}}
-\DoxyCodeLine{76     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{77 \} \mbox{\hyperlink{data-types_8h_ac5435b96779b7d7659b398b8275b6cbf}{Machine}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{69 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_machine}{Machine}}}
+\DoxyCodeLine{70 \{}
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{72     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{73 \} \mbox{\hyperlink{data-types_8h_ac5435b96779b7d7659b398b8275b6cbf}{Machine}};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{// lista de máquinas}}
+\DoxyCodeLine{76 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}};}
+\DoxyCodeLine{77 }
 \DoxyCodeLine{78 }
-\DoxyCodeLine{79 \textcolor{comment}{// lista de máquinas}}
-\DoxyCodeLine{80 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_machine}{Machine}}* \mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}};}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82 }
-\DoxyCodeLine{86 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation}{Operation}}}
-\DoxyCodeLine{87 \{}
-\DoxyCodeLine{88     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{89     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{90     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}}; \textcolor{comment}{// posição da operação (se é a 1º, 2º, 3º... a ser executada)}}
-\DoxyCodeLine{91     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
-\DoxyCodeLine{92 \} \mbox{\hyperlink{data-types_8h_a482954e58a1aa24c2a67b81bb6d92d9c}{Operation}};}
+\DoxyCodeLine{82 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation}{Operation}}}
+\DoxyCodeLine{83 \{}
+\DoxyCodeLine{84     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{86     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_operation_a401e942526aac47cef94f478182486e7}{position}}; \textcolor{comment}{// posição da operação (se é a 1º, 2º, 3º... a ser executada)}}
+\DoxyCodeLine{87     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{struct_operation_a9db59830dec0306ea782bae1df0736d1}{next}};}
+\DoxyCodeLine{88 \} \mbox{\hyperlink{data-types_8h_a482954e58a1aa24c2a67b81bb6d92d9c}{Operation}};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{// lista de operações}}
+\DoxyCodeLine{91 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}};}
+\DoxyCodeLine{92 }
 \DoxyCodeLine{93 }
-\DoxyCodeLine{94 \textcolor{comment}{// lista de operações}}
-\DoxyCodeLine{95 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_operation}{Operation}}* \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}};}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97 }
-\DoxyCodeLine{101 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_execution}{Execution}}}
-\DoxyCodeLine{102 \{}
-\DoxyCodeLine{103     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
-\DoxyCodeLine{104     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
-\DoxyCodeLine{105     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}}; \textcolor{comment}{// unidades de tempo necessárias para a execução da operação}}
-\DoxyCodeLine{106     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
-\DoxyCodeLine{107 \} \mbox{\hyperlink{data-types_8h_aace4a8a5be0edf7bb2ffc9da31308511}{Execution}};}
-\DoxyCodeLine{108 }
-\DoxyCodeLine{109 \textcolor{comment}{// lista de execuções}}
-\DoxyCodeLine{110 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
-\DoxyCodeLine{111 }
-\DoxyCodeLine{115 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{116     \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{struct_execution_node_aa95a151910734e9c0dd67a2912c2621c}{start}}; \textcolor{comment}{// apontador para o primeiro elemento de cada posição da tabela}}
-\DoxyCodeLine{117     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_node_ab1f76925bf29b8f0f5c7f0702eaeb737}{numberOfExecutions}}; \textcolor{comment}{// quantidade de execuções de cada posição da tabela}}
-\DoxyCodeLine{118 \} \mbox{\hyperlink{struct_execution_node}{ExecutionNode}};}
+\DoxyCodeLine{97 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_execution}{Execution}}}
+\DoxyCodeLine{98 \{}
+\DoxyCodeLine{99     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{100     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
+\DoxyCodeLine{101     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}}; \textcolor{comment}{// unidades de tempo necessárias para a execução da operação}}
+\DoxyCodeLine{102     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{struct_execution_a5118f41fd71744302713d58c7ce39bd4}{next}};}
+\DoxyCodeLine{103 \} \mbox{\hyperlink{data-types_8h_aace4a8a5be0edf7bb2ffc9da31308511}{Execution}};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{comment}{// lista de execuções}}
+\DoxyCodeLine{106 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{data-types_8h_a06f928c4814f71d1aa98651c8b7d98f9}{executions}};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{111 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{112     \mbox{\hyperlink{struct_execution}{Execution}}* \mbox{\hyperlink{struct_execution_node_aa95a151910734e9c0dd67a2912c2621c}{start}}; \textcolor{comment}{// apontador para o primeiro elemento de cada posição da tabela}}
+\DoxyCodeLine{113     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_execution_node_ab1f76925bf29b8f0f5c7f0702eaeb737}{numberOfExecutions}}; \textcolor{comment}{// quantidade de execuções de cada posição da tabela}}
+\DoxyCodeLine{114 \} \mbox{\hyperlink{struct_execution_node}{ExecutionNode}};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{comment}{// tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente,}}
+\DoxyCodeLine{117 \textcolor{comment}{// é um array de apontadores para listas de execuções}}
+\DoxyCodeLine{118 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* \mbox{\hyperlink{data-types_8h_a9cca8a4d7145b6602de842ff0421283f}{executionsTable}}[\mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\_TABLE\_SIZE}}];}
 \DoxyCodeLine{119 }
-\DoxyCodeLine{120 \textcolor{comment}{// tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente,}}
-\DoxyCodeLine{121 \textcolor{comment}{// é um array de apontadores para listas de execuções}}
-\DoxyCodeLine{122 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_execution_node}{ExecutionNode}}* \mbox{\hyperlink{data-types_8h_a9cca8a4d7145b6602de842ff0421283f}{executionsTable}}[\mbox{\hyperlink{data-types_8h_abfd8510b1fadf533d685965730e2969b}{HASH\_TABLE\_SIZE}}];}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{124 }
-\DoxyCodeLine{128 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_work_plan}{WorkPlan}}}
-\DoxyCodeLine{129 \{}
-\DoxyCodeLine{130     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{131     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
-\DoxyCodeLine{132     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
-\DoxyCodeLine{133     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
-\DoxyCodeLine{134     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_a401e942526aac47cef94f478182486e7}{position}};}
-\DoxyCodeLine{135     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
-\DoxyCodeLine{136 \} \mbox{\hyperlink{data-types_8h_a6cd3c4460fccd7d3d5a3292941e5fa05}{WorkPlan}};}
-\DoxyCodeLine{137 }
-\DoxyCodeLine{138 }
-\DoxyCodeLine{142 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_cell}{Cell}}}
-\DoxyCodeLine{143 \{}
-\DoxyCodeLine{144     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{145     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
-\DoxyCodeLine{146     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}};}
-\DoxyCodeLine{147 \} \mbox{\hyperlink{data-types_8h_a60bf09598e66928bf67a21a22bc17814}{Cell}};}
-\DoxyCodeLine{148 }
-\DoxyCodeLine{149 \textcolor{comment}{// matriz do plano de produção}}
-\DoxyCodeLine{150 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[\mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}];}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{152 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{153 }
-\DoxyCodeLine{154 }
-\DoxyCodeLine{155 \textcolor{preprocessor}{\#pragma region estruturas de dados em ficheiros}}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{160 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_job}{FileJob}}}
-\DoxyCodeLine{161 \{}
-\DoxyCodeLine{162     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_job_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{163 \} \mbox{\hyperlink{data-types_8h_abfb6a214f53f16cdb5113036e731a2e2}{FileJob}};}
-\DoxyCodeLine{164 }
-\DoxyCodeLine{165 }
-\DoxyCodeLine{169 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_machine}{FileMachine}}}
-\DoxyCodeLine{170 \{}
-\DoxyCodeLine{171     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{172     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_file_machine_a099f725f22a344e190121634f53328d8}{isBusy}}; \textcolor{comment}{// se a máquina está ou não em utilização}}
-\DoxyCodeLine{173 \} \mbox{\hyperlink{data-types_8h_a7c190f983ffc1790c1d1315b0884b4d3}{FileMachine}};}
-\DoxyCodeLine{174 }
-\DoxyCodeLine{175 }
-\DoxyCodeLine{179 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_operation}{FileOperation}}}
-\DoxyCodeLine{180 \{}
-\DoxyCodeLine{181     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{182     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{183     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_operation_a401e942526aac47cef94f478182486e7}{position}}; \textcolor{comment}{// posição da operação (se é a 1º, 2º, 3º... a ser executada)}}
-\DoxyCodeLine{184 \} \mbox{\hyperlink{data-types_8h_ac9fda784e10ac5624195204a6d499a65}{FileOperation}};}
-\DoxyCodeLine{185 }
-\DoxyCodeLine{186 }
-\DoxyCodeLine{190 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_execution}{FileExecution}}}
-\DoxyCodeLine{191 \{}
-\DoxyCodeLine{192     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
-\DoxyCodeLine{193     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
-\DoxyCodeLine{194     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}}; \textcolor{comment}{// unidades de tempo necessárias para a execução da operação}}
-\DoxyCodeLine{195 \} \mbox{\hyperlink{data-types_8h_a460a67751b57788df2d041efe14c70df}{FileExecution}};}
-\DoxyCodeLine{196 }
-\DoxyCodeLine{197 }
-\DoxyCodeLine{201 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_cell}{FileCell}}}
-\DoxyCodeLine{202 \{}
-\DoxyCodeLine{203     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
-\DoxyCodeLine{204     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{205     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
-\DoxyCodeLine{206     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}};}
-\DoxyCodeLine{207     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}};}
-\DoxyCodeLine{208     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
-\DoxyCodeLine{209 \} \mbox{\hyperlink{data-types_8h_a50e77eabd575f4455c13aa0cfda3935d}{FileCell}};}
-\DoxyCodeLine{210 }
-\DoxyCodeLine{211 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{212 }
-\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{124 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_work_plan}{WorkPlan}}}
+\DoxyCodeLine{125 \{}
+\DoxyCodeLine{126     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{127     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{128     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
+\DoxyCodeLine{129     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}};}
+\DoxyCodeLine{130     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_work_plan_a401e942526aac47cef94f478182486e7}{position}};}
+\DoxyCodeLine{131     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_work_plan}{WorkPlan}}* \mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
+\DoxyCodeLine{132 \} \mbox{\hyperlink{data-types_8h_a6cd3c4460fccd7d3d5a3292941e5fa05}{WorkPlan}};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{138 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_cell}{Cell}}}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{141     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{142     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}};}
+\DoxyCodeLine{143 \} \mbox{\hyperlink{data-types_8h_a60bf09598e66928bf67a21a22bc17814}{Cell}};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{// matriz do plano de produção}}
+\DoxyCodeLine{146 \textcolor{keyword}{extern} \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[\mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}];}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#pragma region estruturas de dados em ficheiros}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{156 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_job}{FileJob}}}
+\DoxyCodeLine{157 \{}
+\DoxyCodeLine{158     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_job_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{159 \} \mbox{\hyperlink{data-types_8h_abfb6a214f53f16cdb5113036e731a2e2}{FileJob}};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 }
+\DoxyCodeLine{165 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_machine}{FileMachine}}}
+\DoxyCodeLine{166 \{}
+\DoxyCodeLine{167     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{168 \} \mbox{\hyperlink{data-types_8h_a7c190f983ffc1790c1d1315b0884b4d3}{FileMachine}};}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 }
+\DoxyCodeLine{174 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_operation}{FileOperation}}}
+\DoxyCodeLine{175 \{}
+\DoxyCodeLine{176     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_operation_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{177     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_operation_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{178     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_operation_a401e942526aac47cef94f478182486e7}{position}}; \textcolor{comment}{// posição da operação (se é a 1º, 2º, 3º... a ser executada)}}
+\DoxyCodeLine{179 \} \mbox{\hyperlink{data-types_8h_ac9fda784e10ac5624195204a6d499a65}{FileOperation}};}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 }
+\DoxyCodeLine{185 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_execution}{FileExecution}}}
+\DoxyCodeLine{186 \{}
+\DoxyCodeLine{187     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_execution_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{188     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_execution_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
+\DoxyCodeLine{189     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_execution_a6885fec41faff728c1e6173cfb69e81f}{runtime}}; \textcolor{comment}{// unidades de tempo necessárias para a execução da operação}}
+\DoxyCodeLine{190 \} \mbox{\hyperlink{data-types_8h_a460a67751b57788df2d041efe14c70df}{FileExecution}};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 }
+\DoxyCodeLine{196 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_cell}{FileCell}}}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}};}
+\DoxyCodeLine{199     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{200     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{201     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}};}
+\DoxyCodeLine{202     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}};}
+\DoxyCodeLine{203     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
+\DoxyCodeLine{204 \} \mbox{\hyperlink{data-types_8h_a50e77eabd575f4455c13aa0cfda3935d}{FileCell}};}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

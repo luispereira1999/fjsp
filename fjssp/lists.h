@@ -101,7 +101,7 @@ bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID);
 bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID, int initialTime, int finalTime);
 Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID);
 Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID);
-bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans);
+bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans, int numberOfCells);
 bool searchActiveCells(Cell plan[][MAX_TIME], int machineID, int initialTime, int finalTime);
 bool displayPlan(Cell plan[][MAX_TIME]);
 

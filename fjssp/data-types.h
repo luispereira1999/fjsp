@@ -15,7 +15,7 @@
 // tamanho relativos às estruturas de dados
 #define HASH_TABLE_SIZE 13
 #define NUMBER_MACHINES 8
-#define MAX_TIME 35
+#define MAX_TIME 35 // teste: 35 tempo suficiente para concluir 3 operações de cada 8 trabalhos para o plano pretendido
 
 // tamanhos e nomes relativos a ficheiros de texto
 #define FILE_LINE_SIZE 50

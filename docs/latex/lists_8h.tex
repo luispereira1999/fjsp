@@ -30,12 +30,10 @@ void \mbox{\hyperlink{lists_8h_a72cbadab093ab1d12140ac0f70196359}{free\+Jobs}} (
 \begin{DoxyCompactList}\small\item\em Libertar a lista de trabalhos da memória. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{lists_8h_a66314cd1d0360ba77833955b765c6078}{load\+Machines}} (char $\ast$file\+Name)
 \begin{DoxyCompactList}\small\item\em Carrega dados das máquinas de um ficheiro CSV para uma lista em memória. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{lists_8h_a6f116088fdb4bbfdc000a266ee200210}{new\+Machine}} (int id, \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} is\+Busy)
+\mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{lists_8h_ad329e1d17488d364db7f1fe639e56709}{new\+Machine}} (int id)
 \begin{DoxyCompactList}\small\item\em Criar nova máquina. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{lists_8h_a09fd34b09b768439c306f071a29aba75}{insert\+Machine\+\_\+\+At\+Start}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$head, \mbox{\hyperlink{struct_machine}{Machine}} $\ast$new)
 \begin{DoxyCompactList}\small\item\em Inserir nova máquina no início da lista de máquinas. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{lists_8h_a84a442265a9f1e01405b51c3b958160b}{enable\+Machine}} (\mbox{\hyperlink{struct_machine}{Machine}} $\ast$$\ast$h, int mid, \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} ib)
-\begin{DoxyCompactList}\small\item\em Ocupa uma máquina, diz que no memento está ocupada. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{lists_8h_adeb9a16e75fb2739e26d1ceed9fbec78}{write\+Machines}} (char file\+Name\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_machine}{Machine}} $\ast$head)
 \begin{DoxyCompactList}\small\item\em Armazenar lista de máquinas em ficheiro binário. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ \mbox{\hyperlink{lists_8h_af87a8e5a625b71b8bccc15d4c98d6d97}{read\+Machines}} (char file\+Name\mbox{[}$\,$\mbox{]})
@@ -128,7 +126,7 @@ int \mbox{\hyperlink{lists_8h_a825edfecbd8e0d59e20057411e24b1ae}{get\+Full\+Time
 \begin{DoxyCompactList}\small\item\em Obter última célula preenchida de uma máquina. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_a59885a4edc46fac7c9a3b626ad2066a6}{get\+Last\+Cell\+Filled\+\_\+\+Of\+Job}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, int job\+ID)
 \begin{DoxyCompactList}\small\item\em Obter última célula preenchida em relação a um trabalho. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{lists_8h_a7d28c8573c3c9f74d0b8add376798451}{fill\+All\+Plan}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$work\+Plans)
+\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{lists_8h_a9254706d762bd95b0593915bda270034}{fill\+All\+Plan}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, \mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$work\+Plans, int number\+Of\+Cells)
 \begin{DoxyCompactList}\small\item\em Preencher todas as células do plano relativamente a uma lista de planos de trabalhos. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} \mbox{\hyperlink{lists_8h_aa5765f54f7d6a6629c836b36983ec86b}{search\+Active\+Cells}} (\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\+\_\+\+TIME}}\mbox{]}, int machine\+ID, int initial\+Time, int final\+Time)
 \begin{DoxyCompactList}\small\item\em Procurar num intervalo de células do plano, se existem células ativas. \end{DoxyCompactList}\item 
@@ -524,22 +522,22 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{209 \{}
-\DoxyCodeLine{210     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{211     \{}
-\DoxyCodeLine{212         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{213     \}}
-\DoxyCodeLine{214 }
-\DoxyCodeLine{215     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
-\DoxyCodeLine{216 }
-\DoxyCodeLine{217     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{218     \{}
-\DoxyCodeLine{219         printf(\textcolor{stringliteral}{"{}ID: \%d, Ocupada?: \%s;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}} ? \textcolor{stringliteral}{"{}Sim"{}} : \textcolor{stringliteral}{"{}Não"{}});}
-\DoxyCodeLine{220         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{221     \}}
-\DoxyCodeLine{222 }
-\DoxyCodeLine{223     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{224 \}}
+\DoxyCodeLine{171 \{}
+\DoxyCodeLine{172     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{173     \{}
+\DoxyCodeLine{174         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{180     \{}
+\DoxyCodeLine{181         printf(\textcolor{stringliteral}{"{}ID: \%d;\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}});}
+\DoxyCodeLine{182         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{186 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a1cac0b2d491be7953af600a2b434cc56}\label{lists_8h_a1cac0b2d491be7953af600a2b434cc56}} 
@@ -600,25 +598,25 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{199 \{}
-\DoxyCodeLine{200     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{201     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
-\DoxyCodeLine{202     \{}
-\DoxyCodeLine{203         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
-\DoxyCodeLine{204         \{}
-\DoxyCodeLine{205             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID > -\/1 \&\& \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].operationID > -\/1)}
-\DoxyCodeLine{206             \{}
-\DoxyCodeLine{207                 printf(\textcolor{stringliteral}{"{}|j\%d o\%d"{}}, \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID, \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].operationID);}
-\DoxyCodeLine{208             \}}
-\DoxyCodeLine{209             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{210             \{}
-\DoxyCodeLine{211                 printf(\textcolor{stringliteral}{"{}|     "{}});}
-\DoxyCodeLine{212             \}}
-\DoxyCodeLine{213         \}}
-\DoxyCodeLine{214         printf(\textcolor{stringliteral}{"{}|\(\backslash\)n"{}});}
-\DoxyCodeLine{215     \}}
-\DoxyCodeLine{216     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{217 \}}
+\DoxyCodeLine{200 \{}
+\DoxyCodeLine{201     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{202     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
+\DoxyCodeLine{203     \{}
+\DoxyCodeLine{204         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
+\DoxyCodeLine{205         \{}
+\DoxyCodeLine{206             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID > -\/1 \&\& \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].operationID > -\/1)}
+\DoxyCodeLine{207             \{}
+\DoxyCodeLine{208                 printf(\textcolor{stringliteral}{"{}|j\%d o\%d"{}}, \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID, \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].operationID);}
+\DoxyCodeLine{209             \}}
+\DoxyCodeLine{210             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{211             \{}
+\DoxyCodeLine{212                 printf(\textcolor{stringliteral}{"{}|     "{}});}
+\DoxyCodeLine{213             \}}
+\DoxyCodeLine{214         \}}
+\DoxyCodeLine{215         printf(\textcolor{stringliteral}{"{}|\(\backslash\)n"{}});}
+\DoxyCodeLine{216     \}}
+\DoxyCodeLine{217     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{218 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a05442746cf729c59ad9396084b796594}\label{lists_8h_a05442746cf729c59ad9396084b796594}} 
@@ -659,57 +657,6 @@ Booleano para o resultado da função (se funcionou ou não)
 \DoxyCodeLine{127 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{lists_8h_a84a442265a9f1e01405b51c3b958160b}\label{lists_8h_a84a442265a9f1e01405b51c3b958160b}} 
-\index{lists.h@{lists.h}!enableMachine@{enableMachine}}
-\index{enableMachine@{enableMachine}!lists.h@{lists.h}}
-\doxysubsubsection{\texorpdfstring{enableMachine()}{enableMachine()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} enable\+Machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_machine}{Machine}} $\ast$$\ast$}]{h,  }\item[{int}]{mid,  }\item[{\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}]{ib }\end{DoxyParamCaption})}
-
-
-
-Ocupa uma máquina, diz que no memento está ocupada. 
-
-
-\begin{DoxyParams}{ParÃ¢metros}
-{\em h} & Apontador para a lista de máquinas \\
-\hline
-{\em mid} & Identificador da máquina \\
-\hline
-{\em ib} & Booleano para da máquina \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-Booleano para o resultado da função (se funcionou ou não) 
-\end{DoxyReturn}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{108 \{}
-\DoxyCodeLine{109     \textcolor{keywordflow}{if} (*h == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{110     \{}
-\DoxyCodeLine{111         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{112     \}}
-\DoxyCodeLine{113 }
-\DoxyCodeLine{114     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{searchMachine}}(*h, mid))}
-\DoxyCodeLine{115     \{}
-\DoxyCodeLine{116         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{117     \}}
-\DoxyCodeLine{118 }
-\DoxyCodeLine{119     \mbox{\hyperlink{struct_machine}{Machine}}* current = *h;}
-\DoxyCodeLine{120 }
-\DoxyCodeLine{121     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{122     \{}
-\DoxyCodeLine{123         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == mid)}
-\DoxyCodeLine{124         \{}
-\DoxyCodeLine{125             current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}} = ib;}
-\DoxyCodeLine{126             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{127         \}}
-\DoxyCodeLine{128         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{129     \}}
-\DoxyCodeLine{130 }
-\DoxyCodeLine{131     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{132 \}}
-
-\end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_ac3605da0d42c8486e9430e84f5f790fc}\label{lists_8h_ac3605da0d42c8486e9430e84f5f790fc}} 
 \index{lists.h@{lists.h}!exportPlan@{exportPlan}}
 \index{exportPlan@{exportPlan}!lists.h@{lists.h}}
@@ -732,36 +679,36 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{418 \{}
-\DoxyCodeLine{419     \textcolor{keywordflow}{if} (head == NULL)}
-\DoxyCodeLine{420     \{}
-\DoxyCodeLine{421         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{422     \}}
-\DoxyCodeLine{423 }
-\DoxyCodeLine{424     FILE* file = fopen(fileName, \textcolor{stringliteral}{"{}w"{}});}
-\DoxyCodeLine{425     \textcolor{keywordflow}{if} (file == NULL)}
-\DoxyCodeLine{426     \{}
-\DoxyCodeLine{427         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{428     \}}
-\DoxyCodeLine{429 }
-\DoxyCodeLine{430     \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
-\DoxyCodeLine{431     \textcolor{keywordflow}{while} (current)}
-\DoxyCodeLine{432     \{}
-\DoxyCodeLine{433         fprintf(file, \textcolor{stringliteral}{"{}Maquina \%d, Trabalho \%d -\/ Operacao \%d, \%d, \%d\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}}, current-\/>\mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}});}
-\DoxyCodeLine{434         current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
-\DoxyCodeLine{435     \}}
-\DoxyCodeLine{436 }
-\DoxyCodeLine{437     fclose(file);}
-\DoxyCodeLine{438 }
-\DoxyCodeLine{439     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{440 \}}
+\DoxyCodeLine{419 \{}
+\DoxyCodeLine{420     \textcolor{keywordflow}{if} (head == NULL)}
+\DoxyCodeLine{421     \{}
+\DoxyCodeLine{422         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{423     \}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425     FILE* file = fopen(fileName, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{426     \textcolor{keywordflow}{if} (file == NULL)}
+\DoxyCodeLine{427     \{}
+\DoxyCodeLine{428         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{429     \}}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{431     \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
+\DoxyCodeLine{432     \textcolor{keywordflow}{while} (current)}
+\DoxyCodeLine{433     \{}
+\DoxyCodeLine{434         fprintf(file, \textcolor{stringliteral}{"{}Maquina \%d, Trabalho \%d -\/ Operacao \%d, \%d, \%d\(\backslash\)n"{}}, current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}}, current-\/>\mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}});}
+\DoxyCodeLine{435         current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
+\DoxyCodeLine{436     \}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438     fclose(file);}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{441 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{lists_8h_a7d28c8573c3c9f74d0b8add376798451}\label{lists_8h_a7d28c8573c3c9f74d0b8add376798451}} 
+\mbox{\Hypertarget{lists_8h_a9254706d762bd95b0593915bda270034}\label{lists_8h_a9254706d762bd95b0593915bda270034}} 
 \index{lists.h@{lists.h}!fillAllPlan@{fillAllPlan}}
 \index{fillAllPlan@{fillAllPlan}!lists.h@{lists.h}}
 \doxysubsubsection{\texorpdfstring{fillAllPlan()}{fillAllPlan()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} fill\+All\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{work\+Plans }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}} fill\+All\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell}{Cell}}}]{plan\mbox{[}$\,$\mbox{]}\mbox{[}\+MAX\+\_\+\+TIME\mbox{]},  }\item[{\mbox{\hyperlink{struct_work_plan}{Work\+Plan}} $\ast$}]{work\+Plans,  }\item[{int}]{number\+Of\+Cells }\end{DoxyParamCaption})}
 
 
 
@@ -773,41 +720,43 @@ Preencher todas as células do plano relativamente a uma lista de planos de traba
 \hline
 {\em work\+Plans} & Lista de planos de trabalhos \\
 \hline
+{\em number\+Of\+Cells} & Quantidade de células a preencher \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
 Booleano para o resultado da função (se funcionou ou não) 
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{140 \{}
-\DoxyCodeLine{141     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* currentWorkPlan = workPlans;}
-\DoxyCodeLine{142 }
-\DoxyCodeLine{143     \textcolor{keywordtype}{int} i = 0;}
-\DoxyCodeLine{144     \textcolor{keywordflow}{while} (currentWorkPlan \&\& i < 24)}
-\DoxyCodeLine{145     \{}
-\DoxyCodeLine{146         \mbox{\hyperlink{struct_cell}{Cell}} lastCellInMachine = \mbox{\hyperlink{plan_8c_af43dbc69f5fd43eca03707fd09d2178c}{getLastCellFilled\_InMachine}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}});}
-\DoxyCodeLine{147         \mbox{\hyperlink{struct_cell}{Cell}} lastCellOfJob = \mbox{\hyperlink{plan_8c_a59885a4edc46fac7c9a3b626ad2066a6}{getLastCellFilled\_OfJob}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}});}
-\DoxyCodeLine{148 }
-\DoxyCodeLine{149         \textcolor{keywordflow}{if} (lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} == -\/1)}
-\DoxyCodeLine{150         \{}
-\DoxyCodeLine{151             \textcolor{keywordflow}{if} (lastCellOfJob.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} != -\/1)}
-\DoxyCodeLine{152             \{}
-\DoxyCodeLine{153                 lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = lastCellOfJob.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}};}
-\DoxyCodeLine{154             \}}
-\DoxyCodeLine{155         \}}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{157         \textcolor{keywordflow}{if} (lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} == -\/1)}
-\DoxyCodeLine{158         \{}
-\DoxyCodeLine{159             lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = 0;}
-\DoxyCodeLine{160         \}}
-\DoxyCodeLine{161 }
-\DoxyCodeLine{162         \mbox{\hyperlink{plan_8c_a55b29a5d3ac64404e1934a055b890d8a}{fillCells}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}},}
-\DoxyCodeLine{163             lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
-\DoxyCodeLine{164 }
-\DoxyCodeLine{165         currentWorkPlan = currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
-\DoxyCodeLine{166         i++;}
-\DoxyCodeLine{167     \}}
-\DoxyCodeLine{168 \}}
+\DoxyCodeLine{141 \{}
+\DoxyCodeLine{142     \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* currentWorkPlan = workPlans;}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{145     \textcolor{keywordflow}{while} (currentWorkPlan \&\& i < numberOfCells)}
+\DoxyCodeLine{146     \{}
+\DoxyCodeLine{147         \mbox{\hyperlink{struct_cell}{Cell}} lastCellInMachine = \mbox{\hyperlink{plan_8c_af43dbc69f5fd43eca03707fd09d2178c}{getLastCellFilled\_InMachine}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}});}
+\DoxyCodeLine{148         \mbox{\hyperlink{struct_cell}{Cell}} lastCellOfJob = \mbox{\hyperlink{plan_8c_a59885a4edc46fac7c9a3b626ad2066a6}{getLastCellFilled\_OfJob}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}});}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150         \textcolor{keywordflow}{if} (lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} == -\/1)}
+\DoxyCodeLine{151         \{}
+\DoxyCodeLine{152             \textcolor{keywordflow}{if} (lastCellOfJob.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} != -\/1)}
+\DoxyCodeLine{153             \{}
+\DoxyCodeLine{154                 lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = lastCellOfJob.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}};}
+\DoxyCodeLine{155             \}}
+\DoxyCodeLine{156         \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158         \textcolor{keywordflow}{if} (lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} == -\/1)}
+\DoxyCodeLine{159         \{}
+\DoxyCodeLine{160             lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}} = 0;}
+\DoxyCodeLine{161         \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163         \mbox{\hyperlink{plan_8c_a55b29a5d3ac64404e1934a055b890d8a}{fillCells}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}},}
+\DoxyCodeLine{164             lastCellInMachine.\mbox{\hyperlink{struct_cell_a73ab6b9ae8c97849c3323ef4fe822ad3}{currentTime}}, currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a6885fec41faff728c1e6173cfb69e81f}{runtime}});}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166         currentWorkPlan = currentWorkPlan-\/>\mbox{\hyperlink{struct_work_plan_a49cffc406616a06f988e9fd2251d57d3}{next}};}
+\DoxyCodeLine{167         i++;}
+\DoxyCodeLine{168     \}}
+\DoxyCodeLine{169 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a55b29a5d3ac64404e1934a055b890d8a}\label{lists_8h_a55b29a5d3ac64404e1934a055b890d8a}} 
@@ -941,19 +890,19 @@ Libertar a lista de máquinas da memória.
 \end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{260 \{}
-\DoxyCodeLine{261     \textcolor{keywordflow}{if} (head != NULL)}
-\DoxyCodeLine{262     \{}
-\DoxyCodeLine{263         \mbox{\hyperlink{struct_machine}{Machine}}* current;}
-\DoxyCodeLine{264 }
-\DoxyCodeLine{265         \textcolor{keywordflow}{while} (*head)}
-\DoxyCodeLine{266         \{}
-\DoxyCodeLine{267             current = *head;}
-\DoxyCodeLine{268             *head = (*head)-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{269             free(current);}
-\DoxyCodeLine{270         \}}
-\DoxyCodeLine{271     \}}
-\DoxyCodeLine{272 \}}
+\DoxyCodeLine{222 \{}
+\DoxyCodeLine{223     \textcolor{keywordflow}{if} (head != NULL)}
+\DoxyCodeLine{224     \{}
+\DoxyCodeLine{225         \mbox{\hyperlink{struct_machine}{Machine}}* current;}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227         \textcolor{keywordflow}{while} (*head)}
+\DoxyCodeLine{228         \{}
+\DoxyCodeLine{229             current = *head;}
+\DoxyCodeLine{230             *head = (*head)-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{231             free(current);}
+\DoxyCodeLine{232         \}}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a67f132c293a67eb039eeaccad8a6cd36}\label{lists_8h_a67f132c293a67eb039eeaccad8a6cd36}} 
@@ -1109,67 +1058,67 @@ Células que serão exportadas
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{348 \{}
-\DoxyCodeLine{349     \mbox{\hyperlink{struct_file_cell}{FileCell}}* cells = NULL;}
-\DoxyCodeLine{350 }
-\DoxyCodeLine{351     \textcolor{keywordtype}{int} currJobID = -\/1;}
-\DoxyCodeLine{352     \textcolor{keywordtype}{int} currOpID = -\/1;}
-\DoxyCodeLine{353     \textcolor{keywordtype}{int} nextJobID = -\/1;}
-\DoxyCodeLine{354 }
-\DoxyCodeLine{355     \textcolor{keywordtype}{int} initialTime = -\/1;}
-\DoxyCodeLine{356     \textcolor{keywordtype}{int} finalTime = -\/1;}
-\DoxyCodeLine{357     \textcolor{keywordtype}{int} tempFinalTime = -\/1;}
-\DoxyCodeLine{358     \textcolor{keywordtype}{int} tempInitialTime = -\/1;}
-\DoxyCodeLine{359 }
-\DoxyCodeLine{360     \textcolor{keywordtype}{int} equalCells = 0;}
-\DoxyCodeLine{361 }
-\DoxyCodeLine{362     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
-\DoxyCodeLine{363     \{}
-\DoxyCodeLine{364         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
-\DoxyCodeLine{365         \{}
-\DoxyCodeLine{366             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID != -\/1)}
-\DoxyCodeLine{367             \{}
-\DoxyCodeLine{368                 currJobID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{369                 currOpID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
-\DoxyCodeLine{370                 nextJobID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j + 1].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
-\DoxyCodeLine{371                 initialTime = j;}
-\DoxyCodeLine{372                 finalTime = initialTime;}
-\DoxyCodeLine{373 }
-\DoxyCodeLine{374                 \textcolor{keywordflow}{if} (currJobID == nextJobID)}
-\DoxyCodeLine{375                 \{}
-\DoxyCodeLine{376                     initialTime = j;}
-\DoxyCodeLine{377 }
-\DoxyCodeLine{378                     equalCells++;}
-\DoxyCodeLine{379                     \textcolor{keywordflow}{if} (equalCells == 1)}
-\DoxyCodeLine{380                     \{}
-\DoxyCodeLine{381                         tempInitialTime = initialTime;}
-\DoxyCodeLine{382                     \}}
-\DoxyCodeLine{383 }
-\DoxyCodeLine{384                     tempFinalTime = finalTime;}
-\DoxyCodeLine{385                     tempFinalTime += 1;}
-\DoxyCodeLine{386                 \}}
-\DoxyCodeLine{387                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{388                 \{}
-\DoxyCodeLine{389                     \textcolor{keywordflow}{if} (equalCells == 0)}
-\DoxyCodeLine{390                     \{}
-\DoxyCodeLine{391                         tempInitialTime = initialTime;}
-\DoxyCodeLine{392                     \}}
-\DoxyCodeLine{393 }
-\DoxyCodeLine{394                     tempFinalTime += 1;}
-\DoxyCodeLine{395 }
-\DoxyCodeLine{396                     \mbox{\hyperlink{struct_file_cell}{FileCell}}* cell = \mbox{\hyperlink{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(i + 1, currJobID, currOpID, tempInitialTime, tempFinalTime);}
-\DoxyCodeLine{397                     cells = \mbox{\hyperlink{plan_8c_a4afcec772dd72159d179c3efde63f309}{insertFileCell\_AtStart}}(cells, cell);}
-\DoxyCodeLine{398 }
-\DoxyCodeLine{399                     equalCells = 0;}
-\DoxyCodeLine{400                     tempInitialTime == -\/1;}
-\DoxyCodeLine{401                     tempFinalTime == -\/1;}
-\DoxyCodeLine{402                 \}}
-\DoxyCodeLine{403             \}}
-\DoxyCodeLine{404         \}}
-\DoxyCodeLine{405     \}}
-\DoxyCodeLine{406 }
-\DoxyCodeLine{407     \textcolor{keywordflow}{return} cells;}
-\DoxyCodeLine{408 \}}
+\DoxyCodeLine{349 \{}
+\DoxyCodeLine{350     \mbox{\hyperlink{struct_file_cell}{FileCell}}* cells = NULL;}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352     \textcolor{keywordtype}{int} currJobID = -\/1;}
+\DoxyCodeLine{353     \textcolor{keywordtype}{int} currOpID = -\/1;}
+\DoxyCodeLine{354     \textcolor{keywordtype}{int} nextJobID = -\/1;}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356     \textcolor{keywordtype}{int} initialTime = -\/1;}
+\DoxyCodeLine{357     \textcolor{keywordtype}{int} finalTime = -\/1;}
+\DoxyCodeLine{358     \textcolor{keywordtype}{int} tempFinalTime = -\/1;}
+\DoxyCodeLine{359     \textcolor{keywordtype}{int} tempInitialTime = -\/1;}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361     \textcolor{keywordtype}{int} equalCells = 0;}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{data-types_8h_ad24db60c59551899be0cf71702a20314}{NUMBER\_MACHINES}}; i++)}
+\DoxyCodeLine{364     \{}
+\DoxyCodeLine{365         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}; j++)}
+\DoxyCodeLine{366         \{}
+\DoxyCodeLine{367             \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].jobID != -\/1)}
+\DoxyCodeLine{368             \{}
+\DoxyCodeLine{369                 currJobID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{370                 currOpID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j].\mbox{\hyperlink{struct_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}};}
+\DoxyCodeLine{371                 nextJobID = \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[i][j + 1].\mbox{\hyperlink{struct_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}};}
+\DoxyCodeLine{372                 initialTime = j;}
+\DoxyCodeLine{373                 finalTime = initialTime;}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375                 \textcolor{keywordflow}{if} (currJobID == nextJobID)}
+\DoxyCodeLine{376                 \{}
+\DoxyCodeLine{377                     initialTime = j;}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379                     equalCells++;}
+\DoxyCodeLine{380                     \textcolor{keywordflow}{if} (equalCells == 1)}
+\DoxyCodeLine{381                     \{}
+\DoxyCodeLine{382                         tempInitialTime = initialTime;}
+\DoxyCodeLine{383                     \}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385                     tempFinalTime = finalTime;}
+\DoxyCodeLine{386                     tempFinalTime += 1;}
+\DoxyCodeLine{387                 \}}
+\DoxyCodeLine{388                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{389                 \{}
+\DoxyCodeLine{390                     \textcolor{keywordflow}{if} (equalCells == 0)}
+\DoxyCodeLine{391                     \{}
+\DoxyCodeLine{392                         tempInitialTime = initialTime;}
+\DoxyCodeLine{393                     \}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395                     tempFinalTime += 1;}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397                     \mbox{\hyperlink{struct_file_cell}{FileCell}}* cell = \mbox{\hyperlink{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(i + 1, currJobID, currOpID, tempInitialTime, tempFinalTime);}
+\DoxyCodeLine{398                     cells = \mbox{\hyperlink{plan_8c_a4afcec772dd72159d179c3efde63f309}{insertFileCell\_AtStart}}(cells, cell);}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400                     equalCells = 0;}
+\DoxyCodeLine{401                     tempInitialTime == -\/1;}
+\DoxyCodeLine{402                     tempFinalTime == -\/1;}
+\DoxyCodeLine{403                 \}}
+\DoxyCodeLine{404             \}}
+\DoxyCodeLine{405         \}}
+\DoxyCodeLine{406     \}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408     \textcolor{keywordflow}{return} cells;}
+\DoxyCodeLine{409 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a825edfecbd8e0d59e20057411e24b1ae}\label{lists_8h_a825edfecbd8e0d59e20057411e24b1ae}} 
@@ -1659,19 +1608,19 @@ Lista de células do plano
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{259 \{}
-\DoxyCodeLine{260     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{261     \{}
-\DoxyCodeLine{262         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{263     \}}
-\DoxyCodeLine{264     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
-\DoxyCodeLine{265     \{}
-\DoxyCodeLine{266         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = head;}
-\DoxyCodeLine{267         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{268     \}}
-\DoxyCodeLine{269 }
-\DoxyCodeLine{270     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{271 \}}
+\DoxyCodeLine{260 \{}
+\DoxyCodeLine{261     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{262     \{}
+\DoxyCodeLine{263         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{264     \}}
+\DoxyCodeLine{265     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
+\DoxyCodeLine{266     \{}
+\DoxyCodeLine{267         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = head;}
+\DoxyCodeLine{268         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{269     \}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{272 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_afccf2f91e2cce72936b8826cb843dc28}\label{lists_8h_afccf2f91e2cce72936b8826cb843dc28}} 
@@ -1696,38 +1645,38 @@ Lista de células atualizada
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{281 \{}
-\DoxyCodeLine{282     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{283     \{}
-\DoxyCodeLine{284         head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no início}}
-\DoxyCodeLine{285     \}}
-\DoxyCodeLine{286     \textcolor{keywordflow}{else}}
-\DoxyCodeLine{287     \{}
-\DoxyCodeLine{288         \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
-\DoxyCodeLine{289         \mbox{\hyperlink{struct_file_cell}{FileCell}}* previous = NULL;}
-\DoxyCodeLine{290 }
-\DoxyCodeLine{291         \textcolor{comment}{// enquanto que o atual tem o ID da máquina menor que o novo}}
-\DoxyCodeLine{292         \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}} < new-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}})}
-\DoxyCodeLine{293         \{}
-\DoxyCodeLine{294             previous = current;}
-\DoxyCodeLine{295             current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
-\DoxyCodeLine{296 }
-\DoxyCodeLine{297         \}}
-\DoxyCodeLine{298 }
-\DoxyCodeLine{299         \textcolor{keywordflow}{if} (previous == NULL)}
-\DoxyCodeLine{300         \{}
-\DoxyCodeLine{301             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = head;}
-\DoxyCodeLine{302             head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no meio}}
-\DoxyCodeLine{303         \}}
-\DoxyCodeLine{304         \textcolor{keywordflow}{else}}
-\DoxyCodeLine{305         \{}
-\DoxyCodeLine{306             previous-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = \textcolor{keyword}{new};}
-\DoxyCodeLine{307             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = current; \textcolor{comment}{// inserir no fim}}
-\DoxyCodeLine{308         \}}
-\DoxyCodeLine{309     \}}
-\DoxyCodeLine{310 }
-\DoxyCodeLine{311     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{312 \}}
+\DoxyCodeLine{282 \{}
+\DoxyCodeLine{283     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{284     \{}
+\DoxyCodeLine{285         head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no início}}
+\DoxyCodeLine{286     \}}
+\DoxyCodeLine{287     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{288     \{}
+\DoxyCodeLine{289         \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
+\DoxyCodeLine{290         \mbox{\hyperlink{struct_file_cell}{FileCell}}* previous = NULL;}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292         \textcolor{comment}{// enquanto que o atual tem o ID da máquina menor que o novo}}
+\DoxyCodeLine{293         \textcolor{keywordflow}{while} (current != NULL \&\& current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}} < new-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}})}
+\DoxyCodeLine{294         \{}
+\DoxyCodeLine{295             previous = current;}
+\DoxyCodeLine{296             current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298         \}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300         \textcolor{keywordflow}{if} (previous == NULL)}
+\DoxyCodeLine{301         \{}
+\DoxyCodeLine{302             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = head;}
+\DoxyCodeLine{303             head = \textcolor{keyword}{new}; \textcolor{comment}{// inserir no meio}}
+\DoxyCodeLine{304         \}}
+\DoxyCodeLine{305         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{306         \{}
+\DoxyCodeLine{307             previous-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = \textcolor{keyword}{new};}
+\DoxyCodeLine{308             \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}} = current; \textcolor{comment}{// inserir no fim}}
+\DoxyCodeLine{309         \}}
+\DoxyCodeLine{310     \}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{313 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_aa8b6bc212b95408dfcdf536979b40d9c}\label{lists_8h_aa8b6bc212b95408dfcdf536979b40d9c}} 
@@ -1794,24 +1743,24 @@ Lista de máquinas atualizada
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{80 \{}
-\DoxyCodeLine{81     \textcolor{keywordflow}{if} (\mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{searchMachine}}(head, new-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})) \textcolor{comment}{// não permitir inserir uma nova com o mesmo ID}}
-\DoxyCodeLine{82     \{}
-\DoxyCodeLine{83         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{84     \}}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{87     \{}
-\DoxyCodeLine{88         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{89     \}}
-\DoxyCodeLine{90     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
-\DoxyCodeLine{91     \{}
-\DoxyCodeLine{92         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}} = head;}
-\DoxyCodeLine{93         head = \textcolor{keyword}{new};}
-\DoxyCodeLine{94     \}}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{97 \}}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     \textcolor{keywordflow}{if} (\mbox{\hyperlink{machines_8c_abab511c59eca20b8d1960a5a2cad6436}{searchMachine}}(head, new-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})) \textcolor{comment}{// não permitir inserir uma nova com o mesmo ID}}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88     \textcolor{keywordflow}{else} \textcolor{comment}{// se existir algum elemento na lista}}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}} = head;}
+\DoxyCodeLine{91         head = \textcolor{keyword}{new};}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{95 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a738597c7756493ff091418a0a283ac25}\label{lists_8h_a738597c7756493ff091418a0a283ac25}} 
@@ -2088,7 +2037,7 @@ A lista de máquinas do ficheiro CSV
 \DoxyCodeLine{37         \{}
 \DoxyCodeLine{38             \textcolor{comment}{// exemplo: 1;0}}
 \DoxyCodeLine{39             sscanf(line, \textcolor{stringliteral}{"{}\%d;\%d"{}}, \&a, \&b);}
-\DoxyCodeLine{40             machine = \mbox{\hyperlink{machines_8c_a6f116088fdb4bbfdc000a266ee200210}{newMachine}}(a, b);}
+\DoxyCodeLine{40             machine = \mbox{\hyperlink{machines_8c_ad329e1d17488d364db7f1fe639e56709}{newMachine}}(a, b);}
 \DoxyCodeLine{41             \mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}} = \mbox{\hyperlink{machines_8c_a09fd34b09b768439c306f071a29aba75}{insertMachine\_AtStart}}(\mbox{\hyperlink{data-types_8h_a7c589580d7f2357c2e3c5cbec30dcacf}{machines}}, machine);}
 \DoxyCodeLine{42         \}}
 \DoxyCodeLine{43     \}}
@@ -2217,22 +2166,22 @@ Nova célula
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{234 \{}
-\DoxyCodeLine{235     \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_file_cell}{FileCell}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_cell}{FileCell}}));}
-\DoxyCodeLine{236     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
-\DoxyCodeLine{237     \{}
-\DoxyCodeLine{238         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{239     \}}
-\DoxyCodeLine{240 }
-\DoxyCodeLine{241     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}} = machineID;}
-\DoxyCodeLine{242     \textcolor{keyword}{new}-\/>jobID = jobID;}
-\DoxyCodeLine{243     \textcolor{keyword}{new}-\/>operationID = operationID;}
-\DoxyCodeLine{244     \textcolor{keyword}{new}-\/>initialTime = initialTime;}
-\DoxyCodeLine{245     \textcolor{keyword}{new}-\/>finalTime = finalTime;}
-\DoxyCodeLine{246     \textcolor{keyword}{new}-\/>next = NULL;}
-\DoxyCodeLine{247 }
-\DoxyCodeLine{248     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
-\DoxyCodeLine{249 \}}
+\DoxyCodeLine{235 \{}
+\DoxyCodeLine{236     \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_file_cell}{FileCell}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_cell}{FileCell}}));}
+\DoxyCodeLine{237     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{238     \{}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{240     \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}} = machineID;}
+\DoxyCodeLine{243     \textcolor{keyword}{new}-\/>jobID = jobID;}
+\DoxyCodeLine{244     \textcolor{keyword}{new}-\/>operationID = operationID;}
+\DoxyCodeLine{245     \textcolor{keyword}{new}-\/>initialTime = initialTime;}
+\DoxyCodeLine{246     \textcolor{keyword}{new}-\/>finalTime = finalTime;}
+\DoxyCodeLine{247     \textcolor{keyword}{new}-\/>next = NULL;}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
+\DoxyCodeLine{250 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a84de6ff490cb65dbc4995f2d8b98de1f}\label{lists_8h_a84de6ff490cb65dbc4995f2d8b98de1f}} 
@@ -2269,11 +2218,11 @@ Novo trabalho
 \DoxyCodeLine{68 \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{lists_8h_a6f116088fdb4bbfdc000a266ee200210}\label{lists_8h_a6f116088fdb4bbfdc000a266ee200210}} 
+\mbox{\Hypertarget{lists_8h_ad329e1d17488d364db7f1fe639e56709}\label{lists_8h_ad329e1d17488d364db7f1fe639e56709}} 
 \index{lists.h@{lists.h}!newMachine@{newMachine}}
 \index{newMachine@{newMachine}!lists.h@{lists.h}}
 \doxysubsubsection{\texorpdfstring{newMachine()}{newMachine()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ new\+Machine (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{data-types_8h_af6a258d8f3ee5206d682d799316314b1}{bool}}}]{is\+Busy }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_machine}{Machine}} $\ast$ new\+Machine (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -2283,27 +2232,24 @@ Criar nova máquina.
 \begin{DoxyParams}{ParÃ¢metros}
 {\em id} & Identificador da máquina \\
 \hline
-{\em is\+Busy} & Booleano para se a máquina está ou não em utilização \\
-\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
 Nova máquina 
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{58 \{}
-\DoxyCodeLine{59     \mbox{\hyperlink{struct_machine}{Machine}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_machine}{Machine}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_machine}{Machine}}));}
-\DoxyCodeLine{60     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
-\DoxyCodeLine{61     \{}
-\DoxyCodeLine{62         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{63     \}}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = id;}
-\DoxyCodeLine{66     \textcolor{keyword}{new}-\/>isBusy = isBusy;}
-\DoxyCodeLine{67     \textcolor{keyword}{new}-\/>next = NULL;}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
-\DoxyCodeLine{70 \}}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58     \mbox{\hyperlink{struct_machine}{Machine}}* \textcolor{keyword}{new} = (\mbox{\hyperlink{struct_machine}{Machine}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_machine}{Machine}}));}
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} (\textcolor{keyword}{new} == NULL) \textcolor{comment}{// se não houver memória para alocar}}
+\DoxyCodeLine{60     \{}
+\DoxyCodeLine{61         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keyword}{new}-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = id;}
+\DoxyCodeLine{65     \textcolor{keyword}{new}-\/>next = NULL;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordflow}{return} \textcolor{keyword}{new};}
+\DoxyCodeLine{68 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}\label{lists_8h_aa55d8ef5cf2b1ccc10452fa6a2c2c9f6}} 
@@ -2500,28 +2446,28 @@ Lista de máquinas
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{179 \{}
-\DoxyCodeLine{180     FILE* file = NULL;}
-\DoxyCodeLine{181 }
-\DoxyCodeLine{182     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
-\DoxyCodeLine{183     \{}
-\DoxyCodeLine{184         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{185     \}}
-\DoxyCodeLine{186 }
-\DoxyCodeLine{187     \mbox{\hyperlink{struct_machine}{Machine}}* head = NULL;}
-\DoxyCodeLine{188     \mbox{\hyperlink{struct_machine}{Machine}}* current = NULL;}
-\DoxyCodeLine{189     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
-\DoxyCodeLine{190 }
-\DoxyCodeLine{191     \textcolor{keywordflow}{while} (fread(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file)) \textcolor{comment}{// lê todos os registos do ficheiro e guarda na lista}}
-\DoxyCodeLine{192     \{}
-\DoxyCodeLine{193         current = \mbox{\hyperlink{machines_8c_a6f116088fdb4bbfdc000a266ee200210}{newMachine}}(currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}, currentInFile.\mbox{\hyperlink{struct_file_machine_a099f725f22a344e190121634f53328d8}{isBusy}});}
-\DoxyCodeLine{194         head = \mbox{\hyperlink{machines_8c_a09fd34b09b768439c306f071a29aba75}{insertMachine\_AtStart}}(head, current);}
-\DoxyCodeLine{195     \}}
-\DoxyCodeLine{196 }
-\DoxyCodeLine{197     fclose(file);}
-\DoxyCodeLine{198 }
-\DoxyCodeLine{199     \textcolor{keywordflow}{return} head;}
-\DoxyCodeLine{200 \}}
+\DoxyCodeLine{141 \{}
+\DoxyCodeLine{142     FILE* file = NULL;}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{145     \{}
+\DoxyCodeLine{146         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \mbox{\hyperlink{struct_machine}{Machine}}* head = NULL;}
+\DoxyCodeLine{150     \mbox{\hyperlink{struct_machine}{Machine}}* current = NULL;}
+\DoxyCodeLine{151     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{keywordflow}{while} (fread(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file)) \textcolor{comment}{// lê todos os registos do ficheiro e guarda na lista}}
+\DoxyCodeLine{154     \{}
+\DoxyCodeLine{155         current = \mbox{\hyperlink{machines_8c_ad329e1d17488d364db7f1fe639e56709}{newMachine}}(currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}});}
+\DoxyCodeLine{156         head = \mbox{\hyperlink{machines_8c_a09fd34b09b768439c306f071a29aba75}{insertMachine\_AtStart}}(head, current);}
+\DoxyCodeLine{157     \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159     fclose(file);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{keywordflow}{return} head;}
+\DoxyCodeLine{162 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a0d7a168cfe9d62f2deb7f01f19966c7b}\label{lists_8h_a0d7a168cfe9d62f2deb7f01f19966c7b}} 
@@ -2594,17 +2540,17 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{180 \{}
-\DoxyCodeLine{181     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = initialTime; i < finalTime; i++)}
-\DoxyCodeLine{182     \{}
-\DoxyCodeLine{183         \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].jobID > -\/1 || \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].operationID > -\/1)}
-\DoxyCodeLine{184         \{}
-\DoxyCodeLine{185             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{186         \}}
-\DoxyCodeLine{187     \}}
-\DoxyCodeLine{188 }
-\DoxyCodeLine{189     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{190 \}}
+\DoxyCodeLine{181 \{}
+\DoxyCodeLine{182     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = initialTime; i < finalTime; i++)}
+\DoxyCodeLine{183     \{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if} (\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].jobID > -\/1 || \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[machineID -\/ 1][i].operationID > -\/1)}
+\DoxyCodeLine{185         \{}
+\DoxyCodeLine{186             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{187         \}}
+\DoxyCodeLine{188     \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{191 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_ac992cca7f2da24cbd1b940efce93a06e}\label{lists_8h_ac992cca7f2da24cbd1b940efce93a06e}} 
@@ -2760,25 +2706,25 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{234 \{}
-\DoxyCodeLine{235     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{236     \{}
-\DoxyCodeLine{237         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{238     \}}
-\DoxyCodeLine{239 }
-\DoxyCodeLine{240     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
-\DoxyCodeLine{241 }
-\DoxyCodeLine{242     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{243     \{}
-\DoxyCodeLine{244         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id})}
-\DoxyCodeLine{245         \{}
-\DoxyCodeLine{246             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{247         \}}
-\DoxyCodeLine{248         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{249     \}}
-\DoxyCodeLine{250 }
-\DoxyCodeLine{251     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{252 \}}
+\DoxyCodeLine{196 \{}
+\DoxyCodeLine{197     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{198     \{}
+\DoxyCodeLine{199         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{200     \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{205     \{}
+\DoxyCodeLine{206         \textcolor{keywordflow}{if} (current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} == \textcolor{keywordtype}{id})}
+\DoxyCodeLine{207         \{}
+\DoxyCodeLine{208             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{209         \}}
+\DoxyCodeLine{210         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{211     \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{214 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a885845bc6bd1e81fb26161ba1a82979d}\label{lists_8h_a885845bc6bd1e81fb26161ba1a82979d}} 
@@ -2928,25 +2874,25 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{321 \{}
-\DoxyCodeLine{322     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
-\DoxyCodeLine{323     \{}
-\DoxyCodeLine{324         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{325     \}}
-\DoxyCodeLine{326 }
-\DoxyCodeLine{327     \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
-\DoxyCodeLine{328     \mbox{\hyperlink{struct_file_cell}{FileCell}}* sorted = NULL;}
-\DoxyCodeLine{329     \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new} = NULL;}
-\DoxyCodeLine{330 }
-\DoxyCodeLine{331     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{332     \{}
-\DoxyCodeLine{333         \textcolor{keyword}{new} = \mbox{\hyperlink{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}}, current-\/>\mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}});}
-\DoxyCodeLine{334         sorted = \mbox{\hyperlink{plan_8c_afccf2f91e2cce72936b8826cb843dc28}{insertFileCell\_ByMachine}}(sorted, \textcolor{keyword}{new});}
-\DoxyCodeLine{335         current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
-\DoxyCodeLine{336     \}}
-\DoxyCodeLine{337 }
-\DoxyCodeLine{338     \textcolor{keywordflow}{return} sorted;}
-\DoxyCodeLine{339 \}}
+\DoxyCodeLine{322 \{}
+\DoxyCodeLine{323     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se a lista estiver vazia}}
+\DoxyCodeLine{324     \{}
+\DoxyCodeLine{325         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{326     \}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328     \mbox{\hyperlink{struct_file_cell}{FileCell}}* current = head;}
+\DoxyCodeLine{329     \mbox{\hyperlink{struct_file_cell}{FileCell}}* sorted = NULL;}
+\DoxyCodeLine{330     \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new} = NULL;}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{333     \{}
+\DoxyCodeLine{334         \textcolor{keyword}{new} = \mbox{\hyperlink{plan_8c_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(current-\/>\mbox{\hyperlink{struct_file_cell_ae0b5e7043ba4f62c59a7a67c2c1c440c}{machineID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ad71a8c2a978cd38c498b77c5b914983b}{jobID}}, current-\/>\mbox{\hyperlink{struct_file_cell_a0be948f2b8f4cdb1a8527811a08ecfd5}{operationID}}, current-\/>\mbox{\hyperlink{struct_file_cell_ababa900afd511e06fbc4fdc59153da5a}{initialTime}}, current-\/>\mbox{\hyperlink{struct_file_cell_adefa6058e65d910b89b24511022d93d6}{finalTime}});}
+\DoxyCodeLine{335         sorted = \mbox{\hyperlink{plan_8c_afccf2f91e2cce72936b8826cb843dc28}{insertFileCell\_ByMachine}}(sorted, \textcolor{keyword}{new});}
+\DoxyCodeLine{336         current = current-\/>\mbox{\hyperlink{struct_file_cell_ae98b5aca33fe7726f63eeeae76843663}{next}};}
+\DoxyCodeLine{337     \}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339     \textcolor{keywordflow}{return} sorted;}
+\DoxyCodeLine{340 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_ac04ab13b740af9d6610c37e07a62a4a2}\label{lists_8h_ac04ab13b740af9d6610c37e07a62a4a2}} 
@@ -3274,35 +3220,34 @@ Booleano para o resultado da função (se funcionou ou não)
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{142 \{}
-\DoxyCodeLine{143     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
-\DoxyCodeLine{144     \{}
-\DoxyCodeLine{145         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{146     \}}
-\DoxyCodeLine{147 }
-\DoxyCodeLine{148     FILE* file = NULL;}
-\DoxyCodeLine{149 }
-\DoxyCodeLine{150     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
-\DoxyCodeLine{151     \{}
-\DoxyCodeLine{152         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{153     \}}
-\DoxyCodeLine{154 }
-\DoxyCodeLine{155     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
-\DoxyCodeLine{156     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
-\DoxyCodeLine{157 }
-\DoxyCodeLine{158     \textcolor{keywordflow}{while} (current != NULL)}
-\DoxyCodeLine{159     \{}
-\DoxyCodeLine{160         currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
-\DoxyCodeLine{161         currentInFile.\mbox{\hyperlink{struct_file_machine_a099f725f22a344e190121634f53328d8}{isBusy}} = current-\/>\mbox{\hyperlink{struct_machine_a099f725f22a344e190121634f53328d8}{isBusy}};}
-\DoxyCodeLine{162         fwrite(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file); \textcolor{comment}{// guarda cada registo da lista no ficheiro}}
-\DoxyCodeLine{163 }
-\DoxyCodeLine{164         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
-\DoxyCodeLine{165     \}}
-\DoxyCodeLine{166 }
-\DoxyCodeLine{167     fclose(file);}
-\DoxyCodeLine{168 }
-\DoxyCodeLine{169     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{170 \}}
+\DoxyCodeLine{105 \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} (head == NULL) \textcolor{comment}{// se lista está vazia}}
+\DoxyCodeLine{107     \{}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     FILE* file = NULL;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} ((file = fopen(fileName, \textcolor{stringliteral}{"{}wb"{}})) == NULL) \textcolor{comment}{// erro ao abrir o ficheiro}}
+\DoxyCodeLine{114     \{}
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \mbox{\hyperlink{struct_machine}{Machine}}* current = head;}
+\DoxyCodeLine{119     \mbox{\hyperlink{struct_file_machine}{FileMachine}} currentInFile; \textcolor{comment}{// é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordflow}{while} (current != NULL)}
+\DoxyCodeLine{122     \{}
+\DoxyCodeLine{123         currentInFile.\mbox{\hyperlink{struct_file_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}} = current-\/>\mbox{\hyperlink{struct_machine_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{124         fwrite(\&currentInFile, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_file_machine}{FileMachine}}), 1, file); \textcolor{comment}{// guarda cada registo da lista no ficheiro}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126         current = current-\/>\mbox{\hyperlink{struct_machine_a6427ea1ae4ce02f843d5bdbbd2592b27}{next}};}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     fclose(file);}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{132 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{lists_8h_a535c92168a17ff038c2007300a75d708}\label{lists_8h_a535c92168a17ff038c2007300a75d708}} 
