@@ -457,7 +457,7 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
 			currentExecution = NULL;
 			currentExecution = executions;
-		
+
 			counter += time; // acumular o tempo de utilização de cada execução de operação
 			time = 999; // resetar tempo para a próxima iteração
 		}
@@ -515,6 +515,7 @@ int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
 			currentExecution = NULL;
 			currentExecution = executions;
+
 			counter += time; // acumular o tempo de utilização de cada execução de operação
 			time = 0; // resetar tempo de utilização para a próxima iteração
 		}
@@ -561,4 +562,24 @@ float getAverageTime_ToCompleteOperation(Execution* head, int operationID)
 	}
 
 	return average;
+}
+
+
+/**
+* @brief	Libertar a lista de operações da memória
+* @param	head	Lista de operações
+*/
+void freeOperations(Operation** head)
+{
+	if (head != NULL)
+	{
+		Operation* current;
+
+		while (*head)
+		{
+			current = *head;
+			*head = (*head)->next;
+			free(current);
+		}
+	}
 }

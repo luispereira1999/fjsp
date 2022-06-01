@@ -27,13 +27,10 @@
     <ClCompile Include="operations.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="executions-lists.c">
+    <ClCompile Include="executions.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="plan.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="executions-hashing.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -140,11 +140,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="executions-hashing.c" />
     <ClCompile Include="jobs.c" />
     <ClCompile Include="machines.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="executions-lists.c" />
+    <ClCompile Include="executions.c" />
     <ClCompile Include="operations.c" />
     <ClCompile Include="plan.c" />
   </ItemGroup>
