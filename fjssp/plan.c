@@ -13,52 +13,54 @@
 #include "lists.h"
 
 
+#pragma region planos de produção para exportar para ficheiro
+
 /**
-* @brief	Inicia um novo plano, com todos os campos vazios
-* @param	jid		Identificador do trabalho
-* @param	oid		Identificador da operação
+* @brief	Iniciar um novo plano com todos as células vazias
+* @param	plan			Plano a ser iniciado
+* @param	jobID			Identificador do trabalho
+* @param	operationID		Identificador da operação
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool startPlan(Cell plan[][MAX_TIME], int jid, int oid)
+bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID)
 {
 	for (int i = 0; i < NUMBER_MACHINES; i++)
 	{
 		for (int j = 0; j < MAX_TIME; j++)
 		{
-			plan[i][j].jobID = jid;
-			plan[i][j].operationID = oid;
-			plan[i][j].initialTime = 0;
-			plan[i][j].finalTime = 0;
+			plan[i][j].jobID = jobID;
+			plan[i][j].operationID = operationID;
+			plan[i][j].currentTime = 0;
 		}
 	}
 }
 
 
 /**
-* @brief	Preenche uma célula do plano
-* @param	mid		Identificador da máquina
-* @param	jid		Identificador do trabalho
-* @param	oid		Identificador da operação
-* @param	it		Tempo inicial desta célula
-* @param	ft		Tempo final desta célula
+* @brief	Preencher células do plano em um intervalo de tempo
+* @param	plan			Plano atual
+* @param	machineID		Identificador da máquina
+* @param	jobID			Identificador do trabalho
+* @param	operationID		Identificador da operação
+* @param	initialTime		Tempo inicial do intervalo
+* @param	finalTime		Tempo final do intervalo
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool fillCells(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft)
+bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID, int initialTime, int finalTime)
 {
 	// não permite ativar células que já estão ativas
-	if (searchActiveCells(p, mid, it, ft))
+	if (searchActiveCells(plan, machineID, initialTime, finalTime))
 	{
 		return false;
 	}
 
 	// preenche o intervalo de células disponíveis para este escalonamento
-	for (int i = it; i < ft; i++)
+	for (int i = initialTime; i < initialTime + finalTime; i++)
 	{
 		// mid - 1 porque os IDs das máquinas começam em 1 e a matriz do plano começa em 0
-		p[mid - 1][i].jobID = jid;
-		p[mid - 1][i].operationID = oid;
-		p[mid - 1][i].initialTime = it;
-		p[mid - 1][i].finalTime = ft;
+		plan[machineID - 1][i].jobID = jobID;
+		plan[machineID - 1][i].operationID = operationID;
+		plan[machineID - 1][i].currentTime = initialTime + finalTime;
 	}
 
 	return true;
@@ -66,17 +68,56 @@ bool fillCells(Cell p[][MAX_TIME], int mid, int jid, int oid, int it, int ft)
 
 
 /**
-* @brief	Procurar em um intervalo de células do plano, se existem células ativas
-* @param	mid		Identificador da máquina
-* @param	it		Tempo inicial desta célula
-* @param	ft		Tempo final desta célula
+* @brief	Preencher todas as células do plano relativamente a uma lista de planos de trabalhos
+* @param	plan			Plano atual
+* @param	workPlans		Lista de planos de trabalhos
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft)
+bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans)
 {
-	for (int i = it; i < ft; i++)
+	WorkPlan* currentWorkPlan = workPlans;
+
+	int i = 0;
+	while (currentWorkPlan && i < 24)
 	{
-		if (p[mid - 1][i].jobID > -1 || p[mid - 1][i].operationID > -1)
+		Cell lastCellInMachine = getLastCellFilled_InMachine(plan, currentWorkPlan->machineID);
+		Cell lastCellOfJob = getLastCellFilled_OfJob(plan, currentWorkPlan->jobID);
+
+		if (lastCellInMachine.currentTime == -1)
+		{
+			if (lastCellOfJob.currentTime != -1)
+			{
+				lastCellInMachine.currentTime = lastCellOfJob.currentTime;
+			}
+		}
+
+		if (lastCellInMachine.currentTime == -1)
+		{
+			lastCellInMachine.currentTime = 0;
+		}
+
+		fillCells(plan, currentWorkPlan->machineID, currentWorkPlan->jobID, currentWorkPlan->operationID,
+			lastCellInMachine.currentTime, currentWorkPlan->runtime);
+
+		currentWorkPlan = currentWorkPlan->next;
+		i++;
+	}
+}
+
+
+/**
+* @brief	Procurar num intervalo de células do plano, se existem células ativas
+* @param	plan			Plano atual
+* @param	machineID		Identificador da máquina
+* @param	initialTime		Tempo inicial desta célula
+* @param	finalTime		Tempo final desta célula
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool searchActiveCells(Cell plan[][MAX_TIME], int machineID, int initialTime, int finalTime)
+{
+	for (int i = initialTime; i < finalTime; i++)
+	{
+		if (plan[machineID - 1][i].jobID > -1 || plan[machineID - 1][i].operationID > -1)
 		{
 			return true;
 		}
@@ -88,19 +129,19 @@ bool searchActiveCells(Cell p[][MAX_TIME], int mid, int it, int ft)
 
 /**
 * @brief	Mostrar plano de escalonamento na consola
-* @param	p		Plano a ser mostrado
+* @param	plan	Plano a ser mostrado
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool displayPlan(Cell p[][MAX_TIME])
+bool displayPlan(Cell plan[][MAX_TIME])
 {
 	printf("\n");
 	for (int i = 0; i < NUMBER_MACHINES; i++)
 	{
 		for (int j = 0; j < MAX_TIME; j++)
 		{
-			if (p[i][j].jobID > -1 && p[i][j].operationID > -1)
+			if (plan[i][j].jobID > -1 && plan[i][j].operationID > -1)
 			{
-				printf("|j%d o%d", p[i][j].jobID, p[i][j].operationID);
+				printf("|j%d o%d", plan[i][j].jobID, plan[i][j].operationID);
 			}
 			else
 			{
@@ -111,3 +152,5 @@ bool displayPlan(Cell p[][MAX_TIME])
 	}
 	printf("\n");
 }
+
+#pragma endregion
