@@ -68,6 +68,69 @@ bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID,
 
 
 /**
+* @brief	Obter última célula preenchida de uma máquina
+* @param	plan		Plano atual
+* @param	machineID	Identificador da máquina
+* @return	Célula obtida
+*/
+Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID)
+{
+	Cell last;
+	last.jobID = -1;
+	last.currentTime = -1;
+	last.operationID = -1;
+
+	for (int i = 0; i < NUMBER_MACHINES; i++)
+	{
+		for (int j = 0; j < MAX_TIME; j++)
+		{
+			if (plan[i][j].jobID != -1)
+			{
+				// -1 porque o índice na matriz é -1 do que o identificador
+				if (machineID - 1 == i)
+				{
+					last = plan[i][j];
+				}
+			}
+		}
+	}
+
+	return last;
+}
+
+
+/**
+* @brief	Obter última célula preenchida em relação a um trabalho
+* @param	plan		Plano atual
+* @param	machineID	Identificador do trabalho
+* @return	Célula obtida
+*/
+Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID)
+{
+	Cell last;
+	last.jobID = -1;
+	last.currentTime = -1;
+	last.operationID = -1;
+
+	for (int i = 0; i < NUMBER_MACHINES; i++)
+	{
+		for (int j = 0; j < MAX_TIME; j++)
+		{
+			if (plan[i][j].jobID != -1)
+			{
+				if (jobID == plan[i][j].jobID)
+				{
+					last = plan[i][j];
+				}
+			}
+		}
+	}
+
+	return last;
+}
+
+
+/**
 * @brief	Preencher todas as células do plano relativamente a uma lista de planos de trabalhos
 * @param	plan			Plano atual
 * @param	workPlans		Lista de planos de trabalhos
