@@ -407,4 +407,36 @@ FileCell* getCellsToExport(Cell plan[][MAX_TIME])
 	return cells;
 }
 
+
+/**
+* @brief	Exportar plano para um ficheiro
+* @param	fileName	Nome do ficheiro onde será guardado as células
+* @param	head		Lista de células para exportar
+* @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool exportPlan(char* fileName, FileCell* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	FILE* file = fopen(fileName, "w");
+	if (file == NULL)
+	{
+		return false;
+	}
+
+	FileCell* current = head;
+	while (current)
+	{
+		fprintf(file, "Máquina %d, Trabalho %d - Operação %d, %d, %d\n", current->machineID, current->jobID, current->operationID, current->initialTime, current->finalTime);
+		current = current->next;
+	}
+
+	fclose(file);
+
+	return true;
+}
+
 #pragma endregion
