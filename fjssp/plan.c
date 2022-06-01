@@ -270,4 +270,45 @@ FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new)
 	return head;
 }
 
+
+/**
+* @brief	Inserir célula ordenada por máquina, na lista de células
+* @param	head	Lista de células
+* @param	new		Nova célula
+* @return	Lista de células atualizada
+*/
+FileCell* insertFileCell_ByMachine(FileCell* head, FileCell* new)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		head = new; // inserir no início
+	}
+	else
+	{
+		FileCell* current = head;
+		FileCell* previous = NULL;
+
+		// enquanto que o atual tem o ID da máquina menor que o novo
+		while (current != NULL && current->machineID < new->machineID)
+		{
+			previous = current;
+			current = current->next;
+
+		}
+
+		if (previous == NULL)
+		{
+			new->next = head;
+			head = new; // inserir no meio
+		}
+		else
+		{
+			previous->next = new;
+			new->next = current; // inserir no fim
+		}
+	}
+
+	return head;
+}
+
 #pragma endregion
