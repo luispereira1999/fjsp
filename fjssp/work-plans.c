@@ -60,3 +60,44 @@ WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new)
 
 	return head;
 }
+
+
+/**
+* @brief	Inserir plano de trabalho ordenado pelo posição das operações num job na lista de planos de trabalhos
+* @param	head	Lista de planos de trabalhos
+* @param	new		Novo plano de trabalho
+* @return	Lista de planos de trabalhos atualizada
+*/
+WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new)
+{
+	if (head == NULL) // se a lista estiver vazia
+	{
+		head = new; // inserir no início
+	}
+	else
+	{
+		WorkPlan* current = head;
+		WorkPlan* previous = NULL;
+
+		// enquanto que o atual tem a posição da operação menor que o novo
+		while (current != NULL && current->position < new->position)
+		{
+			previous = current;
+			current = current->next;
+
+		}
+
+		if (previous == NULL)
+		{
+			new->next = head;
+			head = new; // inserir no meio
+		}
+		else
+		{
+			previous->next = new;
+			new->next = current; // inserir no fim
+		}
+	}
+
+	return head;
+}
