@@ -97,7 +97,8 @@ int getFullTimeOfPlan(WorkPlan* head);
 
 #pragma region planos de produção em memória
 
-bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID);
+Cell newCell(int jobID, int operationID, int currentTime);
+bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID, int currentTime);
 bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID, int initialTime, int finalTime);
 Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID);
 Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID);

@@ -16,23 +16,43 @@
 #pragma region planos de produção para exportar para ficheiro
 
 /**
+* @brief	Criar uma nova célula para um plano
+* @param	jobID			Identificador do trabalho
+* @param	operationID		Identificador da operação
+* @param	currentTime		Tempo atual no plano
+* @return	Célula criada
+*/
+Cell newCell(int jobID, int operationID, int currentTime)
+{
+	Cell new;
+
+	new.jobID = jobID;
+	new.operationID = operationID;
+	new.currentTime = currentTime;
+
+	return new;
+}
+
+
+/**
 * @brief	Iniciar um novo plano com todos as células vazias
 * @param	plan			Plano a ser iniciado
 * @param	jobID			Identificador do trabalho
 * @param	operationID		Identificador da operação
+* @param	currentTime		Tempo atual no plano
 * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID)
+bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID, int currentTime)
 {
 	for (int i = 0; i < NUMBER_MACHINES; i++)
 	{
 		for (int j = 0; j < MAX_TIME; j++)
 		{
-			plan[i][j].jobID = jobID;
-			plan[i][j].operationID = operationID;
-			plan[i][j].currentTime = 0;
+			plan[i][j] = newCell(jobID, operationID, currentTime);
 		}
 	}
+
+	return true;
 }
 
 
@@ -57,10 +77,8 @@ bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID,
 	// preenche o intervalo de células disponíveis para este escalonamento
 	for (int i = initialTime; i < initialTime + finalTime; i++)
 	{
-		// mid - 1 porque os IDs das máquinas começam em 1 e a matriz do plano começa em 0
-		plan[machineID - 1][i].jobID = jobID;
-		plan[machineID - 1][i].operationID = operationID;
-		plan[machineID - 1][i].currentTime = initialTime + finalTime;
+		// machineID - 1 porque os IDs das máquinas começam em 1 e a matriz do plano começa em 0
+		plan[machineID - 1][i] = newCell(jobID, operationID, initialTime + finalTime);
 	}
 
 	return true;
@@ -75,10 +93,7 @@ bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID,
 */
 Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID)
 {
-	Cell last;
-	last.jobID = -1;
-	last.currentTime = -1;
-	last.operationID = -1;
+	Cell last = newCell(-1, -1, -1);
 
 	for (int i = 0; i < NUMBER_MACHINES; i++)
 	{
@@ -107,10 +122,7 @@ Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID)
 */
 Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID)
 {
-	Cell last;
-	last.jobID = -1;
-	last.currentTime = -1;
-	last.operationID = -1;
+	Cell last = newCell(-1, -1, -1);
 
 	for (int i = 0; i < NUMBER_MACHINES; i++)
 	{
@@ -149,15 +161,17 @@ bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans, int numberOfCells)
 
 		if (lastCellInMachine.currentTime == -1)
 		{
-			if (lastCellOfJob.currentTime != -1)
-			{
-				lastCellInMachine.currentTime = lastCellOfJob.currentTime;
-			}
+			lastCellInMachine.currentTime = 0;
 		}
 
-		if (lastCellInMachine.currentTime == -1)
+		if (lastCellOfJob.currentTime == -1)
 		{
-			lastCellInMachine.currentTime = 0;
+			lastCellOfJob.currentTime = 0;
+		}
+
+		if (lastCellOfJob.currentTime > lastCellInMachine.currentTime)
+		{
+			lastCellInMachine.currentTime = lastCellOfJob.currentTime;
 		}
 
 		fillCells(plan, currentWorkPlan->machineID, currentWorkPlan->jobID, currentWorkPlan->operationID,
@@ -166,6 +180,8 @@ bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans, int numberOfCells)
 		currentWorkPlan = currentWorkPlan->next;
 		i++;
 	}
+
+	return true;
 }
 
 
@@ -215,6 +231,8 @@ bool displayPlan(Cell plan[][MAX_TIME])
 		printf("|\n");
 	}
 	printf("\n");
+
+	return true;
 }
 
 #pragma endregion

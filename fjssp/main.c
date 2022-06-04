@@ -124,7 +124,7 @@ int main()
 				workPlans = sortWorkPlans_ByJob(workPlans);
 
 				// iniciar um plano de produção vazio
-				startPlan(plan, -1, -1);
+				startPlan(plan, -1, -1, -1);
 
 				// preencher todo o plano
 				fillAllPlan(plan, workPlans, 24); // teste: 24 = 3 operações de cada 8 trabalhos
