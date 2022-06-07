@@ -93,28 +93,29 @@
 \DoxyCodeLine{97 }
 \DoxyCodeLine{98 \textcolor{preprocessor}{\#pragma region planos de produção em memória}}
 \DoxyCodeLine{99 }
-\DoxyCodeLine{100 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_af2f37ca35802ce396f568506ad8ac323}{startPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID);}
-\DoxyCodeLine{101 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a55b29a5d3ac64404e1934a055b890d8a}{fillCells}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
-\DoxyCodeLine{102 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_af43dbc69f5fd43eca03707fd09d2178c}{getLastCellFilled\_InMachine}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID);}
-\DoxyCodeLine{103 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_a59885a4edc46fac7c9a3b626ad2066a6}{getLastCellFilled\_OfJob}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} jobID);}
-\DoxyCodeLine{104 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a9254706d762bd95b0593915bda270034}{fillAllPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* workPlans, \textcolor{keywordtype}{int} numberOfCells);}
-\DoxyCodeLine{105 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_aa5765f54f7d6a6629c836b36983ec86b}{searchActiveCells}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
-\DoxyCodeLine{106 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_ab074cf1a0b599b4206956bc751e29548}{displayPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}]);}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{109 }
+\DoxyCodeLine{100 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_aad88177c3f2120349311d44739617c0e}{newCell}}(\textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} currentTime);}
+\DoxyCodeLine{101 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_aab2475e454348420fc2d3a68f5199809}{startPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} currentTime);}
+\DoxyCodeLine{102 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a55b29a5d3ac64404e1934a055b890d8a}{fillCells}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
+\DoxyCodeLine{103 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_af43dbc69f5fd43eca03707fd09d2178c}{getLastCellFilled\_InMachine}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID);}
+\DoxyCodeLine{104 \mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{lists_8h_a59885a4edc46fac7c9a3b626ad2066a6}{getLastCellFilled\_OfJob}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} jobID);}
+\DoxyCodeLine{105 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_a9254706d762bd95b0593915bda270034}{fillAllPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \mbox{\hyperlink{struct_work_plan}{WorkPlan}}* workPlans, \textcolor{keywordtype}{int} numberOfCells);}
+\DoxyCodeLine{106 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_aa5765f54f7d6a6629c836b36983ec86b}{searchActiveCells}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}], \textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
+\DoxyCodeLine{107 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_ab074cf1a0b599b4206956bc751e29548}{displayPlan}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}]);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#pragma endregion}}
 \DoxyCodeLine{110 }
-\DoxyCodeLine{111 \textcolor{preprocessor}{\#pragma region planos de produção para exportar para ficheiro}}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{113 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(\textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
-\DoxyCodeLine{114 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a4afcec772dd72159d179c3efde63f309}{insertFileCell\_AtStart}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head, \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new});}
-\DoxyCodeLine{115 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_afccf2f91e2cce72936b8826cb843dc28}{insertFileCell\_ByMachine}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head, \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new});}
-\DoxyCodeLine{116 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a6c13b4baff07a85895982bd1ff921181}{sortFileCells\_ByMachine}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head);}
-\DoxyCodeLine{117 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_ab1e0858531fe4b32081edfb3697bc33c}{getCellsToExport}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}]);}
-\DoxyCodeLine{118 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_ac3605da0d42c8486e9430e84f5f790fc}{exportPlan}}(\textcolor{keywordtype}{char}* fileName, \mbox{\hyperlink{struct_file_cell}{FileCell}}* head);}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{120 \textcolor{preprocessor}{\#pragma endregion}}
-\DoxyCodeLine{121 }
-\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#pragma region planos de produção para exportar para ficheiro}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a38ad819b8536fc74fbd1b8d16a77c676}{newFileCell}}(\textcolor{keywordtype}{int} machineID, \textcolor{keywordtype}{int} jobID, \textcolor{keywordtype}{int} operationID, \textcolor{keywordtype}{int} initialTime, \textcolor{keywordtype}{int} finalTime);}
+\DoxyCodeLine{115 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a4afcec772dd72159d179c3efde63f309}{insertFileCell\_AtStart}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head, \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{116 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_afccf2f91e2cce72936b8826cb843dc28}{insertFileCell\_ByMachine}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head, \mbox{\hyperlink{struct_file_cell}{FileCell}}* \textcolor{keyword}{new});}
+\DoxyCodeLine{117 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_a6c13b4baff07a85895982bd1ff921181}{sortFileCells\_ByMachine}}(\mbox{\hyperlink{struct_file_cell}{FileCell}}* head);}
+\DoxyCodeLine{118 \mbox{\hyperlink{struct_file_cell}{FileCell}}* \mbox{\hyperlink{lists_8h_ab1e0858531fe4b32081edfb3697bc33c}{getCellsToExport}}(\mbox{\hyperlink{struct_cell}{Cell}} \mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}[][\mbox{\hyperlink{data-types_8h_a5320d4457a472d8888ec1905bc0e0a1c}{MAX\_TIME}}]);}
+\DoxyCodeLine{119 \textcolor{keywordtype}{bool} \mbox{\hyperlink{lists_8h_ac3605da0d42c8486e9430e84f5f790fc}{exportPlan}}(\textcolor{keywordtype}{char}* fileName, \mbox{\hyperlink{struct_file_cell}{FileCell}}* head);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#pragma endregion}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

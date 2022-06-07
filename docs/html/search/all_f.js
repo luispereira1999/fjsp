@@ -12,5 +12,5 @@ var searchData=
   ['sortfilecells_5fbymachine_9',['sortFileCells_ByMachine',['../lists_8h.html#a6c13b4baff07a85895982bd1ff921181',1,'sortFileCells_ByMachine(FileCell *head):&#160;plan.c'],['../plan_8c.html#a6c13b4baff07a85895982bd1ff921181',1,'sortFileCells_ByMachine(FileCell *head):&#160;plan.c']]],
   ['sortworkplans_5fbyjob_10',['sortWorkPlans_ByJob',['../lists_8h.html#ac04ab13b740af9d6610c37e07a62a4a2',1,'sortWorkPlans_ByJob(WorkPlan *head):&#160;work-plans.c'],['../work-plans_8c.html#ac04ab13b740af9d6610c37e07a62a4a2',1,'sortWorkPlans_ByJob(WorkPlan *head):&#160;work-plans.c']]],
   ['start_11',['start',['../struct_execution_node.html#aa95a151910734e9c0dd67a2912c2621c',1,'ExecutionNode']]],
-  ['startplan_12',['startPlan',['../lists_8h.html#af2f37ca35802ce396f568506ad8ac323',1,'startPlan(Cell plan[][MAX_TIME], int jobID, int operationID):&#160;plan.c'],['../plan_8c.html#af2f37ca35802ce396f568506ad8ac323',1,'startPlan(Cell plan[][MAX_TIME], int jobID, int operationID):&#160;plan.c']]]
+  ['startplan_12',['startPlan',['../lists_8h.html#aab2475e454348420fc2d3a68f5199809',1,'startPlan(Cell plan[][MAX_TIME], int jobID, int operationID, int currentTime):&#160;plan.c'],['../plan_8c.html#aab2475e454348420fc2d3a68f5199809',1,'startPlan(Cell plan[][MAX_TIME], int jobID, int operationID, int currentTime):&#160;plan.c']]]
 ];

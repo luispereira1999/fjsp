@@ -150,7 +150,7 @@ Resultado do programa na linha de comandos
 \DoxyCodeLine{124                 workPlans = \mbox{\hyperlink{lists_8h_ac04ab13b740af9d6610c37e07a62a4a2}{sortWorkPlans\_ByJob}}(workPlans);}
 \DoxyCodeLine{125 }
 \DoxyCodeLine{126                 \textcolor{comment}{// iniciar um plano de produção vazio}}
-\DoxyCodeLine{127                 \mbox{\hyperlink{lists_8h_af2f37ca35802ce396f568506ad8ac323}{startPlan}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, -\/1, -\/1);}
+\DoxyCodeLine{127                 \mbox{\hyperlink{lists_8h_aab2475e454348420fc2d3a68f5199809}{startPlan}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, -\/1, -\/1, -\/1);}
 \DoxyCodeLine{128 }
 \DoxyCodeLine{129                 \textcolor{comment}{// preencher todo o plano}}
 \DoxyCodeLine{130                 \mbox{\hyperlink{lists_8h_a9254706d762bd95b0593915bda270034}{fillAllPlan}}(\mbox{\hyperlink{data-types_8h_a7ad917416d63c60b78e7c5996a98803f}{plan}}, workPlans, 24); \textcolor{comment}{// teste: 24 = 3 operações de cada 8 trabalhos}}
@@ -238,7 +238,7 @@ Resultado do programa na linha de comandos
 \DoxyCodeLine{212 }
 \DoxyCodeLine{213                 \textcolor{comment}{// guardar as novas inserções em ficheiros}}
 \DoxyCodeLine{214                 \mbox{\hyperlink{lists_8h_a535c92168a17ff038c2007300a75d708}{writeOperations}}(\mbox{\hyperlink{data-types_8h_a3c6c24386c8e549126bc8ec7ba4ff952}{OPERATIONS\_FILENAME\_BINARY}}, \mbox{\hyperlink{data-types_8h_a141d2a58898a5ea72097da30116580ee}{operations}});}
-\DoxyCodeLine{215                 \textcolor{comment}{//writeExecutions\_AtTable(EXECUTIONS\_FILENAME\_BINARY, executionsTable);}}
+\DoxyCodeLine{215                 \mbox{\hyperlink{executions_8c_aefd476173ba3d625348e353c22707c36}{writeExecutions\_AtTable}}(\mbox{\hyperlink{data-types_8h_aa2212b6c51d5f434ba0f309964d4b02b}{EXECUTIONS\_FILENAME\_BINARY}}, \mbox{\hyperlink{data-types_8h_a9cca8a4d7145b6602de842ff0421283f}{executionsTable}});}
 \DoxyCodeLine{216                 printf(\textcolor{stringliteral}{"{}Novos dados exportados com sucesso!\(\backslash\)n"{}});}
 \DoxyCodeLine{217 \textcolor{preprocessor}{\#pragma endregion}}
 \DoxyCodeLine{218 }

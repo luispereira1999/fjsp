@@ -212,7 +212,7 @@ int main()
 
 				// guardar as novas inserções em ficheiros
 				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
-				//writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+				writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
 				printf("Novos dados exportados com sucesso!\n");
 #pragma endregion
 
