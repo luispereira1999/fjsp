@@ -1,4 +1,4 @@
-# Flexible Job Shop Problem
+# Flexible Job Shop Scheduling Problem
 Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.
 
 
