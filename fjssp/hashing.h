@@ -1,8 +1,7 @@
 /**
- * @brief	Ficheiro com todas as assinaturas globais necessários para a utilização de hash tables
+ * @brief	Ficheiro com todas as assinaturas globais necessários para a utilização de hash tables.
  * @file	hashing.h
  * @author	Luís Pereira
- * @email	a18446@alunos.ipca.pt
  * @date	25/03/2022
 */
 

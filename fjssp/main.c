@@ -1,8 +1,7 @@
 /**
- * @brief	Ficheiro principal da aplicação, com menu e chamada de funções
+ * @brief	Ficheiro principal da aplicação, com menu e chamada de funções.
  * @file	main.c
  * @author	Luís Pereira
- * @email	a18446@alunos.ipca.pt
  * @date	26/03/2022
  *
  * -----------------

@@ -1,8 +1,7 @@
 /**
- * @brief	Ficheiro com todas as funções relativas aos trabalhos para produção
+ * @brief	Ficheiro com todas as funções relativas aos trabalhos para produção.
  * @file	work-plans.c
  * @author	Luís Pereira
- * @email	a18446@alunos.ipca.pt
  * @date	1/6/2022
 */
 

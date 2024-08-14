@@ -1,8 +1,7 @@
 /**
- * @brief	Ficheiro com todas as assinaturas globais necessários para a utilização dos tipos e estruturas de dados
+ * @brief	Ficheiro com todas as assinaturas globais necessários para a utilização dos tipos e estruturas de dados.
  * @file	data-types.h
  * @author	Luís Pereira
- * @email	a18446@alunos.ipca.pt
  * @date	25/03/2022
 */
 

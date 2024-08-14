@@ -1,8 +1,7 @@
 /**
- * @brief	Ficheiro com todas as funções relativas aos planos de produção
+ * @brief	Ficheiro com todas as funções relativas aos planos de produção.
  * @file	plan.c
  * @author	Luís Pereira
- * @email	a18446@alunos.ipca.pt
  * @date	29/05/2022
 */
 

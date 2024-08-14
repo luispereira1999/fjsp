@@ -1,8 +1,7 @@
 /**
- * @brief	Ficheiro com todas as funções relativas às operações
+ * @brief	Ficheiro com todas as funções relativas às operações.
  * @file	operations.c
  * @author	Luís Pereira
- * @email	a18446@alunos.ipca.pt
  * @date	25/03/2022
 */
 

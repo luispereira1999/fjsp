@@ -1,8 +1,7 @@
 /**
- * @brief	Ficheiro com todas as funções relativas às execuções de operações com listas e hash table
+ * @brief	Ficheiro com todas as funções relativas às execuções de operações com listas e hash table.
  * @file	executions.c
  * @author	Luís Pereira
- * @email	a18446@alunos.ipca.pt
  * @date	25/03/2022
 */
 
