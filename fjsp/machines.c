@@ -2,7 +2,7 @@
  * @brief	Ficheiro com todas as funções relativas às máquinas.
  * @file	machines.c
  * @author	Luís Pereira
- * @date	25/03/2022
+ * @date	15/08/2024
 */
 
 #include <stdio.h>

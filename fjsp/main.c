@@ -2,7 +2,7 @@
  * @brief	Ficheiro principal da aplicação, com menu e chamada de funções.
  * @file	main.c
  * @author	Luís Pereira
- * @date	26/03/2022
+ * @date	15/08/2024
  *
  * -------------------
  *

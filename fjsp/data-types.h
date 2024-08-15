@@ -2,7 +2,7 @@
  * @brief	Ficheiro com todas as assinaturas globais necessários para a utilização dos tipos e estruturas de dados.
  * @file	data-types.h
  * @author	Luís Pereira
- * @date	25/03/2022
+ * @date	15/08/2024
 */
 
 

@@ -2,7 +2,7 @@
  * @brief	Ficheiro com todas as funções relativas às execuções de operações com listas e hash table.
  * @file	executions.c
  * @author	Luís Pereira
- * @date	25/03/2022
+ * @date	15/08/2024
 */
 
 #include <stdio.h>
