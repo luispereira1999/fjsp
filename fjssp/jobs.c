@@ -34,7 +34,6 @@ Job* loadJobs(char* fileName)
 	{
 		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
 		{
-			// exemplo: 1
 			sscanf(line, "%d", &a);
 			job = newJob(a);
 			jobs = insertJob_AtStart(jobs, job);

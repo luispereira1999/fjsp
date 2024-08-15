@@ -83,7 +83,6 @@ WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new)
 		{
 			previous = current;
 			current = current->next;
-
 		}
 
 		if (previous == NULL)
@@ -173,7 +172,7 @@ WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* execution
 		{
 			Operation* currOper = getOperation(operations, minExecutions->operationID);
 
-			workPlan = newWorkPlan(jobs->id, minExecutions->operationID, minExecutions->machineID, minExecutions->runtime, currOper->position, false);
+			workPlan = newWorkPlan(jobs->id, minExecutions->operationID, minExecutions->machineID, minExecutions->runtime, currOper->position);
 			workPlans = insertWorkPlan_AtStart(workPlans, workPlan);
 
 			minExecutions = minExecutions->next;

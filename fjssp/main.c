@@ -4,11 +4,12 @@
  * @author	Luís Pereira
  * @date	26/03/2022
  *
- * -----------------
+ * -------------------
  *
- * Software desenvolvido para a proposta de escalonamento para a produção de um produto que envolve várias operações
- * e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.
- * @see https://github.com/luispereira1999/fjssp
+ * Flexible Job Shop Problem - Solução de escalonamento para minimizar o tempo necessário
+ * na produção de um determinado produto numa fábrica, que envolve várias operações e
+ * a utilização de várias máquinas e seus colaboradores.
+ * @see https://github.com/luispereira1999/fjsp
 */
 
 #include <stdio.h>
@@ -42,12 +43,22 @@ int main()
 	do
 	{
 		// menu 
-		printf("------------------------------------\n\n");
+		printf("--------------------------------------\n\n");
 		printf("   M E N U\n\n");
-		printf("   1 -> Flexible Job Shop Problem\n");
-		printf("   2 -> Sobre\n");
+		printf("   Flexible Job Shop Problem\n");
+		printf("   1 -> Carregar dados em memória\n");
+		printf("   2 -> Carregar dados de ficheiros\n");
+		printf("   3 -> Guardar dados em ficheiros\n");
+		printf("   4 -> Remover um trabalho\n");
+		printf("   5 -> Inserir um trabalho\n");
+		printf("   6 -> Remover uma operação\n");
+		printf("   7 -> Atualizar uma operação\n");
+		printf("   8 -> Inserir uma operação\n");
+		printf("   9 -> Proposta de escalonamento\n");
+		printf("   10 -> Mostrar dados\n");
+		printf("   11 -> Sobre\n\n");
 		printf("   © Luís Pereira | 2022\n\n");
-		printf("------------------------------------\n");
+		printf("--------------------------------------\n");
 		printf("Escolha uma das opções acima: ");
 
 		if (!scanf("%d", &menuOption)) // se não introduzir um número
@@ -62,10 +73,9 @@ int main()
 
 			switch (menuOption)
 			{
-			case 1: // Flexible Job Shop Problem
-
-#pragma region funcionalidade 1: definir estruturas de dados dinâmicas
-				printf("-  1. Definir estruturas de dados dinâmicas\n");
+			case 1:
+#pragma region opção 1: carregar dados em memória
+				printf("-> Opção 1. Carregar dados em memória\n");
 
 				// carregar listas em memória
 				jobs = loadJobs(JOBS_FILENAME_TEXT);
@@ -77,9 +87,34 @@ int main()
 
 				printf("Dados carregados em memória com sucesso!\n");
 #pragma endregion
+				break;
 
-#pragma region funcionalidade 2: armazenar e ler as estruturas em ficheiros
-				printf("\n\n-  2. Armazenar e ler as estruturas em ficheiros\n");
+			case 2:
+#pragma region opção 2: carregar dados de ficheiros
+				printf("-> Opção 2. Carregar dados de ficheiros\n");
+
+				// definir listas como NULL para ficarem vazias para ler os dados de ficheiros
+				freeJobs(&jobs);
+				freeMachines(&machines);
+				freeOperations(&operations);
+				freeExecutions_Table(&executionsTable);
+
+				// ler listas dos ficheiros
+				jobs = readJobs(JOBS_FILENAME_BINARY);
+				machines = readMachines(MACHINES_FILENAME_BINARY);
+				operations = readOperations(OPERATIONS_FILENAME_BINARY);
+
+				// ler hash table do ficheiro
+				*executionsTable = createExecutionsTable(executionsTable);
+				*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+
+				printf("Dados importados com sucesso!\n");
+#pragma endregion
+				break;
+
+			case 3:
+#pragma region opção 3: guardar dados em ficheiros
+				printf("-> Opção 3. Guardar dados em ficheiros\n");
 
 				// guardar os dados em ficheiros
 				writeJobs(JOBS_FILENAME_BINARY, jobs);
@@ -88,27 +123,97 @@ int main()
 				writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
 
 				printf("Dados exportados com sucesso!\n");
-
-				// definir listas como NULL para ficarem vazias para ler os dados de ficheiros
-				freeJobs(&jobs);
-				freeMachines(&machines);
-				freeOperations(&operations);
-				freeExecutions_Table(&executionsTable);
-
-				// ler listas de ficheiros
-				jobs = readJobs(JOBS_FILENAME_BINARY);
-				machines = readMachines(MACHINES_FILENAME_BINARY);
-				operations = readOperations(OPERATIONS_FILENAME_BINARY);
-
-				// ler hash table de ficheiros
-				*executionsTable = createExecutionsTable(executionsTable);
-				*executionsTable = readExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
-
-				printf("Dados importados com sucesso!\n");
 #pragma endregion
+				break;
 
-#pragma region funcionalidade 8: proposta de escalonamento
-				printf("\n\n-  8. Proposta de escalonamento\n");
+			case 4:
+#pragma region opção 4: remover um trabalho
+				printf("-> Opção 4. Remover um trabalho\n");
+
+				// remover trabalho
+				deleteJob(&jobs, 3);
+				printf("trabalho removido com sucesso!\n");
+
+				int operationDeleted = 0;
+
+				do {
+					// remover as operações associadas ao jobs
+					operationDeleted = deleteOperation_ByJob(&operations, 3);
+					printf("Operações associadas ao trabalho removida com sucesso!\n");
+
+					// remover as execuções associadas a cada operação
+					deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeleted);
+					printf("Execuções associadas à operação removidas com sucesso!\n");
+				} while (operationDeleted != -1);
+#pragma endregion
+				break;
+
+			case 5:
+#pragma region opção 5: inserir um trabalho
+				printf("-> Opção 5. Inserir um trabalho\n");
+
+				// inserir novo trabalho
+				Job* job = NULL;
+				job = newJob(9);
+				jobs = insertJob_AtStart(jobs, job);
+
+				// guardar a nova inserção em ficheiro
+				writeJobs(JOBS_FILENAME_BINARY, jobs);
+				printf("Novos dados exportados com sucesso!\n");
+#pragma endregion
+				break;
+
+			case 6:
+#pragma region opção 6: remover uma operação
+				printf("-> Opção 6. Remover uma operação\n");
+
+				// remover operação
+				deleteOperation(&operations, 35);
+				printf("Operação removida com sucesso!\n");
+
+				// remover execuções associadas à operação
+				deleteExecutions_ByOperation_AtTable(&executionsTable, 35);
+				printf("Execuções associadas à operação removidas com sucesso!\n");
+#pragma endregion
+				break;
+
+			case 7:
+#pragma region opção 7: atualizar uma operação
+				printf("-> Opção 7. Atualizar uma operação\n");
+
+				// atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
+				updatePosition(&operations, 2, 4);
+				printf("As posições das operações foram trocadas com sucesso!\n");
+
+				// atualizar o tempo de uma execução de operação
+				updateRuntime_ByOperation_AtTable(executionsTable, 4, 4, 10);
+#pragma endregion
+				break;
+
+			case 8:
+#pragma region opção 8: inserir uma operação
+				printf("-> Opção 8. Inserir uma operação\n");
+
+				// inserir nova operação
+				Operation* operation = NULL;
+				operation = newOperation(39, 2, 8);
+				operations = insertOperation_AtStart(operations, operation);
+
+				// inserir nova execução de uma operação
+				Execution* execution = NULL;
+				execution = newExecution(39, 5, 17);
+				*executionsTable = insertExecution_AtTable(executionsTable, execution);
+
+				// guardar as novas inserções em ficheiros
+				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
+				writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
+				printf("Novos dados exportados com sucesso!\n");
+#pragma endregion
+				break;
+
+			case 9:
+#pragma region opção 9: proposta de escalonamento
+				printf("-> Opção 9. Proposta de escalonamento\n");
 
 				// carregar todos os dados das execuções para uma lista
 				Execution* executions = loadExecutions(EXECUTIONS_FILENAME_TEXT);
@@ -139,84 +244,11 @@ int main()
 
 				printf("Plano escalonado e exportado com sucesso!\n");
 #pragma endregion
+				break;
 
-#pragma region funcionalidade 3: remover um trabalho
-				printf("\n\n-  3. remover um trabalho\n");
-
-				// remover trabalho
-				deleteJob(&jobs, 3);
-				printf("trabalho removido com sucesso!\n");
-
-				int operationDeleted = 0;
-
-				do {
-					// remover as operações associadas ao jobs
-					operationDeleted = deleteOperation_ByJob(&operations, 3);
-					printf("Operações associadas ao trabalho removida com sucesso!\n");
-
-					// remover as execuções associadas a cada operação
-					deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeleted);
-					printf("Execuções associadas à operação removidas com sucesso!\n");
-				} while (operationDeleted != -1);
-#pragma endregion
-
-#pragma region funcionalidade 4: inserir um trabalho
-				printf("\n\n-  4. Inserir um trabalho\n");
-
-				// inserir novo trabalho
-				Job* job = NULL;
-				job = newJob(9);
-				jobs = insertJob_AtStart(jobs, job);
-
-				// guardar a nova inserção em ficheiro
-				writeJobs(JOBS_FILENAME_BINARY, jobs);
-				printf("Novos dados exportados com sucesso!\n");
-#pragma endregion
-
-#pragma region funcionalidade 5: remover uma operação
-				printf("\n\n-  5. Remover uma operação\n");
-
-				// remover operação
-				deleteOperation(&operations, 35);
-				printf("Operação removida com sucesso!\n");
-
-				// remover execuções associadas à operação
-				deleteExecutions_ByOperation_AtTable(&executionsTable, 35);
-				printf("Execuções associadas à operação removidas com sucesso!\n");
-#pragma endregion
-
-#pragma region funcionalidade 6: atualizar uma operação
-				printf("\n\n-  6. Atualizar uma operação\n");
-
-				// atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
-				updatePosition(&operations, 2, 4);
-				printf("As posições das operações foram trocadas com sucesso!\n");
-
-				// atualizar o tempo de uma execução de operação
-				updateRuntime_ByOperation_AtTable(executionsTable, 4, 4, 10);
-#pragma endregion
-
-#pragma region funcionalidade 7: inserir uma operação
-				printf("\n\n-  7. Inserir uma operação\n");
-
-				// inserir nova operação
-				Operation* operation = NULL;
-				operation = newOperation(39, 2, 8);
-				operations = insertOperation_AtStart(operations, operation);
-
-				// inserir nova execução de uma operação
-				Execution* execution = NULL;
-				execution = newExecution(39, 5, 17);
-				*executionsTable = insertExecution_AtTable(executionsTable, execution);
-
-				// guardar as novas inserções em ficheiros
-				writeOperations(OPERATIONS_FILENAME_BINARY, operations);
-				writeExecutions_AtTable(EXECUTIONS_FILENAME_BINARY, executionsTable);
-				printf("Novos dados exportados com sucesso!\n");
-#pragma endregion
-
-#pragma region mostrar dados
-				printf("\n\n-  Mostrar dados\n");
+			case 10:
+#pragma region opção 10: mostrar dados
+				printf("-> Opção 10. Mostrar dados\n");
 
 				// mostrar dados na consola
 				printf("Trabalhos:\n");
@@ -236,13 +268,15 @@ int main()
 
 				printf("Dados mostrados com sucesso!\n");
 #pragma endregion
-
 				break;
 
-			case 2: // Sobre
-
-				printf("Flexible Job Shop Problem - Proposta de escalonamento para a produção de um produto que envolve várias operações e a utilização de várias máquinas, para minimizar o tempo necessário na sua produção.\n");
+#pragma region opção 11: sobre
+			case 11:
+				printf("-> Opção 11. Sobre\n");
+				printf("Flexible Job Shop Problem - Solução de escalonamento para minimizar o tempo necessário na produção de um determinado produto numa fábrica, que envolve várias operações e a utilização de várias máquinas e seus colaboradores.\n");
+				printf("Neste contexto, um trabalho refere-se a... e uma operação a...\n");
 				printf("Projeto desenvolvido na unidade curricular Estruturas de Dados Avançadas, no âmbito do curso Licenciatura em Engenharia em Desenvolvimento de Jogos Digitais. Realizado no Instituto Politécnico do Cávado e do Ave, a 14 até 31 de março de 2022, durante o 2º semestre do 1º ano de curso.\n");
+#pragma endregion
 				break;
 
 			default:

@@ -34,7 +34,6 @@ Operation* loadOperations(char* fileName)
 	{
 		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
 		{
-			// exemplo: 1;1;1
 			sscanf(line, "%d;%d;%d", &a, &b, &c);
 			operation = newOperation(a, b, c);
 			operations = insertOperation_AtStart(operations, operation);

@@ -19,7 +19,7 @@
 Machine* loadMachines(char* fileName)
 {
 	char line[FILE_LINE_SIZE];
-	int a = 0, b = 0;
+	int a = 0;
 
 	Machine* machine = NULL;
 	Machine* machines = NULL;
@@ -34,9 +34,8 @@ Machine* loadMachines(char* fileName)
 	{
 		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
 		{
-			// exemplo: 1;0
-			sscanf(line, "%d;%d", &a, &b);
-			machine = newMachine(a, b);
+			sscanf(line, "%d", &a);
+			machine = newMachine(a);
 			machines = insertMachine_AtStart(machines, machine);
 		}
 	}
