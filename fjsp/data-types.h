@@ -12,12 +12,13 @@
 #pragma region constantes
 
 // tamanho relativos às estruturas de dados
-#define HASH_TABLE_SIZE 13
+#define HASH_TABLE_SIZE 1009
 #define NUMBER_MACHINES 8
+#define NAME_SIZE 100
 #define MAX_TIME 32 // teste: 32 tempo mínimo para concluir 3 operações de cada 8 trabalhos para o plano pretendido
 
 // tamanhos e nomes relativos a ficheiros de texto
-#define FILE_LINE_SIZE 50
+#define FILE_LINE_SIZE 512
 #define JOBS_FILENAME_TEXT "text/jobs.csv"
 #define MACHINES_FILENAME_TEXT "text/machines.csv"
 #define OPERATIONS_FILENAME_TEXT "text/operations.csv"
@@ -37,7 +38,7 @@
 
 /**
  * @brief	Criar tipo de dados booleano
- */
+*/
 typedef enum bool
 {
    false = 0,
@@ -51,10 +52,11 @@ typedef enum bool
 
 /**
  * @brief	Estrutura de dados para representar a lista de trabalhos (em memória)
- */
+*/
 typedef struct Job
 {
 	int id;
+	char name[NAME_SIZE];
 	struct Job* next;
 } Job;
 
@@ -64,10 +66,11 @@ extern Job* jobs; // extern: informa o compilador que esta variável está definid
 
 /**
  * @brief	Estrutura de dados para representar a lista de máquinas (em memória)
- */
+*/
 typedef struct Machine
 {
 	int id;
+	char name[NAME_SIZE];
 	struct Machine* next;
 } Machine;
 
@@ -77,12 +80,13 @@ extern Machine* machines;
 
 /**
  * @brief	Estrutura de dados para representar a lista de operações (em memória)
- */
+*/
 typedef struct Operation
 {
-	int id;
+	int operationID;
 	int jobID;
 	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
+	char name[NAME_SIZE];
 	struct Operation* next;
 } Operation;
 
@@ -91,8 +95,8 @@ extern Operation* operations;
 
 
 /**
- * @brief	Estrutura de dados para representar a lista das execuções das operações em máquinas (em memória)
- */
+ * @brief	Estrutura de dados para representar a lista de execuções de operações em máquinas (em memória)
+*/
 typedef struct Execution
 {
 	int operationID;
@@ -101,15 +105,15 @@ typedef struct Execution
 	struct Execution* next;
 } Execution;
 
-// lista de execuções
+// lista de execuções de operações
 extern Execution* executions;
 
 /**
  * @brief	Estrutura de dados para representar cada nó (posição) da tabela hash das execuções (em memória)
- */
+*/
 typedef struct {
 	Execution* start; // apontador para o primeiro elemento de cada posição da tabela
-	int numberOfExecutions; // quantidade de execuções de cada posição da tabela
+	int numberOfExecutions; // quantidade de execuções de operações de cada posição da tabela
 } ExecutionNode;
 
 // tabela hash para armazenar as execuções e fazer buscas de forma mais eficiente,
@@ -119,7 +123,7 @@ extern ExecutionNode* executionsTable[HASH_TABLE_SIZE];
 
 /**
  * @brief	Estrutura de dados para guardar as operações e os restantes dados necessários que serão utilizados num plano de produção
- */
+*/
 typedef struct WorkPlan
 {
 	int jobID;
@@ -133,7 +137,7 @@ typedef struct WorkPlan
 
 /**
  * @brief	Estrutura de dados para representar uma célula do plano de produção
- */
+*/
 typedef struct Cell
 {
 	int jobID;
@@ -151,36 +155,39 @@ extern Cell plan[NUMBER_MACHINES][MAX_TIME];
 
 /**
  * @brief	Estrutura de dados para armazenar em ficheiro a lista de trabalhos
- */
+*/
 typedef struct FileJob
 {
 	int id;
+	char name[NAME_SIZE];
 } FileJob;
 
 
 /**
  * @brief	Estrutura de dados para armazenar em ficheiro a lista de máquinas
- */
+*/
 typedef struct FileMachine
 {
 	int id;
+	char name[NAME_SIZE];
 } FileMachine;
 
 
 /**
  * @brief	Estrutura de dados para armazenar em ficheiro a lista de operações
- */
+*/
 typedef struct FileOperation
 {
-	int id;
+	int operationID;
 	int jobID;
 	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
+	char name[NAME_SIZE];
 } FileOperation;
 
 
 /**
- * @brief	Estrutura de dados para armazenar em ficheiro a lista de execuções das operações em máquinas
- */
+ * @brief	Estrutura de dados para armazenar em ficheiro a lista de execuções de operações em máquinas
+*/
 typedef struct FileExecution
 {
 	int operationID;
@@ -191,7 +198,7 @@ typedef struct FileExecution
 
 /**
  * @brief	Estrutura de dados para armazenar em ficheiro uma célula do plano de produção
- */
+*/
 typedef struct FileCell
 {
 	int machineID;

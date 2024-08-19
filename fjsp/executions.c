@@ -15,46 +15,11 @@
 #pragma region listas
 
 /**
- * @brief Carrega dados das execuções de um ficheiro CSV para uma lista em memória
- * @param fileName		Nome do ficheiro
- * @return A lista de execuções do ficheiro CSV
- */
-Execution* loadExecutions(char* fileName)
-{
-	char line[FILE_LINE_SIZE];
-	int a = 0, b = 0, c = 0;
-
-	Execution* execution = NULL;
-	Execution* executions = NULL;
-
-	FILE* file = fopen(fileName, "r");
-	if (file == NULL)
-	{
-		return NULL;
-	}
-
-	while (!feof(file))
-	{
-		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
-		{
-			sscanf(line, "%d;%d;%d", &a, &b, &c);
-			execution = newExecution(a, b, c);
-			executions = insertExecution_AtStart_AtList(executions, execution);
-		}
-	}
-
-	fclose(file);
-
-	return executions;
-}
-
-
-/**
-* @brief	Criar nova execução
-* @param	operationID		Identificador da operação
-* @param	machineID		Identificador da máquina
-* @param	runtime			Unidades de tempo necessárias para a execução da operação
-* @return	Nova execução
+ * @brief	Criar nova execução
+ * @param	operationID		Identificador da operação
+ * @param	machineID		Identificador da máquina
+ * @param	runtime			Unidades de tempo necessárias para a execução da operação
+ * @return	Nova execução
 */
 Execution* newExecution(int operationID, int machineID, int runtime)
 {
@@ -74,10 +39,10 @@ Execution* newExecution(int operationID, int machineID, int runtime)
 
 
 /**
-* @brief	Inserir nova execução no início da lista de execuções
-* @param	head	Lista de execuções
-* @param	new		Nova execução
-* @return	Lista de execuções atualizada
+ * @brief	Inserir nova execução no início da lista de execuções de operações
+ * @param	head	Lista de execuções de operações
+ * @param	new		Nova execução
+ * @return	Lista de execuções de operações atualizada
 */
 Execution* insertExecution_AtStart_AtList(Execution* head, Execution* new)
 {
@@ -86,7 +51,7 @@ Execution* insertExecution_AtStart_AtList(Execution* head, Execution* new)
 		return NULL;
 	}
 
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		head = new;
 	}
@@ -101,10 +66,10 @@ Execution* insertExecution_AtStart_AtList(Execution* head, Execution* new)
 
 
 /**
-* @brief	Inserir execução ordenada pelo ID da operação na lista de execuções
-* @param	head	Lista de execuções
-* @param	new		Nova execução
-* @return	Lista de execuções atualizada
+ * @brief	Inserir execução ordenada pelo ID da operação na lista de execuções
+ * @param	head	Lista de execuções de operações
+ * @param	new		Nova execução
+ * @return	Lista de execuções de operações atualizada
 */
 Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new)
 {
@@ -113,7 +78,7 @@ Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new)
 		return NULL;
 	}
 
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		head = new; // inserir no início
 	}
@@ -146,16 +111,16 @@ Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new)
 
 
 /**
-* @brief	Atualizar as unidades de tempo necessárias para a execução de uma operação
-* @param	head			Apontador para a lista de execuções
-* @param	operationID		Identificador da operação
-* @param	machineID		Identificador da máquina
-* @param	runtime			Unidades de tempo
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Atualizar as unidades de tempo necessárias para a execução de uma operação
+ * @param	head			Apontador para a lista de execuções de operações
+ * @param	operationID		Identificador da operação
+ * @param	machineID		Identificador da máquina
+ * @param	runtime			Unidades de tempo
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int runtime)
 {
-	if (*head == NULL) // se lista está vazia
+	if (*head == NULL)
 	{
 		return false;
 	}
@@ -182,14 +147,14 @@ bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int 
 
 
 /**
-* @brief	Remover execução pelo identificador da operação
-* @param	head			Apontador para a lista de execuções
-* @param	operationID		Identificador da operação
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Remover execução pelo identificador da operação
+ * @param	head			Apontador para a lista de execuções de operações
+ * @param	operationID		Identificador da operação
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool deleteExecution_ByOperation_AtList(Execution** head, int operationID)
 {
-	if (*head == NULL) // se a lista estiver vazia
+	if (*head == NULL)
 	{
 		return false;
 	}
@@ -227,53 +192,96 @@ bool deleteExecution_ByOperation_AtList(Execution** head, int operationID)
 
 
 /**
-* @brief	Armazenar lista de execuções em ficheiro binário
-* @param	fileName	Nome do ficheiro para armazenar a lista
-* @param	head		Lista de execuções
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Ler lista de execuções de operações a partir do código
+ * @return	A lista de execuções de operações
 */
-bool writeExecutions_AtList(char fileName[], Execution* head)
+Execution* readExecutions_AtList_Example()
 {
-	if (head == NULL) // se lista está vazia
-	{
-		return false;
-	}
+	Execution* executions = NULL;
+	Execution* execution = NULL;
 
-	FILE* file = NULL;
+	// execuções de operações do trabalho 1
+	execution = newExecution(1, 1, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(1, 3, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(2, 2, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(2, 4, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(3, 3, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(3, 4, 6);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(4, 2, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(4, 3, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(4, 4, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
 
-	if ((file = fopen(fileName, "wb")) == NULL) // erro ao abrir o ficheiro
-	{
-		return false;
-	}
+	// execuções de operações do trabalho 2
+	execution = newExecution(5, 1, 1);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(5, 4, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(6, 2, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(6, 4, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(7, 1, 1);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(7, 2, 6);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(8, 1, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(8, 2, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(8, 3, 7);
+	executions = insertExecution_AtStart_AtList(executions, execution);
 
-	Execution* current = head;
-	FileExecution currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+	// execuções de operações do trabalho 3
+	execution = newExecution(9, 2, 7);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(9, 3, 6);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(9, 4, 8);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(10, 1, 7);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(10, 2, 7);
+	executions = insertExecution_AtStart_AtList(executions, execution);
 
-	while (current != NULL)
-	{
-		currentInFile.operationID = current->operationID;
-		currentInFile.machineID = current->machineID;
-		currentInFile.runtime = current->runtime;
-		fwrite(&currentInFile, sizeof(FileExecution), 1, file); // guarda cada registo da lista no ficheiro
+	// execuções de operações do trabalho 4
+	execution = newExecution(11, 1, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(11, 3, 3);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(11, 4, 7);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(12, 2, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(12, 3, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(13, 1, 4);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(13, 2, 5);
+	executions = insertExecution_AtStart_AtList(executions, execution);
+	execution = newExecution(13, 3, 6);
+	executions = insertExecution_AtStart_AtList(executions, execution);
 
-		current = current->next;
-	}
-
-	fclose(file);
-
-	return true;
+	return executions; // 31 execuções de operações
 }
 
 
 /**
-* @brief	Ler lista de execuções de ficheiro binário
-* @param	fileName	Nome do ficheiro para ler a lista
-* @return	Lista de execuçõess
+ * @brief	Ler lista de execuções de operações de ficheiro binário
+ * @param	fileName	Nome do ficheiro para ler a lista
+ * @return	Lista de execuções de operações
 */
-Execution* readExecutions_AtList(char fileName[])
+Execution* readExecutions_AtList_Binary(char fileName[])
 {
 	FILE* file = NULL;
-
 	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
 	{
 		return NULL;
@@ -296,13 +304,122 @@ Execution* readExecutions_AtList(char fileName[])
 
 
 /**
-* @brief	Mostrar a lista de execuções na consola
-* @param	head	Lista de execuções
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief Carrega dados das execuções de operações de um ficheiro .csv para uma lista em memória
+ * @param fileName		Nome do ficheiro
+ * @return A lista de execuções de operações do ficheiro .csv
+*/
+Execution* readExecutions_AtList_Text(char fileName[])
+{
+	char line[FILE_LINE_SIZE];
+	int a = 0, b = 0, c = 0;
+
+	Execution* execution = NULL;
+	Execution* executions = NULL;
+
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	while (!feof(file))
+	{
+		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
+		{
+			sscanf(line, "%d;%d;%d", &a, &b, &c);
+			execution = newExecution(a, b, c);
+			executions = insertExecution_AtStart_AtList(executions, execution);
+		}
+	}
+
+	fclose(file);
+
+	return executions;
+}
+
+
+/**
+ * @brief	Armazenar lista de execuções de operações em ficheiro binário
+ * @param	fileName	Nome do ficheiro para armazenar a lista
+ * @param	head		Lista de execuções de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool writeExecutions_AtList_Binary(char fileName[], Execution* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	FILE* file = NULL;
+	if ((file = fopen(fileName, "wb")) == NULL) // erro ao abrir o ficheiro
+	{
+		return false;
+	}
+
+	Execution* current = head;
+	FileExecution currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+	while (current != NULL)
+	{
+		currentInFile.operationID = current->operationID;
+		currentInFile.machineID = current->machineID;
+		currentInFile.runtime = current->runtime;
+
+		fwrite(&currentInFile, sizeof(FileExecution), 1, file); // guarda cada registo da lista no ficheiro
+
+		current = current->next;
+	}
+
+	fclose(file);
+
+	return true;
+}
+
+
+/**
+ * @brief	Armazenar lista de execuções de operações em ficheiro de texto
+ * @param	fileName	Nome do ficheiro para armazenar a lista
+ * @param	head		Lista de execuções de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool writeExecutions_AtList_Text(char fileName[], Execution* head)
+{
+	if (head == NULL)
+	{
+		return false;
+	}
+
+	FILE* file = NULL;
+	if ((file = fopen(fileName, "w")) == NULL) // erro ao abrir o ficheiro
+	{
+		return false;
+	}
+
+	Execution* current = head;
+
+	fprintf(file, "ID da Operação;ID da Máquina;Tempo de Execução\n"); // escreve o cabeçalho do .csv
+
+	while (current != NULL)
+	{
+		fprintf(file, "%d;%d;%d\n", current->operationID, current->machineID, current->runtime);
+		current = current->next;
+	}
+
+	fclose(file);
+
+	return true;
+}
+
+
+/**
+ * @brief	Mostrar a lista de execuções de operações na consola
+ * @param	head	Lista de execuções de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool displayExecutions_AtList(Execution* head)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -311,7 +428,7 @@ bool displayExecutions_AtList(Execution* head)
 
 	while (current != NULL)
 	{
-		printf("ID Operação: %d, ID Máquina: %d, Tempo de Execução: %d;\n", current->operationID, current->machineID, current->runtime);
+		printf("ID da Operação: %d, ID da Máquina: %d, Tempo de Execução: %d;\n", current->operationID, current->machineID, current->runtime);
 		current = current->next;
 	}
 
@@ -320,17 +437,17 @@ bool displayExecutions_AtList(Execution* head)
 
 
 /**
-* @brief	Procurar por uma execução na lista de execuções
-* @param	head			Lista de execuções
-* @param	operationID		Identificador da operação
-* @param	machineID		Identificador da máquina
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Procurar por uma execução na lista de execuções de operações
+ * @param	head			Lista de execuções de operações
+ * @param	operationID		Identificador da operação
+ * @param	machineID		Identificador da máquina
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Execution* searchExecution_AtList(Execution* head, int operationID, int machineID)
+bool searchExecution_AtList(Execution* head, int operationID, int machineID)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
-		return NULL;
+		return false;
 	}
 
 	Execution* current = head;
@@ -339,24 +456,24 @@ Execution* searchExecution_AtList(Execution* head, int operationID, int machineI
 	{
 		if (current->operationID == operationID && current->machineID == machineID)
 		{
-			return current;
+			return true;
 		}
 		current = current->next;
 	}
 
-	return NULL;
+	return false;
 }
 
 
 /**
-* @brief	Procurar por uma execução através do identificador da operação, na lista de execuções
-* @param	head			Lista de execuções
-* @param	operationID		Identificador da operação
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Procurar por uma execução através do identificador da operação, na lista de execuções
+ * @param	head			Lista de execuções de operações
+ * @param	operationID		Identificador da operação
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID)
+bool searchExecution_ByOperation_AtList(Execution* head, int operationID)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -377,13 +494,13 @@ Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID)
 
 
 /**
-* @brief	Ordenar lista de execuções por ordem crescente do identificador da operação
-* @param	head			Lista de execuções
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Ordenar lista de execuções de operações por ordem crescente do identificador da operação
+ * @param	head			Lista de execuções de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 Execution* sortExecutions_ByOperation_AtList(Execution* head)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return NULL;
 	}
@@ -404,20 +521,49 @@ Execution* sortExecutions_ByOperation_AtList(Execution* head)
 
 
 /**
-* @brief	Obter a última execução de uma lista de execuções
-* @param	head			Lista de execuções
-* @return	Última execução da lista
+ * @brief	Obter uma execução na lista de execuções de operações
+ * @param	head			Lista de execuções de operações
+ * @param	operationID		Identificador da operação
+ * @param	machineID		Identificador da máquina
+ * @return	Execução encontrada (ou NULL se não encontrou)
 */
-Execution* getLastExecution_AtList(Execution* head)
+Execution* getExecution_AtList(Execution* head, int operationID, int machineID)
 {
-	if (head == NULL) // return NULL is list is empty cf (Captain girafe && learningC)
+	if (head == NULL)
 	{
 		return NULL;
 	}
 
 	Execution* current = head;
 
-	while (current->next != NULL) // check if next element is null then currentElement = next else return currentElement
+	while (current != NULL)
+	{
+		if (current->operationID == operationID && current->machineID == machineID)
+		{
+			return current;
+		}
+		current = current->next;
+	}
+
+	return NULL;
+}
+
+
+/**
+ * @brief	Obter a última execução de uma lista de execuções de operações
+ * @param	head			Lista de execuções de operações
+ * @return	Última execução da lista
+*/
+Execution* getLastExecution_AtList(Execution* head)
+{
+	if (head == NULL)
+	{
+		return NULL;
+	}
+
+	Execution* current = head;
+
+	while (current->next != NULL) // enquanto o próximo elemento for nulo
 	{
 		current = current->next;
 	}
@@ -427,12 +573,12 @@ Execution* getLastExecution_AtList(Execution* head)
 
 
 /**
-* @brief	Libertar a lista de execuções da memória
-* @param	head	Lista de execuções
+ * @brief	Limpar a lista de execuções de operações da memória
+ * @param	head	Lista de execuções de operações
 */
-void freeExecutions_List(Execution** head)
+bool cleanExecutions_List(Execution** head)
 {
-	if (head != NULL)
+	if (head != NULL && *head != NULL)
 	{
 		Execution* current;
 
@@ -442,7 +588,11 @@ void freeExecutions_List(Execution** head)
 			*head = (*head)->next;
 			free(current);
 		}
+
+		return true;
 	}
+
+	return false;
 }
 
 #pragma endregion
@@ -451,62 +601,8 @@ void freeExecutions_List(Execution** head)
 #pragma region hashing
 
 /**
- * @brief Carrega dados das execuções de um ficheiro CSV para uma tabela hash em memória
- * @param fileName		Nome do ficheiro
- * @return A tabela hash de execuções do ficheiro CSV
- */
-ExecutionNode** loadExecutionsTable(char* fileName, ExecutionNode* table[])
-{
-	char line[FILE_LINE_SIZE];
-	int a = 0, b = 0, c = 0;
-
-	Execution* execution = NULL;
-
-	FILE* file = fopen(fileName, "r");
-	if (file == NULL)
-	{
-		return NULL;
-	}
-
-	// iniciar tabela hash vazia
-	*table = createExecutionsTable(table);
-
-	while (!feof(file))
-	{
-		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
-		{
-			// exemplo: 1;1;1
-			sscanf(line, "%d;%d;%d", &a, &b, &c);
-
-			execution = newExecution(a, b, c);
-			*table = insertExecution_AtTable(table, execution);
-		}
-	}
-	fclose(file);
-
-	return *table;
-}
-
-
-/**
-* @brief	Criar tabela hash das execuções vazia
-* @param	table	Tabela hash das execuções
-* @return	Tabela hash das execuções criada
-*/
-ExecutionNode** createExecutionsTable(ExecutionNode* table[])
-{
-	for (int i = 0; i < HASH_TABLE_SIZE; i++)
-	{
-		table[i] = createExecutionNode();
-	}
-
-	return *table;
-}
-
-
-/**
-* @brief	Criar nó vazio para uma posição da tabela hash das execuções
-* @return	Nó vazio da tabela hash das execuções criado
+ * @brief	Criar nó vazio para uma posição da tabela hash das execuções de operações
+ * @return	Nó vazio da tabela hash das execuções de operações criado
 */
 ExecutionNode* createExecutionNode()
 {
@@ -520,10 +616,26 @@ ExecutionNode* createExecutionNode()
 
 
 /**
-* @brief	Gerar hash através de uma função.
-*			A função é representada pelo resto da divisão do identificador da operação pelo tamanho da tabela
-* @param	operationID		Identificador da operação
-* @return	Valor calculado pela função hash
+ * @brief	Criar tabela hash das execuções de operações vazia
+ * @param	table	Tabela hash das execuções de operações
+ * @return	Tabela hash das execuções de operações criada
+*/
+ExecutionNode** createExecutionsTable(ExecutionNode* table[])
+{
+	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	{
+		table[i] = createExecutionNode();
+	}
+
+	return *table;
+}
+
+
+/**
+ * @brief	Gerar hash através de uma função.
+ *			A função é representada pelo resto da divisão do identificador da operação pelo tamanho da tabela
+ * @param	operationID		Identificador da operação
+ * @return	Valor calculado pela função hash
 */
 int generateHash(int operationID)
 {
@@ -532,14 +644,14 @@ int generateHash(int operationID)
 
 
 /**
-* @brief	Inserir nova execução na tabela hash das execuções, numa determinada posição
-* @param	table	Tabela hash das execuções
-* @return	Tabela hash das execuções atualizada
+ * @brief	Inserir nova execução na tabela hash das execuções de operações, numa determinada posição
+ * @param	table	Tabela hash das execuções de operações
+ * @return	Tabela hash das execuções de operações atualizada
 */
 ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new)
 {
 	int index = generateHash(new->operationID);
-
+ 
 	table[index]->start = insertExecution_AtStart_AtList(table[index]->start, new);
 	table[index]->numberOfExecutions++;
 
@@ -548,12 +660,12 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new)
 
 
 /**
-* @brief	Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash
-* @param	table			Tabela hash das execuções
-* @param	operationID		Identificador da operação
-* @param	machineID		Identificador da máquina
-* @param	runtime			Unidades de tempo
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Atualizar as unidades de tempo necessárias para a execução de uma operação na tabela hash
+ * @param	table			Tabela hash das execuções de operações
+ * @param	operationID		Identificador da operação
+ * @param	machineID		Identificador da máquina
+ * @param	runtime			Unidades de tempo
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime)
 {
@@ -567,10 +679,10 @@ bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID,
 
 
 /**
-* @brief	Remover todas as execuções pelo identificador da operação na tabela
-* @param	table			Tabela hash das execuções
-* @param	operationID		Identificador da operação
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Remover todas as execuções de operações pelo identificador da operação na tabela
+ * @param	table			Tabela hash das execuções de operações
+ * @param	operationID		Identificador da operação
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID)
 {
@@ -600,14 +712,178 @@ bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operation
 
 
 /**
-* @brief	Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário
-* @param	fileName	Nome do ficheiro para armazenar os registos
-* @param	head		Lista de execuções
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Ler tabela hash de execuções de operações a partir do código
+ * @param	table	Tabela hash das execuções de operações
+ * @return	A tabela hash de execuções de operações
 */
-bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
+ExecutionNode** readExecutions_AtTable_Example(ExecutionNode* table[])
 {
-	if (table == NULL) // se tabela está vazia
+	// iniciar tabela hash vazia
+	*table = createExecutionsTable(table);
+
+	Execution* execution = NULL;
+
+	// execuções de operações do trabalho 1
+	execution = newExecution(1, 1, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(1, 3, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(2, 2, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(2, 4, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(3, 3, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(3, 4, 6);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(4, 2, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(4, 3, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(4, 4, 4);
+	*table = insertExecution_AtTable(table, execution);
+
+	// execuções de operações do trabalho 2
+	execution = newExecution(5, 1, 1);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(5, 4, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(6, 2, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(6, 4, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(7, 1, 1);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(7, 2, 6);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(8, 1, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(8, 2, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(8, 3, 7);
+
+	// execuções de operações do trabalho 3
+	execution = newExecution(9, 2, 7);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(9, 3, 6);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(9, 4, 8);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(10, 1, 7);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(10, 2, 7);
+	*table = insertExecution_AtTable(table, execution);
+
+	// execuções de operações do trabalho 4
+	execution = newExecution(11, 1, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(11, 3, 3);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(11, 4, 7);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(12, 2, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(12, 3, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(13, 1, 4);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(13, 2, 5);
+	*table = insertExecution_AtTable(table, execution);
+	execution = newExecution(13, 3, 6);
+	*table = insertExecution_AtTable(table, execution);
+
+	return *table; // 38 execuções de operações
+}
+
+
+/**
+ * @brief	Armazenar os registos de todas as listas de execuções de operações na tabela hash, em ficheiro binário
+ * @brief	Ler de ficheiro binário, os registos de todas as execuções de operações para a tabela hash
+ * @param	fileName	Nome do ficheiro para ler a lista
+ * @param	table		Tabela hash de execuções de operações
+ * @return	Tabela hash de execuções de operações
+*/
+ExecutionNode** readExecutions_AtTable_Binary(char fileName[], ExecutionNode* table[])
+{
+	FILE* file = NULL;
+	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
+	{
+		return NULL;
+	}
+
+	// iniciar tabela hash vazia
+	*table = createExecutionsTable(table);
+
+	Execution* execution = NULL;
+	Execution* list = NULL;
+	list = readExecutions_AtList_Binary(fileName);
+
+	if (list == NULL) // erro ao ler dados do ficheiro
+	{
+		return NULL;
+	}
+
+	while (list != NULL) // enquanto que houver dados na lista, guarda-os na tabela
+	{
+		execution = newExecution(list->operationID, list->machineID, list->runtime);
+		*table = insertExecution_AtTable(table, execution);
+
+		list = list->next;
+	}
+
+	return *table;
+}
+
+
+/**
+ * @brief Carregar dados das execuções de operações um ficheiro .csv para uma tabela hash em memória
+ * @param	fileName	Nome do ficheiro
+ * @param	table		Tabela hash de execuções de operações
+ * @return A tabela hash de execuções de operações do ficheiro .csv
+*/
+ExecutionNode** readExecutions_AtTable_Text(char fileName[], ExecutionNode* table[])
+{
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	// iniciar tabela hash vazia
+	*table = createExecutionsTable(table);
+
+	char line[FILE_LINE_SIZE];
+	int operationID = 0, machineID = 0, runtime = 0;
+
+	Execution* execution = NULL;
+
+	while (!feof(file))
+	{
+		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
+		{
+			// exemplo: 1;1;1
+			sscanf(line, "%d;%d;%d", &operationID, &machineID, &runtime);
+
+			execution = newExecution(operationID, machineID, runtime);
+			*table = insertExecution_AtTable(table, execution);
+		}
+	}
+
+	fclose(file);
+
+	return *table;
+}
+
+
+/**
+ * @brief	Armazenar os registos de todas as listas de execuções de operações na tabela hash, em ficheiro binário
+ * @param	fileName	Nome do ficheiro para armazenar os registos
+ * @param	table		Tabela hash de execuções de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool writeExecutions_AtTable_Binary(char fileName[], ExecutionNode* table[])
+{
+	if (table == NULL || *table == NULL)
 	{
 		return false;
 	}
@@ -641,108 +917,125 @@ bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[])
 
 
 /**
-* @brief	Armazenar os registos de todas as listas de execuções na tabela hash, em ficheiro binário
-* @brief	Ler de ficheiro binário, os registos de todas as execuções para a tabela hash
-* @param	fileName	Nome do ficheiro para ler a lista
-* @return	Tabela hash de execuçõess
+ * @brief	Armazenar os registos de todas as listas de execuções de operações na tabela hash, em ficheiro .csv
+ * @param	fileName	Nome do ficheiro para armazenar os registos
+ * @param	table		Tabela hash das execuções de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-ExecutionNode** readExecutions_AtTable(char fileName[], ExecutionNode* table[])
+bool writeExecutions_AtTable_Text(char fileName[], ExecutionNode* table[])
 {
-	FILE* file = NULL;
-
-	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
-	{
-		return NULL;
-	}
-
-	Execution* execution = NULL;
-	Execution* list = NULL;
-	list = readExecutions_AtList(fileName);
-
-	if (list == NULL) // erro ao ler dados do ficheiro
-	{
-		return NULL;
-	}
-
-	while (list != NULL) // enquanto que houver dados na lista, guarda-os na tabela
-	{
-		execution = newExecution(list->operationID, list->machineID, list->runtime);
-		*table = insertExecution_AtTable(table, execution);
-
-		list = list->next;
-	}
-
-	return *table;
-}
-
-
-/**
-* @brief	Mostrar a tabela hash com as listas de execuções na consola
-* @param	table	Tabela hash das execuções
-* @return	Booleano para o resultado da função (se funcionou ou não)
-*/
-bool displayExecutions_AtTable(ExecutionNode* table[])
-{
-	if (table == NULL)
+	if (table == NULL || *table == NULL)
 	{
 		return false;
 	}
 
+	FILE* file = NULL;
+	if ((file = fopen(fileName, "w")) == NULL) // erro ao abrir o ficheiro
+	{
+		return false;
+	}
+
+	fprintf(file, "ID da Operação;ID da Máquina;Tempo de Execução\n"); // escreve o cabeçalho do .csv
+
 	for (int i = 0; i < HASH_TABLE_SIZE; i++)
 	{
-		printf("Lista %d - Número de elementos: %d\n", i + 1, table[i]->numberOfExecutions);
-		displayExecutions_AtList(table[i]->start);
+		Execution* current = table[i]->start;
+
+		while (current != NULL)
+		{
+			fprintf(file, "%d;%d;%d\n", current->operationID, current->machineID, current->runtime);
+			current = current->next;
+		}
 	}
+
+	fclose(file);
 
 	return true;
 }
 
 
 /**
-* @brief	Procurar por uma execução na tabela hash
-* @param	table			Tabela hash das execuções
-* @param	operationID		Identificador da operação
-* @param	machineID		Identificador da máquina
-* @return	Execução encontrada ou retorna nulo se não encontrar
+ * @brief	Mostrar a tabela hash com as listas de execuções de operações na consola
+ * @param	table	Tabela hash das execuções de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool displayExecutions_AtTable(ExecutionNode* table[])
+{
+	if (table == NULL || *table == NULL)
+	{
+		return false;
+	}
+
+	bool hasData = false;
+
+	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	{
+		if (table[i] != NULL && table[i]->start != NULL)
+		{
+			hasData = true;
+			printf("Lista %d - Número de elementos: %d\n", i + 1, table[i]->numberOfExecutions);
+			displayExecutions_AtList(table[i]->start);
+		}
+	}
+
+	return hasData;
+}
+
+
+/**
+ * @brief	Procurar por uma execução na tabela hash
+ * @param	table			Tabela hash das execuções de operações
+ * @param	operationID		Identificador da operação
+ * @param	machineID		Identificador da máquina
+ * @return	Execução encontrada ou retorna nulo se não encontrar
 */
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID)
 {
-	if (table == NULL) // se a lista estiver vazia
+	if (table == NULL)
 	{
 		return NULL;
 	}
 
 	int index = generateHash(operationID);
-	Execution* search = searchExecution_AtList(table[index]->start, operationID, machineID);
+	Execution* executionFound = getExecution_AtList(table[index]->start, operationID, machineID);
 
-	if (search == NULL) // se a lista estiver vazia
+	if (executionFound == NULL)
 	{
 		return NULL;
 	}
 
-	return search;
+	return executionFound;
 }
 
 
 /**
-* @brief	Libertar a tabela hash de execuções da memória
-* @param	head	Lista de execuções
-* @return	Tabela hash libertada da memória
+ * @brief	Limpar a tabela hash de execuções de operações da memória
+ * @param	table	Lista de execuções de operações
+ * @return	Tabela hash libertada da memória
 */
-void freeExecutions_Table(ExecutionNode** table[])
+bool cleanExecutions_Table(ExecutionNode** table[])
 {
-	if (table != NULL)
+	if (table != NULL && *table != NULL)
 	{
-		ExecutionNode** table2 = *table;
-		ExecutionNode* current;
-		Execution* current2;
-
 		for (int i = 0; i < HASH_TABLE_SIZE; i++)
 		{
-			current = table[i];
-			free(current);
+			ExecutionNode* current = (*table)[i];
+			if (current != NULL)
+			{
+				cleanExecutions_List(&(current->start));
+
+				free(current);
+
+				(*table)[i] = NULL;
+			}
 		}
+
+		*table = NULL;
+
+		return true;
 	}
+
+	return false;
 }
 
 #pragma endregion

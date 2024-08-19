@@ -11,72 +11,82 @@
 
 #pragma region trabalhos
 
-Job* loadJobs(char* fileName);
-Job* newJob(int id);
+Job* newJob(int id, const char* name);
 Job* insertJob_AtStart(Job* head, Job* new);
+//bool updateJob(Job** head, int xJobID, int yJobID);
 bool deleteJob(Job** head, int id);
-bool writeJobs(char fileName[], Job* head);
-Job* readJobs(char fileName[]);
+Job* readJobs_Example();
+Job* readJobs_Binary(char fileName[]);
+Job* readJobs_Text(char fileName[]);
+bool writeJobs_Binary(char fileName[], Job* head);
+bool writeJobs_Text(char fileName[], Job* head);
 bool displayJobs(Job* head);
 bool searchJob(Job* head, int id);
 int countJobs(Job* head);
-void freeJobs(Job** head);
+bool cleanJobs(Job** head);
 
 #pragma endregion
 
 
 #pragma region máquinas
 
-Machine* loadMachines(char* fileName);
-Machine* newMachine(int id);
+Machine* newMachine(int id, const char* name);
 Machine* insertMachine_AtStart(Machine* head, Machine* new);
-bool writeMachines(char fileName[], Machine* head);
-Machine* readMachines(char fileName[]);
+Machine* readMachines_Example();
+Machine* readMachines_Binary(char fileName[]);
+Machine* readMachines_Text(char fileName[]);
+bool writeMachines_Binary(char fileName[], Machine* head);
+bool writeMachines_Text(char fileName[], Machine* head);
 bool displayMachines(Machine* head);
 bool searchMachine(Machine* head, int id);
-void freeMachines(Machine** head);
+bool cleanMachines(Machine** head);
 
 #pragma endregion
 
 
 #pragma region operações
 
-Operation* loadOperations(char* fileName);
-Operation* newOperation(int id, int jobID, int position);
+Operation* newOperation(int id, int jobID, int position, const char* name);
 Operation* insertOperation_AtStart(Operation* head, Operation* new);
-bool updatePosition(Operation** head, int xOperationID, int yOperationID);
-bool deleteOperation(Operation** head, int id);
+bool updateOperation_Position(Operation** head, int xOperationID, int yOperationID);
+bool deleteOperation(Operation** head, int operationID);
 int deleteOperation_ByJob(Operation** head, int jobID);
-bool writeOperations(char fileName[], Operation* head);
-Operation* readOperations(char fileName[]);
+Operation* readOperations_Example();
+Operation* readOperations_Binary(char fileName[]);
+Operation* readOperations_Text(char fileName[]);
+bool writeOperations_Binary(char fileName[], Operation* head);
+bool writeOperations_Text(char fileName[], Operation* head);
 bool displayOperations(Operation* head);
-bool searchOperation(Operation* head, int id);
+bool searchOperation(Operation* head, int operationID);
 bool searchOperation_ByJob(Operation* head, int jobID);
-Operation* getOperation(Operation* head, int id);
+Operation* getOperation(Operation* head, int operationID);
 int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
 int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
 float getAverageTime_ToCompleteOperation(Execution* head, int operationID);
-void freeOperations(Operation** head);
+bool cleanOperations(Operation** head);
 
 #pragma endregion
 
 
-#pragma region execuções
+#pragma region execuções de operações
 
-Execution* loadExecutions(char* fileName);
 Execution* newExecution(int operationID, int machineID, int runtime);
 Execution* insertExecution_AtStart_AtList(Execution* head, Execution* new);
 Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new);
 bool updateRuntime_AtList(Execution** head, int operationID, int machineID, int runtime);
 bool deleteExecution_ByOperation_AtList(Execution** head, int operationID);
-bool writeExecutions_AtList(char fileName[], Execution* head);
-Execution* readExecutions_AtList(char fileName[]);
+Execution* readExecutions_AtList_Example();
+Execution* readExecutions_AtList_Binary(char fileName[]);
+Execution* readExecutions_AtList_Text(char fileName[]);
+bool writeExecutions_AtList_Binary(char fileName[], Execution* head);
+bool writeExecutions_AtList_Text(char fileName[], Execution* head);
 bool displayExecutions_AtList(Execution* head);
-Execution* searchExecution_AtList(Execution* head, int operationID, int machineID);
-Execution* searchExecution_ByOperation_AtList(Execution* head, int operationID);
+bool searchExecution_AtList(Execution* head, int operationID, int machineID);
+bool searchExecution_ByOperation_AtList(Execution* head, int operationID);
 Execution* sortExecutions_ByOperation_AtList(Execution* head);
+Execution* getExecution_AtList(Execution* head, int operationID, int machineID);
 Execution* getLastExecution_AtList(Execution* head);
-void freeExecutions_List(Execution** head);
+bool cleanExecutions_List(Execution** head);
 
 #pragma endregion
 
@@ -115,7 +125,7 @@ FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new);
 FileCell* insertFileCell_ByMachine(FileCell* head, FileCell* new);
 FileCell* sortFileCells_ByMachine(FileCell* head);
 FileCell* getCellsToExport(Cell plan[][MAX_TIME]);
-bool exportPlan(char* fileName, FileCell* head);
+bool exportPlan(char fileName[], FileCell* head);
 
 #pragma endregion
 

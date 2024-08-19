@@ -12,48 +12,14 @@
 
 
 /**
- * @brief Carrega dados das operações de um ficheiro CSV para uma lista em memória
- * @param fileName		Nome do ficheiro
- * @return A lista de operações do ficheiro CSV
- */
-Operation* loadOperations(char* fileName)
-{
-	char line[FILE_LINE_SIZE];
-	int a = 0, b = 0, c = 0;
-
-	Operation* operation = NULL;
-	Operation* operations = NULL;
-
-	FILE* file = fopen(fileName, "r");
-	if (file == NULL)
-	{
-		return NULL;
-	}
-
-	while (!feof(file))
-	{
-		if (fgets(line, FILE_LINE_SIZE, file) != NULL)
-		{
-			sscanf(line, "%d;%d;%d", &a, &b, &c);
-			operation = newOperation(a, b, c);
-			operations = insertOperation_AtStart(operations, operation);
-		}
-	}
-
-	fclose(file);
-
-	return operations;
-}
-
-
-/**
-* @brief	Criar nova operação
-* @param	id			Identificador da operação
-* @param	jobID		Identificador do trabalho
-* @param	position	Posição da operação relativamente ao trabalho
-* @return	Nova operação
+ * @brief	Criar nova operação
+ * @param	operationID		Identificador da operação
+ * @param	jobID			Identificador do trabalho
+ * @param	position		Ordem da operação a ser executada
+ * @param	name			Nome da operação
+ * @return	Nova operação
 */
-Operation* newOperation(int id, int jobID, int position)
+Operation* newOperation(int operationID, int jobID, int position, const char* name)
 {
 	Operation* new = (Operation*)malloc(sizeof(Operation));
 	if (new == NULL) // se não houver memória para alocar
@@ -61,9 +27,11 @@ Operation* newOperation(int id, int jobID, int position)
 		return NULL;
 	}
 
-	new->id = id;
+	new->operationID = operationID;
 	new->jobID = jobID;
 	new->position = position;
+	strncpy(new->name, name, NAME_SIZE - 1);
+	new->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
 	new->next = NULL;
 
 	return new;
@@ -71,19 +39,19 @@ Operation* newOperation(int id, int jobID, int position)
 
 
 /**
-* @brief	Inserir nova operação no início da lista de operações
-* @param	head	Lista de operações
-* @param	new		Nova operação
-* @return	Lista de operações atualizada
+ * @brief	Inserir nova operação no início da lista de operações
+ * @param	head	Lista de operações
+ * @param	new		Nova operação
+ * @return	Lista de operações atualizada
 */
 Operation* insertOperation_AtStart(Operation* head, Operation* new)
 {
-	if (searchOperation(head, new->id)) // não permitir inserir uma nova com o mesmo ID
+	if (searchOperation(head, new->operationID)) // não permitir inserir uma nova com o mesmo ID
 	{
 		return NULL;
 	}
 
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		head = new;
 	}
@@ -98,15 +66,15 @@ Operation* insertOperation_AtStart(Operation* head, Operation* new)
 
 
 /**
-* @brief	Atualizar a posição de uma operação X pela posição de uma operação Y, e vice-versa
-* @param	head			Apontador para a lista de execuções
-* @param	xOperationID	Identificador de uma operação qualquer X
-* @param	yOperationID	Identificador de uma operação qualquer Y
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Atualizar a posição de uma operação X pela posição de uma operação Y e, vice-versa
+ * @param	head			Apontador para a lista de execuções de operações
+ * @param	xOperationID	Identificador de uma operação qualquer X
+ * @param	yOperationID	Identificador de uma operação qualquer Y
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool updatePosition(Operation** head, int xOperationID, int yOperationID)
+bool updateOperation_Position(Operation** head, int xOperationID, int yOperationID)
 {
-	if (*head == NULL) // se lista está vazia
+	if (*head == NULL)
 	{
 		return false;
 	}
@@ -131,11 +99,11 @@ bool updatePosition(Operation** head, int xOperationID, int yOperationID)
 
 	while (current != NULL)
 	{
-		if (current->id == xOperation->id) // trocar a posição da operação X pela posição da operação Y
+		if (current->operationID == xOperation->operationID) // trocar a posição da operação X pela posição da operação Y
 		{
 			current->position = yOperation->position;
 		}
-		if (current->id == yOperation->id) // trocar a posição da operação Y pela posição da operação X
+		if (current->operationID == yOperation->operationID) // trocar a posição da operação Y pela posição da operação X
 		{
 			current->position = xOperation->position;
 		}
@@ -148,12 +116,12 @@ bool updatePosition(Operation** head, int xOperationID, int yOperationID)
 
 
 /**
-* @brief	Remover uma operação da lista de operações
-* @param	head	Apontador para a lista de operações
-* @param	id		Identificador da operação
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Remover uma operação da lista de operações
+ * @param	head			Apontador para a lista de operações
+ * @param	operationID		Identificador da operação
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool deleteOperation(Operation** head, int id)
+bool deleteOperation(Operation** head, int operationID)
 {
 	if (*head == NULL)
 	{
@@ -163,13 +131,13 @@ bool deleteOperation(Operation** head, int id)
 	Operation* current = *head;
 	Operation* previous = NULL;
 
-	if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
+	if (current != NULL && current->operationID == operationID) { // se o elemento que será apagado é o primeiro da lista
 		*head = current->next;
 		free(current);
 		return true;
 	}
 
-	while (current != NULL && current->id != id) // procurar o elemento a ser apagado
+	while (current != NULL && current->operationID != operationID) // procurar o elemento a ser apagado
 	{
 		previous = current;
 		current = current->next;
@@ -188,14 +156,14 @@ bool deleteOperation(Operation** head, int id)
 
 
 /**
-* @brief	Remover operação pelo identificador do trabalho
-* @param	head			Apontador para a lista de operações
-* @param	jobID			Identificador do trabalho
-* @return	Inteiro com o identificador da operação removida
+ * @brief	Remover operação pelo identificador do trabalho
+ * @param	head			Apontador para a lista de operações
+ * @param	jobID			Identificador do trabalho
+ * @return	Inteiro com o identificador da operação removida
 */
 int deleteOperation_ByJob(Operation** head, int jobID)
 {
-	if (*head == NULL) // se a lista estiver vazia
+	if (*head == NULL)
 	{
 		return -1;
 	}
@@ -205,7 +173,7 @@ int deleteOperation_ByJob(Operation** head, int jobID)
 	int operationDeleted = 0;
 
 	if (current != NULL && current->jobID == jobID) { // se o elemento que será apagado é o primeiro da lista
-		operationDeleted = current->id;
+		operationDeleted = current->operationID;
 		*head = current->next;
 		free(current);
 
@@ -223,7 +191,7 @@ int deleteOperation_ByJob(Operation** head, int jobID)
 		return -1;
 	}
 
-	operationDeleted = current->id;
+	operationDeleted = current->operationID;
 	previous->next = current->next; // desassociar o elemento da lista
 	free(current);
 
@@ -232,20 +200,145 @@ int deleteOperation_ByJob(Operation** head, int jobID)
 
 
 /**
-* @brief	Armazenar lista de operações em ficheiro binário
-* @param	fileName	Nome do ficheiro para armazenar a lista
-* @param	head		Lista de operações
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Ler lista de operações a partir do código
+ * @return	A lista de operações
 */
-bool writeOperations(char fileName[], Operation* head)
+Operation* readOperations_Example()
 {
-	if (head == NULL) // se lista está vazia
+	Operation* operations = NULL;
+	Operation* operation = NULL;
+
+	// operações para o trabalho 1
+	operation = newOperation(1, 1, 1, "Operação J1-O1");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(2, 1, 2, "Operação J1-O2");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(3, 1, 3, "Operação J1-O3");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(4, 1, 4, "Operação J1-04");
+	operations = insertOperation_AtStart(operations, operation);
+	
+	// operações para o trabalho 2
+	operation = newOperation(5, 2, 1, "Operação J2-01");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(6, 2, 2, "Operação J2-02");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(7, 2, 3, "Operação J2-03");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(8, 2, 4, "Operação J2-04");
+	operations = insertOperation_AtStart(operations, operation);
+	
+	// operações para o trabalho 3
+	operation = newOperation(12, 3, 1, "Operação J3-01");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(13, 3, 2, "Operação J3-02");
+	operations = insertOperation_AtStart(operations, operation);
+	
+	// operações para o trabalho 4
+	operation = newOperation(14, 4, 1, "Operação J4-01");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(15, 4, 2, "Operação J4-02");
+	operations = insertOperation_AtStart(operations, operation);
+	operation = newOperation(16, 4, 3, "Operação J4-03");
+	operations = insertOperation_AtStart(operations, operation);
+
+	return operations; // 13 operações
+}
+
+
+/**
+ * @brief	Ler lista de operações de ficheiro binário
+ * @param	fileName	Nome do ficheiro para ler a lista
+ * @return	Lista de operações
+*/
+Operation* readOperations_Binary(char fileName[])
+{
+	FILE* file = NULL;
+	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
+	{
+		return NULL;
+	}
+
+	Operation* head = NULL;
+	Operation* current = NULL;
+	FileOperation currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
+
+	while (fread(&currentInFile, sizeof(FileOperation), 1, file)) // lê todos os registos do ficheiro e guarda na lista
+	{
+		current = newOperation(currentInFile.operationID, currentInFile.jobID, currentInFile.position, currentInFile.name);
+		head = insertOperation_AtStart(head, current);
+	}
+
+	fclose(file);
+
+	return head;
+}
+
+
+/**
+ * @brief	Carrega dados dos operações de um ficheiro .csv para uma lista em memória
+ * @param	fileName	Nome do ficheiro
+ * @return	A lista de operações do ficheiro .csv
+*/
+Operation* readOperations_Text(char fileName[])
+{
+	FILE* file = fopen(fileName, "r");
+	if (file == NULL)
+	{
+		return NULL;
+	}
+
+	char line[FILE_LINE_SIZE];
+	int operationID = 0;
+	int jobID = 0;
+	int position = 0;
+	char name[NAME_SIZE];
+
+	Operation* operation = NULL;
+	Operation* operations = NULL;
+
+	while (fgets(line, FILE_LINE_SIZE, file) != NULL)
+	{
+		if (sscanf(line, "%d;%d;%d;%99[^\n]", &operationID, &jobID, &position, name) == 4) // ignora o cabeçalho do .csv
+		{
+			operation = (Operation*)malloc(sizeof(Operation));
+			if (operation == NULL)
+			{
+				fclose(file);
+				return NULL;
+			}
+
+			operation->operationID = operationID;
+			operation->jobID = jobID;
+			operation->position = position;
+			strncpy(operation->name, name, NAME_SIZE - 1);
+			operation->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
+			operation->next = operations;
+
+			operations = operation;
+		}
+	}
+
+	fclose(file);
+
+	return operations;
+}
+
+
+/**
+ * @brief	Armazenar lista de operações em ficheiro binário
+ * @param	fileName	Nome do ficheiro para armazenar a lista
+ * @param	head		Lista de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool writeOperations_Binary(char fileName[], Operation* head)
+{
+	if (head == NULL)
 	{
 		return false;
 	}
 
 	FILE* file = NULL;
-
 	if ((file = fopen(fileName, "wb")) == NULL) // erro ao abrir o ficheiro
 	{
 		return false;
@@ -256,9 +349,11 @@ bool writeOperations(char fileName[], Operation* head)
 
 	while (current != NULL)
 	{
-		currentInFile.id = current->id;
+		currentInFile.operationID = current->operationID;
 		currentInFile.jobID = current->jobID;
 		currentInFile.position = current->position;
+		strncpy(currentInFile.name, current->name, NAME_SIZE);
+
 		fwrite(&currentInFile, sizeof(FileOperation), 1, file); // guarda cada registo da lista no ficheiro
 
 		current = current->next;
@@ -271,43 +366,50 @@ bool writeOperations(char fileName[], Operation* head)
 
 
 /**
-* @brief	Ler lista de operações de ficheiro binário
-* @param	fileName	Nome do ficheiro para ler a lista
-* @return	Lista de operações
+ * @brief	Armazenar lista de operações em ficheiro de texto
+ * @param	fileName	Nome do ficheiro para armazenar a lista
+ * @param	head		Lista de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-Operation* readOperations(char fileName[])
+bool writeOperations_Text(char fileName[], Operation* head)
 {
-	FILE* file = NULL;
-
-	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
+	if (head == NULL)
 	{
-		return NULL;
+		return false;
 	}
 
-	Operation* head = NULL;
-	Operation* current = NULL;
-	FileOperation currentInFile; // é a mesma estrutura mas sem o campo *next, uma vez que esse campo não é armazenado no ficheiro
-
-	while (fread(&currentInFile, sizeof(FileOperation), 1, file)) // lê todos os registos do ficheiro e guarda na lista
+	FILE* file = NULL;
+	if ((file = fopen(fileName, "w")) == NULL) // erro ao abrir o ficheiro
 	{
-		current = newOperation(currentInFile.id, currentInFile.jobID, currentInFile.position);
-		head = insertOperation_AtStart(head, current);
+		return false;
+	}
+
+	Operation* current = head;
+
+	fprintf(file, "ID da Operação;ID do Trabalho;Posição;Nome\n"); // escreve o cabeçalho do .csv
+
+	while (current != NULL)
+	{
+		// usa aspas ao redor do nome para garantir que não haja problemas com caracteres especiais
+		fprintf(file, "%d;%d;%d;%s\n", current->operationID, current->jobID, current->position, current->name);
+		current = current->next;
 	}
 
 	fclose(file);
 
-	return head;
+	return true;
 }
 
 
+
 /**
-* @brief	Mostrar a lista de operações na consola
-* @param	head	Lista de operações
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Mostrar a lista de operações na consola
+ * @param	head	Lista de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool displayOperations(Operation* head)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -316,7 +418,7 @@ bool displayOperations(Operation* head)
 
 	while (current != NULL)
 	{
-		printf("ID: %d, ID Trabalho: %d, Posição: %d;\n", current->id, current->jobID, current->position);
+		printf("ID da operação: %d, ID do Trabalho: %d, Posição: %d, Nome: %s;\n", current->operationID, current->jobID, current->position, current->name);
 		current = current->next;
 	}
 
@@ -325,14 +427,14 @@ bool displayOperations(Operation* head)
 
 
 /**
-* @brief	Procurar por uma operação na lista de operações
-* @param	head	Lista de operações
-* @param	id		Identificador da operação
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Procurar por uma operação na lista de operações
+ * @param	head			Lista de operações
+ * @param	operationID		Identificador da operação
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool searchOperation(Operation* head, int id)
+bool searchOperation(Operation* head, int operationID)
 {
-	if (head == NULL) // se lista está vazia
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -341,7 +443,7 @@ bool searchOperation(Operation* head, int id)
 
 	while (current != NULL)
 	{
-		if (current->id == id)
+		if (current->operationID == operationID)
 		{
 			return true;
 		}
@@ -353,14 +455,14 @@ bool searchOperation(Operation* head, int id)
 
 
 /**
-* @brief	Procurar por uma operação através do identificador do trabalho, na lista de operações
-* @param	head			Lista de operações
-* @param	jobID			Identificador do trabalho
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Procurar por uma operação através do identificador do trabalho, na lista de operações
+ * @param	head	Lista de operações
+ * @param	jobID	Identificador do trabalho
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool searchOperation_ByJob(Operation* head, int jobID)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -381,14 +483,14 @@ bool searchOperation_ByJob(Operation* head, int jobID)
 
 
 /**
-* @brief	Obter uma operação da lista de operações
-* @param	head	Lista de operações
-* @param	id		Identificador da operação
-* @return	Operação encontrada (ou NULL se não encontrou)
+ * @brief	Obter uma operação da lista de operações
+ * @param	head			Lista de operações
+ * @param	operationID		Identificador da operação
+ * @return	Operação encontrada (ou NULL se não encontrou)
 */
-Operation* getOperation(Operation* head, int id)
+Operation* getOperation(Operation* head, int operationID)
 {
-	if (head == NULL) // se lista está vazia
+	if (head == NULL)
 	{
 		return NULL;
 	}
@@ -397,9 +499,9 @@ Operation* getOperation(Operation* head, int id)
 
 	while (current != NULL)
 	{
-		if (current->id == id)
+		if (current->operationID == operationID)
 		{
-			Operation* operation = newOperation(current->id, current->jobID, current->position); // criar cópia da operação
+			Operation* operation = newOperation(current->operationID, current->jobID, current->position, current->name); // criar cópia da operação
 			return operation;
 		}
 		current = current->next;
@@ -410,12 +512,12 @@ Operation* getOperation(Operation* head, int id)
 
 
 /**
-* @brief	Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções
-* @param	operations		Lista de operações
-* @param	executions		Lista de execuções
-* @param	jobID			Identificador do trabalho
-* @param	minExecutions	Apontador para a lista de execuções a ser devolvida, relativamente ao tempo mínimo
-* @return	Quantidade de tempo
+ * @brief	Obter o mínimo de tempo necessário para completo um trabalho e as respetivas execuções
+ * @param	operations		Lista de operações
+ * @param	executions		Lista de execuções de operações
+ * @param	jobID			Identificador do trabalho
+ * @param	minExecutions	Apontador para a lista de execuções de operações a ser devolvida, relativamente ao tempo mínimo
+ * @return	Quantidade de tempo
 */
 int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions)
 {
@@ -435,9 +537,9 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 	{
 		if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
 		{
-			while (currentExecution != NULL) // percorrer lista de execução de operações
+			while (currentExecution != NULL) // percorrer lista de execuções de operações
 			{
-				if (currentExecution->operationID == currentOperation->id) // se encontrar a execução de operação relativa à operação
+				if (currentExecution->operationID == currentOperation->operationID) // se encontrar a execução de operação relativa à operação
 				{
 					// guardar execução de operação com menor tempo de utilização
 					if (currentExecution->runtime < time)
@@ -452,7 +554,7 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 
 			*minExecutions = insertExecution_AtStart_AtList(*minExecutions, minExecution);
 
-			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while das execuções de operações de novo
 			currentExecution = NULL;
 			currentExecution = executions;
 
@@ -468,12 +570,12 @@ int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 
 
 /**
-* @brief	Obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções
-* @param	operations		Lista de operações
-* @param	executions		Lista de execuções
-* @param	jobID			Identificador do trabalho
-* @param	maxExecutions	Apontador para a lista de execuções a ser devolvida, relativamente ao tempo máximo
-* @return	Quantidade de tempo
+ * @brief	Obter o máximo de tempo necessário para completo um trabalho e as respetivas execuções
+ * @param	operations		Lista de operações
+ * @param	executions		Lista de execuções de operações
+ * @param	jobID			Identificador do trabalho
+ * @param	maxExecutions	Apontador para a lista de execuções de operações a ser devolvida, relativamente ao tempo máximo
+ * @return	Quantidade de tempo
 */
 int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions)
 {
@@ -493,9 +595,9 @@ int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 	{
 		if (currentOperation->jobID == jobID) // se encontrar o job relativo à operação
 		{
-			while (currentExecution != NULL) // percorrer lista de execução de operações
+			while (currentExecution != NULL) // percorrer lista de execuções de operações
 			{
-				if (currentExecution->operationID == currentOperation->id) // se encontrar a execução de operação relativa à operação
+				if (currentExecution->operationID == currentOperation->operationID) // se encontrar a execução de operação relativa à operação
 				{
 					// guardar execução de operação com maior tempo de utilização
 					if (currentExecution->runtime > time)
@@ -510,7 +612,7 @@ int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 
 			*maxExecutions = insertExecution_AtStart_AtList(*maxExecutions, maxExecution);
 
-			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execução de operações de novo
+			// repor lista percorrida (currentExecution), para que se for necessário voltar a percorrer o while da execuções de operações de novo
 			currentExecution = NULL;
 			currentExecution = executions;
 
@@ -526,14 +628,14 @@ int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int j
 
 
 /**
-* @brief	Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis
-* @param	head			Lista de execuções
-* @param	operationID		Identificador da operação
-* @return	Valor da média de tempo
+ * @brief	Obter a média de tempo necessário para completar uma operação, considerando todas as alternativas possíveis
+ * @param	head			Lista de execuções de operações
+ * @param	operationID		Identificador da operação
+ * @return	Valor da média de tempo
 */
 float getAverageTime_ToCompleteOperation(Execution* head, int operationID)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return -1.0f;
 	}
@@ -564,12 +666,12 @@ float getAverageTime_ToCompleteOperation(Execution* head, int operationID)
 
 
 /**
-* @brief	Libertar a lista de operações da memória
-* @param	head	Lista de operações
+ * @brief	Limpar a lista de operações da memória
+ * @param	head	Lista de operações
 */
-void freeOperations(Operation** head)
+bool cleanOperations(Operation** head)
 {
-	if (head != NULL)
+	if (head != NULL && *head != NULL)
 	{
 		Operation* current;
 
@@ -579,5 +681,9 @@ void freeOperations(Operation** head)
 			*head = (*head)->next;
 			free(current);
 		}
+
+		return true;
 	}
+
+	return false;
 }

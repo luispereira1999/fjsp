@@ -12,13 +12,13 @@
 
 
 /**
-* @brief	Criar novo plano de trabalho
-* @param	jobID			Identificador do job
-* @param	operationID		Identificador da operação
-* @param	machineID		Identificador da máquina
-* @param	runtime			Tempo de execução da operação
-* @param	position		Posição da operação a ser executada relativamente ao trabalho
-* @return	Nova plano de trabalho
+ * @brief	Criar novo plano de trabalho
+ * @param	jobID			Identificador do job
+ * @param	operationID		Identificador da operação
+ * @param	machineID		Identificador da máquina
+ * @param	runtime			Tempo de execução da operação
+ * @param	position		Posição da operação a ser executada relativamente ao trabalho
+ * @return	Nova plano de trabalho
 */
 WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, int position)
 {
@@ -40,14 +40,14 @@ WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, in
 
 
 /**
-* @brief	Inserir no plano de trabalho no início da lista de operações
-* @param	head	Lista de planos de trabalhos
-* @param	new		Nova plano de trabalho
-* @return	Lista de planos de trabalhos
+ * @brief	Inserir no plano de trabalho no início da lista de operações
+ * @param	head	Lista de planos de trabalhos
+ * @param	new		Nova plano de trabalho
+ * @return	Lista de planos de trabalhos
 */
 WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		head = new;
 	}
@@ -62,14 +62,14 @@ WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new)
 
 
 /**
-* @brief	Inserir plano de trabalho ordenado pelo posição das operações num job na lista de planos de trabalhos
-* @param	head	Lista de planos de trabalhos
-* @param	new		Novo plano de trabalho
-* @return	Lista de planos de trabalhos atualizada
+ * @brief	Inserir plano de trabalho ordenado pelo posição das operações num job na lista de planos de trabalhos
+ * @param	head	Lista de planos de trabalhos
+ * @param	new		Novo plano de trabalho
+ * @return	Lista de planos de trabalhos atualizada
 */
 WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		head = new; // inserir no início
 	}
@@ -102,13 +102,13 @@ WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new)
 
 
 /**
-* @brief	Mostrar a lista de planos de trabalhos na consola
-* @param	head	Lista de planos de trabalhos
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Mostrar a lista de planos de trabalhos na consola
+ * @param	head	Lista de planos de trabalhos
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool displayWorkPlans(WorkPlan* head)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -117,7 +117,7 @@ bool displayWorkPlans(WorkPlan* head)
 
 	while (current != NULL)
 	{
-		printf("ID Trabalho: %d, ID Operação: %d, ID Máquina: %d, Tempo de Execução: %d, Posição: %d;\n", current->jobID, current->operationID, current->machineID, current->runtime, current->position);
+		printf("ID do Trabalho: %d, ID da Operação: %d, ID da Máquina: %d, Tempo de Execução: %d, Posição: %d;\n", current->jobID, current->operationID, current->machineID, current->runtime, current->position);
 		current = current->next;
 	}
 
@@ -126,13 +126,13 @@ bool displayWorkPlans(WorkPlan* head)
 
 
 /**
-* @brief	Ordenar planos de trabalhos por ordem crescente da posição das operações num job
-* @param	head			Lista de planos de trabalhos
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Ordenar planos de trabalhos por ordem crescente da posição das operações num job
+ * @param	head			Lista de planos de trabalhos
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 WorkPlan* sortWorkPlans_ByJob(WorkPlan* head)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return NULL;
 	}
@@ -153,9 +153,9 @@ WorkPlan* sortWorkPlans_ByJob(WorkPlan* head)
 
 
 /**
-* @brief	Obter todos os planos de trabalhos para um realizar um plano de produção
-* @param	head			Lista de planos de trabalhos
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Obter todos os planos de trabalhos para um realizar um plano de produção
+ * @param	head			Lista de planos de trabalhos
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* executions)
 {
@@ -170,15 +170,15 @@ WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* execution
 
 		while (minExecutions)
 		{
-			Operation* currOper = getOperation(operations, minExecutions->operationID);
+			Operation* currentOperation = getOperation(operations, minExecutions->operationID);
 
-			workPlan = newWorkPlan(jobs->id, minExecutions->operationID, minExecutions->machineID, minExecutions->runtime, currOper->position);
+			workPlan = newWorkPlan(jobs->id, minExecutions->operationID, minExecutions->machineID, minExecutions->runtime, currentOperation->position);
 			workPlans = insertWorkPlan_AtStart(workPlans, workPlan);
 
 			minExecutions = minExecutions->next;
 		}
 
-		freeExecutions_List(&minExecutions);
+		cleanExecutions_List(&minExecutions);
 		jobs = jobs->next;
 	}
 
@@ -187,9 +187,9 @@ WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* execution
 
 
 /**
-* @brief	Obter o tempo total do plano
-* @param	head			Lista de planos de trabalhos
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Obter o tempo total do plano
+ * @param	head			Lista de planos de trabalhos
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 int getFullTimeOfPlan(WorkPlan* head)
 {

@@ -11,18 +11,20 @@
 
 #pragma region execuções
 
-ExecutionNode** loadExecutionsTable(char* fileName, ExecutionNode* table[]);
-ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
 ExecutionNode* createExecutionNode();
+ExecutionNode** createExecutionsTable(ExecutionNode* table[]);
 int generateHash(int id);
 ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new);
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime);
 bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operationID);
-bool writeExecutions_AtTable(char fileName[], ExecutionNode* table[]);
-ExecutionNode** readExecutions_AtTable(char fileName[], ExecutionNode* table[]);
+ExecutionNode** readExecutions_AtTable_Example(ExecutionNode* table[]);
+ExecutionNode** readExecutions_AtTable_Binary(char fileName[], ExecutionNode* table[]);
+ExecutionNode** readExecutions_AtTable_Text(char fileName[], ExecutionNode* table[]);
+bool writeExecutions_AtTable_Binary(char fileName[], ExecutionNode* table[]);
+bool writeExecutions_AtTable_Text(char fileName[], ExecutionNode* table[]);
 bool displayExecutions_AtTable(ExecutionNode* table[]);
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID);
-void freeExecutions_Table(ExecutionNode** table[]);
+bool cleanExecutions_Table(ExecutionNode** table[]);
 
 #pragma endregion
 

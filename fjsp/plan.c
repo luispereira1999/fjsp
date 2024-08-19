@@ -15,11 +15,11 @@
 #pragma region planos de produção para exportar para ficheiro
 
 /**
-* @brief	Criar uma nova célula para um plano
-* @param	jobID			Identificador do trabalho
-* @param	operationID		Identificador da operação
-* @param	currentTime		Tempo atual no plano
-* @return	Célula criada
+ * @brief	Criar uma nova célula para um plano
+ * @param	jobID			Identificador do trabalho
+ * @param	operationID		Identificador da operação
+ * @param	currentTime		Tempo atual no plano
+ * @return	Célula criada
 */
 Cell newCell(int jobID, int operationID, int currentTime)
 {
@@ -34,12 +34,12 @@ Cell newCell(int jobID, int operationID, int currentTime)
 
 
 /**
-* @brief	Iniciar um novo plano com todos as células vazias
-* @param	plan			Plano a ser iniciado
-* @param	jobID			Identificador do trabalho
-* @param	operationID		Identificador da operação
-* @param	currentTime		Tempo atual no plano
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Iniciar um novo plano com todos as células vazias
+ * @param	plan			Plano a ser iniciado
+ * @param	jobID			Identificador do trabalho
+ * @param	operationID		Identificador da operação
+ * @param	currentTime		Tempo atual no plano
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID, int currentTime)
 {
@@ -56,14 +56,14 @@ bool startPlan(Cell plan[][MAX_TIME], int jobID, int operationID, int currentTim
 
 
 /**
-* @brief	Preencher células do plano em um intervalo de tempo
-* @param	plan			Plano atual
-* @param	machineID		Identificador da máquina
-* @param	jobID			Identificador do trabalho
-* @param	operationID		Identificador da operação
-* @param	initialTime		Tempo inicial do intervalo
-* @param	finalTime		Tempo final do intervalo
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Preencher células do plano em um intervalo de tempo
+ * @param	plan			Plano atual
+ * @param	machineID		Identificador da máquina
+ * @param	jobID			Identificador do trabalho
+ * @param	operationID		Identificador da operação
+ * @param	initialTime		Tempo inicial do intervalo
+ * @param	finalTime		Tempo final do intervalo
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID, int initialTime, int finalTime)
 {
@@ -85,10 +85,10 @@ bool fillCells(Cell plan[][MAX_TIME], int machineID, int jobID, int operationID,
 
 
 /**
-* @brief	Obter última célula preenchida de uma máquina
-* @param	plan		Plano atual
-* @param	machineID	Identificador da máquina
-* @return	Célula obtida
+ * @brief	Obter última célula preenchida de uma máquina
+ * @param	plan		Plano atual
+ * @param	machineID	Identificador da máquina
+ * @return	Célula obtida
 */
 Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID)
 {
@@ -114,10 +114,10 @@ Cell getLastCellFilled_InMachine(Cell plan[][MAX_TIME], int machineID)
 
 
 /**
-* @brief	Obter última célula preenchida em relação a um trabalho
-* @param	plan		Plano atual
-* @param	machineID	Identificador do trabalho
-* @return	Célula obtida
+ * @brief	Obter última célula preenchida em relação a um trabalho
+ * @param	plan		Plano atual
+ * @param	machineID	Identificador do trabalho
+ * @return	Célula obtida
 */
 Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID)
 {
@@ -142,11 +142,11 @@ Cell getLastCellFilled_OfJob(Cell plan[][MAX_TIME], int jobID)
 
 
 /**
-* @brief	Preencher todas as células do plano relativamente a uma lista de planos de trabalhos
-* @param	plan			Plano atual
-* @param	workPlans		Lista de planos de trabalhos
-* @param	numberOfCells	Quantidade de células a preencher
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Preencher todas as células do plano relativamente a uma lista de planos de trabalhos
+ * @param	plan			Plano atual
+ * @param	workPlans		Lista de planos de trabalhos
+ * @param	numberOfCells	Quantidade de células a preencher
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans, int numberOfCells)
 {
@@ -185,12 +185,12 @@ bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans, int numberOfCells)
 
 
 /**
-* @brief	Procurar num intervalo de células do plano, se existem células ativas
-* @param	plan			Plano atual
-* @param	machineID		Identificador da máquina
-* @param	initialTime		Tempo inicial desta célula
-* @param	finalTime		Tempo final desta célula
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Procurar num intervalo de células do plano, se existem células ativas
+ * @param	plan			Plano atual
+ * @param	machineID		Identificador da máquina
+ * @param	initialTime		Tempo inicial desta célula
+ * @param	finalTime		Tempo final desta célula
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool searchActiveCells(Cell plan[][MAX_TIME], int machineID, int initialTime, int finalTime)
 {
@@ -207,12 +207,37 @@ bool searchActiveCells(Cell plan[][MAX_TIME], int machineID, int initialTime, in
 
 
 /**
-* @brief	Mostrar plano de escalonamento na consola
-* @param	plan	Plano a ser mostrado
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Mostrar plano de escalonamento na consola
+ * @param	plan	Plano a ser mostrado
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool displayPlan(Cell plan[][MAX_TIME])
 {
+	if (plan == NULL) {
+		return false;
+	}
+
+	bool hasData = false;
+
+	for (int i = 0; i < NUMBER_MACHINES; i++)
+	{
+		for (int j = 0; j < MAX_TIME; j++)
+		{
+			if (plan[i][j].jobID > -1 && plan[i][j].operationID > -1)
+			{
+				hasData = true;
+				break;
+			}
+		}
+		if (hasData) {
+			break;
+		}
+	}
+
+	if (!hasData) {
+		return false;
+	}
+
 	printf("\n");
 	for (int i = 0; i < NUMBER_MACHINES; i++)
 	{
@@ -240,13 +265,13 @@ bool displayPlan(Cell plan[][MAX_TIME])
 #pragma region planos de produção para exportar para ficheiro
 
 /**
-* @brief	Criar nova célula do plano que será exportada para um ficheiro
-* @param	machineID		Identificador da máquina
-* @param	jobID			Identificador do job
-* @param	operationID		Identificador da operação
-* @param	initialTime		Tempo inicial no plano de produção relativamente a esta operação
-* @param	finalTime		Tempo final no plano de produção relativamente a esta operação
-* @return	Nova célula
+ * @brief	Criar nova célula do plano que será exportada para um ficheiro
+ * @param	machineID		Identificador da máquina
+ * @param	jobID			Identificador do job
+ * @param	operationID		Identificador da operação
+ * @param	initialTime		Tempo inicial no plano de produção relativamente a esta operação
+ * @param	finalTime		Tempo final no plano de produção relativamente a esta operação
+ * @return	Nova célula
 */
 FileCell* newFileCell(int machineID, int jobID, int operationID, int initialTime, int finalTime)
 {
@@ -268,14 +293,14 @@ FileCell* newFileCell(int machineID, int jobID, int operationID, int initialTime
 
 
 /**
-* @brief	Inserir célula do plano no início da lista de células
-* @param	head	Lista de células do plano
-* @param	new		Nova célula do plano
-* @return	Lista de células do plano
+ * @brief	Inserir célula do plano no início da lista de células
+ * @param	head	Lista de células do plano
+ * @param	new		Nova célula do plano
+ * @return	Lista de células do plano
 */
 FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		head = new;
 	}
@@ -290,14 +315,14 @@ FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new)
 
 
 /**
-* @brief	Inserir célula ordenada por máquina, na lista de células
-* @param	head	Lista de células
-* @param	new		Nova célula
-* @return	Lista de células atualizada
+ * @brief	Inserir célula ordenada por máquina, na lista de células
+ * @param	head	Lista de células
+ * @param	new		Nova célula
+ * @return	Lista de células atualizada
 */
 FileCell* insertFileCell_ByMachine(FileCell* head, FileCell* new)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		head = new; // inserir no início
 	}
@@ -331,13 +356,13 @@ FileCell* insertFileCell_ByMachine(FileCell* head, FileCell* new)
 
 
 /**
-* @brief	Ordenar células por ordem crescente das máquinas
-* @param	head			Lista de células
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Ordenar células por ordem crescente das máquinas
+ * @param	head			Lista de células
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 FileCell* sortFileCells_ByMachine(FileCell* head)
 {
-	if (head == NULL) // se a lista estiver vazia
+	if (head == NULL)
 	{
 		return NULL;
 	}
@@ -358,9 +383,9 @@ FileCell* sortFileCells_ByMachine(FileCell* head)
 
 
 /**
-* @brief	Obter células de um plano, para depois serem exportadas para um ficheiro
-* @param	plan		Plano atual
-* @return	Células que serão exportadas
+ * @brief	Obter células de um plano, para depois serem exportadas para um ficheiro
+ * @param	plan		Plano atual
+ * @return	Células que serão exportadas
 */
 FileCell* getCellsToExport(Cell plan[][MAX_TIME])
 {
@@ -415,8 +440,8 @@ FileCell* getCellsToExport(Cell plan[][MAX_TIME])
 					cells = insertFileCell_AtStart(cells, cell);
 
 					equalCells = 0;
-					tempInitialTime == -1;
-					tempFinalTime == -1;
+					tempInitialTime = -1;
+					tempFinalTime = -1;
 				}
 			}
 		}
@@ -427,12 +452,12 @@ FileCell* getCellsToExport(Cell plan[][MAX_TIME])
 
 
 /**
-* @brief	Exportar plano para um ficheiro
-* @param	fileName	Nome do ficheiro onde será guardado as células
-* @param	head		Lista de células para exportar
-* @return	Booleano para o resultado da função (se funcionou ou não)
+ * @brief	Exportar plano para um ficheiro
+ * @param	fileName	Nome do ficheiro onde será guardado as células
+ * @param	head		Lista de células para exportar
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool exportPlan(char* fileName, FileCell* head)
+bool exportPlan(char fileName[], FileCell* head)
 {
 	if (head == NULL)
 	{
