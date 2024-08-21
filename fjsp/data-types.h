@@ -12,7 +12,7 @@
 #pragma region constantes
 
 // tamanho relativos às estruturas de dados
-#define HASH_TABLE_SIZE 1009
+#define HASH_TABLE_SIZE 31
 #define NUMBER_MACHINES 8
 #define NAME_SIZE 100
 #define MAX_TIME 32 // teste: 32 tempo mínimo para concluir 3 operações de cada 8 trabalhos para o plano pretendido
@@ -55,7 +55,7 @@ typedef enum bool
 */
 typedef struct Job
 {
-	int id;
+	int id; // valor único
 	char name[NAME_SIZE];
 	struct Job* next;
 } Job;
@@ -69,7 +69,7 @@ extern Job* jobs; // extern: informa o compilador que esta variável está definid
 */
 typedef struct Machine
 {
-	int id;
+	int id; // valor único
 	char name[NAME_SIZE];
 	struct Machine* next;
 } Machine;
@@ -83,7 +83,7 @@ extern Machine* machines;
 */
 typedef struct Operation
 {
-	int operationID;
+	int operationID; // valor único
 	int jobID;
 	int position; // posição da operação (se é a 1º, 2º, 3º... a ser executada)
 	char name[NAME_SIZE];

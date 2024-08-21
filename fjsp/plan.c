@@ -185,35 +185,14 @@ bool fillAllPlan(Cell plan[][MAX_TIME], WorkPlan* workPlans, int numberOfCells)
 
 
 /**
- * @brief	Procurar num intervalo de células do plano, se existem células ativas
- * @param	plan			Plano atual
- * @param	machineID		Identificador da máquina
- * @param	initialTime		Tempo inicial desta célula
- * @param	finalTime		Tempo final desta célula
- * @return	Booleano para o resultado da função (se funcionou ou não)
-*/
-bool searchActiveCells(Cell plan[][MAX_TIME], int machineID, int initialTime, int finalTime)
-{
-	for (int i = initialTime; i < finalTime; i++)
-	{
-		if (plan[machineID - 1][i].jobID > -1 || plan[machineID - 1][i].operationID > -1)
-		{
-			return true;
-		}
-	}
-
-	return false;
-}
-
-
-/**
  * @brief	Mostrar plano de escalonamento na consola
  * @param	plan	Plano a ser mostrado
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 bool displayPlan(Cell plan[][MAX_TIME])
 {
-	if (plan == NULL) {
+	if (plan == NULL)
+	{
 		return false;
 	}
 
@@ -229,12 +208,14 @@ bool displayPlan(Cell plan[][MAX_TIME])
 				break;
 			}
 		}
-		if (hasData) {
+		if (hasData)
+		{
 			break;
 		}
 	}
 
-	if (!hasData) {
+	if (!hasData)
+	{
 		return false;
 	}
 
@@ -257,6 +238,28 @@ bool displayPlan(Cell plan[][MAX_TIME])
 	printf("\n");
 
 	return true;
+}
+
+
+/**
+ * @brief	Procurar num intervalo de células do plano, se existem células ativas
+ * @param	plan			Plano atual
+ * @param	machineID		Identificador da máquina
+ * @param	initialTime		Tempo inicial desta célula
+ * @param	finalTime		Tempo final desta célula
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool searchActiveCells(Cell plan[][MAX_TIME], int machineID, int initialTime, int finalTime)
+{
+	for (int i = initialTime; i < finalTime; i++)
+	{
+		if (plan[machineID - 1][i].jobID > -1 || plan[machineID - 1][i].operationID > -1)
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 #pragma endregion
@@ -286,7 +289,7 @@ FileCell* newFileCell(int machineID, int jobID, int operationID, int initialTime
 	new->operationID = operationID;
 	new->initialTime = initialTime;
 	new->finalTime = finalTime;
-	new->next = NULL;
+	new->next = NULL; // o próximo elemento é associado na função insert
 
 	return new;
 }
@@ -296,7 +299,7 @@ FileCell* newFileCell(int machineID, int jobID, int operationID, int initialTime
  * @brief	Inserir célula do plano no início da lista de células
  * @param	head	Lista de células do plano
  * @param	new		Nova célula do plano
- * @return	Lista de células do plano
+ * @return	A lista de células do plano
 */
 FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new)
 {
@@ -318,7 +321,7 @@ FileCell* insertFileCell_AtStart(FileCell* head, FileCell* new)
  * @brief	Inserir célula ordenada por máquina, na lista de células
  * @param	head	Lista de células
  * @param	new		Nova célula
- * @return	Lista de células atualizada
+ * @return	A lista de células atualizada
 */
 FileCell* insertFileCell_ByMachine(FileCell* head, FileCell* new)
 {

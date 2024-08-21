@@ -33,7 +33,7 @@ WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, in
 	new->operationID = operationID;
 	new->runtime = runtime;
 	new->position = position;
-	new->next = NULL;
+	new->next = NULL; // o próximo elemento é associado na função insert
 
 	return new;
 }
@@ -43,7 +43,7 @@ WorkPlan* newWorkPlan(int jobID, int operationID, int machineID, int runtime, in
  * @brief	Inserir no plano de trabalho no início da lista de operações
  * @param	head	Lista de planos de trabalhos
  * @param	new		Nova plano de trabalho
- * @return	Lista de planos de trabalhos
+ * @return	A lista de planos de trabalhos
 */
 WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new)
 {
@@ -65,7 +65,7 @@ WorkPlan* insertWorkPlan_AtStart(WorkPlan* head, WorkPlan* new)
  * @brief	Inserir plano de trabalho ordenado pelo posição das operações num job na lista de planos de trabalhos
  * @param	head	Lista de planos de trabalhos
  * @param	new		Novo plano de trabalho
- * @return	Lista de planos de trabalhos atualizada
+ * @return	A lista de planos de trabalhos atualizada
 */
 WorkPlan* insertWorkPlan_ByJob_AtList(WorkPlan* head, WorkPlan* new)
 {

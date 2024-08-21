@@ -13,11 +13,11 @@
 
 /**
  * @brief	Criar nova máquina
- * @param	id		Identificador da máquina
+ * @param	head	Lista de máquinas
  * @param	name	Nome da máquina
  * @return	Nova máquina
 */
-Machine* newMachine(int id, const char* name)
+Machine* newMachine(Machine* head, const char* name)
 {
 	Machine* new = (Machine*)malloc(sizeof(Machine));
 	if (new == NULL) // se não houver memória para alocar
@@ -25,10 +25,12 @@ Machine* newMachine(int id, const char* name)
 		return NULL;
 	}
 
-	new->id = id;
+	int nextId = countMachines(head) + 1;
+
+	new->id = nextId;
 	strncpy(new->name, name, NAME_SIZE - 1);
 	new->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
-	new->next = NULL;
+	new->next = NULL; // o próximo elemento é associado na função insert
 
 	return new;
 }
@@ -38,7 +40,7 @@ Machine* newMachine(int id, const char* name)
  * @brief	Inserir nova máquina no início da lista de máquinas
  * @param	head	Lista de máquinas
  * @param	new		Nova máquina
- * @return	Lista de máquinas atualizada
+ * @return	A lista de máquinas atualizada
 */
 Machine* insertMachine_AtStart(Machine* head, Machine* new)
 {
@@ -62,6 +64,83 @@ Machine* insertMachine_AtStart(Machine* head, Machine* new)
 
 
 /**
+ * @brief	Atualizar o nome de uma máquina existente
+ * @param	head		Apontador para a lista de máquinas
+ * @param	id			Identificador da máquina a ser atualizada
+ * @param	newName		Novo nome para a máquina
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool updateMachine(Machine* head[], int id, const char* newName)
+{
+	if (head == NULL || *head == NULL)
+	{
+		return false;
+	}
+
+	if (!searchMachine(head, id)) // se a máquina não existir
+	{
+		return false;
+	}
+
+	Machine* current = head;
+
+	while (current != NULL)
+	{
+		if (current->id == id)
+		{
+			strncpy(current->name, newName, NAME_SIZE - 1);
+			current->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
+		}
+
+		current = current->next;
+	}
+
+	return true;
+}
+
+
+/**
+ * @brief	Remover uma máquina da lista de máquinas
+ * @param	head	Apontador para a lista de máquinas
+ * @param	id		Identificador da máquina
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool deleteMachine(Machine* head[], int id)
+{
+	if (head == NULL || *head == NULL)
+	{
+		return false;
+	}
+
+	Machine* current = *head;
+	Machine* previous = NULL;
+
+	if (current != NULL && current->id == id) // se o elemento que será apagado é o primeiro da lista
+	{
+		*head = current->next;
+		free(current);
+		return true;
+	}
+
+	while (current != NULL && current->id != id) // procurar o elemento a ser apagado
+	{
+		previous = current;
+		current = current->next;
+	}
+
+	if (current == NULL) // se o elemento não foi encontrado
+	{
+		return false;
+	}
+
+	previous->next = current->next; // desassociar o elemento da lista
+	free(current);
+
+	return true;
+}
+
+
+/**
  * @brief	Ler lista de máquinas a partir do código
  * @return	A lista de máquinas
 */
@@ -70,13 +149,13 @@ Machine* readMachines_Example()
 	Machine* machines = NULL;
 	Machine* machine = NULL;
 
-	machine = newMachine(1, "Máquina 1");
+	machine = newMachine(machines, "Máquina 1");
 	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(2, "Máquina 2");
+	machine = newMachine(machines, "Máquina 2");
 	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(3, "Máquina 3");
+	machine = newMachine(machines, "Máquina 3");
 	machines = insertMachine_AtStart(machines, machine);
-	machine = newMachine(4, "Máquina 4");
+	machine = newMachine(machines, "Máquina 4");
 	machines = insertMachine_AtStart(machines, machine);
 
 	return machines;
@@ -86,7 +165,7 @@ Machine* readMachines_Example()
 /**
  * @brief	Ler lista de máquinas de ficheiro binário
  * @param	fileName	Nome do ficheiro para ler a lista
- * @return	Lista de máquinas
+ * @return	A lista de máquinas
 */
 Machine* readMachines_Binary(char fileName[])
 {
@@ -102,7 +181,7 @@ Machine* readMachines_Binary(char fileName[])
 
 	while (fread(&currentInFile, sizeof(FileMachine), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
-		current = newMachine(currentInFile.id, currentInFile.name);
+		current = newMachine(head, currentInFile.name);
 		head = insertMachine_AtStart(head, current);
 	}
 
@@ -146,9 +225,9 @@ Machine* readMachines_Text(char fileName[])
 			machine->id = id;
 			strncpy(machine->name, name, NAME_SIZE - 1);
 			machine->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
-			machine->next = machines;
+			machine->next = NULL;
 
-			machines = machine;
+			machines = insertMachine_AtStart(machines, machine);
 		}
 	}
 
@@ -285,23 +364,49 @@ bool searchMachine(Machine* head, int id)
 
 
 /**
- * @brief	Limpar a lista de máquinas da memória
+ * @brief	Contar o número de máquinas existentes na lista de máquinas
  * @param	head	Lista de máquinas
+ * @return	Quantidade de máquinas
 */
-bool cleanMachines(Machine** head)
+int countMachines(Machine* head)
 {
-	if (head != NULL && *head != NULL)
+	if (head == NULL)
 	{
-		Machine* current;
+		return 0;
+	}
 
-		while (*head)
-		{
-			current = *head;
-			*head = (*head)->next;
-			free(current);
-		}
+	Machine* current = head;
+	int counter = 0;
 
-		return true;
+	while (current != NULL)
+	{
+		counter++;
+		current = current->next;
+	}
+
+	return counter;
+}
+
+
+/**
+ * @brief	Limpar a lista de máquinas da memória
+ * @param	head	Apontador para a lista de máquinas
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool cleanMachines(Machine* head[])
+{
+	if (head == NULL || *head == NULL)
+	{
+		return false;
+	}
+
+	Machine* current;
+
+	while (*head != NULL)
+	{
+		current = *head;
+		*head = (*head)->next;
+		free(current);
 	}
 
 	return false;

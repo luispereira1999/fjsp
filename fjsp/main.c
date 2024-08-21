@@ -35,7 +35,7 @@ int main()
 	// tabela hash das execuções
 	// { NULL } - todos os elementos (ponteiros) da tabela são NULL
 	ExecutionNode* executionsTable[HASH_TABLE_SIZE] = { NULL };
-
+	
 	// matriz do plano de produção
 	Cell plan[NUMBER_MACHINES][MAX_TIME];
 
@@ -53,16 +53,17 @@ int main()
 		printf("   4 -> Remover todos os dados\n");
 		printf("   5 -> Proposta de escalonamento\n");
 		printf("   6 -> Inserir uma máquina\n");
-		printf("   7 -> Atualizar uma máquina\n");
+		printf("   7 -> Atualizar nome de uma máquina\n");
 		printf("   8 -> Remover uma máquina\n");
 		printf("   9 -> Inserir um trabalho\n");
-		printf("   10 -> Atualizar um trabalho\n");
+		printf("   10 -> Atualizar nome de um trabalho\n");
 		printf("   11 -> Remover um trabalho\n");
 		printf("   12 -> Inserir uma operação\n");
-		printf("   13 -> Atualizar uma operação\n");
-		printf("   14 -> Remover uma operação\n");
-		printf("   15 -> Guardar dados\n");
-		printf("   16 -> Sobre\n\n");
+		printf("   13 -> Atualizar nome de uma operação\n");
+		printf("   14 -> Trocar posição de 2 operações\n");
+		printf("   15 -> Remover uma operação\n");
+		printf("   16 -> Guardar dados\n");
+		printf("   17 -> Sobre\n\n");
 		printf("   © Luís Pereira | 2022\n\n");
 		printf("--------------------------------------\n");
 		printf("Escolha uma das opções acima: ");
@@ -88,7 +89,7 @@ int main()
 				cleanMachines(&machines);
 				cleanOperations(&operations);
 				cleanExecutions_Table(&executionsTable);
-				// FALTA WORK PLANS
+				// FALTA WORK PLANS ?
 
 				// carregar listas em memória a partir de dados em código
 				jobs = readJobs_Example();
@@ -97,14 +98,6 @@ int main()
 
 				// carregar tabela hash em memória a partir de dados em código
 				*executionsTable = readExecutions_AtTable_Example(executionsTable);
-
-				// carregar listas em memória a partir de ficheiros binários
-				// jobs = readJobs_Binary(JOBS_FILENAME_BINARY);
-				// machines = readMachines_Binary(MACHINES_FILENAME_BINARY);
-				// operations = readOperations_Binary(OPERATIONS_FILENAME_BINARY);
-
-				// carregar tabela hash em memória a partir de um ficheiro binário
-				// *executionsTable = readExecutions_AtTable_Binary(EXECUTIONS_FILENAME_BINARY, executionsTable);
 
 				printf("Dados carregados em memória com sucesso!\n");
 #pragma endregion
@@ -119,7 +112,7 @@ int main()
 				cleanMachines(&machines);
 				cleanOperations(&operations);
 				cleanExecutions_Table(&executionsTable);
-				// FALTA WORK PLANS
+				// FALTA WORK PLANS ?
 
 				// carregar listas em memória a partir de ficheiros .csv
 				jobs = readJobs_Text(JOBS_FILENAME_TEXT);
@@ -128,6 +121,14 @@ int main()
 
 				// carregar tabela hash em memória a partir de um ficheiro .csv
 				*executionsTable = readExecutions_AtTable_Text(EXECUTIONS_FILENAME_TEXT, executionsTable);
+
+				// carregar listas em memória a partir de ficheiros binários
+				//jobs = readJobs_Binary(JOBS_FILENAME_BINARY);
+				//machines = readMachines_Binary(MACHINES_FILENAME_BINARY);
+				//operations = readOperations_Binary(OPERATIONS_FILENAME_BINARY);
+
+				// carregar tabela hash em memória a partir de um ficheiro binário
+				//*executionsTable = readExecutions_AtTable_Binary(EXECUTIONS_FILENAME_BINARY, executionsTable);
 
 				printf("Dados carregados com sucesso!\n");
 #pragma endregion
@@ -139,32 +140,32 @@ int main()
 
 				// mostrar dados na consola
 				printf("Trabalhos:\n");
-				bool hasJobs = displayJobs(jobs);
-				if (!hasJobs) {
+				if (!displayJobs(jobs))
+				{
 					printf("Não existem trabalhos.\n");
 				}
 
 				printf("Máquinas:\n");
-				bool hasMachines = displayMachines(machines);
-				if (!hasMachines) {
+				if (!displayMachines(machines))
+				{
 					printf("Não existem máquinas.\n");
 				}
 
 				printf("Operações:\n");
-				bool hasOperations = displayOperations(operations);
-				if (!hasOperations) {
+				if (!displayOperations(operations))
+				{
 					printf("Não existem execuções de operações.\n");
 				}
 
 				printf("Execuções de Operações:\n");
-				bool hasExecutions = displayExecutions_AtTable(executionsTable);
-				if (!hasExecutions) {
+				if (!displayExecutions_AtTable(executionsTable))
+				{
 					printf("Não existem execuções de operações.\n");
 				}
 
 				printf("Plano de escalonamento:\n");
-				bool hasPlan = displayPlan(plan);
-				if (!hasPlan) {
+				if (!displayPlan(plan))
+				{
 					printf("Não existe um plano de escalonamento.\n");
 				}
 #pragma endregion
@@ -179,7 +180,7 @@ int main()
 				cleanMachines(&machines);
 				cleanOperations(&operations);
 				cleanExecutions_Table(&executionsTable);
-				// FALTA WORK PLANS
+				// FALTA WORK PLANS ?
 
 				printf("Dados removidos com sucesso!\n");
 #pragma endregion
@@ -225,7 +226,7 @@ int main()
 				printf("-> Opção 6. Inserir uma máquina\n");
 
 				Machine* machine = NULL;
-				machine = newMachine(5, "Trabalho 5");
+				machine = newMachine(machines, "Trabalho 5");
 				machines = insertMachine_AtStart(machines, machine);
 
 				printf("Máquina adicionada com sucesso!\n");
@@ -233,14 +234,36 @@ int main()
 				break;
 
 			case 7:
-#pragma region opção 7: atualizar uma máquina
-				printf("-> Opção 7. Atualizar uma máquina\n");
+#pragma region opção 7: atualizar nome de uma máquina
+				printf("-> Opção 7. Atualizar nome de uma máquina\n");
+
+				if (!updateMachine(machines, 1, "Máquina A"))
+				{
+					printf("Não foi possível atualizar a máquina.");
+				}
+
+				printf("Máquina atualizada com sucesso!\n");
 #pragma endregion
 				break;
 
 			case 8:
 #pragma region opção 8: remover uma máquina
 				printf("-> Opção 8. Remover uma máquina\n");
+
+				int machineToDelete = 3;
+
+				// remover máquina
+				if (deleteMachine(&machines, machineToDelete))
+				{
+					printf("Máquina removida com sucesso!\n");
+
+					// remover todas as execuções de operações associadas à máquina
+					deleteExecutions_ByMachine_AtTable(executionsTable, machineToDelete);
+					printf("Execuções de operações associadas à máquina removidas com sucesso!\n");
+				}
+				else {
+					printf("Não foi possível remover a máquina.\n");
+				}
 #pragma endregion
 				break;
 
@@ -249,7 +272,7 @@ int main()
 				printf("-> Opção 9. Inserir um trabalho\n");
 
 				Job* job = NULL;
-				job = newJob(5, "Trabalho 5");
+				job = newJob(jobs, "Trabalho 5");
 				jobs = insertJob_AtStart(jobs, job);
 
 				printf("Trabalho adicionado com sucesso!\n");
@@ -257,8 +280,15 @@ int main()
 				break;
 
 			case 10:
-#pragma region opção 10: atualizar um trabalho
-				printf("-> Opção 10. Atualizar um trabalho\n");
+#pragma region opção 10: atualizar nome de um trabalho
+				printf("-> Opção 10. Atualizar nome de um trabalho\n");
+
+				if (!updateJob(jobs, 2, "Trabalho A"))
+				{
+					printf("Não foi possível atualizar o trabalho.");
+				}
+
+				printf("Trabalho atualizado com sucesso!\n");
 #pragma endregion
 				break;
 
@@ -266,21 +296,28 @@ int main()
 #pragma region opção 11: remover um trabalho
 				printf("-> Opção 11. Remover um trabalho\n");
 
+				int jobToDelete = 3;
+
 				// remover trabalho
-				deleteJob(&jobs, 3);
-				printf("trabalho removido com sucesso!\n");
+				if (deleteJob(&jobs, jobToDelete))
+				{
+					printf("Trabalho removido com sucesso!\n");
 
-				int operationDeleted = 0;
+					int operationDeletedID = 0;
 
-				do {
-					// remover as operações associadas ao jobs
-					operationDeleted = deleteOperation_ByJob(&operations, 3);
-					printf("Operações associadas ao trabalho removida com sucesso!\n");
+					do {
+						// remover as operações associadas ao trabalho
+						operationDeletedID = deleteOperation_ByJob(&operations, 3);
+						printf("Operações associadas ao trabalho removida com sucesso!\n");
 
-					// remover as execuções associadas a cada operação
-					deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeleted);
-					printf("Execuções associadas à operação removidas com sucesso!\n");
-				} while (operationDeleted != -1);
+						// remover as execuções de operações associadas a cada operação
+						deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeletedID);
+						printf("Execuções de Operações associadas à operação removidas com sucesso!\n");
+					} while (operationDeletedID != -1);
+				}
+				else {
+					printf("Não foi possível remover o trabalho.\n");
+				}
 #pragma endregion
 				break;
 
@@ -290,12 +327,12 @@ int main()
 
 				// inserir nova operação
 				Operation* operation = NULL;
-				operation = newOperation(39, 2, 8, "Operação X");
+				operation = newOperation(17, 2, 8, "Operação X");
 				operations = insertOperation_AtStart(operations, operation);
 
 				// inserir nova execução de uma operação
 				Execution* execution = NULL;
-				execution = newExecution(39, 5, 17);
+				execution = newExecution(17, 5, 17);
 				*executionsTable = insertExecution_AtTable(executionsTable, execution);
 
 				printf("Novos dados guardados com sucesso!\n");
@@ -303,8 +340,21 @@ int main()
 				break;
 
 			case 13:
-#pragma region opção 13: atualizar uma operação
-				printf("-> Opção 13. Atualizar uma operação\n");
+#pragma region opção 13: atualizar nome de uma opereção
+				printf("-> Opção 13. Atualizar nome de uma opereção\n");
+
+				if (!updateOperation_Name(operations, 2, "Opereção A"))
+				{
+					printf("Não foi possível atualizar a opereção.");
+				}
+
+				printf("Opereção atualizada com sucesso!\n");
+#pragma endregion
+				break;
+
+			case 14:
+#pragma region opção 14: trocar posição de 2 operações
+				printf("-> Opção 14. Trocar posição de 2 operações\n");
 
 				// trocar a posição de uma operação pela outra e, vice-versa
 				updateOperation_Position(&operations, 2, 4);
@@ -315,9 +365,9 @@ int main()
 #pragma endregion
 				break;
 
-			case 14:
-#pragma region opção 14: remover uma operação
-				printf("-> Opção 14. Remover uma operação\n");
+			case 15:
+#pragma region opção 15: remover uma operação
+				printf("-> Opção 15. Remover uma operação\n");
 
 				// remover operação
 				deleteOperation(&operations, 35);
@@ -329,9 +379,9 @@ int main()
 #pragma endregion
 				break;
 
-			case 15:
-#pragma region opção 15: guardar dados
-				printf("-> Opção 15. Guardar dados\n");
+			case 16:
+#pragma region opção 16: guardar dados
+				printf("-> Opção 16. Guardar dados\n");
 
 				// guardar os dados em ficheiros .csv
 				writeJobs_Text(JOBS_FILENAME_TEXT, jobs);
@@ -340,18 +390,18 @@ int main()
 				writeExecutions_AtTable_Text(EXECUTIONS_FILENAME_TEXT, executionsTable);
 
 				// guardar os dados em ficheiros binários
-				// writeJobs_Binary(JOBS_FILENAME_BINARY, jobs);
-				// writeMachines_Binary(MACHINES_FILENAME_BINARY, machines);
-				// writeOperations_Binary(OPERATIONS_FILENAME_BINARY, operations);
-				// writeExecutions_AtTable_Binary(EXECUTIONS_FILENAME_BINARY, executionsTable);
+				//writeJobs_Binary(JOBS_FILENAME_BINARY, jobs);
+				//writeMachines_Binary(MACHINES_FILENAME_BINARY, machines);
+				//writeOperations_Binary(OPERATIONS_FILENAME_BINARY, operations);
+				//writeExecutions_AtTable_Binary(EXECUTIONS_FILENAME_BINARY, executionsTable);
 
 				printf("Dados guardados com sucesso!\n");
 #pragma endregion
 				break;
 
-			case 16:
-#pragma region opção 16: sobre
-				printf("-> Opção 16. Sobre\n");
+			case 17:
+#pragma region opção 17: sobre
+				printf("-> Opção 17. Sobre\n");
 
 				printf("Flexible Job Shop Problem - Solução de escalonamento para minimizar o tempo necessário na produção de um determinado produto numa fábrica, que envolve várias operações e a utilização de várias máquinas e seus colaboradores.\n");
 				printf("Neste contexto, um trabalho refere-se a... e uma operação a...\n");
@@ -367,6 +417,13 @@ int main()
 
 		printf("\n");
 	} while (true);
+
+	// libertar memória das estruturas dinâmicas antes de fechar o programa
+	cleanJobs(&jobs);
+	cleanMachines(&machines);
+	cleanOperations(&operations);
+	cleanExecutions_Table(&executionsTable);
+	// FALTA WORK PLANS ?
 
 	return true;
 }

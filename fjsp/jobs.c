@@ -14,10 +14,10 @@
 /**
  * @brief	Criar novo trabalho
  * @param	id		Identificador do trabalho
- * @param	name	Nome da trabalho
+ * @param	name	Nome do trabalho
  * @return	Novo trabalho
 */
-Job* newJob(int id, const char* name)
+Job* newJob(Job* head, const char* name)
 {
 	Job* new = (Job*)malloc(sizeof(Job));
 	if (new == NULL) // se não houver memória para alocar
@@ -25,10 +25,12 @@ Job* newJob(int id, const char* name)
 		return NULL;
 	}
 
-	new->id = id;
+	int nextId = countJobs(head) + 1;
+
+	new->id = nextId;
 	strncpy(new->name, name, NAME_SIZE - 1);
 	new->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
-	new->next = NULL;
+	new->next = NULL; // o próximo elemento é associado na função insert
 
 	return new;
 }
@@ -38,7 +40,7 @@ Job* newJob(int id, const char* name)
  * @brief	Inserir novo trabalho no início da lista de trabalhos
  * @param	head	Lista de trabalhos
  * @param	new		Novo trabalho
- * @return	Lista de trabalhos atualizada
+ * @return	A lista de trabalhos atualizada
 */
 Job* insertJob_AtStart(Job* head, Job* new)
 {
@@ -62,53 +64,39 @@ Job* insertJob_AtStart(Job* head, Job* new)
 
 
 /**
- * @brief	Atualizar a posição de um trabalho X pela posição de um trabalho Y, e vice-versa
- * @param	head			Apontador para a lista de execuções de operações
- * @param	xOperationID	Identificador de uma operação qualquer X
- * @param	yOperationID	Identificador de uma operação qualquer Y
+ * @brief	Atualizar o nome de um trabalho existente
+ * @param	head		Apontador para a lista de trabalhos
+ * @param	id			Identificador do trabalho a ser atualizado
+ * @param	newName		Novo nome para o trabalho
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-//bool updateJob(Job** head, int xJobID, int yJobID)
-//{
-//	if (*head == NULL)
-//	{
-//		return false;
-//	}
-//
-//	if (xJobID == yJobID) // se forem iguais
-//	{
-//		return false;
-//	}
-//
-//	Job* xJob = NULL;
-//	Job* yJob = NULL;
-//
-//	xJob = getOperation(*head, xJobID);
-//	yJob = getOperation(*head, yJobID);
-//
-//	if (xJob == NULL || yJob == NULL) // se os trabalhos não foram encontrados
-//	{
-//		return false;
-//	}
-//
-//	Job* current = *head;
-//
-//	while (current != NULL)
-//	{
-//		if (current->id == xOperation->id) // trocar a posição da operação X pela posição da operação Y
-//		{
-//			current->position = yOperation->position;
-//		}
-//		if (current->id == yOperation->id) // trocar a posição da operação Y pela posição da operação X
-//		{
-//			current->position = xOperation->position;
-//		}
-//
-//		current = current->next;
-//	}
-//
-//	return true;
-//}
+bool updateJob(Job* head[], int id, const char* newName)
+{
+	if (head == NULL || *head == NULL)
+	{
+		return false;
+	}
+
+	if (!searchMachine(head, id)) // se a máquina não existir
+	{
+		return false;
+	}
+
+	Job* current = head;
+
+	while (current != NULL)
+	{
+		if (current->id == id)
+		{
+			strncpy(current->name, newName, NAME_SIZE - 1);
+			current->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
+		}
+
+		current = current->next;
+	}
+
+	return true;
+}
 
 
 /**
@@ -117,9 +105,9 @@ Job* insertJob_AtStart(Job* head, Job* new)
  * @param	id		Identificador do trabalho
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool deleteJob(Job** head, int id)
+bool deleteJob(Job* head[], int id)
 {
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 	{
 		return false;
 	}
@@ -127,7 +115,8 @@ bool deleteJob(Job** head, int id)
 	Job* current = *head;
 	Job* previous = NULL;
 
-	if (current != NULL && current->id == id) { // se o elemento que será apagado é o primeiro da lista
+	if (current != NULL && current->id == id) // se o elemento que será apagado é o primeiro da lista
+	{
 		*head = current->next;
 		free(current);
 		return true;
@@ -160,13 +149,13 @@ Job* readJobs_Example()
 	Job* jobs = NULL;
 	Job* job = NULL;
 
-	job = newJob(1, "Trabalho 1");
+	job = newJob(jobs, "Trabalho 1");
 	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(2, "Trabalhço 2");
+	job = newJob(jobs, "Trabalho 2");
 	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(3, "Trabalhéo 3");
+	job = newJob(jobs, "Trabalho 3");
 	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(4, "Trabalhºo 4");
+	job = newJob(jobs, "Trabalho 4");
 	jobs = insertJob_AtStart(jobs, job);
 
 	return jobs;
@@ -176,7 +165,7 @@ Job* readJobs_Example()
 /**
  * @brief	Ler lista de trabalhos de ficheiro binário
  * @param	fileName	Nome do ficheiro para ler a lista
- * @return	Lista de trabalhos
+ * @return	A lista de trabalhos
 */
 Job* readJobs_Binary(char fileName[])
 {
@@ -192,7 +181,7 @@ Job* readJobs_Binary(char fileName[])
 
 	while (fread(&currentInFile, sizeof(FileJob), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
-		current = newJob(currentInFile.id, currentInFile.name);
+		current = newJob(head, currentInFile.name);
 		head = insertJob_AtStart(head, current);
 	}
 
@@ -236,9 +225,9 @@ Job* readJobs_Text(char fileName[])
 			job->id = id;
 			strncpy(job->name, name, NAME_SIZE - 1);
 			job->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
-			job->next = jobs;
-		
-			jobs = job;
+			job->next = NULL;
+
+			jobs = insertJob_AtStart(jobs, job);
 		}
 	}
 
@@ -375,15 +364,15 @@ bool searchJob(Job* head, int id)
 
 
 /**
- * @brief	Obter a quantidade de trabalhos totais
+ * @brief	Contar o número de trabalhos existentes na lista de trabalhos
  * @param	head	Lista de trabalhos
- * @return	Número de trabalhos
+ * @return	Quantidade de trabalhos
 */
 int countJobs(Job* head)
 {
 	if (head == NULL)
 	{
-		return -1;
+		return 0;
 	}
 
 	Job* current = head;
@@ -401,22 +390,23 @@ int countJobs(Job* head)
 
 /**
  * @brief	Limpar a lista de trabalhos da memória
- * @param	head	Lista de trabalhos
+ * @param	head	Apontador para a lista de trabalhos
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool cleanJobs(Job** head)
+bool cleanJobs(Job* head[])
 {
-	if (head != NULL && *head != NULL)
+	if (head == NULL || *head == NULL)
 	{
-		Job* current;
+		return false;
+	}
 
-		while (*head)
-		{
-			current = *head;
-			*head = (*head)->next;
-			free(current);
-		}
+	Job* current;
 
-		return true;
+	while (*head != NULL)
+	{
+		current = *head;
+		*head = (*head)->next;
+		free(current);
 	}
 
 	return false;

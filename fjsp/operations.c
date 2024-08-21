@@ -32,7 +32,7 @@ Operation* newOperation(int operationID, int jobID, int position, const char* na
 	new->position = position;
 	strncpy(new->name, name, NAME_SIZE - 1);
 	new->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
-	new->next = NULL;
+	new->next = NULL; // o próximo elemento é associado na função insert
 
 	return new;
 }
@@ -42,7 +42,7 @@ Operation* newOperation(int operationID, int jobID, int position, const char* na
  * @brief	Inserir nova operação no início da lista de operações
  * @param	head	Lista de operações
  * @param	new		Nova operação
- * @return	Lista de operações atualizada
+ * @return	A lista de operações atualizada
 */
 Operation* insertOperation_AtStart(Operation* head, Operation* new)
 {
@@ -66,15 +66,52 @@ Operation* insertOperation_AtStart(Operation* head, Operation* new)
 
 
 /**
+ * @brief	Atualizar o nome de uma operação existente
+ * @param	head			Apontador para a lista de operações
+ * @param	operationID		Identificador da operação a ser atualizada
+ * @param	jobID			Identificador da máquina a ser atualizada
+ * @param	newName			Novo nome para a operação
+ * @return	Booleano para o resultado da função (se funcionou ou não)
+*/
+bool updateOperation_Name(Operation* head[], int operationID, const char* newName)
+{
+	if (head == NULL || *head == NULL)
+	{
+		return false;
+	}
+
+	if (!searchOperation(head, operationID)) // se a máquina não existir
+	{
+		return false;
+	}
+
+	Operation* current = head;
+
+	while (current != NULL)
+	{
+		if (current->operationID == operationID)
+		{
+			strncpy(current->name, newName, NAME_SIZE - 1);
+			current->name[NAME_SIZE - 1] = '\0'; // assegura que o nome termina com '\0'
+		}
+
+		current = current->next;
+	}
+
+	return true;
+}
+
+
+/**
  * @brief	Atualizar a posição de uma operação X pela posição de uma operação Y e, vice-versa
- * @param	head			Apontador para a lista de execuções de operações
+ * @param	head			Apontador para a lista de operações
  * @param	xOperationID	Identificador de uma operação qualquer X
  * @param	yOperationID	Identificador de uma operação qualquer Y
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool updateOperation_Position(Operation** head, int xOperationID, int yOperationID)
+bool updateOperation_Position(Operation* head[], int xOperationID, int yOperationID)
 {
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 	{
 		return false;
 	}
@@ -121,9 +158,9 @@ bool updateOperation_Position(Operation** head, int xOperationID, int yOperation
  * @param	operationID		Identificador da operação
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool deleteOperation(Operation** head, int operationID)
+bool deleteOperation(Operation* head[], int operationID)
 {
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 	{
 		return false;
 	}
@@ -131,7 +168,8 @@ bool deleteOperation(Operation** head, int operationID)
 	Operation* current = *head;
 	Operation* previous = NULL;
 
-	if (current != NULL && current->operationID == operationID) { // se o elemento que será apagado é o primeiro da lista
+	if (current != NULL && current->operationID == operationID) // se o elemento que será apagado é o primeiro da lista
+	{
 		*head = current->next;
 		free(current);
 		return true;
@@ -161,9 +199,9 @@ bool deleteOperation(Operation** head, int operationID)
  * @param	jobID			Identificador do trabalho
  * @return	Inteiro com o identificador da operação removida
 */
-int deleteOperation_ByJob(Operation** head, int jobID)
+int deleteOperation_ByJob(Operation* head[], int jobID)
 {
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 	{
 		return -1;
 	}
@@ -172,7 +210,8 @@ int deleteOperation_ByJob(Operation** head, int jobID)
 	Operation* previous = NULL;
 	int operationDeleted = 0;
 
-	if (current != NULL && current->jobID == jobID) { // se o elemento que será apagado é o primeiro da lista
+	if (current != NULL && current->jobID == jobID) // se o elemento que será apagado é o primeiro da lista
+	{
 		operationDeleted = current->operationID;
 		*head = current->next;
 		free(current);
@@ -217,7 +256,7 @@ Operation* readOperations_Example()
 	operations = insertOperation_AtStart(operations, operation);
 	operation = newOperation(4, 1, 4, "Operação J1-04");
 	operations = insertOperation_AtStart(operations, operation);
-	
+
 	// operações para o trabalho 2
 	operation = newOperation(5, 2, 1, "Operação J2-01");
 	operations = insertOperation_AtStart(operations, operation);
@@ -227,13 +266,13 @@ Operation* readOperations_Example()
 	operations = insertOperation_AtStart(operations, operation);
 	operation = newOperation(8, 2, 4, "Operação J2-04");
 	operations = insertOperation_AtStart(operations, operation);
-	
+
 	// operações para o trabalho 3
 	operation = newOperation(12, 3, 1, "Operação J3-01");
 	operations = insertOperation_AtStart(operations, operation);
 	operation = newOperation(13, 3, 2, "Operação J3-02");
 	operations = insertOperation_AtStart(operations, operation);
-	
+
 	// operações para o trabalho 4
 	operation = newOperation(14, 4, 1, "Operação J4-01");
 	operations = insertOperation_AtStart(operations, operation);
@@ -242,14 +281,14 @@ Operation* readOperations_Example()
 	operation = newOperation(16, 4, 3, "Operação J4-03");
 	operations = insertOperation_AtStart(operations, operation);
 
-	return operations; // 13 operações
+	return operations; // 16 operações
 }
 
 
 /**
  * @brief	Ler lista de operações de ficheiro binário
  * @param	fileName	Nome do ficheiro para ler a lista
- * @return	Lista de operações
+ * @return	A lista de operações
 */
 Operation* readOperations_Binary(char fileName[])
 {
@@ -278,7 +317,7 @@ Operation* readOperations_Binary(char fileName[])
 /**
  * @brief	Carrega dados dos operações de um ficheiro .csv para uma lista em memória
  * @param	fileName	Nome do ficheiro
- * @return	A lista de operações do ficheiro .csv
+ * @return	A lista de operações
 */
 Operation* readOperations_Text(char fileName[])
 {
@@ -401,7 +440,6 @@ bool writeOperations_Text(char fileName[], Operation* head)
 }
 
 
-
 /**
  * @brief	Mostrar a lista de operações na consola
  * @param	head	Lista de operações
@@ -447,6 +485,7 @@ bool searchOperation(Operation* head, int operationID)
 		{
 			return true;
 		}
+
 		current = current->next;
 	}
 
@@ -667,22 +706,23 @@ float getAverageTime_ToCompleteOperation(Execution* head, int operationID)
 
 /**
  * @brief	Limpar a lista de operações da memória
- * @param	head	Lista de operações
+ * @param	head	Apontador para a lista de operações
+ * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool cleanOperations(Operation** head)
+bool cleanOperations(Operation* head[])
 {
-	if (head != NULL && *head != NULL)
+	if (head == NULL || *head == NULL)
 	{
-		Operation* current;
+		return false;
+	}
 
-		while (*head)
-		{
-			current = *head;
-			*head = (*head)->next;
-			free(current);
-		}
+	Operation* current;
 
-		return true;
+	while (*head != NULL)
+	{
+		current = *head;
+		*head = (*head)->next;
+		free(current);
 	}
 
 	return false;
