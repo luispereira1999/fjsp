@@ -19,7 +19,7 @@
  * @param	name			Nome da operação
  * @return	Nova operação
 */
-Operation* newOperation(int operationID, int jobID, int position, const char* name)
+Operation* newOperation(Operation* head, int jobID, int position, const char* name)
 {
 	Operation* new = (Operation*)malloc(sizeof(Operation));
 	if (new == NULL) // se não houver memória para alocar
@@ -27,7 +27,9 @@ Operation* newOperation(int operationID, int jobID, int position, const char* na
 		return NULL;
 	}
 
-	new->operationID = operationID;
+	int nextId = countOperations(head) + 1;
+
+	new->operationID = nextId;
 	new->jobID = jobID;
 	new->position = position;
 	strncpy(new->name, name, NAME_SIZE - 1);
@@ -109,7 +111,7 @@ bool updateOperation_Name(Operation* head[], int operationID, const char* newNam
  * @param	yOperationID	Identificador de uma operação qualquer Y
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
-bool updateOperation_Position(Operation* head[], int xOperationID, int yOperationID)
+bool updateOperation_Position(Operation* head[], int jobID, int xOperationID, int yOperationID)
 {
 	if (head == NULL || *head == NULL)
 	{
@@ -124,8 +126,8 @@ bool updateOperation_Position(Operation* head[], int xOperationID, int yOperatio
 	Operation* xOperation = NULL;
 	Operation* yOperation = NULL;
 
-	xOperation = getOperation(*head, xOperationID);
-	yOperation = getOperation(*head, yOperationID);
+	xOperation = getOperation_ByJob(*head, xOperationID, jobID);
+	yOperation = getOperation_ByJob(*head, yOperationID, jobID);
 
 	if (xOperation == NULL || yOperation == NULL) // se as operações não foram encontradas
 	{
@@ -133,16 +135,18 @@ bool updateOperation_Position(Operation* head[], int xOperationID, int yOperatio
 	}
 
 	Operation* current = *head;
+	int xTempPosition = xOperation->position;
+	int yTempPosition = yOperation->position;
 
 	while (current != NULL)
 	{
 		if (current->operationID == xOperation->operationID) // trocar a posição da operação X pela posição da operação Y
 		{
-			current->position = yOperation->position;
+			current->position = yTempPosition;
 		}
 		if (current->operationID == yOperation->operationID) // trocar a posição da operação Y pela posição da operação X
 		{
-			current->position = xOperation->position;
+			current->position = xTempPosition;
 		}
 
 		current = current->next;
@@ -248,37 +252,37 @@ Operation* readOperations_Example()
 	Operation* operation = NULL;
 
 	// operações para o trabalho 1
-	operation = newOperation(1, 1, 1, "Operação J1-O1");
+	operation = newOperation(operations, 1, 1, "Operação J1-O1");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(2, 1, 2, "Operação J1-O2");
+	operation = newOperation(operations, 1, 2, "Operação J1-O2");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(3, 1, 3, "Operação J1-O3");
+	operation = newOperation(operations, 1, 3, "Operação J1-O3");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(4, 1, 4, "Operação J1-04");
+	operation = newOperation(operations, 1, 4, "Operação J1-04");
 	operations = insertOperation_AtStart(operations, operation);
 
 	// operações para o trabalho 2
-	operation = newOperation(5, 2, 1, "Operação J2-01");
+	operation = newOperation(operations, 2, 1, "Operação J2-01");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(6, 2, 2, "Operação J2-02");
+	operation = newOperation(operations, 2, 2, "Operação J2-02");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(7, 2, 3, "Operação J2-03");
+	operation = newOperation(operations, 2, 3, "Operação J2-03");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(8, 2, 4, "Operação J2-04");
+	operation = newOperation(operations, 2, 4, "Operação J2-04");
 	operations = insertOperation_AtStart(operations, operation);
 
 	// operações para o trabalho 3
-	operation = newOperation(12, 3, 1, "Operação J3-01");
+	operation = newOperation(operations, 3, 1, "Operação J3-01");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(13, 3, 2, "Operação J3-02");
+	operation = newOperation(operations, 3, 2, "Operação J3-02");
 	operations = insertOperation_AtStart(operations, operation);
 
 	// operações para o trabalho 4
-	operation = newOperation(14, 4, 1, "Operação J4-01");
+	operation = newOperation(operations, 4, 1, "Operação J4-01");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(15, 4, 2, "Operação J4-02");
+	operation = newOperation(operations, 4, 2, "Operação J4-02");
 	operations = insertOperation_AtStart(operations, operation);
-	operation = newOperation(16, 4, 3, "Operação J4-03");
+	operation = newOperation(operations, 4, 3, "Operação J4-03");
 	operations = insertOperation_AtStart(operations, operation);
 
 	return operations; // 16 operações
@@ -304,7 +308,7 @@ Operation* readOperations_Binary(char fileName[])
 
 	while (fread(&currentInFile, sizeof(FileOperation), 1, file)) // lê todos os registos do ficheiro e guarda na lista
 	{
-		current = newOperation(currentInFile.operationID, currentInFile.jobID, currentInFile.position, currentInFile.name);
+		current = newOperation(head, currentInFile.jobID, currentInFile.position, currentInFile.name);
 		head = insertOperation_AtStart(head, current);
 	}
 
@@ -425,7 +429,7 @@ bool writeOperations_Text(char fileName[], Operation* head)
 
 	Operation* current = head;
 
-	fprintf(file, "ID da Operação;ID do Trabalho;Posição;Nome\n"); // escreve o cabeçalho do .csv
+	fprintf(file, "ID da Operação;ID da Tarefa;Ordem de Execução;Nome\n"); // escreve o cabeçalho do .csv
 
 	while (current != NULL)
 	{
@@ -456,7 +460,7 @@ bool displayOperations(Operation* head)
 
 	while (current != NULL)
 	{
-		printf("ID da operação: %d, ID do Trabalho: %d, Posição: %d, Nome: %s;\n", current->operationID, current->jobID, current->position, current->name);
+		printf("ID da operação: %d, ID da Tarefa: %d, Ordem de Execução: %d, Nome: %s;\n", current->operationID, current->jobID, current->position, current->name);
 		current = current->next;
 	}
 
@@ -540,8 +544,36 @@ Operation* getOperation(Operation* head, int operationID)
 	{
 		if (current->operationID == operationID)
 		{
-			Operation* operation = newOperation(current->operationID, current->jobID, current->position, current->name); // criar cópia da operação
-			return operation;
+			return current;
+		}
+		current = current->next;
+	}
+
+	return NULL;
+}
+
+
+/**
+ * @brief	Obter uma operação da lista de operações pelo identificador do trabalho
+ * @param	head			Lista de operações
+ * @param	operationID		Identificador da operação
+ * @param	jobID			Identificador do trabalho
+ * @return	Operação encontrada (ou NULL se não encontrou)
+*/
+Operation* getOperation_ByJob(Operation* head, int operationID, int jobID)
+{
+	if (head == NULL)
+	{
+		return NULL;
+	}
+
+	Operation* current = head;
+
+	while (current != NULL)
+	{
+		if (current->operationID == operationID && current->jobID == jobID)
+		{
+			return current;
 		}
 		current = current->next;
 	}
@@ -701,6 +733,31 @@ float getAverageTime_ToCompleteOperation(Execution* head, int operationID)
 	}
 
 	return average;
+}
+
+
+/**
+ * @brief	Contar o número de operações existentes na lista de operações
+ * @param	head	Lista de operações
+ * @return	Quantidade de operações
+*/
+int countOperations(Operation* head)
+{
+	if (head == NULL)
+	{
+		return 0;
+	}
+
+	Operation* current = head;
+	int counter = 0;
+
+	while (current != NULL)
+	{
+		counter++;
+		current = current->next;
+	}
+
+	return counter;
 }
 
 

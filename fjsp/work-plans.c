@@ -117,7 +117,7 @@ bool displayWorkPlans(WorkPlan* head)
 
 	while (current != NULL)
 	{
-		printf("ID do Trabalho: %d, ID da Operação: %d, ID da Máquina: %d, Tempo de Execução: %d, Posição: %d;\n", current->jobID, current->operationID, current->machineID, current->runtime, current->position);
+		printf("ID da Tarefa: %d, ID da Operação: %d, ID da Máquina: %d, Tempo de Execução: %d, Ordem de Execução: %d;\n", current->jobID, current->operationID, current->machineID, current->runtime, current->position);
 		current = current->next;
 	}
 
@@ -126,8 +126,8 @@ bool displayWorkPlans(WorkPlan* head)
 
 
 /**
- * @brief	Ordenar planos de trabalhos por ordem crescente da posição das operações num job
- * @param	head			Lista de planos de trabalhos
+ * @brief	Ordenar planos de trabalhos por ordem crescente da ordem de execução das operações num trabalho
+ * @param	head	Lista de planos de trabalhos
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 WorkPlan* sortWorkPlans_ByJob(WorkPlan* head)
@@ -154,7 +154,7 @@ WorkPlan* sortWorkPlans_ByJob(WorkPlan* head)
 
 /**
  * @brief	Obter todos os planos de trabalhos para um realizar um plano de produção
- * @param	head			Lista de planos de trabalhos
+ * @param	head	Lista de planos de trabalhos
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* executions)
@@ -188,7 +188,7 @@ WorkPlan* getAllWorkPlans(Job* jobs, Operation* operations, Execution* execution
 
 /**
  * @brief	Obter o tempo total do plano
- * @param	head			Lista de planos de trabalhos
+ * @param	head	Lista de planos de trabalhos
  * @return	Booleano para o resultado da função (se funcionou ou não)
 */
 int getFullTimeOfPlan(WorkPlan* head)

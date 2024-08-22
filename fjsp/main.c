@@ -17,6 +17,7 @@
 #include "data-types.h"
 #include "lists.h"
 #include "hashing.h"
+#include "utils.h"
 
 
 /**
@@ -35,7 +36,7 @@ int main()
 	// tabela hash das execuções
 	// { NULL } - todos os elementos (ponteiros) da tabela são NULL
 	ExecutionNode* executionsTable[HASH_TABLE_SIZE] = { NULL };
-	
+
 	// matriz do plano de produção
 	Cell plan[NUMBER_MACHINES][MAX_TIME];
 
@@ -55,24 +56,25 @@ int main()
 		printf("   6 -> Inserir uma máquina\n");
 		printf("   7 -> Atualizar nome de uma máquina\n");
 		printf("   8 -> Remover uma máquina\n");
-		printf("   9 -> Inserir um trabalho\n");
-		printf("   10 -> Atualizar nome de um trabalho\n");
-		printf("   11 -> Remover um trabalho\n");
+		printf("   9 -> Inserir uma tarefa\n");
+		printf("   10 -> Atualizar nome de uma tarefa\n");
+		printf("   11 -> Remover uma tarefa\n");
 		printf("   12 -> Inserir uma operação\n");
 		printf("   13 -> Atualizar nome de uma operação\n");
-		printf("   14 -> Trocar posição de 2 operações\n");
-		printf("   15 -> Remover uma operação\n");
-		printf("   16 -> Guardar dados\n");
-		printf("   17 -> Sobre\n\n");
+		printf("   14 -> Atualizar tempo de uma execução de operação\n");
+		printf("   15 -> Trocar ordem de 2 operações\n");
+		printf("   16 -> Remover uma operação\n");
+		printf("   17 -> Guardar dados\n");
+		printf("   18 -> Sobre\n\n");
 		printf("   © Luís Pereira | 2022\n\n");
 		printf("--------------------------------------\n");
 		printf("Escolha uma das opções acima: ");
 
 		if (!scanf("%d", &menuOption)) // se não introduzir um número
 		{
-			fseek(stdin, 0, SEEK_END); // repor buffer de entrada para evitar ciclo infinito
+			fseek(stdin, 0, SEEK_END); // limpar buffer de entrada para evitar ciclo infinito
 			printf("\n");
-			printf("O carácter introduzido não é válido. Tente outro.\n");
+			printf("Opção inválido, tente novamente.\n");
 		}
 		else
 		{
@@ -139,16 +141,16 @@ int main()
 				printf("-> Opção 3. Mostrar todos os dados\n");
 
 				// mostrar dados na consola
-				printf("Trabalhos:\n");
-				if (!displayJobs(jobs))
-				{
-					printf("Não existem trabalhos.\n");
-				}
-
 				printf("Máquinas:\n");
 				if (!displayMachines(machines))
 				{
 					printf("Não existem máquinas.\n");
+				}
+
+				printf("Tarefas:\n");
+				if (!displayJobs(jobs))
+				{
+					printf("Não existem tarefas.\n");
 				}
 
 				printf("Operações:\n");
@@ -225,10 +227,28 @@ int main()
 #pragma region opção 6: inserir uma máquina
 				printf("-> Opção 6. Inserir uma máquina\n");
 
-				Machine* machine = NULL;
-				machine = newMachine(machines, "Trabalho 5");
-				machines = insertMachine_AtStart(machines, machine);
+				printf("Máquinas:\n");
+				if (!displayMachines(machines))
+				{
+					printf("Não existem máquinas.\n");
+				}
 
+				fseek(stdin, 0, SEEK_END);
+
+				char newMachineName[NAME_SIZE];
+				printf("Introduza o nome da nova máquina: ");
+				fgets(newMachineName, sizeof(newMachineName), stdin);
+
+				removeNewLine(newMachineName); // remover a nova linha do final da string
+
+				Machine* machine = newMachine(machines, newMachineName);
+				if (machine == NULL)
+				{
+					printf("Não foi possível adicionar a máquina.\n");
+					break;
+				}
+
+				machines = insertMachine_AtStart(machines, machine);
 				printf("Máquina adicionada com sucesso!\n");
 #pragma endregion
 				break;
@@ -237,9 +257,29 @@ int main()
 #pragma region opção 7: atualizar nome de uma máquina
 				printf("-> Opção 7. Atualizar nome de uma máquina\n");
 
-				if (!updateMachine(machines, 1, "Máquina A"))
+				printf("Máquinas:\n");
+				if (!displayMachines(machines))
 				{
-					printf("Não foi possível atualizar a máquina.");
+					printf("Não existem máquinas.\n");
+					break;
+				}
+
+				int machineIdToUpdate;
+				printf("Introduza o ID da máquina a ser atualizada: ");
+				scanf("%d", &machineIdToUpdate);
+
+				fseek(stdin, 0, SEEK_END);
+
+				char updatedMachineName[NAME_SIZE];
+				printf("Introduza o novo nome da máquina: ");
+				fgets(updatedMachineName, sizeof(updatedMachineName), stdin);
+
+				removeNewLine(updatedMachineName);
+
+				if (!updateMachine(machines, machineIdToUpdate, updatedMachineName))
+				{
+					printf("Não foi possível atualizar a máquina.\n");
+					break;
 				}
 
 				printf("Máquina atualizada com sucesso!\n");
@@ -250,74 +290,132 @@ int main()
 #pragma region opção 8: remover uma máquina
 				printf("-> Opção 8. Remover uma máquina\n");
 
-				int machineToDelete = 3;
-
-				// remover máquina
-				if (deleteMachine(&machines, machineToDelete))
+				printf("Máquinas:\n");
+				if (!displayMachines(machines))
 				{
-					printf("Máquina removida com sucesso!\n");
+					printf("Não existem máquinas.\n");
+					break;
+				}
 
-					// remover todas as execuções de operações associadas à máquina
-					deleteExecutions_ByMachine_AtTable(executionsTable, machineToDelete);
-					printf("Execuções de operações associadas à máquina removidas com sucesso!\n");
-				}
-				else {
+				int machineIdToDelete;
+				printf("Introduza o ID da máquina a ser removida: ");
+				scanf("%d", &machineIdToDelete);
+
+				if (!deleteMachine(&machines, machineIdToDelete))
+				{
 					printf("Não foi possível remover a máquina.\n");
+					break;
 				}
+
+				printf("Máquina removida com sucesso!\n");
+
+				// remover todas as execuções de operações associadas à máquina
+				deleteExecutions_ByMachine_AtTable(executionsTable, machineIdToDelete);
+				printf("Execuções de operações associadas à máquina removidas com sucesso!\n");
 #pragma endregion
 				break;
 
 			case 9:
-#pragma region opção 9: inserir um trabalho
-				printf("-> Opção 9. Inserir um trabalho\n");
+#pragma region opção 9: inserir uma tarefa
+				printf("-> Opção 9. Inserir uma tarefa\n");
 
-				Job* job = NULL;
-				job = newJob(jobs, "Trabalho 5");
+				printf("Tarefas:\n");
+				if (!displayJobs(jobs))
+				{
+					printf("Não existem tarefas.\n");
+				}
+
+				fseek(stdin, 0, SEEK_END);
+
+				char newJobName[NAME_SIZE];
+				printf("Introduza o nome da nova tarefa: ");
+				fgets(newJobName, sizeof(newJobName), stdin);
+
+				removeNewLine(newJobName);
+
+				Job* job = newJob(jobs, newJobName);
+				if (job == NULL)
+				{
+					printf("Não foi possível adicionar a tarefa.\n");
+					break;
+				}
+
 				jobs = insertJob_AtStart(jobs, job);
-
-				printf("Trabalho adicionado com sucesso!\n");
+				printf("Tarefa adicionada com sucesso!\n");
 #pragma endregion
 				break;
 
 			case 10:
-#pragma region opção 10: atualizar nome de um trabalho
-				printf("-> Opção 10. Atualizar nome de um trabalho\n");
+#pragma region opção 10: atualizar nome de uma tarefa
+				printf("-> Opção 10. Atualizar nome de uma tarefa\n");
 
-				if (!updateJob(jobs, 2, "Trabalho A"))
+				printf("Tarefas:\n");
+				if (!displayJobs(jobs))
 				{
-					printf("Não foi possível atualizar o trabalho.");
+					printf("Não existem tarefas.\n");
+					break;
 				}
 
-				printf("Trabalho atualizado com sucesso!\n");
+				int jobIdToUpdate;
+				printf("Introduza o ID da tarefa a ser atualizado: ");
+				scanf("%d", &jobIdToUpdate);
+
+				fseek(stdin, 0, SEEK_END);
+
+				char updatedJobName[NAME_SIZE];
+				printf("Introduza o novo nome da tarefa: ");
+				fgets(updatedJobName, sizeof(updatedJobName), stdin);
+
+				removeNewLine(updatedJobName);
+
+				if (!updateJob(jobs, jobIdToUpdate, updatedJobName))
+				{
+					printf("Não foi possível atualizar a tarefa.\n");
+					break;
+				}
+
+				printf("Tarefa atualizada com sucesso!\n");
 #pragma endregion
 				break;
 
 			case 11:
-#pragma region opção 11: remover um trabalho
-				printf("-> Opção 11. Remover um trabalho\n");
+#pragma region opção 11: remover uma tarefa
+				printf("-> Opção 11. Remover uma tarefa\n");
 
-				int jobToDelete = 3;
-
-				// remover trabalho
-				if (deleteJob(&jobs, jobToDelete))
+				printf("Tarefas:\n");
+				if (!displayJobs(jobs))
 				{
-					printf("Trabalho removido com sucesso!\n");
-
-					int operationDeletedID = 0;
-
-					do {
-						// remover as operações associadas ao trabalho
-						operationDeletedID = deleteOperation_ByJob(&operations, 3);
-						printf("Operações associadas ao trabalho removida com sucesso!\n");
-
-						// remover as execuções de operações associadas a cada operação
-						deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeletedID);
-						printf("Execuções de Operações associadas à operação removidas com sucesso!\n");
-					} while (operationDeletedID != -1);
+					printf("Não existem tarefas.\n");
+					break;
 				}
-				else {
-					printf("Não foi possível remover o trabalho.\n");
+
+				int jobIdToDelete;
+				printf("Introduza o ID da tarefa a ser removida: ");
+				scanf("%d", &jobIdToDelete);
+
+				if (!deleteJob(&jobs, jobIdToDelete))
+				{
+					printf("Não foi possível remover a tarefa.\n");
+					break;
 				}
+
+				printf("Tarefa removida com sucesso!\n");
+
+				int operationDeletedID = 0;
+				int machineID = 0;
+
+				do
+				{
+					// remover as operações associadas à tarefa
+					operationDeletedID = deleteOperation_ByJob(&operations, jobIdToDelete);
+					printf("operationDeletedID:%d\n", operationDeletedID);
+
+					// remover as execuções de operações associadas a cada operação
+					deleteExecutions_ByOperation_AtTable(&executionsTable, operationDeletedID);
+				} while (operationDeletedID != -1);
+
+				printf("Operações associadas à tarefa removidas com sucesso!\n");
+				printf("Execuções de Operações associadas à operação removidas com sucesso!\n");
 #pragma endregion
 				break;
 
@@ -325,17 +423,81 @@ int main()
 #pragma region opção 12: inserir uma operação
 				printf("-> Opção 12. Inserir uma operação\n");
 
+				printf("Máquinas:\n");
+				if (!displayMachines(machines))
+				{
+					printf("Não existem máquinas.\n");
+				}
+
+				printf("Tarefas:\n");
+				if (!displayJobs(jobs))
+				{
+					printf("Não existem tarefas.\n");
+				}
+
+				printf("Operações:\n");
+				if (!displayOperations(operations))
+				{
+					printf("Não existem operações.\n");
+				}
+
+				printf("Execuções de Operações:\n");
+				if (!displayExecutions_AtTable(executionsTable))
+				{
+					printf("Não existem execuções de operações.\n");
+				}
+
+				int jobIdToInsertOperation;
+				printf("Introduza o ID da tarefa à qual deseja adicionar a operação: ");
+				scanf("%d", &jobIdToInsertOperation);
+
+				int positionToInsertOperation;
+				printf("Introduza a ordem de execução da operação dentro da tarefa: ");
+				scanf("%d", &positionToInsertOperation);
+
+				fseek(stdin, 0, SEEK_END);
+
+				char newOperationName[NAME_SIZE];
+				printf("Introduza o novo nome da operação: ");
+				fgets(newOperationName, sizeof(newOperationName), stdin);
+
+				removeNewLine(newOperationName);
+
+				int machineIdToInsertOperation;
+				printf("Introduza o ID da máquina onde a operação será realizada: ");
+				scanf("%d", &machineIdToInsertOperation);
+
+				int runtimeToInsertExecution;
+				printf("Introduza o tempo de execução associada à execução da operação: ");
+				scanf("%d", &runtimeToInsertExecution);
+
+				Operation* operation = newOperation(operations, jobIdToInsertOperation, positionToInsertOperation, newOperationName);
+				if (operation == NULL)
+				{
+					printf("Não foi possível adicionar a operação.\n");
+					break;
+				}
+
 				// inserir nova operação
-				Operation* operation = NULL;
-				operation = newOperation(17, 2, 8, "Operação X");
 				operations = insertOperation_AtStart(operations, operation);
+				if (operations == NULL)
+				{
+					printf("Não foi possível adicionar a operação.\n");
+					break;
+				}
+
+				printf("Operação adicionada com sucesso!\n");
+
+				Execution* execution = newExecution(operation->operationID, machineIdToInsertOperation, runtimeToInsertExecution);
+				if (execution == NULL)
+				{
+					printf("Não foi possível adicionar a execução de operação.\n");
+					break;
+				}
 
 				// inserir nova execução de uma operação
-				Execution* execution = NULL;
-				execution = newExecution(17, 5, 17);
 				*executionsTable = insertExecution_AtTable(executionsTable, execution);
-
-				printf("Novos dados guardados com sucesso!\n");
+				printf("Execução de operação adicionada com sucesso!\n");
 #pragma endregion
 				break;
 
@@ -343,9 +505,29 @@ int main()
 #pragma region opção 13: atualizar nome de uma opereção
 				printf("-> Opção 13. Atualizar nome de uma opereção\n");
 
-				if (!updateOperation_Name(operations, 2, "Opereção A"))
+				printf("Operações:\n");
+				if (!displayOperations(operations))
 				{
-					printf("Não foi possível atualizar a opereção.");
+					printf("Não existem operações.\n");
+					break;
+				}
+
+				int operationIdToUpdate;
+				printf("Introduza o ID da opereção a ser atualizada: ");
+				scanf("%d", &operationIdToUpdate);
+
+				fseek(stdin, 0, SEEK_END);
+
+				char updatedOperationName[NAME_SIZE];
+				printf("Introduza o novo nome da opereção: ");
+				fgets(updatedOperationName, sizeof(updatedOperationName), stdin);
+
+				removeNewLine(updatedOperationName);
+
+				if (!updateOperation_Name(operations, operationIdToUpdate, updatedOperationName))
+				{
+					printf("Não foi possível atualizar a opereção.\n");
+					break;
 				}
 
 				printf("Opereção atualizada com sucesso!\n");
@@ -353,35 +535,108 @@ int main()
 				break;
 
 			case 14:
-#pragma region opção 14: trocar posição de 2 operações
-				printf("-> Opção 14. Trocar posição de 2 operações\n");
+#pragma region opção 14: atualizar tempo de uma execução de operação
+				printf("-> Opção 14. Atualizar tempo de uma execução de operação\n");
 
-				// trocar a posição de uma operação pela outra e, vice-versa
-				updateOperation_Position(&operations, 2, 4);
-				printf("As posições das operações foram trocadas com sucesso!\n");
+				printf("Execuções de Operações:\n");
+				if (!displayExecutions_AtTable(executionsTable))
+				{
+					printf("Não existem execuções de operações.\n");
+				}
 
-				// atualizar o tempo de uma execução de operação
-				updateRuntime_ByOperation_AtTable(executionsTable, 4, 4, 10);
+				int operationIdToUpdateRuntime;
+				printf("Introduza o ID da operação: ");
+				scanf("%d", &operationIdToUpdateRuntime);
+
+				int machineIdToUpdateRuntime;
+				printf("Introduza o ID da máquina: ");
+				scanf("%d", &machineIdToUpdateRuntime);
+
+				int runtimeToUpdateRuntime;
+				printf("Introduza o novo tempo de execução: ");
+				scanf("%d", &runtimeToUpdateRuntime);
+
+				if (!updateRuntime_ByOperation_AtTable(&executionsTable, operationIdToUpdateRuntime, machineIdToUpdateRuntime, runtimeToUpdateRuntime))
+				{
+					printf("Não foi possível atualizar a execução de opereção.\n");
+					break;
+				}
+
+				printf("Execução de opereção atualizada com sucesso!\n");
 #pragma endregion
 				break;
 
 			case 15:
-#pragma region opção 15: remover uma operação
-				printf("-> Opção 15. Remover uma operação\n");
+#pragma region opção 15: trocar ordem de 2 operações
+				printf("-> Opção 15. Trocar ordem de 2 operações\n");
 
-				// remover operação
-				deleteOperation(&operations, 35);
-				printf("Operação removida com sucesso!\n");
+				printf("Operações:\n");
+				if (!displayOperations(operations))
+				{
+					printf("Não existem operações.\n");
+					break;
+				}
 
-				// remover execuções associadas à operação
-				deleteExecutions_ByOperation_AtTable(&executionsTable, 35);
-				printf("Execuções associadas à operação removidas com sucesso!\n");
+				int jobIdToUpdatePositions;
+				printf("Introduza o ID da tarefa que as posições fazem parte: ");
+				scanf("%d", &jobIdToUpdatePositions);
+
+				int operation1IdToUpdate;
+				printf("Introduza o ID da 1º opereção para trocar: ");
+				scanf("%d", &operation1IdToUpdate);
+
+				int operation2IdToUpdate;
+				printf("Introduza o ID da 2º opereção para trocar: ");
+				scanf("%d", &operation2IdToUpdate);
+
+				if (!updateOperation_Position(&operations, jobIdToUpdatePositions, operation1IdToUpdate, operation2IdToUpdate))
+				{
+					printf("Não foi possível atualizar a execução de opereção.\n");
+					break;
+				}
+
+				printf("Ordem das operações trocadas com sucesso!\n");
 #pragma endregion
 				break;
 
 			case 16:
-#pragma region opção 16: guardar dados
-				printf("-> Opção 16. Guardar dados\n");
+#pragma region opção 16: remover uma operação
+				printf("-> Opção 16. Remover uma operação\n");
+
+				printf("Operações:\n");
+				if (!displayOperations(operations))
+				{
+					printf("Não existem operações.\n");
+					break;
+				}
+
+				int operationIdToDelete;
+				printf("Introduza o ID da operação a ser removida: ");
+				scanf("%d", &operationIdToDelete);
+
+				// remover operação
+				if (!deleteOperation(&operations, operationIdToDelete))
+				{
+					printf("Não foi possível remover a operação.\n");
+					break;
+				}
+
+				printf("Operação removida com sucesso!\n");
+
+				// remover execuções de operações associadas à operação
+				if (!deleteExecutions_ByOperation_AtTable(&executionsTable, operationIdToDelete))
+				{
+					printf("Não foi possível remover as execuções de operações associadas à operação.\n");
+					break;
+				}
+
+				printf("Execuções de operações associadas à operação removidas com sucesso!\n");
+#pragma endregion
+				break;
+
+			case 17:
+#pragma region opção 17: guardar dados
+				printf("-> Opção 17. Guardar dados\n");
 
 				// guardar os dados em ficheiros .csv
 				writeJobs_Text(JOBS_FILENAME_TEXT, jobs);
@@ -399,9 +654,9 @@ int main()
 #pragma endregion
 				break;
 
-			case 17:
-#pragma region opção 17: sobre
-				printf("-> Opção 17. Sobre\n");
+			case 18:
+#pragma region opção 18: sobre
+				printf("-> Opção 18. Sobre\n");
 
 				printf("Flexible Job Shop Problem - Solução de escalonamento para minimizar o tempo necessário na produção de um determinado produto numa fábrica, que envolve várias operações e a utilização de várias máquinas e seus colaboradores.\n");
 				printf("Neste contexto, um trabalho refere-se a... e uma operação a...\n");

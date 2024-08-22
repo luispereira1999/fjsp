@@ -120,7 +120,7 @@ Execution* insertExecution_ByOperation_AtList(Execution* head, Execution* new)
 */
 bool updateRuntime_AtList(Execution* head[], int operationID, int machineID, int runtime)
 {
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -200,7 +200,7 @@ bool deleteExecution_ByOperation_AtList(Execution* head[], int operationID)
 */
 bool deleteExecution_ByMachine_AtList(Execution* head[], int machineID)
 {
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 	{
 		return false;
 	}
@@ -508,7 +508,6 @@ bool searchExecution_AtList(Execution* head, int operationID, int machineID)
 
 	while (current != NULL)
 	{
-		//printf("current->operationID: %d, current->machineID: %d\n", current->operationID, current->machineID);
 		if (current->operationID == operationID && current->machineID == machineID)
 		{
 			return true;
@@ -691,10 +690,10 @@ bool cleanExecutions_List(Execution* head[])
 ExecutionNode* newExecutionNode()
 {
 	ExecutionNode* node = malloc(sizeof(ExecutionNode));
-	//if (node == NULL)
-	//{
-	//	return NULL;
-	//}
+	if (node == NULL)
+	{
+		return NULL;
+	}
 
 	node->start = NULL;
 	node->numberOfExecutions = 0;
@@ -715,16 +714,16 @@ ExecutionNode** newExecutionsTable_Empty(ExecutionNode* table[])
 	{
 		table[i] = newExecutionNode();
 
-		//if (table[i] == NULL) // se falhou ao alocar memória, liberta a memória previamente alocada
-		//{
-		//	for (int j = 0; j < i; j++)
-		//	{
-		//		free(table[j]);
-		//	}
+		if (table[i] == NULL) // se falhou ao alocar memória, liberta a memória previamente alocada
+		{
+			for (int j = 0; j < i; j++)
+			{
+				free(table[j]);
+			}
 
-		//	free(table);
-		//	return NULL;
-		//}
+			free(table);
+			return NULL;
+		}
 	}
 
 	return *table;
@@ -768,10 +767,15 @@ ExecutionNode** insertExecution_AtTable(ExecutionNode* table[], Execution* new)
 */
 bool updateRuntime_ByOperation_AtTable(ExecutionNode** table[], int operationID, int machineID, int runtime)
 {
-	ExecutionNode** current = table;
+	if (table == NULL || *table == NULL)
+	{
+		return false;
+	}
 
-	int index = generateHash(operationID);
-	bool updated = updateRuntime_AtList(&current[index]->start, operationID, machineID, runtime);
+	ExecutionNode** currentTable = table;
+
+	int index = generateHash(machineID);
+	bool updated = updateRuntime_AtList(&currentTable[index]->start, operationID, machineID, runtime);
 
 	return updated;
 }
@@ -790,24 +794,34 @@ bool deleteExecutions_ByOperation_AtTable(ExecutionNode** table[], int operation
 		return false;
 	}
 
-	ExecutionNode** current = table;
+	bool deletedAny = false;
 
-	int index = generateHash(operationID);
+	ExecutionNode** currentTable = table;
 
-	bool deleted = false;
-
-	do
+	for (int i = 0; i < HASH_TABLE_SIZE; i++) // percorre todas as posições da tabela
 	{
-		// enquanto que remover, significa que ainda existem operações e portanto continuará a remover, até remover todas
-		deleted = deleteExecution_ByOperation_AtList(&current[index]->start, operationID);
-
-		if (deleted)
+		if (currentTable[i] == NULL || currentTable[i]->start == NULL)
 		{
-			current[index]->numberOfExecutions--;
+			continue; // se a posição da tabela estiver vazia, passa para a próxima
 		}
-	} while (deleted == true);
 
-	return deleted;
+		bool deleted;
+
+		do
+		{
+			// enquanto que remover, significa que ainda existem operações e portanto continuará a remover, até remover todas
+			// apagar execuções de operações associadas à operação na lista
+			deleted = deleteExecution_ByOperation_AtList(&currentTable[i]->start, operationID);
+
+			if (deleted)
+			{
+				currentTable[i]->numberOfExecutions--;
+				deletedAny = true;
+			}
+		} while (deleted);
+	}
+
+	return deletedAny;
 }
 
 
@@ -862,9 +876,15 @@ bool deleteExecutions_ByMachine_AtTable(ExecutionNode** table[], int machineID)
 */
 ExecutionNode** readExecutions_AtTable_Example(ExecutionNode* table[])
 {
-	Execution* execution = NULL;
-
+	// iniciar tabela hash vazia
 	*table = newExecutionsTable_Empty(table);
+
+	if (table == NULL || *table == NULL)
+	{
+		return NULL;
+	}
+
+	Execution* execution = NULL;
 
 	// execuções de operações do trabalho 1
 	execution = newExecution(1, 1, 4);
@@ -948,6 +968,14 @@ ExecutionNode** readExecutions_AtTable_Example(ExecutionNode* table[])
 */
 ExecutionNode** readExecutions_AtTable_Binary(char fileName[], ExecutionNode* table[])
 {
+	// iniciar tabela hash vazia
+	*table = newExecutionsTable_Empty(table);
+
+	if (table == NULL || *table == NULL)
+	{
+		return NULL;
+	}
+
 	FILE* file = NULL;
 	if ((file = fopen(fileName, "rb")) == NULL) // erro ao abrir o ficheiro
 	{
@@ -962,9 +990,6 @@ ExecutionNode** readExecutions_AtTable_Binary(char fileName[], ExecutionNode* ta
 	{
 		return NULL;
 	}
-
-	// iniciar tabela hash vazia
-	//*table = newExecutionsTable_Empty(table);
 
 	while (list != NULL) // enquanto que houver dados na lista, guarda-os na tabela
 	{
@@ -992,6 +1017,14 @@ ExecutionNode** readExecutions_AtTable_Binary(char fileName[], ExecutionNode* ta
 */
 ExecutionNode** readExecutions_AtTable_Text(char fileName[], ExecutionNode* table[])
 {
+	// iniciar tabela hash vazia
+	*table = newExecutionsTable_Empty(table);
+
+	if (table == NULL || *table == NULL)
+	{
+		return NULL;
+	}
+
 	FILE* file = fopen(fileName, "r");
 	if (file == NULL)
 	{
@@ -1004,9 +1037,6 @@ ExecutionNode** readExecutions_AtTable_Text(char fileName[], ExecutionNode* tabl
 	int runtime = 0;
 
 	Execution* execution = NULL;
-
-	// iniciar tabela hash vazia
-	//*table = newExecutionsTable_Empty(table);
 
 	while (fgets(line, FILE_LINE_SIZE, file) != NULL)
 	{
@@ -1145,12 +1175,12 @@ bool displayExecutions_AtTable(ExecutionNode* table[])
 */
 Execution* searchExecution_AtTable(ExecutionNode* table[], int operationID, int machineID)
 {
-	if (table == NULL /*|| *table == NULL*/)
+	if (table == NULL || *table == NULL)
 	{
 		return NULL;
 	}
 
-	int index = generateHash(operationID);
+	int index = generateHash(machineID);
 	Execution* executionFound = getExecution_AtList(table[index]->start, operationID, machineID);
 
 	if (executionFound == NULL)
@@ -1199,7 +1229,8 @@ bool cleanExecutions_Table(ExecutionNode** table[])
 	//ExecutionNode** currentTable = *table;
 	//Execution* currentExecution;
 
-	//for (int i = 0; i < HASH_TABLE_SIZE; i++) {
+	//for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	// {
 	//	ExecutionNode* currentNode = currentTable[i];
 
 	//	if (currentNode != NULL)
@@ -1215,18 +1246,22 @@ bool cleanExecutions_Table(ExecutionNode** table[])
 	ExecutionNode* currentNode;
 	Execution* currentExecution;
 
-	for (int i = 0; i < HASH_TABLE_SIZE; i++) {
+	for (int i = 0; i < HASH_TABLE_SIZE; i++)
+	{
 		currentNode = table[i];
 
-		if (currentNode == NULL) {
+		if (currentNode == NULL)
+		{
 			continue; // se uma posição da tabela estiver vazia, passa para o próximo
 		}
 
-		while (currentNode != NULL) {
+		while (currentNode != NULL)
+		{
 			currentExecution = currentNode->start;
 			cleanExecutions_List(&currentExecution);
 
-			/*		while (currentExecution != NULL) {
+			/*		while (currentExecution != NULL)
+			{
 						ExecutionNode* tempExecution = currentExecution;
 						currentExecution = currentExecution->next;
 						free(tempExecution);

@@ -49,10 +49,10 @@ bool cleanMachines(Machine* head[]);
 
 #pragma region operações
 
-Operation* newOperation(int operationID, int jobID, int position, const char* name);
+Operation* newOperation(Operation* head, int jobID, int position, const char* name);
 Operation* insertOperation_AtStart(Operation* head, Operation* new);
 bool updateOperation_Name(Operation* head[], int operationID, const char* newName);
-bool updateOperation_Position(Operation* head[], int xOperationID, int yOperationID);
+bool updateOperation_Position(Operation* head[], int jobID, int xOperationID, int yOperationID);
 bool deleteOperation(Operation* head[], int operationID);
 int deleteOperation_ByJob(Operation* head[], int jobID);
 Operation* readOperations_Example();
@@ -64,9 +64,11 @@ bool displayOperations(Operation* head);
 bool searchOperation(Operation* head, int operationID);
 bool searchOperation_ByJob(Operation* head, int jobID);
 Operation* getOperation(Operation* head, int operationID);
+Operation* getOperation_ByJob(Operation* head, int operationID, int jobID);
 int getMinTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** minExecutions);
 int getMaxTime_ToCompleteJob(Operation* operations, Execution* executions, int jobID, Execution** maxExecutions);
 float getAverageTime_ToCompleteOperation(Execution* head, int operationID);
+int countOperations(Operation* head);
 bool cleanOperations(Operation* head[]);
 
 #pragma endregion

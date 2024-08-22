@@ -149,13 +149,13 @@ Job* readJobs_Example()
 	Job* jobs = NULL;
 	Job* job = NULL;
 
-	job = newJob(jobs, "Trabalho 1");
+	job = newJob(jobs, "Tarefa 1");
 	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(jobs, "Trabalho 2");
+	job = newJob(jobs, "Tarefa 2");
 	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(jobs, "Trabalho 3");
+	job = newJob(jobs, "Tarefa 3");
 	jobs = insertJob_AtStart(jobs, job);
-	job = newJob(jobs, "Trabalho 4");
+	job = newJob(jobs, "Tarefa 4");
 	jobs = insertJob_AtStart(jobs, job);
 
 	return jobs;
