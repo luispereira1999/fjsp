@@ -27,7 +27,7 @@ fjssp/\
 ├── main.c\
 ├── machines.c\
 ├── executions.c\
-└── operations.c\
+└── operations.c
 
 
 ### Diretivas
